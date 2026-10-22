@@ -8,6 +8,8 @@
   var dataEl = document.getElementById("fc-data");
   if (!dataEl) return;
   var cards = JSON.parse(dataEl.textContent);
+  // fiszki tylko z otwartych dzielnic (blokada w gra.js: dzień wykładu i zaliczony quiz poprzedniej dzielnicy)
+  if (window.NeoGra && window.NeoGra.odblokowany) cards = cards.filter(function (c) { return window.NeoGra.odblokowany(c.m).ok; });
   var state = {};
   var memOnly = false;
 

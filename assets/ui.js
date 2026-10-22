@@ -241,11 +241,59 @@
     });
   }
 
+  // ---------------------------------------------------------------- pasek „SIEĆ · AI na świecie” (mapa miasta)
+  // Dane: wiadomosci.json w katalogu głównym strony, odświeżany codziennie przez GitHub Actions (tools/wiadomosci.py).
+  // Brak pliku (np. podgląd lokalny) = brak paska. Nagłówki prowadzą do źródeł; kurs ich nie weryfikuje.
+  function pasekWiadomosci() {
+    var mapa = document.querySelector("section.city .city-map");
+    if (!mapa || !window.fetch) return;
+    fetch("wiadomosci.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+      if (!d || !d.wpisy || !d.wpisy.length) return;
+      var W = d.wpisy, i = 0, stop = false, timer = null;
+      var bar = el("div", { "class": "siec-pasek", role: "region", "aria-label": "Najnowsze wiadomości o AI ze świata" });
+      bar.appendChild(el("span", { "class": "sp-lbl" }, "SIEĆ › AI NA ŚWIECIE"));
+      var link = el("a", { "class": "sp-t", target: "_blank", rel: "noopener" }), meta = el("span", { "class": "sp-m" });
+      var prev = el("button", { type: "button", "class": "sp-b", "aria-label": "Poprzednia wiadomość" }, "◀");
+      var pauza = el("button", { type: "button", "class": "sp-b", "aria-label": "Zatrzymaj przewijanie" }, "⏸");
+      var next = el("button", { type: "button", "class": "sp-b", "aria-label": "Następna wiadomość" }, "▶");
+      var box = el("span", { "class": "sp-txt" }); box.appendChild(link); box.appendChild(meta);
+      bar.appendChild(box); bar.appendChild(prev); bar.appendChild(pauza); bar.appendChild(next);
+      var lista = el("details", { "class": "sp-lista" });
+      lista.appendChild(el("summary", null, "Wszystkie wiadomości (" + W.length + "), stan na " + String(d.aktualizacja || "").slice(0, 10).split("-").reverse().join(".")));
+      var ol = el("ol");
+      W.forEach(function (w) {
+        var li = el("li"), a = el("a", { href: w.u, target: "_blank", rel: "noopener", lang: w.j || "en" }, w.t);
+        li.appendChild(a); li.appendChild(el("span", { "class": "sp-m" }, " · " + w.z + " · " + w.d.split("-").reverse().join("."))); ol.appendChild(li);
+      });
+      lista.appendChild(ol);
+      lista.appendChild(el("p", { "class": "muted" }, "Nagłówki z serwisów i instytucji (RSS), wybierane automatycznie raz dziennie. Kurs ich nie weryfikuje: sprawdzaj źródło, zanim je zacytujesz."));
+      function pokaz() {
+        var w = W[i]; link.textContent = w.t; link.href = w.u; link.setAttribute("lang", w.j || "en");
+        meta.textContent = " · " + w.z + " · " + w.d.split("-").reverse().join(".");
+      }
+      function krok(n) { i = (i + n + W.length) % W.length; pokaz(); }
+      function start() { if (!timer && !stop && !reduce) timer = setInterval(function () { krok(1); }, 8000); }
+      function wstrzymaj() { if (timer) { clearInterval(timer); timer = null; } }
+      prev.addEventListener("click", function () { krok(-1); });
+      next.addEventListener("click", function () { krok(1); });
+      pauza.addEventListener("click", function () {
+        stop = !stop; pauza.textContent = stop ? "▶▶" : "⏸"; pauza.setAttribute("aria-label", stop ? "Wznów przewijanie" : "Zatrzymaj przewijanie");
+        if (stop) wstrzymaj(); else start();
+      });
+      bar.addEventListener("mouseenter", wstrzymaj); bar.addEventListener("mouseleave", start);
+      bar.addEventListener("focusin", wstrzymaj); bar.addEventListener("focusout", start);
+      pokaz(); start();
+      mapa.parentNode.insertBefore(bar, mapa.nextSibling);
+      bar.parentNode.insertBefore(lista, bar.nextSibling);
+    }).catch(function () {});
+  }
+
   window.NeoUI = { banner: banner };
 
   document.addEventListener("DOMContentLoaded", function () {
     offline();
     powiekszanie();
+    pasekWiadomosci();
     document.querySelectorAll(".terminal").forEach(typeTerminal);
     document.querySelectorAll("figure.chart").forEach(chart);
     document.querySelectorAll(".mode-switch").forEach(modeSwitch);

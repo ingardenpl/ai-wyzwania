@@ -17,6 +17,12 @@
   function pisz(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
   function q(name) { var m = new RegExp("[?&]" + name + "=([^&#]*)").exec(location.search); return m ? decodeURIComponent(m[1]) : null; }
 
+  // podgląd prowadzącego: ?podglad=prowadzacy włącza go na stałe w tej przeglądarce, ?podglad=wylacz wyłącza
+  (function () {
+    var v = q("podglad");
+    if (v === "prowadzacy") pisz("neo-podglad", true);
+    else if (v === "wylacz") { try { localStorage.removeItem("neo-podglad"); } catch (e) {} }
+  })();
   function podglad() { return q("podglad") === "prowadzacy" || czytaj("neo-podglad", false) === true; }
   // dzisiejsza data lokalna (RRRR-MM-DD); ?dzien=RRRR-MM-DD symuluje inny dzień (test prowadzącego)
   function dzis() {
@@ -27,11 +33,15 @@
   }
 
   var _dane = null;
+  // dane miasta: <script id="city-data"> (mapa, strona dzielnicy) albo assets/kalendarz.js (pozostałe strony, slajdy)
   function dane() {
     if (_dane) return _dane;
     var e = document.getElementById("city-data");
     try { _dane = e ? JSON.parse(e.textContent) : null; } catch (x) { _dane = null; }
-    return _dane || { districts: [] };
+    if (_dane) return _dane;
+    var zap = { districts: [], info: window.NEO_KALENDARZ || {} };
+    if (document.readyState !== "loading") _dane = zap;   // w <head> nie zapamiętujemy: #city-data może być niżej
+    return zap;
   }
 
   // stany jak w build.py (city_states): past = wszystkie terminy ≤ dziś; next = najbliższy termin; reszta future
@@ -100,17 +110,111 @@
   }
   function artefakty() { return NR.filter(artefakt); }
 
+  // ------------------------------------------------------------------ blokada dzielnic
+  // Dzielnica otwiera się w dniu swojego (pierwszego) wykładu i tylko dla osób, które zaliczyły quiz poprzedniej
+  // dzielnicy (co najmniej 60%). Pierwsza dzielnica: sama data. Podgląd prowadzącego otwiera wszystko.
+  // To warstwa motywacyjna, nie ochrona treści: materiały są w kodzie strony i w repozytorium publikacji.
+  function pierwszyTermin(n) { var i = (dane().info || {})[n]; return i && i.sloty && i.sloty.length ? i.sloty[0] : null; }
+  function odblokowany(n) {
+    var r = { ok: true, data: true, poprzedni: null, termin: pierwszyTermin(n) };
+    if (podglad()) return r;
+    if (r.termin && r.termin.d && r.termin.d > dzis()) { r.data = false; r.ok = false; }
+    var i = NR.indexOf(n);
+    if (i > 0 && !(stan().quizy[NR[i - 1]] >= PROG_QUIZ)) { r.poprzedni = NR[i - 1]; r.ok = false; }
+    return r;
+  }
+
   window.NeoGra = {
     dzis: dzis, stany: stany, nastepnyTermin: nastepnyTermin, podglad: podglad, dane: dane,
     stan: stan, zapiszQuiz: zapiszQuiz, zapiszMiejsce: zapiszMiejsce, zapiszZadanie: zapiszZadanie, zapiszZnalezisko: zapiszZnalezisko,
-    artefakt: artefakt, artefakty: artefakty, wnetrze: wnetrze,
-    otwarta: function (n) { return podglad() || stany()[n] === "past"; },
+    artefakt: artefakt, artefakty: artefakty, wnetrze: wnetrze, odblokowany: odblokowany,
+    otwarta: function (n) { return odblokowany(n).ok; },
     PROG_QUIZ: PROG_QUIZ, PROG_MIEJSCA: PROG_MIEJSCA
   };
 
   // ------------------------------------------------------------------ poprawki strony (przed miasto.js)
   function txt(s) { return document.createTextNode(s); }
   function el(tag, cls, t) { var e = document.createElement(tag); if (cls) e.className = cls; if (t != null) e.textContent = t; return e; }
+
+  // strona dzielnicy (index, Wiedza, slajdy, slajdy do czytania): treść ukryta do czasu sprawdzenia blokady
+  var NR_STRONY = (/\/moduly\/(\d\d)_[^\/]*\/[^\/]*$/.exec(location.pathname) || [])[1] || null;
+  (function () {
+    var css = "html.blokada-sprawdz main#tresc,html.blokada-sprawdz .reveal{visibility:hidden}" +
+      "html.zablokowane main#tresc>*:not(.blokada){display:none!important}" +
+      "html.zablokowane.bez-main body>*:not(.blokada):not(script):not(style){display:none!important}" +
+      ".blokada{max-width:44em;margin:40px auto;padding:22px 24px;border:1px solid #ff2a6d;background:#0b0d17;color:#e7e9f2;font:17px/1.55 'IBM Plex Sans','Segoe UI',Arial,sans-serif;box-shadow:0 0 18px rgba(255,42,109,.25)}" +
+      ".blokada h1{font-family:'Chakra Petch','Bahnschrift',Arial,sans-serif;font-size:1.6rem;margin:0 0 10px;color:#fff}" +
+      ".blokada .k{font-family:'IBM Plex Mono',Consolas,monospace;font-size:.8rem;letter-spacing:.08em;color:#ff2a6d;margin:0 0 8px}" +
+      ".blokada a{color:#00f0ff}.blokada li{margin:6px 0}.blokada .m{color:#9095ad;font-size:.9rem}" +
+      "html.bez-main .blokada{position:fixed;inset:0;margin:0;max-width:none;overflow:auto;display:flex;flex-direction:column;justify-content:center;padding:24px 8vw;z-index:9999}" +
+      ".karta-wynikow table{border-collapse:collapse;width:100%}.karta-wynikow td,.karta-wynikow th{padding:6px 8px;border-bottom:1px solid rgba(5,217,232,.2);text-align:left}" +
+      ".karta-wynikow summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:600}";
+    var st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
+    if (NR_STRONY && !podglad()) document.documentElement.classList.add("blokada-sprawdz");
+  })();
+
+  function zamknijStrone() {
+    if (!NR_STRONY) return;
+    var html = document.documentElement, r = odblokowany(NR_STRONY);
+    html.classList.remove("blokada-sprawdz");
+    if (r.ok) return;
+    var info = dane().info || {}, ja = info[NR_STRONY] || {}, main = document.getElementById("tresc");
+    if (!main) html.classList.add("bez-main");
+    html.classList.add("zablokowane");
+    var b = el("div", "blokada"); b.setAttribute("role", "status");
+    b.appendChild(el("p", "k", "DZIELNICA " + NR_STRONY + " · DOSTĘP ZAMKNIĘTY"));
+    b.appendChild(el("h1", null, (ja.nazwa || "Dzielnica " + NR_STRONY) + (ja.miejsce ? ": " + ja.miejsce : "")));
+    b.appendChild(el("p", null, "Ta część wykładu otwiera się w dniu wykładu, dla osób, które zaliczyły poprzednią dzielnicę."));
+    var ul = el("ul");
+    if (!r.data && r.termin) ul.appendChild(el("li", null, "Otwarcie: " + r.termin.t + "."));
+    if (r.poprzedni) {
+      var p = info[r.poprzedni] || {}, li = el("li");
+      li.appendChild(txt("Najpierw zalicz quiz dzielnicy " + r.poprzedni + (p.nazwa ? " (" + p.nazwa + ")" : "") + " na co najmniej 60%: "));
+      var a = el("a", null, "przejdź do quizu"); a.href = "../" + (p.slug || "") + "/index.html#quiz"; li.appendChild(a);
+      ul.appendChild(li);
+    }
+    b.appendChild(ul);
+    b.appendChild(el("p", "m", "Wynik quizu zapisuje się tylko w tej przeglądarce. Na innym urządzeniu wystarczy rozwiązać quiz jeszcze raz."));
+    var back = el("p"), m = el("a", null, "← Mapa miasta"); m.href = "../../index.html"; back.appendChild(m); b.appendChild(back);
+    if (main) main.insertBefore(b, main.firstChild); else document.body.insertBefore(b, document.body.firstChild);
+  }
+
+  // mapa: zamknięte dzielnice na liście i karta wyników quizów (do pokazania prowadzącemu przy ocenie aktywności)
+  function listaIKarta() {
+    var info = dane().info || {};
+    document.querySelectorAll("ol.sessions a.session").forEach(function (a) {
+      var n = (a.querySelector(".num") || {}).textContent, ch = a.querySelector(".chips");
+      if (!n || !ch || ch.querySelector(".chip.zamk")) return;
+      var r = odblokowany(n);
+      if (r.ok) return;
+      var c = el("span", "chip zamk", "zamknięte");
+      c.title = [(!r.data && r.termin) ? "otwarcie " + r.termin.t.split(" · ")[0] : "", r.poprzedni ? "najpierw quiz dzielnicy " + r.poprzedni : ""].filter(Boolean).join("; ");
+      ch.insertBefore(c, ch.firstChild);
+    });
+    var hud = document.querySelector(".hud");
+    if (!hud || document.querySelector(".karta-wynikow")) return;
+    var s = stan(), d = el("details", "karta-wynikow mission");
+    d.appendChild(el("summary", null, "Karta wyników quizów"));
+    var t = el("table"), th = el("tr");
+    ["Dzielnica", "Najlepszy wynik", "Status"].forEach(function (x) { th.appendChild(el("th", null, x)); });
+    t.appendChild(th);
+    var zal = 0;
+    NR.forEach(function (n) {
+      var q = s.quizy[n], tr = el("tr");
+      tr.appendChild(el("td", null, n + " · " + ((info[n] || {}).nazwa || "")));
+      tr.appendChild(el("td", null, q == null ? "brak" : Math.round(q * 100) + "%"));
+      tr.appendChild(el("td", null, q >= PROG_QUIZ ? "zaliczony" : q == null ? "nie rozwiązany" : "poniżej 60%"));
+      if (q >= PROG_QUIZ) zal++;
+      t.appendChild(tr);
+    });
+    d.appendChild(t);
+    d.appendChild(el("p", "muted", "Zaliczone quizy: " + zal + " z 10. Stan na " + dzis().split("-").reverse().join(".") + ". Wyniki są zapisane tylko w tej przeglądarce; kartę można pokazać prowadzącemu albo wydrukować (liczy się do aktywności)."));
+    var b = el("button", "btn ghost", "Drukuj kartę"); b.type = "button";
+    b.addEventListener("click", function () { d.open = true; window.print(); });
+    d.appendChild(b);
+    hud.parentNode.insertBefore(d, hud.nextSibling);
+  }
+  document.addEventListener("DOMContentLoaded", function () { zamknijStrone(); listaIKarta(); });
 
   document.addEventListener("DOMContentLoaded", function () {
     var src = document.getElementById("city-data");

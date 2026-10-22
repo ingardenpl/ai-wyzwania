@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">ATLAS: AI szeroko, ale płytko</title><desc id="d"> Zawody z użyciem AI (świat): 68%; Zatrudnienie USA w nich: ponad 88%; Mediana zadań objętych AI: 21%; Zawody z AI w &gt;75% zadań: 3%</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >ATLAS: AI szeroko, ale płytko</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#9095ad" text-anchor="start" >Użycie Gemini w pracy: zasięg zawodów, zatrudnienie USA i głębokość (15 mln interakcji)</text>
+<rect x="358.0" y="122.8" width="454.0" height="44.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="122.8" width="308.7" height="44.0" fill="#00f0ff"/>
+<text x="346.0" y="151.1" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Zawody z użyciem AI (świat)</text>
+<text x="676.7" y="151.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >68%</text>
+<rect x="358.0" y="220.2" width="454.0" height="44.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="220.2" width="399.5" height="44.0" fill="#00f0ff"/>
+<text x="346.0" y="248.6" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Zatrudnienie USA w nich</text>
+<text x="767.5" y="249.1" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >ponad 88%</text>
+<rect x="358.0" y="317.8" width="454.0" height="44.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="317.8" width="95.3" height="44.0" fill="#00f0ff"/>
+<text x="346.0" y="346.1" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Mediana zadań objętych AI</text>
+<text x="463.3" y="346.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >21%</text>
+<rect x="358.0" y="415.2" width="454.0" height="44.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="415.2" width="13.6" height="44.0" fill="#00f0ff"/>
+<text x="346.0" y="443.6" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Zawody z AI w &gt;75% zadań</text>
+<text x="381.6" y="444.1" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >3%</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: Iscenko, Strand, Imas, Manyika i in., Google&#x27;s AI &amp; Economy ATLAS v1.0, arXiv 2608.00038 (22.07.2026)</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

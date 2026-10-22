@@ -160,7 +160,9 @@
         txt = swiatOtwarty() ? "ZEJDŹ DO PODZIEMI STAREGO MIASTA" : "WŁAZ ZAMKNIĘTY · ZALICZONE DZIELNICE " + P.zaliczone().length + "/10";
       } else {
         var st = (city.states || {})[w.nr] || "past";
-        txt = (st === "past" || P.podglad() ? "WEJDŹ: " : "MGŁA: ") + w.nr + " · " + D[w.nr].name.toUpperCase() + (st === "past" || P.podglad() ? "" : " · OTWARCIE W DNIU SPOTKANIA");
+        var ob = window.NeoGra && window.NeoGra.odblokowany ? window.NeoGra.odblokowany(w.nr) : { ok: st === "past" || P.podglad(), data: st === "past" };
+        txt = (ob.ok ? "WEJDŹ: " : ob.data ? "ZAMKNIĘTE: " : "MGŁA: ") + w.nr + " · " + D[w.nr].name.toUpperCase() +
+          (ob.ok ? "" : ob.data ? " · NAJPIERW QUIZ DZIELNICY " + ob.poprzedni : " · OTWARCIE W DNIU SPOTKANIA");
       }
       promptTxt.textContent = txt;
       prompt.hidden = false;
@@ -177,7 +179,13 @@
       }
       var mk = document.querySelector('.city-marker[data-nr="' + w.nr + '"]');
       var stn = (city.states || {})[w.nr] || "past";
-      if (stn !== "past" && !P.podglad()) {   // dzielnica otwiera się w dniu spotkania
+      var odb = window.NeoGra && window.NeoGra.odblokowany ? window.NeoGra.odblokowany(w.nr) : null;
+      if (odb && !odb.ok && odb.data && odb.poprzedni) {   // dzień wykładu minął, ale poprzednia dzielnica niezaliczona
+        live.textContent = "Dzielnica " + D[w.nr].name + " jest zamknięta: najpierw zalicz quiz dzielnicy " + odb.poprzedni + " na co najmniej 60%.";
+        promptTxt.textContent = "ZAMKNIĘTE · NAJPIERW QUIZ DZIELNICY " + odb.poprzedni;
+        return;
+      }
+      if ((odb ? !odb.ok : stn !== "past") && !P.podglad()) {   // dzielnica otwiera się w dniu spotkania
         var t = window.NeoGra && window.NeoGra.nastepnyTermin(w.nr);
         live.textContent = "Dzielnica " + D[w.nr].name + " jest jeszcze we mgle. Otworzy się w dniu spotkania" + (t ? ": " + t.t : "") + ". Materiały są już na stronie dzielnicy.";
         promptTxt.textContent = "MGŁA · OTWARCIE " + (t ? t.t.split(" · ")[0] : "W DNIU SPOTKANIA");
