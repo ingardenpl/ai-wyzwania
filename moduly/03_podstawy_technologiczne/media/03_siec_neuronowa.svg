@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 600" width="1300" height="600" role="img" aria-label="Schemat wielowarstwowej sieci neuronowej" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<title>Schemat wielowarstwowej sieci neuronowej</title>
+<defs>
+<marker id="aN" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f3a5f"/></marker>
+<marker id="aM" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a1538"/></marker>
+<marker id="aT" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2a7f7a"/></marker>
+<marker id="aA" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a8661a"/></marker>
+</defs>
+<rect x="1" y="1" width="1298" height="598" rx="18" fill="#fbfaf7" stroke="#d6d0c4" stroke-width="2"/>
+<text x="650.0" y="46.0" font-size="28" fill="#1f3a5f" text-anchor="middle" font-weight="bold">Sieć neuronowa: warstwy i wagi</text>
+<line x1="222.0" y1="207.0" x2="458.0" y2="145.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="207.0" x2="458.0" y2="207.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="207.0" x2="458.0" y2="269.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="207.0" x2="458.0" y2="331.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="207.0" x2="458.0" y2="393.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="207.0" x2="458.0" y2="455.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="269.0" x2="458.0" y2="145.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="269.0" x2="458.0" y2="207.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="269.0" x2="458.0" y2="269.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="269.0" x2="458.0" y2="331.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="269.0" x2="458.0" y2="393.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="269.0" x2="458.0" y2="455.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="331.0" x2="458.0" y2="145.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="331.0" x2="458.0" y2="207.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="331.0" x2="458.0" y2="269.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="331.0" x2="458.0" y2="331.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="331.0" x2="458.0" y2="393.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="331.0" x2="458.0" y2="455.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="393.0" x2="458.0" y2="145.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="393.0" x2="458.0" y2="207.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="393.0" x2="458.0" y2="269.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="393.0" x2="458.0" y2="331.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="393.0" x2="458.0" y2="393.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="222.0" y1="393.0" x2="458.0" y2="455.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="145.0" x2="738.0" y2="145.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="145.0" x2="738.0" y2="207.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="145.0" x2="738.0" y2="269.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="145.0" x2="738.0" y2="331.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="145.0" x2="738.0" y2="393.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="145.0" x2="738.0" y2="455.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="207.0" x2="738.0" y2="145.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="207.0" x2="738.0" y2="207.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="207.0" x2="738.0" y2="269.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="207.0" x2="738.0" y2="331.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="207.0" x2="738.0" y2="393.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="207.0" x2="738.0" y2="455.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="269.0" x2="738.0" y2="145.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="269.0" x2="738.0" y2="207.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="269.0" x2="738.0" y2="269.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="269.0" x2="738.0" y2="331.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="269.0" x2="738.0" y2="393.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="269.0" x2="738.0" y2="455.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="331.0" x2="738.0" y2="145.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="331.0" x2="738.0" y2="207.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="331.0" x2="738.0" y2="269.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="331.0" x2="738.0" y2="331.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="331.0" x2="738.0" y2="393.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="331.0" x2="738.0" y2="455.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="393.0" x2="738.0" y2="145.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="393.0" x2="738.0" y2="207.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="393.0" x2="738.0" y2="269.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="393.0" x2="738.0" y2="331.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="393.0" x2="738.0" y2="393.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="393.0" x2="738.0" y2="455.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="455.0" x2="738.0" y2="145.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="455.0" x2="738.0" y2="207.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="455.0" x2="738.0" y2="269.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="455.0" x2="738.0" y2="331.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="455.0" x2="738.0" y2="393.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="502.0" y1="455.0" x2="738.0" y2="455.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="782.0" y1="145.0" x2="1018.0" y2="269.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="782.0" y1="145.0" x2="1018.0" y2="331.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="782.0" y1="207.0" x2="1018.0" y2="269.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="782.0" y1="207.0" x2="1018.0" y2="331.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="782.0" y1="269.0" x2="1018.0" y2="269.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="782.0" y1="269.0" x2="1018.0" y2="331.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="782.0" y1="331.0" x2="1018.0" y2="269.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="782.0" y1="331.0" x2="1018.0" y2="331.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="782.0" y1="393.0" x2="1018.0" y2="269.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="782.0" y1="393.0" x2="1018.0" y2="331.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="782.0" y1="455.0" x2="1018.0" y2="269.0" stroke="#9aa7b8" stroke-width="1"/>
+<line x1="782.0" y1="455.0" x2="1018.0" y2="331.0" stroke="#9aa7b8" stroke-width="1"/>
+<circle cx="200.0" cy="207.0" r="22" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="2.5"/>
+<circle cx="200.0" cy="269.0" r="22" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="2.5"/>
+<circle cx="200.0" cy="331.0" r="22" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="2.5"/>
+<circle cx="200.0" cy="393.0" r="22" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="2.5"/>
+<circle cx="480.0" cy="145.0" r="22" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="2.5"/>
+<circle cx="480.0" cy="207.0" r="22" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="2.5"/>
+<circle cx="480.0" cy="269.0" r="22" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="2.5"/>
+<circle cx="480.0" cy="331.0" r="22" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="2.5"/>
+<circle cx="480.0" cy="393.0" r="22" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="2.5"/>
+<circle cx="480.0" cy="455.0" r="22" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="2.5"/>
+<circle cx="760.0" cy="145.0" r="22" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="2.5"/>
+<circle cx="760.0" cy="207.0" r="22" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="2.5"/>
+<circle cx="760.0" cy="269.0" r="22" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="2.5"/>
+<circle cx="760.0" cy="331.0" r="22" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="2.5"/>
+<circle cx="760.0" cy="393.0" r="22" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="2.5"/>
+<circle cx="760.0" cy="455.0" r="22" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="2.5"/>
+<circle cx="1040.0" cy="269.0" r="22" fill="#f6e2e7" stroke="#8a1538" stroke-width="2.5"/>
+<circle cx="1040.0" cy="331.0" r="22" fill="#f6e2e7" stroke="#8a1538" stroke-width="2.5"/>
+<text x="200.0" y="520.0" font-size="17" fill="#1f3a5f" text-anchor="middle" font-weight="bold">warstwa wejściowa</text>
+<text x="200.0" y="542.1" font-size="17" fill="#1f3a5f" text-anchor="middle" font-weight="bold">(np. piksele, tokeny)</text>
+<text x="620.0" y="520.0" font-size="17" fill="#2a7f7a" text-anchor="middle" font-weight="bold">warstwy ukryte</text>
+<text x="620.0" y="542.1" font-size="17" fill="#2a7f7a" text-anchor="middle" font-weight="bold">(„głębokie” = wiele warstw)</text>
+<text x="1040.0" y="520.0" font-size="17" fill="#8a1538" text-anchor="middle" font-weight="bold">warstwa wyjściowa</text>
+<text x="1040.0" y="542.1" font-size="17" fill="#8a1538" text-anchor="middle" font-weight="bold">(np. „kot” / „pies”)</text>
+<text x="1075.0" y="275.0" font-size="18" fill="#8a1538" text-anchor="start" font-weight="bold">kot 0,93</text>
+<text x="1075.0" y="337.0" font-size="18" fill="#8a1538" text-anchor="start" font-weight="bold">pies 0,07</text>
+<rect x="30.0" y="62.0" width="170.0" height="100.0" rx="12" fill="#fbf0dc" stroke="#a8661a" stroke-width="2"/>
+<text x="115.0" y="90.0" font-size="16" fill="#a8661a" text-anchor="middle" font-weight="bold">każda linia</text>
+<text x="115.0" y="110.8" font-size="16" fill="#a8661a" text-anchor="middle" font-weight="bold">to jedna waga</text>
+<text x="115.0" y="131.6" font-size="16" fill="#a8661a" text-anchor="middle" font-weight="bold">(parametr)</text>
+<text x="650.0" y="585.0" font-size="18" fill="#555555" text-anchor="middle" font-weight="normal" font-style="italic">Ten rysunek ma 72 wagi. GPT-3 (2020) miał ich 175 miliardów.</text>
+</svg>

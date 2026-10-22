@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slajdy do czytania: Kulturowe wyzwania AI: regulacja, język, twórczość · Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne</title>
+<meta name="description" content="Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne. Wykład monograficzny · prawo · WPiA UMCS · semestr zimowy 2026/2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Tiny5&family=Chakra+Petch:wght@500;600;700&family=Anton&family=VT323&display=swap">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="manifest" href="../../assets/manifest.webmanifest">
+<meta name="theme-color" content="#07080f">
+<link rel="icon" href="../../assets/ikona-192.png" type="image/png">
+<link rel="apple-touch-icon" href="../../assets/ikona-180.png">
+<script src="../../assets/site.js"></script>
+<script src="../../assets/gra.js"></script>
+
+</head>
+<body>
+<a class="skip-link" href="#tresc">Przejdź do treści</a>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../../index.html"><b>NEO-LUBLIN 2049</b><small>Wykład monograficzny · WPiA UMCS</small></a>
+    <nav class="topnav" aria-label="Nawigacja kursu"><a href="../../index.html">Mapa</a><a href="../../sylabus.html">Sylabus</a><a href="../../zaliczenie.html">Zaliczenie</a><a href="../../zrodla.html">Źródła</a><a href="../../slowniczek.html">Słowniczek</a><a href="../../fiszki.html">Fiszki</a><a href="../../biblioteka.html">Biblioteka</a><a href="../../interaktywne.html">Interaktywne</a></nav>
+  </div>
+</header>
+<main id="tresc" tabindex="-1">
+
+<div class="wrap narrow">
+  <p class="crumbs"><a href="index.html">← Strona dzielnicy</a> · <a href="slajdy.html">Pokaz slajdów</a></p>
+  <p class="eyebrow">Slajdy do czytania · dzielnica 06</p>
+  <h1>Kulturowe wyzwania AI: regulacja, język, twórczość</h1>
+  <p class="muted">Treść slajdów w układzie wygodnym na telefonie. Szersze omówienie jest w konspekcie i w Wiedzy na stronie dzielnicy.</p>
+  <div class="prose slajdy-tekst"><h3 id="plan-spotkania">Plan spotkania</h3>
+<ol type="1">
+<li>Sprawiedliwość jest kulturowa: gra ultimatum i gra dyktator</li>
+<li>Regulacja jako wybór kulturowy: UE, USA, Chiny, Korea Płd., Japonia</li>
+<li>Heurystyki poznawcze i teoria gier w tworzeniu regulacji AI</li>
+<li>Język i kultura w danych treningowych: PLLuM, Bielik, lokalne wartości</li>
+<li>AI a twórczość: kreatywność maszyn, sztuka generatywna, deepfake w kulturze</li>
+<li>Wyobrażenia AI w kulturze i antropomorfizacja</li>
+</ol>
+<h3 id="pytanie-przewodnie">Pytanie przewodnie</h3>
+<blockquote>
+<p>Czy regulacja sztucznej inteligencji może być neutralna kulturowo?</p>
+</blockquote>
+<ul>
+<li>Prawo wyraża wartości wspólnoty: co uznaje za ryzyko, za krzywdę, za postęp.</li>
+<li>Modele AI też niosą wartości: z danych, z języka, z procesu dostrajania.</li>
+<li>Dziś szukamy miejsc, w których te dwa porządki się spotykają.</li>
+</ul>
+<h2 id="część-i.-sprawiedliwość-jest-kulturowa">Część I. Sprawiedliwość jest kulturowa</h2>
+<h3 id="gra-ultimatum">Gra ultimatum</h3>
+<ul>
+<li>Gracz A dostaje kwotę i proponuje jej podział graczowi B.</li>
+<li>B przyjmuje albo odrzuca. Odrzucenie: <strong>obaj nie dostają nic</strong>.</li>
+<li>Teoria racjonalnego wyboru: A daje minimum, B przyjmuje każdą dodatnią kwotę.</li>
+<li>Wynik eksperymentów: typowe oferty to 40–50%, oferty poniżej 20% są często odrzucane.</li>
+</ul>
+<p><small>Güth, Schmittberger, Schwarze, „An Experimental Analysis of Ultimatum Bargaining”, <em>Journal of Economic Behavior and Organization</em> 3 (1982), s. 367–388.</small></p>
+<h3 id="gra-dyktator">Gra dyktator</h3>
+<ul>
+<li>Gracz A dzieli kwotę, gracz B <strong>nie ma żadnego wpływu</strong>.</li>
+<li>Nie ma groźby odrzucenia, a mimo to wielu „dyktatorów” dzieli się z drugą stroną.</li>
+<li>Wniosek: zachowanie ludzi wyznacza nie tylko interes, ale też normy sprawiedliwości.</li>
+</ul>
+<p><small>Kahneman, Knetsch, Thaler, „Fairness and the Assumptions of Economics”, <em>Journal of Business</em> 59, nr 4, cz. 2 (1986), s. S285–S300; zob. też Forsythe i in., <em>Games and Economic Behavior</em> 6 (1994), s. 347–369.</small></p>
+<h3 id="ta-sama-gra-różne-kultury">Ta sama gra, różne kultury</h3>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Społeczeństwa przemysłowe: średnie oferty zwykle 40–50%.</li>
+<li>Machiguenga (Amazonia peruwiańska): średnia oferta <strong>26%</strong>, odrzucenia rzadkie.</li>
+<li>Au i Gnau (Papua-Nowa Gwinea): średnio 43% i 38%, ale wiele ofert <strong>powyżej 50%</strong>; odrzucane bywają także oferty „zbyt hojne”.</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<ul>
+<li>Zachód: <strong>sprawiedliwość</strong></li>
+<li>Machiguenga: <strong>racjonalność</strong></li>
+<li>Nowa Gwinea: <strong>hojność</strong> (i zobowiązanie, które dar tworzy)</li>
+</ul>
+</div>
+</div>
+<p><small>Henrich, <em>American Economic Review</em> 90 (2000), s. 973–979; Henrich i in., <em>American Economic Review</em> 91 (2001), s. 73–78.</small></p>
+<h3 id="gra-ultimatum-ile-proponuje-się-drugiej-stronie">Gra ultimatum: ile proponuje się drugiej stronie?</h3>
+<figure>
+<img src="media/06_w_ultimatum_spolecznosci.svg" style="width:88.0%" alt="Wykres słupkowy poziomy: średnie oferty w grze ultimatum wahają się od 25% puli u Quichua i 26% u Machiguenga do 57% u Lamalera; Au mają 43%, a Gnau 38%." />
+<figcaption aria-hidden="true">Wykres słupkowy poziomy: średnie oferty w grze ultimatum wahają się od 25% puli u Quichua i 26% u Machiguenga do 57% u Lamalera; Au mają 43%, a Gnau 38%.</figcaption>
+</figure>
+<h3 id="co-z-tego-wynika-dla-prawa-ai">Co z tego wynika dla prawa AI?</h3>
+<ul>
+<li>„Sprawiedliwy algorytm” to pojęcie <strong>normatywne</strong>, nie techniczne.</li>
+<li>To, co jedna kultura uzna za uczciwy podział ryzyka, inna uzna za nadmierną ostrożność.</li>
+<li>Regulator nie wybiera więc „optymalnej” regulacji. Wybiera regulację <strong>zgodną z własnymi intuicjami sprawiedliwości</strong>.</li>
+<li>Teza robocza spotkania: <strong>modele regulacji AI są artefaktami kulturowymi</strong>.</li>
+</ul>
+<h2 id="część-ii.-regulacja-jako-wybór-kulturowy">Część II. Regulacja jako wybór kulturowy</h2>
+<h3 id="america-innovates-china-replicates-europe-regulates">„America innovates, China replicates, Europe regulates”</h3>
+<figure>
+<img src="media/06_domingos_wpis.jpg" style="width:60.0%" alt="Wpis Pedra Domingosa w serwisie X z 31.01.2024" />
+<figcaption aria-hidden="true">Wpis Pedra Domingosa w serwisie X z 31.01.2024</figcaption>
+</figure>
+<p><small>Źródło: Pedro Domingos, wpis w serwisie X, 31.01.2024.</small></p>
+<h3 id="pięć-modeli-regulacji-ai">Pięć modeli regulacji AI</h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Kotwica</th>
+<th>Narzędzie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UE</td>
+<td><strong>ryzyko</strong></td>
+<td>AI Act</td>
+</tr>
+<tr>
+<td>Korea Płd.</td>
+<td><strong>wpływ</strong></td>
+<td>ustawa ramowa</td>
+</tr>
+<tr>
+<td>Japonia</td>
+<td><strong>promocja</strong></td>
+<td>ustawa bez sankcji</td>
+</tr>
+<tr>
+<td>USA</td>
+<td><strong>rynek</strong></td>
+<td>dekrety, stany</td>
+</tr>
+<tr>
+<td>Chiny</td>
+<td><strong>porządek</strong></td>
+<td>przepisy sektorowe</td>
+</tr>
+</tbody>
+</table>
+<h3 id="unia-europejska-ryzyko">Unia Europejska: ryzyko</h3>
+<ul>
+<li>AI Act (rozporządzenie 2024/1689): im wyższe ryzyko, tym więcej obowiązków.</li>
+<li>Ochrona praw podstawowych jako cel regulacji (art. 1).</li>
+<li>Prawo stosowane bezpośrednio w 27 państwach. Polska ustawa z 3.07.2026 tworzy organ nadzoru: KRiBSI.</li>
+<li>Omnibus cyfrowy (rozporządzenie 2026/1744) przesunął terminy dla systemów wysokiego ryzyka na 2027–2028.</li>
+<li><strong>Szczegóły: spotkanie 7.</strong></li>
+</ul>
+<h3 id="korea-południowa-wpływ-i-rozwój">Korea Południowa: wpływ i rozwój</h3>
+<ul>
+<li>Ustawa ramowa o rozwoju AI i budowaniu podstaw zaufania (<em>AI Basic Act</em>, ustawa nr 20676): uchwalona 26.12.2024, w mocy od <strong>22.01.2026</strong>.</li>
+<li>Kluczowe pojęcie: <strong>AI o dużym wpływie</strong> (<em>high-impact AI</em>), np. w energetyce, ochronie zdrowia, rekrutacji, ocenie zdolności kredytowej.</li>
+<li>Obowiązki: ocena i zarządzanie ryzykiem, wyjaśnialność, nadzór człowieka, oznaczanie AI generatywnej.</li>
+<li>Jednocześnie: krajowa strategia, finansowanie, centra danych, wsparcie dla firm.</li>
+<li>Kary do 30 mln wonów (ok. 20 tys. euro). Rząd zapowiedział co najmniej rok bez kontroli i kar, poza wyjątkowymi przypadkami.</li>
+</ul>
+<h3 id="japonia-promocja-zamiast-sankcji">Japonia: promocja zamiast sankcji</h3>
+<ul>
+<li>Ustawa o promocji badań, rozwoju i wykorzystania technologii związanych z AI (nr 53 z 2025 r.): uchwalona 28.05.2025, w pełni stosowana od <strong>1.09.2025</strong>.</li>
+<li>Kwatera Główna Strategii AI pod przewodnictwem premiera; pierwszy Podstawowy plan AI przyjęty 23.12.2025.</li>
+<li>Brak kar administracyjnych. Państwo może badać incydenty, wydawać wytyczne i ujawniać nazwy firm.</li>
+<li>Tło kulturowe: technooptymizm, wizja „Społeczeństwa 5.0” (2016), roboty jako partnerzy, a nie zagrożenie.</li>
+</ul>
+<h3 id="stany-zjednoczone-rynek-i-rywalizacja">Stany Zjednoczone: rynek i rywalizacja</h3>
+<ul>
+<li>Styczeń 2025: uchylenie rozporządzenia Bidena (EO 14110) i EO 14179 „Removing Barriers to American Leadership in AI”.</li>
+<li>Lipiec 2025: <em>America’s AI Action Plan</em>. Grudzień 2025: EO 14365 przeciw „uciążliwemu” prawu stanowemu (zespół procesowy w Departamencie Sprawiedliwości).</li>
+<li>Prawo stanowe: Kalifornia SB 53 o modelach czołowych (od 1.01.2026); Kolorado zastąpiło ustawę z 2024 r., która nigdy nie zaczęła obowiązywać, węższą SB 26-189 (od 1.01.2027).</li>
+<li>Spór o to, kto reguluje AI: Waszyngton czy stany.</li>
+<li>Tło: wolność słowa, kultura start-upów, rywalizacja technologiczna z Chinami.</li>
+</ul>
+<h3 id="chiny-państwo-i-porządek">Chiny: państwo i porządek</h3>
+<ul>
+<li>Środki tymczasowe dotyczące generatywnej AI (w mocy od 15.08.2023): treści muszą odpowiadać „podstawowym wartościom socjalistycznym”.</li>
+<li>Rejestr algorytmów i ocena bezpieczeństwa przed udostępnieniem usługi.</li>
+<li>Obowiązkowe oznaczanie treści generowanych przez AI (od 1.09.2025).</li>
+<li>Od 1.01.2026: pierwszy przepis o AI w ustawie o cyberbezpieczeństwie. Od 15.07.2026: przepisy o „antropomorficznych” usługach interakcji z AI.</li>
+<li>Regulacja szybka, szczegółowa i sektorowa, ale bez ograniczeń dla państwa.</li>
+</ul>
+<h3 id="ue-i-korea-dwie-kotwice">UE i Korea: dwie kotwice</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>UE: <em>risk</em></strong></p>
+<ul>
+<li>punkt wyjścia: zagrożenie dla praw</li>
+<li>zakazy i wymogi ex ante</li>
+<li>ciężar dowodu zgodności na dostawcy</li>
+<li>wysokie kary</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Korea: <em>impact</em></strong></p>
+<ul>
+<li>punkt wyjścia: wpływ i potencjał rozwoju</li>
+<li>obowiązki łagodniejsze, rozłożone w czasie</li>
+<li>silne instrumenty wspierania przemysłu</li>
+<li>kary niższe, z okresem przejściowym</li>
+</ul>
+</div>
+</div>
+<h3 id="czy-ufasz-własnemu-rządowi-że-odpowiedzialnie-uregulował-ai">Czy ufasz własnemu rządowi, że odpowiedzialnie uregulował AI?</h3>
+<figure>
+<img src="media/06_w_zaufanie_regulacja_kraje.svg" style="width:88.0%" alt="Wykres słupkowy poziomy: zaufanie do własnego rządu w regulowaniu AI wynosi 81% w Singapurze, 61% w Polsce, 49% w Niemczech, 42% we Francji i 31% w Stanach Zjednoczonych." />
+<figcaption aria-hidden="true">Wykres słupkowy poziomy: zaufanie do własnego rządu w regulowaniu AI wynosi 81% w Singapurze, 61% w Polsce, 49% w Niemczech, 42% we Francji i 31% w Stanach Zjednoczonych.</figcaption>
+</figure>
+<h3 id="ile-ustaw-o-ai-uchwaliły-największe-gospodarki">Ile ustaw o AI uchwaliły największe gospodarki?</h3>
+<figure>
+<img src="media/06_w_ustawy_ai_g20.svg" style="width:88.0%" alt="Wykres słupkowy poziomy: w latach 2016–2025 Stany Zjednoczone uchwaliły 25 ustaw o AI, Korea Południowa 17, Francja i Japonia po 10, Włochy 9, a Chiny i Indie po jednej." />
+<figcaption aria-hidden="true">Wykres słupkowy poziomy: w latach 2016–2025 Stany Zjednoczone uchwaliły 25 ustaw o AI, Korea Południowa 17, Francja i Japonia po 10, Włochy 9, a Chiny i Indie po jednej.</figcaption>
+</figure>
+<h3 id="dane-muszą-zostać-w-kraju-różne-kotwice-regulacyjne-w-praktyce">Dane muszą zostać w kraju: różne kotwice regulacyjne w praktyce</h3>
+<figure>
+<img src="media/06_w_lokalizacja_danych_regiony.svg" style="width:88.0%" alt="Wykres słupkowy poziomy: do końca 2024 r. Azja Wschodnia i Pacyfik przyjęła 77 środków lokalizacji danych, Afryka Subsaharyjska 71, Europa i Azja Środkowa 66, a Ameryka Północna tylko 3." />
+<figcaption aria-hidden="true">Wykres słupkowy poziomy: do końca 2024 r. Azja Wschodnia i Pacyfik przyjęła 77 środków lokalizacji danych, Afryka Subsaharyjska 71, Europa i Azja Środkowa 66, a Ameryka Północna tylko 3.</figcaption>
+</figure>
+<h2 id="część-iii.-heurystyki-i-teoria-gier">Część III. Heurystyki i teoria gier</h2>
+<h3 id="heurystyki-skróty-myślowe-regulatora">Heurystyki: skróty myślowe regulatora</h3>
+<ul>
+<li>Heurystyki to uproszczone strategie myślenia, które pozwalają szybko decydować w złożonych sytuacjach, ale prowadzą do <strong>systematycznych błędów</strong>.</li>
+<li><strong>Zakotwiczenie:</strong> pierwsza informacja (kotwica) nieproporcjonalnie wpływa na dalsze oceny, nawet gdy jest przypadkowa.</li>
+<li><strong>Dostępność:</strong> przeceniamy to, co łatwo przywołać z pamięci (np. głośny deepfake).</li>
+<li><strong>Efekt sformułowania:</strong> ta sama decyzja inaczej oceniana w ujęciu „zysków” i „strat”.</li>
+</ul>
+<p><small>Tversky, Kahneman, „The Framing of Decisions and the Psychology of Choice”, <em>Science</em> 211 (1981), s. 453–458.</small></p>
+<h3 id="pułapki-myślenia-dlaczego-są-istotne-dla-prawa">Pułapki myślenia: dlaczego są istotne dla prawa?</h3>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>Efekt sformułowania to podstawowy element komunikacji prawa.</li>
+<li>Właściwe ujęcie problemu wspiera decyzje w warunkach ryzyka i niepewności (<em>nudge</em>).</li>
+<li>Ustawodawca też ulega heurystykom: tekst AI Act powstawał w czasie „szoku ChatGPT” (2022–2023).</li>
+<li>„Szum”: rozrzut decyzji ekspertów, także sędziów, przy tych samych danych.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<figure>
+<img src="media/06_szum_okladka.jpg" style="width:75.0%" alt="Okładka książki „Szum” (Kahneman, Sibony, Sunstein)" />
+<figcaption aria-hidden="true">Okładka książki „Szum” (Kahneman, Sibony, Sunstein)</figcaption>
+</figure>
+<p><small>Źródło: D. Kahneman, O. Sibony, C.R. Sunstein, <em>Szum</em>, Media Rodzina 2021.</small></p>
+</div>
+</div>
+<h3 id="red-flag-act-regulacja-z-perspektywy-konia">Red Flag Act: regulacja z perspektywy konia</h3>
+<figure>
+<img src="media/06_red_flag_dormans.jpg" style="width:80.0%" alt="Reklama firmy Dormans of Stafford: „budowaliśmy silniki, zanim zniesiono Red Flag Act”" />
+<figcaption aria-hidden="true">Reklama firmy Dormans of Stafford: „budowaliśmy silniki, zanim zniesiono Red Flag Act”</figcaption>
+</figure>
+<ul>
+<li>Ustawy o lokomotywach: 1861, <strong>1865</strong>, 1878.</li>
+<li>1865: maks. 4 mile/h poza miastem i 2 mile/h w mieście; pieszy z czerwoną flagą co najmniej 60 jardów przed pojazdem.</li>
+</ul>
+<p><small>Źródło ilustracji: reklama Dormans of Stafford (domena publiczna) [data do ustalenia].</small></p>
+<h3 id="czego-uczy-red-flag-act">Czego uczy Red Flag Act?</h3>
+<ul>
+<li>Nową technologię regulowano <strong>kategoriami starej</strong> (lokomotywa parowa, koń, wóz).</li>
+<li>Przepisy chroniły interesy kolei i przewoźników konnych.</li>
+<li>Wiele pomysłów przetrwało: rejestracja, limity prędkości, organy drogowe.</li>
+<li>Pytanie na dziś: które przepisy o AI okażą się „czerwoną flagą”, a które „tablicą rejestracyjną”?</li>
+</ul>
+<h3 id="teoria-gier-dźwignia-wyobraźni">Teoria gier: „dźwignia wyobraźni”</h3>
+<ul>
+<li>J. von Neumann, O. Morgenstern, <em>Theory of Games and Economic Behavior</em> (1944).</li>
+<li>J. Nash (1950): <strong>równowaga</strong>, w której żaden gracz nie zyska, zmieniając strategię jednostronnie.</li>
+<li>Regulacja AI jako gra niekooperacyjna wielu graczy: regulatorzy, firmy technologiczne, użytkownicy, inne państwa.</li>
+</ul>
+<blockquote>
+<p>„Przyszłe pokolenia być może uznają tę książkę za największe dzieło naukowe pierwszej połowy XX wieku”. <small>A.H. Copeland o pracy von Neumanna i Morgensterna, cyt. za: Ph. Straffin, <em>Teoria gier</em>, przeł. J. Haman, Warszawa 2001, s. 18.</small></p>
+</blockquote>
+<h3 id="dylemat-więźnia">Dylemat więźnia</h3>
+<table>
+<thead>
+<tr>
+<th>Adam \ Bartek</th>
+<th>Milczy</th>
+<th>Przyznaje się</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Milczy</strong></td>
+<td>(−1, −1)</td>
+<td>(−5, 0)</td>
+</tr>
+<tr>
+<td><strong>Przyznaje się</strong></td>
+<td>(0, −5)</td>
+<td>(−3, −3)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Każdemu z osobna opłaca się przyznać, niezależnie od ruchu drugiego.</li>
+<li>Równowaga Nasha: (−3, −3). Obaj tracą więcej, niż gdyby współpracowali.</li>
+<li>Analogia: <strong>wyścig AI</strong> między firmami i państwami, w którym nikt nie chce zwolnić pierwszy.</li>
+</ul>
+<h3 id="gra-o-przejrzystość-algorytmiczną">Gra o przejrzystość algorytmiczną</h3>
+<table>
+<thead>
+<tr>
+<th>Firmy \ Regulatorzy</th>
+<th>Surowe wymogi</th>
+<th>Elastyczne wymogi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Wysoka przejrzystość</strong></td>
+<td><strong>(5, 8)</strong></td>
+<td>(4, 3)</td>
+</tr>
+<tr>
+<td><strong>Niska przejrzystość</strong></td>
+<td>(2, 1)</td>
+<td><strong>(7, 4)</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Pierwsza liczba: wypłata firm, druga: regulatorów (skala 1–10).</li>
+<li>Gdzie są równowagi Nasha? Zastanówcie się przez minutę.</li>
+</ul>
+<h3 id="dwie-równowagi-jedna-decyzja">Dwie równowagi, jedna decyzja</h3>
+<ul>
+<li>Gdy regulator jest surowy, firmom opłaca się przejrzystość (5 &gt; 2). Gdy jest elastyczny, opłaca się nieprzejrzystość (7 &gt; 4).</li>
+<li>Regulatorowi opłaca się surowość, gdy firmy są przejrzyste (8 &gt; 3), i elastyczność, gdy nie są (4 &gt; 1).</li>
+<li>Wynik: <strong>dwie równowagi Nasha</strong>, (5, 8) i (7, 4). To gra koordynacyjna.</li>
+<li>O tym, która równowaga się utrwali, decydują oczekiwania, historia i kultura, czyli <strong>kotwice</strong>.</li>
+</ul>
+<h3 id="ukryte-gry-od-racjonalności-ku-syntezie">Ukryte gry: od racjonalności ku syntezie</h3>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>Ludzkie „irracjonalne” zachowania (honor, oburzenie, altruizm) często są racjonalne w <strong>ukrytej grze</strong>: reputacji i powtarzalnych interakcji.</li>
+<li>Regulacja AI to gra powtarzalna: firmy, regulatorzy i opinia publiczna spotykają się wiele razy.</li>
+<li>Synteza: teoria gier pokazuje strukturę, heurystyki wyjaśniają, którą drogą gracze pójdą.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<figure>
+<img src="media/06_hidden_games_okladka.jpg" style="width:50.0%" alt="Okładka książki „Hidden Games” (Hoffman, Yoeli)" />
+<figcaption aria-hidden="true">Okładka książki „Hidden Games” (Hoffman, Yoeli)</figcaption>
+</figure>
+<p><small>Źródło: M. Hoffman, E. Yoeli, <em>Hidden Games</em>, Basic Books 2022.</small></p>
+</div>
+</div>
+<h2 id="część-iv.-język-i-kultura-w-danych-treningowych">Część IV. Język i kultura w danych treningowych</h2>
+<h3 id="czyj-język-mówi-ai">Czyj język mówi AI?</h3>
+<ul>
+<li>Common Crawl (archiwum stron WWW, podstawa wielu korpusów treningowych): <strong>angielski ok. 42%</strong> dokumentów, <strong>polski ok. 2%</strong>.</li>
+<li>Model „wie” więcej o świecie opisanym po angielsku: prawie, historii, kulturze.</li>
+<li>Słabsze wyniki w językach o mniejszych zasobach, więcej halucynacji o lokalnych realiach.</li>
+<li>Przykład prawniczy: pytanie o polską instytucję prawną bywa „tłumaczone” na kategorie <em>common law</em>.</li>
+</ul>
+<h3 id="w-jakim-języku-jest-internet-z-którego-uczą-się-modele">W jakim języku jest internet, z którego uczą się modele?</h3>
+<figure>
+<img src="media/06_w_common_crawl_jezyki.svg" style="width:88.0%" alt="Wykres słupkowy poziomy: angielski stanowi 41,9% stron w zrzucie Common Crawl z września 2026, rosyjski 6,7%, niemiecki 5,7%, a polski 2,0%." />
+<figcaption aria-hidden="true">Wykres słupkowy poziomy: angielski stanowi 41,9% stron w zrzucie Common Crawl z września 2026, rosyjski 6,7%, niemiecki 5,7%, a polski 2,0%.</figcaption>
+</figure>
+<h3 id="czyje-wartości-ma-ai">Czyje wartości ma AI?</h3>
+<ul>
+<li>Odpowiedzi pięciu modeli GPT są najbliższe wartościom krajów anglojęzycznych i protestanckiej Europy (Tao i in., <em>PNAS Nexus</em> 2024).</li>
+<li>Im większy dystans kulturowy od USA, tym mniej odpowiedzi modelu przypominają odpowiedzi ludzi (Atari i in., 2023, preprint).</li>
+<li>Wartości modelu pochodzą z danych i z dostrajania (RLHF, instrukcje firmy).</li>
+<li>Globalny system, lokalne normy: obyczajowość, religia, historia, pamięć zbiorowa.</li>
+<li>Pytanie prawne: kto decyduje, jakie wartości „wbudować” w model używany przez administrację publiczną?</li>
+</ul>
+<h3 id="pllum-polski-model-językowy">PLLuM: polski model językowy</h3>
+<figure>
+<img src="media/06_pllum_baner.jpg" style="width:75.0%" alt="Baner projektu PLLuM" />
+<figcaption aria-hidden="true">Baner projektu PLLuM</figcaption>
+</figure>
+<ul>
+<li>Konsorcjum pod kierunkiem Politechniki Wrocławskiej (m.in. NASK-PIB, OPI-PIB, IPI PAN, IS PAN, UŁ). Pierwsze modele: luty 2025.</li>
+<li>Kontynuacja: konsorcjum HIVE AI pod kierunkiem NASK.</li>
+<li>Od 31.12.2025 asystent w aplikacji <strong>mObywatel</strong> oparty na PLLuM.</li>
+<li>Maj 2026: 11 nowych modeli (od 4 do 70 mld parametrów), część na licencji Apache 2.0.</li>
+</ul>
+<p><small>Źródło ilustracji: materiały projektu PLLuM [źródło do ustalenia].</small></p>
+<h3 id="bielik-i-ekosystem-polskich-modeli">Bielik i ekosystem polskich modeli</h3>
+<ul>
+<li><strong>Bielik</strong>: projekt społeczności SpeakLeash i ACK Cyfronet AGH (superkomputery Athena i Helios). Bielik 11B v3 (2025): licencja Apache 2.0, także mniejsze wersje 1,5B i 4,5B.</li>
+<li>Modele narodowe: Szwecja (GPT-SW3), Hiszpania (ALIA), Ukraina, kraje bałtyckie, Japonia, Korea.</li>
+<li>Argumenty: suwerenność cyfrowa, bezpieczeństwo danych publicznych, jakość języka, kontrola wartości.</li>
+<li>Kontrargumenty: koszt, skala, ryzyko „zakonserwowania” jednej wersji kultury.</li>
+</ul>
+<h3 id="model-narodowy-pytania-dla-prawnika">Model narodowy: pytania dla prawnika</h3>
+<ul>
+<li><strong>Dane:</strong> czy teksty w korpusie zebrano zgodnie z prawem autorskim (TDM, art. 26³ pr. aut.)? Spotkanie 7.</li>
+<li><strong>Dane osobowe:</strong> orzeczenia, Dziennik Ustaw, fora internetowe. Spotkanie 8.</li>
+<li><strong>Licencja:</strong> otwarte wagi a odpowiedzialność za użycie przez innych.</li>
+<li><strong>AI Act:</strong> czy PLLuM lub Bielik to model GPAI? Jakie obowiązki ma dostawca publiczny?</li>
+<li><strong>Administracja:</strong> asystent AI w urzędzie może być systemem wysokiego ryzyka (zał. III).</li>
+</ul>
+<h2 id="część-v.-ai-a-twórczość">Część V. AI a twórczość</h2>
+<h3 id="kod-kreatywności">Kod kreatywności</h3>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>Czy AI może być twórcza? M. du Sautoy, za M. Boden, wyróżnia trzy rodzaje kreatywności:
+<ul>
+<li><strong>kombinacyjną</strong> (łączenie znanego),</li>
+<li><strong>eksploracyjną</strong> (badanie granic stylu),</li>
+<li><strong>transformacyjną</strong> (zmiana reguł gry).</li>
+</ul></li>
+<li>Ile naszej reakcji na sztukę wynika ze struktury i regularności, które maszyna może odtworzyć?</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<figure>
+<img src="media/06_kod_kreatywnosci_okladka.jpg" style="width:70.0%" alt="Okładka książki „Kod kreatywności” (M. du Sautoy)" />
+<figcaption aria-hidden="true">Okładka książki „Kod kreatywności” (M. du Sautoy)</figcaption>
+</figure>
+<p><small>Źródło: M. du Sautoy, <em>Kod kreatywności</em>, Copernicus Center Press 2020.</small></p>
+</div>
+</div>
+<h3 id="dwa-lata-postępu">Dwa lata postępu</h3>
+<figure>
+<img src="media/06_midjourney_v1_v6.jpg" style="width:75.0%" alt="Ten sam motyw wygenerowany przez Midjourney w wersji 1 i wersji 6" />
+<figcaption aria-hidden="true">Ten sam motyw wygenerowany przez Midjourney w wersji 1 i wersji 6</figcaption>
+</figure>
+<p><small>Midjourney v1 (2022) i v6 (2023) [źródło zestawienia do ustalenia].</small></p>
+<h3 id="fotografia-która-nigdy-nie-powstała">Fotografia, która nigdy nie powstała</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<figure>
+<img src="media/06_fotografia_generowana.jpg" style="width:45.0%" alt="Portret kobiety w stylu XIX-wiecznej fotografii, wygenerowany przez AI" />
+<figcaption aria-hidden="true">Portret kobiety w stylu XIX-wiecznej fotografii, wygenerowany przez AI</figcaption>
+</figure>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Deepfake w kulturze to nie tylko oszustwo. To także nowe archiwum „wspomnień, których nie było”.</li>
+<li>2023: B. Eldagsen odrzuca nagrodę Sony World Photography Awards za obraz wygenerowany przez AI.</li>
+<li>Problem dla historii, muzeów, dziennikarstwa i <strong>dowodu w procesie</strong>.</li>
+</ul>
+</div>
+</div>
+<p><small>Obraz wygenerowany przez AI [źródło do ustalenia].</small></p>
+<h3 id="film-i-muzyka-ai">Film i muzyka AI</h3>
+<ul>
+<li>Generatory muzyki z tekstu (Suno, Udio): piosenka w kilkadziesiąt sekund, z wokalem.</li>
+<li>Wytwórnie pozwały Suno i Udio (2024). Pod koniec 2025 r. UMG i WMG zawarły ugody i umowy licencyjne; Sony i UMG nadal pozywają Suno.</li>
+<li>LG München I (31.07.2026): Suno narusza prawa autorskie do piosenek z repertuaru GEMA.</li>
+<li>Głos jako dobro osobiste: klonowanie głosu znanych aktorów i lektorów (ElevenLabs).</li>
+<li>Pytania kulturowe: co z „aurą” dzieła (W. Benjamin)? Czy liczy się proces czy efekt?</li>
+</ul>
+<h3 id="anamorph-film-który-za-każdym-razem-jest-inny">Anamorph: film, który za każdym razem jest inny</h3>
+<figure>
+<img src="media/06_anamorph_eno.jpg" style="width:65.0%" alt="Kadr z instalacji filmu „Eno” w technologii generatywnej Anamorph" />
+<figcaption aria-hidden="true">Kadr z instalacji filmu „Eno” w technologii generatywnej Anamorph</figcaption>
+</figure>
+<ul>
+<li>„Eno” (2024, reż. G. Hustwit): dokument o Brianie Eno, którego każdy pokaz jest <strong>inną wersją</strong> montażu.</li>
+<li>Kto jest autorem wersji, której nikt wcześniej nie widział?</li>
+</ul>
+<p><small>Źródło: TechCrunch, 28.02.2024, techcrunch.com (dostęp 19.10.2026).</small></p>
+<h2 id="część-vi.-wyobrażenia-ai-i-antropomorfizacja">Część VI. Wyobrażenia AI i antropomorfizacja</h2>
+<h3 id="trzy-prawa-robotyki-asimova">Trzy prawa robotyki Asimova</h3>
+<div class="columns">
+<div class="column" style="width:65%;">
+<ol type="1">
+<li>Robot nie może skrzywdzić człowieka ani przez zaniechanie dopuścić, aby człowiek doznał krzywdy.</li>
+<li>Robot musi być posłuszny rozkazom człowieka, chyba że stoją one w sprzeczności z Pierwszym Prawem.</li>
+<li>Robot musi chronić samego siebie, o ile nie stoi to w sprzeczności z Pierwszym lub Drugim Prawem.</li>
+</ol>
+</div><div class="column" style="width:35%;">
+<figure>
+<img src="media/06_asimov_pozytronowy_czlowiek.jpg" style="width:70.0%" alt="Okładka książki „Pozytronowy człowiek” (I. Asimov, R. Silverberg)" />
+<figcaption aria-hidden="true">Okładka książki „Pozytronowy człowiek” (I. Asimov, R. Silverberg)</figcaption>
+</figure>
+<p><small>Źródło: I. Asimov, R. Silverberg, <em>Pozytronowy człowiek</em> [wydawca i rok do ustalenia].</small></p>
+</div>
+</div>
+<h3 id="dlaczego-prawa-asimova-nie-wystarczą">Dlaczego prawa Asimova nie wystarczą?</h3>
+<ul>
+<li>Opowiadania Asimova to w większości historie o <strong>tym, jak prawa zawodzą</strong>: sprzeczności, luki, interpretacja.</li>
+<li>„Krzywda” i „rozkaz” to pojęcia nieostre. Prawnik zna ten problem z każdej klauzuli generalnej.</li>
+<li>Współczesne prawo reguluje <strong>ludzi i organizacje</strong> (dostawców, podmioty stosujące), a nie „sumienie” maszyny.</li>
+<li>AI Act: nadzór człowieka (art. 14), zakazy manipulacji (art. 5 ust. 1 lit. a i b).</li>
+</ul>
+<h3 id="jak-może-być-wytwarzane-prawo-w-epoce-nowych-technologii">Jak może być wytwarzane prawo w epoce nowych technologii?</h3>
+<ul>
+<li>Kto wytwarza prawo?</li>
+<li>Czy możliwe jest prawo bez podmiotu?</li>
+<li>Czy AI może współtworzyć przepisy, uzasadnienia, wyroki?</li>
+</ul>
+<h3 id="lem-łowca-androidów-i-granica-człowieczeństwa">Lem, „Łowca androidów” i granica człowieczeństwa</h3>
+<ul>
+<li>S. Lem: „Summa technologiae” (1964), „Golem XIV” (1981). Maszyna jako <strong>inny</strong> rozum, nie kopia człowieka.</li>
+<li>„Łowca androidów” (1982, wg Ph.K. Dicka): co odróżnia człowieka od repliki, gdy zawodzi nawet test empatii?</li>
+<li>Kultura europejska boi się AI częściej niż japońska: Golem, Frankenstein, Terminator, a z drugiej strony Astro Boy i Doraemon.</li>
+<li>Te obrazy wpływają na <strong>kotwice</strong> regulatorów i opinii publicznej.</li>
+</ul>
+<h3 id="her-miłość-do-systemu-operacyjnego">„Her”: miłość do systemu operacyjnego</h3>
+<div class="columns">
+<div class="column" style="width:35%;">
+<figure>
+<img src="media/06_her_plakat.jpg" style="width:80.0%" alt="Plakat filmu „Her” (reż. S. Jonze, 2013)" />
+<figcaption aria-hidden="true">Plakat filmu „Her” (reż. S. Jonze, 2013)</figcaption>
+</figure>
+<p><small>Źródło: plakat filmu <em>Her</em>, reż. S. Jonze, Warner Bros. 2013.</small></p>
+</div><div class="column" style="width:65%;">
+<ul>
+<li>Od Tindera, przez „Her”, do „Czarnego lustra”: algorytm jako pośrednik i partner relacji.</li>
+<li>2013: fikcja. Dziś: aplikacje „towarzyszy AI” (Replika, Character.AI) i głosowe asystenty z osobowością.</li>
+<li>Ryzyka: uzależnienie, samotność, manipulacja emocjonalna, dzieci jako użytkownicy.</li>
+</ul>
+</div>
+</div>
+<h3 id="czarne-lustro-życie-w-rankingu">„Czarne lustro”: życie w rankingu</h3>
+<figure>
+<img src="media/06_black_mirror_nosedive.jpg" style="width:65.0%" alt="Kadr z odcinka „Na łeb, na szyję” serialu „Czarne lustro”" />
+<figcaption aria-hidden="true">Kadr z odcinka „Na łeb, na szyję” serialu „Czarne lustro”</figcaption>
+</figure>
+<ul>
+<li>Odcinek 1 sezonu 3 (2016): każda interakcja jest oceniana, a średnia decyduje o dostępie do mieszkań, lotów, pracy.</li>
+<li>Rzeczywistość: chiński system „wiarygodności społecznej” jest rozproszony i w dużej mierze dotyczy firm, a nie jednego wskaźnika dla każdego obywatela.</li>
+<li>UE: zakaz oceny społecznej prowadzącej do krzywdzącego traktowania (art. 5 ust. 1 lit. c AI Act).</li>
+</ul>
+<p><small>Źródło: <em>Black Mirror</em>, odc. „Nosedive”, Netflix 2016.</small></p>
+<h3 id="antropomorfizacja-efekt-eliza">Antropomorfizacja: efekt ELIZA</h3>
+<ul>
+<li>1966: J. Weizenbaum tworzy ELIZĘ, prosty program naśladujący psychoterapeutę. Użytkownicy przypisują mu zrozumienie i empatię.</li>
+<li>Dziś: modele mówią w pierwszej osobie, „pamiętają”, przepraszają, mają imiona i głos.</li>
+<li>Prawo reaguje:
+<ul>
+<li>obowiązek informowania, że rozmawiamy z AI (art. 50 ust. 1 AI Act, od 2.08.2026),</li>
+<li>zakaz manipulacji i wykorzystywania słabości (art. 5 ust. 1 lit. a i b).</li>
+</ul></li>
+<li>Chiny (od 15.07.2026): osobne przepisy o usługach „antropomorficznej” interakcji z AI.</li>
+<li>Pytanie: czy język „AI myśli, AI chce” w orzeczeniach i ustawach to tylko metafora?</li>
+</ul>
+<h3 id="podsumowanie">Podsumowanie</h3>
+<ul>
+<li>Normy sprawiedliwości są kulturowe, więc <strong>nie ma neutralnej regulacji AI</strong>.</li>
+<li>UE wybrała kotwicę ryzyka, Korea wpływu, Japonia promocji, USA rynku, Chiny kontroli państwa.</li>
+<li>Heurystyki i teoria gier tłumaczą, dlaczego regulatorzy wybierają różne równowagi.</li>
+<li>Język i wartości w danych treningowych to sprawa suwerenności, nie tylko techniki: PLLuM, Bielik.</li>
+<li>Twórczość i wyobrażenia AI kształtują oczekiwania wobec prawa: od Asimova do art. 50 AI Act.</li>
+</ul>
+<h3 id="na-następne-spotkanie">Na następne spotkanie</h3>
+<ul>
+<li><strong>Spotkanie 7: Prawne wyzwania AI (I): ramy regulacyjne i prawo autorskie.</strong></li>
+<li>Przeczytaj: AI Act, art. 3 pkt 1, art. 5 i art. 50 (wersja polska na EUR-Lex).</li>
+<li>Zadanie z modelem generatywnym z <code>cwiczenia.md</code>: zapytaj model o polską instytucję prawną i porównaj z odpowiedzią po angielsku.</li>
+<li>Quiz modułu 06 na stronie kursu.</li>
+</ul>
+</div>
+  <p class="crumbs"><a href="index.html">← Strona dzielnicy</a></p>
+</div>
+
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne · Wykład monograficzny · prawo · WPiA UMCS · semestr zimowy 2026/2027<br>
+    Prowadzący: dr Karol Kasprowicz, <a href="mailto:karol.kasprowicz@mail.umcs.pl">karol.kasprowicz@mail.umcs.pl</a> · Stan materiałów na 22.10.2026 · <a href="../../styl.html">Księga stylu</a></p>
+  </div>
+</footer>
+<script src="../../assets/ui.js"></script>
+
+</body>
+</html>

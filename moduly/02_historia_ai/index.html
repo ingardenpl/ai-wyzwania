@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>02. Historia sztucznej inteligencji: od automatów do modeli fundamentalnych · Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne</title>
+<meta name="description" content="Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne. Wykład monograficzny · prawo · WPiA UMCS · semestr zimowy 2026/2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Tiny5&family=Chakra+Petch:wght@500;600;700&family=Anton&family=VT323&display=swap">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="manifest" href="../../assets/manifest.webmanifest">
+<meta name="theme-color" content="#07080f">
+<link rel="icon" href="../../assets/ikona-192.png" type="image/png">
+<link rel="apple-touch-icon" href="../../assets/ikona-180.png">
+<script src="../../assets/site.js"></script>
+<script src="../../assets/gra.js"></script>
+
+</head>
+<body>
+<a class="skip-link" href="#tresc">Przejdź do treści</a>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../../index.html"><b>NEO-LUBLIN 2049</b><small>Wykład monograficzny · WPiA UMCS</small></a>
+    <nav class="topnav" aria-label="Nawigacja kursu"><a href="../../index.html">Mapa</a><a href="../../sylabus.html">Sylabus</a><a href="../../zaliczenie.html">Zaliczenie</a><a href="../../zrodla.html">Źródła</a><a href="../../slowniczek.html">Słowniczek</a><a href="../../fiszki.html">Fiszki</a><a href="../../biblioteka.html">Biblioteka</a><a href="../../interaktywne.html">Interaktywne</a></nav>
+  </div>
+</header>
+<main id="tresc" tabindex="-1">
+
+<div class="wrap narrow">
+  <p class="crumbs"><a href="../../index.html">← Mapa miasta</a></p>
+  <header class="module-head">
+    <div class="district-head">
+      <div class="district-view"><canvas data-city data-focus="02" aria-hidden="true"></canvas><span class="tag">02 · STARE MIASTO</span><div class="radar" title="Radar: położenie dzielnicy w mieście"><canvas data-city data-focus="02" data-radar aria-hidden="true"></canvas></div></div>
+      <div class="district-info">
+        <p class="eyebrow">Dziennik · dzielnica 02 / 10 · spotkanie I</p>
+        <p style="font-family:var(--mono);font-size:1.05rem;margin:0 0 .4em;color:var(--navy)">Stare Miasto: Muzeum Automatów</p>
+        <p class="mission-text">W piwnicach muzeum leżą automaty, perceptrony i zapomniane systemy ekspertowe. Zlecenie: odtwórz historię maszyn, które miały myśleć.</p>
+        <div class="item-card"><canvas data-icon="02" aria-hidden="true"></canvas><div><b>Przedmiot do zdobycia</b>Mechaniczna sowa</div></div>
+      </div>
+    </div>
+    <h1 style="margin-top:.6em">Historia sztucznej inteligencji: od automatów do modeli fundamentalnych</h1>
+    <p class="muted">piątek 23.10.2026, 12:45–14:15 (spotkanie I) · Aula WPiA UMCS</p>
+    <ul class="toc"><li><a href="#plan">Plan spotkania</a></li><li><a href="#slajdy">Slajdy</a></li><li><a href="#konspekt">Konspekt</a></li><li><a href="#lektury">Lektury i biblioteka</a></li><li><a href="#cwiczenia">Ćwiczenia i dyskusja</a></li><li><a href="#quiz">Sprawdź się</a></li><li><a href="#interaktywne">Materiały interaktywne</a></li></ul>
+  </header>
+  <section class="section" id="plan"><h2>Plan spotkania</h2><div class="prose"><ul>
+<li>Prehistoria: mity, automaty, Lullus i Leibniz, maszyna analityczna.</li>
+<li>Fundamenty: model neuronu McCullocha i Pittsa (1943), Turing (1950), konferencja w Dartmouth (1956), perceptron Rosenblatta (1958).</li>
+<li>Złote lata (1956–1974), pierwsza zima AI (1974–1980), renesans systemów ekspertowych (1980–1987), w tym pierwsze systemy prawnicze, druga zima AI (1987–1993).</li>
+<li>Przełomy: Deep Blue (1997), ImageNet (2012), AlphaGo i „ruch 37” (2016), architektura transformera (2017), ChatGPT (2022), agenci AI (2024–2026).</li>
+</ul>
+</div></section><section class="section" id="slajdy"><h2>Slajdy</h2><div class="btn-row"><a class="btn" href="slajdy.html" target="_blank" rel="noopener">Otwórz slajdy</a><a class="btn ghost" href="slajdy.html?print-pdf" target="_blank" rel="noopener">Wersja do druku / PDF</a><a class="btn ghost" href="slajdy-tekst.html">Slajdy do czytania (telefon)</a></div><p class="muted">Strzałki lub spacja przewijają slajdy, klawisz F włącza pełny ekran.</p></section><section class="section" id="konspekt"><h2>Konspekt</h2><div class="btn-row"><a class="btn" href="wiedza.html">Czytaj jako Wiedza (spis treści, ćwiczenia, źródła)</a><a class="btn ghost" href="../../fiszki.html?temat=02">Fiszki do tego tematu</a></div><div class="prose"><p><strong>Cel modułu.</strong> Po zajęciach student potrafi wskazać najważniejsze etapy rozwoju sztucznej inteligencji (AI) od prehistorii do agentów AI, odróżnić AI symboliczną od AI opartej na uczeniu z danych, wyjaśnić przyczyny dwóch „zim AI” oraz ocenić, czego historia uczy prawnika, który stosuje i tworzy regulacje AI.</p>
+<p><strong>Pytanie przewodnie.</strong> Dlaczego sztuczna inteligencja kilka razy „prawie się udała”, a potem na lata znikała z agendy? I czy dzisiejszy boom różni się od poprzednich?</p>
+<div class="uwaga">
+<p><strong>Jak czytać tę stronę.</strong> Tekst główny odpowiada kolejności slajdów. Kolorowe ramki zawierają to, czego nie ma na slajdach: definicje, przepisy, przykłady, pułapki i źródła. Odsyłacze „▶ slajd” otwierają odpowiedni slajd w nowej karcie. Ćwiczenia z podpowiedziami i lista lektur są na końcu strony.</p>
+</div>
+<h3 id="prehistoria-marzenie-o-myślącej-maszynie">1. Prehistoria: marzenie o myślącej maszynie</h3>
+<p>Opowieści o sztucznych istotach są dużo starsze niż komputery. Grecki Talos, spiżowy strażnik Krety, i praski Golem z gliny mają wspólny motyw: sztuczny sługa wyręcza człowieka, ale może wymknąć się spod kontroli. Słowo „robot” wymyślono dopiero w XX wieku. Pojawia się w sztuce Karla Čapka „R.U.R.” (1920, prapremiera 1921), a zaproponował je brat pisarza, Josef. Pochodzi od czeskiego <em>robota</em>, czyli pracy przymusowej. <a href="slajdy.html#/mity-i-opowieści" class="slajd">▶ slajd: Mity i opowieści</a></p>
+<p>Od starożytności budowano też <strong>automaty</strong>: mechanizmy Herona z Aleksandrii, urządzenia opisane przez al-Dżazariego (1206), kaczkę Vaucansona (1739) czy „Pisarza” Jaquet-Droza (1768–1774). Automat wykonuje z góry ustaloną sekwencję. Nie reaguje na otoczenie i niczego się nie uczy. To ważne rozróżnienie, które wróci na następnym spotkaniu: program wykonuje polecenia człowieka, a model uczony wyprowadza swoje zachowanie z danych. <a href="slajdy.html#/automaty-mechaniczna-imitacja-życia" class="slajd">▶ slajd: Automaty</a></p>
+<div class="definicja">
+<p><strong>Automat, program, model uczony.</strong> Trzy sposoby, w jakie maszyna „wie”, co zrobić.</p>
+<ul>
+<li><em>Automat</em>: sekwencja zapisana w konstrukcji (krzywki, koła zębate). Zmiana zachowania wymaga przebudowy.</li>
+<li><em>Program z regułami</em>: sekwencja zapisana w kodzie przez człowieka. Zmiana zachowania wymaga zmiany kodu.</li>
+<li><em>Model uczony</em>: zachowanie wyprowadzone z danych i zapisane w liczbach (wagach). Zmiana zachowania wymaga nowych danych albo douczenia.</li>
+</ul>
+<p>Ta trójka wróci przy definicji systemu AI w AI Act (sekcja 7).</p>
+</div>
+<p>Szczególnie pouczający jest <strong>„Turek”</strong> Wolfganga von Kempelena (1770). Automat grający w szachy wygrywał pokazy na dworach Europy, ale w skrzyni ukrywał się żywy szachista. W 2005 r. Amazon nazwał od niego platformę mikrozadań <a href="https://www.mturk.com/">Amazon Mechanical Turk</a>. Na tej platformie tysiące ludzi opisywały później zdjęcia do zbioru ImageNet, który stał się paliwem rewolucji głębokiego uczenia. Za wieloma systemami „sztucznej inteligencji” stoi więc praca ludzi, o czym będziemy mówić na spotkaniu 4. <a href="slajdy.html#/turek-kempelena-człowiek-ukryty-w-maszynie" class="slajd">▶ slajd: „Turek” Kempelena</a></p>
+<div class="pulapka">
+<p><strong>Ukryty człowiek.</strong> Gdy wynik „AI” jest zaskakująco dobry, a model nie potrafi wyjaśnić, skąd go ma, warto zapytać, kto naprawdę wykonał pracę: autorzy danych treningowych, osoby opisujące i oceniające odpowiedzi, moderatorzy. Dla prawnika to pytanie o warunki pracy i prawa autorskie, a także o to, co obiecuje dostawca systemu. „Turek” jest najstarszym przykładem podawania pracy człowieka za pracę maszyny.</p>
+</div>
+<p>Filozoficzne korzenie AI to idea, że <strong>rozumowanie da się zapisać w symbolach i regułach</strong>. Rajmund Lullus (ok. 1232–1316) w „Ars generalis ultima” (1305–1308) budował obracające się koła z pojęciami, które miały mechanicznie generować prawdziwe twierdzenia (o jego metodzie: <a href="https://plato.stanford.edu/entries/llull/">Stanford Encyclopedia of Philosophy</a>). Gottfried Wilhelm Leibniz, filozof, matematyk i doktor prawa, zbudował maszynę liczącą (model pokazał w Royal Society w 1673 r.), opisał arytmetykę dwójkową i marzył o uniwersalnym języku pojęć (<em>characteristica universalis</em>) oraz rachunku, który pozwoli rozstrzygać spory. Zamiast się kłócić, strony miałyby powiedzieć: <em>Calculemus!</em>, czyli „policzmy!”. Dla prawnika to szczególnie prowokujące marzenie: spór prawny rozstrzygnięty rachunkiem. <a href="slajdy.html#/rajmund-lullus-myślenie-jako-kombinatoryka" class="slajd">▶ slajd: Lullus</a> <a href="slajdy.html#/leibniz-calculemus" class="slajd">▶ slajd: Leibniz</a></p>
+<div class="historia">
+<p><strong>Leibniz był prawnikiem.</strong> Studiował prawo w Lipsku, a doktorat z prawa uzyskał w 1667 r. w Altdorfie na podstawie rozprawy o przypadkach trudnych w prawie (<em>Disputatio de casibus perplexis in jure</em>). W tym samym roku opublikował <em>Nova methodus discendae docendaeque jurisprudentiae</em>, projekt uporządkowania nauki prawa przez sprowadzenie pojęć do prostych składników. Pomysł rachunku pojęć narodził się więc częściowo z pracy nad prawem. Więcej: <a href="https://plato.stanford.edu/entries/leibniz/">Leibniz w Stanford Encyclopedia of Philosophy</a>.</p>
+</div>
+<p>W XIX wieku Charles Babbage zaprojektował <strong>maszynę analityczną</strong> z pamięcią, jednostką liczącą i programem na kartach perforowanych. Maszyny nie zbudowano, ale Ada Lovelace w notach do przekładu artykułu o niej (1843) zapisała algorytm obliczania liczb Bernoulliego, często nazywany pierwszym programem komputerowym. Lovelace zastrzegła też, że maszyna nie ma pretensji do tworzenia czegokolwiek; wykonuje tylko to, co umiemy jej polecić. Ten „zarzut Lady Lovelace” będzie później omawiał Turing (<a href="https://www.fourmilab.ch/babbage/sketch.html">noty Lovelace w wersji online</a>). <a href="slajdy.html#/babbage-i-lovelace-maszyna-analityczna" class="slajd">▶ slajd: Babbage i Lovelace</a></p>
+<div class="najwazniejsze">
+<ul>
+<li>Marzenie o sztucznym sługu jest starsze niż komputery; zawsze towarzyszy mu lęk przed utratą kontroli.</li>
+<li>Automat wykonuje, program wykonuje polecenia człowieka, model uczony wyprowadza zachowanie z danych.</li>
+<li>„Turek” przypomina, że za „sztuczną” inteligencją często stoi praca ludzi.</li>
+<li>Leibniz marzył o rozstrzyganiu sporów rachunkiem: pierwszy projekt „prawa obliczalnego”.</li>
+</ul>
+</div>
+<figure>
+<img src="media/02_os_czasu.svg" style="width:100.0%" alt="Oś czasu historii AI od 1943 do 2026 r. z okresami entuzjazmu i dwiema zimami AI" />
+<figcaption aria-hidden="true">Oś czasu historii AI od 1943 do 2026 r. z okresami entuzjazmu i dwiema zimami AI</figcaption>
+</figure>
+<h3 id="fundamenty-19431958">2. Fundamenty (1943–1958)</h3>
+<p>W 1943 r. neurofizjolog Warren McCulloch i dwudziestoletni samouk Walter Pitts opublikowali artykuł <a href="https://doi.org/10.1007/BF02478259">„A Logical Calculus of the Ideas Immanent in Nervous Activity”</a>. Zaproponowali <strong>pierwszy matematyczny model neuronu</strong>: jednostkę, która przyjmuje sygnały 0 lub 1 i „odpala”, gdy suma sygnałów osiągnie próg. Sieć takich jednostek może obliczać funkcje logiczne. Prawnik może myśleć o tym jak o przepisie z przesłankami: skutek prawny następuje, gdy spełnione są wymagane przesłanki. Neuron McCullocha i Pittsa niczego się jednak nie uczy, bo progi ustala badacz. <a href="slajdy.html#/mcculloch-i-pitts-1943-neuron-jako-bramka-logiczna" class="slajd">▶ slajd: McCulloch i Pitts</a></p>
+<figure>
+<img src="media/02_neuron_mcculloch_pitts.svg" style="width:100.0%" alt="Schemat neuronu McCullocha i Pittsa: wejścia 0 lub 1, suma porównywana z progiem, wyjście 0 lub 1" />
+<figcaption aria-hidden="true">Schemat neuronu McCullocha i Pittsa: wejścia 0 lub 1, suma porównywana z progiem, wyjście 0 lub 1</figcaption>
+</figure>
+<div class="definicja">
+<p><strong>Neuron McCullocha–Pittsa.</strong> Jednostka z wejściami <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>x</mi><mi>n</mi></msub><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">x_1, \dots, x_n \in \{0, 1\}</annotation></semantics></math> i progiem <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math>. Wyjście wynosi <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">y = 1</annotation></semantics></math>, gdy <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><mi>…</mi><mo>+</mo><msub><mi>x</mi><mi>n</mi></msub><mo>≥</mo><mi>θ</mi></mrow><annotation encoding="application/x-tex">x_1 + \dots + x_n \geq \theta</annotation></semantics></math>, a w przeciwnym razie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y = 0</annotation></semantics></math>. Przy <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">n = 2</annotation></semantics></math> próg <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">\theta = 2</annotation></semantics></math> daje bramkę <strong>I</strong> (oba warunki muszą zachodzić), a próg <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\theta = 1</annotation></semantics></math> bramkę <strong>LUB</strong>.</p>
+</div>
+<div class="przyklad">
+<p><strong>Przesłanki jako bramka.</strong> Przepis: „skutek następuje, gdy zachodzą przesłanki A <strong>i</strong> B”. Neuron z progiem 2 i wejściami A, B zachowuje się dokładnie tak: odpala tylko przy A = 1 i B = 1. Przepis z alternatywą („A <strong>lub</strong> B”) odpowiada progowi 1. Analogia jest pouczająca z jednego powodu: progi i połączenia ustala człowiek, więc taka sieć jest po prostu zapisanym przepisem. Dopiero perceptron zacznie dobierać je sam.</p>
+</div>
+<p>W 1950 r. Alan Turing opublikował w czasopiśmie <em>Mind</em> artykuł <a href="https://doi.org/10.1093/mind/LIX.236.433">„Computing Machinery and Intelligence”</a>. Zamiast pytać, czy maszyny myślą, zaproponował <strong>grę w naśladowanie</strong> (szerzej: spotkanie 1) i przewidział, że za około 50 lat przeciętny przesłuchujący po pięciu minutach rozmowy będzie miał nie więcej niż 70% szans na rozpoznanie maszyny. Mniej znana część artykułu jest równie ważna: Turing sugerował, by nie programować dorosłego umysłu, tylko zbudować „umysł dziecka” i go uczyć. To program badawczy, który zrealizowało dopiero uczenie maszynowe. <a href="slajdy.html#/alan-turing-czy-maszyny-mogą-myśleć" class="slajd">▶ slajd: Alan Turing</a></p>
+<div class="pulapka">
+<p><strong>Test Turinga to nie definicja inteligencji.</strong> Turing sam zastąpił pytanie „czy maszyny myślą?” pytaniem o rozróżnialność w rozmowie, bo to pierwsze uznał za zbyt niejasne. Przejście testu pokazuje biegłość w naśladowaniu rozmowy, a nie rozumienie. Dla prawnika wniosek jest praktyczny: wiarygodnie brzmiąca odpowiedź modelu nie jest dowodem, że jest prawdziwa.</p>
+</div>
+<p>Nazwa „sztuczna inteligencja” pojawiła się w <a href="http://jmc.stanford.edu/articles/dartmouth/dartmouth.pdf">propozycji letniego projektu badawczego</a> z 31 sierpnia 1955 r. Podpisali ją John McCarthy, Marvin Minsky, Nathaniel Rochester i Claude Shannon. Autorzy zakładali, że każdy aspekt uczenia się i inteligencji można opisać tak dokładnie, że maszyna zdoła go symulować. Warsztat odbył się latem 1956 r. w <strong>Dartmouth College</strong> (ok. 18 czerwca – 17 sierpnia) i uchodzi za narodziny AI jako dyscypliny. <a href="slajdy.html#/dartmouth-1956-narodziny-nazwy" class="slajd">▶ slajd: Dartmouth</a></p>
+<div class="historia">
+<p><strong>Wniosek o pieniądze.</strong> Propozycję z 1955 r. skierowano do Fundacji Rockefellera jako wniosek o sfinansowanie dwumiesięcznego warsztatu. Wśród problemów, które autorzy chcieli rozwiązać „w jedno lato”, były: programowanie komputerów do używania języka, sieci neuronowe, samodoskonalenie się maszyn i kreatywność. Optymizm co do tempa, nie kierunku, okazał się największym błędem tego dokumentu (por. sekcja 3).</p>
+</div>
+<p>W 1958 r. Frank Rosenblatt przedstawił <a href="https://doi.org/10.1037/h0042519"><strong>perceptron</strong></a>: neuron z wagami, które nie są ustalone z góry, tylko korygowane po każdym błędzie. Perceptron uczy się na przykładach z poprawnymi odpowiedziami. Pierwszy pokaz był symulacją na komputerze IBM 704, a sprzętowa maszyna Mark I Perceptron powstała w 1960 r. Prasa przyjęła wynalazek entuzjastycznie: <em>The New York Times</em> (8.07.1958) pisał o zalążku komputera, który ma chodzić, mówić, widzieć, pisać i być świadomy swojego istnienia. W rzeczywistości maszyna uczyła się rozpoznawać proste kształty. Ten wzorzec (realny postęp i przesadzona obietnica) zobaczymy w historii AI jeszcze kilka razy. <a href="slajdy.html#/perceptron-rosenblatta-1958-neuron-który-się-uczy" class="slajd">▶ slajd: Perceptron</a> <a href="slajdy.html#/embrion-komputera-który-będzie-świadomy" class="slajd">▶ slajd: „Embrion komputera…”</a></p>
+<figure>
+<img src="media/02_perceptron.svg" style="width:100.0%" alt="Schemat perceptronu: wejścia z wagami, suma, próg, porównanie z poprawną odpowiedzią i korekta wag" />
+<figcaption aria-hidden="true">Schemat perceptronu: wejścia z wagami, suma, próg, porównanie z poprawną odpowiedzią i korekta wag</figcaption>
+</figure>
+<div class="definicja">
+<p><strong>Perceptron: jak się uczy.</strong> Dla wejść <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math> i wag <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>w</mi><annotation encoding="application/x-tex">w</annotation></semantics></math> perceptron oblicza sumę ważoną i zwraca <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">y = 1</annotation></semantics></math>, gdy <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo>⋅</mo><mi>x</mi><mo>+</mo><mi>b</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">w \cdot x + b &gt; 0</annotation></semantics></math>, a w przeciwnym razie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">y = 0</annotation></semantics></math>. Po każdym przykładzie, na którym się pomylił, koryguje wagi: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo>←</mo><mi>w</mi><mo>+</mo><mi>η</mi><mspace width="0.167em"></mspace><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo>−</mo><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mspace width="0.167em"></mspace><mi>x</mi></mrow><annotation encoding="application/x-tex">w \leftarrow w + \eta\,(t - y)\,x</annotation></semantics></math>, gdzie <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math> jest poprawną odpowiedzią, a <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>η</mi><annotation encoding="application/x-tex">\eta</annotation></semantics></math> małym współczynnikiem uczenia. Jeśli klasy da się rozdzielić jedną prostą (płaszczyzną), ta procedura zawsze znajdzie rozwiązanie. To pierwszy dowód, że maszyna może nauczyć się reguły z przykładów zamiast dostać ją od programisty.</p>
+</div>
+<div class="najwazniejsze">
+<ul>
+<li>McCulloch i Pitts (1943): neuron jako bramka logiczna z progiem, bez uczenia.</li>
+<li>Turing (1950): zamiast „czy maszyna myśli?” gra w naśladowanie; pomysł „umysłu dziecka” zapowiada uczenie maszynowe.</li>
+<li>Dartmouth (1955/1956): powstaje nazwa „sztuczna inteligencja” i dyscyplina.</li>
+<li>Rosenblatt (1958): perceptron uczy się z przykładów, ale prasa i badacze obiecują więcej, niż umie.</li>
+</ul>
+</div>
+<h3 id="złote-lata-i-pierwsza-zima-19561980">3. Złote lata i pierwsza zima (1956–1980)</h3>
+<p>Lata 1956–1974 to okres optymizmu i hojnego finansowania, zwłaszcza wojskowego (DARPA w USA). Powstały programy dowodzące twierdzeń logiki (Logic Theorist), rozwiązujące łamigłówki (General Problem Solver), robot Shakey planujący własne działania oraz <strong>ELIZA</strong> (1966) Josepha Weizenbauma: program, który za pomocą prostych reguł podmiany słów udawał psychoterapeutę. Weizenbaum był zaskoczony, jak chętnie ludzie zwierzali się programowi, który nie rozumiał ani słowa. <a href="slajdy.html#/złote-lata-19561974" class="slajd">▶ slajd: Złote lata</a></p>
+<div class="pulapka">
+<p><strong>Efekt ELIZY.</strong> Ludzie przypisują rozumienie i intencje każdemu, kto rozmawia płynnie, nawet gdy wiedzą, że to program. Efekt opisano w latach 60., a dziś dotyczy chatbotów, którym użytkownicy zwierzają się z problemów prawnych i zdrowotnych. Dla regulatora wynika stąd obowiązek jasnego informowania, że użytkownik rozmawia z maszyną (por. art. 50 AI Act), a dla prawnika ostrożność wobec „empatycznego” tonu systemu.</p>
+</div>
+<p>Optymizm był ogromny. Herbert Simon pisał w 1965 r., że w ciągu 20 lat maszyny będą zdolne wykonać każdą pracę człowieka. Marvin Minsky w 1967 r. przewidywał, że w ciągu jednego pokolenia problem stworzenia AI zostanie zasadniczo rozwiązany. Badacze nie docenili tzw. <strong>paradoksu Moraveca</strong>: to, co trudne dla człowieka (logika, szachy), okazało się dla maszyn stosunkowo łatwe, a to, co łatwe dla dziecka (rozpoznawanie twarzy, chodzenie, rozumienie potocznej mowy), było niezwykle trudne. <a href="slajdy.html#/prognozy-z-lat-60." class="slajd">▶ slajd: Prognozy z lat 60.</a></p>
+<div class="przyklad">
+<p><strong>Paradoks Moraveca w kancelarii.</strong> Dla maszyny łatwe: znaleźć wszystkie wystąpienia słowa „rażące” w 50 000 orzeczeń. Trudne: ocenić, czy konkretne naruszenie jest „rażące”, bo to wymaga rozumienia kontekstu, celu przepisu i ocen społecznych. Podział pracy między prawnika a system wynika dokładnie z tego paradoksu.</p>
+</div>
+<p>Przyszły rozczarowania. W 1969 r. Minsky i Papert w książce „Perceptrons” wykazali, że jednowarstwowy perceptron nie potrafi obliczyć niektórych prostych funkcji. Klasyczny przykład to XOR, czyli „albo A, albo B, ale nie oba”. W 1973 r. <a href="https://www.chilton-computing.org.uk/inf/literature/reports/lighthill_report/p001.htm">raport Sir Jamesa Lighthilla</a> dla brytyjskiej Science Research Council stwierdził, że AI działa w „zabawkowych” światach, a w realnych problemach grzęźnie w <strong>eksplozji kombinatorycznej</strong>: liczba możliwości rośnie szybciej niż moc komputerów. W USA poprawka Mansfielda (1969) zawęziła wojskowe badania do projektów o bezpośrednim zastosowaniu, a DARPA w latach 1973–1974 obcięła budżety na AI. Nastała <strong>pierwsza zima AI</strong> (ok. 1974–1980). <a href="slajdy.html#/perceptrons-1969-granice-jednego-neuronu" class="slajd">▶ slajd: „Perceptrons”</a> <a href="slajdy.html#/raport-lighthilla-i-pierwsza-zima-ai-19741980" class="slajd">▶ slajd: Raport Lighthilla</a></p>
+<figure>
+<img src="media/02_xor.svg" style="width:100.0%" alt="Porównanie funkcji AND i XOR: punkty AND da się oddzielić jedną prostą, punktów XOR nie" />
+<figcaption aria-hidden="true">Porównanie funkcji AND i XOR: punkty AND da się oddzielić jedną prostą, punktów XOR nie</figcaption>
+</figure>
+<div class="definicja">
+<p><strong>XOR i granica jednego neuronu.</strong> Funkcja XOR zwraca 1, gdy dokładnie jedno z wejść jest równe 1:</p>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>A XOR B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Na płaszczyźnie punkty (0,1) i (1,0) mają wynik 1, a punkty (0,0) i (1,1) wynik 0. Żadna pojedyncza prosta nie oddziela tych par, więc perceptron jednowarstwowy nie może tej funkcji nauczyć się z żadnymi wagami. Dwie warstwy neuronów potrafią to zrobić.</p>
+</div>
+<div class="definicja">
+<p><strong>Eksplozja kombinatoryczna.</strong> Liczba możliwych sytuacji rośnie wykładniczo wraz z rozmiarem problemu. W szachach liczbę możliwych partii szacuje się na rzędu <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mn>120</mn></msup><annotation encoding="application/x-tex">10^{120}</annotation></semantics></math> (liczba Shannona), a liczbę legalnych pozycji na planszy go 19×19 na około <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>⋅</mo><msup><mn>10</mn><mn>170</mn></msup></mrow><annotation encoding="application/x-tex">2 \cdot 10^{170}</annotation></semantics></math>. Przeszukanie wszystkich możliwości jest niemożliwe, więc potrzebne są heurystyki, a te w „prawdziwym świecie” zawodziły. To główny zarzut Lighthilla.</p>
+</div>
+<div class="pulapka">
+<p><strong>Mit: książka „Perceptrons” zabiła sieci neuronowe.</strong> Dowód Minsky’ego i Paperta dotyczył perceptronu jednowarstwowego, a nie sieci w ogóle. Zahamowanie badań miało więcej przyczyn: ograniczoną moc komputerów, brak metody trenowania sieci wielowarstwowych (ta przyszła w latach 80.), zmianę priorytetów finansujących i raport Lighthilla. Prosta opowieść „jedna książka zakończyła epokę” jest przykładem uproszczeń, które łatwo przeniknąć do prac prawniczych.</p>
+</div>
+<div class="historia">
+<p><strong>Debata Lighthilla.</strong> W 1973 r. BBC pokazała publiczną debatę o raporcie z udziałem Lighthilla, Donalda Michie, Richarda Gregory’ego i Johna McCarthy’ego. Materiały dotyczące debaty udostępnia Uniwersytet w Edynburgu: <a href="https://www.aiai.ed.ac.uk/events/lighthill1973/">Lighthill Debate 1973</a>.</p>
+</div>
+<div class="najwazniejsze">
+<ul>
+<li>Lata 1956–1974: optymizm, wojskowe finansowanie, ELIZA, Logic Theorist, Shakey.</li>
+<li>Prognozy („w 20 lat”) się nie sprawdziły; paradoks Moraveca tłumaczy dlaczego.</li>
+<li>Przyczyny pierwszej zimy: granice perceptronu (XOR), eksplozja kombinatoryczna, raport Lighthilla, cięcia DARPA.</li>
+<li>Zima to nie koniec badań, lecz koniec łatwych pieniędzy.</li>
+</ul>
+</div>
+<h3 id="systemy-ekspertowe-i-druga-zima-19801993">4. Systemy ekspertowe i druga zima (1980–1993)</h3>
+<p>W latach 80. AI wróciła w postaci <strong>systemów ekspertowych</strong>. System ekspertowy ma trzy elementy: bazę wiedzy (setki lub tysiące reguł „JEŻELI … TO …”), silnik wnioskowania, który łączy reguły z faktami sprawy, oraz inżyniera wiedzy, który wydobywa reguły od ekspertów. Wielką zaletą takiego systemu jest <strong>przejrzystość</strong>: każdą decyzję można wyjaśnić, wskazując reguły, które zadziałały. <a href="slajdy.html#/czym-jest-system-ekspertowy" class="slajd">▶ slajd: Czym jest system ekspertowy?</a></p>
+<div class="przyklad">
+<p><strong>Reguła „JEŻELI … TO …” w prawie.</strong> Przepis „zakazuje się wjazdu pojazdów do parku” można zapisać tak:</p>
+<pre><code>JEŻELI  obiekt jest pojazdem
+  ORAZ  obiekt wjeżdża do parku
+TO      wjazd jest zakazany</code></pre>
+<p>Silnik wnioskowania zastosuje regułę do faktów („rower: pojazd, wjeżdża do parku”) i wskaże, która reguła zadziałała. Problem zaczyna się w pytaniu, co jest „pojazdem”: hulajnoga elektryczna, wózek dziecięcy, pomnik-czołg na cokole? Ten przykład pochodzi z klasycznego sporu H.L.A. Harta i Lona Fullera o granice pojęć prawnych (<a href="https://doi.org/10.2307/1338225">Hart, Harvard Law Review 71, 1958</a>). System regułowy nie potrafi sam odpowiedzieć na to pytanie, bo wymaga ono wykładni, a nie dedukcji.</p>
+</div>
+<p>Przykłady to DENDRAL (chemia, od 1965), MYCIN (diagnoza zakażeń, lata 70.) i XCON w firmie DEC (konfiguracja komputerów, od 1980), który miał przynosić oszczędności szacowane na 25–40 mln dolarów rocznie. W 1982 r. Japonia ogłosiła program komputerów piątej generacji. MYCIN dorównywał w testach specjalistom, ale nie trafił do praktyki klinicznej m.in. dlatego, że nie było jasne, kto odpowiada za błędną diagnozę maszyny. <a href="slajdy.html#/złota-era-systemów-ekspertowych" class="slajd">▶ slajd: Złota era systemów ekspertowych</a></p>
+<p>W tym okresie narodziła się dziedzina <strong>AI i prawo</strong>. L. Thorne McCarty opisał w <em>Harvard Law Review</em> (1977) system <strong>TAXMAN</strong>, który modelował amerykańskie prawo podatkowe dotyczące reorganizacji spółek (<a href="https://doi.org/10.2307/1340132">„Reflections on TAXMAN”</a>). McCarty doszedł do wniosku, że najtrudniejsze w prawie nie jest stosowanie reguł, tylko spory o znaczenie pojęć. Edwina Rissland i Kevin Ashley zbudowali <strong>HYPO</strong>, system rozumujący z precedensów w sprawach o tajemnicę handlową: program wyszukiwał sprawy podobne, odróżniał je od siebie i tworzył przypadki hipotetyczne. Zespół Marka Sergota i Roberta Kowalskiego zapisał w 1986 r. brytyjską ustawę o obywatelstwie z 1981 r. jako program logiczny i przy okazji ujawnił luki i niejasności ustawy (<a href="https://doi.org/10.1145/5689.5920">„The British Nationality Act as a Logic Program”</a>). Te projekty odpowiadają dwóm modelom rozumowania prawniczego: subsumpcji pod regułę (tradycja kontynentalna) i rozumowaniu z analogii do precedensu (common law). <a href="slajdy.html#/pierwsze-systemy-prawnicze-taxman" class="slajd">▶ slajd: TAXMAN</a> <a href="slajdy.html#/hypo-i-british-nationality-act" class="slajd">▶ slajd: HYPO i British Nationality Act</a></p>
+<div class="historia">
+<p><strong>Jak działa HYPO.</strong> Program oceniał, czy ujawnienie informacji naruszyło tajemnicę handlową, porównując nowy stan faktyczny z bazą spraw. Każdą sprawę opisywano „czynnikami” (np. środki ochrony tajemnicy, ujawnienie informacji osobom trzecim, wcześniejsze zobowiązanie do poufności). HYPO budował argument strony, wskazywał precedensy na jej korzyść, kontrargumenty przeciwnika i sposoby odróżnienia spraw. Metoda „czynników” przetrwała w badaniach nad rozumowaniem prawniczym i w nowoczesnych narzędziach analityki orzeczeń (por. Ashley, <em>Artificial Intelligence and Legal Analytics</em>, 2017).</p>
+</div>
+<p>Systemy ekspertowe zawiodły z kilku powodów. Eksperci nie potrafią wypowiedzieć całej swojej wiedzy (<strong>wiedza milcząca</strong>). System działa tylko w wąskim świecie i „łamie się” na nietypowym przypadku. Każda zmiana przepisów wymaga ręcznej zmiany reguł. W prawie dochodzi do tego otwarta tekstura pojęć: czy zakaz wjazdu pojazdów do parku dotyczy hulajnogi elektrycznej? Klauzule generalne, takie jak zasady współżycia społecznego (art. 5 k.c.), są dla systemu regułowego praktycznie nieprzetwarzalne. W 1987 r. załamał się rynek wyspecjalizowanych komputerów do AI, a program piątej generacji nie przyniósł zapowiadanego przełomu. Nastała <strong>druga zima AI</strong> (ok. 1987–1993). Sam termin „zima AI” padł już w 1984 r. jako ostrzeżenie przed tym, co się wkrótce stało. <a href="slajdy.html#/dlaczego-systemy-ekspertowe-zawiodły" class="slajd">▶ slajd: Dlaczego systemy ekspertowe zawiodły?</a> <a href="slajdy.html#/druga-zima-ai-19871993" class="slajd">▶ slajd: Druga zima AI</a></p>
+<div class="przepis">
+<p><strong>Art. 5 Kodeksu cywilnego.</strong> „Nie można czynić ze swego prawa użytku, który by był sprzeczny ze społeczno-gospodarczym przeznaczeniem tego prawa lub z zasadami współżycia społecznego. Takie działanie lub zaniechanie uprawnionego nie jest uważane za wykonywanie prawa i nie korzysta z ochrony.” (<a href="https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU19640160093">tekst ustawy w ISAP</a>)</p>
+<p>Dlaczego to przykład dla historii AI: ocena, czy dane zachowanie jest „sprzeczne z zasadami współżycia społecznego”, wymaga wiedzy o normach społecznych, kontekście i proporcjach. Nie da się jej zapisać regułą „JEŻELI … TO …”, a to właśnie tym zajmowały się systemy ekspertowe.</p>
+</div>
+<div class="pulapka">
+<p><strong>Wniosek dla projektantów legal tech.</strong> Systemy regułowe dobrze radzą sobie z przepisami o zamkniętych przesłankach (terminy, kwoty, obliczenia podatkowe), a źle z pojęciami ocennymi. Gdy sprzedawca obiecuje „system, który sam stosuje prawo”, zapytaj: do jakich przepisów, i kto zmienia reguły po nowelizacji?</p>
+</div>
+<div class="najwazniejsze">
+<ul>
+<li>System ekspertowy = baza reguł + silnik wnioskowania + inżynier wiedzy; zaleta: przejrzystość.</li>
+<li>Pierwsze systemy prawnicze (TAXMAN, HYPO, British Nationality Act) pokazały dwa modele rozumowania: z reguł i z precedensów.</li>
+<li>Przyczyny porażki: wiedza milcząca, kruchość, koszt aktualizacji, pojęcia ocenne i klauzule generalne.</li>
+<li>Druga zima (ok. 1987–1993) skończyła erę „AI jako reguły”.</li>
+</ul>
+</div>
+<h3 id="przełomy-deep-blue-imagenet-alphago">5. Przełomy: Deep Blue, ImageNet, AlphaGo</h3>
+<p>Sieci neuronowe wróciły dzięki <strong>propagacji wstecznej</strong> (<a href="https://doi.org/10.1038/323533a0">Rumelhart, Hinton, Williams, <em>Nature</em>, 1986</a>): metodzie, która pozwala trenować sieci z wieloma warstwami. Sieć zgaduje, sprawdza, o ile się pomyliła, i „rozdziela winę” za błąd na wszystkie wagi. W latach 90. i 2000. uczenie maszynowe rozwijało się bez rozgłosu: filtry antyspamowe, rozpoznawanie pisma, rekomendacje. <a href="slajdy.html#/powrót-sieci-neuronowych" class="slajd">▶ slajd: Powrót sieci neuronowych</a></p>
+<p>W maju 1997 r. komputer <strong>Deep Blue</strong> firmy IBM (<a href="https://www.ibm.com/history/deep-blue">historia projektu</a>) wygrał z mistrzem świata Garrim Kasparowem 3½:2½ (rok wcześniej Kasparow wygrał 4:2). Deep Blue nie uczył się sam: przeszukiwał setki milionów pozycji na sekundę i oceniał je według reguł napisanych przez ludzi. Słynny dziwny „ruch 44” w pierwszej partii był skutkiem błędu programu. <a href="slajdy.html#/deep-blue-kasparow-1997-ruch-44" class="slajd">▶ slajd: Deep Blue</a></p>
+<p>Prawdziwy przełom przyszedł w 2012 r. Zespół Fei-Fei Li zbudował <strong><a href="https://image-net.org/">ImageNet</a></strong>, zbiór opisanych zdjęć (3,2 mln w pierwszej publikacji z 2009 r., później ok. 14 mln). W <a href="https://image-net.org/challenges/LSVRC/2012/results.html">konkursie rozpoznawania obrazów</a> sieć <strong>AlexNet</strong> (Krizhevsky, Sutskever, Hinton) osiągnęła błąd 15,3% wobec 26,2% drugiego zespołu. Sieć trenowano na dwóch kartach graficznych do gier. Od tej pory wiadomo, że rewolucja AI ma trzy paliwa: <strong>dane, moc obliczeniową i algorytmy</strong>. <a href="slajdy.html#/imagenet-i-alexnet-2012-dane-gpu-sieci" class="slajd">▶ slajd: ImageNet i AlexNet</a></p>
+<figure>
+<img src="media/02_w_ilsvrc_2012.svg" style="width:100.0%" alt="Wykres słupkowy: w konkursie ImageNet 2012 sieć AlexNet (SuperVision) osiągnęła błąd top-5 15,3%, a drugi zespół 26,2%." />
+<figcaption aria-hidden="true">Wykres słupkowy: w konkursie ImageNet 2012 sieć AlexNet (SuperVision) osiągnęła błąd top-5 15,3%, a drugi zespół 26,2%.</figcaption>
+</figure>
+<div class="pulapka">
+<p><strong>Zbiór danych też ma historię prawną i etyczną.</strong> Etykiety ImageNet nadawali pracownicy platformy mikrozadań, a część kategorii dotyczących osób okazała się obraźliwa lub uprzedzona. Krytyka projektu (<a href="https://excavating.ai/">Crawford i Paglen, <em>Excavating AI</em>, 2019</a>) doprowadziła do usunięcia części kategorii osób (<a href="https://arxiv.org/abs/1912.07726">Yang i in., 2020</a>). Zdjęcia pobrano z internetu bez zgody autorów i osób na nich uwidocznionych, co dziś rodzi pytania o prawa autorskie, dane osobowe i legalność trenowania modeli (spotkania 5 i 7).</p>
+</div>
+<p>W marcu 2016 r. program <strong>AlphaGo</strong> firmy DeepMind (<a href="https://doi.org/10.1038/nature16961">Silver i in., <em>Nature</em>, 2016</a>) wygrał w Seulu z Lee Sedolem, jednym z najlepszych graczy go, 4:1. W drugiej partii AlphaGo zagrał <strong>ruch 37</strong>, który według jego własnych szacunków człowiek zagrałby z prawdopodobieństwem ok. 1 na 10 000. Komentatorzy uznali go najpierw za błąd, potem za genialny. AlphaGo łączył uczenie na partiach mistrzów z uczeniem ze wzmocnieniem (grą przeciwko sobie). Porównanie z Deep Blue jest pouczające: dziwny ruch z 1997 r. był błędem programu, a dziwny ruch z 2016 r. strategią, której ludzie nie znali. Badania pokazują, że po pojawieniu się programów na poziomie nadludzkim decyzje zawodowych graczy go stały się lepsze i bardziej nowatorskie (<a href="https://doi.org/10.1073/pnas.2214840120">Shin i in., PNAS 2023</a>). Czy to obala zarzut Lady Lovelace? To dobre pytanie do dyskusji. <a href="slajdy.html#/alphago-lee-sedol-2016-ruch-37" class="slajd">▶ slajd: AlphaGo</a> <a href="slajdy.html#/od-ruchu-44-do-ruchu-37-co-się-zmieniło" class="slajd">▶ slajd: Od ruchu 44 do ruchu 37</a></p>
+<div class="definicja">
+<p><strong>Uczenie ze wzmocnieniem.</strong> Metoda, w której program (agent) działa w środowisku, dostaje nagrodę lub karę za skutki działań i uczy się strategii maksymalizującej nagrodę. AlphaGo grał miliony partii z samym sobą, nagrodą była wygrana. Strategia nie jest zapisana w żadnej regule: wynika z doświadczenia, dlatego nawet twórcy nie potrafili wyjaśnić, dlaczego ruch 37 jest dobry. To pierwszy popularny przykład problemu <strong>wyjaśnialności</strong>.</p>
+</div>
+<div class="najwazniejsze">
+<ul>
+<li>Propagacja wsteczna (1986) umożliwia trenowanie sieci wielowarstwowych.</li>
+<li>Deep Blue (1997) to przeszukiwanie i reguły napisane przez ludzi, nie uczenie.</li>
+<li>ImageNet i AlexNet (2012) pokazały receptę: dane + GPU + sieci głębokie.</li>
+<li>AlphaGo (2016) uczy się strategii samodzielnie; jego ruchy bywają nieoczywiste i trudne do wyjaśnienia.</li>
+</ul>
+</div>
+<h3 id="era-modeli-fundamentalnych-20172026">6. Era modeli fundamentalnych (2017–2026)</h3>
+<p>W czerwcu 2017 r. ośmioro badaczy z Google opublikowało artykuł <a href="https://arxiv.org/abs/1706.03762">„Attention Is All You Need”</a>, opisujący architekturę <strong>transformera</strong> z mechanizmem uwagi. Model analizuje całe zdanie naraz i sam ustala, które słowa są dla siebie ważne, a przetwarzanie równoległe pozwala trenować go na ogromnych zbiorach tekstu. Litera „T” w nazwie GPT to właśnie transformer. Jak działa mechanizm uwagi, pokażemy na spotkaniu 3. <a href="slajdy.html#/transformer-2017-attention-is-all-you-need" class="slajd">▶ slajd: Transformer</a></p>
+<p>Potem nastąpiło szybkie skalowanie: GPT-1 i BERT (2018), GPT-2 (2019), GPT-3 (2020) ze 175 mld parametrów. W 2021 r. badacze ze Stanford zaproponowali termin <strong>modele fundamentalne</strong> (<em>foundation models</em>; <a href="https://arxiv.org/abs/2108.07258">raport „On the Opportunities and Risks of Foundation Models”</a>): modele trenowane na ogromnych, ogólnych danych, które można dostosować do wielu zadań. W AI Act ich odpowiednikiem jest <strong>model AI ogólnego przeznaczenia</strong> (art. 3 pkt 63). Dla prawnika to ważne, bo ten sam model staje się fundamentem tysięcy produktów, a jego błędy i uprzedzenia przenoszą się na wszystkie zastosowania. Dlatego AI Act nakłada osobne obowiązki na dostawców takich modeli (od 2.08.2025, art. 53 i 55). <a href="slajdy.html#/od-gpt-1-do-modeli-fundamentalnych" class="slajd">▶ slajd: Od GPT-1 do modeli fundamentalnych</a></p>
+<div class="przepis">
+<p><strong>Model AI ogólnego przeznaczenia (art. 3 pkt 63 AI Act).</strong> W największym skrócie: model AI (także trenowany na dużych ilościach danych metodą samonadzoru), który wykazuje znaczną ogólność i jest w stanie kompetentnie wykonywać szeroki zakres odrębnych zadań, niezależnie od sposobu wprowadzenia go do obrotu, i który można zintegrować z różnymi systemami lub aplikacjami. Z definicji wyłączono modele wykorzystywane wyłącznie do badań i prototypowania przed wprowadzeniem do obrotu. Pełny tekst: <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/pol">rozporządzenie (UE) 2024/1689</a>.</p>
+</div>
+<p>30 listopada 2022 r. OpenAI udostępniło <strong>ChatGPT</strong>. Według szacunku analityków UBS po około dwóch miesiącach korzystało z niego ok. 100 mln osób miesięcznie. Przełom polegał nie tylko na modelu, ale na interfejsie: rozmowa w języku naturalnym zamiast kodu. AI stała się technologią masową. <a href="slajdy.html#/chatgpt-30.11.2022-ai-w-rękach-wszystkich" class="slajd">▶ slajd: ChatGPT</a></p>
+<div class="orzeczenie">
+<p><strong>Mata v. Avianca, Inc., 678 F. Supp. 3d 443 (S.D.N.Y. 2023), sygn. 1:22-cv-01461.</strong> Głośna sprawa z USA o użyciu ChatGPT przez adwokatów. Pełnomocnik powoda złożył pismo z powołaniem na orzeczenia, które model wymyślił (wraz z sygnaturami i cytatami), a po wezwaniach sądu nadal podtrzymywał ich istnienie. Sędzia P. Kevin Castel w orzeczeniu z 22.06.2023 r. nałożył na dwóch adwokatów i ich kancelarię grzywnę w łącznej wysokości 5000 dolarów i nakazał powiadomić powoda oraz sędziów, których nazwiska przypisano fikcyjnym orzeczeniom. Powództwo oddalono z innego powodu (przedawnienie). Wnioski: wynik modelu to hipoteza do sprawdzenia w źródle pierwotnym, a odpowiedzialność za treść pisma ponosi podpisujący je prawnik. Opis sprawy: <a href="https://en.wikipedia.org/wiki/Mata_v._Avianca,_Inc.">Mata v. Avianca, Inc. (Wikipedia)</a>. Podobne ćwiczenie wykonasz sam w zadaniu z modelem generatywnym niżej; odpowiedzialność omówimy na spotkaniu 8.</p>
+</div>
+<p>W latach 2024–2026 pojawiły się <strong>modele rozumujące</strong> (OpenAI o1, wrzesień 2024; DeepSeek-R1, styczeń 2025), które przed odpowiedzią rozpisują rozumowanie krok po kroku, oraz <strong>agenci AI</strong>: systemy, które dostają cel, same planują kolejne kroki i wykonują je za pomocą narzędzi. Kolejne kamienie milowe to funkcja obsługi komputera przez model (październik 2024), standard MCP do podłączania narzędzi (listopad 2024), OpenAI Operator (styczeń 2025), Claude Code (luty 2025) i ChatGPT agent (lipiec 2025). Według badania METR (<a href="https://arxiv.org/abs/2503.14499">Kwa i in., 2025</a>) długość zadań, które agenci wykonują samodzielnie, podwajała się w ostatnich latach mniej więcej co 7 miesięcy. W 2026 r. agenci trafiają do codziennej pracy biurowej i firmowych systemów, a amerykański NIST rozpoczął prace nad standardami dla agentów. Dla prawnika pojawiają się pytania: kto odpowiada za działanie agenta, jak przypisać mu oświadczenie woli i jak udowodnić, co zrobił (spotkanie 8). <a href="slajdy.html#/modele-rozumujące-i-agenci-20242025" class="slajd">▶ slajd: Modele rozumujące i agenci</a> <a href="slajdy.html#/agenci-w-pracy-2026" class="slajd">▶ slajd: Agenci w pracy</a></p>
+<figure>
+<img src="media/02_w_metr_horyzont.svg" style="width:100.0%" alt="Wykres w skali logarytmicznej: długość zadań wykonywanych z 50% skutecznością rosła od 6-9 minut dla modeli z 2023-2024 r. do 39 minut dla o1 i 59 minut dla Claude 3.7 Sonnet w 2025 r." />
+<figcaption aria-hidden="true">Wykres w skali logarytmicznej: długość zadań wykonywanych z 50% skutecznością rosła od 6-9 minut dla modeli z 2023-2024 r. do 39 minut dla o1 i 59 minut dla Claude 3.7 Sonnet w 2025 r.</figcaption>
+</figure>
+<div class="definicja">
+<p><strong>Agent AI.</strong> System, który (1) dostaje cel, a nie pojedyncze polecenie, (2) sam planuje kolejne kroki, (3) korzysta z narzędzi (przeglądarka, pliki, poczta, kod), (4) obserwuje wynik i koryguje plan. Różnica wobec chatbota: chatbot odpowiada, agent <em>działa</em>, a skutki jego działań mogą być prawnie istotne (zawarcie umowy, usunięcie danych, wysłanie wiadomości).</p>
+</div>
+<div class="pulapka">
+<p><strong>Uwaga na wykładnicze prognozy.</strong> Wzrost długości zadań agentów dotyczy zadań z mierzalnym kryterium sukcesu (programowanie, zadania testowe), a nie spraw z niejasnym wynikiem, takich jak większość pracy prawnika. Prognozy z jednej serii pomiarów (METR) są użytecznym sygnałem, ale nie dowodem, że za rok agent poprowadzi sprawę. Historia AI uczy ostrożności wobec obu skrajności: entuzjastycznej i lekceważącej.</p>
+</div>
+<p>Przykładem najnowszych kierunków są modele łączące język z danymi z czujników. Model OpenTSLM (Stanford i in., 2025; <a href="https://github.com/StanfordBDHG/OpenTSLM">repozytorium projektu</a>) czyta przebiegi tętna, saturacji czy EKG i formułuje wnioski w języku naturalnym. Rodzi to pytania prawne: dane o zdrowiu są szczególną kategorią danych (art. 9 RODO), a system AI będący wyrobem medycznym może być systemem wysokiego ryzyka (art. 6 ust. 1 i zał. I AI Act). Po zmianach wprowadzonych rozporządzeniem (UE) 2026/1744 obowiązki dla tej grupy systemów stosuje się od 2 sierpnia 2028 r. <a href="slajdy.html#/gdzie-jesteśmy-obecnie-modele-szeregów-czasowych" class="slajd">▶ slajd: Modele szeregów czasowych</a> <a href="slajdy.html#/zastosowania-w-medycynie-i-pytania-prawne" class="slajd">▶ slajd: Zastosowania w medycynie</a></p>
+<p>Rangę dziedziny potwierdzają nagrody: <a href="https://awards.acm.org/about/2018-turing">Nagroda Turinga za 2018 r.</a> dla Hintona, LeCuna i Bengio oraz <a href="https://www.nobelprize.org">Nagrody Nobla w 2024 r.</a>: z fizyki dla Hopfielda i Hintona, z chemii dla Bakera oraz Hassabisa i Jumpera (AlphaFold). <a href="slajdy.html#/nagrody-ai-wchodzi-do-panteonu-nauki" class="slajd">▶ slajd: Nagrody</a></p>
+<div class="najwazniejsze">
+<ul>
+<li>Transformer (2017) + skalowanie (GPT-3, 2020) = modele fundamentalne; ChatGPT (2022) czyni AI masową.</li>
+<li>AI Act reguluje modele ogólnego przeznaczenia osobno (art. 3 pkt 63, art. 53 i 55; od 2.08.2025).</li>
+<li>Modele rozumujące i agenci (2024–2026) przesuwają pytania prawne z „co model powiedział” na „co agent zrobił”.</li>
+<li>Wynik modelu trzeba sprawdzać w źródle (por. Mata v. Avianca).</li>
+</ul>
+</div>
+<figure>
+<img src="media/02_w_epoch_moc_obliczeniowa.svg" style="width:100.0%" alt="Wykres w skali logarytmicznej: moc obliczeniowa treningu wzrosła z 4,7·10^17 FLOP dla AlexNet (2012) do 3,8·10^25 FLOP dla Llamy 3.1 405B (2024), czyli ok. 80 milionów razy więcej." />
+<figcaption aria-hidden="true">Wykres w skali logarytmicznej: moc obliczeniowa treningu wzrosła z 4,7·10^17 FLOP dla AlexNet (2012) do 3,8·10^25 FLOP dla Llamy 3.1 405B (2024), czyli ok. 80 milionów razy więcej.</figcaption>
+</figure>
+<figure>
+<img src="media/02_w_koszt_trenowania.svg" style="width:100.0%" alt="Wykres w skali logarytmicznej: szacowany koszt treningu wzrósł od ok. 670 USD dla oryginalnego Transformera (2017) do ok. 79 mln USD dla GPT-4 (2023) i ok. 170 mln USD dla Llamy 3.1 405B (2024)." />
+<figcaption aria-hidden="true">Wykres w skali logarytmicznej: szacowany koszt treningu wzrósł od ok. 670 USD dla oryginalnego Transformera (2017) do ok. 79 mln USD dla GPT-4 (2023) i ok. 170 mln USD dla Llamy 3.1 405B (2024).</figcaption>
+</figure>
+<h3 id="wnioski-dla-prawnika">7. Wnioski dla prawnika</h3>
+<p>Historia AI to historia <strong>cykli</strong>: przesadzone obietnice, rozczarowanie, odpływ pieniędzy, spokojna praca i nowy przełom. Przeplatają się w niej dwie szkoły: AI symboliczna (reguły i logika) i AI koneksjonistyczna (sieci neuronowe uczone na danych). Dziś coraz częściej łączy się je w systemach hybrydowych. <a href="slajdy.html#/czego-uczy-historia-ai" class="slajd">▶ slajd: Czego uczy historia AI?</a></p>
+<p>Z tej historii wynikają cztery praktyczne wnioski. Po pierwsze, prognozy o AI, zarówno entuzjastyczne, jak i lekceważące, trzeba traktować ostrożnie. Po drugie, regulacja musi być <strong>neutralna technologicznie</strong>: AI Act definiuje system AI przez jego cechy (autonomia, wnioskowanie z danych wejściowych), a nie przez konkretną technikę (art. 3 pkt 1). Motyw 12 AI Act wyjaśnia, że definicja nie obejmuje systemów działających wyłącznie według reguł zdefiniowanych przez ludzi. Po trzecie, stare pytania wracają: wyjaśnialność (systemy ekspertowe były przejrzyste, sieci neuronowe nie są), odpowiedzialność za błąd (MYCIN) i legalność danych treningowych (ImageNet). Po czwarte, „AI i prawo” to dziedzina z półwiekową tradycją. Dzisiejsze narzędzia legal tech mają poprzedników, a ich ograniczenia były opisane już w latach 70. <a href="slajdy.html#/co-z-tego-wynika-dla-prawnika" class="slajd">▶ slajd: Co z tego wynika dla prawnika?</a></p>
+<div class="przepis">
+<p><strong>System AI w rozumieniu AI Act (art. 3 pkt 1) i motyw 12.</strong> Definicja opiera się na cechach: system maszynowy, zaprojektowany do działania z różnym poziomem autonomii, który może wykazywać zdolność adaptacji po wdrożeniu i który na podstawie otrzymanych danych wejściowych <em>wnioskuje</em>, jak generować wyniki (predykcje, treści, zalecenia, decyzje) mogące wpływać na środowisko fizyczne lub wirtualne. Motyw 12 zaznacza, że pojęcie to nie obejmuje prostszych systemów tradycyjnego oprogramowania ani systemów opartych na regułach definiowanych wyłącznie przez ludzi, które służą do automatycznego wykonywania operacji. Wytyczne Komisji w sprawie definicji z 2025 r. doprecyzowują granicę. Pełny tekst: <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/pol">rozporządzenie (UE) 2024/1689</a>.</p>
+<p>Zestaw to z częścią 1: automat i program z regułami (człowiek zapisuje zachowanie) są co do zasady poza definicją, model uczony (zachowanie wynika z danych) jest w jej centrum. Klasyczny system ekspertowy leży na granicy, bo reguły zapisał człowiek, ale system „wnioskuje” z nich i z danych sprawy. To dokładnie ten rodzaj pytania, który stawia zadanie w ćwiczeniach.</p>
+</div>
+<div class="pulapka">
+<p><strong>Cztery pytania kontrolne przed zaufaniem „AI”.</strong> (1) Kto to zbudował i kto wykonywał pracę, której nie widać (Turek)? (2) Skąd są dane i czy wolno było ich użyć (ImageNet)? (3) Czy da się wyjaśnić decyzję (system ekspertowy kontra sieć neuronowa)? (4) Kto odpowiada za błąd (MYCIN, Mata v. Avianca)?</p>
+</div>
+<div class="zrodlo">
+<p>Pełna lista lektur obowiązkowych i uzupełniających, aktów prawnych i źródeł internetowych tego spotkania jest na końcu strony, a całość kursu w <a href="../../biblioteka.html">bibliotece</a>. Pojęcia z tej strony znajdziesz w <a href="../../slowniczek.html">słowniczku</a> i jako <a href="../../fiszki.html?temat=02">fiszki</a>.</p>
+</div>
+<div class="najwazniejsze">
+<ul>
+<li>Historia AI to cykle obietnic i rozczarowań; dwie szkoły: symboliczna i koneksjonistyczna.</li>
+<li>Regulacja neutralna technologicznie: AI Act definiuje system AI przez cechy, nie technikę.</li>
+<li>Wracają trzy stare pytania: wyjaśnialność, odpowiedzialność, legalność danych.</li>
+<li>„AI i prawo” ma półwieczną tradycję; warto znać poprzedników współczesnego legal tech.</li>
+</ul>
+</div>
+<h3 id="pojęcia-kluczowe">Pojęcia kluczowe</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Pojęcie</th>
+<th>Definicja robocza</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>automat</td>
+<td>urządzenie wykonujące z góry ustaloną sekwencję działań; nie uczy się i nie reaguje na otoczenie</td>
+</tr>
+<tr>
+<td>neuron McCullocha–Pittsa</td>
+<td>matematyczny model neuronu (1943): wejścia 0/1, próg, wyjście 0/1; bez uczenia</td>
+</tr>
+<tr>
+<td>perceptron</td>
+<td>model neuronu z wagami korygowanymi po każdym błędzie (Rosenblatt 1958); pierwszy algorytm uczenia sieci</td>
+</tr>
+<tr>
+<td>gra w naśladowanie</td>
+<td>propozycja Turinga (1950), by zastąpić pytanie „czy maszyna myśli?” testem rozróżnialności maszyny od człowieka</td>
+</tr>
+<tr>
+<td>AI symboliczna</td>
+<td>podejście, w którym wiedzę i reguły zapisuje człowiek, a program je przeszukuje i łączy</td>
+</tr>
+<tr>
+<td>AI koneksjonistyczna</td>
+<td>podejście, w którym sieć neuronowa wyprowadza zachowanie z danych</td>
+</tr>
+<tr>
+<td>zima AI</td>
+<td>okres odpływu finansowania i zainteresowania AI po niespełnionych obietnicach (ok. 1974–1980 i 1987–1993)</td>
+</tr>
+<tr>
+<td>eksplozja kombinatoryczna</td>
+<td>szybszy wzrost liczby możliwości niż mocy obliczeniowej; główny zarzut raportu Lighthilla (1973)</td>
+</tr>
+<tr>
+<td>system ekspertowy</td>
+<td>program z bazą reguł „JEŻELI … TO …” i silnikiem wnioskowania, odtwarzający wiedzę eksperta</td>
+</tr>
+<tr>
+<td>propagacja wsteczna</td>
+<td>metoda trenowania sieci wielowarstwowych przez rozkładanie błędu na wagi wszystkich warstw</td>
+</tr>
+<tr>
+<td>głębokie uczenie</td>
+<td>uczenie sieci neuronowych z wieloma warstwami ukrytymi; dominuje od 2012 r.</td>
+</tr>
+<tr>
+<td>transformer</td>
+<td>architektura sieci (2017) oparta na mechanizmie uwagi; podstawa dużych modeli językowych</td>
+</tr>
+<tr>
+<td>model fundamentalny</td>
+<td>model trenowany na ogromnych, ogólnych danych, dostosowywany do wielu zadań; w AI Act: model AI ogólnego przeznaczenia (art. 3 pkt 63)</td>
+</tr>
+<tr>
+<td>agent AI</td>
+<td>system, który dostaje cel, sam planuje kroki i wykonuje je za pomocą narzędzi</td>
+</tr>
+<tr>
+<td>paradoks Moraveca</td>
+<td>obserwacja, że czynności łatwe dla człowieka bywają najtrudniejsze dla maszyn, i odwrotnie</td>
+</tr>
+</tbody>
+</table>
+<h3 id="weryfikacja">Weryfikacja</h3>
+<p>Daty, liczby i stan prawny sprawdzono: 2026-10-19 (źródła w <code>lektury.md</code> i w notatkach do slajdów). Wydarzenia z 2026 r. ustalono na podstawie komunikatów firm i relacji prasowych; przed zajęciami warto je zaktualizować. Ramki, definicje i przykłady dodane 2026-10-20 oparto na treści slajdów i wiedzy ogólnej; adresy URL w ramkach sprawdzono 2026-10-20 (strony wydawców i ISAP blokują automatyczne zapytania, więc DOI sprawdzono w bazie Crossref, a ISAP według numeru Dz.U. 1964 nr 16 poz. 93). Sprawę Mata v. Avianca opisano na podstawie relacji prasowych, a nie pełnego tekstu orzeczenia, więc przed zajęciami warto ją potwierdzić w tekście orzeczenia.</p>
+</div></section><section class="section" id="lektury"><h2>Lektury i biblioteka</h2><div class="prose"><h3>Obowiązkowe</h3><ul class="bib"><li data-typ="artykul" data-grp="bib" data-id="02-obo-01">Turing, Alan M. „Computing Machinery and Intelligence”. <i>Mind</i> 59, nr 236 (1950): 433–460. Do przeczytania: sekcja 1 („The Imitation Game”) i sekcja 6 („Contrary Views on the Main Question”), w tym zarzut Lady Lovelace; łącznie ok. 15 stron. DOI: 10.1093/mind/LIX.236.433; tekst jest też dostępny w licznych przedrukach i antologiach. <a href="https://doi.org/10.1093/mind/LIX.236.433" target="_blank" rel="noopener">[link]</a> <span class="chip" title="Adres nie odpowiedział przy automatycznym sprawdzeniu">link do sprawdzenia</span></li><li data-typ="ksiazka" data-grp="bib" data-id="02-obo-02">McCarthy, John, Marvin L. Minsky, Nathaniel Rochester, Claude E. Shannon. <i>A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence</i>, 31.08.1955, <a href="http://jmc.stanford.edu/articles/dartmouth/dartmouth.pdf" target="_blank" rel="noopener">http://jmc.stanford.edu/articles/dartmouth/dartmouth.pdf</a> (dostęp 19.10.2026). Do przeczytania: wstęp i lista problemów (ok. 4 strony).</li><li data-typ="ksiazka" data-grp="bib" data-id="02-obo-03">Ashley, Kevin D. <i>Artificial Intelligence and Legal Analytics: New Tools for Law Practice in the Digital Age</i>. Cambridge: Cambridge University Press, 2017, rozdz. 1 [do weryfikacji: zakres stron; w razie potrzeby wybrać fragment ok. 10 stron o historii AI i prawa].</li></ul><h3>Uzupełniające</h3><ul class="bib"><li data-typ="ksiazka" data-grp="bib" data-id="02-uzu-04">Nilsson, Nils J. <i>The Quest for Artificial Intelligence: A History of Ideas and Achievements</i>. Cambridge: Cambridge University Press, 2010 (wersja PDF udostępniona przez autora).</li><li data-typ="ksiazka" data-grp="bib" data-id="02-uzu-05">Li, Fei-Fei. <i>The Worlds I See: Curiosity, Exploration, and Discovery at the Dawn of AI</i>. Nowy Jork: Flatiron Books, 2023 (historia ImageNet).</li><li data-typ="ksiazka" data-grp="bib" data-id="02-uzu-06">Przegalińska, Aleksandra, Paweł Oksanowicz. <i>Sztuczna inteligencja. Nieludzka, arcyludzka</i>. Kraków: Znak, 2020.</li><li data-typ="artykul" data-grp="bib" data-id="02-uzu-07">McCulloch, Warren S., Walter Pitts. „A Logical Calculus of the Ideas Immanent in Nervous Activity”. <i>Bulletin of Mathematical Biophysics</i> 5 (1943): 115–133.</li><li data-typ="artykul" data-grp="bib" data-id="02-uzu-08">Rosenblatt, Frank. „The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain”. <i>Psychological Review</i> 65, nr 6 (1958): 386–408.</li><li data-typ="artykul" data-grp="bib" data-id="02-uzu-09">Lighthill, James. „Artificial Intelligence: A General Survey”. W: <i>Artificial Intelligence: a paper symposium</i>. Londyn: Science Research Council, 1973.</li><li data-typ="artykul" data-grp="bib" data-id="02-uzu-10">McCarty, L. Thorne. „Reflections on TAXMAN: An Experiment in Artificial Intelligence and Legal Reasoning”. <i>Harvard Law Review</i> 90 (1977): 837.</li><li data-typ="ksiazka" data-grp="bib" data-id="02-uzu-11">Ashley, Kevin D. <i>Modeling Legal Argument: Reasoning with Cases and Hypotheticals</i>. Cambridge, MA: MIT Press, 1990.</li><li data-typ="artykul" data-grp="bib" data-id="02-uzu-12">Sergot, Marek J., Fariba Sadri, Robert A. Kowalski, Frank Kriwaczek, Peter Hammond, H. Terese Cory. „The British Nationality Act as a Logic Program”. <i>Communications of the ACM</i> 29, nr 5 (1986): 370–386.</li><li data-typ="artykul" data-grp="bib" data-id="02-uzu-13">Rumelhart, David E., Geoffrey E. Hinton, Ronald J. Williams. „Learning Representations by Back-Propagating Errors”. <i>Nature</i> 323 (1986): 533–536.</li><li data-typ="artykul" data-grp="bib" data-id="02-uzu-14">Vaswani, Ashish i in. „Attention Is All You Need”. arXiv:1706.03762 (2017). <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener">[link]</a></li><li data-typ="artykul" data-grp="bib" data-id="02-uzu-15">Bommasani, Rishi i in. „On the Opportunities and Risks of Foundation Models”. arXiv:2108.07258 (2021). <a href="https://arxiv.org/abs/2108.07258" target="_blank" rel="noopener">[link]</a></li><li data-typ="artykul" data-grp="bib" data-id="02-uzu-16">Shin, Minkyu, Jin Kim, Bas van Opheusden, Thomas L. Griffiths. „Superhuman Artificial Intelligence Can Improve Human Decision-Making by Increasing Novelty”. <i>PNAS</i> 120, nr 12 (2023): e2214840120.</li><li data-typ="artykul" data-grp="bib" data-id="02-uzu-17">Silver, Nate. <i>The Signal and the Noise</i>. Nowy Jork: Penguin, 2012 (rozdział o Deep Blue i „ruchu 44”).</li><li data-typ="artykul" data-grp="bib" data-id="02-uzu-18">Kwa, Thomas i in. „Measuring AI Ability to Complete Long Tasks”. arXiv:2503.14499 (2025). <a href="https://arxiv.org/abs/2503.14499" target="_blank" rel="noopener">[link]</a></li><li data-typ="artykul" data-grp="bib" data-id="02-uzu-19">Langer, Patrick i in. „OpenTSLM: Time-Series Language Models for Reasoning over Multivariate Medical Text- and Time-Series Data”. arXiv:2510.02410 (2025). <a href="https://arxiv.org/abs/2510.02410" target="_blank" rel="noopener">[link]</a></li></ul><h3>Akty prawne i orzecznictwo</h3><ul class="bib"><li data-typ="akt_prawny" data-grp="bib" data-id="02-pra-20">Rozporządzenie (UE) 2024/1689 (AI Act): art. 3 pkt 1 (definicja systemu AI), art. 3 pkt 63 (model AI ogólnego przeznaczenia), art. 6 ust. 1 i zał. I (systemy wysokiego ryzyka będące produktami lub ich elementami bezpieczeństwa), motyw 12.</li><li data-typ="akt_prawny" data-grp="bib" data-id="02-pra-21">Rozporządzenie (UE) 2026/1744 (omnibus cyfrowy dotyczący AI): nowe terminy stosowania przepisów o systemach wysokiego ryzyka (zał. III: 2.12.2027; zał. I: 2.08.2028).</li><li data-typ="akt_prawny" data-grp="bib" data-id="02-pra-22">Rozporządzenie (UE) 2016/679 (RODO): art. 9 (szczególne kategorie danych, w tym dane o zdrowiu).</li></ul><h3>Źródła internetowe</h3><ul class="bib"><li data-typ="strona" data-grp="bib" data-id="02-int-23">Stanford Encyclopedia of Philosophy, „Ramon Llull”, <a href="https://plato.stanford.edu/entries/llull/" target="_blank" rel="noopener">https://plato.stanford.edu/entries/llull/</a> (dostęp 19.10.2026).</li><li data-typ="strona" data-grp="bib" data-id="02-int-24">Wyniki konkursu ILSVRC 2012, <a href="https://image-net.org/challenges/LSVRC/2012/results.html" target="_blank" rel="noopener">https://image-net.org/challenges/LSVRC/2012/results.html</a> (dostęp 19.10.2026).</li><li data-typ="strona" data-grp="bib" data-id="02-int-25">AlphaGo versus Lee Sedol, <a href="https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol</a> (dostęp 19.10.2026).</li><li data-typ="strona" data-grp="bib" data-id="02-int-26">Debata Lighthilla (1973), materiały Uniwersytetu w Edynburgu, <a href="https://www.aiai.ed.ac.uk/events/lighthill1973/" target="_blank" rel="noopener">https://www.aiai.ed.ac.uk/events/lighthill1973/</a> (dostęp 19.10.2026).</li><li data-typ="strona" data-grp="bib" data-id="02-int-27">ACM, A.M. Turing Award 2018, <a href="https://awards.acm.org/about/2018-turing" target="_blank" rel="noopener">https://awards.acm.org/about/2018-turing</a> (dostęp 19.10.2026). <span class="chip" title="Adres nie odpowiedział przy automatycznym sprawdzeniu">link do sprawdzenia</span></li><li data-typ="strona" data-grp="bib" data-id="02-int-28">Nagrody Nobla 2024 z fizyki i chemii, <a href="https://www.nobelprize.org" target="_blank" rel="noopener">https://www.nobelprize.org</a> (dostęp 19.10.2026). <span class="chip" title="Adres nie odpowiedział przy automatycznym sprawdzeniu">link do sprawdzenia</span></li><li data-typ="strona" data-grp="bib" data-id="02-int-29">OpenTSLM, repozytorium projektu, <a href="https://github.com/StanfordBDHG/OpenTSLM" target="_blank" rel="noopener">https://github.com/StanfordBDHG/OpenTSLM</a> (dostęp 19.10.2026).</li><li data-typ="strona" data-grp="bib" data-id="02-int-30">OpenAI, „Introducing OpenAI Frontier”, <a href="https://openai.com/index/introducing-openai-frontier/" target="_blank" rel="noopener">https://openai.com/index/introducing-openai-frontier/</a> (dostęp 19.10.2026).</li></ul><h3 id="online">Zasoby online</h3><div class="cards"><article class="card potem" data-typ="narzedzie" data-grp="online" data-id="02-onl-01">
+  <p class="eyebrow">narzędzie</p>
+  <h3>TensorFlow Playground</h3>
+  <p class="meta">po angielsku</p>
+  <p>Przeglądarkowa sieć neuronowa do samodzielnego uczenia. Zbuduj model dla zbioru XOR i sprawdź, ile warstw ukrytych potrzeba (por. „Perceptrons” 1969).</p><div class="btn-row"><a class="btn ghost" href="https://playground.tensorflow.org/" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="narzedzie" data-grp="online" data-id="02-onl-02">
+  <p class="eyebrow">narzędzie</p>
+  <h3>Teachable Machine</h3>
+  <p class="meta">po angielsku</p>
+  <p>Nauczysz sieć rozpoznawać obrazy z kamery w kilka minut. Dobre ćwiczenie na różnicę między regułą a uczeniem z przykładów.</p><div class="btn-row"><a class="btn ghost" href="https://teachablemachine.withgoogle.com/" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="kurs" data-grp="online" data-id="02-onl-03">
+  <p class="eyebrow">kurs</p>
+  <h3>Elements of AI</h3>
+  <p class="meta">po angielsku</p>
+  <p>Bezpłatny kurs wprowadzający Uniwersytetu Helsińskiego, bez matematyki; dostępny również w polskiej wersji językowej.</p><div class="btn-row"><a class="btn ghost" href="https://www.elementsofai.com/" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="wideo" data-grp="online" data-id="02-onl-04">
+  <p class="eyebrow">wideo</p>
+  <h3>AlphaGo – The Movie (film dokumentalny)</h3>
+  <p class="meta">po angielsku</p>
+  <p>Dokument o meczu z Lee Sedolem (2016) z ruchem 37 i reakcjami komentatorów. Ok. 90 min.</p><div class="btn-row"><a class="btn ghost" href="https://www.youtube.com/watch?v=WXuK6gekU1Y" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="wideo" data-grp="online" data-id="02-onl-05">
+  <p class="eyebrow">wideo</p>
+  <h3>Andrej Karpathy: wprowadzenie do sieci neuronowych i propagacji wstecznej (micrograd)</h3>
+  <p class="meta">po angielsku</p>
+  <p>Lekcja budowy sieci od zera i obliczania gradientów krok po kroku. Dla ciekawych, jak działa propagacja wsteczna.</p><div class="btn-row"><a class="btn ghost" href="https://www.youtube.com/watch?v=VMj-3S1tku0" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="kurs" data-grp="online" data-id="02-onl-06">
+  <p class="eyebrow">kurs</p>
+  <h3>3Blue1Brown: seria o sieciach neuronowych</h3>
+  <p class="meta">po angielsku</p>
+  <p>Krótkie, obrazowe filmy o neuronach, uczeniu i transformerach. Najlepsze wprowadzenie wizualne przed spotkaniem 3.</p><div class="btn-row"><a class="btn ghost" href="https://www.3blue1brown.com/topics/neural-networks" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="strona" data-grp="online" data-id="02-onl-07">
+  <p class="eyebrow">strona</p>
+  <h3>The Illustrated Transformer (Jay Alammar)</h3>
+  <p class="meta">po angielsku</p>
+  <p>Ilustrowane wyjaśnienie architektury z artykułu „Attention Is All You Need”.</p><div class="btn-row"><a class="btn ghost" href="https://jalammar.github.io/illustrated-transformer/" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="repozytorium" data-grp="online" data-id="02-onl-08">
+  <p class="eyebrow">repozytorium</p>
+  <h3>micrograd (Andrej Karpathy)</h3>
+  <p class="meta">po angielsku</p>
+  <p>Około stu linii kodu w Pythonie realizujących propagację wsteczną; pokazuje, że rdzeń uczenia jest prosty.</p><div class="btn-row"><a class="btn ghost" href="https://github.com/karpathy/micrograd" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="strona" data-grp="online" data-id="02-onl-09">
+  <p class="eyebrow">strona</p>
+  <h3>Stanford Encyclopedia of Philosophy: Artificial Intelligence</h3>
+  <p class="meta">po angielsku</p>
+  <p>Rzetelny przegląd historii i filozofii AI, z bibliografią.</p><div class="btn-row"><a class="btn ghost" href="https://plato.stanford.edu/entries/artificial-intelligence/" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="strona" data-grp="online" data-id="02-onl-10">
+  <p class="eyebrow">strona</p>
+  <h3>Stanford Encyclopedia of Philosophy: The Turing Test</h3>
+  <p class="meta">po angielsku</p>
+  <p>Omówienie gry w naśladowanie, zarzutów i wariantów testu.</p><div class="btn-row"><a class="btn ghost" href="https://plato.stanford.edu/entries/turing-test/" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="strona" data-grp="online" data-id="02-onl-11">
+  <p class="eyebrow">strona</p>
+  <h3>Timeline of artificial intelligence (Wikipedia)</h3>
+  <p class="meta">po angielsku</p>
+  <p>Oś czasu do porównania z osią z zajęć. Użyj jej krytycznie: sprawdzaj daty w źródłach pierwotnych.</p><div class="btn-row"><a class="btn ghost" href="https://en.wikipedia.org/wiki/Timeline_of_artificial_intelligence" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="strona" data-grp="online" data-id="02-onl-12">
+  <p class="eyebrow">strona</p>
+  <h3>AI winter (Wikipedia)</h3>
+  <p class="meta">po angielsku</p>
+  <p>Hasło o obu „zimach AI”, z odnośnikami do raportu Lighthilla i poprawki Mansfielda.</p><div class="btn-row"><a class="btn ghost" href="https://en.wikipedia.org/wiki/AI_winter" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="dokument" data-grp="online" data-id="02-onl-13">
+  <p class="eyebrow">dokument</p>
+  <h3>Raport Lighthilla (1973), pełny tekst</h3>
+  <p class="meta">po angielsku</p>
+  <p>Oryginalny raport „Artificial Intelligence: A General Survey”; warto przeczytać wstęp i omówienie eksplozji kombinatorycznej.</p><div class="btn-row"><a class="btn ghost" href="https://www.chilton-computing.org.uk/inf/literature/reports/lighthill_report/p001.htm" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="dokument" data-grp="online" data-id="02-onl-14">
+  <p class="eyebrow">dokument</p>
+  <h3>Debata Lighthilla (1973)</h3>
+  <p class="meta">po angielsku</p>
+  <p>Materiały Uniwersytetu w Edynburgu o debacie telewizyjnej BBC z udziałem Lighthilla, Michie, Gregory’ego i McCarthy’ego.</p><div class="btn-row"><a class="btn ghost" href="https://www.aiai.ed.ac.uk/events/lighthill1973/" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="dokument" data-grp="online" data-id="02-onl-15">
+  <p class="eyebrow">dokument</p>
+  <h3>Wniosek o warsztat w Dartmouth (1955)</h3>
+  <p class="meta">po angielsku</p>
+  <p>Dokument, w którym po raz pierwszy użyto nazwy „sztuczna inteligencja”. Czyta się go w kilkanaście minut.</p><div class="btn-row"><a class="btn ghost" href="http://jmc.stanford.edu/articles/dartmouth/dartmouth.pdf" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="dokument" data-grp="online" data-id="02-onl-16">
+  <p class="eyebrow">dokument</p>
+  <h3>Rozporządzenie (UE) 2024/1689 (AI Act), polski tekst w EUR-Lex</h3>
+  <p class="meta">po polsku</p>
+  <p>Art. 3 pkt 1 (definicja systemu AI), art. 3 pkt 63 (model ogólnego przeznaczenia), motyw 12.</p><div class="btn-row"><a class="btn ghost" href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/pol" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="dokument" data-grp="online" data-id="02-onl-17">
+  <p class="eyebrow">dokument</p>
+  <h3>Komisja Europejska: wytyczne w sprawie definicji systemu AI (2025)</h3>
+  <p class="meta">po angielsku</p>
+  <p>Wyjaśnienie granicy między systemem AI a zwykłym oprogramowaniem, w tym systemami regułowymi (ćwiczenie 5).</p><div class="btn-row"><a class="btn ghost" href="https://digital-strategy.ec.europa.eu/en/library/commission-publishes-guidelines-ai-system-definition-facilitate-first-ai-acts-rules-application" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="zbior_danych" data-grp="online" data-id="02-onl-18">
+  <p class="eyebrow">zbiór danych</p>
+  <h3>ImageNet</h3>
+  <p class="meta">po angielsku</p>
+  <p>Zbiór, który zapoczątkował rewolucję głębokiego uczenia (2012). Warunki użycia ograniczają zastosowania komercyjne; zob. wyniki ILSVRC 2012.</p><div class="btn-row"><a class="btn ghost" href="https://www.image-net.org/" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="dokument" data-grp="online" data-id="02-onl-19">
+  <p class="eyebrow">dokument</p>
+  <h3>Wyniki konkursu ILSVRC 2012</h3>
+  <p class="meta">po angielsku</p>
+  <p>Tabela wyników, w której AlexNet (15,3%) pokonał resztę stawki (26,2%).</p><div class="btn-row"><a class="btn ghost" href="https://image-net.org/challenges/LSVRC/2012/results.html" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="zbior_danych" data-grp="online" data-id="02-onl-20">
+  <p class="eyebrow">zbiór danych</p>
+  <h3>OpenML</h3>
+  <p class="meta">po angielsku</p>
+  <p>Otwarta platforma z tysiącami zbiorów danych i wyników eksperymentów uczenia maszynowego.</p><div class="btn-row"><a class="btn ghost" href="https://www.openml.org/" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="zbior_danych" data-grp="online" data-id="02-onl-21">
+  <p class="eyebrow">zbiór danych</p>
+  <h3>Hugging Face Datasets</h3>
+  <p class="meta">po angielsku</p>
+  <p>Katalog zbiorów danych, także w języku polskim; przy każdym sprawdź licencję i opis pochodzenia danych.</p><div class="btn-row"><a class="btn ghost" href="https://huggingface.co/datasets" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="zbior_danych" data-grp="online" data-id="02-onl-22">
+  <p class="eyebrow">zbiór danych</p>
+  <h3>SAOS: System Analizy Orzeczeń Sądowych</h3>
+  <p class="meta">po polsku</p>
+  <p>Polska baza orzeczeń sądowych z interfejsem API; materiał do analiz i projektów z legal tech.</p><div class="btn-row"><a class="btn ghost" href="https://www.saos.org.pl/" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="strona" data-grp="online" data-id="02-onl-23">
+  <p class="eyebrow">strona</p>
+  <h3>Excavating AI (Crawford i Paglen)</h3>
+  <p class="meta">po angielsku</p>
+  <p>Esej o kategoriach i etykietach w ImageNet; wprowadzenie do problemu danych treningowych (spotkania 5 i 7).</p><div class="btn-row"><a class="btn ghost" href="https://excavating.ai/" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="strona" data-grp="online" data-id="02-onl-24">
+  <p class="eyebrow">strona</p>
+  <h3>AI Incident Database</h3>
+  <p class="meta">po angielsku</p>
+  <p>Baza udokumentowanych incydentów z udziałem systemów AI. Dobre źródło przykładów do ćwiczeń.</p><div class="btn-row"><a class="btn ghost" href="https://incidentdatabase.ai/" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="strona" data-grp="online" data-id="02-onl-25">
+  <p class="eyebrow">strona</p>
+  <h3>Stanford HAI: AI Index Report</h3>
+  <p class="meta">po angielsku</p>
+  <p>Coroczny raport z danymi o rozwoju AI: inwestycje, modele, regulacje, zastosowania.</p><div class="btn-row"><a class="btn ghost" href="https://hai.stanford.edu/ai-index" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="strona" data-grp="online" data-id="02-onl-26">
+  <p class="eyebrow">strona</p>
+  <h3>PLLuM: polski duży model językowy</h3>
+  <p class="meta">po polsku</p>
+  <p>Krajowy projekt modelu językowego dla języka polskiego, przykład „modelu fundamentalnego” rozwijanego w Polsce.</p><div class="btn-row"><a class="btn ghost" href="https://pllum.org.pl/" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="strona" data-grp="online" data-id="02-onl-27">
+  <p class="eyebrow">strona</p>
+  <h3>Bielik.AI</h3>
+  <p class="meta">po polsku</p>
+  <p>Polskie otwarte modele językowe społeczności SpeakLeash i ACK Cyfronet AGH; można je uruchomić lokalnie.</p><div class="btn-row"><a class="btn ghost" href="https://bielik.ai/" target="_blank" rel="noopener">Otwórz</a></div>
+</article></div><h3 id="potem">Do poczytania i obejrzenia potem</h3><div class="cards"><article class="card potem" data-typ="dokument" data-grp="bib" data-id="02-pot-06">
+  <p class="eyebrow">dokument</p>
+  <h3>AlphaGo</h3>
+  <p class="meta">reż. Greg Kohs · 2017</p>
+  <p>Mecz z Lee Sedolem i „ruch 37” widziane z obu stron planszy. Bezpłatnie na kanale DeepMind.</p><div class="btn-row"><a class="btn ghost" href="https://www.youtube.com/watch?v=WXuK6gekU1Y" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="film" data-grp="bib" data-id="02-pot-07">
+  <p class="eyebrow">film</p>
+  <h3>Gra tajemnic (The Imitation Game)</h3>
+  <p class="meta">reż. Morten Tyldum · 2014</p>
+  <p>Turing w Bletchley Park. Film fabularny, więc szczegóły historyczne traktować ostrożnie.</p>
+</article><article class="card potem" data-typ="ksiazka" data-grp="bib" data-id="02-pot-08">
+  <p class="eyebrow">książka</p>
+  <h3>Genius Makers: The Mavericks Who Brought AI to Google, Facebook, and the World</h3>
+  <p class="meta">Cade Metz · 2021</p>
+  <p>Reporterska historia głębokiego uczenia: Hinton, LeCun, Bengio i wyścig firm o ludzi.</p>
+</article><article class="card potem" data-typ="ksiazka" data-grp="bib" data-id="02-pot-09">
+  <p class="eyebrow">książka</p>
+  <h3>The Quest for Artificial Intelligence</h3>
+  <p class="meta">Nils J. Nilsson · 2010</p>
+  <p>Najpełniejsza historia dziedziny napisana przez jej uczestnika. Autor udostępnił PDF bezpłatnie.</p><div class="btn-row"><a class="btn ghost" href="https://ai.stanford.edu/~nilsson/QAI/qai.pdf" target="_blank" rel="noopener">Otwórz</a></div>
+</article><article class="card potem" data-typ="wideo" data-grp="bib" data-id="02-pot-10">
+  <p class="eyebrow">wideo</p>
+  <h3>Neural networks (seria)</h3>
+  <p class="meta">3Blue1Brown · 2017</p>
+  <p>Najlepsze wizualne wprowadzenie do sieci neuronowych: od perceptronu po transformery.</p><div class="btn-row"><a class="btn ghost" href="https://www.3blue1brown.com/topics/neural-networks" target="_blank" rel="noopener">Otwórz</a></div>
+</article></div></div><p class="muted"><a href="../../biblioteka.html">Cała biblioteka kursu</a></p></section><section class="section" id="cwiczenia"><h2>Ćwiczenia i dyskusja</h2><div class="prose"><p>Przy każdym pytaniu są trzy poziomy pomocy. Najpierw spróbuj odpowiedzieć sam; potem rozwijaj kolejno: <strong>kierunek</strong> (w którą stronę myśleć), <strong>wskazówka</strong> (jakie pojęcie lub przepis wykorzystać), <strong>szkic odpowiedzi</strong> (jedno z możliwych rozwiązań, nie wzorzec jedynie słuszny).</p>
+<h3 id="pytania-do-dyskusji-na-zajęcia">Pytania do dyskusji (na zajęcia)</h3>
+<p><strong>1. Leibniz marzył, by spory rozstrzygać rachunkiem („Calculemus!”). Które rodzaje sporów prawnych dałoby się dziś „policzyć”, a które z natury się temu opierają? Co stałoby się z rolą sędziego?</strong></p>
+<details>
+<summary>
+Kierunek
+</summary>
+<p>Podziel spory na te, w których sporna jest <em>liczba lub fakt</em> (kwota, termin, obliczenie), i te, w których sporna jest <em>ocena</em> (rażące naruszenie, dobra wiara, zasady współżycia społecznego).</p>
+</details>
+<details>
+<summary>
+Wskazówka
+</summary>
+<p>Wróć do paradoksu Moraveca i do art. 5 k.c. z konspektu. Zastanów się też, kto w danym sporze ustala fakty, a kto przeprowadza ocenę prawną, i czy to samo narzędzie nadaje się do obu zadań.</p>
+</details>
+<details class="rozwiazanie">
+<summary>
+Szkic odpowiedzi
+</summary>
+<p>„Policzyć” można spory o zamknięte przesłanki: naliczenie odsetek, termin przedawnienia, wysokość świadczenia według tabeli. Opierają się spory, w których rozstrzygają wartości i kontekst: klauzule generalne, ocena wiarygodności świadka, proporcjonalność. Rola sędziego raczej się przesuwa, niż znika: od liczenia do oceny i uzasadnienia, a także do kontroli wyniku systemu. Pozostaje pytanie, kto kontroluje kontrolera, gdy sędzia ufa wynikowi (por. spotkania 5 i 8).</p>
+</details>
+<p><strong>2. Systemy ekspertowe były przejrzyste, ale kruche. Sieci neuronowe są elastyczne, ale nieprzejrzyste. Które z tych cech są ważniejsze w systemie wspierającym decyzje w sądzie lub urzędzie? Czy da się mieć obie?</strong></p>
+<details>
+<summary>
+Kierunek
+</summary>
+<p>Zapytaj, kto i po co czyta uzasadnienie decyzji. Jaki obowiązek spoczywa na organie, który rozstrzyga sprawę?</p>
+</details>
+<details>
+<summary>
+Wskazówka
+</summary>
+<p>Pomyśl o obowiązku uzasadnienia orzeczenia i decyzji oraz o prawie strony do zaskarżenia. Pomyśl też o systemach hybrydowych: reguły do tego, co daje się zapisać, model do reszty, oraz o wyjaśnialności jako wymaganiu dla systemów wysokiego ryzyka.</p>
+</details>
+<details class="rozwiazanie">
+<summary>
+Szkic odpowiedzi
+</summary>
+<p>W sądzie i urzędzie ważniejsza jest przejrzystość, bo decyzję trzeba uzasadnić i można ją zaskarżyć. Elastyczność ma wartość tam, gdzie system tylko podpowiada (wyszukiwanie, streszczenie, klasyfikacja). Da się łączyć: model znajduje i porządkuje materiał, a rozstrzygnięcie i uzasadnienie opierają się na jawnych regułach i ocenie człowieka. Kosztem hybrydy jest złożoność i pytanie, gdzie leży odpowiedzialność za błąd.</p>
+</details>
+<p><strong>3. Dziwny ruch Deep Blue (1997) był błędem programu, a ruch 37 AlphaGo (2016) nową strategią. Czy ruch 37 obala „zarzut Lady Lovelace”, że maszyna nie tworzy niczego nowego? Czy model, który podsuwa prawnikowi nieoczywisty argument, „tworzy” coś nowego?</strong></p>
+<details>
+<summary>
+Kierunek
+</summary>
+<p>Rozróżnij dwa znaczenia „nowego”: nowe dla człowieka i nowe w ogóle. Rozróżnij też „wykonuje tylko to, co umiemy jej polecić” w sensie dosłownym i w sensie, że nikt nie przewidział wyniku.</p>
+</details>
+<details>
+<summary>
+Wskazówka
+</summary>
+<p>Wykorzystaj opis uczenia ze wzmocnieniem: programiści nie zapisali ruchu 37, zapisali sposób uczenia się. Przy argumentach prawniczych zastanów się, czy nieoczywisty argument modelu to wynik zrozumienia, czy statystycznego dopasowania do wzorców.</p>
+</details>
+<details class="rozwiazanie">
+<summary>
+Szkic odpowiedzi
+</summary>
+<p>Zarzut w dosłownym sensie (maszyna robi tylko to, co zaprogramowano) nie jest obalony, bo AlphaGo robił to, do czego go wytrenowano. Obalona jest jego mocna wersja (maszyna nie może zaskoczyć twórców ani przewyższyć ich wiedzy): ruch 37 był dla ludzi nowy. Model podsuwający nieoczywisty argument zachowuje się podobnie: wynik jest nowy dla użytkownika, ale jego źródłem jest zbiór tekstów. Dla prawnika ważniejsze od filozoficznego sporu jest to, że taki argument trzeba zweryfikować (sprawa <em>Mata v. Avianca</em>).</p>
+</details>
+<p><strong>4. Obie zimy AI poprzedziły przesadzone obietnice. W której fazie cyklu jesteśmy dziś? Jakie argumenty przemawiają za i przeciw kolejnej „zimie”?</strong></p>
+<details>
+<summary>
+Kierunek
+</summary>
+<p>Porównaj to, co dziś firmy obiecują, z tym, co systemy robią w praktyce. Weź pod uwagę nakłady (pieniądze, energię) i faktyczne przychody.</p>
+</details>
+<details>
+<summary>
+Wskazówka
+</summary>
+<p>Za zimą: koszty obliczeń, błędy modeli („halucynacje”), ograniczenia danych, rozbieżność obietnic i wyników. Przeciw: masowe zastosowania, które już działają i przynoszą zysk, w odróżnieniu od laboratoriów lat 70. i 80. Sprawdź, czym dzisiejsza sytuacja różni się od 1974 i 1987 r.</p>
+</details>
+<details class="rozwiazanie">
+<summary>
+Szkic odpowiedzi
+</summary>
+<p>Jedna rozsądna odpowiedź: jesteśmy w fazie wysokich oczekiwań, ale tym razem technologia ma masowych użytkowników i realne zastosowania, więc zima podobna do poprzednich jest mniej prawdopodobna; możliwa jest korekta wycen i oczekiwań. Dla prawnika kluczowe jest, by regulacja nie zależała od nastroju rynku: przepisy powinny być neutralne technologicznie i odporne na zmianę mody.</p>
+</details>
+<p><strong>5. AI Act definiuje system AI przez cechy (autonomia, wnioskowanie z danych), a motyw 12 wyłącza systemy działające wyłącznie według reguł zdefiniowanych przez ludzi. Czy klasyczny system ekspertowy (np. TAXMAN) byłby dziś „systemem AI” w rozumieniu art. 3 pkt 1? Jakie są konsekwencje odpowiedzi?</strong></p>
+<details>
+<summary>
+Kierunek
+</summary>
+<p>Rozłóż definicję z art. 3 pkt 1 na elementy (system maszynowy, autonomia, wnioskowanie, generowanie wyników) i sprawdź każdy z nich w systemie ekspertowym.</p>
+</details>
+<details>
+<summary>
+Wskazówka
+</summary>
+<p>Kluczowe jest słowo „wnioskuje” i zdanie z motywu 12 o regułach definiowanych <em>wyłącznie</em> przez ludzi. Zauważ różnicę między regułą zapisaną przez człowieka a wnioskiem, który system wyprowadza, gdy łączy reguły z danymi konkretnej sprawy. Przyjrzyj się wytycznym Komisji w sprawie definicji (2025).</p>
+</details>
+<details class="rozwiazanie">
+<summary>
+Szkic odpowiedzi
+</summary>
+<p>Argument za wyłączeniem: wszystkie reguły zapisał człowiek, system niczego się nie uczy (motyw 12). Argument przeciw: silnik wnioskowania wyprowadza wnioski w sprawach, których nikt nie przewidział, więc to coś więcej niż mechaniczne wykonanie operacji. Wytyczne Komisji wskazują, że prosty system regułowy zwykle jest poza definicją, a granicę wyznacza zdolność wnioskowania. Konsekwencje: jeśli to system AI, obowiązują go wymagania AI Act zależne od ryzyka; jeśli nie, stosuje się inne przepisy (RODO, odpowiedzialność za produkt), co może być równie dotkliwe.</p>
+</details>
+<h3 id="zadanie-z-modelem-generatywnym-praca-własna">Zadanie z modelem generatywnym (praca własna)</h3>
+<p><strong>Polecenie.</strong> Poproś wybrany model generatywny (np. ChatGPT, Claude, Gemini, Bielik) o: „Przygotuj oś czasu historii sztucznej inteligencji od 1943 do 2025 r. z 15 najważniejszymi wydarzeniami. Przy każdym podaj dokładną datę i źródło.” Następnie wybierz pięć wydarzeń i sprawdź je w źródłach z <code>lektury.md</code> albo w źródłach pierwotnych (artykuł, komunikat, encyklopedia naukowa).</p>
+<details>
+<summary>
+Kierunek
+</summary>
+<p>Wybierz wydarzenia o różnym charakterze: jedną datę dokładną (dzień i miesiąc), jedną publikację z autorami, jedną liczbę oraz jedno wydarzenie, które łatwo pomylić z innym.</p>
+</details>
+<details>
+<summary>
+Wskazówka
+</summary>
+<p>Do sprawdzania użyj w pierwszej kolejności źródeł z konspektu: propozycja z Dartmouth (31.08.1955), artykuł Turinga, wyniki ILSVRC 2012, publikacja „Attention Is All You Need”. Sprawdź, czy link lub DOI podany przez model faktycznie prowadzi do wskazanej pracy.</p>
+</details>
+<p><strong>Co obserwujemy.</strong></p>
+<ul>
+<li>Czy daty są poprawne co do roku, a gdy model podaje dzień i miesiąc, czy one też się zgadzają?</li>
+<li>Czy podane źródła istnieją i czy mówią to, co twierdzi model?</li>
+<li>Których wydarzeń brakuje (np. systemy ekspertowe, zimy AI, pierwsze systemy prawnicze)?</li>
+<li>Czy model powiela błędy znane z popularnych infografik (por. ćwiczenie z osią Solvatio na slajdach)?</li>
+</ul>
+<p><strong>Pytania do refleksji.</strong></p>
+<ul>
+<li>Ile z pięciu sprawdzonych informacji było całkowicie poprawnych? Ile było „prawie” poprawnych (zły miesiąc, zły autor)?</li>
+<li>Jak zmieniłaby się Twoja ocena, gdyby model odpowiedział bez podawania źródeł?</li>
+<li>Jakie są konsekwencje takich błędów, gdy prawnik korzysta z modelu do ustalenia daty wejścia w życie przepisu albo daty wyroku?</li>
+</ul>
+<h3 id="studium-przypadku">Studium przypadku</h3>
+<p><strong>Stan faktyczny.</strong> Kancelaria „Lex Logica” w latach 90. zbudowała system regułowy, który na podstawie odpowiedzi klienta w formularzu ustala, czy przysługuje mu świadczenie z ubezpieczenia społecznego. System ma ok. 2000 reguł zapisanych przez prawników kancelarii i był aktualizowany ręcznie po każdej nowelizacji. W 2026 r. kancelaria chce zastąpić go dużym modelem językowym, który „przeczyta” aktualne przepisy i orzecznictwo i sam odpowie na pytanie klienta. Starszy partner protestuje: „Stary system zawsze umiał powiedzieć, którą regułę zastosował. Nowy nie umie”. Młodszy partner odpowiada: „Stary system mylił się przy każdej nowelizacji, której nie zdążyliśmy wpisać, i nie radził sobie z nietypowymi sprawami”.</p>
+<p><strong>Pytania.</strong></p>
+<p><strong>1. Które argumenty obu partnerów odpowiadają lekcjom z historii systemów ekspertowych i sieci neuronowych?</strong></p>
+<details>
+<summary>
+Wskazówka
+</summary>
+<p>Przypomnij listę przyczyn upadku systemów ekspertowych (wiedza milcząca, kruchość, koszt aktualizacji) i zaletę, którą miały (przejrzystość). Który partner mówi o której cesze?</p>
+</details>
+<details class="rozwiazanie">
+<summary>
+Szkic odpowiedzi
+</summary>
+<p>Starszy partner broni przejrzystości, zalety systemów ekspertowych. Młodszy wskazuje kruchość i koszt aktualizacji, czyli słabości, które zakończyły drugą falę AI. Oba argumenty są prawdziwe; model językowy zyskuje elastyczność, ale traci możliwość wskazania reguły.</p>
+</details>
+<p><strong>2. Czy stary system jest „systemem AI” w rozumieniu art. 3 pkt 1 AI Act? A nowy? Uzasadnij, korzystając z motywu 12.</strong></p>
+<details>
+<summary>
+Wskazówka
+</summary>
+<p>Zastosuj ten sam rachunek co w pytaniu 5 do dyskusji. Który z systemów „wnioskuje” w rozumieniu definicji, a który wykonuje reguły zapisane przez człowieka?</p>
+</details>
+<details class="rozwiazanie">
+<summary>
+Szkic odpowiedzi
+</summary>
+<p>Stary system opiera się na regułach zapisanych wyłącznie przez ludzi, więc według motywu 12 raczej nie jest systemem AI (choć granicę trzeba wskazać ostrożnie i sprawdzić w wytycznych Komisji). Nowy model językowy wnioskuje z danych wejściowych, jak generować odpowiedzi, i działa z pewną autonomią, więc jest systemem AI. Skutek: dla nowego systemu trzeba ocenić klasę ryzyka i obowiązki, np. informacyjne wobec klienta.</p>
+</details>
+<p><strong>3. Zaproponuj rozwiązanie hybrydowe: które zadania powierzyć regułom, a które modelowi językowemu? Jak zapewnić możliwość wyjaśnienia klientowi podstawy odpowiedzi?</strong></p>
+<details>
+<summary>
+Kierunek
+</summary>
+<p>Podziel pracę na zadania z zamkniętymi przesłankami i zadania wymagające rozumienia tekstu swobodnego.</p>
+</details>
+<details class="rozwiazanie">
+<summary>
+Szkic odpowiedzi
+</summary>
+<p>Reguły: obliczenia, terminy, progi i warunki z ustawy. Model: zrozumienie pytania klienta, uzupełnienie formularza, streszczenie przepisów prostym językiem. Wyjaśnialność: odpowiedź zawsze wskazuje przepis i regułę, które zadziałały, a model nie wydaje rozstrzygnięcia samodzielnie; sprawy nietypowe trafiają do prawnika. Dziennik zdarzeń pozwala odtworzyć, co system zrobił.</p>
+</details>
+<p><strong>4. Kto ponosi odpowiedzialność wobec klienta, jeśli którykolwiek z systemów wprowadzi go w błąd? (Wstęp do spotkania 8.)</strong></p>
+<details>
+<summary>
+Wskazówka
+</summary>
+<p>Zastanów się, kto zawarł umowę z klientem i kto wybrał narzędzie. Przypomnij sobie sprawę <em>Mata v. Avianca</em> i pytanie, kto podpisuje pismo.</p>
+</details>
+<details class="rozwiazanie">
+<summary>
+Szkic odpowiedzi
+</summary>
+<p>Wobec klienta odpowiada kancelaria, bo to ona świadczy usługę i wybrała narzędzie; dostawca modelu odpowiada wobec kancelarii na podstawie umowy i przepisów o produkcie. Zmiana narzędzia nie zmienia obowiązku staranności prawnika. Szczegóły: spotkanie 8.</p>
+</details>
+</div></section><section class="section" id="quiz"><h2>Sprawdź się</h2><p class="muted">Quiz samosprawdzający. Odpowiedzi nie są nigdzie zapisywane ani wysyłane. Pytania z quizu nie pojawiają się na teście zaliczeniowym.</p><div id="quiz" class="quiz"></div><script type="application/json" id="quiz-data">{"modul": "02", "tytul": "Historia sztucznej inteligencji: od automatów do modeli fundamentalnych", "pytania": [{"id": "02-01", "typ": "jednokrotny", "tresc": "Termin „sztuczna inteligencja” (artificial intelligence) pojawił się po raz pierwszy w:", "odpowiedzi": ["artykule Alana Turinga „Computing Machinery and Intelligence” (1950)", "propozycji projektu badawczego w Dartmouth autorstwa McCarthy'ego, Minsky'ego, Rochestera i Shannona (1955)", "raporcie Lighthilla dla brytyjskiej Science Research Council (1973)", "sztuce Karla Čapka „R.U.R.” (1920)"], "poprawna": 1, "wyjasnienie": "Termin pojawił się w propozycji z 31.08.1955 r. dotyczącej letniego warsztatu w Dartmouth (1956). Turing pisał o „maszynach myślących” i grze w naśladowanie, a Čapek wprowadził słowo „robot”.", "trudnosc": 1, "zrodlo": "McCarthy i in., propozycja z 31.08.1955; slajdy modułu 02"}, {"id": "02-02", "typ": "jednokrotny", "tresc": "Czym perceptron Rosenblatta (1958) różnił się od modelu neuronu McCullocha i Pittsa (1943)?", "odpowiedzi": ["perceptron przyjmował wyłącznie sygnały 0 i 1", "perceptron był pierwszym programem grającym w szachy", "w perceptronie wagi wejść były korygowane po każdym błędzie, czyli model się uczył", "perceptron nie miał progu aktywacji"], "poprawna": 2, "wyjasnienie": "Neuron McCullocha i Pittsa miał stałe progi ustalane przez badacza. Perceptron wprowadził uczenie: wagi zmieniały się po porównaniu odpowiedzi z poprawną etykietą.", "trudnosc": 2, "zrodlo": "Rosenblatt, Psychological Review 65(6), 1958; slajdy modułu 02"}, {"id": "02-04", "typ": "jednokrotny", "tresc": "System TAXMAN, opisany przez L. Thorne'a McCarty'ego w Harvard Law Review (1977), dotyczył:", "odpowiedzi": ["amerykańskiego prawa podatkowego w zakresie reorganizacji spółek", "ochrony tajemnicy handlowej na podstawie precedensów", "nabycia obywatelstwa brytyjskiego", "diagnozy zakażeń bakteryjnych"], "poprawna": 0, "wyjasnienie": "TAXMAN modelował prawo podatkowe dotyczące reorganizacji spółek. Tajemnica handlowa to HYPO (Rissland, Ashley), obywatelstwo brytyjskie to projekt Sergota i Kowalskiego (1986), a diagnoza zakażeń to MYCIN.", "trudnosc": 2, "zrodlo": "McCarty, 90 Harv. L. Rev. 837 (1977); slajdy modułu 02"}, {"id": "02-05", "typ": "jednokrotny", "tresc": "Która cecha systemów ekspertowych z lat 80. była ich główną zaletą z perspektywy prawnika?", "odpowiedzi": ["samodzielnie uczyły się nowych przepisów z tekstu ustaw", "radziły sobie z każdym nietypowym przypadkiem", "nie wymagały udziału ekspertów przy budowie", "każdą decyzję dało się wyjaśnić, wskazując reguły, które zadziałały"], "poprawna": 3, "wyjasnienie": "Systemy ekspertowe zapisywały wiedzę jawnie w regułach „JEŻELI … TO …”, więc ich decyzje były przejrzyste. Ich słabościami były kruchość, koszt utrzymania i trudność w zapisaniu wiedzy milczącej.", "trudnosc": 1, "zrodlo": "slajdy modułu 02, część IV"}, {"id": "02-07", "typ": "jednokrotny", "tresc": "„Ruch 37” w drugiej partii meczu AlphaGo z Lee Sedolem (2016) jest symbolem tego, że:", "odpowiedzi": ["program popełnił błąd wynikający z usterki oprogramowania", "program skopiował znany ruch z partii mistrzów", "program zagrał ruch, którego człowiek prawdopodobnie by nie wybrał, a który okazał się skuteczną, nową strategią", "człowiek wygrał partię dzięki zaskakującemu ruchowi"], "poprawna": 2, "wyjasnienie": "AlphaGo szacował, że człowiek zagrałby ten ruch z prawdopodobieństwem ok. 1 na 10 000. Ruch okazał się genialny. Usterką był natomiast „ruch 44” Deep Blue (1997), a zwycięskim ruchem człowieka ruch 78 Lee Sedola w 4. partii.", "trudnosc": 1, "zrodlo": "Silver i in., Nature 529 (2016); slajdy modułu 02"}, {"id": "02-08", "typ": "jednokrotny", "tresc": "Architektura transformera, na której opierają się współczesne duże modele językowe, została opisana w artykule:", "odpowiedzi": ["„Attention Is All You Need” (Vaswani i in., 2017)", "„Learning representations by back-propagating errors” (Rumelhart, Hinton, Williams, 1986)", "„On the Opportunities and Risks of Foundation Models” (Bommasani i in., 2021)", "„A Logical Calculus of the Ideas Immanent in Nervous Activity” (McCulloch, Pitts, 1943)"], "poprawna": 0, "wyjasnienie": "Transformer z mechanizmem uwagi opisano w 2017 r. Artykuł z 1986 r. dotyczy propagacji wstecznej, praca z 2021 r. wprowadza termin „modele fundamentalne”, a tekst z 1943 r. to pierwszy model neuronu.", "trudnosc": 1, "zrodlo": "Vaswani i in., arXiv:1706.03762 (2017)"}, {"id": "02-10", "typ": "otwarte", "tresc": "Porównaj systemy ekspertowe z lat 80. (np. TAXMAN, HYPO) z dzisiejszymi dużymi modelami językowymi stosowanymi w kancelariach. Wskaż po dwie zalety i wady każdego podejścia z perspektywy prawnika i odnieś się do problemu wyjaśnialności decyzji.", "kryteria": ["trafnie opisuje istotę systemu ekspertowego (reguły zapisane przez ludzi, silnik wnioskowania) i dużego modelu językowego (uczenie z danych, przewidywanie tekstu)", "wskazuje zalety systemów ekspertowych (np. przejrzystość, przewidywalność) i ich wady (np. kruchość, koszt aktualizacji, wiedza milcząca, otwarta tekstura prawa)", "wskazuje zalety LLM (np. elastyczność, praca z tekstem naturalnym) i wady (np. halucynacje, brak wyjaśnialności, zależność od danych)", "łączy problem wyjaśnialności z wymaganiami prawnymi (np. uzasadnienie decyzji, art. 86 AI Act, art. 22 RODO) lub proponuje rozwiązanie hybrydowe"], "punkty": 5}, {"id": "02-11", "typ": "otwarte", "tresc": "Historia AI to historia cykli entuzjazmu i rozczarowania („zim AI”). Opisz krótko przyczyny dwóch zim AI i wyjaśnij, jakie wnioski z tej historii powinien wyciągnąć prawodawca regulujący AI.", "kryteria": ["opisuje pierwszą zimę (ok. 1974–1980): niespełnione obietnice lat 60., „Perceptrons” (1969), raport Lighthilla (1973), cięcia finansowania", "opisuje drugą zimę (ok. 1987–1993): ograniczenia systemów ekspertowych, krach rynku maszyn LISP, koniec programu piątej generacji", "formułuje wnioski dla prawodawcy, np. neutralność technologiczna definicji (art. 3 pkt 1 AI Act), ostrożność wobec prognoz, regulacja oparta na ryzyku, a nie na nazwie technologii"], "punkty": 5}]}</script></section><section class="section" id="interaktywne"><h2>Materiały interaktywne</h2><div class="cards"><article class="card">
+  <h3>Oś czasu AI 1943–2026</h3>
+  <p>63 wydarzenia w trzech wątkach (technika, prawo i regulacja, kultura): od modelu neuronu McCullocha i Pittsa do omnibusu cyfrowego i polskiej ustawy o systemach AI. Filtry, wyszukiwarka, opis i źródło każdego wydarzenia.</p>
+  <p class="meta">Powiązane: <a href="../../moduly/02_historia_ai/index.html">dzielnica 2</a></p>
+  <div class="btn-row"><a class="btn" href="../../interaktywne/os_czasu_ai.html" target="_blank" rel="noopener">Otwórz</a></div>
+</article></div></section>
+  <nav class="pager" aria-label="Sąsiednie spotkania"><a href="../01_czym_jest_ai/index.html">← 01. Wprowadzenie. Czym jest sztuczna inteligencja?</a><a href="../03_podstawy_technologiczne/index.html">03. Jak działa AI? Podstawy technologiczne dla prawników →</a></nav>
+</div>
+<script type="application/json" id="city-data">{"districts": [{"nr": "01", "state": "past"}, {"nr": "02", "state": "next"}, {"nr": "03", "state": "future"}, {"nr": "04", "state": "future"}, {"nr": "05", "state": "future"}, {"nr": "06", "state": "future"}, {"nr": "07", "state": "future"}, {"nr": "08", "state": "future"}, {"nr": "09", "state": "future"}, {"nr": "10", "state": "future"}], "podziemia": {"sygnal": "2027-01-15", "jawne": false}, "info": {"01": {"sloty": [{"d": "2026-10-09", "t": "9.10.2026 · spotkanie wprowadzające"}], "slug": "01_czym_jest_ai", "nazwa": "Konstantynów", "miejsce": "Brama Zachodnia", "przedmiot": "Przepustka V-K", "zlecenie": "Na bramie miasta sprawdzasz, kto jest człowiekiem, a co jest systemem AI. Zlecenie: ustal definicję.", "wnetrze": false}, "02": {"sloty": [{"d": "2026-10-23", "t": "23.10.2026 · spotkanie I"}], "slug": "02_historia_ai", "nazwa": "Stare Miasto", "miejsce": "Muzeum Automatów", "przedmiot": "Mechaniczna sowa", "zlecenie": "W piwnicach muzeum leżą automaty, perceptrony i zapomniane systemy ekspertowe. Zlecenie: odtwórz historię maszyn, które miały myśleć.", "wnetrze": false}, "03": {"sloty": [{"d": "2026-11-06", "t": "6.11.2026 · spotkanie II"}], "slug": "03_podstawy_technologiczne", "nazwa": "Felin", "miejsce": "Rdzeń danych", "przedmiot": "Klucz dostępu", "zlecenie": "Pod chłodniami Felina pracuje model, który przewiduje następne słowo. Zlecenie: sprawdź, skąd biorą się halucynacje.", "wnetrze": true}, "04": {"sloty": [{"d": "2026-11-06", "t": "6.11.2026 · spotkanie II"}, {"d": "2026-11-20", "t": "20.11.2026 · spotkanie III"}], "slug": "04_praca_i_edukacja", "nazwa": "Tatary", "miejsce": "Fabryka i Kampus", "przedmiot": "Legitymacja", "zlecenie": "Fabryka na Tatarach pracuje prawie bez ludzi, a kampus uczy z pomocą AI. Zlecenie: oceń, kto zyskuje, a kto traci.", "wnetrze": false}, "05": {"sloty": [{"d": "2026-11-20", "t": "20.11.2026 · spotkanie III"}], "slug": "05_etyka_uprzedzenia_moderacja", "nazwa": "Śródmieście", "miejsce": "Plac Ekranów", "przedmiot": "Soczewka", "zlecenie": "Ekrany nad placem decydują, co widzą mieszkańcy i komu bank da kredyt. Zlecenie: znajdź uprzedzenia w algorytmie.", "wnetrze": false}, "06": {"sloty": [{"d": "2026-11-27", "t": "27.11.2026 · spotkanie IV"}], "slug": "06_kultura_regulacja_jezyk_sztuka", "nazwa": "Wieniawa", "miejsce": "Nocny Targ", "przedmiot": "Tłumacz uniwersalny", "zlecenie": "Na targu każdy szyld jest w innym języku, a hologramy grają spektakle bez aktorów. Zlecenie: zbadaj, jak kultura kształtuje AI i prawo.", "wnetrze": false}, "07": {"sloty": [{"d": "2026-12-04", "t": "4.12.2026 · spotkanie V"}], "slug": "07_prawo_I_regulacje_prawo_autorskie", "nazwa": "Czechów", "miejsce": "Wieża Regulatora", "przedmiot": "Pieczęć zgodności", "zlecenie": "W wieży urzęduje komisja nadzorująca systemy AI. Zlecenie: zakwalifikuj system według AI Act i ustal, do kogo należy wytwór AI.", "wnetrze": false}, "08": {"sloty": [{"d": "2026-12-18", "t": "18.12.2026 · spotkanie VI"}], "slug": "08_prawo_II_dane_odpowiedzialnosc_wymiar_sprawiedliwosci", "nazwa": "Sławin", "miejsce": "Pałac Sprawiedliwości", "przedmiot": "Toga", "zlecenie": "Sędziowie dostali asystenta AI, a pełnomocnik złożył pismo z nieistniejącymi wyrokami. Zlecenie: ustal, kto odpowiada.", "wnetrze": false}, "09": {"sloty": [{"d": "2027-01-15", "t": "15.01.2027 · spotkanie VII"}], "slug": "09_przyszlosc_ai", "nazwa": "Czuby", "miejsce": "Piramida Korporacji", "przedmiot": "Kompas", "zlecenie": "Z piramidy na wzgórzu reflektory oświetlają przyszłość. Zlecenie: oceń scenariusze rozwoju AI i to, co może z nimi zrobić prawo.", "wnetrze": false}, "10": {"sloty": [{"d": "2027-01-22", "t": "22.01.2027 · spotkanie VIII"}], "slug": "10_srodowisko_podsumowanie", "nazwa": "Wrotków", "miejsce": "Doki nad Bystrzycą", "przedmiot": "Ogniwo", "zlecenie": "W dokach kończy się łańcuch dostaw: kobalt, woda, energia i złom. Zlecenie: policz koszty i zamknij śledztwo.", "wnetrze": false}}}</script>
+
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne · Wykład monograficzny · prawo · WPiA UMCS · semestr zimowy 2026/2027<br>
+    Prowadzący: dr Karol Kasprowicz, <a href="mailto:karol.kasprowicz@mail.umcs.pl">karol.kasprowicz@mail.umcs.pl</a> · Stan materiałów na 22.10.2026 · <a href="../../styl.html">Księga stylu</a></p>
+  </div>
+</footer>
+<script src="../../assets/ui.js"></script>
+<script src="../../assets/miasto.js"></script><script src="../../assets/quiz.js"></script>
+</body>
+</html>

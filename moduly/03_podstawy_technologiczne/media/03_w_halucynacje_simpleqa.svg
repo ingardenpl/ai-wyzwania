@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">„Nie wiem” zamiast zgadywania</title><desc id="d"> Trafne: gpt-5-thinking-mini: 22%; o4-mini: 24% | Błędne (halucynacje): gpt-5-thinking-mini: 26%; o4-mini: 75% | Odmowa („nie wiem”): gpt-5-thinking-mini: 52%; o4-mini: 1%</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >„Nie wiem” zamiast zgadywania</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="14.9" font-weight="400" fill="#9095ad" text-anchor="start" >Pytania faktograficzne SimpleQA (bez dostępu do sieci): odpowiedzi trafne, błędne i odmowy odpowiedzi · dwa modele OpenAI</text>
+<rect x="28.0" y="96" width="286.7" height="344" fill="#0b0d17" stroke="#1a2a36"/>
+<text x="42.0" y="124.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="19" font-weight="700" fill="#7df9ff" text-anchor="start" >Trafne</text>
+<rect x="152.0" y="198.0" width="86.7" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="152.0" y="198.0" width="19.1" height="26.0" fill="#00f0ff"/>
+<text x="140.0" y="215.7" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >gpt-5-thinking-mini</text>
+<text x="181.1" y="216.1" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >22%</text>
+<rect x="152.0" y="340.0" width="86.7" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="152.0" y="340.0" width="20.8" height="26.0" fill="#ff003c"/>
+<text x="140.0" y="357.7" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >o4-mini</text>
+<text x="182.8" y="358.1" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >24%</text>
+<rect x="336.7" y="96" width="286.7" height="344" fill="#0b0d17" stroke="#1a2a36"/>
+<text x="350.7" y="124.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="19" font-weight="700" fill="#7df9ff" text-anchor="start" >Błędne (halucynacje)</text>
+<rect x="460.7" y="198.0" width="86.7" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="460.7" y="198.0" width="22.5" height="26.0" fill="#00f0ff"/>
+<text x="448.7" y="215.7" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >gpt-5-thinking-mini</text>
+<text x="493.2" y="216.1" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >26%</text>
+<rect x="460.7" y="340.0" width="86.7" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="460.7" y="340.0" width="65.0" height="26.0" fill="#ff003c"/>
+<text x="448.7" y="357.7" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >o4-mini</text>
+<text x="535.7" y="358.1" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >75%</text>
+<rect x="645.3" y="96" width="286.7" height="344" fill="#0b0d17" stroke="#1a2a36"/>
+<text x="659.3" y="124.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="19" font-weight="700" fill="#7df9ff" text-anchor="start" >Odmowa („nie wiem”)</text>
+<rect x="769.3" y="198.0" width="86.7" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="769.3" y="198.0" width="45.1" height="26.0" fill="#00f0ff"/>
+<text x="757.3" y="215.7" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >gpt-5-thinking-mini</text>
+<text x="824.4" y="216.1" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >52%</text>
+<rect x="769.3" y="340.0" width="86.7" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="769.3" y="340.0" width="2.0" height="26.0" fill="#ff003c"/>
+<text x="757.3" y="357.7" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >o4-mini</text>
+<text x="781.3" y="358.1" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >1%</text>
+<rect x="28" y="452" width="14" height="14" fill="#00f0ff"/>
+<text x="48.0" y="464.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13.5" font-weight="400" fill="#c2c6d8" text-anchor="start" >gpt-5-thinking-mini</text>
+<rect x="202.4" y="452" width="14" height="14" fill="#ff003c"/>
+<text x="222.4" y="464.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13.5" font-weight="400" fill="#c2c6d8" text-anchor="start" >OpenAI o4-mini</text>
+<text x="28.0" y="507.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: OpenAI, GPT-5 System Card (13 VIII 2025), tabela 8; OpenAI, Why language models hallucinate (5 IX 2025),</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >tabela SimpleQA; A. T. Kalai i in., arXiv:2509.04664</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 640" width="1600" height="640" role="img" aria-label="Oś czasu historii sztucznej inteligencji 1943–2026" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<title>Oś czasu historii sztucznej inteligencji 1943–2026</title>
+<defs>
+<marker id="aN" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f3a5f"/></marker>
+<marker id="aM" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a1538"/></marker>
+<marker id="aT" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2a7f7a"/></marker>
+<marker id="aA" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a8661a"/></marker>
+</defs>
+<rect x="1" y="1" width="1598" height="638" rx="18" fill="#fbfaf7" stroke="#d6d0c4" stroke-width="2"/>
+<text x="800.0" y="46.0" font-size="28" fill="#1f3a5f" text-anchor="middle" font-weight="bold">Historia AI 1943–2026: okresy entuzjazmu i „zimy”</text>
+<rect x="119.8" y="292.0" width="215.8" height="48.0" rx="0" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="1.5"/>
+<text x="227.7" y="322.0" font-size="17" fill="#1f3a5f" text-anchor="middle" font-weight="bold">fundamenty</text>
+<rect x="335.6" y="292.0" width="298.8" height="48.0" rx="0" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="1.5"/>
+<text x="485.0" y="322.0" font-size="17" fill="#2a7f7a" text-anchor="middle" font-weight="bold">złote lata</text>
+<rect x="634.4" y="292.0" width="99.6" height="48.0" rx="0" fill="#e6e6e6" stroke="#444" stroke-width="1.5"/>
+<text x="684.2" y="322.0" font-size="13" fill="#444" text-anchor="middle" font-weight="bold">I zima</text>
+<rect x="734.0" y="292.0" width="116.2" height="48.0" rx="0" fill="#fbf0dc" stroke="#a8661a" stroke-width="1.5"/>
+<text x="792.1" y="312.0" font-size="13" fill="#a8661a" text-anchor="middle" font-weight="bold">systemy</text>
+<text x="792.1" y="331.0" font-size="13" fill="#a8661a" text-anchor="middle" font-weight="bold">ekspertowe</text>
+<rect x="850.2" y="292.0" width="99.6" height="48.0" rx="0" fill="#e6e6e6" stroke="#444" stroke-width="1.5"/>
+<text x="900.0" y="322.0" font-size="13" fill="#444" text-anchor="middle" font-weight="bold">II zima</text>
+<rect x="949.8" y="292.0" width="315.4" height="48.0" rx="0" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="1.5"/>
+<text x="1107.5" y="322.0" font-size="17" fill="#2a7f7a" text-anchor="middle" font-weight="bold">uczenie maszynowe, statystyka</text>
+<rect x="1265.2" y="292.0" width="83.0" height="48.0" rx="0" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="1.5"/>
+<text x="1306.7" y="312.0" font-size="13" fill="#1f3a5f" text-anchor="middle" font-weight="bold">głębokie</text>
+<text x="1306.7" y="331.0" font-size="13" fill="#1f3a5f" text-anchor="middle" font-weight="bold">uczenie</text>
+<rect x="1348.2" y="292.0" width="162.7" height="48.0" rx="0" fill="#f6e2e7" stroke="#8a1538" stroke-width="1.5"/>
+<text x="1429.5" y="312.0" font-size="15" fill="#8a1538" text-anchor="middle" font-weight="bold">transformery,</text>
+<text x="1429.5" y="331.0" font-size="15" fill="#8a1538" text-anchor="middle" font-weight="bold">LLM, agenci</text>
+<line x1="70.0" y1="340.0" x2="70.0" y2="348.0" stroke="#888" stroke-width="1.5"/>
+<text x="70.0" y="366.0" font-size="15" fill="#555555" text-anchor="middle" font-weight="normal">1940</text>
+<line x1="236.0" y1="340.0" x2="236.0" y2="348.0" stroke="#888" stroke-width="1.5"/>
+<text x="236.0" y="366.0" font-size="15" fill="#555555" text-anchor="middle" font-weight="normal">1950</text>
+<line x1="402.0" y1="340.0" x2="402.0" y2="348.0" stroke="#888" stroke-width="1.5"/>
+<text x="402.0" y="366.0" font-size="15" fill="#555555" text-anchor="middle" font-weight="normal">1960</text>
+<line x1="568.0" y1="340.0" x2="568.0" y2="348.0" stroke="#888" stroke-width="1.5"/>
+<text x="568.0" y="366.0" font-size="15" fill="#555555" text-anchor="middle" font-weight="normal">1970</text>
+<line x1="734.0" y1="340.0" x2="734.0" y2="348.0" stroke="#888" stroke-width="1.5"/>
+<text x="734.0" y="366.0" font-size="15" fill="#555555" text-anchor="middle" font-weight="normal">1980</text>
+<line x1="900.0" y1="340.0" x2="900.0" y2="348.0" stroke="#888" stroke-width="1.5"/>
+<text x="900.0" y="366.0" font-size="15" fill="#555555" text-anchor="middle" font-weight="normal">1990</text>
+<line x1="1066.0" y1="340.0" x2="1066.0" y2="348.0" stroke="#888" stroke-width="1.5"/>
+<text x="1066.0" y="366.0" font-size="15" fill="#555555" text-anchor="middle" font-weight="normal">2000</text>
+<line x1="1232.0" y1="340.0" x2="1232.0" y2="348.0" stroke="#888" stroke-width="1.5"/>
+<text x="1232.0" y="366.0" font-size="15" fill="#555555" text-anchor="middle" font-weight="normal">2010</text>
+<line x1="1398.0" y1="340.0" x2="1398.0" y2="348.0" stroke="#888" stroke-width="1.5"/>
+<text x="1398.0" y="366.0" font-size="15" fill="#555555" text-anchor="middle" font-weight="normal">2020</text>
+<line x1="119.8" y1="250.0" x2="119.8" y2="292.0" stroke="#1f3a5f" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="119.8" cy="292.0" r="5" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="1"/>
+<text x="119.8" y="218.0" font-size="17" fill="#1f3a5f" text-anchor="middle" font-weight="bold">1943</text>
+<text x="119.8" y="240.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">McCulloch–Pitts</text>
+<line x1="335.6" y1="170.0" x2="335.6" y2="292.0" stroke="#1f3a5f" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="335.6" cy="292.0" r="5" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="1"/>
+<text x="335.6" y="138.0" font-size="17" fill="#1f3a5f" text-anchor="middle" font-weight="bold">1956</text>
+<text x="335.6" y="160.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">Dartmouth</text>
+<line x1="551.4" y1="250.0" x2="551.4" y2="292.0" stroke="#1f3a5f" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="551.4" cy="292.0" r="5" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="1"/>
+<text x="551.4" y="218.0" font-size="17" fill="#1f3a5f" text-anchor="middle" font-weight="bold">1969</text>
+<text x="551.4" y="240.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">„Perceptrons”</text>
+<line x1="684.2" y1="170.0" x2="684.2" y2="292.0" stroke="#1f3a5f" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="684.2" cy="292.0" r="5" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="1"/>
+<text x="684.2" y="138.0" font-size="17" fill="#1f3a5f" text-anchor="middle" font-weight="bold">1977</text>
+<text x="684.2" y="160.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">TAXMAN</text>
+<line x1="833.6" y1="250.0" x2="833.6" y2="292.0" stroke="#1f3a5f" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="833.6" cy="292.0" r="5" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="1"/>
+<text x="833.6" y="218.0" font-size="17" fill="#1f3a5f" text-anchor="middle" font-weight="bold">1986</text>
+<text x="833.6" y="240.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">propagacja wsteczna</text>
+<line x1="1016.2" y1="170.0" x2="1016.2" y2="292.0" stroke="#1f3a5f" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="1016.2" cy="292.0" r="5" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="1"/>
+<text x="1016.2" y="138.0" font-size="17" fill="#1f3a5f" text-anchor="middle" font-weight="bold">1997</text>
+<text x="1016.2" y="160.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">Deep Blue</text>
+<line x1="1265.2" y1="250.0" x2="1265.2" y2="292.0" stroke="#1f3a5f" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="1265.2" cy="292.0" r="5" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="1"/>
+<text x="1265.2" y="218.0" font-size="17" fill="#1f3a5f" text-anchor="middle" font-weight="bold">2012</text>
+<text x="1265.2" y="240.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">ImageNet / AlexNet</text>
+<line x1="1348.2" y1="170.0" x2="1348.2" y2="292.0" stroke="#1f3a5f" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="1348.2" cy="292.0" r="5" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="1"/>
+<text x="1348.2" y="138.0" font-size="17" fill="#1f3a5f" text-anchor="middle" font-weight="bold">2017</text>
+<text x="1348.2" y="160.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">transformer</text>
+<line x1="1464.4" y1="250.0" x2="1464.4" y2="292.0" stroke="#1f3a5f" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="1464.4" cy="292.0" r="5" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="1"/>
+<text x="1464.4" y="218.0" font-size="17" fill="#1f3a5f" text-anchor="middle" font-weight="bold">2024</text>
+<text x="1464.4" y="240.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">agenci AI</text>
+<line x1="236.0" y1="370.0" x2="236.0" y2="392.0" stroke="#8a1538" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="236.0" cy="340.0" r="5" fill="#8a1538" stroke="#8a1538" stroke-width="1"/>
+<text x="236.0" y="412.0" font-size="17" fill="#8a1538" text-anchor="middle" font-weight="bold">1950</text>
+<text x="236.0" y="434.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">Turing</text>
+<line x1="368.8" y1="370.0" x2="368.8" y2="472.0" stroke="#8a1538" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="368.8" cy="340.0" r="5" fill="#8a1538" stroke="#8a1538" stroke-width="1"/>
+<text x="368.8" y="492.0" font-size="17" fill="#8a1538" text-anchor="middle" font-weight="bold">1958</text>
+<text x="368.8" y="514.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">perceptron</text>
+<line x1="501.6" y1="370.0" x2="501.6" y2="392.0" stroke="#8a1538" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="501.6" cy="340.0" r="5" fill="#8a1538" stroke="#8a1538" stroke-width="1"/>
+<text x="501.6" y="412.0" font-size="17" fill="#8a1538" text-anchor="middle" font-weight="bold">1966</text>
+<text x="501.6" y="434.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">ELIZA</text>
+<line x1="617.8" y1="370.0" x2="617.8" y2="472.0" stroke="#8a1538" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="617.8" cy="340.0" r="5" fill="#8a1538" stroke="#8a1538" stroke-width="1"/>
+<text x="617.8" y="492.0" font-size="17" fill="#8a1538" text-anchor="middle" font-weight="bold">1973</text>
+<text x="617.8" y="514.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">raport Lighthilla</text>
+<line x1="734.0" y1="370.0" x2="734.0" y2="392.0" stroke="#8a1538" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="734.0" cy="340.0" r="5" fill="#8a1538" stroke="#8a1538" stroke-width="1"/>
+<text x="734.0" y="412.0" font-size="17" fill="#8a1538" text-anchor="middle" font-weight="bold">1980</text>
+<text x="734.0" y="434.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">XCON</text>
+<line x1="850.2" y1="370.0" x2="850.2" y2="472.0" stroke="#8a1538" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="850.2" cy="340.0" r="5" fill="#8a1538" stroke="#8a1538" stroke-width="1"/>
+<text x="850.2" y="492.0" font-size="17" fill="#8a1538" text-anchor="middle" font-weight="bold">1987</text>
+<text x="850.2" y="514.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">HYPO</text>
+<line x1="1331.6" y1="370.0" x2="1331.6" y2="392.0" stroke="#8a1538" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="1331.6" cy="340.0" r="5" fill="#8a1538" stroke="#8a1538" stroke-width="1"/>
+<text x="1331.6" y="412.0" font-size="17" fill="#8a1538" text-anchor="middle" font-weight="bold">2016</text>
+<text x="1331.6" y="434.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">AlphaGo</text>
+<line x1="1431.2" y1="370.0" x2="1431.2" y2="472.0" stroke="#8a1538" stroke-width="1.5" stroke-dasharray="4 3"/>
+<circle cx="1431.2" cy="340.0" r="5" fill="#8a1538" stroke="#8a1538" stroke-width="1"/>
+<text x="1431.2" y="492.0" font-size="17" fill="#8a1538" text-anchor="middle" font-weight="bold">2022</text>
+<text x="1431.2" y="514.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">ChatGPT</text>
+<text x="800.0" y="600.0" font-size="15" fill="#555555" text-anchor="middle" font-weight="normal" font-style="italic">Granice okresów są umowne; daty zim AI przyjęto za sylabusem (1974–1980, 1987–1993).</text>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Irlandia: centra danych zużywają już 23% prądu</title><desc id="d"> 2015: 5%; 2016: 6%; 2017: 7%; 2018: 8%; 2019: 9%; 2020: 11%; 2021: 14%; 2022: 18%; 2023: 21%; 2024: 22%; 2025: 23%</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Irlandia: centra danych zużywają już 23% prądu</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#9095ad" text-anchor="start" >Zużycie energii elektrycznej przez centra danych w Irlandii (GWh); nad słupkiem udział w zużyciu kraju</text>
+<line x1="96" x2="916" y1="444.0" y2="444.0" stroke="#1a2a36"/>
+<text x="86.0" y="448.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="end" >0</text>
+<line x1="96" x2="916" y1="359.0" y2="359.0" stroke="#1a2a36"/>
+<text x="86.0" y="363.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="end" >2 000</text>
+<line x1="96" x2="916" y1="274.0" y2="274.0" stroke="#1a2a36"/>
+<text x="86.0" y="278.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="end" >4 000</text>
+<line x1="96" x2="916" y1="189.0" y2="189.0" stroke="#1a2a36"/>
+<text x="86.0" y="193.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="end" >6 000</text>
+<line x1="96" x2="916" y1="104.0" y2="104.0" stroke="#1a2a36"/>
+<text x="86.0" y="108.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="end" >8 000</text>
+<text x="96.0" y="92.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#9095ad" text-anchor="start" >GWh rocznie</text>
+<rect x="112.4" y="391.3" width="41.7" height="52.7" fill="#00f0ff"/>
+<text x="133.3" y="379.3" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >5%</text>
+<text x="133.3" y="466.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >2015</text>
+<rect x="186.9" y="381.0" width="41.7" height="63.0" fill="#00f0ff"/>
+<text x="207.8" y="369.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >6%</text>
+<text x="207.8" y="466.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >2016</text>
+<rect x="261.5" y="369.1" width="41.7" height="74.9" fill="#00f0ff"/>
+<text x="282.4" y="357.1" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >7%</text>
+<text x="282.4" y="466.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >2017</text>
+<rect x="336.0" y="351.3" width="41.7" height="92.7" fill="#00f0ff"/>
+<text x="356.9" y="339.3" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >8%</text>
+<text x="356.9" y="466.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >2018</text>
+<rect x="410.6" y="338.2" width="41.7" height="105.8" fill="#00f0ff"/>
+<text x="431.5" y="326.2" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >9%</text>
+<text x="431.5" y="466.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >2019</text>
+<rect x="485.1" y="315.2" width="41.7" height="128.8" fill="#00f0ff"/>
+<text x="506.0" y="303.2" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >11%</text>
+<text x="506.0" y="466.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >2020</text>
+<rect x="559.7" y="273.5" width="41.7" height="170.5" fill="#00f0ff"/>
+<text x="580.5" y="261.5" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >14%</text>
+<text x="580.5" y="466.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >2021</text>
+<rect x="634.2" y="219.9" width="41.7" height="224.1" fill="#00f0ff"/>
+<text x="655.1" y="207.9" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >18%</text>
+<text x="655.1" y="466.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >2022</text>
+<rect x="708.8" y="174.6" width="41.7" height="269.4" fill="#00f0ff"/>
+<text x="729.6" y="162.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >21%</text>
+<text x="729.6" y="466.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >2023</text>
+<rect x="783.3" y="147.6" width="41.7" height="296.4" fill="#00f0ff"/>
+<text x="804.2" y="135.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >22%</text>
+<text x="804.2" y="466.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >2024</text>
+<rect x="857.9" y="118.3" width="41.7" height="325.7" fill="#fcee0a"/>
+<text x="878.7" y="106.3" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >23%</text>
+<text x="878.7" y="466.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >2025</text>
+<text x="28.0" y="507.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: Central Statistics Office (Irlandia), Data Centres Metered Electricity Consumption 2025, komunikat</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >statystyczny z 7.07.2026, tabela 1</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

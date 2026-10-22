@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="dr Karol Kasprowicz">
+  <title>Społeczne wyzwania AI (I): praca i edukacja</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="../../assets/slajdy.css"/>
+</head>
+<body>
+<a class="deck-back" href="index.html" title="Wróć do strony dzielnicy: plan, konspekt, lektury, quiz">← Strona dzielnicy</a>
+<a class="deck-mobile" href="slajdy-tekst.html">Na telefonie? Otwórz slajdy do czytania →</a>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Społeczne wyzwania AI (I): praca i edukacja</h1>
+  <p class="subtitle">Sztuczna inteligencja. Wyzwania społeczne,
+kulturowe i prawne</p>
+  <p class="author">dr Karol Kasprowicz</p>
+  <p class="institute">Katedra Prawa Informatycznego i Zawodów
+Prawniczych, WPiA UMCS</p>
+</section>
+
+<section id="plan-spotkania" class="slide level2">
+<h2>Plan spotkania</h2>
+<ol type="1">
+<li>Automatyzacja a augmentacja pracy. „Poszarpana granica” technologii:
+badania BCG i Harvard Business School</li>
+<li>Sektory i zawody najbardziej dotknięte zmianą, w tym zawody
+prawnicze</li>
+<li>Niewidzialna praca przy danych, prekaryzacja, propozycje dochodu
+podstawowego</li>
+<li>Edukacja: uczciwość akademicka, „iluzja efektywności poznawczej”,
+wyniki badania „Algorytm w Ławce Szkolnej”</li>
+<li>Przekwalifikowanie i kompetencje cyfrowe pracowników</li>
+</ol>
+<aside class="notes">
+<p>Temat otwiera blok społeczny (tematy 4 i 5). Rozkład: 6.11 (spotkanie
+II, po temacie 3) części I–III o pracy; 20.11 (spotkanie III) części
+IV–V o edukacji i kompetencjach, potem temat 5: etyka, uprzedzenia i
+przejrzystość. Przypomnienie 6.11: dziś mija termin wyboru ścieżki
+zaliczenia i uzgodnienia tematu projektu (ścieżka B).</p>
+</aside>
+</section>
+<section>
+<section id="część-i.-automatyzacja-czy-augmentacja"
+class="title-slide slide level1">
+<h1>Część I. Automatyzacja czy augmentacja?</h1>
+
+</section>
+<section id="pytanie-na-początek" class="slide level2">
+<h2>Pytanie na początek</h2>
+<ul>
+<li>Które zadania z Waszej przyszłej pracy (aplikant, asystent sędziego,
+radca w dziale prawnym) <strong>chętnie oddalibyście AI</strong>?</li>
+<li>Których <strong>nie oddalibyście nigdy</strong>? Dlaczego?</li>
+<li>Czy podział przebiega według trudności zadania, czy według czegoś
+innego?</li>
+</ul>
+<aside class="notes">
+<p>Krótka sonda (2–3 minuty, podniesienie rąk lub sonda na żywo).
+Zapisać na tablicy dwie kolumny: „oddam” i „nie oddam”. Wrócimy do tej
+listy przy „poszarpanej granicy” i na końcu zajęć: zwykle studenci
+dzielą zadania według złożoności, a badania pokazują, że granica
+przebiega inaczej.</p>
+</aside>
+</section>
+<section id="robotyka-a-przyszłość-pracy" class="slide level2">
+<h2>Robotyka a przyszłość pracy</h2>
+<ul>
+<li>Automatyzacja przekształca istniejące stanowiska i tworzy nowe</li>
+<li>Rośnie popyt na umiejętności zarządzania systemami AI i
+robotycznymi, ich utrzymania i optymalizacji</li>
+<li>Zmieniają się wymagania edukacyjne i struktura
+społeczno-ekonomiczna</li>
+<li>Przykład: centra logistyczne Amazona, w których roboty przewożą
+regały do pracowników</li>
+</ul>
+<aside class="notes">
+<p>Ze slajdu „Robotyka a przyszłość pracy” (prezentacja „Praca i AI”, s.
+11–12). Na slajdzie 12 było wideo z magazynu Amazona (wpis Briana
+Roemmele na X: „Here are some of the 750,000 Amazon robots in use…”).
+[materiał wideo z prezentacji pptx] Notatka z prezentacji „Zmagania”:
+Robbinsville w stanie New Jersey.</p>
+<p>Weryfikacja: Amazon informował w 2023 r. o ponad 750 tys. robotów
+mobilnych w swojej sieci logistycznej. [do weryfikacji: aktualna liczba
+i źródło pierwotne, komunikat Amazon]</p>
+</aside>
+</section>
+<section id="automatyzacja-a-augmentacja" class="slide level2">
+<h2>Automatyzacja a augmentacja</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Automatyzacja</strong></p>
+<ul>
+<li>maszyna przejmuje zadanie w całości</li>
+<li>człowiek znika z tego etapu procesu</li>
+<li>przykład: automatyczna anonimizacja orzeczeń</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Augmentacja</strong></p>
+<ul>
+<li>maszyna wspiera człowieka, który odpowiada za wynik</li>
+<li>zmienia się sposób wykonywania pracy</li>
+<li>przykład: projekt pisma przygotowany przez model i sprawdzony przez
+prawnika</li>
+</ul>
+</div>
+</div>
+<p><strong>Ważne:</strong> AI automatyzuje <strong>zadania</strong>, nie
+całe zawody. Zawód to wiązka zadań.</p>
+<aside class="notes">
+<p>Podejście „zadaniowe” (task-based) jest standardem w ekonomii pracy
+od prac Autora, Levy’ego i Murnane’a (2003). Każdy zawód rozkładamy na
+zadania i pytamy, które z nich da się zautomatyzować, a które wspomóc.
+Wróćmy do listy z początku zajęć: większość wskazanych zadań to
+augmentacja, nie automatyzacja.</p>
+</aside>
+</section>
+<section id="ethan-mollick" class="slide level2">
+<h2>Ethan Mollick</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>Profesor Wharton School, University of Pennsylvania</li>
+<li>Bada przedsiębiorczość, innowacje i wpływ AI na pracę</li>
+<li>Prowadzi blog <em>One Useful Thing</em> (oneusefulthing.org)</li>
+<li>Współautor eksperymentu z konsultantami Boston Consulting Group</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="media/04_mollick_co_intelligence.jpg"
+style="width:75.0%"
+alt="Okładka książki E. Mollicka „Co-Intelligence. Living and Working with AI”" /> </p>
+<p><small>Źródło: E. Mollick, <em>Co-Intelligence</em>, Portfolio 2024
+(okładka).</small></p>
+</div>
+</div>
+<aside class="notes">
+<p>Z prezentacji: Mollick bada dynamikę startupów, crowdfunding, gry
+wideo i edukację przedsiębiorczą; publikuje o tym, jak nowe technologie
+wpływają na różnorodność i sukces w przedsiębiorczości. Książka
+<em>Co-Intelligence</em> (2024) to popularne podsumowanie jego badań i
+obserwacji.</p>
+</aside>
+</section>
+<section id="eksperyment-bcg-i-harvard-business-school"
+class="slide level2">
+<h2>Eksperyment BCG i Harvard Business School</h2>
+<ul>
+<li>Dell’Acqua, McFowland, Mollick i in., „Navigating the Jagged
+Technological Frontier” (HBS Working Paper 24-013, 2023)</li>
+<li>758 konsultantów Boston Consulting Group</li>
+<li>18 realistycznych zadań: kreatywnych, analitycznych, pisarskich,
+marketingowych</li>
+<li>Losowy podział: bez AI, z GPT-4, z GPT-4 i krótkim szkoleniem z
+promptowania</li>
+<li>Jedno dodatkowe zadanie celowo wybrano tak, by leżało
+<strong>poza</strong> możliwościami modelu</li>
+</ul>
+<aside class="notes">
+<p>Z prezentacji: artykuł dziewięciu badaczy, wielomiesięczny
+eksperyment z BCG, celem było zbadanie, jak AI przekształca pracę
+wymagającą specjalistycznej wiedzy. Liczbę uczestników i warunki
+eksperymentu sprawdzono w working paperze (SSRN 4573321). Data
+weryfikacji: 19.10.2026.</p>
+</aside>
+</section>
+<section id="wewnątrz-granicy-szybciej-więcej-lepiej"
+class="slide level2">
+<h2>Wewnątrz granicy: szybciej, więcej, lepiej</h2>
+<p><img data-src="media/04_w_bcg_w_granicy.svg" style="width:88.0%"
+alt="Wykres: konsultanci z GPT-4 ukończyli o 12,2% więcej zadań, pracowali o 25,1% szybciej, a jakość ich pracy była ponad 40% wyższa" /> </p>
+<p><small>Wykres własny w stylu NEO-LUBLIN; dane i źródło na
+wykresie.</small></p>
+<aside class="notes">
+<p>Notatka z prezentacji „Zmagania”: konsultanci korzystający z AI
+ukończyli średnio o 12,2% zadań więcej, wykonali je o 25,1% szybciej i
+uzyskali wyniki o ponad 40% wyższej jakości niż ci, którzy z AI nie
+korzystali. To bardzo duży efekt. Liczby zgodne z abstraktem working
+paperu (sprawdzono 19.10.2026).</p>
+<p>Wykres własny zastępuje wykres rozkładu ocen z working paperu: cały
+rozkład jakości przesuwał się w prawo, a liczby na wykresie to średnie
+efekty z artykułu.</p>
+</aside>
+</section>
+<section id="ai-wyrównuje-poziom" class="slide level2">
+<h2>AI wyrównuje poziom</h2>
+<p><img data-src="media/04_w_bcg_wyrownanie.svg" style="width:88.0%"
+alt="Wykres: wzrost wyniku o 43% u konsultantów poniżej średniej i o 17% u konsultantów powyżej średniej" /> </p>
+<p><small>Wykres własny w stylu NEO-LUBLIN; dane i źródło na
+wykresie.</small></p>
+<aside class="notes">
+<p>Najwięcej zyskali najsłabsi: +43% wobec +17% u najlepszych. Pytanie
+do sali: czy to dobra wiadomość dla aplikantów? Z jednej strony skraca
+drogę do przyzwoitej jakości. Z drugiej: jeśli każdy pisze
+„przyzwoicie”, czym wyróżni się dobry prawnik? Na slajdzie z prezentacji
+„Zmagania” pojawiał się dopisek: „Wzrost produktywności vs obniżka lub
+uśrednienie jakości (?)”.</p>
+</aside>
+</section>
+<section id="poza-granicą-ai-szkodzi" class="slide level2">
+<h2>Poza granicą: AI szkodzi</h2>
+<div class="columns">
+<div class="column" style="width:64%;">
+<figure>
+<img data-src="media/04_w_bcg_poza_granica.svg" style="width:100.0%"
+alt="Wykres: poprawne rozwiązania zadania poza możliwościami modelu: 84,5% bez AI, 70,6% z GPT-4 i przeglądem, 60,0% z samym GPT-4" />
+<figcaption aria-hidden="true">Wykres: poprawne rozwiązania zadania poza
+możliwościami modelu: 84,5% bez AI, 70,6% z GPT-4 i przeglądem, 60,0% z
+samym GPT-4</figcaption>
+</figure>
+</div><div class="column" style="width:36%;">
+<ul>
+<li>Z AI poprawnych rozwiązań było <strong>o 19 pkt proc.
+mniej</strong></li>
+<li>Model dawał przekonujące, ale błędne odpowiedzi, a ludzie je
+przyjmowali</li>
+<li>Granica jest <strong>poszarpana</strong> i nikt nie dostaje jej
+mapy</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>To kluczowy wniosek dla prawników. Analiza orzecznictwa może leżeć
+wewnątrz granicy, a podanie sygnatury konkretnego wyroku już poza nią
+(halucynacje, omówione na spotkaniu 3, a w kontekście pism procesowych
+na spotkaniu 8). Granica przesuwa się z każdą nową wersją modelu.</p>
+</aside>
+</section>
+<section id="centaury-i-cyborgi" class="slide level2">
+<h2>Centaury i cyborgi</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Centaur</strong></p>
+<ul>
+<li>wyraźny podział pracy</li>
+<li>człowiek decyduje, które zadania oddaje maszynie</li>
+<li>np. model streszcza akta, prawnik pisze argumentację</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Cyborg</strong></p>
+<ul>
+<li>ścisłe splecenie pracy człowieka i modelu</li>
+<li>ciągła iteracja zdanie po zdaniu</li>
+<li>np. wspólne redagowanie umowy z modelem</li>
+</ul>
+</div>
+</div>
+<p>Obie strategie wymagają <strong>weryfikacji wyniku</strong> przez
+człowieka.</p>
+<aside class="notes">
+<p>Typologia z artykułu Mollicka „Centaurs and Cyborgs on the Jagged
+Frontier” (One Useful Thing, wrzesień 2023) i z working paperu. Na
+slajdzie 17 prezentacji „Praca i AI” był schemat: zespół Mollicka
+odkrył, że AI zwiększa liczbę wykonanych zadań i ich jakość, ale
+kluczowe jest rozwijanie umiejętności oceny, kiedy AI pomaga, a kiedy
+szkodzi. Część konsultantów pracowała jak „centaury”, część jak
+„cyborgi”.</p>
+</aside>
+</section>
+<section id="zasypianie-za-kierownicą" class="slide level2">
+<h2>„Zasypianie za kierownicą”</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img data-src="media/04_dellacqua_zasypianie.jpg" style="width:90.0%"
+alt="Pierwsza strona artykułu F. Dell’Acqui „Falling Asleep at the Wheel”" /> </p>
+</div><div class="column" style="width:55%;">
+<ul>
+<li>Eksperyment terenowy: 181 rekruterów ocenia 44 CV</li>
+<li>Część dostaje rekomendacje AI o <strong>różnej jakości</strong></li>
+<li>Rekruterzy z <strong>lepszą</strong> AI byli <strong>mniej</strong>
+dokładni</li>
+<li>Słabsza AI zmuszała do wysiłku i uczenia się</li>
+<li>Efekt najsilniejszy u doświadczonych rekruterów</li>
+</ul>
+</div>
+</div>
+<p><small>Źródło: F. Dell’Acqua, „Falling Asleep at the Wheel: Human/AI
+Collaboration in a Field Experiment on HR Recruiters”, Laboratory for
+Innovation Science, Harvard Business School (working paper).</small></p>
+<aside class="notes">
+<p>Notatka z pptx: „I problem – »zasypianie«”. Im lepsze narzędzie, tym
+łatwiej przestajemy myśleć. To zjawisko zbliżone do błędu automatyzacji
+(automation bias). Dla prawnika: im lepszy system wyszukiwania
+orzecznictwa, tym większa pokusa, by nie sprawdzać. Rok publikacji
+working paperu [do weryfikacji].</p>
+</aside>
+</section>
+<section id="po-bcg-cybernetyczny-kolega-z-zespołu"
+class="slide level2">
+<h2>Po BCG: „cybernetyczny kolega z zespołu”</h2>
+<ul>
+<li>Eksperyment terenowy w Procter &amp; Gamble (Dell’Acqua, Mollick i
+in., <em>Organization Science</em> 2026)</li>
+<li>Osoba pracująca z AI dorównała <strong>zespołowi bez AI</strong>;
+najlepsze wyniki osiągały zespoły z AI</li>
+<li>Praca z AI zajmowała mniej czasu (ok. 16% w wersji roboczej
+badania)</li>
+<li><small>Więcej badań grupy Mollicka (Wharton Generative AI Labs): <a
+href="https://aiqedu.pl/mapa-regulacji-ai/#research">AIQ, zakładka
+Badania</a></small></li>
+</ul>
+<aside class="notes">
+<p>Wersja robocza NBER WP 33641 (2025, n = 776 specjalistów): jakość
+rozwiązań wzrosła o 0,37 odchylenia standardowego u osób z AI i o 0,39 w
+zespołach z AI, wobec 0,24 w zespołach bez AI; osoby z AI pracowały o
+16,4% krócej. Opublikowana wersja (Org. Sci. 37(4), 2026, DOI
+10.1287/orsc.2025.20702) podaje w streszczeniu 791 uczestników, więc
+dokładne liczby warto podawać z zastrzeżeniem „według wersji roboczej”.
+Pytanie do sali: czy AI zastąpi zespół, czy zmieni jego skład?</p>
+</aside>
+</section>
+<section id="rzecznicy-patentowi-z-ai-ekspertyza-rośnie-czy-maleje"
+class="slide level2">
+<h2>Rzecznicy patentowi z AI: ekspertyza rośnie czy maleje?</h2>
+<ul>
+<li>Trzymiesięczny eksperyment z losowaniem: <strong>133 prawników
+patentowych</strong> z 11 kancelarii w USA, prace oceniane „na ślepo”
+przez rzeczników (Autor i in., NBER 2026)</li>
+<li>Z AI jakość pracy wzrosła, najbardziej u młodszych prawników</li>
+<li>Potem bez AI: starsi zachowali przewagę, młodsi średnio nie</li>
+<li>Wniosek: <strong>podstawowa wiedza fachowa</strong> warunkuje trwałą
+korzyść z AI</li>
+</ul>
+<aside class="notes">
+<p>D. Autor, T. Rodchenko, J. Martin, Z. Iscenko, S. Strand, D. Pearl,
+M. Ferere, „Does AI Assistance Enhance or Erode Expertise? Evidence from
+a Three-Month Field Experiment in Patent Drafting”, NBER WP 35720 (IX
+2026, popr. X 2026), prerejestracja AEARCTR-0015823. Efekty: +0,34 SD po
+10 dniach i +0,38 SD po 90 dniach; w zadaniu bez AI grupa z AI wypadła
+lepiej o 0,32 SD, ale cała przewaga przypadła starszym (0,45 SD), a
+wyniki młodszych się rozproszyły. Badanie przeprowadził i sfinansował
+Google (zespół AI &amp; Economy); część autorów to pracownicy firmy. To
+nie jest badanie grupy Mollicka, choć bywa z nim kojarzone. Wniosek dla
+studentów prawa: najpierw warsztat, potem asystent.</p>
+</aside>
+</section>
+<section id="google-jak-naprawdę-używamy-ai-w-pracy"
+class="slide level2">
+<h2>Google: jak naprawdę używamy AI w pracy?</h2>
+<ul>
+<li>ATLAS (Google AI &amp; Economy, 2026): 15 mln interakcji z Gemini
+przypisanych do ponad 800 zawodów</li>
+<li>AI pojawia się w zawodach obejmujących ok. 88% zatrudnienia w USA,
+ale <strong>płytko i głównie we współpracy z człowiekiem</strong></li>
+<li>Spadek ofert pracy dla młodych w zawodach „narażonych na AI” zaczął
+się przed ChatGPT: ostrożnie z prostymi wnioskami</li>
+</ul>
+<aside class="notes">
+<p>Z. Iscenko, S. Strand i in. (w tym A. Imas, J. Manyika), „Google’s AI
+&amp; Economy ATLAS v1.0”, arXiv 2608.00038 (2026): 15 mln
+zanonimizowanych interakcji, ponad 800 zawodów, ok. 4000 zadań, 150
+krajów; 88% dotyczy zawodów, w których AI jest używana, a nie odsetka
+pracowników. Polemika z tezą o wypieraniu młodych: Z. Iscenko, F. Curto
+Millet, „Looking for the Ladder” (EIG, 2026), spadek ofert od III–IV
+2022 r., w rytmie podwyżek stóp Fed. Uwaga: to badania zespołu Google o
+produktach Google; warto zestawić je z niezależnymi badaniami. Program
+AI &amp; Economy współprowadzą m.in. A. Madgavkar, D. Rock i A. Imas
+(Google DeepMind).</p>
+</aside>
+</section></section>
+<section>
+<section id="część-ii.-kogo-dotyczy-zmiana"
+class="title-slide slide level1">
+<h1>Część II. Kogo dotyczy zmiana?</h1>
+
+</section>
+<section id="ekspozycja-zawodów-na-ai-generatywną" class="slide level2">
+<h2>Ekspozycja zawodów na AI generatywną</h2>
+<ul>
+<li>Raport MOP i NASK (20.05.2025): <strong>25%</strong> zatrudnienia na
+świecie w zawodach potencjalnie narażonych na AI generatywną</li>
+<li>W krajach wysokodochodowych: <strong>34%</strong></li>
+<li>Najwyższa kategoria ekspozycji: <strong>3,3%</strong> zatrudnienia
+na świecie</li>
+<li>Najbardziej narażone: prace biurowe i administracyjne; częściej
+wykonują je kobiety</li>
+<li>Wniosek autorów: ekspozycja to najczęściej
+<strong>przekształcenie</strong> pracy, nie jej utrata</li>
+</ul>
+<aside class="notes">
+<p>„Generative AI and Jobs: A Refined Global Index of Occupational
+Exposure”, Międzynarodowa Organizacja Pracy i NASK – Państwowy Instytut
+Badawczy. Polski akcent: indeks zbudowano na podstawie blisko 30 tys.
+zadań z polskiej klasyfikacji zawodów i zawodów. W krajach
+wysokodochodowych w najwyższej kategorii ekspozycji jest 9,6%
+pracujących kobiet i 3,5% mężczyzn. Sprawdzono 19.10.2026.</p>
+</aside>
+</section>
+<section id="kto-jest-najbardziej-narażony-na-generatywną-ai"
+class="slide level2">
+<h2>Kto jest najbardziej narażony na generatywną AI?</h2>
+<figure>
+<img data-src="media/04_w_mop_ekspozycja_dochod.svg" style="width:88.0%"
+alt="Wykres słupkowy: ekspozycja zatrudnienia na generatywną AI wynosi 11% w krajach niskodochodowych, ok. 25% na świecie i 34% w krajach wysokodochodowych." />
+<figcaption aria-hidden="true">Wykres słupkowy: ekspozycja zatrudnienia
+na generatywną AI wynosi 11% w krajach niskodochodowych, ok. 25% na
+świecie i 34% w krajach wysokodochodowych.</figcaption>
+</figure>
+<aside class="notes">
+<p>Odsetek zatrudnienia w zawodach, w których GenAI ma jakąkolwiek
+ekspozycję (gradienty 1-4), według poziomu dochodów kraju · stan na
+2025. Źródło: P. Gmyrek, J. Berg, K. Kamiński i in. (ILO, NASK),
+Generative AI and Jobs: A Refined Global Index of Occupational Exposure,
+ILO Working Paper 140 (20 V 2025)
+(https://www.ilo.org/sites/default/files/2025-05/WP140_web.pdf).</p>
+</aside>
+</section>
+<section id="kobiety-są-bardziej-narażone-na-generatywną-ai"
+class="slide level2">
+<h2>Kobiety są bardziej narażone na generatywną AI</h2>
+<figure>
+<img data-src="media/04_w_mop_nask_plec.svg" style="width:88.0%"
+alt="Wykres z kropkami: w Polsce 39,1% kobiet i 22,8% mężczyzn pracuje w zawodach narażonych na generatywną AI; podobne różnice widać w Europie i krajach wysokodochodowych." />
+<figcaption aria-hidden="true">Wykres z kropkami: w Polsce 39,1% kobiet
+i 22,8% mężczyzn pracuje w zawodach narażonych na generatywną AI;
+podobne różnice widać w Europie i krajach
+wysokodochodowych.</figcaption>
+</figure>
+<aside class="notes">
+<p>Odsetek zatrudnienia w zawodach z jakąkolwiek ekspozycją na GenAI
+(gradienty 1-4), mężczyźni vs kobiety. Źródło: ILO Working Paper 140 (20
+V 2025), s. 43-44; M. Troszyński, J. Berg, P. Gmyrek i in., Generatywna
+sztuczna inteligencja a polski rynek pracy, NASK-PIB (VI 2025), wykres 1
+i s. 17-18
+(https://nask.pl/media/2025/06/Generatywna-sztuczna-inteligencja-a-polski-rynek-pracy.pdf).</p>
+</aside>
+</section>
+<section id="prognozy-rynku-pracy-do-2030-r." class="slide level2">
+<h2>Prognozy rynku pracy do 2030 r.</h2>
+<ul>
+<li>World Economic Forum, <em>Future of Jobs Report 2025</em> (styczeń
+2025), ankieta wśród ponad 1000 pracodawców</li>
+<li><strong>170 mln</strong> nowych miejsc pracy, <strong>92
+mln</strong> zlikwidowanych, saldo <strong>+78 mln</strong></li>
+<li>Zmiana dotknie ok. <strong>22%</strong> miejsc pracy</li>
+<li>Ok. <strong>39%</strong> kluczowych umiejętności zmieni się do 2030
+r.</li>
+<li>41% pracodawców planuje redukcje zatrudnienia tam, gdzie AI
+automatyzuje zadania</li>
+</ul>
+<aside class="notes">
+<p>To deklaracje pracodawców, nie pomiar. Warto podkreślić różnicę
+między badaniem eksperymentalnym (BCG), indeksem ekspozycji (MOP–NASK) i
+ankietą prognostyczną (WEF). Każdy rodzaj danych mówi o czymś innym.
+Liczby sprawdzono w komunikacie WEF (19.10.2026).</p>
+</aside>
+</section>
+<section id="ile-miejsc-pracy-tworzy-i-likwiduje-ai"
+class="slide level2">
+<h2>Ile miejsc pracy tworzy i likwiduje AI?</h2>
+<figure>
+<img data-src="media/04_w_wef_ai_trendy.svg" style="width:88.0%"
+alt="Dwa panele: według pracodawców trendy AI i przetwarzania informacji stworzą do 2030 r. 11 mln miejsc pracy i zlikwidują 9 mln (saldo +2 mln), a powszechniejszy dostęp cyfrowy stworzy 19 mln i zlikwiduje 9 mln." />
+<figcaption aria-hidden="true">Dwa panele: według pracodawców trendy AI
+i przetwarzania informacji stworzą do 2030 r. 11 mln miejsc pracy i
+zlikwidują 9 mln (saldo +2 mln), a powszechniejszy dostęp cyfrowy
+stworzy 19 mln i zlikwiduje 9 mln.</figcaption>
+</figure>
+<aside class="notes">
+<p>Prognoza pracodawców do 2030 r.: efekt wybranych trendów
+technologicznych na liczbę miejsc pracy na świecie (mln). Źródło: World
+Economic Forum, Future of Jobs Report 2025, s. 25 (Technological change)
+(https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf).</p>
+</aside>
+</section>
+<section id="zawody-prawnicze" class="slide level2">
+<h2>Zawody prawnicze</h2>
+<ul>
+<li>Goldman Sachs (2023): w USA AI generatywna może zautomatyzować ok.
+<strong>44% zadań</strong> w pracy prawniczej (więcej tylko w pracy
+biurowo-administracyjnej, 46%)</li>
+<li>Zadania najbardziej podatne: wyszukiwanie, streszczanie, przegląd
+dokumentów (<em>due diligence</em>), pierwsze wersje pism</li>
+<li>Zadania najmniej podatne: relacja z klientem, negocjacje,
+wystąpienia przed sądem, osąd etyczny i odpowiedzialność</li>
+<li>R. i D. Susskind: profesje nie znikną, ale zmieni się sposób
+dostarczania wiedzy eksperckiej</li>
+</ul>
+<aside class="notes">
+<p>Goldman Sachs, „The Potentially Large Effects of Artificial
+Intelligence on Economic Growth” (J. Briggs, D. Kodnani, marzec 2023).
+Uwaga: 44% to udział zadań, nie odsetek prawników, którzy stracą pracę.
+Media często to przekręcały. Ten sam raport mówi o ekwiwalencie 300 mln
+etatów narażonych na automatyzację. [do weryfikacji w nocie źródłowej
+Goldman Sachs: dokładne brzmienie wskaźników]</p>
+<p>Susskind, <em>Przyszłość zawodów</em> (literatura podstawowa
+sylabusa). Badanie postaw lubelskich prawników („Algorytm w Todze”)
+omówimy na spotkaniu 8.</p>
+</aside>
+</section>
+<section id="rekrutacja-z-ai" class="slide level2">
+<h2>Rekrutacja z AI</h2>
+<ul>
+<li>Ankieta LinkedIn (2023): 2 na 3 rekruterów liczy, że AI generatywna
+przyspieszy lub ułatwi pozyskiwanie kandydatów</li>
+<li>Systemy AI filtrują CV, układają rankingi kandydatów, prowadzą
+wstępne rozmowy</li>
+<li>Pytanie: czy maszyna ocenia kompetencje, czy uczy się wzorca dawnych
+decyzji?</li>
+</ul>
+<aside class="notes">
+<p>Z prezentacji: „Kontekst – 2 na 3 rekruterów ma nadzieję, że
+generatywna sztuczna inteligencja przyspieszy lub ułatwi pozyskiwanie
+kandydatów. Źródło: Ankieta LinkedIn 2023 wśród 2014 specjalistów ds.
+rekrutacji”. [do weryfikacji: dokładny tytuł raportu LinkedIn i liczba
+respondentów]</p>
+<p>Na slajdzie było też wideo Kacpra Trzepiecińskiego (X) o badaniu
+Bloomberga. [materiał wideo z prezentacji pptx]</p>
+</aside>
+</section>
+<section id="test-bloomberga-gpt-3.5-jako-rekruter"
+class="slide level2">
+<h2>Test Bloomberga: GPT-3.5 jako rekruter</h2>
+<p><img data-src="media/04_bloomberg_rekrutacja.jpg" style="width:75.0%"
+alt="Wykres Bloomberga: jak często CV z imionami typowymi dla różnych grup były umieszczane na pierwszym miejscu" /> </p>
+<p><small>Źródło: Bloomberg, „OpenAI’s GPT Is a Recruiter’s Dream Tool.
+Tests Show There’s Racial Bias”, marzec 2024.</small></p>
+<aside class="notes">
+<p>Bloomberg przygotował fikcyjne CV o identycznych kwalifikacjach,
+różniące się tylko imieniem i nazwiskiem typowym dla grupy etnicznej.
+Model 1000 razy układał ranking dla stanowiska analityka finansowego. CV
+z imionami typowymi dla czarnoskórych mężczyzn trafiały na pierwsze
+miejsce w 44% przypadków w porównaniu z grupą traktowaną najlepiej,
+poniżej progu 80% stosowanego w USA do oceny dyskryminacji.</p>
+<p>Uczciwie: metodę krytykowano (np. interviewing.io), a nowsze modele
+dają inne wyniki. O mechanizmie stronniczości szerzej na spotkaniu
+5.</p>
+</aside>
+</section>
+<section id="rekrutacja-w-świetle-prawa" class="slide level2">
+<h2>Rekrutacja w świetle prawa</h2>
+<ul>
+<li><strong>AI Act, zał. III pkt 4:</strong> systemy do rekrutacji,
+filtrowania podań, oceny kandydatów, decyzji o awansie i zwolnieniu,
+przydziału zadań i monitorowania pracowników to systemy
+<strong>wysokiego ryzyka</strong> (obowiązki od 2.12.2027 po zmianach z
+rozporządzenia 2026/1744)</li>
+<li><strong>Art. 5 ust. 1 lit. f AI Act:</strong> zakaz rozpoznawania
+emocji w miejscu pracy i w edukacji (poza względami medycznymi i
+bezpieczeństwa), stosowany od 2.02.2025</li>
+<li><strong>Art. 26 ust. 7 AI Act:</strong> pracodawca informuje
+przedstawicieli pracowników i pracowników przed użyciem systemu
+wysokiego ryzyka w miejscu pracy</li>
+<li><strong>RODO, art. 22:</strong> prawo, by nie podlegać decyzji
+opartej wyłącznie na zautomatyzowanym przetwarzaniu</li>
+<li><strong>Kodeks pracy, art. 18³ᵃ i n.:</strong> zakaz dyskryminacji
+także na etapie naboru</li>
+</ul>
+<aside class="notes">
+<p>Przykład egzaminacyjny: firma kupuje system, który sam odrzuca 80% CV
+bez udziału człowieka. Pytania: czy to system wysokiego ryzyka (tak,
+zał. III pkt 4 lit. a), jakie obowiązki ma pracodawca jako podmiot
+stosujący (art. 26), czy kandydat może żądać interwencji człowieka (art.
+22 ust. 3 RODO, jeżeli decyzja jest oparta wyłącznie na automatycznym
+przetwarzaniu i nie zachodzi wyjątek). Szczegóły art. 22 RODO i
+orzeczenia SCHUFA na spotkaniu 5.</p>
+</aside>
+</section>
+<section id="tłumacze-lektorzy-dubbing" class="slide level2">
+<h2>Tłumacze, lektorzy, dubbing</h2>
+<ul>
+<li>Narzędzia takie jak Rask AI tłumaczą nagranie i podkładają głos
+mówiącego w innym języku</li>
+<li>ElevenLabs (założyciele: Mateusz Staniszewski i Piotr Dąbkowski)
+klonuje i syntetyzuje głos</li>
+<li>Zagrożone zawody: tłumacze, lektorzy, aktorzy dubbingowi</li>
+<li>Pytania prawne: ochrona głosu jako dobra osobistego (art. 23 k.c.),
+zgoda na użycie wizerunku i głosu, obowiązek oznaczania treści
+syntetycznych (art. 50 AI Act)</li>
+</ul>
+<aside class="notes">
+<p>W prezentacji: wideo z Rask AI (wpis Tulsi Soni na X, przykład
+Matthew McConaugheya mówiącego po francusku) i wideo ElevenLabs („AI
+spoofs Joe Rogan’s voice onto Leonardo DiCaprio”). [materiał wideo z
+prezentacji pptx] Zdjęcie założycieli ElevenLabs pochodziło z „Forbesa”,
+pominięte.</p>
+<p>Pytanie do sali: czy tłumacz przysięgły jest zagrożony? Raczej nie w
+części, w której ponosi odpowiedzialność i poświadcza tłumaczenie. To ta
+sama logika co w zawodach prawniczych: AI nie przejmuje
+odpowiedzialności.</p>
+</aside>
+</section>
+<section id="ai-w-administracji-publicznej" class="slide level2">
+<h2>AI w administracji publicznej</h2>
+<ul>
+<li>Potencjał: szybsze procedury, personalizacja usług, lepsze decyzje
+oparte na danych</li>
+<li>Ryzyka: prywatność, bezpieczeństwo danych, przejrzystość
+decyzji</li>
+<li>Zmiana pracy urzędnika: mniej przepisywania, więcej kontroli
+wyników</li>
+<li>Granica: decyzja administracyjna musi mieć ludzkiego autora i
+uzasadnienie</li>
+</ul>
+<aside class="notes">
+<p>Z prezentacji „Praca i AI”, s. 20: nowe technologie w zarządzaniu i
+organizacjach, szczególnie w sektorze publicznym, otwierają drzwi do
+transformacji procesów administracyjnych, poprawy efektywności oraz
+wzmacniania zaangażowania obywateli. Równolegle trzeba adresować
+prywatność, bezpieczeństwo danych i etykę, co wymaga dialogu twórców
+polityk, informatyków i społeczeństwa.</p>
+<p>Przykład ostrzegawczy (holenderski SyRI) omówimy na spotkaniu 5.</p>
+</aside>
+</section></section>
+<section>
+<section
+id="część-iii.-niewidzialna-praca-prekaryzacja-dochód-podstawowy"
+class="title-slide slide level1">
+<h1>Część III. Niewidzialna praca, prekaryzacja, dochód podstawowy</h1>
+
+</section>
+<section id="niewidzialna-praca-przy-danych" class="slide level2">
+<h2>Niewidzialna praca przy danych</h2>
+<ul>
+<li>Modele uczą się na danych, które ktoś musiał zebrać, opisać i
+ocenić</li>
+<li>Etykietowanie, moderacja, ocena odpowiedzi modeli (RLHF) wykonywane
+często za niskie stawki</li>
+<li>Przykład: pracownicy w Kenii oznaczający drastyczne treści dla
+OpenAI za mniej niż 2 dolary za godzinę (TIME, styczeń 2023)</li>
+<li>„Fałszomatyzacja” (<em>fauxtomation</em>, A. Taylor): praca ludzi
+przedstawiana jako działanie maszyny</li>
+</ul>
+<aside class="notes">
+<p>Notatka z prezentacji „Zmagania” (s. 56): praca nisko płatna ludzi,
+którzy trenują modele, nie wszystko odbywa się automatycznie. Śledztwo
+B. Perrigo w „TIME” (18.01.2023) dotyczyło firmy Sama, podwykonawcy
+OpenAI. Szerzej: M. L. Gray, S. Suri, <em>Ghost Work</em> (2019). Termin
+<em>fauxtomation</em> wprowadziła Astra Taylor (2018). Logikę ekstrakcji
+(K. Crawford) omówimy na spotkaniu 10.</p>
+</aside>
+</section>
+<section id="prekaryzacja" class="slide level2">
+<h2>Prekaryzacja</h2>
+<ul>
+<li>Krótkie umowy, brak gwarancji zatrudnienia i zabezpieczeń
+socjalnych</li>
+<li>Nieregularny czas pracy, niskie wynagrodzenia, zależność od
+platformy</li>
+<li>Zarządzanie przez algorytm: aplikacja przydziela zlecenia, ocenia i
+„dezaktywuje”</li>
+<li>Optymalizacja czy dehumanizacja?</li>
+<li>Prawo nie nadąża za dynamiką zmian</li>
+</ul>
+<aside class="notes">
+<p>Notatka z prezentacji „Zmagania”: prekaryzacja pracy to proces, w
+którym zatrudnienie staje się coraz bardziej niestabilne, niepewne i
+pozbawione tradycyjnych zabezpieczeń socjalnych. Obejmuje
+krótkoterminowe umowy, brak gwarancji zatrudnienia, brak świadczeń
+socjalnych (ubezpieczenie zdrowotne, emerytura) oraz nieregularne
+godziny pracy. Pracownicy w prekarnych warunkach mają ograniczone prawa
+pracownicze, niższe wynagrodzenia i większą zależność od pracodawców, co
+prowadzi do pogorszenia warunków życia i większego stresu.</p>
+</aside>
+</section>
+<section id="dyrektywa-o-pracy-za-pośrednictwem-platform"
+class="slide level2">
+<h2>Dyrektywa o pracy za pośrednictwem platform</h2>
+<ul>
+<li>Dyrektywa (UE) 2024/2831 z 23.10.2024, w mocy od 1.12.2024</li>
+<li>Transpozycja do <strong>2.12.2026</strong></li>
+<li><strong>Domniemanie stosunku pracy</strong>, gdy fakty wskazują na
+kierownictwo i kontrolę</li>
+<li><strong>Zarządzanie algorytmiczne:</strong> informacja o systemach
+monitorowania i decyzyjnych, nadzór człowieka, prawo do wyjaśnienia i
+przeglądu decyzji</li>
+<li>Zakaz przetwarzania m.in. danych o stanie emocjonalnym i prywatnych
+rozmowach pracownika</li>
+</ul>
+<aside class="notes">
+<p>To pierwszy unijny akt, który wprost reguluje zarządzanie pracą przez
+algorytm. Dotyczy kurierów, kierowców, ale też zleceń realizowanych
+online. Stan polskiej transpozycji [do weryfikacji na dzień zajęć:
+projekt ustawy w wykazie prac legislacyjnych]. Data dyrektywy:
+23.10.2024 [do weryfikacji w Dz.Urz. UE L 2024/2831].</p>
+</aside>
+</section>
+<section id="dochód-podstawowy" class="slide level2">
+<h2>Dochód podstawowy?</h2>
+<ul>
+<li>Geoffrey Hinton (BBC, maj 2024): doradzał rządowi brytyjskiemu
+wprowadzenie powszechnego dochodu podstawowego</li>
+<li>Argument: AI zwiększy produktywność i bogactwo, ale zyski trafią do
+najbogatszych, a nie do tych, którzy stracą pracę</li>
+<li>Eksperymenty: Finlandia (2017–2018, 2000 bezrobotnych), OpenResearch
+w USA (1000 osób, 1000 dolarów miesięcznie przez 3 lata)</li>
+<li>Spór: wolność od pracy czy utrata sensu i pozycji społecznej?</li>
+</ul>
+<aside class="notes">
+<p>Ze slajdu „Gwarantowany dochód podstawowy?” (prezentacja „Zmagania”,
+s. 55): „Konsultowali się ze mną ludzie z Downing Street i doradziłem
+im, że uniwersalny dochód podstawowy to dobry pomysł” (G. Hinton, BBC,
+18.05.2024; źródło: bbc.com/news/articles/cnd607ekl99o).</p>
+<p>Wyniki fińskiego eksperymentu: niewielki wpływ na zatrudnienie,
+lepszy dobrostan uczestników. OpenResearch (wyniki z 2024 r.):
+niewielkie zmniejszenie czasu pracy, większa elastyczność. [do
+weryfikacji: szczegółowe wyniki obu eksperymentów]</p>
+</aside>
+</section>
+<section id="świat-różnych-prędkości" class="slide level2">
+<h2>Świat różnych prędkości</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img data-src="media/04_dostepnosc_ilustracja.jpg"
+style="width:90.0%"
+alt="Ilustracja: mapa świata podzielona na część zaawansowaną technologicznie i część uboższą" /> </p>
+<p><small>Ilustracja z prezentacji „Praca i AI” [źródło do
+ustalenia].</small></p>
+</div><div class="column" style="width:55%;">
+<ul>
+<li>Dostęp do najlepszych modeli kosztuje</li>
+<li>Bogaci bogatsi, biedni biedniejsi?</li>
+<li>Nierówności regionów i państw</li>
+<li>Odpowiedzialność wielkich firm technologicznych</li>
+<li>Język: modele działają najlepiej po angielsku</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Notatki z pptx: „II problem – dostępność”; „Maksymalizm obliczeniowy
+przykrywa koszt środowiskowy”. Wątek języka i modeli narodowych (PLLuM,
+Bielik) rozwiniemy na spotkaniu 6, koszty środowiskowe na spotkaniu
+10.</p>
+<p>Ilustracja ma styl obrazu generowanego przez AI. [źródło do
+ustalenia: jeśli prowadzący wygenerował ją sam, podać narzędzie]</p>
+</aside>
+</section>
+<section id="firmy-i-ai-polska-druga-od-końca-w-ue"
+class="slide level2">
+<h2>Firmy i AI: Polska druga od końca w UE</h2>
+<figure>
+<img data-src="media/04_w_eurostat_firmy_kraje.svg" style="width:88.0%"
+alt="Wykres słupkowy: w 2025 r. AI używało 42,0% firm w Danii, 20,0% średnio w UE, 8,4% w Polsce i 5,2% w Rumunii." />
+<figcaption aria-hidden="true">Wykres słupkowy: w 2025 r. AI używało
+42,0% firm w Danii, 20,0% średnio w UE, 8,4% w Polsce i 5,2% w
+Rumunii.</figcaption>
+</figure>
+<aside class="notes">
+<p>Odsetek przedsiębiorstw (10+ zatrudnionych) używających co najmniej
+jednej technologii AI, 2025. Źródło: Eurostat, Artificial intelligence
+by size class of enterprise (isoc_eb_ai), dane za 2025, aktualizacja 15
+VI 2026
+(https://ec.europa.eu/eurostat/databrowser/view/isoc_eb_ai/default/table).</p>
+</aside>
+</section></section>
+<section>
+<section id="część-iv.-edukacja" class="title-slide slide level1">
+<h1>Część IV. Edukacja</h1>
+
+</section>
+<section id="ai-w-szkole" class="slide level2">
+<h2>AI w szkole</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="media/04_khan_brave_new_words.jpg" style="width:70.0%"
+alt="Okładka książki S. Khana „Brave New Words”" /> </p>
+<p><small>Źródło: S. Khan, <em>Brave New Words</em>, Viking 2024
+(okładka).</small></p>
+</div><div class="column" style="width:60%;">
+<ul>
+<li>Wizja: osobisty korepetytor dla każdego ucznia</li>
+<li>Ryzyko: AI na lekcji historii „wie” rzeczy, które nigdy się nie
+wydarzyły</li>
+<li>Pytanie: kto sprawdza korepetytora?</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Slajd „AI w szkole: AI na lekcjach historii, czyli o halucynacjach?”.
+Salman Khan, założyciel Khan Academy, przekonuje, że AI może
+zrewolucjonizować edukację. Halucynacje omawialiśmy na spotkaniu 3.
+Tutaj skupiamy się na skutkach dla procesu uczenia się.</p>
+</aside>
+</section>
+<section id="khanmigo" class="slide level2">
+<h2>Khanmigo</h2>
+<p><img data-src="media/04_khanmigo.jpg" style="width:70.0%"
+alt="Strona główna Khanmigo, asystenta AI Khan Academy dla uczniów, nauczycieli i rodziców" /> </p>
+<p><small>Źródło: zrzut ekranu strony Khanmigo (Khan Academy), z
+prezentacji „Praca i AI”.</small></p>
+<aside class="notes">
+<p>Khanmigo działa na modelach OpenAI (od 2023 r.). Założenie
+pedagogiczne: asystent nie podaje gotowej odpowiedzi, tylko zadaje
+pytania naprowadzające (metoda sokratejska). To odpowiedź na problem
+„odrabiania lekcji przez czat”. Pytanie do sali: czy tak skonfigurowany
+asystent byłby dopuszczalny na egzaminie? Data zrzutu ekranu [do
+weryfikacji].</p>
+</aside>
+</section>
+<section id="projekt-maria-awatar-ai-dla-edukacji" class="slide level2">
+<h2>Projekt Maria: awatar AI dla edukacji</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="media/04_maria_sklodowska_curie.jpg"
+style="width:75.0%"
+alt="Fotografia Marii Skłodowskiej-Curie przy pracy" /> </p>
+<p><small>Fotografia historyczna, domena publiczna [źródło do
+ustalenia].</small></p>
+</div><div class="column" style="width:60%;">
+<ul>
+<li>Awatar Marii Skłodowskiej-Curie mówiący jej głosem</li>
+<li>Twórcy: Historical Imagination Lab (HIL) i Humanverse</li>
+<li>Pokaz: Międzynarodowy Kongres „Innowacja jest kobietą. Nauka –
+Biznes – Edukacja”, Lublin, 21–22.10.2024 (80-lecie UMCS)</li>
+<li>Pytania: wiarygodność historyczna, zgoda, granica między edukacją a
+fikcją</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Projekt współtworzył prowadzący (HIL). Warto pokazać fragment
+nagrania, jeśli dostępny. [materiał wideo, do uzupełnienia] Informacje o
+kongresie: komunikat UMCS „Meeting with the avatar of Maria
+Curie-Skłodowska”.</p>
+<p>Wątek prawny: ochrona dóbr osobistych osób zmarłych (kult pamięci),
+wizerunek historyczny, obowiązek ujawnienia, że rozmawiamy z AI (art. 50
+ust. 1 AI Act).</p>
+</aside>
+</section>
+<section id="koniec-czytania-i-pisania" class="slide level2">
+<h2>Koniec czytania i pisania?</h2>
+<ul>
+<li>D. Thompson (<em>The Argument</em>): prawdziwe zagrożenie to nie to,
+że AI nas prześcignie, ale to, że <strong>przestaniemy używać własnych
+umysłów</strong></li>
+<li><strong>Koniec pisania:</strong> pisanie nie następuje po myśleniu,
+pisanie <em>jest</em> myśleniem; oddając je AI, tracimy pracę
+zrozumienia</li>
+<li><strong>Koniec czytania:</strong> spadek wyników czytania w USA
+(najniższe od 32 lat w badaniu NAEP 2024); studenci elitarnych uczelni
+nie czytają całych książek</li>
+<li><strong>Utrata „supermocy poznawczej”:</strong> czytanie i pisanie
+jako fundament głębokiego myślenia (C. Newport, W. Ong, <em>Orality and
+Literacy</em>)</li>
+</ul>
+<aside class="notes">
+<p>Ze slajdu 43 prezentacji I (parafraza tekstu Dereka Thompsona). [do
+weryfikacji: tytuł, data i adres tekstu D. Thompsona w „The Argument”; w
+omówieniach pojawia się tytuł „You have 18 months”] Dane NAEP dotyczą
+uczniów 12. klasy (wyniki opublikowane w 2025 r.). Przykład z Georgetown
+(studenci mający problem z uwagą przy sonecie) pochodzi z artykułu R.
+Horowitch w „The Atlantic” (2024) [do weryfikacji].</p>
+<p>Pytanie do sali: czy prawnik, który nie pisze sam, umie jeszcze
+argumentować?</p>
+</aside>
+</section>
+<section id="algorytm-w-ławce-szkolnej" class="slide level2">
+<h2>„Algorytm w Ławce Szkolnej”</h2>
+<ul>
+<li>Badanie pilotażowe: K. Kasprowicz, H. Busz, Lublin, maj 2026</li>
+<li><strong>303</strong> uczniów szkół średnich i studentów z
+województwa lubelskiego, głównie kierunków społeczno-prawnych</li>
+<li>59,1% kobiet, 41,3% z terenów wiejskich</li>
+<li>Ankieta internetowa (CAWI), 69 pozycji</li>
+<li>ChatGPT stał się synonimem AI; najczęstsza pomoc: przedmioty
+humanistyczne, potem ścisłe</li>
+</ul>
+<p><strong>Pełny raport interaktywny na stronie kursu:</strong>
+„Algorytm w Ławce Szkolnej”</p>
+<aside class="notes">
+<p>Raport interaktywny: 02_interaktywne/algorytm_w_lawce_szkolnej.html
+(na stronie kursu w zakładce aplikacji). Kolejność dziedzin:
+humanistyczne, ścisłe, codzienne sytuacje pozaszkolne, języki obce,
+przyrodnicze. Respondenci traktują AI jako narzędzie do pracy z tekstem,
+argumentacją i syntezą, a nie do korekty językowej (60,7% nie korzysta z
+Grammarly). 65% deklaruje niską częstotliwość korzystania z AI przy
+pracach pisemnych.</p>
+</aside>
+</section>
+<section id="studenci-i-ai-polska-za-średnią-unijną"
+class="slide level2">
+<h2>Studenci i AI: Polska za średnią unijną</h2>
+<figure>
+<img data-src="media/04_w_eurostat_studenci.svg" style="width:88.0%"
+alt="Wykres z kropkami: w 2025 r. generatywnej AI używało 55,3% polskich studentów wobec 72,0% w UE, a do nauki 37,1% wobec 54,6%." />
+<figcaption aria-hidden="true">Wykres z kropkami: w 2025 r. generatywnej
+AI używało 55,3% polskich studentów wobec 72,0% w UE, a do nauki 37,1%
+wobec 54,6%.</figcaption>
+</figure>
+<aside class="notes">
+<p>Odsetek osób, które w ciągu ostatnich 3 miesięcy używały generatywnej
+AI, 2025 · Polska vs UE-27. Źródło: Eurostat, Individuals - use of
+generative AI tools (isoc_ai_iaiu), 2025, aktualizacja 5 VI 2026
+(https://ec.europa.eu/eurostat/databrowser/view/isoc_ai_iaiu/default/table).</p>
+</aside>
+</section>
+<section id="iluzja-efektywności-poznawczej" class="slide level2">
+<h2>Iluzja efektywności poznawczej</h2>
+<p><img data-src="media/04_w_lawka_wplyw.svg" style="width:88.0%"
+alt="Wykres: 70% deklaruje szybsze zrozumienie, 63% głębsze, 39,6% większą niezależność, 30% większe zaangażowanie, 25,7% większą motywację; próg 60%" /> </p>
+<aside class="notes">
+<p>Luka 7 punktów procentowych między „szybciej” (70%) a „lepiej” (63%).
+Raport nazywa to za Shen i Tamkinem iluzją efektywności poznawczej:
+skrócenie czasu pracy bywa subiektywnie odbierane jako zrozumienie, choć
+głębokie przetwarzanie zostaje pominięte. Tylko dwa wymiary przekraczają
+60%. Motywacja, zaangażowanie i niezależność są wyraźnie niżej (74,3%
+mówi „nie” przy motywacji).</p>
+</aside>
+</section>
+<section id="rodzice-uczniowie-i-presja-otoczenia" class="slide level2">
+<h2>Rodzice, uczniowie i presja otoczenia</h2>
+<ul>
+<li>Gotowość rodziców do zapłaty za narzędzia AI do nauki rośnie o
+<strong>ponad 60%</strong>, gdy dowiadują się, że korzystają z nich inni
+(Bursztyn, Imas i in., NBER 2025)</li>
+<li>Informacja o szkodach obniża ocenę AI, ale nie własny popyt;
+zwiększa poparcie dla zakazu AI w szkołach</li>
+<li>Mollick i Mollick: siedem ról AI na zajęciach (tutor, coach, mentor,
+kolega z zespołu, narzędzie, symulator, uczeń), zawsze ze studentem „w
+pętli”</li>
+</ul>
+<aside class="notes">
+<p>L. Bursztyn, A. Imas, R. Jiménez-Durán, A. Leonard, C. Roth, „Social
+Dynamics of AI Adoption”, NBER WP 34488 (XI 2025). E. Mollick, L.
+Mollick, „Assigning AI: Seven Approaches for Students, with Prompts”
+(SSRN 4475995, 2023). Do dyskusji: czy szkoła powinna zakazać AI, skoro
+presja rówieśnicza i tak zwiększa jej użycie?</p>
+</aside>
+</section>
+<section id="czy-to-plagiat" class="slide level2">
+<h2>Czy to plagiat?</h2>
+<p><img data-src="media/04_w_lawka_plagiat.svg" style="width:85.0%"
+alt="Wykres: 38% uważa użycie AI za plagiat, 32,3% jest niezdecydowanych, 30% uważa, że to nie plagiat" /> </p>
+<ul>
+<li>72,3% obawia się błędnych treści, tylko 14,5% uznaje AI za rzetelne
+źródło</li>
+<li>Kiedy nieujawnione użycie AI jest uczciwe? Od „nigdy” do „jest
+uczciwe domyślnie”</li>
+</ul>
+<aside class="notes">
+<p>Trzy niemal równe grupy. Raport wiąże to z próżnią regulacyjną.
+Przykładowe odpowiedzi otwarte: „Nigdy.”; „Kiedy stoi na równi z
+googlowaniem informacji.”; „Nie powinno się tego ukrywać – to taki
+doping jak w sporcie.”; „Jest uczciwe domyślnie – nieuczciwe dopiero,
+gdy autor zaprzecza, że korzystał…”.</p>
+<p>Suma odsetków w raporcie wynosi 100,3% (zaokrąglenia).</p>
+</aside>
+</section>
+<section id="plagiat-a-ai-perspektywa-prawna" class="slide level2">
+<h2>Plagiat a AI: perspektywa prawna</h2>
+<ul>
+<li><strong>Plagiat w sensie prawa autorskiego</strong> (art. 115 ust. 1
+pr. aut.): przywłaszczenie autorstwa <strong>cudzego utworu</strong>.
+Czy tekst z modelu jest „cudzym utworem”?</li>
+<li><strong>Prawo o szkolnictwie wyższym i nauce, art. 77 ust.
+5:</strong> stwierdzenie nieważności dyplomu, gdy autor pracy przypisał
+sobie autorstwo istotnego fragmentu cudzego utworu lub ustalenia
+naukowego</li>
+<li><strong>Nierzetelność akademicka</strong> jest szersza niż plagiat:
+nieujawnienie użycia AI może naruszać regulaminy i kodeksy etyki
+uczelni</li>
+<li>Rozwiązanie z sylabusa tego kursu: AI dozwolona przy projekcie, ale
+z <strong>oświadczeniem</strong> o zakresie użycia</li>
+</ul>
+<aside class="notes">
+<p>Problem dla dyskusji: jeżeli wytwór AI nie jest utworem (brak
+twórcy-człowieka, por. Thaler v. Perlmutter, spotkanie 7), to
+przypisanie go sobie nie jest „plagiatem” w rozumieniu art. 115 pr. aut.
+Nie znaczy to jednak, że jest dozwolone. Wchodzi odpowiedzialność
+dyscyplinarna studentów i regulaminy uczelni. [do weryfikacji: aktualne
+zasady UMCS dotyczące korzystania z AI w pracach dyplomowych]</p>
+</aside>
+</section>
+<section id="ai-zamiast-nauczyciela" class="slide level2">
+<h2>AI zamiast nauczyciela?</h2>
+<ul>
+<li><strong>27%</strong> wybiera AI ze strachu, że pytanie zostanie
+uznane za banalne</li>
+<li>Pierwszy motyw to całodobowa dostępność</li>
+<li><strong>84,5%:</strong> AI ma być pomocą, nie głównym narzędziem
+nauki</li>
+<li><strong>74,6%:</strong> nauczyciele powinni uczyć mądrego
+korzystania z AI</li>
+<li>Uczniowie wybierają AI nie dlatego, że uczy lepiej, ale dlatego, że
+<strong>nie ocenia</strong></li>
+</ul>
+<aside class="notes">
+<p>Cytat respondenta z raportu: „Tak, bo zazwyczaj w odpowiedzi na moje
+pytanie zawarte są sugestie, że pytanie było głupie, że odpowiedź jest
+oczywista, albo nauczyciel ignoruje pytanie […]”. Wniosek raportu:
+pokolenie chatbotów nie chce zastąpienia nauczyciela; chce nauczyciela,
+który technologię oswoi.</p>
+</aside>
+</section>
+<section id="próżnia-regulacyjna" class="slide level2">
+<h2>Próżnia regulacyjna</h2>
+<p><img data-src="media/04_w_lawka_proznia.svg" style="width:88.0%"
+alt="Wykres: 84,5% chce AI jako pomocy, 74,6% chce nauki mądrego korzystania, 68,3% uważa, że nauczyciele nie wiedzą o użyciu AI, 37% rodziców nie wie, 14,5% placówek ma wytyczne" /> </p>
+<aside class="notes">
+<p>Trzy środowiska bez wspólnej strategii. Instytucja milczy (14,5%
+placówek z jasnymi wytycznymi). Nauczyciele są podzieleni i w oczach
+uczniów bezsilni: 68,3% uważa, że nauczyciele nie wiedzą, gdy uczeń
+korzysta z AI. Rodzice są życzliwi, ale częściowo nieświadomi: co trzeci
+nastolatek korzysta z AI poza wiedzą opiekunów; 54,4% rodziców, którzy
+wiedzą, popiera korzystanie.</p>
+<p>Uwaga do raportu: w części o antropomorfizacji tekst mówi, że „niemal
+trzy razy więcej” respondentów uważa świadomość AI za kwestię czasu niż
+za niemożliwą, ale wykres podaje 33,3% i 37%. [do weryfikacji przez
+autorów raportu] Na slajdach tej liczby nie używamy.</p>
+</aside>
+</section>
+<section id="edukacja-w-ai-act" class="slide level2">
+<h2>Edukacja w AI Act</h2>
+<ul>
+<li><strong>Zał. III pkt 3:</strong> wysokiego ryzyka są systemy do
+decydowania o przyjęciu, oceniania efektów uczenia się, sterowania
+procesem uczenia, wykrywania niedozwolonych zachowań na egzaminach</li>
+<li><strong>Art. 5 ust. 1 lit. f:</strong> zakaz rozpoznawania emocji
+uczniów i studentów</li>
+<li><strong>Art. 4:</strong> kompetencje w zakresie AI (od 2.02.2025; po
+zmianach z 2026 r. obowiązek <strong>wspierania</strong>
+kompetencji)</li>
+<li>Wniosek: system „wykrywania AI” w pracach studentów może być
+systemem wysokiego ryzyka</li>
+</ul>
+<aside class="notes">
+<p>Przykład do dyskusji: uczelnia kupuje detektor tekstu generowanego
+przez AI i na jego podstawie wszczyna postępowania dyscyplinarne.
+Detektory mają wysoki odsetek fałszywych alarmów, zwłaszcza dla osób
+piszących w drugim języku. Kto odpowiada za błędne oskarżenie? Termin
+dla systemów z zał. III: 2.12.2027 (rozporządzenie 2026/1744).</p>
+</aside>
+</section></section>
+<section>
+<section id="część-v.-przekwalifikowanie-i-kompetencje"
+class="title-slide slide level1">
+<h1>Część V. Przekwalifikowanie i kompetencje</h1>
+
+</section>
+<section id="kompetencje-cyfrowe-pracowników" class="slide level2">
+<h2>Kompetencje cyfrowe pracowników</h2>
+<ul>
+<li>Pracodawcy szacują, że ok. 39% kluczowych umiejętności zmieni się do
+2030 r. (WEF 2025)</li>
+<li>Art. 4 AI Act: dostawcy i podmioty stosujące wspierają kompetencje w
+zakresie AI swojego personelu</li>
+<li>Polska: ustawa z 3.07.2026 o systemach sztucznej inteligencji (Dz.U.
+2026 poz. 1003), w mocy od 11.08.2026; nadzór KRiBSI; przepisy o
+kontroli i karach od 28.10.2026</li>
+<li>Uczenie się przez całe życie zamiast jednorazowego
+wykształcenia</li>
+</ul>
+<aside class="notes">
+<p>Art. 4 w pierwotnym brzmieniu nakładał obowiązek „zapewnienia”
+kompetencji; omnibus cyfrowy (rozporządzenie 2026/1744, w mocy od
+27.07.2026) złagodził go do „wspierania”. Krajowa ustawa weszła w życie
+11.08.2026 (w tym organizacja KRiBSI), a przepisy o kontroli,
+postępowaniu i karach stosuje się od 28.10.2026, czyli tuż przed tym
+spotkaniem. Szczegóły na spotkaniu 7.</p>
+</aside>
+</section>
+<section id="kompetencje-prawnika-w-epoce-ai" class="slide level2">
+<h2>Kompetencje prawnika w epoce AI</h2>
+<ol type="1">
+<li><strong>Weryfikacja:</strong> sprawdzanie źródeł, sygnatur,
+cytatów</li>
+<li><strong>Lokalizowanie granicy:</strong> które zadania leżą wewnątrz
+możliwości modelu, a które poza nimi</li>
+<li><strong>Formułowanie poleceń</strong> i rozumienie, jak działa model
+językowy</li>
+<li><strong>Ochrona tajemnicy zawodowej</strong> przy pracy z
+narzędziami chmurowymi</li>
+<li><strong>Osąd i odpowiedzialność:</strong> tego nie da się oddać
+maszynie</li>
+</ol>
+<aside class="notes">
+<p>Nawiązanie do badania „zasypiania”: im lepsze narzędzie, tym
+ważniejsze świadome zachowanie czujności. Te kompetencje rozwiniemy na
+spotkaniu 8 (halucynowane orzeczenia w pismach procesowych, etyka
+zawodowa).</p>
+</aside>
+</section>
+<section id="czy-sztuczki-promptowe-działają" class="slide level2">
+<h2>Czy „sztuczki” promptowe działają?</h2>
+<ul>
+<li>Cykl <em>Prompting Science Reports</em> (Wharton Generative AI Labs,
+2025–2026)</li>
+<li>Uprzejmość, groźby ani obietnica napiwku <strong>nie
+poprawiają</strong> wyników w testach wiedzy</li>
+<li>Persona „eksperta”, także prawnika, zwykle nie zwiększa
+trafności</li>
+<li>Ukryte polecenia w ocenianym tekście potrafią zawyżać oceny
+wystawiane przez AI</li>
+<li>Dla prawnika liczy się weryfikacja, a nie „magiczny prompt”</li>
+</ul>
+<aside class="notes">
+<p>L. Meincke, E. Mollick, L. Mollick, D. Shapiro i in.: Report 1 (arXiv
+2503.04818), Report 2 o malejącej wartości „chain of thought” (arXiv
+2506.07142), Report 3 o groźbach i napiwkach (arXiv 2508.00614), Report
+4 o personach eksperckich (arXiv 2512.05858, w tym pytania z prawa z
+MMLU-Pro), Report 5 o wstrzykiwaniu poleceń przy ocenianiu prac (SSRN
+6510758: średnio ok. +2,6 pkt proc., w skrajnych przypadkach znacznie
+więcej). Wniosek praktyczny dla kancelarii i uczelni: ocena prac lub
+dokumentów przez AI wymaga zabezpieczeń przed ukrytymi instrukcjami.</p>
+</aside>
+</section>
+<section id="do-dyskusji" class="slide level2">
+<h2>Do dyskusji</h2>
+<ul>
+<li>Czy uczelnia powinna <strong>zakazać</strong> AI przy pracach
+zaliczeniowych, czy <strong>uczyć</strong> korzystania z niej?</li>
+<li>Czy dochód podstawowy to odpowiedź na automatyzację pracy
+umysłowej?</li>
+<li>Czy aplikacja prawnicza powinna obejmować obowiązkowe szkolenie z
+AI?</li>
+</ul>
+<aside class="notes">
+<p>Dyskusja 10 minut. Wykorzystać listę „oddam / nie oddam” z początku
+zajęć. Pytania rozwinięte w pliku cwiczenia.md.</p>
+</aside>
+</section>
+<section id="podsumowanie" class="slide level2">
+<h2>Podsumowanie</h2>
+<ul>
+<li>AI zmienia <strong>zadania</strong>, nie całe zawody; granica
+możliwości jest poszarpana</li>
+<li>Największe zyski osiągają słabsi pracownicy, największe ryzyko to
+„zasypianie” i błędy poza granicą</li>
+<li>Za automatyzacją stoi niewidzialna, często prekarna praca ludzi</li>
+<li>Uczniowie i studenci korzystają z AI szybciej, niż instytucje
+formułują zasady</li>
+<li>AI przyspiesza dostęp do odpowiedzi, ale nie zastępuje
+rozumienia</li>
+<li>Prawo reaguje: AI Act (praca i edukacja jako obszary wysokiego
+ryzyka), dyrektywa platformowa, art. 4 AI Act</li>
+</ul>
+</section>
+<section id="na-następne-spotkanie" class="slide level2">
+<h2>Na następne spotkanie</h2>
+<ul>
+<li><strong>Temat:</strong> Społeczne wyzwania AI (II): etyka,
+uprzedzenia, przejrzystość</li>
+<li><strong>Przeczytaj:</strong> lektury obowiązkowe modułu 05 (wytyczne
+HLEG 2019, wyrok TSUE w sprawie SCHUFA)</li>
+<li><strong>Zadanie:</strong> poproś model generatywny o wygenerowanie
+obrazu „sędziego”, „prawnika” i „pielęgniarki”. Zanotuj, kogo
+przedstawia</li>
+<li><strong>Quiz</strong> modułu 04 na stronie kursu</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/search/search.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.05,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

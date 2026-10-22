@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 600" width="1300" height="600" role="img" aria-label="Pętla działania agenta AI: cel, plan, działanie, obserwacja" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<title>Pętla działania agenta AI: cel, plan, działanie, obserwacja</title>
+<defs>
+<marker id="aN" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f3a5f"/></marker>
+<marker id="aM" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a1538"/></marker>
+<marker id="aT" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2a7f7a"/></marker>
+<marker id="aA" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a8661a"/></marker>
+</defs>
+<rect x="1" y="1" width="1298" height="598" rx="18" fill="#fbfaf7" stroke="#d6d0c4" stroke-width="2"/>
+<text x="650.0" y="46.0" font-size="28" fill="#1f3a5f" text-anchor="middle" font-weight="bold">Agent AI: model w pętli działania</text>
+<rect x="500.0" y="75.0" width="300.0" height="110.0" rx="12" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="2.5"/>
+<text x="650.0" y="112.0" font-size="21" fill="#1f3a5f" text-anchor="middle" font-weight="bold">cel od człowieka</text>
+<text x="650.0" y="140.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">„przygotuj zestawienie</text>
+<text x="650.0" y="162.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">orzecznictwa SN”</text>
+<rect x="810.0" y="265.0" width="300.0" height="110.0" rx="12" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="2.5"/>
+<text x="960.0" y="302.0" font-size="21" fill="#2a7f7a" text-anchor="middle" font-weight="bold">model planuje</text>
+<text x="960.0" y="330.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">dzieli zadanie na kroki,</text>
+<text x="960.0" y="352.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">wybiera narzędzie</text>
+<rect x="500.0" y="445.0" width="300.0" height="110.0" rx="12" fill="#f6e2e7" stroke="#8a1538" stroke-width="2.5"/>
+<text x="650.0" y="482.0" font-size="21" fill="#8a1538" text-anchor="middle" font-weight="bold">działanie</text>
+<text x="650.0" y="510.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">wyszukiwarka, przeglądarka,</text>
+<text x="650.0" y="532.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">kod, pliki, e-mail</text>
+<rect x="190.0" y="265.0" width="300.0" height="110.0" rx="12" fill="#fbf0dc" stroke="#a8661a" stroke-width="2.5"/>
+<text x="340.0" y="302.0" font-size="21" fill="#a8661a" text-anchor="middle" font-weight="bold">obserwacja</text>
+<text x="340.0" y="330.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">wynik działania wraca</text>
+<text x="340.0" y="352.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="normal">do kontekstu modelu</text>
+<path d="M 805 150 Q 940 170 960 262" fill="none" stroke="#1f3a5f" stroke-width="3" marker-end="url(#aN)"/>
+<path d="M 960 378 Q 940 480 803 495" fill="none" stroke="#2a7f7a" stroke-width="3" marker-end="url(#aT)"/>
+<path d="M 497 500 Q 360 480 340 378" fill="none" stroke="#8a1538" stroke-width="3" marker-end="url(#aM)"/>
+<path d="M 340 262 Q 520 230 800 300" fill="none" stroke="#a8661a" stroke-width="3" marker-end="url(#aA)"/>
+<text x="560.0" y="238.0" font-size="16" fill="#a8661a" text-anchor="middle" font-weight="bold">kolejna iteracja</text>
+<rect x="1015.0" y="95.0" width="260.0" height="110.0" rx="12" fill="#fbfaf7" stroke="#8a1538" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="1145.0" y="128.0" font-size="16" fill="#8a1538" text-anchor="middle" font-weight="bold">punkt kontroli:</text>
+<text x="1145.0" y="152.0" font-size="16" fill="#8a1538" text-anchor="middle" font-weight="bold">człowiek zatwierdza</text>
+<text x="1145.0" y="176.0" font-size="16" fill="#8a1538" text-anchor="middle" font-weight="bold">działania nieodwracalne</text>
+<rect x="25.0" y="95.0" width="250.0" height="110.0" rx="12" fill="#fbfaf7" stroke="#1f3a5f" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="150.0" y="128.0" font-size="16" fill="#1f3a5f" text-anchor="middle" font-weight="bold">koniec pętli:</text>
+<text x="150.0" y="152.0" font-size="16" fill="#1f3a5f" text-anchor="middle" font-weight="bold">cel osiągnięty albo</text>
+<text x="150.0" y="176.0" font-size="16" fill="#1f3a5f" text-anchor="middle" font-weight="bold">limit kroków</text>
+<text x="650.0" y="585.0" font-size="17" fill="#555555" text-anchor="middle" font-weight="normal" font-style="italic">Chatbot odpowiada. Agent działa: sam wybiera kolejne kroki i używa narzędzi, aż osiągnie cel.</text>
+</svg>

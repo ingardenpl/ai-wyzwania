@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Gender Shades: błędy klasyfikacji płci w twarzach</title><desc id="d"> Microsoft: ciemne kobiety: 20,8%; ciemni mężczyźni: 6,0%; jasne kobiety: 1,7%; jasni mężczyźni: 0,0% | Face++: ciemne kobiety: 34,5%; ciemni mężczyźni: 0,7%; jasne kobiety: 9,8%; jasni mężczyźni: 0,8% | IBM: ciemne kobiety: 34,7%; ciemni mężczyźni: 12,0%; jasne kobiety: 7,1%; jasni mężczyźni: 0,3%</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Gender Shades: błędy klasyfikacji płci w twarzach</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Odsetek błędnie sklasyfikowanych zdjęć według płci i odcienia skóry · trzy komercyjne systemy, zbiór PPB (1270 osób z parlamentów 6 krajów, test IV-V 2017)</text>
+<rect x="28.0" y="96" width="286.7" height="344" fill="#0b0d17" stroke="#1a2a36"/>
+<text x="42.0" y="124.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="19" font-weight="700" fill="#7df9ff" text-anchor="start" >Microsoft</text>
+<rect x="152.0" y="162.5" width="86.7" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="152.0" y="162.5" width="45.1" height="26.0" fill="#ff003c"/>
+<text x="140.0" y="180.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >ciemne kobiety</text>
+<text x="207.1" y="180.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >20,8%</text>
+<rect x="152.0" y="233.5" width="86.7" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="152.0" y="233.5" width="13.0" height="26.0" fill="#00f0ff"/>
+<text x="140.0" y="251.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >ciemni mężczyźni</text>
+<text x="175.0" y="251.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >6,0%</text>
+<rect x="152.0" y="304.5" width="86.7" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="152.0" y="304.5" width="3.7" height="26.0" fill="#00f0ff"/>
+<text x="140.0" y="322.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >jasne kobiety</text>
+<text x="165.7" y="322.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >1,7%</text>
+<rect x="152.0" y="375.5" width="86.7" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="152.0" y="375.5" width="2.0" height="26.0" fill="#00f0ff"/>
+<text x="140.0" y="393.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >jasni mężczyźni</text>
+<text x="164.0" y="393.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >0,0%</text>
+<rect x="336.7" y="96" width="286.7" height="344" fill="#0b0d17" stroke="#1a2a36"/>
+<text x="350.7" y="124.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="19" font-weight="700" fill="#7df9ff" text-anchor="start" >Face++</text>
+<rect x="460.7" y="162.5" width="86.7" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="460.7" y="162.5" width="74.8" height="26.0" fill="#ff003c"/>
+<text x="448.7" y="180.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >ciemne kobiety</text>
+<text x="545.4" y="180.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >34,5%</text>
+<rect x="460.7" y="233.5" width="86.7" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="460.7" y="233.5" width="2.0" height="26.0" fill="#00f0ff"/>
+<text x="448.7" y="251.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >ciemni mężczyźni</text>
+<text x="472.7" y="251.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >0,7%</text>
+<rect x="460.7" y="304.5" width="86.7" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="460.7" y="304.5" width="21.2" height="26.0" fill="#00f0ff"/>
+<text x="448.7" y="322.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >jasne kobiety</text>
+<text x="491.9" y="322.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >9,8%</text>
+<rect x="460.7" y="375.5" width="86.7" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="460.7" y="375.5" width="2.0" height="26.0" fill="#00f0ff"/>
+<text x="448.7" y="393.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >jasni mężczyźni</text>
+<text x="472.7" y="393.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >0,8%</text>
+<rect x="645.3" y="96" width="286.7" height="344" fill="#0b0d17" stroke="#1a2a36"/>
+<text x="659.3" y="124.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="19" font-weight="700" fill="#7df9ff" text-anchor="start" >IBM</text>
+<rect x="769.3" y="162.5" width="86.7" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="769.3" y="162.5" width="75.2" height="26.0" fill="#ff003c"/>
+<text x="757.3" y="180.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >ciemne kobiety</text>
+<text x="854.5" y="180.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >34,7%</text>
+<rect x="769.3" y="233.5" width="86.7" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="769.3" y="233.5" width="26.0" height="26.0" fill="#00f0ff"/>
+<text x="757.3" y="251.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >ciemni mężczyźni</text>
+<text x="805.3" y="251.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >12,0%</text>
+<rect x="769.3" y="304.5" width="86.7" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="769.3" y="304.5" width="15.4" height="26.0" fill="#00f0ff"/>
+<text x="757.3" y="322.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >jasne kobiety</text>
+<text x="794.7" y="322.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >7,1%</text>
+<rect x="769.3" y="375.5" width="86.7" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="769.3" y="375.5" width="2.0" height="26.0" fill="#00f0ff"/>
+<text x="757.3" y="393.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >jasni mężczyźni</text>
+<text x="781.3" y="393.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >0,3%</text>
+<rect x="28" y="452" width="14" height="14" fill="#ff003c"/>
+<text x="48.0" y="464.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13.5" font-weight="400" fill="#c2c6d8" text-anchor="start" >ciemnoskóre kobiety</text>
+<rect x="202.4" y="452" width="14" height="14" fill="#00f0ff"/>
+<text x="222.4" y="464.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13.5" font-weight="400" fill="#c2c6d8" text-anchor="start" >pozostałe grupy</text>
+<text x="28.0" y="507.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: J. Buolamwini, T. Gebru, Gender Shades: Intersectional Accuracy Disparities in Commercial Gender</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Classification, PMLR 81 (FAT* 2018), tabela 4</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

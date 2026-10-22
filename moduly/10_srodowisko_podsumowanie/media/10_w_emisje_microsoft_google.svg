@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Emisje rosną mimo deklaracji klimatycznych</title><desc id="d"> Microsoft (FY2020 → FY2025): próba 20,29, norma 12,9, +57,5%; Google (2019 → 2025): próba 14,47, norma 8,0, +80,9%</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Emisje rosną mimo deklaracji klimatycznych</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#9095ad" text-anchor="start" >Emisje gazów cieplarnianych: rok bazowy a 2025 (mln t CO₂e); metody firm różnią się, nie porównywać wprost</text>
+<line x1="318.0" x2="318.0" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="318.0" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >0</text>
+<line x1="395.3" x2="395.3" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="395.3" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >4</text>
+<line x1="472.7" x2="472.7" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="472.7" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >8</text>
+<line x1="550.0" x2="550.0" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="550.0" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >12</text>
+<line x1="627.3" x2="627.3" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="627.3" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >16</text>
+<line x1="704.7" x2="704.7" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="704.7" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >20</text>
+<line x1="782.0" x2="782.0" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="782.0" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >24</text>
+<text x="304.0" y="207.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#9095ad" text-anchor="end" >Microsoft (FY2020 → FY2025)</text>
+<line x1="567.0" x2="710.3" y1="201.0" y2="201.0" stroke="#9095ad" stroke-width="4"/>
+<circle cx="567.0" cy="201.0" r="8" fill="#07080f" stroke="#7df9ff" stroke-width="3"/>
+<circle cx="710.3" cy="201.0" r="9" fill="#9095ad"/>
+<text x="800.0" y="207.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#9095ad" text-anchor="start" >+57,5%</text>
+<text x="304.0" y="377.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#9095ad" text-anchor="end" >Google (2019 → 2025)</text>
+<line x1="472.7" x2="597.8" y1="371.0" y2="371.0" stroke="#9095ad" stroke-width="4"/>
+<circle cx="472.7" cy="371.0" r="8" fill="#07080f" stroke="#7df9ff" stroke-width="3"/>
+<circle cx="597.8" cy="371.0" r="9" fill="#9095ad"/>
+<text x="800.0" y="377.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#9095ad" text-anchor="start" >+80,9%</text>
+<circle cx="326" cy="92" r="7" fill="#07080f" stroke="#7df9ff" stroke-width="3"/>
+<text x="340.0" y="97.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13.5" font-weight="400" fill="#c2c6d8" text-anchor="start" >rok bazowy</text>
+<circle cx="518" cy="92" r="8" fill="#fcee0a"/>
+<text x="532.0" y="97.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13.5" font-weight="400" fill="#c2c6d8" text-anchor="start" >2025</text>
+<text x="28.0" y="507.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: Microsoft, 2026 Environmental Data Fact Sheet, tabela 1B (kryteria zarządu, zakresy 1+2+3, metoda</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >rynkowa), FY20 i FY25; Google, 2026 Environmental Report, tabela emisji (emisje ambition-based), s. 74 i 90</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

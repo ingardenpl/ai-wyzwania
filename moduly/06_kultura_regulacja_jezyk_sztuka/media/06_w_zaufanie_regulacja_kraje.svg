@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Czy ufasz własnemu rządowi, że odpowiedzialnie uregulował AI?</title><desc id="d"> Singapur: 81%; Indonezja: 76%; Chile: 67%; Polska: 61%; Hiszpania: 55%; Szwajcaria: 55%; średnia globalna: 54%; Włochy: 50%; Niemcy: 49%; Holandia: 48%; Szwecja: 46%; Francja: 42%; Kanada: 40%; Wielka Brytania: 39%; Węgry: 33%; Japonia: 32%; Stany Zjednoczone: 31%</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Czy ufasz własnemu rządowi, że odpowiedzialnie uregulował AI?</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.2" font-weight="400" fill="#9095ad" text-anchor="start" >Odsetek respondentów, którzy ufają rządowi swojego kraju w odpowiedzialnym regulowaniu AI; badanie Ipsos AI Monitor 2025, 30 krajów (wybrane kraje)</text>
+<rect x="358.0" y="100.8" width="454.0" height="13.3" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="100.8" width="367.7" height="13.3" fill="#00f0ff"/>
+<text x="346.0" y="113.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Singapur</text>
+<text x="735.7" y="114.3" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >81%</text>
+<rect x="358.0" y="123.8" width="454.0" height="13.3" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="123.8" width="345.0" height="13.3" fill="#00f0ff"/>
+<text x="346.0" y="136.7" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Indonezja</text>
+<text x="713.0" y="137.3" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >76%</text>
+<rect x="358.0" y="146.7" width="454.0" height="13.3" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="146.7" width="304.2" height="13.3" fill="#00f0ff"/>
+<text x="346.0" y="159.7" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Chile</text>
+<text x="672.2" y="160.2" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >67%</text>
+<rect x="358.0" y="169.6" width="454.0" height="13.3" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="169.6" width="276.9" height="13.3" fill="#fcee0a"/>
+<text x="346.0" y="182.6" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Polska</text>
+<text x="644.9" y="183.1" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >61%</text>
+<rect x="358.0" y="192.6" width="454.0" height="13.3" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="192.6" width="249.7" height="13.3" fill="#00f0ff"/>
+<text x="346.0" y="205.5" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Hiszpania</text>
+<text x="617.7" y="206.1" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >55%</text>
+<rect x="358.0" y="215.5" width="454.0" height="13.3" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="215.5" width="249.7" height="13.3" fill="#00f0ff"/>
+<text x="346.0" y="228.5" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Szwajcaria</text>
+<text x="617.7" y="229.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >55%</text>
+<rect x="358.0" y="238.5" width="454.0" height="13.3" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="238.5" width="245.2" height="13.3" fill="#00f0ff"/>
+<text x="346.0" y="251.4" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >średnia globalna</text>
+<text x="613.2" y="252.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >54%</text>
+<rect x="358.0" y="261.4" width="454.0" height="13.3" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="261.4" width="227.0" height="13.3" fill="#00f0ff"/>
+<text x="346.0" y="274.4" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Włochy</text>
+<text x="595.0" y="274.9" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >50%</text>
+<rect x="358.0" y="284.3" width="454.0" height="13.3" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="284.3" width="222.5" height="13.3" fill="#00f0ff"/>
+<text x="346.0" y="297.3" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Niemcy</text>
+<text x="590.5" y="297.8" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >49%</text>
+<rect x="358.0" y="307.3" width="454.0" height="13.3" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="307.3" width="217.9" height="13.3" fill="#00f0ff"/>
+<text x="346.0" y="320.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Holandia</text>
+<text x="585.9" y="320.8" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >48%</text>
+<rect x="358.0" y="330.2" width="454.0" height="13.3" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="330.2" width="208.8" height="13.3" fill="#00f0ff"/>
+<text x="346.0" y="343.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Szwecja</text>
+<text x="576.8" y="343.7" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >46%</text>
+<rect x="358.0" y="353.2" width="454.0" height="13.3" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="353.2" width="190.7" height="13.3" fill="#00f0ff"/>
+<text x="346.0" y="366.1" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Francja</text>
+<text x="558.7" y="366.7" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >42%</text>
+<rect x="358.0" y="376.1" width="454.0" height="13.3" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="376.1" width="181.6" height="13.3" fill="#00f0ff"/>
+<text x="346.0" y="389.1" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Kanada</text>
+<text x="549.6" y="389.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >40%</text>
+<rect x="358.0" y="399.1" width="454.0" height="13.3" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="399.1" width="177.1" height="13.3" fill="#00f0ff"/>
+<text x="346.0" y="412.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Wielka Brytania</text>
+<text x="545.1" y="412.5" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >39%</text>
+<rect x="358.0" y="422.0" width="454.0" height="13.3" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="422.0" width="149.8" height="13.3" fill="#00f0ff"/>
+<text x="346.0" y="434.9" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Węgry</text>
+<text x="517.8" y="435.5" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >33%</text>
+<rect x="358.0" y="444.9" width="454.0" height="13.3" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="444.9" width="145.3" height="13.3" fill="#00f0ff"/>
+<text x="346.0" y="457.9" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Japonia</text>
+<text x="513.3" y="458.4" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >32%</text>
+<rect x="358.0" y="467.9" width="454.0" height="13.3" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="467.9" width="140.7" height="13.3" fill="#00f0ff"/>
+<text x="346.0" y="480.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Stany Zjednoczone</text>
+<text x="508.7" y="481.4" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >31%</text>
+<text x="28.0" y="507.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: Stanford HAI, AI Index Report 2026, rozdz. 9 (Public Opinion), rys. 9.3.1 (s. 380), na podstawie Ipsos,</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >AI Monitor 2025</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

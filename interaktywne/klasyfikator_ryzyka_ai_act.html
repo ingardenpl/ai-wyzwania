@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+  /* Motyw: zapamiętany wybór (ten sam klucz co strona kursu), inaczej ustawienie systemu. */
+  (function () { try { var t = localStorage.getItem("ai-wyzwania-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {} })();
+</script>
+<title>Klasyfikator ryzyka AI Act</title>
+<meta name="description" content="Narzędzie dydaktyczne: krok po kroku ustal, czy system podlega AI Act, czy jest praktyką zakazaną, systemem wysokiego ryzyka, podlega obowiązkom przejrzystości albo jest modelem GPAI. Stan po omnibusie 2026/1744.">
+<style>
+  /* Tokeny kolorów: te same co tools/assets/style.css strony kursu */
+  :root {
+    --bg: #f1ebdd;
+    --surface: #f8f4ea;
+    --surface-2: #e8dfc9;
+    --ink: #14171f;
+    --ink-soft: #3a4052;
+    --muted: #5d6273;
+    --navy: #1a2542;
+    --accent: #8b1e3f;
+    --accent-ink: #ffffff;
+    --gold: #8a6420;
+    --gold-soft: #d4b97a;
+    --ok: #2d6a4f;
+    --ok-bg: #dcebe1;
+    --bad: #9b2226;
+    --bad-bg: #f3dcdc;
+    --line: rgba(20, 23, 31, 0.18);
+    --line-soft: rgba(20, 23, 31, 0.08);
+    --shadow: 0 1px 2px rgba(20, 23, 31, 0.06), 0 6px 18px rgba(20, 23, 31, 0.06);
+    --radius: 10px;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12151c; --surface: #1a1f2a; --surface-2: #232a38;
+      --ink: #ece6d8; --ink-soft: #cfc8b8; --muted: #a59f92; --navy: #c9d3ef;
+      --accent: #e3809a; --accent-ink: #12151c; --gold: #d4b97a; --gold-soft: #8a6a2e;
+      --ok: #8fd1ab; --ok-bg: #173327; --bad: #f0a3a6; --bad-bg: #3a1c1f;
+      --line: rgba(236, 230, 216, 0.18); --line-soft: rgba(236, 230, 216, 0.08);
+      --shadow: none; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12151c; --surface: #1a1f2a; --surface-2: #232a38;
+    --ink: #ece6d8; --ink-soft: #cfc8b8; --muted: #a59f92; --navy: #c9d3ef;
+    --accent: #e3809a; --accent-ink: #12151c; --gold: #d4b97a; --gold-soft: #8a6a2e;
+    --ok: #8fd1ab; --ok-bg: #173327; --bad: #f0a3a6; --bad-bg: #3a1c1f;
+    --line: rgba(236, 230, 216, 0.18); --line-soft: rgba(236, 230, 216, 0.08);
+    --shadow: none; color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); font-size: 17px; line-height: 1.6;
+    overflow-wrap: break-word;
+  }
+  img, svg { max-width: 100%; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  .skip { position: absolute; left: -9999px; top: 8px; background: var(--accent); color: var(--accent-ink); padding: 8px 12px; border-radius: 6px; z-index: 100; }
+  .skip:focus { left: 8px; }
+
+  /* Pasek górny */
+  .app-top { border-bottom: 1px solid var(--line); }
+  .app-top .wrap { display: flex; align-items: center; gap: 12px; min-height: 54px; }
+  .back { font-weight: 700; text-decoration: none; font-size: 0.92rem; }
+  .back:hover { text-decoration: underline; }
+  .course { margin-left: auto; color: var(--muted); font-size: 0.78rem; line-height: 1.3; text-align: right; }
+  .theme-toggle {
+    flex: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+    border-radius: 999px; width: 40px; height: 40px; cursor: pointer; font-size: 1.05rem;
+  }
+  .theme-toggle:hover { border-color: var(--accent); }
+
+  /* Nagłówek aplikacji */
+  .hero { padding: 36px 0 22px; border-bottom: 1px solid var(--line-soft); }
+  .eyebrow { font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin: 0 0 0.9em; }
+  h1, h2, h3 { font-family: var(--serif); line-height: 1.15; color: var(--ink); }
+  h1 { font-weight: 400; font-size: clamp(2rem, 5.2vw, 3.3rem); letter-spacing: -0.02em; margin: 0 0 0.35em; font-variation-settings: "opsz" 144; }
+  h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: 600; }
+  h2 { font-weight: 500; font-size: clamp(1.35rem, 3vw, 1.85rem); margin: 1.8em 0 0.5em; letter-spacing: -0.01em; }
+  h3 { font-weight: 600; font-size: 1.12rem; margin: 1.2em 0 0.4em; }
+  p, ul, ol { margin: 0 0 1em; }
+  .lead { font-family: var(--serif); font-size: clamp(1.05rem, 2vw, 1.22rem); color: var(--ink-soft); max-width: 46em; margin: 0; }
+  .muted { color: var(--muted); }
+  .small { font-size: 0.88rem; }
+  .mono { font-family: var(--mono); }
+
+  /* Elementy wspólne */
+  .panel { background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+  .note { border-left: 3px solid var(--gold); background: var(--surface); padding: 12px 16px; border-radius: 0 var(--radius) var(--radius) 0; font-size: 0.95rem; color: var(--ink-soft); margin: 16px 0; }
+  .note.warn { border-left-color: var(--accent); }
+  .note > :last-child { margin-bottom: 0; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    background: var(--accent); color: var(--accent-ink); text-decoration: none;
+    padding: 9px 16px; min-height: 42px; border-radius: 8px; border: 1px solid var(--accent);
+    font-weight: 700; cursor: pointer; line-height: 1.2;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .btn.ghost { background: transparent; color: var(--accent); }
+  .btn.ghost:hover { background: var(--surface-2); filter: none; }
+  .btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0 0; }
+  .chipbtn {
+    border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft);
+    border-radius: 999px; padding: 6px 14px; min-height: 38px; font-size: 0.9rem; font-weight: 700; cursor: pointer;
+  }
+  .chipbtn:hover { border-color: var(--accent); }
+  .chipbtn[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--bg); }
+  input[type="range"] { width: 100%; accent-color: var(--accent); min-height: 32px; }
+  input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); width: 18px; height: 18px; }
+  select, input[type="number"], input[type="text"] {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+    padding: 8px 10px; min-height: 42px; max-width: 100%;
+  }
+  select:focus-visible, input:focus-visible { border-color: var(--gold); }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table.data { border-collapse: collapse; width: 100%; font-size: 0.93rem; }
+  table.data th, table.data td { border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.data th { font-weight: 700; background: var(--surface-2); }
+  .tag { display: inline-block; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); color: var(--ink-soft); }
+
+  /* Stopka ze źródłami */
+  footer.sources { border-top: 1px solid var(--line); margin-top: 48px; padding: 24px 0 40px; font-size: 0.88rem; color: var(--muted); }
+  footer.sources h2 { font-size: 1.15rem; margin: 0 0 0.6em; }
+  footer.sources ol, footer.sources ul { padding-left: 1.3em; }
+  footer.sources li { margin: 0.3em 0; }
+  footer.sources a { color: var(--ink-soft); }
+  footer.sources .meta { margin-top: 1.2em; }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .course { display: none; }
+    .app-top .wrap { justify-content: space-between; }
+    .hero { padding-top: 24px; }
+    .panel { padding: 14px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  }
+  @media print {
+    .app-top, .theme-toggle, .no-print { display: none !important; }
+    body { background: #fff; color: #000; }
+  }
+
+  .layout { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 22px; align-items: start; margin-top: 20px; }
+  @media (max-width: 900px) { .layout { grid-template-columns: minmax(0, 1fr); } .side { order: 2; } }
+  .progress { height: 6px; background: var(--surface-2); border-radius: 999px; overflow: hidden; margin-bottom: 14px; }
+  .progress span { display: block; height: 100%; background: var(--accent); transition: width 0.3s ease; }
+  .stepref { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin: 0 0 6px; }
+  .q h2 { margin: 0 0 8px; font-size: clamp(1.3rem, 3vw, 1.7rem); }
+  .q .help { color: var(--ink-soft); font-size: 0.95rem; }
+  .q fieldset { border: 0; padding: 0; margin: 14px 0 0; min-width: 0; }
+  .opt { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; align-items: start; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; margin-bottom: 8px; cursor: pointer; background: var(--bg); }
+  .opt:hover { border-color: var(--accent); }
+  .opt:has(input:checked) { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); background: var(--surface); }
+  .opt input { margin-top: 4px; }
+  .opt b { display: block; line-height: 1.35; }
+  .opt small { display: block; color: var(--muted); font-size: 0.86rem; margin-top: 2px; line-height: 1.45; }
+  .opt .ref { font-family: var(--mono); font-size: 0.72rem; color: var(--accent); }
+  .nav { display: flex; gap: 10px; justify-content: space-between; flex-wrap: wrap; margin-top: 12px; }
+  .err { color: var(--bad); font-weight: 700; font-size: 0.92rem; min-height: 1.4em; margin-top: 6px; }
+  .side h3, .side h2.path-h { margin-top: 0; font-size: 1rem; font-weight: 600; }
+  .path { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; font-size: 0.86rem; }
+  .path li { margin: 0; padding: 6px 8px; border-left: 3px solid var(--line); background: var(--bg); border-radius: 0 6px 6px 0; }
+  .path li b { display: block; font-size: 0.72rem; font-family: var(--mono); color: var(--muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+  .path button { font-size: 0.78rem; background: none; border: 0; color: var(--accent); text-decoration: underline; cursor: pointer; padding: 0; margin-top: 2px; }
+  .pyramid { display: grid; gap: 4px; margin-top: 16px; }
+  .pyramid div { text-align: center; font-size: 0.78rem; font-weight: 700; padding: 5px 4px; border-radius: 4px; margin: 0 auto; border: 2px solid transparent; }
+  .pyramid .lv1 { width: 40%; background: var(--bad-bg); color: var(--bad); }
+  .pyramid .lv2 { width: 60%; background: rgba(139, 30, 63, 0.12); color: var(--accent); }
+  .pyramid .lv3 { width: 80%; background: rgba(212, 185, 122, 0.3); color: var(--ink); }
+  .pyramid .lv4 { width: 100%; background: var(--ok-bg); color: var(--ok); }
+  .pyramid .on { border-color: var(--ink); }
+
+  .result { border-top: 6px solid var(--muted); }
+  .result.k-zak { border-top-color: var(--bad); }
+  .result.k-wys { border-top-color: var(--accent); }
+  .result.k-prz { border-top-color: var(--gold); }
+  .result.k-min { border-top-color: var(--ok); }
+  .result.k-gpai { border-top-color: var(--navy); }
+  .result h2 { margin: 4px 0 10px; }
+  .result .cat { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0; }
+  .result dl { display: grid; grid-template-columns: minmax(0, 11em) minmax(0, 1fr); gap: 8px 16px; margin: 14px 0; }
+  .result dt { font-weight: 700; color: var(--ink-soft); }
+  .result dd { margin: 0; }
+  @media (max-width: 560px) { .result dl { grid-template-columns: minmax(0, 1fr); gap: 2px; } .result dd { margin-bottom: 10px; } }
+  .result ul { padding-left: 1.2em; margin: 0; }
+  .extra { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+  .extra h3 { margin-top: 0; }
+  .cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; padding: 0; list-style: none; }
+  .cases li { margin: 0; background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 12px 14px; font-size: 0.93rem; }
+  .cases b { display: block; margin-bottom: 4px; }
+  .datebox { display: inline-block; font-family: var(--mono); font-weight: 700; background: var(--surface-2); padding: 1px 8px; border-radius: 6px; }
+  /* cel dotyku: link powrotu na ekranach dotykowych ma co najmniej 44 px */
+  @media (pointer: coarse) { .back { display: inline-block; padding: 12px 0; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Przejdź do treści</a>
+<div class="app-top">
+  <div class="wrap">
+    <a class="back" href="../interaktywne.html">← Materiały interaktywne</a>
+    <span class="course">Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne<br>WPiA UMCS · 2026/2027</span>
+    <button type="button" class="theme-toggle" aria-label="Przełącz motyw">☾</button>
+  </div>
+</div>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Spotkanie 7 · Ramy regulacyjne · narzędzie dydaktyczne</p>
+    <h1>Klasyfikator ryzyka <em>AI Act</em></h1>
+    <p class="lead">Przejdź pytania w kolejności, w jakiej prawnik analizuje system: definicja, wyłączenia, praktyki zakazane, wysokie ryzyko, obowiązki przejrzystości. Na końcu otrzymasz kategorię, podstawę prawną i datę stosowania po zmianach wprowadzonych omnibusem cyfrowym (rozporządzenie (UE) 2026/1744).</p>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <div class="note warn" role="note">
+    <p><strong>To narzędzie dydaktyczne, a nie porada prawna.</strong> Upraszcza przepisy i nie zastępuje analizy konkretnego przypadku, wytycznych Komisji ani orzecznictwa. Odpowiedzi nie są nigdzie wysyłane ani zapisywane.</p>
+  </div>
+
+  <div class="layout">
+    <section class="panel" id="stage" aria-live="polite">
+      <div class="progress" aria-hidden="true"><span id="prog"></span></div>
+      <div id="content"></div>
+    </section>
+    <aside class="panel side" aria-labelledby="h-path">
+      <h2 id="h-path" class="path-h">Twoja ścieżka</h2>
+      <ol class="path" id="path"><li class="muted">Brak odpowiedzi.</li></ol>
+      <div class="pyramid" aria-label="Piramida ryzyka AI Act" id="pyr">
+        <div class="lv1" data-lv="zak">zakazane</div>
+        <div class="lv2" data-lv="wys">wysokie ryzyko</div>
+        <div class="lv3" data-lv="prz">przejrzystość (art. 50)</div>
+        <div class="lv4" data-lv="min">minimalne ryzyko</div>
+      </div>
+      <p class="small muted" style="margin-top:10px">Modele AI ogólnego przeznaczenia (GPAI) to osobny reżim, obok piramidy.</p>
+    </aside>
+  </div>
+
+  <h2>Przypadki do przećwiczenia</h2>
+  <ul class="cases">
+    <li><b>Chatbot kancelarii</b>Asystent na stronie kancelarii odpowiada na pytania potencjalnych klientów i umawia konsultacje.</li>
+    <li><b>Selekcja CV</b>System ocenia i sortuje zgłoszenia na aplikację w dużej kancelarii, odrzucając najsłabsze.</li>
+    <li><b>Egzamin online</b>Uczelnia analizuje mimikę studentów przez kamerę, aby wykryć stres i ściąganie.</li>
+    <li><b>Asystent sędziego</b>Narzędzie wyszukuje orzecznictwo i proponuje projekt uzasadnienia wyroku.</li>
+    <li><b>Losowanie spraw</b>Algorytm przydziela sprawy sędziom według stałych, jawnych reguł.</li>
+    <li><b>Grafika do kampanii</b>Komitet wyborczy publikuje realistyczne zdjęcie kandydata wygenerowane przez AI.</li>
+  </ul>
+</main>
+
+<footer class="sources">
+  <div class="wrap">
+    <h2>Podstawa prawna i źródła</h2>
+    <ol>
+      <li>Rozporządzenie Parlamentu Europejskiego i Rady (UE) 2024/1689 z 13.06.2024 w sprawie ustanowienia zharmonizowanych przepisów dotyczących sztucznej inteligencji (AI Act), Dz.Urz. UE L z 12.07.2024, <a href="https://eur-lex.europa.eu/legal-content/PL/TXT/?uri=CELEX:32024R1689">EUR-Lex</a>: art. 2, 3, 5, 6, 26, 27, 49–55, 99, 101, 111, 113, zał. I i III.</li>
+      <li>Rozporządzenie (UE) 2026/1744 z 8.07.2026 (omnibus cyfrowy w zakresie AI), Dz.Urz. UE L z 24.07.2026, w mocy od 27.07.2026, <a href="https://eur-lex.europa.eu/legal-content/PL/TXT/?uri=CELEX:32026R1744">EUR-Lex</a>: m.in. art. 5 ust. 1 lit. ba i bb, art. 6 ust. 1a–1c, nowe brzmienie art. 111 i 113, zmiany zał. I.</li>
+      <li>Ustawa z 3.07.2026 o systemach sztucznej inteligencji, Dz.U. 2026 poz. 1003, <a href="https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001003">ISAP</a>: organ nadzoru KRiBSI.</li>
+      <li>Komisja Europejska, wytyczne w sprawie definicji systemu AI oraz wytyczne w sprawie praktyk zakazanych (luty 2025), <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai">digital-strategy.ec.europa.eu</a>.</li>
+    </ol>
+    <p class="meta">Treść przepisów sprawdzona w tekście opublikowanym w Dzienniku Urzędowym UE (wersje PL i EN) 19.10.2026. Cytaty skrócone. Dr Karol Kasprowicz, WPiA UMCS.</p>
+  </div>
+</footer>
+
+<script>
+  /* Przełącznik motywu (jasny / ciemny), zgodny z tools/assets/site.js. */
+  (function () {
+    var root = document.documentElement, KEY = "ai-wyzwania-theme";
+    var btn = document.querySelector(".theme-toggle");
+    function current() {
+      var t = root.getAttribute("data-theme");
+      if (t) return t;
+      return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    function label() {
+      var dark = current() === "dark";
+      btn.textContent = dark ? "☀" : "☾";
+      btn.setAttribute("aria-label", dark ? "Włącz jasny motyw" : "Włącz ciemny motyw");
+      btn.title = btn.getAttribute("aria-label");
+    }
+    if (!btn) return;
+    label();
+    btn.addEventListener("click", function () {
+      var next = current() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem(KEY, next); } catch (e) {}
+      label();
+      document.dispatchEvent(new CustomEvent("themechange"));
+    });
+  })();
+
+  (function () {
+    /* ---------- Pytania ---------- */
+    var STEPS = {
+      start: { ref: "Krok 1 · przedmiot oceny", q: "Co oceniasz?", help: "AI Act inaczej reguluje systemy AI (konkretne zastosowania) i modele AI ogólnego przeznaczenia (np. duży model językowy udostępniany innym firmom).",
+        opts: [
+          { v: "sys", l: "System AI", h: "np. chatbot, system oceny CV, generator obrazów, system scoringowy", next: "def" },
+          { v: "gpai", l: "Model AI ogólnego przeznaczenia (GPAI)", h: "np. duży model językowy lub multimodalny, który inni integrują we własnych systemach", next: "g1" }
+        ] },
+      def: { ref: "Art. 3 pkt 1 · definicja", q: "Czy to „system AI”?", help: "System AI to system maszynowy, który działa z pewnym poziomem autonomii, może się adaptować po wdrożeniu i na podstawie danych wejściowych wnioskuje, jak generować wyniki: predykcje, treści, zalecenia lub decyzje.",
+        opts: [
+          { v: "y", l: "Tak: system wnioskuje z danych", h: "uczenie maszynowe, duże modele językowe, systemy oparte na logice i wiedzy, które wyprowadzają wnioski", next: "excl" },
+          { v: "n", l: "Nie: program wykonuje wyłącznie reguły ustalone przez człowieka", h: "np. arkusz kalkulacyjny, prosta formuła punktowa, klasyczny program bez wnioskowania (motyw 12)", res: "notai" }
+        ] },
+      excl: { ref: "Art. 2 · zakres i wyłączenia", q: "Czy zachodzi któreś wyłączenie?",
+        opts: [
+          { v: "mil", l: "Wyłącznie cele wojskowe, obronne lub bezpieczeństwa narodowego", h: "", r: "art. 2 ust. 3", res: "excl" },
+          { v: "third", l: "Organ państwa trzeciego lub organizacja międzynarodowa we współpracy z UE w ściganiu przestępstw lub współpracy sądowej", h: "pod warunkiem odpowiednich zabezpieczeń praw podstawowych", r: "art. 2 ust. 4", res: "excl" },
+          { v: "sci", l: "System rozwinięty i oddany do użytku wyłącznie do badań naukowych i rozwojowych", h: "", r: "art. 2 ust. 6", res: "excl" },
+          { v: "rnd", l: "Badania, testy lub prace rozwojowe przed wprowadzeniem do obrotu", h: "wyłączenie nie obejmuje testów w warunkach rzeczywistych", r: "art. 2 ust. 8", res: "excl" },
+          { v: "pers", l: "Używam systemu jako osoba fizyczna w czysto osobistej, pozazawodowej działalności", h: "np. student korzystający z czatu do własnych celów", r: "art. 2 ust. 10", res: "personal" },
+          { v: "none", l: "Żadne z powyższych", h: "system jest wprowadzany do obrotu, oddawany do użytku lub wykorzystywany w UE albo jego wyniki są wykorzystywane w UE (art. 2 ust. 1)", next: "art5" }
+        ] },
+      art5: { ref: "Art. 5 · praktyki zakazane", q: "Czy system służy do którejś z zakazanych praktyk?", help: "Wybierz pierwszą pasującą. Część zakazów ma wyjątki, podane pod opisem.",
+        opts: [
+          { v: "a", r: "lit. a", l: "Techniki podprogowe, manipulacyjne lub wprowadzające w błąd", h: "istotnie zniekształcają zachowanie i powodują lub mogą spowodować poważną szkodę", res: "zak" },
+          { v: "b", r: "lit. b", l: "Wykorzystywanie słabości osób", h: "ze względu na wiek, niepełnosprawność lub szczególną sytuację społeczną lub ekonomiczną, z poważną szkodą", res: "zak" },
+          { v: "c", r: "lit. c", l: "Scoring społeczny", h: "ocena na podstawie zachowań społecznych lub cech osobowości prowadząca do krzywdzącego traktowania w innym kontekście lub nieproporcjonalnego", res: "zak" },
+          { v: "d", r: "lit. d", l: "Przewidywanie popełnienia przestępstwa wyłącznie na podstawie profilowania lub cech osobowości", h: "wyjątek: wspieranie oceny człowieka opartej na obiektywnych i weryfikowalnych faktach", res: "zak" },
+          { v: "e", r: "lit. e", l: "Nieukierunkowane pozyskiwanie wizerunków twarzy z internetu lub nagrań CCTV", h: "w celu tworzenia lub rozbudowy baz danych do rozpoznawania twarzy", res: "zak" },
+          { v: "f", r: "lit. f", l: "Rozpoznawanie emocji w miejscu pracy lub w instytucjach edukacyjnych", h: "wyjątek: względy medyczne lub bezpieczeństwa", res: "zak" },
+          { v: "g", r: "lit. g", l: "Kategoryzacja biometryczna w celu wywnioskowania rasy, poglądów politycznych, przynależności związkowej, przekonań religijnych lub światopoglądowych, seksualności lub orientacji seksualnej", h: "nie dotyczy etykietowania legalnie pozyskanych zbiorów danych ani ich użycia w ściganiu przestępstw", res: "zak" },
+          { v: "h", r: "lit. h", l: "Zdalna identyfikacja biometryczna w czasie rzeczywistym w przestrzeni publicznej do celów ścigania przestępstw", h: "wyjątki: poszukiwanie ofiar i zaginionych, zapobieganie bezpośredniemu zagrożeniu życia lub atakowi terrorystycznemu, ustalanie miejsca pobytu podejrzanych o poważne przestępstwa; zezwolenie, ocena skutków i rejestracja (art. 5 ust. 2–7)", res: "zak" },
+          { v: "ba", r: "lit. ba (omnibus)", l: "Generowanie realistycznych intymnych lub seksualnie wyraźnych obrazów, wideo lub audio możliwej do zidentyfikowania osoby bez jej zgody", h: "zakaz dotyczy systemów, których celem lub dającym się przewidzieć skutkiem bez odpowiednich zabezpieczeń jest takie generowanie (art. 5 ust. 1a)", res: "zak" },
+          { v: "bb", r: "lit. bb (omnibus)", l: "Generowanie materiałów przedstawiających seksualne wykorzystywanie dzieci (CSAM)", h: "w rozumieniu art. 2 lit. c i e dyrektywy 2011/93/UE", res: "zak" },
+          { v: "none", l: "Żadna z powyższych", h: "", next: "annex1" }
+        ] },
+      annex1: { ref: "Art. 6 ust. 1 · zał. I", q: "Czy system jest produktem albo związanym z bezpieczeństwem elementem produktu z zał. I, który podlega ocenie zgodności przez stronę trzecią?", help: "Po omnibusie: system używany wyłącznie do aspektów niezwiązanych z bezpieczeństwem (pomoc użytkownikom, optymalizacja, automatyzacja, udogodnienia, kontrola jakości) nie jest elementem bezpieczeństwa, chyba że jego awaria zagrażałaby zdrowiu lub bezpieczeństwu (art. 6 ust. 1a–1b).",
+        opts: [
+          { v: "A", l: "Tak: produkt z sekcji A zał. I", h: "np. zabawki, wyroby medyczne i do diagnostyki in vitro, urządzenia radiowe, dźwigi, urządzenia ciśnieniowe, środki ochrony indywidualnej", next: "art50" },
+          { v: "B", l: "Tak: produkt z sekcji B zał. I", h: "np. lotnictwo cywilne, pojazdy silnikowe, rolnicze, kolej, wyposażenie morskie, maszyny (rozporządzenie 2023/1230 przeniesione do sekcji B przez omnibus)", next: "art50" },
+          { v: "no", l: "Nie", h: "", next: "annex3" }
+        ] },
+      annex3: { ref: "Art. 6 ust. 2 · zał. III", q: "Czy system jest przeznaczony do użycia w którymś z obszarów zał. III?",
+        opts: [
+          { v: "1", r: "pkt 1", l: "Biometria", h: "zdalna identyfikacja biometryczna (nie samo potwierdzanie tożsamości), kategoryzacja biometryczna według cech wrażliwych, rozpoznawanie emocji", next: "prof" },
+          { v: "2", r: "pkt 2", l: "Infrastruktura krytyczna", h: "elementy bezpieczeństwa w zarządzaniu infrastrukturą cyfrową, ruchem drogowym, dostawami wody, gazu, ciepła i energii", next: "prof" },
+          { v: "3", r: "pkt 3", l: "Kształcenie i szkolenie zawodowe", h: "przyjęcia, ocena efektów uczenia się, ocena poziomu wykształcenia, wykrywanie niedozwolonych zachowań na egzaminach", next: "prof" },
+          { v: "4", r: "pkt 4", l: "Zatrudnienie i zarządzanie pracownikami", h: "rekrutacja i wybór (ogłoszenia, filtrowanie podań, ocena kandydatów), decyzje o warunkach pracy, awansie i zwolnieniu, przydział zadań, monitorowanie i ocena pracowników", next: "prof" },
+          { v: "5", r: "pkt 5", l: "Dostęp do podstawowych usług i świadczeń", h: "uprawnienia do świadczeń publicznych, ocena zdolności kredytowej (bez wykrywania oszustw), ryzyko i ceny w ubezpieczeniach na życie i zdrowotnych, ocena zgłoszeń alarmowych", next: "prof" },
+          { v: "6", r: "pkt 6", l: "Ściganie przestępstw", h: "ocena ryzyka stania się ofiarą, wariografy, ocena wiarygodności dowodów, ocena ryzyka przestępstwa (nie wyłącznie profilowanie), profilowanie w toku postępowania", next: "prof" },
+          { v: "7", r: "pkt 7", l: "Migracja, azyl i kontrola graniczna", h: "wariografy, ocena ryzyka, rozpatrywanie wniosków o azyl, wizy i zezwolenia, wykrywanie i identyfikacja osób (bez weryfikacji dokumentów podróży)", next: "prof" },
+          { v: "8", r: "pkt 8", l: "Wymiar sprawiedliwości i procesy demokratyczne", h: "pomoc organom sądowym w badaniu i interpretacji faktów i prawa oraz w jego stosowaniu (także ADR); wpływanie na wynik wyborów lub referendum albo zachowania wyborcze", next: "prof" },
+          { v: "none", l: "Żaden z tych obszarów", h: "", next: "art50" }
+        ] },
+      prof: { ref: "Art. 6 ust. 3 akapit ostatni", q: "Czy system dokonuje profilowania osób fizycznych?", help: "Profilowanie w rozumieniu art. 4 pkt 4 RODO: zautomatyzowana ocena czynników osobowych, np. wydajności w pracy, sytuacji ekonomicznej, zdrowia, preferencji, wiarygodności, zachowania.",
+        opts: [
+          { v: "y", l: "Tak", h: "system z zał. III, który profiluje osoby, jest zawsze systemem wysokiego ryzyka", next: "art50" },
+          { v: "n", l: "Nie", h: "", next: "art63" }
+        ] },
+      art63: { ref: "Art. 6 ust. 3 · wyjątek", q: "Czy system nie stwarza znaczącego ryzyka szkody, bo spełnia któryś warunek?", help: "Wyjątek dotyczy systemu, który nie wpływa istotnie na wynik procesu decyzyjnego. Wystarczy jeden warunek.",
+        opts: [
+          { v: "a", r: "lit. a", l: "Wykonuje wąsko określone zadanie proceduralne", h: "np. zamienia nieustrukturyzowane dane w ustrukturyzowane, klasyfikuje dokumenty według kategorii", next: "art50" },
+          { v: "b", r: "lit. b", l: "Poprawia wynik zakończonej uprzednio czynności człowieka", h: "np. poprawia język dokumentu już przygotowanego przez człowieka", next: "art50" },
+          { v: "c", r: "lit. c", l: "Wykrywa wzorce decyzyjne lub odstępstwa od nich, bez zastępowania oceny człowieka i bez wpływu na nią bez odpowiedniej weryfikacji", h: "np. sygnalizuje ex post nietypowe oceny nauczyciela", next: "art50" },
+          { v: "d", r: "lit. d", l: "Wykonuje zadanie przygotowawcze do oceny istotnej dla przypadków z zał. III", h: "np. indeksowanie, wyszukiwanie, tłumaczenie dokumentów", next: "art50" },
+          { v: "none", l: "Żaden warunek nie jest spełniony", h: "", next: "art50" }
+        ] },
+      art50: { ref: "Art. 50 · przejrzystość", q: "Które cechy ma system?", help: "Zaznacz wszystkie pasujące. Obowiązki z art. 50 stosuje się niezależnie od kategorii ryzyka.", multi: true,
+        opts: [
+          { v: "ch", r: "ust. 1 · dostawca", l: "Wchodzi w bezpośrednią interakcję z ludźmi", h: "np. chatbot, asystent głosowy; obowiązek informowania, chyba że jest to oczywiste" },
+          { v: "gen", r: "ust. 2 · dostawca", l: "Generuje syntetyczne dźwięki, obrazy, wideo lub tekst", h: "oznakowanie wyników w formacie nadającym się do odczytu maszynowego" },
+          { v: "emo", r: "ust. 3 · podmiot stosujący", l: "Rozpoznaje emocje lub dokonuje kategoryzacji biometrycznej", h: "informowanie osób, wobec których system jest stosowany" },
+          { v: "deep", r: "ust. 4 · podmiot stosujący", l: "Służy do tworzenia deepfake'ów, które udostępniam", h: "ujawnienie, że treść jest sztucznie wygenerowana lub zmanipulowana (łagodniej dla dzieł artystycznych i satyrycznych)" },
+          { v: "txt", r: "ust. 4 · podmiot stosujący", l: "Generuje tekst publikowany w celu informowania o sprawach interesu publicznego", h: "ujawnienie, chyba że tekst przeszedł weryfikację człowieka i ktoś ponosi odpowiedzialność redakcyjną" },
+          { v: "none", l: "Żadna z powyższych", h: "" }
+        ] },
+      oss: { ref: "Art. 2 ust. 12", q: "Czy system jest udostępniany na bezpłatnej licencji otwartego oprogramowania?",
+        opts: [
+          { v: "y", l: "Tak", h: "wyłączenie nie obejmuje systemów wysokiego ryzyka, praktyk z art. 5 ani systemów z art. 50", res: "oss" },
+          { v: "n", l: "Nie", h: "", res: "min" }
+        ] },
+      g1: { ref: "Art. 3 pkt 63 · model GPAI", q: "Czy model wykazuje znaczną ogólność?", help: "Model AI ogólnego przeznaczenia kompetentnie wykonuje szeroki zakres różnych zadań i można go zintegrować z różnymi systemami lub aplikacjami. Nie obejmuje modeli używanych tylko do badań, rozwoju lub prototypowania przed wprowadzeniem do obrotu.",
+        opts: [
+          { v: "y", l: "Tak", h: "np. duży model językowy lub multimodalny udostępniany przez API albo do pobrania", next: "g2" },
+          { v: "n", l: "Nie", h: "model wyspecjalizowany w jednym zadaniu; oceń system, w którym go używasz", res: "notgpai" }
+        ] },
+      g2: { ref: "Art. 51 · ryzyko systemowe", q: "Czy model ma zdolności dużego oddziaływania?", help: "Domniemanie: łączna moc obliczeniowa użyta do trenowania przekracza 10^25 operacji zmiennoprzecinkowych (FLOP). Komisja może też uznać model za model z ryzykiem systemowym na podstawie kryteriów z zał. XIII.",
+        opts: [
+          { v: "y", l: "Tak: ponad 10^25 FLOP albo decyzja Komisji", h: "", res: "gpai_sys" },
+          { v: "n", l: "Nie", h: "", next: "g3" }
+        ] },
+      g3: { ref: "Art. 53 ust. 2 · otwarte modele", q: "Czy model jest udostępniany na bezpłatnej licencji otwartego oprogramowania z publicznymi parametrami?", help: "Chodzi o publicznie dostępne wagi, informacje o architekturze i o wykorzystaniu modelu.",
+        opts: [
+          { v: "y", l: "Tak", h: "", res: "gpai_oss" },
+          { v: "n", l: "Nie", h: "", res: "gpai" }
+        ] }
+    };
+    var ORDER = ["start", "def", "excl", "art5", "annex1", "annex3", "prof", "art63", "art50", "oss"];
+    var ORDER_G = ["start", "g1", "g2", "g3"];
+
+    /* ---------- Wyniki ---------- */
+    var HR_PROV = "<ul><li>system zarządzania ryzykiem (art. 9), jakość i zarządzanie danymi, w tym badanie stronniczości (art. 10)</li><li>dokumentacja techniczna i rejestry zdarzeń (art. 11–12), przejrzystość i instrukcja (art. 13)</li><li>nadzór człowieka (art. 14), dokładność, solidność, cyberbezpieczeństwo (art. 15)</li><li>system zarządzania jakością (art. 17), ocena zgodności, deklaracja i oznakowanie CE (art. 43, 47, 48), rejestracja w bazie UE (art. 49)</li><li>monitorowanie po wprowadzeniu do obrotu i zgłaszanie poważnych incydentów (art. 72–73)</li></ul>";
+    var HR_DEPL = "<ul><li>używanie zgodnie z instrukcją, nadzór człowieka przez kompetentne osoby, monitorowanie i przechowywanie rejestrów zdarzeń co najmniej 6 miesięcy (art. 26)</li><li>informowanie pracowników przed wdrożeniem w miejscu pracy (art. 26 ust. 7) i osób, wobec których system wspiera decyzje (art. 26 ust. 11)</li><li>ocena skutków dla praw podstawowych: podmioty publiczne, prywatne świadczące usługi publiczne oraz przy zał. III pkt 5 lit. b i c (art. 27)</li><li>prawo osoby do wyjaśnienia decyzji (art. 86)</li></ul>";
+
+    function art50block(list) {
+      if (!list || !list.length) return "";
+      var m = { ch: "art. 50 ust. 1: poinformowanie osób, że prowadzą interakcję z systemem AI (dostawca)", gen: "art. 50 ust. 2: oznakowanie treści syntetycznych w formacie do odczytu maszynowego (dostawca)", emo: "art. 50 ust. 3: poinformowanie osób o rozpoznawaniu emocji lub kategoryzacji biometrycznej (podmiot stosujący)", deep: "art. 50 ust. 4 akapit pierwszy: ujawnienie, że deepfake jest sztucznie wygenerowany (podmiot stosujący)", txt: "art. 50 ust. 4 akapit drugi: ujawnienie tekstu wygenerowanego przez AI w sprawach interesu publicznego (podmiot stosujący)" };
+      var h = "<ul>" + list.map(function (k) { return "<li>" + m[k] + "</li>"; }).join("") + "</ul>";
+      h += "<p class='small' style='margin-top:6px'>Stosowanie: <span class='datebox'>2.08.2026</span>." + (list.indexOf("gen") >= 0 ? " Systemy z ust. 2 wprowadzone do obrotu przed 2.08.2026 muszą spełnić obowiązek do <span class='datebox'>2.12.2026</span> (art. 111 ust. 4)." : "") + " Informacja najpóźniej przy pierwszej interakcji (art. 50 ust. 5). Kara: do 15 mln EUR lub 3% obrotu (art. 99 ust. 4).</p>";
+      return h;
+    }
+
+    function result(code, A) {
+      var r = { k: "", cat: "", t: "", rows: [], extra: "" };
+      var LAW_PL = "W Polsce nadzór sprawuje Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji (ustawa z 3.07.2026, Dz.U. 2026 poz. 1003; obowiązuje od 11.08.2026, przepisy o kontroli, postępowaniu i karach od 28.10.2026).";
+      var a50 = (A.art50 || []).filter(function (x) { return x !== "none"; });
+      if (code === "notai") { r.k = "out"; r.cat = "poza zakresem"; r.t = "To nie jest system AI w rozumieniu AI Act"; r.rows = [["Podstawa", "art. 3 pkt 1 i motyw 12 AI Act; wytyczne Komisji w sprawie definicji systemu AI"], ["Skutek", "AI Act nie ma zastosowania. Nadal mogą mieć zastosowanie inne przepisy, np. RODO (w tym art. 22 przy decyzjach zautomatyzowanych) i prawo antydyskryminacyjne."]]; }
+      else if (code === "excl") { var o = STEPS.excl.opts.filter(function (x) { return x.v === A.excl; })[0]; r.k = "out"; r.cat = "wyłączenie"; r.t = "System wyłączony z zakresu AI Act"; r.rows = [["Podstawa", o.r + " AI Act"], ["Uwagi", o.l + (o.h ? " (" + o.h + ")" : "") + ". Wyłączenie trzeba ocenić ściśle: zmiana przeznaczenia systemu (np. z wojskowego na cywilny) przywraca stosowanie rozporządzenia."]]; }
+      else if (code === "personal") { r.k = "out"; r.cat = "wyłączenie częściowe"; r.t = "Nie masz obowiązków podmiotu stosującego"; r.rows = [["Podstawa", "art. 2 ust. 10 AI Act"], ["Skutek", "Wyłączenie dotyczy wyłącznie obowiązków podmiotu stosującego, który jest osobą fizyczną działającą prywatnie. Dostawca systemu (np. firma udostępniająca czat) nadal podlega AI Act, w tym obowiązkom z art. 50."]]; }
+      else if (code === "zak") {
+        var p = STEPS.art5.opts.filter(function (x) { return x.v === A.art5; })[0], omn = A.art5 === "ba" || A.art5 === "bb";
+        r.k = "zak"; r.cat = "ryzyko niedopuszczalne"; r.t = "Praktyka zakazana";
+        r.rows = [["Podstawa", "art. 5 ust. 1 " + p.r.replace(" (omnibus)", "") + " AI Act" + (omnibus(omn))], ["Opis", p.l + (p.h ? ". " + cap(p.h) + "." : ".")],
+          ["Od kiedy", omn ? "<span class='datebox'>2.12.2026</span> (art. 113 lit. a w brzmieniu nadanym rozporządzeniem 2026/1744)" : "<span class='datebox'>2.02.2025</span> (art. 113 lit. a); kary stosuje się od 2.08.2025"],
+          ["Sankcja", "do 35 000 000 EUR lub 7% całkowitego rocznego światowego obrotu, w zależności od tego, która kwota jest wyższa (art. 99 ust. 3); dla MŚP kwota niższa (art. 99 ust. 6)"],
+          ["Uwaga", "Sprawdź wyjątki w treści przepisu. Wytyczne Komisji w sprawie praktyk zakazanych (luty 2025) zawierają przykłady. " + LAW_PL]];
+      }
+      else if (code === "gpai" || code === "gpai_oss" || code === "gpai_sys") {
+        r.k = "gpai"; r.cat = "model AI ogólnego przeznaczenia";
+        r.t = code === "gpai_sys" ? "Model GPAI z ryzykiem systemowym" : code === "gpai_oss" ? "Model GPAI na otwartej licencji" : "Model GPAI";
+        var ob = "<ul><li>dokumentacja techniczna dla Urzędu ds. AI i organów (art. 53 ust. 1 lit. a, zał. XI)</li><li>informacje dla dostawców systemów niższego szczebla (lit. b, zał. XII)</li><li>polityka zgodności z prawem autorskim UE, w tym respektowanie zastrzeżeń TDM z art. 4 ust. 3 dyrektywy 2019/790 (lit. c)</li><li>publiczne streszczenie treści użytych do trenowania według wzoru Urzędu ds. AI (lit. d)</li></ul>";
+        if (code === "gpai_oss") ob = "<ul><li>tylko polityka zgodności z prawem autorskim i publiczne streszczenie danych treningowych (art. 53 ust. 1 lit. c i d)</li><li>zwolnienie z dokumentacji z lit. a i b (art. 53 ust. 2) oraz z obowiązku ustanowienia przedstawiciela (art. 54 ust. 6)</li></ul>";
+        if (code === "gpai_sys") ob += "<p style='margin:6px 0 2px'><strong>Dodatkowo (art. 55):</strong></p><ul><li>ewaluacja modelu, w tym testy kontradyktoryjne</li><li>ocena i ograniczanie ryzyka systemowego na poziomie UE</li><li>rejestrowanie i zgłaszanie poważnych incydentów</li><li>odpowiedni poziom cyberochrony</li><li>zgłoszenie Komisji w ciągu 2 tygodni od spełnienia progu (art. 52)</li></ul><p class='small'>Zwolnienie dla otwartych modeli z art. 53 ust. 2 nie obejmuje modeli z ryzykiem systemowym.</p>";
+        r.rows = [["Podstawa", code === "gpai_sys" ? "art. 51–55 AI Act" : "art. 53" + (code === "gpai_oss" ? " ust. 2" : "") + " AI Act"], ["Obowiązki dostawcy", ob],
+          ["Od kiedy", "<span class='datebox'>2.08.2025</span>; modele wprowadzone do obrotu przed tą datą: do 2.08.2027 (art. 111 ust. 3). Uprawnienia Komisji do nakładania kar (art. 101: do 15 mln EUR lub 3% obrotu) od 2.08.2026."],
+          ["Uwaga", "Przestrzeganie kodeksu praktyk dla GPAI (10.07.2025) może służyć wykazaniu zgodności. System zbudowany na modelu (np. czat) oceń osobno jako system AI."]];
+      }
+      else {
+        /* system: wysokie / przejrzystość / minimalne / open source */
+        var hr = A.annex1 === "A" || A.annex1 === "B" || (A.annex3 && A.annex3 !== "none" && (A.prof === "y" || A.art63 === "none"));
+        var exc = A.annex3 && A.annex3 !== "none" && A.prof === "n" && A.art63 && A.art63 !== "none";
+        if (hr) {
+          r.k = "wys"; r.cat = "wysokie ryzyko";
+          if (A.annex1 === "A" || A.annex1 === "B") {
+            r.t = "System wysokiego ryzyka (zał. I, sekcja " + A.annex1 + ")";
+            r.rows.push(["Podstawa", "art. 6 ust. 1 AI Act w zw. z zał. I sekcja " + A.annex1 + (A.annex1 === "B" ? " i art. 2 ust. 2 (w brzmieniu omnibusu)" : "")]);
+            r.rows.push(["Od kiedy", "<span class='datebox'>2.08.2028</span> (art. 113 lit. c pkt ii po omnibusie)" + (A.annex1 === "B" ? ". Dla sekcji B AI Act stosuje się w ograniczonym zakresie (art. 6 ust. 1, art. 60a, art. 102–112), a wymogi wprowadzają akty sektorowe." : "")]);
+          } else {
+            var ar = STEPS.annex3.opts.filter(function (x) { return x.v === A.annex3; })[0];
+            r.t = "System wysokiego ryzyka (zał. III pkt " + A.annex3 + ")";
+            r.rows.push(["Podstawa", "art. 6 ust. 2 AI Act w zw. z zał. III pkt " + A.annex3 + " (" + lc(ar.l) + ")" + (A.prof === "y" ? "; profilowanie wyklucza wyjątek z art. 6 ust. 3" : "")]);
+            r.rows.push(["Od kiedy", "<span class='datebox'>2.12.2027</span> (art. 113 lit. c pkt i po omnibusie). Systemy wprowadzone wcześniej podlegają przepisom w razie istotnych zmian; systemy przeznaczone dla organów publicznych muszą spełnić wymogi do 2.08.2030 (art. 111 ust. 2)."]);
+          }
+          r.rows.push(["Obowiązki dostawcy", HR_PROV]); r.rows.push(["Obowiązki podmiotu stosującego", HR_DEPL]);
+          r.rows.push(["Sankcja", "do 15 000 000 EUR lub 3% obrotu (art. 99 ust. 4). " + LAW_PL]);
+        } else if (a50.length) {
+          r.k = "prz"; r.cat = "ograniczone ryzyko"; r.t = "Obowiązki przejrzystości (art. 50)";
+          r.rows.push(["Podstawa", "art. 50 AI Act"]);
+        } else { r.k = "min"; r.cat = "minimalne ryzyko"; r.t = code === "oss" ? "Wyłączenie dla otwartego oprogramowania" : exc ? "Nie jest to system wysokiego ryzyka (art. 6 ust. 3)" : "Minimalne ryzyko: brak szczególnych obowiązków"; }
+        if (exc) {
+          var c = STEPS.art63.opts.filter(function (x) { return x.v === A.art63; })[0];
+          r.rows.push(["Wyjątek z art. 6 ust. 3", "System z zał. III pkt " + A.annex3 + " nie jest systemem wysokiego ryzyka, bo " + lc(c.l) + " (lit. " + A.art63 + "). Dostawca musi jednak <strong>udokumentować ocenę</strong> przed wprowadzeniem do obrotu i <strong>zarejestrować system</strong> w bazie UE (art. 6 ust. 4, art. 49 ust. 2)."]);
+        }
+        if (a50.length) r.rows.push([hr ? "Dodatkowo: przejrzystość" : "Obowiązki", art50block(a50)]);
+        if (r.k === "min") {
+          if (code === "oss") r.rows.push(["Podstawa", "art. 2 ust. 12 AI Act: rozporządzenia nie stosuje się do systemów na bezpłatnych licencjach otwartego oprogramowania, które nie są systemami wysokiego ryzyka ani nie podlegają art. 5 lub 50."]);
+          else r.rows.push(["Podstawa", "brak przepisu szczególnego; art. 4 (wspieranie kompetencji w zakresie AI, w brzmieniu omnibusu) i dobrowolne kodeksy postępowania (art. 95)"]);
+          r.rows.push(["Uwaga", "Brak obowiązków z AI Act nie oznacza braku obowiązków prawnych: nadal stosuje się RODO, prawo konsumenckie, prawo autorskie i odpowiedzialność za produkt (dyrektywa 2024/2853)."]);
+        }
+      }
+      return r;
+    }
+    function omnibus(o) { return o ? " (dodana rozporządzeniem 2026/1744)" : ""; }
+    function lc(s) { return s.charAt(0).toLowerCase() + s.slice(1); }
+    function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+    /* ---------- Silnik kreatora ---------- */
+    var A = {}, hist = [], cur = "start", done = null;
+    var content = document.getElementById("content"), pathEl = document.getElementById("path"), prog = document.getElementById("prog");
+
+    function render() {
+      content.innerHTML = "";
+      if (done) return renderResult();
+      var S = STEPS[cur], order = A.start === "gpai" ? ORDER_G : ORDER;
+      prog.style.width = Math.max(6, (order.indexOf(cur) / order.length) * 100) + "%";
+      var wrap = document.createElement("div"); wrap.className = "q";
+      wrap.innerHTML = "<p class='stepref'></p><h2 tabindex='-1'></h2>" + (S.help ? "<p class='help'></p>" : "");
+      wrap.querySelector(".stepref").textContent = S.ref; wrap.querySelector("h2").textContent = S.q;
+      if (S.help) wrap.querySelector(".help").textContent = S.help;
+      var fs = document.createElement("fieldset"); var lg = document.createElement("legend"); lg.className = "sr-only"; lg.textContent = S.q; fs.appendChild(lg);
+      var prev = A[cur];
+      S.opts.forEach(function (o, i) {
+        var lab = document.createElement("label"); lab.className = "opt";
+        var inp = document.createElement("input"); inp.type = S.multi ? "checkbox" : "radio"; inp.name = "ans"; inp.value = o.v;
+        if (S.multi ? (prev || []).indexOf(o.v) >= 0 : prev === o.v) inp.checked = true;
+        if (S.multi) inp.addEventListener("change", function () {
+          if (o.v === "none" && inp.checked) fs.querySelectorAll("input").forEach(function (x) { if (x !== inp) x.checked = false; });
+          if (o.v !== "none" && inp.checked) { var n = fs.querySelector("input[value=none]"); if (n) n.checked = false; }
+        });
+        var txt = document.createElement("span");
+        txt.innerHTML = (o.r ? "<span class='ref'></span> " : "") + "<b></b>" + (o.h ? "<small></small>" : "");
+        if (o.r) txt.querySelector(".ref").textContent = o.r;
+        txt.querySelector("b").textContent = o.l; if (o.h) txt.querySelector("small").textContent = o.h;
+        lab.appendChild(inp); lab.appendChild(txt); fs.appendChild(lab);
+      });
+      wrap.appendChild(fs);
+      var err = document.createElement("div"); err.className = "err"; err.setAttribute("role", "alert"); wrap.appendChild(err);
+      var nav = document.createElement("div"); nav.className = "nav";
+      var back = document.createElement("button"); back.type = "button"; back.className = "btn ghost"; back.textContent = "← Wstecz"; back.disabled = !hist.length;
+      back.addEventListener("click", goBack);
+      var next = document.createElement("button"); next.type = "button"; next.className = "btn"; next.textContent = "Dalej →";
+      next.addEventListener("click", function () {
+        var checked = Array.prototype.slice.call(fs.querySelectorAll("input:checked")).map(function (x) { return x.value; });
+        if (!checked.length) { err.textContent = S.multi ? "Zaznacz co najmniej jedną odpowiedź (albo „Żadna z powyższych”)." : "Wybierz odpowiedź."; return; }
+        answer(S.multi ? checked : checked[0]);
+      });
+      nav.appendChild(back); nav.appendChild(next); wrap.appendChild(nav);
+      content.appendChild(wrap);
+      renderPath();
+    }
+
+    function answer(val) {
+      var S = STEPS[cur]; A[cur] = val; hist.push(cur);
+      Object.keys(A).forEach(function (k) { if (hist.indexOf(k) < 0) delete A[k]; });
+      var nxt, res;
+      if (S.multi) {
+        var a50 = val.filter(function (x) { return x !== "none"; });
+        var hr = A.annex1 === "A" || A.annex1 === "B" || (A.annex3 && A.annex3 !== "none" && (A.prof === "y" || A.art63 === "none"));
+        var exc = A.annex3 && A.annex3 !== "none" && A.prof === "n" && A.art63 && A.art63 !== "none";
+        if (hr || a50.length || exc) res = "sys"; else nxt = "oss";
+      } else {
+        var o = S.opts.filter(function (x) { return x.v === val; })[0];
+        nxt = o.next; res = o.res;
+      }
+      if (res) { done = res; } else { cur = nxt; }
+      render(); focusHead();
+    }
+    function goBack() {
+      if (done) { done = null; cur = hist.pop(); }
+      else if (hist.length) { cur = hist.pop(); }
+      render(); focusHead();
+    }
+    function jumpTo(step) {
+      var i = hist.indexOf(step); if (i < 0) return;
+      hist = hist.slice(0, i); done = null; cur = step; render(); focusHead();
+    }
+    function focusHead() { var h = content.querySelector("h2"); if (h) h.focus({ preventScroll: false }); }
+
+    function labelOf(step, v) {
+      var S = STEPS[step];
+      if (S.multi) return v.map(function (x) { var o = S.opts.filter(function (y) { return y.v === x; })[0]; return o.l; }).join("; ");
+      var o = S.opts.filter(function (y) { return y.v === v; })[0]; return (o.r ? o.r + ": " : "") + o.l;
+    }
+    function renderPath() {
+      pathEl.innerHTML = "";
+      if (!hist.length) { pathEl.innerHTML = "<li class='muted'>Brak odpowiedzi.</li>"; }
+      hist.forEach(function (st) {
+        var li = document.createElement("li");
+        var b = document.createElement("b"); b.textContent = STEPS[st].ref; li.appendChild(b);
+        li.appendChild(document.createTextNode(labelOf(st, A[st])));
+        var btn = document.createElement("button"); btn.type = "button"; btn.textContent = "zmień"; btn.setAttribute("aria-label", "Zmień odpowiedź: " + STEPS[st].ref);
+        btn.addEventListener("click", function () { jumpTo(st); });
+        li.appendChild(document.createElement("br")); li.appendChild(btn);
+        pathEl.appendChild(li);
+      });
+      document.querySelectorAll("#pyr div").forEach(function (d) { d.classList.remove("on"); });
+    }
+
+    function renderResult() {
+      prog.style.width = "100%";
+      var r = result(done, A);
+      var box = document.createElement("div"); box.className = "result k-" + r.k;
+      box.innerHTML = "<p class='cat'></p><h2 tabindex='-1'></h2><dl></dl>";
+      box.querySelector(".cat").textContent = "Wynik · " + r.cat; box.querySelector("h2").textContent = r.t;
+      var dl = box.querySelector("dl");
+      r.rows.forEach(function (row) { var dt = document.createElement("dt"); dt.textContent = row[0]; var dd = document.createElement("dd"); dd.innerHTML = row[1]; dl.appendChild(dt); dl.appendChild(dd); });
+      var ex = document.createElement("div"); ex.className = "extra small";
+      ex.innerHTML = "<p><strong>Pamiętaj:</strong> kwalifikację ustala się według <em>przeznaczenia</em> systemu określonego przez dostawcę. Ten sam model może być w jednym zastosowaniu systemem minimalnego ryzyka, a w innym systemem wysokiego ryzyka. Niezależnie od AI Act stosuje się RODO, w tym art. 22 przy decyzjach opartych wyłącznie na zautomatyzowanym przetwarzaniu.</p>";
+      box.appendChild(ex);
+      var nav = document.createElement("div"); nav.className = "nav no-print";
+      nav.innerHTML = "<button type='button' class='btn ghost' id='rBack'>← Wstecz</button><span style='display:flex;gap:10px;flex-wrap:wrap'><button type='button' class='btn ghost' id='rPrint'>Drukuj</button><button type='button' class='btn' id='rNew'>Nowa analiza</button></span>";
+      box.appendChild(nav);
+      content.appendChild(box);
+      document.getElementById("rBack").addEventListener("click", goBack);
+      document.getElementById("rPrint").addEventListener("click", function () { window.print(); });
+      document.getElementById("rNew").addEventListener("click", function () { A = {}; hist = []; cur = "start"; done = null; render(); focusHead(); });
+      renderPath();
+      var lv = { zak: "zak", wys: "wys", prz: "prz", min: "min" }[r.k];
+      if (lv) document.querySelector("#pyr [data-lv=" + lv + "]").classList.add("on");
+      if (r.k === "wys" && (A.art50 || []).some(function (x) { return x !== "none"; })) document.querySelector("#pyr [data-lv=prz]").classList.add("on");
+    }
+
+    render();
+  })();
+</script>
+</body>
+</html>

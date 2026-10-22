@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Kto używa generatywnej AI? Wiek i różnica Polska–UE</title><desc id="d"> 16-24 lata: próba 49,28, norma 63,8, 49,3% vs 63,8%; 25-34 lata: próba 39,46, norma 50,6, 39,5% vs 50,7%; 35-44 lata: próba 29,43, norma 39,0, 29,4% vs 39,0%; 45-54 lata: próba 15,31, norma 28,4, 15,3% vs 28,4%; 55-64 lata: próba 7,48, norma 16,5, 7,5% vs 16,5%; 65-74 lata: próba 2,65, norma 6,5, 2,7% vs 6,5%; Ogółem 16-74: próba 22,68, norma 32,7, 22,7% vs 32,7%</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Kto używa generatywnej AI? Wiek i różnica Polska–UE</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#9095ad" text-anchor="start" >Osoby, które w ciągu ostatnich 3 miesięcy używały narzędzi generatywnej AI, 2025 · Polska vs UE-27</text>
+<line x1="318.0" x2="318.0" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="318.0" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >0</text>
+<line x1="384.3" x2="384.3" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="384.3" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >10</text>
+<line x1="450.6" x2="450.6" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="450.6" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >20</text>
+<line x1="516.9" x2="516.9" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="516.9" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >30</text>
+<line x1="583.1" x2="583.1" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="583.1" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >40</text>
+<line x1="649.4" x2="649.4" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="649.4" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >50</text>
+<line x1="715.7" x2="715.7" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="715.7" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >60</text>
+<line x1="782.0" x2="782.0" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="782.0" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >70</text>
+<text x="304.0" y="146.3" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >16-24 lata</text>
+<line x1="741.0" x2="644.7" y1="140.3" y2="140.3" stroke="#fcee0a" stroke-width="4"/>
+<circle cx="741.0" cy="140.3" r="8" fill="#07080f" stroke="#7df9ff" stroke-width="3"/>
+<circle cx="644.7" cy="140.3" r="9" fill="#fcee0a"/>
+<text x="800.0" y="146.3" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="start" >49,3% vs 63,8%</text>
+<text x="304.0" y="194.9" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#9095ad" text-anchor="end" >25-34 lata</text>
+<line x1="653.7" x2="579.6" y1="188.9" y2="188.9" stroke="#9095ad" stroke-width="4"/>
+<circle cx="653.7" cy="188.9" r="8" fill="#07080f" stroke="#7df9ff" stroke-width="3"/>
+<circle cx="579.6" cy="188.9" r="9" fill="#9095ad"/>
+<text x="800.0" y="194.9" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#9095ad" text-anchor="start" >39,5% vs 50,7%</text>
+<text x="304.0" y="243.4" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#9095ad" text-anchor="end" >35-44 lata</text>
+<line x1="576.2" x2="513.1" y1="237.4" y2="237.4" stroke="#9095ad" stroke-width="4"/>
+<circle cx="576.2" cy="237.4" r="8" fill="#07080f" stroke="#7df9ff" stroke-width="3"/>
+<circle cx="513.1" cy="237.4" r="9" fill="#9095ad"/>
+<text x="800.0" y="243.4" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#9095ad" text-anchor="start" >29,4% vs 39,0%</text>
+<text x="304.0" y="292.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#9095ad" text-anchor="end" >45-54 lata</text>
+<line x1="505.9" x2="419.5" y1="286.0" y2="286.0" stroke="#9095ad" stroke-width="4"/>
+<circle cx="505.9" cy="286.0" r="8" fill="#07080f" stroke="#7df9ff" stroke-width="3"/>
+<circle cx="419.5" cy="286.0" r="9" fill="#9095ad"/>
+<text x="800.0" y="292.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#9095ad" text-anchor="start" >15,3% vs 28,4%</text>
+<text x="304.0" y="340.6" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#9095ad" text-anchor="end" >55-64 lata</text>
+<line x1="427.3" x2="367.6" y1="334.6" y2="334.6" stroke="#9095ad" stroke-width="4"/>
+<circle cx="427.3" cy="334.6" r="8" fill="#07080f" stroke="#7df9ff" stroke-width="3"/>
+<circle cx="367.6" cy="334.6" r="9" fill="#9095ad"/>
+<text x="800.0" y="340.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#9095ad" text-anchor="start" >7,5% vs 16,5%</text>
+<text x="304.0" y="389.1" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#9095ad" text-anchor="end" >65-74 lata</text>
+<line x1="361.1" x2="335.6" y1="383.1" y2="383.1" stroke="#9095ad" stroke-width="4"/>
+<circle cx="361.1" cy="383.1" r="8" fill="#07080f" stroke="#7df9ff" stroke-width="3"/>
+<circle cx="335.6" cy="383.1" r="9" fill="#9095ad"/>
+<text x="800.0" y="389.1" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#9095ad" text-anchor="start" >2,7% vs 6,5%</text>
+<text x="304.0" y="437.7" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Ogółem 16-74</text>
+<line x1="534.5" x2="468.3" y1="431.7" y2="431.7" stroke="#fcee0a" stroke-width="4"/>
+<circle cx="534.5" cy="431.7" r="8" fill="#07080f" stroke="#7df9ff" stroke-width="3"/>
+<circle cx="468.3" cy="431.7" r="9" fill="#fcee0a"/>
+<text x="800.0" y="437.7" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="start" >22,7% vs 32,7%</text>
+<circle cx="326" cy="92" r="7" fill="#07080f" stroke="#7df9ff" stroke-width="3"/>
+<text x="340.0" y="97.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13.5" font-weight="400" fill="#c2c6d8" text-anchor="start" >UE-27</text>
+<circle cx="518" cy="92" r="8" fill="#fcee0a"/>
+<text x="532.0" y="97.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13.5" font-weight="400" fill="#c2c6d8" text-anchor="start" >Polska</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: Eurostat, Individuals - use of generative AI tools (isoc_ai_iaiu), 2025, aktualizacja 5 VI 2026</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

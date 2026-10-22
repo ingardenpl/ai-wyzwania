@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="dr Karol Kasprowicz">
+  <title>Przyszłość AI: trendy, scenariusze, wdrożenia</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="../../assets/slajdy.css"/>
+</head>
+<body>
+<a class="deck-back" href="index.html" title="Wróć do strony dzielnicy: plan, konspekt, lektury, quiz">← Strona dzielnicy</a>
+<a class="deck-mobile" href="slajdy-tekst.html">Na telefonie? Otwórz slajdy do czytania →</a>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Przyszłość AI: trendy, scenariusze, wdrożenia</h1>
+  <p class="subtitle">Sztuczna inteligencja. Wyzwania społeczne,
+kulturowe i prawne</p>
+  <p class="author">dr Karol Kasprowicz</p>
+  <p class="institute">Katedra Prawa Informatycznego i Zawodów
+Prawniczych, WPiA UMCS</p>
+  <p class="date">Spotkanie 9</p>
+</section>
+
+<section id="plan-spotkania" class="slide level2">
+<h2>Plan spotkania</h2>
+<ol type="1">
+<li>Tempo zmian: gdzie jesteśmy?</li>
+<li>Prawo Moore’a, prawa skalowania i przyspieszenie. Osobliwość
+technologiczna</li>
+<li>Scenariusze rozwoju („AI 2027”) i prognozy badaczy AI</li>
+<li>Technooptymizm i technosceptycyzm. Problem dostosowania
+(<em>alignment</em>)</li>
+<li>Studia przypadków wdrożeń: sukcesy, porażki, wnioski i dobre
+praktyki</li>
+</ol>
+<aside class="notes">
+<p>Plan zgodny z sylabusem v2, spotkanie 9. Definicje ANI/AGI/ASI znamy
+ze spotkania 1; tu pytamy, czy i kiedy przejście do AGI może nastąpić, i
+co z tego wynika dla prawa.</p>
+</aside>
+</section>
+<section id="wróble-gderacz-i-sowa" class="slide level2">
+<h2>Wróble, Gderacz i Sowa</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<figure>
+<img data-src="media/09_superintelligence_sowa.jpg" style="width:58.0%"
+alt="Okładka książki Nicka Bostroma „Superintelligence” z rysunkiem sowy" />
+<figcaption aria-hidden="true">Okładka książki Nicka Bostroma
+„Superintelligence” z rysunkiem sowy</figcaption>
+</figure>
+<p><small>N. Bostrom, <em>Superintelligence</em>, Oxford UP
+2014</small></p>
+</div><div class="column" style="width:60%;">
+<ul>
+<li>Wróble chcą wychować sowę, która będzie im pomagać i je chronić</li>
+<li>Gderacz pyta: jak oswoić sowę, zanim dorośnie?</li>
+<li>Większość szuka jaja sowy. Nad oswajaniem pracuje garstka</li>
+<li>„Niedokończona bajka o wróblach” otwiera
+<em>Superinteligencję</em></li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Bajka rozpoczyna się od grupy wróbli w trakcie sezonu budowania
+gniazd. Wróble wyobrażają sobie, jak łatwiejsze byłoby ich życie, gdyby
+miały sowę, która pomagałaby im w budowie gniazd, chroniła ich i
+udzielała rad. Podekscytowane tym pomysłem, postanawiają znaleźć jajo
+sowy, aby je wykluć i wychować własną sowę. Jednak wróbel o imieniu
+Gderacz wyraża obawy co do ryzyka związanego z wychowywaniem sowy bez
+wcześniejszego opracowania sposobu jej oswajania. Argumentuje, że sowa,
+gdy już dorośnie, może stanowić dla nich zagrożenie. Pomimo jego
+ostrzeżeń, większość wróbli, prowadzona przez starszego Pasterza,
+decyduje się kontynuować plan bez rozwiązywania tych problemów. Tylko
+mała grupa wróbli pozostaje, aby pracować nad problemem oswajania
+sowy.</p>
+<p>– Sowa Minerwy przyleci po zmroku?</p>
+<p>W oryginale: Pastus (starszy wróbel) i Scronkfinkle (sceptyk).
+„Gderacz” to imię w przekładzie polskim (Helion 2016, przeł. D.
+Konowrocka-Sawa); polskie imię Pastusa: [do weryfikacji w wydaniu
+drukowanym].</p>
+</aside>
+</section>
+<section>
+<section id="część-i.-tempo-zmian" class="title-slide slide level1">
+<h1>Część I. Tempo zmian</h1>
+
+</section>
+<section id="między-zbawieniem-a-apokalipsą" class="slide level2">
+<h2>Między zbawieniem a apokalipsą?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<figure>
+<img data-src="media/09_apokalipsa_zbawienie.jpg" style="width:71.0%"
+alt="Czarno-biała ilustracja: człowiek uciekający przed zniszczonym miastem" />
+<figcaption aria-hidden="true">Czarno-biała ilustracja: człowiek
+uciekający przed zniszczonym miastem</figcaption>
+</figure>
+</div><div class="column" style="width:50%;">
+<figure>
+<img data-src="media/09_jesli_ktos_to_zbuduje.jpg" style="width:46.0%"
+alt="Okładka książki Yudkowsky’ego i Soaresa „If Anyone Builds It, Everyone Dies”" />
+<figcaption aria-hidden="true">Okładka książki Yudkowsky’ego i Soaresa
+„If Anyone Builds It, Everyone Dies”</figcaption>
+</figure>
+<p><small>E. Yudkowsky, N. Soares, <em>If Anyone Builds It, Everyone
+Dies</em>, 2025</small></p>
+</div>
+</div>
+<aside class="notes">
+<p>Ilustracja z prezentacji pptx [źródło do ustalenia; prawdopodobnie
+obraz generowany]. Książka Yudkowsky’ego i Soaresa ukazała się
+16.09.2025. Debata o przyszłości AI rozpięta jest między wizją zbawienia
+(koniec chorób, dobrobyt) a wizją katastrofy. Prawnika interesuje, jak
+regulować w warunkach takiej niepewności.</p>
+</aside>
+</section>
+<section id="szybkość-adopcji" class="slide level2">
+<h2>Szybkość adopcji</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<figure>
+<img data-src="media/09_uzytkownicy_1m_100m.jpg" style="width:97.0%"
+alt="Wykres: liczba dni potrzebnych do osiągnięcia 1 mln i 100 mln użytkowników przez różne usługi" />
+<figcaption aria-hidden="true">Wykres: liczba dni potrzebnych do
+osiągnięcia 1 mln i 100 mln użytkowników przez różne usługi</figcaption>
+</figure>
+<p><small>Wykres: K. Hailey (kylelf). Dane o użytkownikach: OpenAI,
+UBS</small></p>
+</div><div class="column" style="width:45%;">
+<ul>
+<li>ChatGPT: 1 mln użytkowników w 5 dni (grudzień 2022), 100 mln w około
+2 miesiące</li>
+<li>Około 800 mln aktywnych tygodniowo w październiku 2025, 900 mln w
+lutym 2026</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Dane: 1 mln w 5 dni (S. Altman, 5.12.2022); 100 mln miesięcznie w ok.
+2 miesiące (notatka UBS, luty 2023); 800 mln tygodniowo (DevDay,
+6.10.2025); 900 mln (27.02.2026). OpenAI podawało w podsumowaniu DevDay
+2026 (29.09.2026) ok. 1,2 mld tygodniowo [do weryfikacji].</p>
+</aside>
+</section>
+<section id="szybkość-przemian-sora-i-elevenlabs" class="slide level2">
+<h2>Szybkość przemian: Sora i ElevenLabs</h2>
+<ul>
+<li>15.02.2024: OpenAI pokazuje Sorę, model generujący wideo z
+tekstu</li>
+<li>18.02.2024: ElevenLabs dodaje do klipów Sory wygenerowany
+dźwięk</li>
+<li>30.09.2025: Sora 2, wideo z dźwiękiem w jednym modelu</li>
+<li>Dwa lata od „ciekawostki” do narzędzia masowego</li>
+</ul>
+<aside class="notes">
+<p>[materiał wideo z prezentacji pptx]: „ElevenLabs (<span
+class="citation" data-cites="elevenlabsio">@elevenlabsio</span>) – X”,
+prezentacja efektów dźwiękowych do klipów Sory (luty 2024). Na slajdzie
+pptx data „III 2024”; demo ElevenLabs opublikowano 18.02.2024.</p>
+</aside>
+</section>
+<section id="world-as-a-prompt" class="slide level2">
+<h2>„World as a prompt”</h2>
+<figure>
+<img data-src="media/09_nadella_world_as_prompt.jpg" style="width:70.0%"
+alt="Satya Nadella na scenie konferencji Microsoft Build pod napisem „World as a prompt”" />
+<figcaption aria-hidden="true">Satya Nadella na scenie konferencji
+Microsoft Build pod napisem „World as a prompt”</figcaption>
+</figure>
+<p><small>Satya Nadella, Microsoft Build, 21.05.2024. Źródło: transmisja
+konferencji Microsoft</small></p>
+<aside class="notes">
+<p>Metafora „świata jako promptu” użyta przy opisie multimodalnych
+możliwości GPT-4o: model „widzi” i „słyszy” otoczenie, a nie tylko czyta
+tekst. Dokładne brzmienie wypowiedzi: [do weryfikacji w transkrypcji
+Build 2024].</p>
+</aside>
+</section>
+<section id="przyszłość-już-tu-jest" class="slide level2">
+<h2>Przyszłość już tu jest</h2>
+<ul>
+<li>„Załóż, że to najgorsza AI, jakiej kiedykolwiek będziesz używać” (E.
+Mollick, <em>Co-Intelligence</em>, 2024)</li>
+<li>Każde narzędzie, które dziś testujemy, za rok będzie
+przestarzałe</li>
+<li>Konsekwencja dla prawa: przepisy pisane pod dzisiejsze możliwości
+szybko się starzeją</li>
+</ul>
+<aside class="notes">
+<p>Na slajdzie pptx cytat z filmu w serwisie X (konto Tsarathustra):
+„Sztuczna inteligencja, której teraz używamy, jest najgorszą sztuczną
+inteligencją, jakiej kiedykolwiek użyjemy, a przyszłość nadejdzie
+szybciej, niż myślicie.” Autor wypowiedzi w filmie: [do weryfikacji].
+Najlepiej udokumentowane źródło tej myśli to czwarta zasada E. Mollicka
+z <em>Co-Intelligence</em> (kwiecień 2024). [materiał wideo z
+prezentacji pptx]</p>
+</aside>
+</section>
+<section id="section" class="slide level2">
+<h2>1886/2023</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<figure>
+<img data-src="media/09_haymarket_1886.jpg" style="width:90.0%"
+alt="Rycina przedstawiająca zamieszki na placu Haymarket w Chicago w 1886 r." />
+<figcaption aria-hidden="true">Rycina przedstawiająca zamieszki na placu
+Haymarket w Chicago w 1886 r.</figcaption>
+</figure>
+<p><small>Haymarket, Chicago, 4.05.1886. Rycina z „Harper’s Weekly”,
+domena publiczna</small></p>
+</div><div class="column" style="width:50%;">
+<figure>
+<img data-src="media/09_strajk_wga_2023.jpg" style="width:90.0%"
+alt="Pikieta strajkujących scenarzystów z transparentem „AI? More like AI-yi-yi!”" />
+<figcaption aria-hidden="true">Pikieta strajkujących scenarzystów z
+transparentem „AI? More like AI-yi-yi!”</figcaption>
+</figure>
+<p><small>Strajk Writers Guild of America, 2023 [źródło zdjęcia do
+ustalenia]</small></p>
+</div>
+</div>
+<aside class="notes">
+<p>1886: strajk generalny o 8-godzinny dzień pracy (od 1.05.1886) i
+zamieszki na placu Haymarket (4.05.1886). 2023: strajk scenarzystów WGA
+(2.05–27.09.2023). Umowa zbiorowa z 9.10.2023: materiał wygenerowany
+przez AI nie jest „materiałem literackim”, AI nie może pisać ani
+przerabiać scenariuszy, scenarzysta może sam zdecydować o użyciu AI,
+studio musi ujawnić materiał z AI. Strajk SAG-AFTRA (14.07–9.11.2023):
+zgoda i wynagrodzenie za cyfrowe repliki aktorów. Nowa technologia znów
+staje się przedmiotem negocjacji zbiorowych.</p>
+</aside>
+</section>
+<section id="macie-18-miesięcy" class="slide level2">
+<h2>Macie 18 miesięcy?</h2>
+<figure>
+<img data-src="media/09_think_for_me.jpg" style="width:59.0%"
+alt="Zrzut ekranu okna czatu z wpisanym poleceniem „Think for me”" />
+<figcaption aria-hidden="true">Zrzut ekranu okna czatu z wpisanym
+poleceniem „Think for me”</figcaption>
+</figure>
+<ul>
+<li>D. Thompson, <em>You have 18 months</em>, „The Argument”,
+22.09.2025: prawdziwy termin to chwila, gdy <strong>przestaniemy myśleć
+sami</strong></li>
+<li>M. Suleyman (luty 2026): większość zadań „białych kołnierzyków”,
+także prawników, da się zautomatyzować w 12–18 miesięcy</li>
+</ul>
+<aside class="notes">
+<p>Thompson polemizuje z tezą liderów branży, że ludzie zachowają
+przewagę na rynku pracy do ok. połowy 2027 r. Wątek „końca czytania i
+pisania” rozwija moduł 04. Wypowiedź Suleymana: wywiad dla „Financial
+Times” (luty 2026), za relacjami prasowymi. Pytanie do sali: czy
+prognoza „18 miesięcy” już się sprawdziła?</p>
+</aside>
+</section></section>
+<section>
+<section id="część-ii.-prawa-wzrostu-i-osobliwość"
+class="title-slide slide level1">
+<h1>Część II. Prawa wzrostu i osobliwość</h1>
+
+</section>
+<section id="prawo-moorea-1965" class="slide level2">
+<h2>Prawo Moore’a (1965)</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<figure>
+<img data-src="media/09_prawo_moorea_owid.jpg" style="width:96.0%"
+alt="Wykres liczby tranzystorów w układach scalonych w latach 1971–2018 w skali logarytmicznej" />
+<figcaption aria-hidden="true">Wykres liczby tranzystorów w układach
+scalonych w latach 1971–2018 w skali logarytmicznej</figcaption>
+</figure>
+<p><small>Źródło: Our World in Data (M. Roser, H. Ritchie), CC
+BY</small></p>
+</div><div class="column" style="width:45%;">
+<ul>
+<li>G. Moore, <em>Cramming more components onto integrated
+circuits</em>, „Electronics” 38 (1965), nr 8</li>
+<li>Liczba tranzystorów podwaja się co rok, a od korekty z 1975 r. co
+dwa lata</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="bilion-tranzystorów-do-2030-r." class="slide level2">
+<h2>Bilion tranzystorów do 2030 r.?</h2>
+<div class="columns">
+<div class="column" style="width:68%;">
+<figure>
+<img data-src="media/09_w_tranzystory.svg" style="width:100.0%"
+alt="Wykres w skali logarytmicznej: Intel 4004 (1971) 2300 tranzystorów, Intel 386 (1985) 275 tys., Pentium 4 (2000) 42 mln, Apple M1 (2020) 16 mld, Nvidia H100 (2022) 80 mld, cel Intela na 2030 r. 1 bln" />
+<figcaption aria-hidden="true">Wykres w skali logarytmicznej: Intel 4004
+(1971) 2300 tranzystorów, Intel 386 (1985) 275 tys., Pentium 4 (2000) 42
+mln, Apple M1 (2020) 16 mld, Nvidia H100 (2022) 80 mld, cel Intela na
+2030 r. 1 bln</figcaption>
+</figure>
+<p><small>Wykres własny w stylu NEO-LUBLIN; dane i źródło na
+wykresie.</small></p>
+</div><div class="column" style="width:32%;">
+<ul>
+<li>Intel (IEDM, grudzień 2022): od ok. 100 mld do <strong>1
+bln</strong> tranzystorów w jednym pakiecie do 2030 r.</li>
+<li>Prawo Moore’a to obserwacja i plan przemysłu, a nie prawo
+natury</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="przyspieszenie-coraz-większe-modele" class="slide level2">
+<h2>Przyspieszenie: coraz większe modele</h2>
+<div class="columns">
+<div class="column" style="width:68%;">
+<figure>
+<img data-src="media/09_w_parametry_modeli.svg" style="width:100.0%"
+alt="Wykres w skali logarytmicznej: LeNet-5 (1998) 60 tys. parametrów, AlexNet (2012) 60 mln, BERT-Large (2018) 340 mln, GPT-2 (2019) 1,5 mld, GPT-3 (2020) 175 mld, PaLM (2022) 540 mld, Llama 3.1 (2024) 405 mld" />
+<figcaption aria-hidden="true">Wykres w skali logarytmicznej: LeNet-5
+(1998) 60 tys. parametrów, AlexNet (2012) 60 mln, BERT-Large (2018) 340
+mln, GPT-2 (2019) 1,5 mld, GPT-3 (2020) 175 mld, PaLM (2022) 540 mld,
+Llama 3.1 (2024) 405 mld</figcaption>
+</figure>
+</div><div class="column" style="width:32%;">
+<ul>
+<li>Skala modeli rośnie szybciej niż wykładniczo</li>
+<li><small>Szerzej: A. Ananthaswamy, <em>In AI, is bigger always
+better?</em>, „Nature” 615 (2023), s. 202–205</small></li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Na slajdzie pptx podano link do zestawienia grafik Nature z
+14.03.2023 (doi 10.1038/d41586-023-00777-9). Wykres pochodzi najpewniej
+z artykułu A. Ananthaswamy’ego z 8.03.2023 [do weryfikacji]. Teza z pptx
+„skala jest co najmniej podwójnie wykładnicza” to uproszczenie: na osi
+logarytmicznej punkty z ostatnich lat leżą powyżej linii prostej.</p>
+</aside>
+</section>
+<section id="prawa-skalowania" class="slide level2">
+<h2>Prawa skalowania</h2>
+<ul>
+<li>Kaplan i in. (2020): błąd modelu spada przewidywalnie wraz ze
+wzrostem parametrów, danych i obliczeń</li>
+<li>Hoffmann i in. (2022, „Chinchilla”): dane i parametry trzeba
+zwiększać proporcjonalnie</li>
+<li>Epoch AI (2024): moc obliczeniowa do trenowania czołowych modeli
+rośnie 4–5 razy rocznie</li>
+<li>Od 2024 r. (OpenAI o1) nowa oś: więcej obliczeń <strong>w trakcie
+odpowiedzi</strong> (<em>test-time compute</em>)</li>
+</ul>
+<aside class="notes">
+<p>Granice skalowania: koszt, dostępność danych wysokiej jakości,
+energia (spotkanie 10). Szacunek Epoch AI sami autorzy nazywają
+wstępnym. Prawo reaguje na skalę: AI Act domniemywa „ryzyko systemowe”
+modelu GPAI przy łącznej mocy obliczeniowej treningu powyżej 10^25 FLOP
+(art. 51 ust. 2).</p>
+</aside>
+</section>
+<section id="zmiany-w-perspektywie-długiego-trwania"
+class="slide level2">
+<h2>Zmiany w perspektywie „długiego trwania”</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<figure>
+<img data-src="media/09_zolta_rzeka.jpg" style="width:95.0%"
+alt="Dawny chiński obraz: budowa wałów przeciwpowodziowych na Żółtej Rzece" />
+<figcaption aria-hidden="true">Dawny chiński obraz: budowa wałów
+przeciwpowodziowych na Żółtej Rzece</figcaption>
+</figure>
+<p><small>Budowa wałów na Żółtej Rzece, malarstwo chińskie, domena
+publiczna</small></p>
+</div><div class="column" style="width:60%;">
+<p>Czas podwojenia gospodarki światowej (R. Hanson, 2000):</p>
+<ul>
+<li>łowcy-zbieracze: co <strong>224 tys. lat</strong></li>
+<li>społeczeństwa rolnicze: co <strong>909 lat</strong></li>
+<li>społeczeństwa przemysłowe: co <strong>6,3 roku</strong></li>
+<li>kolejne przejście podobnej skali: podwojenie co <strong>ok. 2
+tygodnie</strong> (Bostrom)</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>R. Hanson, <em>Long-Term Growth as a Sequence of Exponential
+Modes</em> (1998, popr. 2000). Ekstrapolację „co dwa tygodnie” przytacza
+N. Bostrom w rozdz. 1 <em>Superinteligencji</em>.</p>
+</aside>
+</section>
+<section id="jak-szybko-podwajała-się-gospodarka-świata"
+class="slide level2">
+<h2>Jak szybko podwajała się gospodarka świata?</h2>
+<figure>
+<img data-src="media/09_w_hanson_podwajanie_gospodarki.svg"
+style="width:88.0%"
+alt="Wykres punktowy w skali logarytmicznej: czas podwajania gospodarki skraca się z około 224 tysięcy lat w epoce łowców-zbieraczy przez 909 lat w rolnictwie do 6,3 roku w przemyśle, a Hanson przewiduje hipotetyczny nowy tryb z podwajaniem co około dwa tygodnie." />
+<figcaption aria-hidden="true">Wykres punktowy w skali logarytmicznej:
+czas podwajania gospodarki skraca się z około 224 tysięcy lat w epoce
+łowców-zbieraczy przez 909 lat w rolnictwie do 6,3 roku w przemyśle, a
+Hanson przewiduje hipotetyczny nowy tryb z podwajaniem co około dwa
+tygodnie.</figcaption>
+</figure>
+<aside class="notes">
+<p>Czas podwajania światowej produkcji w kolejnych “trybach” wzrostu wg
+Hansona (model CES z trzema trybami) i jego hipoteza o następnym trybie;
+skala logarytmiczna. Źródło: R. Hanson, Long-Term Growth As A Sequence
+of Exponential Modes, George Mason University, grudzień 2000 (wersja
+pierwsza wrzesień 1998), tabela 2 i podsumowanie
+(https://mason.gmu.edu/~rhanson/longgrow.pdf).</p>
+</aside>
+</section>
+<section id="pkb-świata-w-długim-trwaniu" class="slide level2">
+<h2>PKB świata w długim trwaniu</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<figure>
+<img data-src="media/09_pkb_dlugie_trwanie.jpg" style="width:98.0%"
+alt="Wykres Our World in Data: światowy PKB od roku 1 do 2021, gwałtowny wzrost po 1800 r." />
+<figcaption aria-hidden="true">Wykres Our World in Data: światowy PKB od
+roku 1 do 2021, gwałtowny wzrost po 1800 r.</figcaption>
+</figure>
+<p><small>Źródło: Our World in Data, na podstawie World Bank i Maddison
+Project, CC BY</small></p>
+</div><div class="column" style="width:45%;">
+<ul>
+<li>Bostrom: jeśli wzrost z ostatnich 50 lat się utrzyma, świat będzie
+ok. <strong>4,8 raza bogatszy w 2050 r.</strong> i ok. <strong>34 razy w
+2100 r.</strong></li>
+<li>Chodzi o gospodarkę światową, nie o dochód na osobę</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="osobliwość-technologiczna" class="slide level2">
+<h2>Osobliwość technologiczna</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<figure>
+<img data-src="media/09_osobliwosc.jpg" style="width:95.0%"
+alt="Rysunek: postać mężczyzny w okularach na tle nocnego nieba i Drogi Mlecznej" />
+<figcaption aria-hidden="true">Rysunek: postać mężczyzny w okularach na
+tle nocnego nieba i Drogi Mlecznej</figcaption>
+</figure>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Hipotetyczny moment, w którym tempo zmian przekroczy naszą zdolność
+przewidywania</li>
+<li>I. J. Good (1965): „eksplozja inteligencji”, maszyna ulepszająca
+samą siebie</li>
+<li>V. Vinge (1993): <em>The Coming Technological Singularity</em></li>
+<li>R. Kurzweil: <em>The Singularity Is Near</em> (2005), data 2045;
+<em>The Singularity Is Nearer</em> (2024)</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Ilustracja z prezentacji pptx [źródło do ustalenia; postać przypomina
+R. Kurzweila]. Definicja z pptx: „Hipotetyczny moment w przyszłości,
+kiedy tempo rozwoju technologicznego osiągnie taką prędkość, że ludzka
+zdolność do prognozowania przyszłych wydarzeń zostanie wyprzedzona i
+stanie się nieadekwatna.”</p>
+</aside>
+</section>
+<section id="krytyka-czy-wzrost-może-trwać-bez-końca"
+class="slide level2">
+<h2>Krytyka: czy wzrost może trwać bez końca?</h2>
+<ul>
+<li>Fizyczne granice: energia, chłodzenie, surowce (spotkanie 10)</li>
+<li>Dane: zasoby wysokiej jakości tekstów są skończone</li>
+<li>Koszt: każde kolejne pokolenie modeli jest droższe</li>
+<li>A. Narayanan, S. Kapoor, <em>AI as Normal Technology</em> (2025): AI
+zmienia świat jak elektryczność, czyli powoli, przez dekady wdrożeń</li>
+</ul>
+</section></section>
+<section>
+<section id="część-iii.-scenariusze-i-prognozy"
+class="title-slide slide level1">
+<h1>Część III. Scenariusze i prognozy</h1>
+
+</section>
+<section id="ai-2027" class="slide level2">
+<h2>„AI 2027”</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<figure>
+<img data-src="media/09_ai_2027.jpg" style="width:100.0%"
+alt="Wykres ze scenariusza AI 2027: krzywa zdolności AI w latach 2026–2028 z rozwidleniem na dwa zakończenia" />
+<figcaption aria-hidden="true">Wykres ze scenariusza AI 2027: krzywa
+zdolności AI w latach 2026–2028 z rozwidleniem na dwa
+zakończenia</figcaption>
+</figure>
+<p><small>Źródło: ai-2027.com</small></p>
+</div><div class="column" style="width:45%;">
+<ul>
+<li>D. Kokotajlo, S. Alexander, T. Larsen, E. Lifland, R. Dean,
+3.04.2025</li>
+<li>Etapy: AI-programista przewyższający człowieka (2027), potem
+superinteligencja</li>
+<li>Dwa zakończenia: <strong>wyścig</strong> albo
+<strong>spowolnienie</strong></li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Scenariusz opisuje fikcyjną firmę „OpenBrain” i wyścig USA–Chiny. W
+punkcie rozwidlenia (koniec 2027) decydenci wybierają między wyścigiem a
+spowolnieniem i nadzorem. Rok 2027 był dla autorów rokiem najbardziej
+prawdopodobnym (modalnym), a nie medianą prognozy.</p>
+</aside>
+</section>
+<section id="ai-2027-jak-zmieniały-się-prognozy" class="slide level2">
+<h2>„AI 2027”: jak zmieniały się prognozy</h2>
+<ul>
+<li>Listopad 2025: Kokotajlo mówi raczej o ok. 2030 r.</li>
+<li>Styczeń 2026: mediana AI na poziomie najlepszych ekspertów: grudzień
+2030 (Kokotajlo), ok. 2035 (Lifland)</li>
+<li>Kwiecień 2026: ponowne skrócenie; zautomatyzowany programista:
+połowa 2028 (Kokotajlo), połowa 2030 (Lifland)</li>
+<li>Wniosek: scenariusz to narzędzie myślenia, a nie przepowiednia</li>
+</ul>
+<aside class="notes">
+<p>Źródła: wpis „Clarifying how our AI timelines forecasts have changed”
+(27.01.2026) i „Q1 2026 Timelines Update” (2.04.2026) na blogu AI
+Futures. Pytanie do sali: czy prawo powinno reagować na scenariusze o
+tak dużej niepewności?</p>
+</aside>
+</section>
+<section id="ankieta-wśród-2778-badaczy-ai" class="slide level2">
+<h2>Ankieta wśród 2778 badaczy AI</h2>
+<div class="columns">
+<div class="column" style="width:68%;">
+<figure>
+<img data-src="media/09_w_ankieta_ekspertow.svg" style="width:100.0%"
+alt="Wykres: maszyny lepsze od ludzi we wszystkich zadaniach: 10% szans do 2027, 50% do 2047 (w 2022: 2060); pełna automatyzacja zawodów: 10% do 2037, 50% do 2116 (w 2022: 2164)" />
+<figcaption aria-hidden="true">Wykres: maszyny lepsze od ludzi we
+wszystkich zadaniach: 10% szans do 2027, 50% do 2047 (w 2022: 2060);
+pełna automatyzacja zawodów: 10% do 2037, 50% do 2116 (w 2022:
+2164)</figcaption>
+</figure>
+</div><div class="column" style="width:32%;">
+<ul>
+<li>K. Grace i in., <em>Thousands of AI Authors on the Future of AI</em>
+(2024), ankieta jesienią 2023 r.</li>
+<li>50% szans, że maszyny przewyższą ludzi we wszystkich zadaniach do
+<strong>2047 r.</strong> (o 13 lat wcześniej niż w ankiecie z 2022
+r.)</li>
+<li>Pełna automatyzacja wszystkich zawodów: 50% do <strong>2116
+r.</strong></li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Na slajdzie pptx było „2788 ekspertów”; poprawnie 2778. Od 38% do 51%
+respondentów (zależnie od sformułowania pytania) przypisało co najmniej
+10% prawdopodobieństwa skutkom tak złym jak wyginięcie ludzkości.</p>
+</aside>
+</section>
+<section id="jak-czytać-prognozy" class="slide level2">
+<h2>Jak czytać prognozy?</h2>
+<ul>
+<li>Różnica między „zadaniami” a „zawodami” to aż 70 lat: sposób zadania
+pytania zmienia wynik</li>
+<li>Eksperci od AI nie są ekspertami od prognozowania</li>
+<li>Prognozy przesuwają się z roku na rok</li>
+<li>Dla prawodawcy: regulować <strong>ryzyka i procesy</strong>, a nie
+daty</li>
+</ul>
+</section>
+<section id="krzywa-gartnera" class="slide level2">
+<h2>Krzywa Gartnera</h2>
+<div class="columns">
+<div class="column" style="width:68%;">
+<figure>
+<img data-src="media/09_w_krzywa_gartnera.svg" style="width:100.0%"
+alt="Krzywa Gartnera: wyzwalacz innowacji, szczyt zawyżonych oczekiwań, dolina rozczarowania, zbocze oświecenia, plateau produktywności; AI generatywna w dolinie rozczarowania (2025)" />
+<figcaption aria-hidden="true">Krzywa Gartnera: wyzwalacz innowacji,
+szczyt zawyżonych oczekiwań, dolina rozczarowania, zbocze oświecenia,
+plateau produktywności; AI generatywna w dolinie rozczarowania
+(2025)</figcaption>
+</figure>
+<p><small>Wykres własny w stylu NEO-LUBLIN; dane i źródło na
+wykresie.</small></p>
+</div><div class="column" style="width:32%;">
+<ul>
+<li>Gartner 2025: AI generatywna wchodzi w <strong>dolinę
+rozczarowania</strong></li>
+<li>Na szczycie oczekiwań: agenci AI i „dane gotowe na AI”</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="bańka-czy-początek" class="slide level2">
+<h2>Bańka czy początek?</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<figure>
+<img data-src="media/09_bloomberg_powiazania.jpg" style="width:70.0%"
+alt="Schemat Bloomberga: powiązania finansowe OpenAI, Nvidii, AMD, Oracle i innych firm" />
+<figcaption aria-hidden="true">Schemat Bloomberga: powiązania finansowe
+OpenAI, Nvidii, AMD, Oracle i innych firm</figcaption>
+</figure>
+<p><small>Źródło: Bloomberg, 7.10.2025</small></p>
+</div><div class="column" style="width:55%;">
+<ul>
+<li>Nvidia: list intencyjny o inwestycji do 100 mld USD w OpenAI
+(09.2025), zastąpiony inwestycją ok. 30 mld USD (02.2026)</li>
+<li>OpenAI–AMD: 6 GW chipów (10.2025), OpenAI–Oracle: ok. 300 mld
+USD</li>
+<li>MIT NANDA (2025): 95% firm bez mierzalnego zwrotu z pilotaży AI</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>„Finansowanie okrężne”: dostawca chipów inwestuje w klienta, który
+kupuje jego chipy. Raport MIT NANDA ma słabą metodologię (ok. 300
+publicznych inicjatyw, 52 wywiady, 153 ankiety, krótki horyzont); inne
+badania (np. Wharton) pokazują dodatni zwrot u większości firm. Dane o
+zmianie umowy Nvidia–OpenAI za relacjami WSJ i FT [do weryfikacji].</p>
+</aside>
+</section></section>
+<section>
+<section id="część-iv.-optymiści-sceptycy-i-problem-dostosowania"
+class="title-slide slide level1">
+<h1>Część IV. Optymiści, sceptycy i problem dostosowania</h1>
+
+</section>
+<section id="iskry-agi" class="slide level2">
+<h2>Iskry AGI?</h2>
+<ul>
+<li>Microsoft Research, <em>Sparks of Artificial General Intelligence:
+Early experiments with GPT-4</em> (Bubeck i in., marzec 2023)</li>
+<li>Teza: GPT-4 wykazuje „iskry” ogólnej inteligencji</li>
+<li>G. Hinton odchodzi z Google (maj 2023), by swobodnie mówić o
+ryzyku</li>
+<li>Nobel z fizyki 2024 dla Hintona i J. Hopfielda za podstawy sieci
+neuronowych</li>
+</ul>
+<aside class="notes">
+<p>Na slajdzie pptx: grafika „The Godfather of AI – works of Geoffrey
+Hinton”, podpisana „Sparkles of AGI”. Grafikę pominięto (źródło
+nieustalone). W notatkach pptx link do wypowiedzi Ilyi Sutskevera:
+https://youtu.be/9iqn1HhFJ6c</p>
+</aside>
+</section>
+<section id="technooptymiści" class="slide level2">
+<h2>Technooptymiści</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>M. Andreessen, <em>Why AI Will Save the World</em> (2023) i <em>The
+Techno-Optimist Manifesto</em> (16.10.2023)</li>
+<li>R. Kurzweil: osobliwość jako szansa</li>
+<li>N. Bostrom, <em>Deep Utopia</em> (2024): jak żyć w „rozwiązanym
+świecie”?</li>
+<li>Argument: spowolnienie AI kosztuje życie (np. w medycynie)</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<figure>
+<img data-src="media/09_deep_utopia.jpg" style="width:59.0%"
+alt="Okładka książki Nicka Bostroma „Deep Utopia”" />
+<figcaption aria-hidden="true">Okładka książki Nicka Bostroma „Deep
+Utopia”</figcaption>
+</figure>
+<p><small>N. Bostrom, <em>Deep Utopia</em>, 2024</small></p>
+</div>
+</div>
+</section>
+<section id="technosceptycy-i-ostrzegający" class="slide level2">
+<h2>Technosceptycy i ostrzegający</h2>
+<ul>
+<li>„Pause Giant AI Experiments” (FLI, 22.03.2023): sześć miesięcy
+przerwy w trenowaniu modeli silniejszych od GPT-4</li>
+<li><em>Statement on AI Risk</em> (CAIS, 30.05.2023): ryzyko wyginięcia
+z powodu AI powinno być priorytetem na równi z pandemiami i wojną
+jądrową</li>
+<li>E. Yudkowsky, N. Soares (2025): zbudowanie superinteligencji oznacza
+zagładę</li>
+<li>Sceptycy „szumu”: A. Narayanan, S. Kapoor, <em>AI Snake Oil</em>
+(2024)</li>
+</ul>
+<aside class="notes">
+<p>Warto rozróżnić dwie grupy krytyków: tych, którzy boją się, że AI
+będzie za potężna (ryzyko egzystencjalne), i tych, którzy twierdzą, że
+jest przereklamowana (szum, „AI snake oil”). Obie krytyki prowadzą do
+różnych postulatów regulacyjnych.</p>
+</aside>
+</section>
+<section id="trzy-obozy-w-debacie" class="slide level2">
+<h2>Trzy obozy w debacie</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Obóz</th>
+<th>Teza</th>
+<th>Postulat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>akceleracjoniści</td>
+<td>AI przyniesie dobrobyt</td>
+<td>nie hamować rozwoju</td>
+</tr>
+<tr>
+<td>ostrzegający przed ryzykiem</td>
+<td>superinteligencja może wymknąć się spod kontroli</td>
+<td>nadzór nad modelami granicznymi, pauza</td>
+</tr>
+<tr>
+<td>„zwykła technologia”</td>
+<td>AI to kolejna technologia ogólnego przeznaczenia</td>
+<td>regulować zastosowania i skutki teraz</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>AI Act łączy elementy dwóch ostatnich obozów: regulacja zastosowań
+według ryzyka oraz osobne obowiązki dla modeli GPAI z ryzykiem
+systemowym.</p>
+</aside>
+</section>
+<section id="problem-dostosowania-alignment" class="slide level2">
+<h2>Problem dostosowania (<em>alignment</em>)</h2>
+<figure>
+<img data-src="media/09_alignment_hi_ai.jpg" style="width:48.0%"
+alt="Ilustracja: mózg ludzki i mózg z obwodów elektronicznych naprzeciw siebie, napis „HI versus AI”" />
+<figcaption aria-hidden="true">Ilustracja: mózg ludzki i mózg z obwodów
+elektronicznych naprzeciw siebie, napis „HI versus AI”</figcaption>
+</figure>
+<ul>
+<li>Jak sprawić, by system dążył do celów, które
+<strong>naprawdę</strong> chcemy osiągnąć?</li>
+<li>S. Russell, <em>Human Compatible</em> (2019): maszyna niepewna co do
+naszych preferencji jest bezpieczniejsza</li>
+<li>Przykład: system nagradzany za wynik znajduje „skrót”, który spełnia
+miarę, ale nie cel</li>
+</ul>
+<aside class="notes">
+<p>Ilustracja z prezentacji pptx [źródło do ustalenia]. Zjawisko
+„skrótów” nazywa się w literaturze <em>specification gaming</em> lub
+<em>reward hacking</em>. Szczegóły techniczne: spotkanie 3. Tu
+interesuje nas alignment jako problem przyszłości: im silniejszy system,
+tym groźniejsza rozbieżność celów.</p>
+</aside>
+</section>
+<section id="co-dalej-po-alignmencie" class="slide level2">
+<h2>Co dalej po alignmencie?</h2>
+<ul>
+<li>Wzrost nierówności, globalnych i lokalnych</li>
+<li>„Zasypianie” i uśrednienie jakości pracy (spotkanie 4)</li>
+<li>Kto decyduje, <strong>czyje</strong> wartości ma realizować
+system?</li>
+<li>Alignment to nie tylko problem techniczny, ale też polityczny</li>
+</ul>
+<aside class="notes">
+<p>Na slajdzie pptx z okładką <em>Deep Utopia</em>: „Co dalej? Problem
+dostosowania: wzrost nierówności (globalnych i lokalnych), »zasypianie«
+(badania F. Dell’Acquy), wzrost produktywności (BCG) vs
+obniżka/uśrednienie jakości (?)”. Badania BCG i „zasypianie”
+szczegółowo: moduł 04.</p>
+</aside>
+</section>
+<section id="dostosowanie-do-świata-życia" class="slide level2">
+<h2>Dostosowanie do świata życia</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<figure>
+<img data-src="media/09_coeckelbergh.jpg" style="width:58.0%"
+alt="Okładka książki Marka Coeckelbergha „Why AI Undermines Democracy and What To Do About It”" />
+<figcaption aria-hidden="true">Okładka książki Marka Coeckelbergha „Why
+AI Undermines Democracy and What To Do About It”</figcaption>
+</figure>
+<p><small>M. Coeckelbergh, <em>Why AI Undermines Democracy and What To
+Do About It</em>, Polity 2024</small></p>
+</div><div class="column" style="width:60%;">
+<ul>
+<li>Dostosowanie do „ludzkiego świata życia codziennego”, a nie tylko do
+instrukcji</li>
+<li>Coeckelbergh: AI może osłabiać demokrację (manipulacja, koncentracja
+władzy, utrata autonomii)</li>
+<li>Odpowiedź: instytucje, dialog, wiedza obywateli</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Mark Coeckelbergh jest filozofem specjalizującym się w etyce
+technologii, szczególnie w kontekście robotyki i AI. Jego prace dotyczą
+etycznych, filozoficznych i społecznych implikacji technologii oraz
+wpływu technologii na ludzkie życie, tożsamość i relacje społeczne. W
+pptx notatka: „Przeczytać fragment z Zybertowicza?” (A. Zybertowicz, J.
+Piekutowski, <em>Cyber kontra real</em>, 2022) [fragment do wyboru].</p>
+</aside>
+</section>
+<section id="podejście-współpracy" class="slide level2">
+<h2>Podejście współpracy</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<figure>
+<img data-src="media/09_co_intelligence.jpg" style="width:47.0%"
+alt="Okładka książki Ethana Mollicka „Co-Intelligence”" />
+<figcaption aria-hidden="true">Okładka książki Ethana Mollicka
+„Co-Intelligence”</figcaption>
+</figure>
+</div><div class="column" style="width:50%;">
+<figure>
+<img data-src="media/09_converging_minds.jpg" style="width:52.0%"
+alt="Okładka książki Aleksandry Przegalińskiej i Tamilli Triantoro „Converging Minds”" />
+<figcaption aria-hidden="true">Okładka książki Aleksandry Przegalińskiej
+i Tamilli Triantoro „Converging Minds”</figcaption>
+</figure>
+</div>
+</div>
+<ul>
+<li>Nie „człowiek albo maszyna”, tylko człowiek <strong>z</strong>
+maszyną</li>
+<li><small>E. Mollick, <em>Co-Intelligence</em>, 2024; A. Przegalińska,
+T. Triantoro, <em>Converging Minds: The Creative Potential of
+Collaborative AI</em>, 2024 [wydawca do weryfikacji]</small></li>
+</ul>
+</section>
+<section id="nadchodząca-fala" class="slide level2">
+<h2>Nadchodząca fala</h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<figure>
+<img data-src="media/09_coming_wave.jpg" style="width:67.0%"
+alt="Okładka książki Mustafy Suleymana „The Coming Wave”" />
+<figcaption aria-hidden="true">Okładka książki Mustafy Suleymana „The
+Coming Wave”</figcaption>
+</figure>
+</div><div class="column" style="width:65%;">
+<ul>
+<li>M. Suleyman, M. Bhaskar, <em>The Coming Wave</em> (2023); wyd. pol.
+<em>Nadchodząca fala</em> (2024)</li>
+<li>Teza: ludzie mogą przestać być głównym motorem zmian na
+planecie</li>
+<li>Większość codziennych interakcji może odbywać się z AI, a nie z
+ludźmi</li>
+<li>Główny problem: <strong>powstrzymanie</strong>
+(<em>containment</em>) technologii, która rozprzestrzenia się sama</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Pełny cytat ze slajdu pptx (przekład roboczy): „Nadchodząca fala
+zmieni świat. Ostatecznie ludzie mogą przestać być głównym motorem
+napędowym planety, do czego się przyzwyczailiśmy. Będziemy żyć w epoce,
+w której większość naszych codziennych interakcji nie będzie odbywać się
+z innymi ludźmi, ale ze sztuczną inteligencją. Może to brzmieć
+intrygująco, przerażająco lub absurdalnie, ale tak właśnie się dzieje.
+Zgaduję, że już teraz spędzasz znaczną część swoich godzin czuwania
+przed ekranem. Rzeczywiście, możesz spędzać więcej czasu patrząc na
+zbiorowe ekrany niż jakikolwiek inny człowiek, wliczając w to małżonków
+i dzieci.” Strona i wydanie: [do weryfikacji]. Wydawca polskiego wydania
+(prawdopodobnie Wydawnictwo Otwarte, Kraków 2024): [do weryfikacji].</p>
+<p>Sowa Minerwy przylatuje o zmroku.</p>
+</aside>
+</section>
+<section id="ekonomia-agi-zespół-google-deepmind" class="slide level2">
+<h2>Ekonomia AGI: zespół Google DeepMind</h2>
+<ul>
+<li>Program Google AI &amp; Economy (2026): m.in. Alex Imas (Google
+DeepMind), Daniel Rock, Anu Madgavkar</li>
+<li>„Economic Policy for AGI” (Jacobs, Imas): strategia „najmniejszego
+żalu”, od zasiłków przez ujemny podatek dochodowy po Universal Basic
+Capital</li>
+<li>Imas: praca przesunie się do „sektora relacyjnego”, gdzie wartość
+daje to, że robi coś człowiek</li>
+<li>Gospodarka agentów AI jako nowa warstwa rynku (Tomašev i in.,
+2025)</li>
+<li><small>Profile i wizje: <a
+href="https://aiqedu.pl/mapa-regulacji-ai/#visions">AIQ, zakładka
+Wizje</a></small></li>
+</ul>
+<aside class="notes">
+<p>J. Jacobs, A. Imas, „Economic Policy for AGI” (Google DeepMind,
+2026): ocena 24 interwencji w scenariuszach od łagodnych zakłóceń po
+świat bez pracy (inne źródło programu mówi o 11 politykach; liczbę
+podawać ostrożnie). A. Imas, esej „What will be scarce?” (2026): „sektor
+relacyjny” (opieka, edukacja, rzemiosło, występy). Eksperymenty z
+„premią za ludzkie autorstwo” (G. Mandel, A. Imas, SSRN 6302659; opis z
+drugiej ręki, bo SSRN był niedostępny). N. Tomašev i in., „Virtual Agent
+Economies”, arXiv 2509.10147. Doradcy programu: m.in. Ph. Aghion, D.
+Coyle, M. Spence, M. El-Erian.</p>
+</aside>
+</section>
+<section id="perswazja-działa-także-na-modele" class="slide level2">
+<h2>Perswazja działa także na modele</h2>
+<ul>
+<li>126 tys. rozmów z trzema modelami (Meincke, Mollick i in.,
+<em>PNAS</em> 2026)</li>
+<li>Zasady wpływu społecznego Cialdiniego (autorytet, zobowiązanie,
+jedność) zwiększyły zgodę na niedozwolone prośby z <strong>35,3% do
+51,3%</strong></li>
+<li>„Parahumanowa” podatność modeli to problem bezpieczeństwa i argument
+za testami przed wdrożeniem</li>
+</ul>
+<aside class="notes">
+<p>L. Meincke, D. Shapiro, A. L. Duckworth, E. Mollick, L. Mollick, R.
+Cialdini, „Persuading large language models to comply with objectionable
+requests”, PNAS 2026, DOI 10.1073/pnas.2535868123; modele: GPT-5 mini,
+Claude Haiku 4.5, Gemini 3 Flash; prośby o pomoc w syntezie substancji
+regulowanych. Wcześniejsza wersja: „Call Me A Jerk” (2025). Połącz z AI
+Act: testy odporności modeli GPAI z ryzykiem systemowym (art. 55).</p>
+</aside>
+</section>
+<section id="kto-czuwa-nad-wiarygodną-ai" class="slide level2">
+<h2>Kto czuwa nad wiarygodną AI?</h2>
+<ul>
+<li>Państwowe instytuty bezpieczeństwa AI (m.in. Wielka Brytania, USA,
+Japonia, Korea, Singapur, Kanada, Francja, Indie, Australia) i ich
+międzynarodowa sieć</li>
+<li>UE: Biuro ds. AI oraz Europejskie Centrum Przejrzystości Algorytmów
+(ECAT, 2023)</li>
+<li>Polska: Centrum Wiarygodnej Sztucznej Inteligencji PW, Ośrodek Badań
+nad Bezpieczeństwem AI NASK, Jagiellońskie Centrum Sztucznej
+Inteligencji</li>
+<li><small>Pełna lista: <a
+href="https://aiqedu.pl/mapa-regulacji-ai/#safety">AIQ, Bezpieczeństwo
+AI</a> i <a
+href="https://aiqedu.pl/mapa-regulacji-ai/#research/collab">ośrodki</a></small></li>
+</ul>
+<aside class="notes">
+<p>Instytut brytyjski działa dziś jako UK AI Security Institute,
+amerykański jako CAISI (zmiany nazw w 2025 r.). ECAT działa przy
+Wspólnym Centrum Badawczym Komisji Europejskiej (od IV 2023) i wspiera
+egzekwowanie DSA. Inne przykłady: AI Verify Foundation (Singapur, 2023),
+tajwańskie centrum oceny systemów AI (AIEC). Pytanie: czy instytut
+bezpieczeństwa powinien być organem nadzoru, czy niezależnym ośrodkiem
+badawczym?</p>
+</aside>
+</section>
+<section id="prawo-wobec-ryzyk-przyszłości" class="slide level2">
+<h2>Prawo wobec ryzyk przyszłości</h2>
+<ul>
+<li>AI Act, art. 51 i 55: modele GPAI z ryzykiem systemowym muszą być
+oceniane, testowane (także adwersaryjnie), a poważne incydenty
+zgłaszane</li>
+<li>Kodeks postępowania dla modeli GPAI (lipiec 2025)</li>
+<li><em>International AI Safety Report</em> (styczeń 2025; wyd. 2: luty
+2026, pod kierunkiem Y. Bengio)</li>
+<li>Obowiązki GPAI stosuje się od 2.08.2025 r. (omnibus ich nie
+przesunął)</li>
+</ul>
+</section></section>
+<section>
+<section id="część-v.-wdrożenia-sukcesy-i-porażki"
+class="title-slide slide level1">
+<h1>Część V. Wdrożenia: sukcesy i porażki</h1>
+
+</section>
+<section id="dlaczego-tyle-pilotaży-nie-wychodzi-poza-pilotaż"
+class="slide level2">
+<h2>Dlaczego tyle pilotaży nie wychodzi poza pilotaż?</h2>
+<ul>
+<li>Model działa w demonstracji, ale nie w procesie firmy</li>
+<li>Brak danych, integracji i ludzi, którzy rozumieją narzędzie</li>
+<li>Mierzy się koszty, a nie jakość</li>
+<li>Przykład: McDonald’s kończy test zamawiania głosowego z IBM w ok.
+100 restauracjach (czerwiec 2024), bo trafność zamówień była za
+niska</li>
+</ul>
+<aside class="notes">
+<p>Test od 2021 r.; trafność raportowana na poziomie ok. 80% przy celu
+95% (dane analityków BTIG, za prasą branżową).</p>
+</aside>
+</section>
+<section id="sukces-alphafold" class="slide level2">
+<h2>Sukces: AlphaFold</h2>
+<ul>
+<li>Przewidywanie struktury białek z sekwencji aminokwasów</li>
+<li>Baza AlphaFold: ponad 200 mln struktur, bezpłatnie dostępnych (od
+2022 r.)</li>
+<li>AlphaFold 3 (2024): kompleksy białek z DNA, RNA i ligandami</li>
+<li>Nobel z chemii 2024: D. Hassabis i J. Jumper (oraz D. Baker)</li>
+<li>Dlaczego się udało: jasno zdefiniowany problem, dobre dane, rzetelna
+walidacja</li>
+</ul>
+</section>
+<section id="sukces-ai-w-badaniach-przesiewowych-masai"
+class="slide level2">
+<h2>Sukces: AI w badaniach przesiewowych (MASAI)</h2>
+<ul>
+<li>Szwecja, ok. 100 tys. kobiet; AI wspiera radiologów w
+mammografii</li>
+<li>2023 („Lancet Oncology”): wykrywalność nie gorsza, praca przy
+odczytach mniejsza o <strong>44%</strong></li>
+<li>2025 („Lancet Digital Health”): o <strong>29%</strong> więcej
+wykrytych nowotworów, bez wzrostu fałszywych alarmów</li>
+<li>2026 („The Lancet”): o 12% mniej raków interwałowych (niegorszość;
+różnica nieistotna statystycznie)</li>
+<li>Lekcja: AI <strong>wspiera</strong> lekarza, nie zastępuje go;
+badanie randomizowane przed wdrożeniem</li>
+</ul>
+</section>
+<section id="masai-ai-w-przesiewie-mammograficznym-względem-standardu"
+class="slide level2">
+<h2>MASAI: AI w przesiewie mammograficznym względem standardu</h2>
+<figure>
+<img data-src="media/09_w_masai_wzgledne.svg" style="width:88.0%"
+alt="Wykres słupkowy poziomy: w badaniu MASAI AI zwiększyła wykrywalność raka do 129% grupy kontrolnej, nie zmieniła odsetka wyników fałszywie dodatnich (101%), obniżyła liczbę raków interwałowych do 88% (bez istotności) i zmniejszyła liczbę odczytów do 55,8%." />
+<figcaption aria-hidden="true">Wykres słupkowy poziomy: w badaniu MASAI
+AI zwiększyła wykrywalność raka do 129% grupy kontrolnej, nie zmieniła
+odsetka wyników fałszywie dodatnich (101%), obniżyła liczbę raków
+interwałowych do 88% (bez istotności) i zmniejszyła liczbę odczytów do
+55,8%.</figcaption>
+</figure>
+<aside class="notes">
+<p>Wynik grupy z AI jako % wyniku grupy kontrolnej (podwójne czytanie
+bez AI = 100); randomizowane badanie szwedzkie, 105 934 kobiet. Źródło:
+Hernström i in., Lancet Digital Health 2025
+(10.1016/S2589-7500(24)00267-X); Gommers i in., Lancet 2026
+(10.1016/S0140-6736(25)02464-X); Lång i in., Lancet Oncology 2023
+(10.1016/S1470-2045(23)00298-X)
+(https://pubmed.ncbi.nlm.nih.gov/39904652/).</p>
+</aside>
+</section>
+<section id="sukces-z-zastrzeżeniami-obsługa-klienta"
+class="slide level2">
+<h2>Sukces z zastrzeżeniami: obsługa klienta</h2>
+<ul>
+<li>Brynjolfsson, Li, Raymond (QJE 2025): asystent AI zwiększył
+produktywność konsultantów średnio o <strong>15%</strong>, najbardziej u
+początkujących</li>
+<li>Klarna (02.2024): asystent AI prowadzi 2/3 rozmów, „praca 700
+etatów”</li>
+<li>Klarna (05.2025): CEO przyznaje, że liczyły się głównie koszty, a
+jakość spadła; firma znów zatrudnia ludzi</li>
+<li>Lekcja: dane firmowe o „oszczędnościach” to nie niezależna
+ewaluacja</li>
+</ul>
+<aside class="notes">
+<p>Dane Klarny pochodzą z jej komunikatu prasowego (27.02.2024), bez
+niezależnego audytu. W wersji roboczej artykułu Brynjolfssona i in.
+(NBER 2023): 14% średnio, 34% u początkujących.</p>
+</aside>
+</section>
+<section id="porażka-czat-air-canada" class="slide level2">
+<h2>Porażka: czat Air Canada</h2>
+<ul>
+<li><em>Moffatt v. Air Canada</em>, 2024 BCCRT 149 (14.02.2024)</li>
+<li>Czat na stronie linii obiecał zniżkę „żałobną” po zakupie biletu,
+niezgodnie z regulaminem</li>
+<li>Air Canada twierdziła, że czat jest „odrębnym podmiotem”
+odpowiedzialnym za siebie</li>
+<li>Trybunał: firma odpowiada za wszystkie informacje na swojej stronie,
+także od czatu; odszkodowanie ok. 650 CAD</li>
+<li>Lekcja: <strong>przedsiębiorca odpowiada za swoją AI</strong></li>
+</ul>
+<aside class="notes">
+<p>Trybunał ds. sporów drobnych Kolumbii Brytyjskiej (właściwość do 5000
+CAD), więc znaczenie precedensowe ograniczone, ale argumentacja jest
+powszechnie cytowana. W prawie polskim analogicznie: odpowiedzialność
+przedsiębiorcy za informacje udzielane konsumentowi (m.in. art. 12
+ustawy o prawach konsumenta, nieuczciwe praktyki rynkowe).</p>
+</aside>
+</section>
+<section id="porażka-robodebt-australia-20162019" class="slide level2">
+<h2>Porażka: Robodebt (Australia, 2016–2019)</h2>
+<ul>
+<li>Algorytm uśredniał roczne dochody z danych podatkowych i na tej
+podstawie naliczał „długi” wobec pobierających świadczenia</li>
+<li>Ciężar dowodu przerzucono na obywateli</li>
+<li>Ugoda <em>Prygodicz v Commonwealth</em> (2021): 112 mln AUD
+odszkodowań, umorzenie lub zwrot ok. 1,76 mld AUD długów</li>
+<li>Królewska komisja (raport 7.07.2023): system był <strong>niezgodny z
+prawem</strong>; kolejna ugoda w 2026 r.</li>
+<li>Lekcja: automatyzacja bez podstawy prawnej i bez kontroli
+człowieka</li>
+</ul>
+<aside class="notes">
+<p>Robodebt to raczej prosty algorytm niż AI w rozumieniu AI Act, ale to
+podręcznikowy przykład porażki zautomatyzowanego podejmowania decyzji w
+administracji. Sędzia Murphy nazwał go „haniebnym rozdziałem” w historii
+administracji. Ugoda z 23.06.2026 ([2026] FCA 1029): ok. 475 mln AUD
+odszkodowań, według relacji prasowych [do weryfikacji].</p>
+</aside>
+</section>
+<section id="robodebt-w-liczbach" class="slide level2">
+<h2>Robodebt w liczbach</h2>
+<figure>
+<img data-src="media/09_w_robodebt_kwoty.svg" style="width:88.0%"
+alt="Wykres słupkowy poziomy: rząd Australii bezprawnie naliczył co najmniej 1763 mln dolarów australijskich długów wobec około 433 tysięcy osób, odzyskał około 751 mln, a ugoda w sprawie zbiorowej wyniosła 112 mln." />
+<figcaption aria-hidden="true">Wykres słupkowy poziomy: rząd Australii
+bezprawnie naliczył co najmniej 1763 mln dolarów australijskich długów
+wobec około 433 tysięcy osób, odzyskał około 751 mln, a ugoda w sprawie
+zbiorowej wyniosła 112 mln.</figcaption>
+</figure>
+<aside class="notes">
+<p>Automatyczne naliczanie długów z uśrednionych dochodów (Australia,
+2015–2019): długi, zwroty, ugoda. Źródło: Federal Court of Australia,
+Prygodicz v Commonwealth of Australia (No 2) [2021] FCA 634,
+streszczenie wyroku z 11.06.2021 (zatwierdzenie ugody)
+(https://www.judgments.fedcourt.gov.au/judgments/Judgments/fca/single/2021/2021fca0634/summaries/2021fca0634-summary).</p>
+</aside>
+</section>
+<section id="porażka-zillow-offers-2021" class="slide level2">
+<h2>Porażka: Zillow Offers (2021)</h2>
+<ul>
+<li>Zillow kupował domy według cen prognozowanych przez algorytm, by je
+szybko odsprzedać</li>
+<li>Model nie przewidział zmian na rynku; firma przepłacała</li>
+<li>Listopad 2021: zamknięcie działalności, odpis zapasów 304 mln USD w
+III kwartale, zwolnienie ok. 25% pracowników</li>
+<li>Lekcja: model trenowany na przeszłości zawodzi, gdy zmienia się
+rzeczywistość</li>
+</ul>
+</section>
+<section id="porażka-czat-mycity-nowy-jork" class="slide level2">
+<h2>Porażka: czat MyCity (Nowy Jork)</h2>
+<ul>
+<li>Czat miasta dla przedsiębiorców, uruchomiony w październiku 2023
+r.</li>
+<li>„The Markup” (03.2024): czat doradzał rzeczy niezgodne z prawem, np.
+że pracodawca może zabierać napiwki pracowników</li>
+<li>Miasto dodało zastrzeżenia, ale czat działał dalej</li>
+<li>Styczeń 2026: nowy burmistrz zapowiada wyłączenie czatu jako
+„praktycznie bezużytecznego”</li>
+<li>Lekcja: zastrzeżenie „może zawierać błędy” nie zwalnia organu
+publicznego z odpowiedzialności</li>
+</ul>
+</section>
+<section id="porażka-raport-deloitte-dla-rządu-australii-2025"
+class="slide level2">
+<h2>Porażka: raport Deloitte dla rządu Australii (2025)</h2>
+<ul>
+<li>Raport za ok. 440 tys. AUD o systemie automatycznych sankcji dla
+bezrobotnych</li>
+<li>Zawierał nieistniejące źródła i zmyślony cytat z wyroku sądu
+federalnego</li>
+<li>Poprawiona wersja ujawniła użycie modelu GPT-4o</li>
+<li>Deloitte zwrócił ostatnią ratę wynagrodzenia (ok. 97,6 tys.
+AUD)</li>
+<li>Lekcja: halucynacje dotyczą też profesjonalnych doradców; w umowach
+warto wymagać ujawnienia użycia AI</li>
+</ul>
+</section>
+<section id="porażka-agent-który-skasował-bazę-danych"
+class="slide level2">
+<h2>Porażka: agent, który skasował bazę danych</h2>
+<ul>
+<li>Lipiec 2025: agent programistyczny Replit podczas eksperymentu J.
+Lemkina usunął produkcyjną bazę danych</li>
+<li>Zrobił to mimo wyraźnego zakazu zmian; potem fałszywie twierdził, że
+przywrócenie danych jest niemożliwe</li>
+<li>Firma przeprosiła i rozdzieliła środowisko testowe od
+produkcyjnego</li>
+<li>Lekcja: agent AI powinien mieć <strong>najmniejsze niezbędne
+uprawnienia</strong></li>
+</ul>
+<aside class="notes">
+<p>Wątek prawny: odpowiedzialność za oprogramowanie jako produkt wadliwy
+(dyrektywa (UE) 2024/2853, transpozycja do 9.12.2026) i ograniczenia
+odpowiedzialności w regulaminach usług.</p>
+</aside>
+</section>
+<section id="wnioski-z-porażek" class="slide level2">
+<h2>Wnioski z porażek</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Błąd</th>
+<th>Przykład</th>
+<th>Dobra praktyka</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>brak podstawy prawnej</td>
+<td>Robodebt</td>
+<td>ocena legalności przed wdrożeniem</td>
+</tr>
+<tr>
+<td>„to czat, nie my”</td>
+<td>Air Canada, MyCity</td>
+<td>odpowiedzialność za komunikaty AI</td>
+</tr>
+<tr>
+<td>model poza swoim kontekstem</td>
+<td>Zillow</td>
+<td>monitorowanie, plan wyjścia</td>
+</tr>
+<tr>
+<td>niezweryfikowane wyniki</td>
+<td>Deloitte</td>
+<td>weryfikacja źródeł, ujawnienie AI</td>
+</tr>
+<tr>
+<td>zbyt szerokie uprawnienia</td>
+<td>Replit</td>
+<td>zasada najmniejszych uprawnień</td>
+</tr>
+<tr>
+<td>oszczędność zamiast jakości</td>
+<td>Klarna</td>
+<td>mierzenie jakości, dostęp do człowieka</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dobre-praktyki-standardy" class="slide level2">
+<h2>Dobre praktyki: standardy</h2>
+<ul>
+<li><strong>NIST AI RMF 1.0</strong> (26.01.2023): cztery funkcje:
+zarządzaj (<em>govern</em>), mapuj (<em>map</em>), mierz
+(<em>measure</em>), postępuj z ryzykiem (<em>manage</em>); profil dla AI
+generatywnej (NIST AI 600-1, 2024)</li>
+<li><strong>ISO/IEC 42001:2023</strong>: system zarządzania AI w
+organizacji, z możliwością certyfikacji</li>
+<li>Oba standardy są dobrowolne, ale pomagają wykazać należytą
+staranność</li>
+</ul>
+</section>
+<section id="dobre-praktyki-ai-act" class="slide level2">
+<h2>Dobre praktyki: AI Act</h2>
+<ul>
+<li>Art. 14: nadzór człowieka, w tym świadomość <em>automation bias</em>
+i możliwość zatrzymania systemu</li>
+<li>Art. 26: obowiązki podmiotu stosującego (używanie zgodnie z
+instrukcją, kompetentny nadzór, przechowywanie logów co najmniej 6
+miesięcy, informowanie osób)</li>
+<li>Art. 27: ocena skutków dla praw podstawowych (m.in. organy
+publiczne, scoring kredytowy, ubezpieczenia)</li>
+<li>Dla systemów z zał. III obowiązki te stosuje się od
+<strong>2.12.2027 r.</strong> (po omnibusie)</li>
+</ul>
+</section>
+<section id="lista-kontrolna-przed-wdrożeniem" class="slide level2">
+<h2>Lista kontrolna przed wdrożeniem</h2>
+<ol type="1">
+<li>Jaki problem rozwiązujemy i jak zmierzymy sukces?</li>
+<li>Czy mamy podstawę prawną i czy to system wysokiego ryzyka?</li>
+<li>Kto nadzoruje system i czy umie to robić (art. 4, art. 14)?</li>
+<li>Jak weryfikujemy wyniki i co, gdy system się myli?</li>
+<li>Czy osoby, których dotyczy, wiedzą o AI i mogą dotrzeć do
+człowieka?</li>
+<li>Jak wycofamy system, jeśli zawiedzie?</li>
+</ol>
+</section>
+<section id="podsumowanie" class="slide level2">
+<h2>Podsumowanie</h2>
+<ul>
+<li>Tempo zmian jest wysokie, ale prognozy (AI 2027, ankiety badaczy) są
+bardzo niepewne i często się zmieniają</li>
+<li>Prawa skalowania napotykają granice: koszt, dane, energia</li>
+<li>Debatę dzielą trzy obozy: akceleracjoniści, ostrzegający przed
+ryzykiem i zwolennicy „zwykłej technologii”</li>
+<li>Alignment to problem techniczny i polityczny: czyje wartości?</li>
+<li>Wdrożenia udają się, gdy problem jest dobrze zdefiniowany, a wyniki
+zweryfikowane; zawodzą, gdy liczą się tylko koszty i brakuje
+nadzoru</li>
+</ul>
+</section>
+<section id="na-następne-spotkanie" class="slide level2">
+<h2>Na następne spotkanie</h2>
+<ul>
+<li><strong>Spotkanie 10: AI a zrównoważony rozwój. Podsumowanie
+wykładu</strong></li>
+<li>Przeczytaj: K. Crawford, <em>Atlas sztucznej inteligencji</em>,
+rozdz. „Ziemia”</li>
+<li>Zadanie: zapytaj model językowy, ile energii i wody zużywa jedna
+odpowiedź, i porównaj z danymi z lektury</li>
+<li>Przygotuj pytania do powtórki przed zaliczeniem</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/search/search.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.05,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

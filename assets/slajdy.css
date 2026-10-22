@@ -1,0 +1,83 @@
+/* Wspólny wygląd slajdów kursu (reveal.js 5, motyw bazowy „simple”, rozmiar 1280×720).
+   Dołączany przez tools/build.py parametrem --css. */
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Manrope:wght@400;500;600;700&display=swap");
+
+:root {
+  --r-background-color: #f8f4ea;
+  --r-main-color: #14171f;
+  --r-heading-color: #1a2542;
+  --r-link-color: #8b1e3f;
+  --r-link-color-hover: #c4304f;
+  --r-main-font: "Manrope", system-ui, sans-serif;
+  --r-heading-font: "Fraunces", Georgia, serif;
+  --r-main-font-size: 30px;
+  --r-heading-text-transform: none;
+  --r-heading-font-weight: 600;
+  --r-heading-letter-spacing: -0.01em;
+}
+
+.reveal-viewport { background: #f8f4ea; }
+.reveal { font-size: 30px; line-height: 1.35; }
+.reveal .slides { text-align: left; }
+.reveal .slides section { padding: 0 8px; }
+
+.reveal h1 { font-size: 1.9em; line-height: 1.15; }
+.reveal h2 { font-size: 1.45em; line-height: 1.2; margin-bottom: 0.45em; padding-bottom: 0.2em; border-bottom: 2px solid #d4b97a; }
+.reveal h3 { font-size: 1.1em; }
+.reveal p, .reveal li { line-height: 1.35; }
+.reveal ul, .reveal ol { display: block; margin-left: 1.1em; }
+.reveal li { margin: 0.18em 0; }
+.reveal li li { font-size: 0.88em; }
+.reveal small, .reveal .small { font-size: 0.6em; color: #5d6273; }
+.reveal blockquote { width: 92%; font-size: 0.92em; background: #efe8d8; box-shadow: none; border-left: 4px solid #b08540; padding: 0.4em 0.8em; }
+.reveal strong { color: #1a2542; }
+
+/* Obrazy: mieszczą się w kadrze, bez widocznych podpisów (tekst alternatywny zostaje dla czytników) */
+.reveal img, .reveal svg, .reveal video { max-height: 470px; object-fit: contain; margin: 0.2em auto; }
+.reveal figure { margin: 0.2em 0; text-align: center; }
+.reveal figcaption { display: none; }
+
+/* Tabele */
+.reveal table { font-size: 0.68em; margin: 0.3em 0; border-collapse: collapse; }
+.reveal table th, .reveal table td { padding: 0.25em 0.5em; border-bottom: 1px solid rgba(20, 23, 31, 0.18); text-align: left; vertical-align: top; }
+.reveal table th { background: #e8dfc9; }
+
+/* Kolumny */
+.reveal .columns { display: flex; gap: 1.2em; align-items: flex-start; }
+.reveal .column { flex: 0 1 auto; min-width: 0; }
+.reveal .column img { max-height: 430px; }
+
+/* Strona tytułowa i slajdy sekcji */
+.reveal #title-slide { text-align: left; }
+.reveal #title-slide .title { font-size: 1.6em; border: 0; }
+.reveal #title-slide .subtitle { font-size: 0.9em; color: #5d6273; font-family: var(--r-main-font); }
+.reveal #title-slide .author, .reveal #title-slide .institute, .reveal #title-slide .date { font-size: 0.7em; margin: 0.2em 0; }
+.reveal section.level1 h1 { color: #8b1e3f; }
+
+.reveal .slide-number { background: transparent; color: #5d6273; font-family: var(--r-main-font); font-size: 14px; }
+.reveal .progress { color: #8b1e3f; }
+
+/* Slajdy gęste: oznacz w Markdown jako `## Tytuł {.dense}` */
+.reveal section.dense { font-size: 0.84em; }
+.reveal section.dense img, .reveal section.dense svg { max-height: 300px; }
+.reveal section.dense h2 { margin-bottom: 0.3em; }
+.reveal section.dense .column img { max-height: 240px; }
+
+/* Slajdy sekcji (# Część …): tytuł w środku wysokości */
+.reveal section.level1.title-slide h1 { margin-top: 230px; font-size: 2.1em; padding-left: 0.45em; border-left: 6px solid #d4b97a; }
+
+/* powrót do strony dzielnicy (stały, dyskretny; znika w druku i w trybie PDF) */
+.deck-back { position: fixed; left: 12px; bottom: 10px; z-index: 40; font: 600 13px/1 Manrope, sans-serif; color: #5b5f6e; background: rgba(255,255,255,.75);
+  padding: 6px 10px; border-radius: 4px; text-decoration: none; opacity: .55; transition: opacity .2s; }
+.deck-back:hover, .deck-back:focus-visible { opacity: 1; color: #8b1e3f; }
+@media print { .deck-back { display: none; } }
+html.print-pdf .deck-back { display: none; }
+
+/* pasek dla telefonu w pionie: odsyła do slajdów do czytania (pokaz 1280×720 jest tam nieczytelny) */
+.deck-mobile { display: none; }
+@media (max-width: 700px) and (orientation: portrait) {
+  .deck-mobile { display: block; position: fixed; left: 8px; right: 8px; top: 8px; z-index: 60; background: #8b1e3f; color: #fff;
+    padding: 12px 14px; border-radius: 6px; font: 600 15px/1.3 Manrope, sans-serif; text-align: center; text-decoration: none; }
+}
+@media print { .deck-mobile { display: none; } }
+html.print-pdf .deck-mobile { display: none; }

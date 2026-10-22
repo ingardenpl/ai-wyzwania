@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Kary organów ochrony danych dla firm AI</title><desc id="d"> Clearview AI, Holandia (AP): 30,5 mln €; Clearview AI, Włochy (Garante): 20 mln €; Clearview AI, Francja (CNIL): 20 mln €; Clearview AI, Grecja (HDPA): 20 mln €; OpenAI, Włochy (uchylona w 2026): 15 mln €; Luka Inc. (Replika), Włochy (Garante): 5 mln €</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Kary organów ochrony danych dla firm AI</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13.2" font-weight="400" fill="#9095ad" text-anchor="start" >Najgłośniejsze kary z RODO wobec dostawców systemów AI: rozpoznawanie twarzy (Clearview AI) i modele językowe/chatboty (OpenAI, Replika)</text>
+<rect x="358.0" y="109.7" width="454.0" height="37.7" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="109.7" width="395.6" height="37.7" fill="#00f0ff"/>
+<text x="346.0" y="134.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Clearview AI, Holandia (AP)</text>
+<text x="763.6" y="135.3" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >30,5 mln €</text>
+<rect x="358.0" y="174.7" width="454.0" height="37.7" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="174.7" width="259.4" height="37.7" fill="#00f0ff"/>
+<text x="346.0" y="199.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Clearview AI, Włochy (Garante)</text>
+<text x="627.4" y="200.3" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >20 mln €</text>
+<rect x="358.0" y="239.7" width="454.0" height="37.7" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="239.7" width="259.4" height="37.7" fill="#00f0ff"/>
+<text x="346.0" y="264.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Clearview AI, Francja (CNIL)</text>
+<text x="627.4" y="265.3" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >20 mln €</text>
+<rect x="358.0" y="304.6" width="454.0" height="37.7" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="304.6" width="259.4" height="37.7" fill="#00f0ff"/>
+<text x="346.0" y="329.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Clearview AI, Grecja (HDPA)</text>
+<text x="627.4" y="330.3" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >20 mln €</text>
+<rect x="358.0" y="369.6" width="454.0" height="37.7" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="369.6" width="194.6" height="37.7" fill="#ff003c"/>
+<text x="346.0" y="384.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >OpenAI, Włochy (uchylona w</text>
+<text x="346.0" y="404.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >2026)</text>
+<text x="562.6" y="395.3" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >15 mln €</text>
+<rect x="358.0" y="434.6" width="454.0" height="37.7" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="434.6" width="64.9" height="37.7" fill="#fcee0a"/>
+<text x="346.0" y="449.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Luka Inc. (Replika), Włochy</text>
+<text x="346.0" y="469.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >(Garante)</text>
+<text x="432.9" y="460.3" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >5 mln €</text>
+<text x="28.0" y="507.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: AP (Holandia), komunikat 3.09.2024; Garante (decyzja 10.02.2022, nr 50; komunikaty 20.12.2024 i</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >19.05.2025); HDPA, decyzja 35/2022; CNIL, sprawozdanie roczne 2022 i decyzje SAN-2022-019 i SAN-2023-005</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

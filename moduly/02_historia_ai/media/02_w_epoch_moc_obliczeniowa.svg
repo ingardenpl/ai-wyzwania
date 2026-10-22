@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Moc obliczeniowa potrzebna do wytrenowania modelu</title><desc id="d"> AlexNet: 4,7·10^17; Transformer: 7,4·10^18; BERT-Large: 2,9·10^20; GPT-3 175B: 3,1·10^23; Llama 3.1 405B: 3,8·10^25</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Moc obliczeniowa potrzebna do wytrenowania modelu</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#9095ad" text-anchor="start" >Szacunkowa całkowita liczba operacji zmiennoprzecinkowych (FLOP) użyta w treningu, 2012-2024</text>
+<line x1="328.0" x2="328.0" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="328.0" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >10¹⁷</text>
+<line x1="381.8" x2="381.8" y1="106" y2="462" stroke="#1a2a36"/>
+<line x1="435.6" x2="435.6" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="435.6" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >10¹⁹</text>
+<line x1="489.3" x2="489.3" y1="106" y2="462" stroke="#1a2a36"/>
+<line x1="543.1" x2="543.1" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="543.1" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >10²¹</text>
+<line x1="596.9" x2="596.9" y1="106" y2="462" stroke="#1a2a36"/>
+<line x1="650.7" x2="650.7" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="650.7" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >10²³</text>
+<line x1="704.4" x2="704.4" y1="106" y2="462" stroke="#1a2a36"/>
+<line x1="758.2" x2="758.2" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="758.2" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >10²⁵</text>
+<line x1="812.0" x2="812.0" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="812.0" y="98.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="end" >skala log · FLOP</text>
+<text x="314.0" y="147.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >AlexNet</text>
+<text x="314.0" y="164.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >2012</text>
+<circle cx="364.1" cy="147.0" r="9" fill="#00f0ff"/>
+<text x="380.1" y="153.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#00f0ff" text-anchor="start" >4,7·10^17</text>
+<text x="314.0" y="217.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >Transformer</text>
+<text x="314.0" y="234.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >2017</text>
+<circle cx="428.5" cy="217.0" r="9" fill="#00f0ff"/>
+<text x="444.5" y="223.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#00f0ff" text-anchor="start" >7,4·10^18</text>
+<text x="314.0" y="287.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >BERT-Large</text>
+<text x="314.0" y="304.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >2018</text>
+<circle cx="513.8" cy="287.0" r="9" fill="#00f0ff"/>
+<text x="529.8" y="293.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#00f0ff" text-anchor="start" >2,9·10^20</text>
+<text x="314.0" y="357.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >GPT-3 175B</text>
+<text x="314.0" y="374.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >2020</text>
+<circle cx="677.4" cy="357.0" r="9" fill="#fcee0a"/>
+<text x="693.4" y="363.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#fcee0a" text-anchor="start" >3,1·10^23</text>
+<text x="314.0" y="427.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >Llama 3.1 405B</text>
+<text x="314.0" y="444.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >2024</text>
+<circle cx="789.4" cy="427.0" r="9" fill="#fcee0a"/>
+<text x="805.4" y="433.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#fcee0a" text-anchor="start" >3,8·10^25</text>
+<text x="28.0" y="507.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: Epoch AI, Notable AI Models (notable_ai_models.csv), pobrano 21 X 2026; Stanford HAI, AI Index 2025: moc</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >treningowa podwaja się co ok. 5 miesięcy</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

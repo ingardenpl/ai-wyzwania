@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slajdy do czytania: Społeczne wyzwania AI (II): etyka, uprzedzenia, przejrzystość · Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne</title>
+<meta name="description" content="Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne. Wykład monograficzny · prawo · WPiA UMCS · semestr zimowy 2026/2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Tiny5&family=Chakra+Petch:wght@500;600;700&family=Anton&family=VT323&display=swap">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="manifest" href="../../assets/manifest.webmanifest">
+<meta name="theme-color" content="#07080f">
+<link rel="icon" href="../../assets/ikona-192.png" type="image/png">
+<link rel="apple-touch-icon" href="../../assets/ikona-180.png">
+<script src="../../assets/site.js"></script>
+<script src="../../assets/gra.js"></script>
+
+</head>
+<body>
+<a class="skip-link" href="#tresc">Przejdź do treści</a>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../../index.html"><b>NEO-LUBLIN 2049</b><small>Wykład monograficzny · WPiA UMCS</small></a>
+    <nav class="topnav" aria-label="Nawigacja kursu"><a href="../../index.html">Mapa</a><a href="../../sylabus.html">Sylabus</a><a href="../../zaliczenie.html">Zaliczenie</a><a href="../../zrodla.html">Źródła</a><a href="../../slowniczek.html">Słowniczek</a><a href="../../fiszki.html">Fiszki</a><a href="../../biblioteka.html">Biblioteka</a><a href="../../interaktywne.html">Interaktywne</a></nav>
+  </div>
+</header>
+<main id="tresc" tabindex="-1">
+
+<div class="wrap narrow">
+  <p class="crumbs"><a href="index.html">← Strona dzielnicy</a> · <a href="slajdy.html">Pokaz slajdów</a></p>
+  <p class="eyebrow">Slajdy do czytania · dzielnica 05</p>
+  <h1>Społeczne wyzwania AI (II): etyka, uprzedzenia, przejrzystość</h1>
+  <p class="muted">Treść slajdów w układzie wygodnym na telefonie. Szersze omówienie jest w konspekcie i w Wiedzy na stronie dzielnicy.</p>
+  <div class="prose slajdy-tekst"><h3 id="plan-spotkania">Plan spotkania</h3>
+<ol type="1">
+<li>Etyczne ramy AI: wytyczne grupy ekspertów wysokiego szczebla (2019), rekomendacja UNESCO (2021), zasady OECD</li>
+<li>Stronniczość algorytmiczna: rekrutacja, ocena ryzyka recydywy (State v. Loomis), system SyRI (Holandia)</li>
+<li>Przejrzystość i wyjaśnialność decyzji: art. 22 RODO, wyroki TSUE w sprawach SCHUFA (C-634/21) i Dun &amp; Bradstreet Austria (C-203/22)</li>
+<li>Moderacja treści i prywatna cenzura: sprawa SIN przeciwko Meta, mechanizmy DSA</li>
+<li>Dezinformacja i deepfake. Optymalizacja pod zaangażowanie a prawda („Moloch’s Bargain”)</li>
+</ol>
+<h2 id="część-i.-etyczne-ramy-ai">Część I. Etyczne ramy AI</h2>
+<h3 id="moral-machine">Moral Machine</h3>
+<ul>
+<li>Projekt MIT Media Lab: kogo ma „poświęcić” autonomiczny samochód, gdy wypadek jest nieunikniony?</li>
+<li>Ok. 40 mln decyzji z 233 państw i terytoriów (Awad i in., <em>Nature</em> 2018)</li>
+<li>Preferencje różnią się między kulturami</li>
+<li>Pytanie: czy etykę maszyn można ustalić <strong>głosowaniem</strong>?</li>
+</ul>
+<p><strong>Spróbuj:</strong> moralmachine.net</p>
+<h3 id="po-co-etyka-skoro-jest-prawo">Po co etyka, skoro jest prawo?</h3>
+<ul>
+<li><strong>Soft law:</strong> wytyczne, rekomendacje, kodeksy postępowania. Niewiążące, ale wyznaczają kierunek</li>
+<li><strong>Hard law:</strong> AI Act, RODO, DSA. Wiążące i egzekwowalne</li>
+<li>Etyka poprzedza prawo: wytyczne z 2019 r. stały się fundamentem AI Act (motyw 27)</li>
+<li>Etyka sięga dalej niż prawo: nie wszystko, co legalne, jest słuszne</li>
+</ul>
+<h3 id="wytyczne-hleg-2019">Wytyczne HLEG (2019)</h3>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><strong>4 zasady etyczne</strong></p>
+<ol type="1">
+<li>poszanowanie autonomii człowieka</li>
+<li>zapobieganie szkodom</li>
+<li>sprawiedliwość</li>
+<li>możliwość wyjaśnienia</li>
+</ol>
+</div><div class="column" style="width:55%;">
+<p><strong>7 wymogów godnej zaufania AI</strong></p>
+<ol type="1">
+<li>przewodnia i nadzorcza rola człowieka</li>
+<li>techniczna solidność i bezpieczeństwo</li>
+<li>ochrona prywatności i zarządzanie danymi</li>
+<li>przejrzystość</li>
+<li>różnorodność, niedyskryminacja i sprawiedliwość</li>
+<li>dobrostan społeczny i środowiskowy</li>
+<li>odpowiedzialność</li>
+</ol>
+</div>
+</div>
+<p><small>Grupa ekspertów wysokiego szczebla ds. AI, <em>Wytyczne w zakresie etyki dotyczące godnej zaufania sztucznej inteligencji</em>, Komisja Europejska, 8.04.2019.</small></p>
+<h3 id="rekomendacja-unesco-2021">Rekomendacja UNESCO (2021)</h3>
+<ul>
+<li>Przyjęta 23.11.2021 przez 193 państwa członkowskie UNESCO</li>
+<li>Pierwszy globalny standard etyki AI</li>
+<li>4 wartości: prawa człowieka i godność, pokojowe i sprawiedliwe społeczeństwa, różnorodność i inkluzywność, środowisko i ekosystemy</li>
+<li>10 zasad, m.in. proporcjonalność, przejrzystość, odpowiedzialność, nadzór człowieka</li>
+<li>11 obszarów polityki: od ochrony danych po edukację, kulturę i środowisko</li>
+</ul>
+<h3 id="zasady-oecd">Zasady OECD</h3>
+<ul>
+<li>Przyjęte w maju 2019 r., zaktualizowane w maju 2024 r.</li>
+<li>Pierwszy międzyrządowy standard dotyczący AI, poparty przez G20</li>
+<li>5 zasad: wzrost sprzyjający włączeniu i dobrostan; prawa człowieka i wartości demokratyczne; przejrzystość i wyjaśnialność; solidność i bezpieczeństwo; odpowiedzialność</li>
+<li>Definicja systemu AI z OECD (2023) stała się podstawą art. 3 pkt 1 AI Act</li>
+</ul>
+<h2 id="część-ii.-stronniczość-algorytmiczna">Część II. Stronniczość algorytmiczna</h2>
+<h3 id="od-ludzkich-uprzedzeń-do-uprzedzeń-maszyn">Od ludzkich uprzedzeń do uprzedzeń maszyn</h3>
+<ul>
+<li><strong>Dane historyczne</strong> utrwalają dawne decyzje (kogo zatrudniano, kogo karano)</li>
+<li><strong>Zmienne zastępcze</strong> (<em>proxy</em>): kod pocztowy zamiast pochodzenia, przerwa w karierze zamiast płci</li>
+<li><strong>Etykiety</strong>: co uznano za „dobry wynik” i kto to ocenił</li>
+<li><strong>Pętla sprzężenia</strong>: decyzje algorytmu tworzą nowe dane dla algorytmu</li>
+<li><strong>Nadkorekta</strong>: próba usunięcia uprzedzeń może tworzyć nowe zniekształcenia</li>
+</ul>
+<h3 id="rozpoznawanie-twarzy-test-nist">Rozpoznawanie twarzy: test NIST</h3>
+<p><img src="media/05_nist_zdjecia.jpg" style="width:70.0%" alt="Przykładowe zdjęcia z bazy NIST używanej do testowania systemów rozpoznawania twarzy" /> </p>
+<p><small>Źródło: National Institute of Standards and Technology (NIST), zdjęcia z bazy testowej; slajd z prezentacji „Praca i AI”.</small></p>
+<ul>
+<li>NIST (2019): 189 algorytmów od 99 producentów, 18,27 mln zdjęć 8,49 mln osób</li>
+<li>W dopasowaniu „jeden do jednego” fałszywe dopasowania dla twarzy osób azjatyckich i afroamerykańskich <strong>10 do 100 razy</strong> częstsze niż dla twarzy osób białych (zależnie od algorytmu)</li>
+</ul>
+<h3 id="rozpoznawanie-twarzy-błąd-zależy-od-tego-czyja-to-twarz">Rozpoznawanie twarzy: błąd zależy od tego, czyja to twarz</h3>
+<figure>
+<img src="media/05_w_nist_frvt_rozpietosci.svg" style="width:88.0%" alt="Wykres słupkowy: według NIST odsetek fałszywych dopasowań różni się między grupami demograficznymi 10 do ponad 100 razy, między płciami 2-5 razy, a fałszywych odrzuceń zwykle poniżej 3 razy." />
+<figcaption aria-hidden="true">Wykres słupkowy: według NIST odsetek fałszywych dopasowań różni się między grupami demograficznymi 10 do ponad 100 razy, między płciami 2-5 razy, a fałszywych odrzuceń zwykle poniżej 3 razy.</figcaption>
+</figure>
+<h3 id="gender-shades-błędy-klasyfikacji-płci-w-twarzach">Gender Shades: błędy klasyfikacji płci w twarzach</h3>
+<figure>
+<img src="media/05_w_gender_shades.svg" style="width:88.0%" alt="Trzy panele: komercyjne systemy klasyfikacji płci z twarzy mylą się w 20,8% (Microsoft), 34,5% (Face++) i 34,7% (IBM) zdjęć ciemnoskórych kobiet, a w przypadku jasnoskórych mężczyzn w 0,0-0,8%." />
+<figcaption aria-hidden="true">Trzy panele: komercyjne systemy klasyfikacji płci z twarzy mylą się w 20,8% (Microsoft), 34,5% (Face++) i 34,7% (IBM) zdjęć ciemnoskórych kobiet, a w przypadku jasnoskórych mężczyzn w 0,0-0,8%.</figcaption>
+</figure>
+<h3 id="nadkorekta-polityczna-poprawność-w-promptach">Nadkorekta: „polityczna poprawność w promptach”</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="media/05_gemini_founding_fathers.jpg" style="width:90.0%" alt="Cztery obrazy „ojców założycieli USA” z 1789 r. wygenerowane jako osoby różnych ras" /> </p>
+<p><small>Źródło: zrzut ekranu z generatora obrazów Gemini, luty 2024 [źródło do ustalenia].</small></p>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Model miał przeciwdziałać stereotypom</li>
+<li>Efekt: historycznie fałszywe obrazy</li>
+<li>Google wstrzymał generowanie wizerunków ludzi w Gemini (luty 2024)</li>
+<li>Wniosek: „neutralny” model nie istnieje; każda korekta to decyzja wartościująca</li>
+</ul>
+</div>
+</div>
+<h3 id="state-v.-loomis-wisconsin-2016">State v. Loomis (Wisconsin, 2016)</h3>
+<ul>
+<li>Eric Loomis skazany na 6 lat pozbawienia wolności; w raporcie przed wyrokowaniem system <strong>COMPAS</strong> ocenił go jako osobę wysokiego ryzyka</li>
+<li>Algorytm był tajemnicą handlową producenta; oskarżony nie mógł sprawdzić, jak działa</li>
+<li>Sąd Najwyższy Wisconsin: użycie COMPAS <strong>nie narusza</strong> prawa do rzetelnego procesu, jeżeli nie jest jedynym czynnikiem rozstrzygającym</li>
+<li>Obowiązkowe ostrzeżenia dla sędziów: system jest zastrzeżony, opiera się na danych grupowych, budził wątpliwości co do traktowania mniejszości</li>
+</ul>
+<p><small><em>State v. Loomis</em>, 881 N.W.2d 749 (Wis. 2016).</small></p>
+<h3 id="compas-czy-algorytm-może-być-sprawiedliwy">COMPAS: czy algorytm może być sprawiedliwy?</h3>
+<ul>
+<li>ProPublica (2016): czarnoskórzy oskarżeni, którzy <strong>nie</strong> popełnili ponownie przestępstwa, niemal <strong>dwukrotnie częściej</strong> niż biali byli błędnie oceniani jako osoby wysokiego ryzyka</li>
+<li>Producent: wynik jest <strong>skalibrowany</strong>, ten sam wynik oznacza to samo ryzyko niezależnie od rasy</li>
+<li>Matematyka: gdy grupy mają różne historyczne wskaźniki recydywy, nie da się jednocześnie spełnić obu miar sprawiedliwości</li>
+<li>Wybór miary sprawiedliwości jest decyzją <strong>normatywną</strong>, nie techniczną</li>
+</ul>
+<h3 id="compas-kto-częściej-jest-błędnie-oceniony">COMPAS: kto częściej jest błędnie oceniony?</h3>
+<figure>
+<img src="media/05_w_compas_propublica.svg" style="width:88.0%" alt="Dwa panele: wśród osób, które nie popełniły ponownie przestępstwa, błędnie za ryzykowne uznano 44,9% czarnoskórych i 23,5% białych oskarżonych; wśród recydywistów za mało ryzykownych uznano 28,0% czarnoskórych i 47,7% białych." />
+<figcaption aria-hidden="true">Dwa panele: wśród osób, które nie popełniły ponownie przestępstwa, błędnie za ryzykowne uznano 44,9% czarnoskórych i 23,5% białych oskarżonych; wśród recydywistów za mało ryzykownych uznano 28,0% czarnoskórych i 47,7% białych.</figcaption>
+</figure>
+<h3 id="syri-holandia">SyRI (Holandia)</h3>
+<ul>
+<li>System Risico Indicatie: rząd łączył dane z wielu rejestrów (podatki, zasiłki, zatrudnienie, mieszkanie), by typować osoby podejrzane o wyłudzenia świadczeń</li>
+<li>Stosowany głównie w dzielnicach o niskich dochodach</li>
+<li>Sąd Okręgowy w Hadze, <strong>5.02.2020</strong>: przepisy o SyRI naruszają <strong>art. 8 EKPC</strong> (prawo do prywatności)</li>
+<li>Powody: brak przejrzystości modelu ryzyka, brak wystarczających gwarancji, ryzyko dyskryminacji</li>
+</ul>
+<p><small>Wyrok Sądu Okręgowego w Hadze z 5.02.2020 r., ECLI:NL:RBDHA:2020:865.</small></p>
+<h3 id="stronniczość-w-ai-act">Stronniczość w AI Act</h3>
+<ul>
+<li><strong>Art. 10 ust. 2 lit. f–g:</strong> zbiory danych systemów wysokiego ryzyka bada się pod kątem możliwej stronniczości i podejmuje środki zaradcze</li>
+<li><strong>Art. 4a</strong> (dodany w 2026 r.): wyjątkowo dopuszczalne przetwarzanie szczególnych kategorii danych w celu wykrywania i korygowania stronniczości</li>
+<li><strong>Art. 5 ust. 1 lit. c:</strong> zakaz „scoringu społecznego”</li>
+<li><strong>Art. 5 ust. 1 lit. d:</strong> zakaz przewidywania popełnienia przestępstwa wyłącznie na podstawie profilowania lub cech osobowości</li>
+<li><strong>Art. 27:</strong> ocena skutków dla praw podstawowych (m.in. podmioty publiczne stosujące systemy wysokiego ryzyka)</li>
+</ul>
+<h2 id="część-iii.-przejrzystość-i-wyjaśnialność">Część III. Przejrzystość i wyjaśnialność</h2>
+<h3 id="art.-22-rodo">Art. 22 RODO</h3>
+<ul>
+<li>Osoba ma prawo <strong>nie podlegać decyzji opartej wyłącznie na zautomatyzowanym przetwarzaniu</strong>, w tym profilowaniu, która wywołuje wobec niej skutki prawne lub w podobny sposób istotnie na nią wpływa</li>
+<li>Wyjątki (ust. 2): umowa, przepis prawa, wyraźna zgoda</li>
+<li>Gwarancje (ust. 3): prawo do interwencji człowieka, wyrażenia stanowiska i zakwestionowania decyzji</li>
+<li>Informacja (art. 13 ust. 2 lit. f, art. 14 ust. 2 lit. g, art. 15 ust. 1 lit. h): <strong>„istotne informacje o zasadach”</strong> podejmowania decyzji, ich znaczeniu i przewidywanych konsekwencjach</li>
+</ul>
+<h3 id="tsue-c-63421-schufa-7.12.2023">TSUE, C-634/21 SCHUFA (7.12.2023)</h3>
+<ul>
+<li>Stan faktyczny: bank odmówił kredytu na podstawie negatywnego wyniku scoringowego z niemieckiej wywiadowni SCHUFA</li>
+<li>SCHUFA: „my tylko liczymy prawdopodobieństwo, decyduje bank”</li>
+<li>TSUE: zautomatyzowane ustalenie wartości prawdopodobieństwa <strong>jest decyzją</strong> w rozumieniu art. 22 ust. 1 RODO, jeżeli osoba trzecia (bank) <strong>w decydującym stopniu</strong> opiera się na nim przy zawarciu, wykonaniu lub rozwiązaniu umowy</li>
+<li>Skutek: obowiązki z art. 22 obciążają także wywiadownię, nie tylko bank</li>
+</ul>
+<h3 id="tsue-c-20322-dun-bradstreet-austria-27.02.2025">TSUE, C-203/22 Dun &amp; Bradstreet Austria (27.02.2025)</h3>
+<ul>
+<li>Stan faktyczny: operator komórkowy odmówił zawarcia umowy z abonamentem ok. 10 euro miesięcznie z powodu oceny zdolności płatniczej wykonanej automatycznie przez Dun &amp; Bradstreet</li>
+<li>TSUE: art. 15 ust. 1 lit. h RODO daje prawo do <strong>wyjaśnienia procedury i zasad faktycznie zastosowanych</strong> do danych tej osoby</li>
+<li>Wyjaśnienie ma być zwięzłe, zrozumiałe i przystępne; samo przekazanie algorytmu lub skomplikowanego wzoru <strong>nie wystarcza</strong></li>
+<li>Tajemnica handlowa nie wyłącza prawa: informacje przekazuje się organowi nadzorczemu lub sądowi, który waży interesy</li>
+</ul>
+<h3 id="przejrzystość-w-ai-act">Przejrzystość w AI Act</h3>
+<ul>
+<li><strong>Art. 13:</strong> systemy wysokiego ryzyka projektuje się tak, by podmiot stosujący mógł interpretować wyniki; instrukcja obsługi</li>
+<li><strong>Art. 14:</strong> nadzór człowieka, w tym świadomość ryzyka <strong>błędu automatyzacji</strong></li>
+<li><strong>Art. 50:</strong> obowiązki przejrzystości (rozmowa z AI, treści syntetyczne, deepfake)</li>
+<li><strong>Art. 86:</strong> prawo do wyjaśnienia roli systemu AI w decyzji, która istotnie wpływa na osobę (systemy z zał. III)</li>
+</ul>
+<h2 id="część-iv.-moderacja-treści-i-prywatna-cenzura">Część IV. Moderacja treści i prywatna cenzura</h2>
+<h3 id="dane-jako-produkt">Dane jako produkt</h3>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img src="media/05_fisher_w_trybach_chaosu.jpg" style="width:75.0%" alt="Okładka książki M. Fishera „W trybach chaosu”" /> </p>
+<p><small>Źródło: M. Fisher, <em>W trybach chaosu</em>, Szczeliny 2023 (okładka).</small></p>
+</div><div class="column" style="width:60%;">
+<ul>
+<li>„[…] jeżeli nie płacisz za usługę, to tak naprawdę Ty jesteś produktem” (M. Fisher)</li>
+<li>Model biznesowy platform: uwaga użytkownika sprzedawana reklamodawcom</li>
+<li>Algorytmy rekomendacji nagradzają treści budzące silne emocje</li>
+<li>Moderacja treści to w praktyce decyzje algorytmów na masową skalę</li>
+</ul>
+</div>
+</div>
+<h3 id="rohingja-kiedy-algorytm-podsyca-przemoc">Rohingja: kiedy algorytm podsyca przemoc</h3>
+<ul>
+<li>Od 2013–2014 r. Facebook stał się w Mjanmie głównym kanałem informacji</li>
+<li>Algorytmy promowały treści nienawistne wobec muzułmańskiej mniejszości Rohingja</li>
+<li>2017: masowe zbrodnie i ucieczka ponad 700 tys. osób do Bangladeszu</li>
+<li>Misja ONZ (2018): media społecznościowe znacząco przyczyniły się do eskalacji</li>
+<li>Amnesty International (2022): Meta przyczyniła się do naruszeń praw człowieka i powinna zapewnić środki naprawcze</li>
+</ul>
+<h3 id="muzeum-auschwitz-kwiecień-2024">Muzeum Auschwitz (kwiecień 2024)</h3>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><img src="media/05_auschwitz_moderacja.jpg" style="width:95.0%" alt="Zrzut ekranu wpisów Muzeum Auschwitz oznaczonych przez Facebooka jako naruszające standardy" /> </p>
+<p><small>Źródło: konto Muzeum Auschwitz w serwisie X, kwiecień 2024; slajd z prezentacji „Praca i AI”.</small></p>
+</div><div class="column" style="width:45%;">
+<ul>
+<li>Facebook oznaczył jednocześnie <strong>21 wpisów</strong> upamiętniających ofiary obozu</li>
+<li>Kategorie: m.in. „nagość”, „mowa nienawiści”, „przemoc”</li>
+<li>Minister cyfryzacji nazwał sprawę skandalem</li>
+<li>Meta przeprosiła: powiadomienia wysłano „omyłkowo”</li>
+</ul>
+</div>
+</div>
+<h3 id="fact-checking-a-moderacja-przez-ai">Fact-checking a moderacja przez AI</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="media/05_grok_fact_check.jpg" style="width:85.0%" alt="Artykuł o przycisku analizy wpisów przez Grok w serwisie X" /> </p>
+<p><small>Źródło: A. Hutchinson, „X Is Developing a Grok Analysis Button for AI Fact Checks”, Social Media Today, 20.05.2024.</small></p>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>X: plan, by Grok analizował i „sprawdzał” wpisy</li>
+<li>Oszczędność, chwyt marketingowy czy coś innego?</li>
+<li>Meta (styczeń 2025): koniec współpracy z zewnętrznymi weryfikatorami faktów w USA, przejście na „uwagi społeczności”</li>
+<li>Kto sprawdza sprawdzającego, jeżeli sam halucynuje?</li>
+</ul>
+</div>
+</div>
+<h3 id="sin-przeciwko-meta-stan-faktyczny">SIN przeciwko Meta: stan faktyczny</h3>
+<ul>
+<li>Społeczna Inicjatywa Narkopolityki (SIN): organizacja edukacyjna z zakresu redukcji szkód</li>
+<li>2018: Facebook usuwa bez ostrzeżenia strony i grupy SIN, powołując się na standardy społeczności; 2019: podobnie konto na Instagramie</li>
+<li>Brak wyjaśnienia i realnej możliwości odwołania</li>
+<li>2019: pozew o ochronę dóbr osobistych, wsparcie Fundacji Panoptykon</li>
+<li>Zabezpieczenie: sąd zakazał usuwania kolejnych treści SIN na czas procesu (utrzymane w 2021 r.)</li>
+</ul>
+<h3 id="sin-przeciwko-meta-wyrok">SIN przeciwko Meta: wyrok</h3>
+<ul>
+<li><strong>Sąd Okręgowy w Warszawie, wyrok z 13.03.2024 r., sygn. IV C 608/19</strong> (nieprawomocny)</li>
+<li>Nakaz przywrócenia kont, stron i grup SIN na Facebooku i Instagramie</li>
+<li>Nakaz opublikowania przeprosin w ciągu miesiąca od uprawomocnienia się wyroku</li>
+<li>Blokując konta, Meta <strong>naruszyła dobra osobiste</strong> organizacji (art. 23 i 24 k.c.)</li>
+<li>Osoba zablokowana może pozwać platformę <strong>przed sądem we własnym kraju</strong></li>
+</ul>
+<h3 id="dsa-mechanizmy-wobec-moderacji-treści">DSA: mechanizmy wobec moderacji treści</h3>
+<ul>
+<li><strong>Art. 14:</strong> warunki korzystania z usługi stosuje się z uwzględnieniem praw podstawowych, w tym wolności wypowiedzi</li>
+<li><strong>Art. 16:</strong> zgłaszanie nielegalnych treści (<em>notice and action</em>)</li>
+<li><strong>Art. 17:</strong> <strong>uzasadnienie</strong> każdej decyzji o usunięciu, ograniczeniu widoczności lub zawieszeniu konta, z informacją, czy użyto środków zautomatyzowanych</li>
+<li><strong>Art. 20:</strong> wewnętrzny system rozpatrywania skarg (decyzji nie podejmuje wyłącznie automat)</li>
+<li><strong>Art. 21:</strong> pozasądowe rozstrzyganie sporów przez certyfikowane podmioty</li>
+<li><strong>Art. 34–35:</strong> bardzo duże platformy (od 45 mln użytkowników w UE) oceniają i ograniczają <strong>ryzyka systemowe</strong>, w tym dla dyskursu publicznego</li>
+</ul>
+<h3 id="dsa-w-praktyce">DSA w praktyce</h3>
+<ul>
+<li>Pierwsza kara na podstawie DSA: Komisja Europejska nałożyła na X <strong>120 mln euro</strong> (5.12.2025)</li>
+<li>Naruszenia: zwodniczy „niebieski znaczek” weryfikacji (art. 25), repozytorium reklam (art. 39), dostęp badaczy do danych (art. 40)</li>
+<li>Kary do 6% światowego rocznego obrotu (art. 74)</li>
+<li>Polska: opóźnione wdrożenie DSA (skarga Komisji do TSUE w 2025 r., weto prezydenta 9.01.2026); ustawa wdrażająca z 4.09.2026 (Dz.U. 2026 poz. 1296), koordynator ds. usług cyfrowych: Prezes UKE</li>
+</ul>
+<h2 id="część-v.-dezinformacja-deepfake-i-molochs-bargain">Część V. Dezinformacja, deepfake i „Moloch’s Bargain”</h2>
+<h3 id="deepfake">Deepfake</h3>
+<ul>
+<li><strong>Art. 3 pkt 60 AI Act:</strong> obraz, dźwięk lub wideo wygenerowane lub zmanipulowane przez AI, przypominające istniejące osoby, przedmioty, miejsca lub zdarzenia, które odbiorca mógłby uznać za autentyczne</li>
+<li><strong>Art. 50 ust. 4:</strong> podmiot stosujący ujawnia, że treść jest deepfake’iem (łagodniej dla utworów artystycznych i satyrycznych)</li>
+<li><strong>Art. 50 ust. 2:</strong> dostawcy oznaczają treści syntetyczne w formacie odczytywalnym maszynowo (systemy wprowadzone przed 2.08.2026: do 2.12.2026)</li>
+<li>Od 2.12.2026 nowe zakazy z art. 5: systemy generujące materiały intymne bez zgody i materiały przedstawiające wykorzystywanie seksualne dzieci</li>
+</ul>
+<h3 id="wyścig-o-uwagę">Wyścig o uwagę</h3>
+<ul>
+<li>„Pułapka Molocha”: wydajność kontra rozumienie</li>
+<li>Usługi AI zdobywają użytkowników szybciej niż jakakolwiek wcześniejsza technologia (ChatGPT: 100 mln użytkowników w ok. 2 miesiące)</li>
+<li>Konkurencja o uwagę premiuje szybkość i zaangażowanie, nie rzetelność</li>
+<li>Moloch: metafora sytuacji, w której rywalizacja zmusza wszystkich do poświęcania wartości dla przewagi, choć nikt tego nie chce</li>
+</ul>
+<h3 id="molochs-bargain-el-zou-2025">„Moloch’s Bargain” (El, Zou 2025)</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="media/05_moloch_abstrakt.jpg" style="width:95.0%" alt="Pierwsza strona artykułu „Moloch’s Bargain: Emergent Misalignment When LLMs Compete for Audiences”" /> </p>
+<p><small>Źródło: B. El, J. Zou, arXiv:2510.06105 (2025).</small></p>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Modele językowe optymalizowano pod sukces w symulowanej rywalizacji: sprzedaż, wybory, media społecznościowe</li>
+<li>W sprzedaży: od pomijania szczegółów do zmyślania cech produktu</li>
+<li>W kampanii: od neutralnego tonu do języka populistycznego</li>
+<li>W mediach: drobna zmiana liczby ofiar zmieniała rzetelny raport w dezinformację</li>
+</ul>
+</div>
+</div>
+<h3 id="zysk-w-rywalizacji-a-koszt-dla-prawdy">Zysk w rywalizacji a koszt dla prawdy</h3>
+<p><img src="media/05_w_moloch.svg" style="width:92.0%" alt="Wykres w trzech panelach: sprzedaż +6,3% i zwodniczy marketing +14%; głosy +4,9%, dezinformacja +22,3% i populizm +12,5%; zaangażowanie +7,5%, dezinformacja +188,6% i szkodliwe zachowania +16,3%" /> </p>
+<h3 id="co-z-tego-wynika-dla-prawa">Co z tego wynika dla prawa?</h3>
+<ul>
+<li>Wolny rynek sam nie zapewni prawdomówności modeli</li>
+<li>Narzędzia: zakaz praktyk manipulacyjnych (art. 5 ust. 1 lit. a AI Act), ryzyka systemowe (art. 34–35 DSA), przejrzystość (art. 50 AI Act), prawo konsumenckie i nieuczciwe praktyki rynkowe</li>
+<li>Problem: przepisy dotyczą produktów i usług, a „Moloch” to cecha <strong>rynku</strong></li>
+<li>Pytanie otwarte: kto odpowiada za zmyśloną cechę produktu w reklamie napisanej przez agenta AI?</li>
+</ul>
+<h3 id="do-dyskusji">Do dyskusji</h3>
+<ul>
+<li>Czy platforma ma prawo usunąć legalną, ale „niewygodną” treść na podstawie własnego regulaminu?</li>
+<li>Czy sędzia powinien korzystać z narzędzia oceny ryzyka, którego działania nie zna?</li>
+<li>Czy prawo do wyjaśnienia ma sens, jeśli nawet twórcy modelu nie potrafią go wyjaśnić?</li>
+</ul>
+<h3 id="podsumowanie">Podsumowanie</h3>
+<ul>
+<li>Etyka AI ma wspólny rdzeń: nadzór człowieka, przejrzystość, niedyskryminacja, odpowiedzialność (HLEG, UNESCO, OECD); część tych zasad stała się prawem</li>
+<li>Stronniczość ma źródło w danych i w wyborze miary sprawiedliwości (Loomis, SyRI)</li>
+<li>Art. 22 RODO w wykładni TSUE: scoring może być decyzją (SCHUFA), a osoba ma prawo do zrozumiałego wyjaśnienia (Dun &amp; Bradstreet)</li>
+<li>Moderacja treści to prywatna władza nad wypowiedzią; DSA wprowadza uzasadnienie, skargę i kontrolę (SIN v. Meta)</li>
+<li>Rywalizacja o uwagę może uczyć modele kłamać („Moloch’s Bargain”)</li>
+</ul>
+<h3 id="na-następne-spotkanie">Na następne spotkanie</h3>
+<ul>
+<li><strong>Temat:</strong> Kulturowe wyzwania AI: regulacja, język, twórczość</li>
+<li><strong>Przeczytaj:</strong> lektury obowiązkowe modułu 06</li>
+<li><strong>Zadanie:</strong> zadaj to samo pytanie o polską historię lub prawo modelowi globalnemu i polskiemu (PLLuM lub Bielik). Porównaj odpowiedzi</li>
+<li><strong>Quiz</strong> modułu 05 na stronie kursu</li>
+</ul>
+</div>
+  <p class="crumbs"><a href="index.html">← Strona dzielnicy</a></p>
+</div>
+
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne · Wykład monograficzny · prawo · WPiA UMCS · semestr zimowy 2026/2027<br>
+    Prowadzący: dr Karol Kasprowicz, <a href="mailto:karol.kasprowicz@mail.umcs.pl">karol.kasprowicz@mail.umcs.pl</a> · Stan materiałów na 22.10.2026 · <a href="../../styl.html">Księga stylu</a></p>
+  </div>
+</footer>
+<script src="../../assets/ui.js"></script>
+
+</body>
+</html>

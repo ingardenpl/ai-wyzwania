@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 520" width="1500" height="520" role="img" aria-label="Etapy powstawania dużego modelu językowego" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<title>Etapy powstawania dużego modelu językowego</title>
+<defs>
+<marker id="aN" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f3a5f"/></marker>
+<marker id="aM" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a1538"/></marker>
+<marker id="aT" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2a7f7a"/></marker>
+<marker id="aA" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a8661a"/></marker>
+</defs>
+<rect x="1" y="1" width="1498" height="518" rx="18" fill="#fbfaf7" stroke="#d6d0c4" stroke-width="2"/>
+<text x="750.0" y="46.0" font-size="27" fill="#1f3a5f" text-anchor="middle" font-weight="bold">Jak powstaje czat oparty na dużym modelu językowym?</text>
+<rect x="40.0" y="90.0" width="330.0" height="330.0" rx="12" fill="#fbfaf7" stroke="#1f3a5f" stroke-width="2.5"/>
+<rect x="40.0" y="90.0" width="330.0" height="54.0" rx="12" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="2.5"/>
+<text x="205.0" y="126.0" font-size="22" fill="#1f3a5f" text-anchor="middle" font-weight="bold">1. Pretrening</text>
+<text x="205.0" y="185.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">biliony tokenów tekstu</text>
+<text x="205.0" y="212.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">z internetu, książek, kodu</text>
+<text x="205.0" y="239.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal"></text>
+<text x="205.0" y="266.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">zadanie: przewidź</text>
+<text x="205.0" y="293.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">następny token</text>
+<text x="205.0" y="400.0" font-size="16" fill="#1f3a5f" text-anchor="middle" font-weight="bold">→ model bazowy</text>
+<line x1="372.0" y1="255.0" x2="400.0" y2="255.0" stroke="#666" stroke-width="3" marker-end="url(#aN)"/>
+<rect x="402.0" y="90.0" width="330.0" height="330.0" rx="12" fill="#fbfaf7" stroke="#2a7f7a" stroke-width="2.5"/>
+<rect x="402.0" y="90.0" width="330.0" height="54.0" rx="12" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="2.5"/>
+<text x="567.0" y="126.0" font-size="22" fill="#2a7f7a" text-anchor="middle" font-weight="bold">2. Dostrajanie</text>
+<text x="567.0" y="185.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">tysiące wzorcowych</text>
+<text x="567.0" y="212.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">par: polecenie →</text>
+<text x="567.0" y="239.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">dobra odpowiedź</text>
+<text x="567.0" y="266.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal"></text>
+<text x="567.0" y="293.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">(instruction tuning)</text>
+<text x="567.0" y="400.0" font-size="16" fill="#2a7f7a" text-anchor="middle" font-weight="bold">→ model, który wykonuje polecenia</text>
+<line x1="734.0" y1="255.0" x2="762.0" y2="255.0" stroke="#666" stroke-width="3" marker-end="url(#aN)"/>
+<rect x="764.0" y="90.0" width="330.0" height="330.0" rx="12" fill="#fbfaf7" stroke="#8a1538" stroke-width="2.5"/>
+<rect x="764.0" y="90.0" width="330.0" height="54.0" rx="12" fill="#f6e2e7" stroke="#8a1538" stroke-width="2.5"/>
+<text x="929.0" y="126.0" font-size="22" fill="#8a1538" text-anchor="middle" font-weight="bold">3. Wzmocnienie</text>
+<text x="929.0" y="185.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">ludzie (lub inny model)</text>
+<text x="929.0" y="212.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">oceniają odpowiedzi;</text>
+<text x="929.0" y="239.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">model uczy się, które</text>
+<text x="929.0" y="266.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">są preferowane</text>
+<text x="929.0" y="293.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">(RLHF)</text>
+<text x="929.0" y="400.0" font-size="16" fill="#8a1538" text-anchor="middle" font-weight="bold">→ asystent: uprzejmy, „pomocny”</text>
+<line x1="1096.0" y1="255.0" x2="1124.0" y2="255.0" stroke="#666" stroke-width="3" marker-end="url(#aN)"/>
+<rect x="1126.0" y="90.0" width="330.0" height="330.0" rx="12" fill="#fbfaf7" stroke="#a8661a" stroke-width="2.5"/>
+<rect x="1126.0" y="90.0" width="330.0" height="54.0" rx="12" fill="#fbf0dc" stroke="#a8661a" stroke-width="2.5"/>
+<text x="1291.0" y="126.0" font-size="22" fill="#a8661a" text-anchor="middle" font-weight="bold">4. Użycie</text>
+<text x="1291.0" y="185.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">wagi są zamrożone;</text>
+<text x="1291.0" y="212.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">model generuje</text>
+<text x="1291.0" y="239.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">token po tokenie;</text>
+<text x="1291.0" y="266.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">może korzystać</text>
+<text x="1291.0" y="293.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">z narzędzi i wyszukiwarki</text>
+<text x="1291.0" y="400.0" font-size="16" fill="#a8661a" text-anchor="middle" font-weight="bold">→ odpowiedź dla użytkownika</text>
+<text x="750.0" y="470.0" font-size="17" fill="#555555" text-anchor="middle" font-weight="normal" font-style="italic">Etapy 1–3 to trening (miesiące, tysiące procesorów graficznych). Etap 4 to wnioskowanie (inference): ułamki sekundy na token.</text>
+<text x="750.0" y="498.0" font-size="17" fill="#555555" text-anchor="middle" font-weight="normal" font-style="italic">Model nie „uczy się” z rozmowy z użytkownikiem, chyba że dostawca użyje rozmów do kolejnego treningu.</text>
+</svg>

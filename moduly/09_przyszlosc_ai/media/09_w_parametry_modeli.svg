@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Coraz większe modele</title><desc id="d"> LeNet-5 1998: 60 tys.; AlexNet 2012: 60 mln; BERT-Large 2018: 340 mln; GPT-2 2019: 1,5 mld; GPT-3 2020: 175 mld; PaLM 2022: 540 mld; Llama 3.1 2024: 405 mld</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Coraz większe modele</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#9095ad" text-anchor="start" >Liczba parametrów wybranych modeli (skala logarytmiczna)</text>
+<path d="M154.6 410.9 L271.7 283.4 L388.9 251.4 L506.0 224.0 L623.1 136.2 L740.3 115.4 L857.4 120.7" fill="none" stroke="#00f0ff" stroke-width="2" stroke-opacity="0.6"/>
+<line x1="96" x2="916" y1="444.0" y2="444.0" stroke="#1a2a36"/>
+<text x="86.0" y="448.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="end" >10 tys.</text>
+<line x1="96" x2="916" y1="401.5" y2="401.5" stroke="#1a2a36"/>
+<text x="86.0" y="405.5" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="end" >100 tys.</text>
+<line x1="96" x2="916" y1="359.0" y2="359.0" stroke="#1a2a36"/>
+<text x="86.0" y="363.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="end" >1 mln</text>
+<line x1="96" x2="916" y1="316.5" y2="316.5" stroke="#1a2a36"/>
+<text x="86.0" y="320.5" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="end" >10 mln</text>
+<line x1="96" x2="916" y1="274.0" y2="274.0" stroke="#1a2a36"/>
+<text x="86.0" y="278.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="end" >100 mln</text>
+<line x1="96" x2="916" y1="231.5" y2="231.5" stroke="#1a2a36"/>
+<text x="86.0" y="235.5" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="end" >1 mld</text>
+<line x1="96" x2="916" y1="189.0" y2="189.0" stroke="#1a2a36"/>
+<text x="86.0" y="193.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="end" >10 mld</text>
+<line x1="96" x2="916" y1="146.5" y2="146.5" stroke="#1a2a36"/>
+<text x="86.0" y="150.5" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="end" >100 mld</text>
+<line x1="96" x2="916" y1="104.0" y2="104.0" stroke="#1a2a36"/>
+<text x="86.0" y="108.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="end" >1 bln</text>
+<text x="96.0" y="92.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#9095ad" text-anchor="start" >parametry</text>
+<circle cx="154.6" cy="410.9" r="7" fill="#00f0ff" stroke="#07080f" stroke-width="2"/>
+<text x="154.6" y="398.9" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >60 tys.</text>
+<text x="154.6" y="466.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >LeNet-5 1998</text>
+<circle cx="271.7" cy="283.4" r="7" fill="#00f0ff" stroke="#07080f" stroke-width="2"/>
+<text x="271.7" y="271.4" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >60 mln</text>
+<text x="271.7" y="466.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >AlexNet 2012</text>
+<circle cx="388.9" cy="251.4" r="7" fill="#00f0ff" stroke="#07080f" stroke-width="2"/>
+<text x="388.9" y="239.4" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >340 mln</text>
+<text x="388.9" y="466.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >BERT-Large</text>
+<text x="388.9" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >2018</text>
+<circle cx="506.0" cy="224.0" r="7" fill="#00f0ff" stroke="#07080f" stroke-width="2"/>
+<text x="506.0" y="212.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >1,5 mld</text>
+<text x="506.0" y="466.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >GPT-2 2019</text>
+<circle cx="623.1" cy="136.2" r="7" fill="#fcee0a" stroke="#07080f" stroke-width="2"/>
+<text x="623.1" y="124.2" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >175 mld</text>
+<text x="623.1" y="466.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >GPT-3 2020</text>
+<circle cx="740.3" cy="115.4" r="7" fill="#00f0ff" stroke="#07080f" stroke-width="2"/>
+<text x="740.3" y="103.4" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >540 mld</text>
+<text x="740.3" y="466.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >PaLM 2022</text>
+<circle cx="857.4" cy="120.7" r="7" fill="#00f0ff" stroke="#07080f" stroke-width="2"/>
+<text x="857.4" y="108.7" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >405 mld</text>
+<text x="857.4" y="466.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >Llama 3.1 2024</text>
+<text x="28.0" y="507.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: Publikacje twórców modeli (LeCun i in. 1998; Krizhevsky i in. 2012; Devlin i in. 2018; Radford i in.</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >2019; Brown i in. 2020; Chowdhery i in. 2022; Meta 2024). Nowsze modele nie ujawniają liczby parametrów.</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slajdy do czytania: Prawne wyzwania AI (I): ramy regulacyjne i prawo autorskie · Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne</title>
+<meta name="description" content="Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne. Wykład monograficzny · prawo · WPiA UMCS · semestr zimowy 2026/2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Tiny5&family=Chakra+Petch:wght@500;600;700&family=Anton&family=VT323&display=swap">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="manifest" href="../../assets/manifest.webmanifest">
+<meta name="theme-color" content="#07080f">
+<link rel="icon" href="../../assets/ikona-192.png" type="image/png">
+<link rel="apple-touch-icon" href="../../assets/ikona-180.png">
+<script src="../../assets/site.js"></script>
+<script src="../../assets/gra.js"></script>
+
+</head>
+<body>
+<a class="skip-link" href="#tresc">Przejdź do treści</a>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../../index.html"><b>NEO-LUBLIN 2049</b><small>Wykład monograficzny · WPiA UMCS</small></a>
+    <nav class="topnav" aria-label="Nawigacja kursu"><a href="../../index.html">Mapa</a><a href="../../sylabus.html">Sylabus</a><a href="../../zaliczenie.html">Zaliczenie</a><a href="../../zrodla.html">Źródła</a><a href="../../slowniczek.html">Słowniczek</a><a href="../../fiszki.html">Fiszki</a><a href="../../biblioteka.html">Biblioteka</a><a href="../../interaktywne.html">Interaktywne</a></nav>
+  </div>
+</header>
+<main id="tresc" tabindex="-1">
+
+<div class="wrap narrow">
+  <p class="crumbs"><a href="index.html">← Strona dzielnicy</a> · <a href="slajdy.html">Pokaz slajdów</a></p>
+  <p class="eyebrow">Slajdy do czytania · dzielnica 07</p>
+  <h1>Prawne wyzwania AI (I): ramy regulacyjne i prawo autorskie</h1>
+  <p class="muted">Treść slajdów w układzie wygodnym na telefonie. Szersze omówienie jest w konspekcie i w Wiedzy na stronie dzielnicy.</p>
+  <div class="prose slajdy-tekst"><h3 id="plan-spotkania">Plan spotkania</h3>
+<ol type="1">
+<li>AI Act: definicje, podejście oparte na ryzyku, praktyki zakazane, wysokie ryzyko, przejrzystość (art. 50), modele GPAI</li>
+<li>Harmonogram stosowania AI Act po omnibusie cyfrowym (rozporządzenie 2026/1744)</li>
+<li>Ustawa z 3 lipca 2026 r. o systemach sztucznej inteligencji: KRiBSI, kontrole, sankcje, piaskownice</li>
+<li>Konwencja ramowa Rady Europy. DSA i DMA jako otoczenie regulacyjne</li>
+<li>Prawo autorskie: wytwór AI a utwór, eksploracja tekstów i danych (TDM), spory sądowe</li>
+</ol>
+<h3 id="mapa-źródeł-prawa-ai-w-polsce">Mapa źródeł prawa AI w Polsce</h3>
+<table>
+<thead>
+<tr>
+<th>Poziom</th>
+<th>Akty</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rada Europy</td>
+<td>Konwencja ramowa o AI (CETS 225)</td>
+</tr>
+<tr>
+<td>UE</td>
+<td><strong>AI Act</strong>, RODO, DSA, DMA, dyr. 2019/790</td>
+</tr>
+<tr>
+<td>Polska</td>
+<td><strong>ustawa z 3.07.2026</strong>, pr. aut., k.c.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="regulacje-na-świecie-aktualizacja-2024-2026">Regulacje na świecie: aktualizacja 2024 → 2026</h3>
+<ul>
+<li>ONZ: rezolucja A/RES/78/265 (21.03.2024, z inicjatywy USA, ponad 120 współautorów, w tym Polska); rezolucja A/RES/79/325 (26.08.2025): niezależny międzynarodowy panel naukowy ds. AI i Globalny Dialog o zarządzaniu AI.</li>
+<li>Rada Europy: pierwsza wiążąca umowa międzynarodowa o AI (2024).</li>
+<li>Korea Płd. i Japonia: ustawy ramowe o AI (2025–2026); USA: deregulacja federalna i prawo stanowe; Chiny: przepisy sektorowe.</li>
+<li>Brazylia: projekt PL 2338/2023 przyjęty przez Senat 10.12.2024, w Izbie Deputowanych wciąż czeka na sprawozdanie. Wielka Brytania: nadal bez ustawy o AI, podejście sektorowe.</li>
+<li>Porównanie modeli regulacji: <strong>spotkanie 6</strong>.</li>
+</ul>
+<h2 id="część-i.-ai-act-architektura">Część I. AI Act: architektura</h2>
+<h3 id="ai-act-w-pigułce">AI Act w pigułce</h3>
+<ul>
+<li>Rozporządzenie (UE) 2024/1689 z 13.06.2024 r., w mocy od 1.08.2024 r.</li>
+<li>113 artykułów, 13 załączników, 180 motywów.</li>
+<li>Podstawa: rynek wewnętrzny (art. 114 TFUE) i ochrona danych (art. 16 TFUE).</li>
+<li>Logika prawa bezpieczeństwa produktów: ocena zgodności, oznakowanie CE, nadzór rynku.</li>
+<li>Cel (art. 1): rynek godnej zaufania AI <strong>i</strong> ochrona zdrowia, bezpieczeństwa oraz praw podstawowych.</li>
+</ul>
+<h3 id="definicja-systemu-ai-art.-3-pkt-1">Definicja systemu AI (art. 3 pkt 1)</h3>
+<blockquote>
+<p>„system AI” oznacza system maszynowy, który został zaprojektowany do działania z różnym poziomem autonomii po jego wdrożeniu oraz który może wykazywać zdolność adaptacji po jego wdrożeniu, a także który – na potrzeby wyraźnych lub dorozumianych celów – wnioskuje, jak generować na podstawie otrzymanych danych wejściowych wyniki, takie jak predykcje, treści, zalecenia lub decyzje, które mogą wpływać na środowisko fizyczne lub wirtualne</p>
+</blockquote>
+<ul>
+<li>Kluczowe znamię: <strong>wnioskowanie</strong> (<em>inference</em>). Zwykły program wykonujący reguły napisane przez człowieka to nie system AI.</li>
+</ul>
+<h3 id="kto-ma-obowiązki">Kto ma obowiązki?</h3>
+<ul>
+<li><strong>Dostawca</strong> (art. 3 pkt 3): rozwija system lub model i wprowadza go do obrotu pod własną nazwą.</li>
+<li><strong>Podmiot stosujący</strong> (art. 3 pkt 4): używa systemu w ramach swojej działalności, np. kancelaria, sąd, bank, urząd.</li>
+<li>Importer, dystrybutor, upoważniony przedstawiciel.</li>
+<li>Zasięg eksterytorialny (art. 2): także dostawcy spoza UE, jeśli wyniki systemu są wykorzystywane w Unii.</li>
+<li>Wyłączenia: cele wojskowe i bezpieczeństwa narodowego, badania naukowe, użytek osobisty pozazawodowy.</li>
+</ul>
+<h3 id="podejście-oparte-na-ryzyku">Podejście oparte na ryzyku</h3>
+<figure>
+<img src="media/07_w_piramida_ryzyka.svg" style="width:85.0%" alt="Piramida ryzyka w AI Act: ryzyko niedopuszczalne (art. 5), wysokie (art. 6, zał. I i III), obowiązki przejrzystości (art. 50), ryzyko minimalne; odrębny reżim modeli GPAI (art. 51–55)" />
+<figcaption aria-hidden="true">Piramida ryzyka w AI Act: ryzyko niedopuszczalne (art. 5), wysokie (art. 6, zał. I i III), obowiązki przejrzystości (art. 50), ryzyko minimalne; odrębny reżim modeli GPAI (art. 51–55)</figcaption>
+</figure>
+<h3 id="praktyki-zakazane-art.-5">Praktyki zakazane (art. 5)</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><strong>a</strong> manipulacja</li>
+<li><strong>b</strong> wykorzystywanie słabości</li>
+<li><strong>c</strong> ocena społeczna</li>
+<li><strong>d</strong> predykcja przestępstw z profilowania</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><strong>e</strong> scraping wizerunków twarzy</li>
+<li><strong>f</strong> emocje w pracy i szkole</li>
+<li><strong>g</strong> kategoryzacja biometryczna</li>
+<li><strong>h</strong> identyfikacja biometryczna na żywo</li>
+</ul>
+</div>
+</div>
+<p>Od <strong>2.02.2025</strong>. Kara: do 35 mln euro lub 7% obrotu.</p>
+<h3 id="nowe-zakazy-po-omnibusie">Nowe zakazy po omnibusie</h3>
+<ul>
+<li>Omnibus cyfrowy (rozp. 2026/1744) dodał do art. 5 m.in. zakaz systemów generujących <strong>materiały intymne bez zgody</strong> osoby przedstawionej oraz <strong>materiały przedstawiające seksualne wykorzystywanie dzieci</strong> (CSAM).</li>
+<li>Stosuje się od <strong>2.12.2026</strong>.</li>
+<li>Nowe lit. ba i bb w art. 5 ust. 1; ust. 1a i 1b rozdzielają odpowiedzialność dostawcy i podmiotu stosującego.</li>
+<li>Tło: masowe „rozbieranie” zdjęć przez generatory obrazu (2025–2026).</li>
+</ul>
+<h3 id="wysokie-ryzyko-dwie-ścieżki-art.-6">Wysokie ryzyko: dwie ścieżki (art. 6)</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Art. 6 ust. 1 + zał. I</strong></p>
+<ul>
+<li>AI jako element bezpieczeństwa produktu objętego unijnym prawem harmonizacyjnym</li>
+<li>np. wyroby medyczne, maszyny, zabawki, windy, samochody</li>
+<li>ocena zgodności przez jednostkę notyfikowaną</li>
+<li>stosowanie: <strong>2.08.2028</strong></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Art. 6 ust. 2 + zał. III</strong></p>
+<ul>
+<li>osiem obszarów zastosowań</li>
+<li>biometria; infrastruktura krytyczna; edukacja; zatrudnienie; usługi publiczne i prywatne (np. ocena zdolności kredytowej); ściganie przestępstw; migracja i granice; <strong>wymiar sprawiedliwości</strong> i procesy demokratyczne</li>
+<li>stosowanie: <strong>2.12.2027</strong></li>
+</ul>
+</div>
+</div>
+<h3 id="wyjątek-z-art.-6-ust.-3">Wyjątek z art. 6 ust. 3</h3>
+<ul>
+<li>System z zał. III <strong>nie jest</strong> wysokiego ryzyka, jeśli nie stwarza znaczącego ryzyka szkody, bo np.:
+<ul>
+<li>wykonuje wąskie zadanie proceduralne,</li>
+<li>poprawia wynik wcześniej zakończonej czynności człowieka,</li>
+<li>wykrywa wzorce lub odstępstwa, nie zastępując oceny człowieka,</li>
+<li>wykonuje zadanie przygotowawcze.</li>
+</ul></li>
+<li><strong>Profilowanie osób fizycznych zawsze oznacza wysokie ryzyko.</strong></li>
+<li>Dostawca musi udokumentować ocenę. Taki system nadal trzeba zarejestrować w bazie UE (art. 49 ust. 2); omnibus ograniczył zakres wymaganych informacji.</li>
+</ul>
+<h3 id="wymogi-i-obowiązki-dostawcy">Wymogi i obowiązki dostawcy</h3>
+<ul>
+<li>Wymogi (art. 8–15): zarządzanie ryzykiem, jakość danych i zarządzanie danymi, dokumentacja techniczna, rejestrowanie zdarzeń, przejrzystość i instrukcja, <strong>nadzór człowieka</strong>, dokładność, solidność, cyberbezpieczeństwo.</li>
+<li>Obowiązki dostawcy (art. 16): system zarządzania jakością, ocena zgodności, deklaracja zgodności, oznakowanie CE, rejestracja w bazie UE, monitorowanie po wprowadzeniu do obrotu.</li>
+</ul>
+<figure>
+<img src="media/07_procedura_wysokie_ryzyko.jpg" style="width:60.0%" alt="Cztery kroki: rozwój, ocena zgodności, rejestracja, deklaracja zgodności i CE" />
+<figcaption aria-hidden="true">Cztery kroki: rozwój, ocena zgodności, rejestracja, deklaracja zgodności i CE</figcaption>
+</figure>
+<p><small>Źródło: Komisja Europejska, digital-strategy.ec.europa.eu.</small></p>
+<h3 id="obowiązki-podmiotu-stosującego">Obowiązki podmiotu stosującego</h3>
+<ul>
+<li>Art. 26: używać zgodnie z instrukcją, zapewnić <strong>nadzór człowieka</strong> przez osoby o odpowiednich kompetencjach, monitorować działanie, przechowywać logi, informować pracowników i osoby, wobec których system podejmuje decyzje.</li>
+<li>Art. 27: <strong>ocena skutków dla praw podstawowych</strong> (FRIA) przed użyciem systemu: podmioty publiczne i prywatne świadczące usługi publiczne, a także ocena zdolności kredytowej i ubezpieczenia.</li>
+<li>Art. 86: prawo do wyjaśnienia decyzji podjętej z wykorzystaniem systemu wysokiego ryzyka.</li>
+</ul>
+<h3 id="przejrzystość-art.-50">Przejrzystość: art. 50</h3>
+<table>
+<thead>
+<tr>
+<th>Ust.</th>
+<th>Kto</th>
+<th>Obowiązek</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>dostawca</td>
+<td>„rozmawiasz z AI”</td>
+</tr>
+<tr>
+<td>2</td>
+<td>dostawca</td>
+<td>oznaczanie treści syntetycznych</td>
+</tr>
+<tr>
+<td>3</td>
+<td>stosujący</td>
+<td>informacja o rozpoznawaniu emocji</td>
+</tr>
+<tr>
+<td>4</td>
+<td>stosujący</td>
+<td>ujawnianie <strong>deepfake’ów</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Od <strong>2.08.2026</strong>; ust. 2 dla starszych systemów: od <strong>2.12.2026</strong>.</p>
+<h3 id="modele-ai-ogólnego-przeznaczenia-gpai">Modele AI ogólnego przeznaczenia (GPAI)</h3>
+<ul>
+<li>Model GPAI: trenowany na dużej ilości danych, wykazuje znaczną ogólność, może wykonywać szeroki zakres zadań (art. 3 pkt 63).</li>
+<li>Obowiązki wszystkich dostawców (art. 53): dokumentacja techniczna, informacje dla dostawców „w dół łańcucha”, <strong>polityka zgodności z prawem autorskim</strong>, <strong>publiczne streszczenie danych treningowych</strong>.</li>
+<li>Model z <strong>ryzykiem systemowym</strong> (art. 51): domniemanie przy obliczeniach treningowych powyżej 10²⁵ FLOP; dodatkowo ewaluacja, testy kontradyktoryjne, zgłaszanie poważnych incydentów, cyberbezpieczeństwo (art. 55).</li>
+<li>Kodeks praktyk GPAI (10.07.2025): przejrzystość, prawo autorskie, bezpieczeństwo.</li>
+<li>Obowiązki od <strong>2.08.2025</strong>; kary Komisji (art. 101) od 2.08.2026.</li>
+</ul>
+<h3 id="kary-art.-99-i-101">Kary (art. 99 i 101)</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Naruszenie</th>
+<th>Maksymalna kara</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>praktyki zakazane (art. 5)</td>
+<td>35 mln euro lub 7% światowego rocznego obrotu</td>
+</tr>
+<tr>
+<td>inne obowiązki (m.in. wysokie ryzyko, art. 50)</td>
+<td>15 mln euro lub 3% obrotu</td>
+</tr>
+<tr>
+<td>nieprawdziwe informacje dla organów</td>
+<td>7,5 mln euro lub 1% obrotu</td>
+</tr>
+<tr>
+<td>dostawcy modeli GPAI (Komisja, art. 101)</td>
+<td>15 mln euro lub 3% obrotu</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Decyduje kwota wyższa; dla MŚP i małych spółek o średniej kapitalizacji: niższa (art. 99 ust. 6 i 6a).</li>
+<li>O karach dla organów publicznych decyduje państwo członkowskie (art. 99 ust. 8).</li>
+</ul>
+<h3 id="ile-mogą-wynosić-kary-za-naruszenie-ai-act">Ile mogą wynosić kary za naruszenie AI Act?</h3>
+<figure>
+<img src="media/07_w_kary_art99.svg" style="width:88.0%" alt="Wykres słupkowy poziomy: maksymalne kary w AI Act to 35 mln euro lub 7% obrotu za praktyki zakazane, 15 mln euro lub 3% za inne naruszenia i za naruszenia przez dostawców modeli GPAI oraz 7,5 mln euro lub 1% za nieprawdziwe informacje." />
+<figcaption aria-hidden="true">Wykres słupkowy poziomy: maksymalne kary w AI Act to 35 mln euro lub 7% obrotu za praktyki zakazane, 15 mln euro lub 3% za inne naruszenia i za naruszenia przez dostawców modeli GPAI oraz 7,5 mln euro lub 1% za nieprawdziwe informacje.</figcaption>
+</figure>
+<h3 id="kto-pilnuje-ai-act">Kto pilnuje AI Act?</h3>
+<ul>
+<li><strong>Urząd ds. AI</strong> (<em>AI Office</em>) w Komisji Europejskiej: nadzór nad modelami GPAI.</li>
+<li><strong>Europejska Rada ds. AI</strong>: przedstawiciele państw, koordynacja.</li>
+<li>Panel naukowy niezależnych ekspertów, forum doradcze.</li>
+<li><strong>Organy krajowe</strong>: organ nadzoru rynku i organ notyfikujący. W Polsce: <strong>KRiBSI</strong>.</li>
+<li>Po omnibusie (art. 75 ust. 1): Urząd ds. AI nadzoruje też systemy zbudowane na modelu GPAI tego samego dostawcy oraz systemy w bardzo dużych platformach i wyszukiwarkach w rozumieniu DSA.</li>
+</ul>
+<h2 id="część-ii.-harmonogram-po-omnibusie">Część II. Harmonogram po omnibusie</h2>
+<h3 id="harmonogram-stosowania-ai-act">Harmonogram stosowania AI Act</h3>
+<figure>
+<img src="media/07_w_harmonogram.svg" style="width:95.0%" alt="Oś czasu: 1.08.2024 wejście w życie; 2.02.2025 zakazy i art. 4; 2.08.2025 modele GPAI; 2.08.2026 art. 50; 11.08.2026 polska ustawa; 2.12.2026 nowe zakazy z omnibusu; 2.12.2027 wysokie ryzyko z zał. III; 2.08.2028 z zał. I" />
+<figcaption aria-hidden="true">Oś czasu: 1.08.2024 wejście w życie; 2.02.2025 zakazy i art. 4; 2.08.2025 modele GPAI; 2.08.2026 art. 50; 11.08.2026 polska ustawa; 2.12.2026 nowe zakazy z omnibusu; 2.12.2027 wysokie ryzyko z zał. III; 2.08.2028 z zał. I</figcaption>
+</figure>
+<h3 id="co-zmienił-omnibus-cyfrowy-rozp.-20261744">Co zmienił omnibus cyfrowy (rozp. 2026/1744)?</h3>
+<ul>
+<li>Przesunięcie terminów dla wysokiego ryzyka: zał. III → 2.12.2027, zał. I → 2.08.2028.</li>
+<li>Art. 4: zamiast obowiązku <strong>zapewnienia</strong> kompetencji w zakresie AI, obowiązek ich <strong>wspierania</strong>.</li>
+<li>Nowe zakazy w art. 5 (od 2.12.2026).</li>
+<li>Nowy art. 4a: przetwarzanie szczególnych kategorii danych w celu wykrywania stronniczości (art. 10 ust. 5 uchylono).</li>
+<li>Ułatwienia dla MŚP i małych spółek o średniej kapitalizacji: uproszczona dokumentacja, niższe kary; piaskownica na poziomie UE.</li>
+<li>Ocena skutków dla praw podstawowych (FRIA) może odsyłać do oceny skutków dla ochrony danych (DPIA).</li>
+<li>Bez zmian: art. 5 w dotychczasowym zakresie, art. 50, obowiązki GPAI.</li>
+</ul>
+<h3 id="szybkość-przemian-a-regulacja">Szybkość przemian a regulacja</h3>
+<ul>
+<li>AI Act projektowano w 2021 r., zanim pojawił się ChatGPT (11.2022).</li>
+<li>Przepisy o GPAI dopisano w trakcie prac; terminy przesunięto, zanim zaczęły obowiązywać.</li>
+<li>Problem „Red Flag Act”: czy prawo nadąża, czy zamraża technologię z chwili uchwalenia?</li>
+<li>Odpowiedź AI Act: akty delegowane (zmiana zał. III, progów GPAI), wytyczne, kodeksy praktyk, normy zharmonizowane.</li>
+</ul>
+<h2 id="część-iii.-polska-ustawa-o-systemach-ai">Część III. Polska ustawa o systemach AI</h2>
+<h3 id="ustawa-z-3-lipca-2026-r.-o-systemach-sztucznej-inteligencji">Ustawa z 3 lipca 2026 r. o systemach sztucznej inteligencji</h3>
+<ul>
+<li>Dz.U. 2026 poz. 1003, ogłoszona 27.07.2026. 127 artykułów w 10 rozdziałach.</li>
+<li>W mocy od <strong>11.08.2026</strong>: przepisy ogólne, organizacja nadzoru (KRiBSI), jednostki notyfikowane, piaskownice.</li>
+<li>Od <strong>28.10.2026</strong>: główna część przepisów egzekucyjnych: kontrola, postępowanie, układ, kary, opinie indywidualne.</li>
+<li>Wyłączenia (art. 2–3): obronność, bezpieczeństwo narodowe, służby specjalne, badania naukowe, użytek osobisty.</li>
+<li>Ustawa nie powtarza AI Act. Wyznacza organy i procedury, których rozporządzenie wymaga od państw.</li>
+</ul>
+<h3 id="komisja-rozwoju-i-bezpieczeństwa-sztucznej-inteligencji">Komisja Rozwoju i Bezpieczeństwa Sztucznej Inteligencji</h3>
+<ul>
+<li>Organ nadzoru rynku i pojedynczy punkt kontaktowy w rozumieniu AI Act (art. 5).</li>
+<li>Skład (art. 19): <strong>Przewodniczący</strong>, 2 Zastępców i 4 członków wskazanych przez Prezesa UOKiK, KNF, KRRiT i Prezesa UKE. Członkowie są niezależni.</li>
+<li>Przewodniczącego powołuje <strong>Sejm za zgodą Senatu</strong> na 5 lat (najwyżej 2 kadencje). Pierwsza Przewodnicząca: Pamela Krzypkowska (zgoda Senatu 24.09.2026).</li>
+<li>Obsługa: urząd ministra właściwego do spraw informatyzacji (art. 43). Coroczne sprawozdanie dla Sejmu.</li>
+<li>Przy KRiBSI: <strong>Społeczna Rada do spraw Sztucznej Inteligencji</strong> (9–15 członków, organ opiniodawczo-doradczy).</li>
+</ul>
+<h3 id="kontrola-i-postępowanie-przed-kribsi">Kontrola i postępowanie przed KRiBSI</h3>
+<ul>
+<li><strong>Kontrola</strong> (art. 48–57): zawiadomienie co najmniej 7 dni wcześniej, co do zasady zdalnie; na miejscu lub bez uprzedzenia przy ryzyku dla życia, zdrowia lub praw podstawowych.</li>
+<li><strong>Skarga</strong> każdego podmiotu na naruszenie AI Act (art. 59, wykonanie art. 85 AI Act).</li>
+<li><strong>Postępowanie</strong> (art. 58–69): ostrzeżenie, decyzja o naruszeniu, przy bezpośrednim ryzyku nakaz wycofania systemu, nawet z rygorem natychmiastowej wykonalności.</li>
+</ul>
+<h3 id="odwołanie-kary-i-opinie-indywidualne">Odwołanie, kary i opinie indywidualne</h3>
+<ul>
+<li><strong>Odwołanie do SOKiK</strong> (Sąd Okręgowy w Warszawie), nie do sądu administracyjnego (art. 65).</li>
+<li><strong>Kary</strong> według art. 99 AI Act; obniżenie przy wykonaniu ostrzeżenia, przy układzie (20–70%) i samozgłoszeniu (30–90%). Przestępstwo utrudniania kontroli (art. 112–113).</li>
+<li><strong>Opinie indywidualne</strong> (art. 8–17): opłata 150 zł, 30 dni, milczenie = opinia zgodna z wnioskiem.</li>
+</ul>
+<h3 id="piaskownice-regulacyjne-i-wsparcie">Piaskownice regulacyjne i wsparcie</h3>
+<ul>
+<li>Piaskownica regulacyjna (art. 57–59 AI Act): kontrolowane środowisko testowania innowacyjnych systemów pod nadzorem organu.</li>
+<li>Piaskownice ustanawia KRiBSI w drodze decyzji, po konkursie (art. 91–101). Czas trwania: 6–12 miesięcy.</li>
+<li>Udział bezpłatny dla MŚP; opłata do 2-krotności płacy minimalnej dla jednostek samorządu terytorialnego i do 4-krotności dla pozostałych (art. 93).</li>
+<li>Po wyjściu z piaskownicy: przyspieszona opinia indywidualna w 14 dni (art. 101).</li>
+<li>Unijna piaskownica prowadzona przez Urząd ds. AI (art. 57 ust. 3a AI Act po omnibusie).</li>
+</ul>
+<h2 id="część-iv.-otoczenie-regulacyjne">Część IV. Otoczenie regulacyjne</h2>
+<h3 id="konwencja-ramowa-rady-europy-o-ai">Konwencja ramowa Rady Europy o AI</h3>
+<ul>
+<li>Konwencja ramowa o sztucznej inteligencji i prawach człowieka, demokracji i praworządności (CETS nr 225), Wilno, otwarta do podpisu <strong>5.09.2024</strong>.</li>
+<li>Pierwsza <strong>wiążąca umowa międzynarodowa</strong> o AI. Strony mogą być także spoza Rady Europy (m.in. USA, Kanada, Japonia, Izrael podpisały).</li>
+<li>Zasady: godność i autonomia, przejrzystość i nadzór, rozliczalność, równość, prywatność, rzetelność, bezpieczna innowacja; środki ochrony prawnej.</li>
+<li>Obowiązki wobec sektora publicznego; sektor prywatny: według wyboru strony.</li>
+<li>UE zawarła konwencję (decyzja Rady (UE) 2026/1080, instrument złożony 15.05.2026). <strong>Konwencja nie weszła jeszcze w życie</strong>: potrzeba 5 ratyfikacji, w tym 3 państw członkowskich Rady Europy.</li>
+</ul>
+<h3 id="dsa-platformy-i-treści-generowane-przez-ai">DSA: platformy i treści generowane przez AI</h3>
+<ul>
+<li>Rozporządzenie (UE) 2022/2065, stosowane w pełni od <strong>17.02.2024</strong>.</li>
+<li>Bardzo duże platformy i wyszukiwarki (VLOP, VLOSE): ocena i ograniczanie <strong>ryzyk systemowych</strong> (art. 34–35), w tym dezinformacji i deepfake’ów.</li>
+<li>Systemy rekomendacyjne: przejrzystość parametrów i opcja bez profilowania (art. 27, 38).</li>
+<li>Moderacja treści: uzasadnienie decyzji (art. 17), odwołanie (art. 20). Spotkanie 5.</li>
+<li>Art. 35 ust. 1 lit. k: wyraźne oznaczanie wygenerowanych lub zmanipulowanych obrazów, nagrań audio i wideo.</li>
+<li><strong>ChatGPT</strong> wyznaczony jako bardzo duża wyszukiwarka (VLOSE) 31.08.2026. Grudzień 2025: pierwsza kara z DSA (X, 120 mln euro).</li>
+</ul>
+<h3 id="dma-strażnicy-dostępu-i-rynek-ai">DMA: strażnicy dostępu i rynek AI</h3>
+<ul>
+<li>Rozporządzenie (UE) 2022/1925, stosowane od <strong>2.05.2023</strong>.</li>
+<li>Strażnicy dostępu (<em>gatekeepers</em>): Alphabet, Amazon, Apple, ByteDance, Meta, Microsoft, Booking.</li>
+<li>Zakazy samopreferowania, łączenia danych bez zgody, obowiązki interoperacyjności.</li>
+<li>AI to nowe pole rywalizacji: asystenci w systemach operacyjnych, wyszukiwarkach, komunikatorach.</li>
+<li>Chmura obliczeniowa jako infrastruktura AI: od 11.2025 dochodzenia rynkowe Komisji; 06.2026 wstępne stanowisko o wyznaczeniu AWS i Azure.</li>
+</ul>
+<h2 id="część-v.-prawo-autorskie-i-ai">Część V. Prawo autorskie i AI</h2>
+<h3 id="dwa-pytania-prawa-autorskiego">Dwa pytania prawa autorskiego</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Wejście (<em>input</em>)</strong></p>
+<ul>
+<li>Czy wolno trenować model na cudzych utworach?</li>
+<li>Eksploracja tekstów i danych (TDM)</li>
+<li><em>Fair use</em> w USA</li>
+<li>Zapamiętywanie (memoryzacja) w modelu</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Wyjście (<em>output</em>)</strong></p>
+<ul>
+<li>Czy wytwór AI jest utworem?</li>
+<li>Kto jest jego autorem?</li>
+<li>Czy wynik narusza prawa do utworu, na którym trenowano?</li>
+</ul>
+</div>
+</div>
+<h3 id="czy-wytwór-ai-jest-utworem">Czy wytwór AI jest utworem?</h3>
+<ul>
+<li>Art. 1 ust. 1 pr. aut.: utworem jest <strong>przejaw działalności twórczej</strong> o indywidualnym charakterze.</li>
+<li>Twórcą może być tylko <strong>człowiek</strong>. Prawo autorskie chroni wybory twórcze człowieka, nie wynik procesu technicznego.</li>
+<li>TSUE: utwór to „własna twórczość intelektualna autora”, odzwierciedlająca jego <strong>swobodne i twórcze wybory</strong> (C-5/08 Infopaq, C-145/10 Painer, C-683/17 Cofemel).</li>
+<li>Pytanie praktyczne: ile ludzkiego wkładu wystarcza? Prompt, selekcja, edycja, kompozycja.</li>
+</ul>
+<h3 id="thaler-v.-perlmutter">Thaler v. Perlmutter</h3>
+<ul>
+<li>Stephen Thaler zgłosił do rejestracji obraz „A Recent Entrance to Paradise”, wskazując jako autora system <strong>Creativity Machine</strong>.</li>
+<li>US Copyright Office odmówił; sąd okręgowy (2023) i sąd apelacyjny D.C. Circuit (<strong>18.03.2025</strong>, No. 23-5233) utrzymały odmowę.</li>
+<li>Ratio: ustawa o prawie autorskim wymaga <strong>ludzkiego autorstwa</strong>; maszyna nie może być autorem.</li>
+<li>Sąd nie rozstrzygał, ile ludzkiego udziału wystarcza przy pracy z AI.</li>
+<li>Wniosek o ponowne rozpoznanie oddalony (12.05.2025); Sąd Najwyższy USA <strong>odmówił przyjęcia skargi</strong> (<em>certiorari denied</em>, 2.03.2026). Sprawa zakończona.</li>
+</ul>
+<h3 id="prompt-a-twórczość-praktyka-urzędów-i-sądów">Prompt a twórczość: praktyka urzędów i sądów</h3>
+<ul>
+<li>USA, <em>Zarya of the Dawn</em> (2023): ochrona tekstu i układu komiksu, ale nie obrazów z Midjourney.</li>
+<li>US Copyright Office, raport cz. 2 (29.01.2025): wynik może być chroniony, gdy człowiek określa elementy ekspresji; same prompty „na tym etapie” zwykle nie wystarczają.</li>
+<li>Chiny, Pekiński Sąd Internetowy (11.2023): obraz z Stable Diffusion chroniony, bo użytkownik dokonał wielu twórczych wyborów (prompty, parametry, selekcja).</li>
+<li>Ta sama technologia, różne odpowiedzi: znów wybór kulturowy.</li>
+</ul>
+<h3 id="eksploracja-tekstów-i-danych-tdm-dyrektywa-2019790">Eksploracja tekstów i danych (TDM): dyrektywa 2019/790</h3>
+<ul>
+<li><strong>Art. 3:</strong> TDM dla celów <strong>badań naukowych</strong> przez organizacje badawcze i instytucje dziedzictwa kulturowego. Nie można go wyłączyć umową.</li>
+<li><strong>Art. 4:</strong> TDM dla <strong>wszelkich celów</strong> (także komercyjnych), pod warunkiem legalnego dostępu, chyba że uprawniony <strong>zastrzegł</strong> inaczej (<em>opt-out</em>).</li>
+<li>Zastrzeżenie dla treści udostępnionych w internecie: „w odpowiedni sposób, np. za pomocą środków nadających się do odczytu maszynowego” (art. 4 ust. 3), np. <code>robots.txt</code>, metadane.</li>
+<li>Czy trening dużego modelu to „eksploracja tekstów i danych”? Spór w doktrynie; AI Act (art. 53 ust. 1 lit. c i motyw 105) zakłada, że tak.</li>
+</ul>
+<h3 id="tdm-w-polskiej-ustawie">TDM w polskiej ustawie</h3>
+<ul>
+<li>Nowelizacja z 26.07.2024 (Dz.U. 2024 poz. 1254), w mocy od <strong>20.09.2024</strong>: definicja TDM w art. 6 ust. 1 pkt 22, art. 26² i 26³ pr. aut.</li>
+<li><strong>Art. 26²:</strong> TDM dla badań naukowych przez instytucje dziedzictwa kulturowego i podmioty nauki, bez celu zarobkowego.</li>
+<li><strong>Art. 26³ ust. 1:</strong> „Wolno zwielokrotniać rozpowszechnione utwory w celu eksploracji tekstów i danych, chyba że uprawniony zastrzegł inaczej”.</li>
+<li>Zastrzeżenie: „wyraźnie i odpowiednio do sposobu, w jaki utwór został udostępniony”, dla utworów w internecie w formacie do odczytu maszynowego, wraz z metadanymi (ust. 2).</li>
+<li>Kopie wolno przechowywać tak długo, jak jest to konieczne do celu eksploracji (ust. 3).</li>
+</ul>
+<h3 id="ai-act-jako-most-do-prawa-autorskiego">AI Act jako most do prawa autorskiego</h3>
+<ul>
+<li>Dostawca modelu GPAI musi mieć <strong>politykę zgodności z prawem autorskim Unii</strong>, w tym respektować zastrzeżenia z art. 4 ust. 3 dyrektywy 2019/790 (art. 53 ust. 1 lit. c).</li>
+<li>Musi opublikować <strong>wystarczająco szczegółowe streszczenie</strong> treści użytych do trenowania według wzoru Urzędu ds. AI (art. 53 ust. 1 lit. d).</li>
+<li>Obowiązek dotyczy każdego modelu wprowadzonego do obrotu w UE, <strong>niezależnie od miejsca trenowania</strong> (motyw 106).</li>
+<li>Wzór streszczenia Komisja opublikowała 24.07.2025; rozdział o prawie autorskim kodeksu praktyk GPAI z 10.07.2025 to narzędzie dobrowolne.</li>
+</ul>
+<h3 id="getty-images-v.-stability-ai-anglia-i-walia">Getty Images v. Stability AI (Anglia i Walia)</h3>
+<ul>
+<li>High Court (Chancery Division), wyrok z <strong>4.11.2025</strong>.</li>
+<li>Getty zarzucał trening Stable Diffusion na milionach zdjęć i generowanie obrazów ze znakami wodnymi Getty.</li>
+<li>Zarzut naruszenia przy treningu wycofano: trening odbywał się <strong>poza Wielką Brytanią</strong>.</li>
+<li>Naruszenie wtórne (import „kopii naruszającej”) <strong>oddalone</strong>: wagi modelu nie przechowują ani nie odtwarzają utworów.</li>
+<li>Roszczenia z <strong>prawa znaków towarowych</strong> częściowo uwzględnione (znaki wodne w starszych wersjach modelu).</li>
+<li>Getty uzyskało zgodę na apelację w kwestii naruszenia wtórnego (12.2025); wyrok Court of Appeal jeszcze nie zapadł. Równoległy spór w USA (Kalifornia) toczy się dalej.</li>
+</ul>
+<h3 id="gema-v.-openai-niemcy">GEMA v. OpenAI (Niemcy)</h3>
+<ul>
+<li>Landgericht München I, wyrok z <strong>11.11.2025</strong>, sygn. 42 O 14139/24.</li>
+<li>GEMA (organizacja zbiorowego zarządzania) wykazała, że ChatGPT odtwarza teksty znanych niemieckich piosenek.</li>
+<li>Sąd: <strong>zapamiętanie</strong> tekstów w parametrach modelu to zwielokrotnienie utworu; wyniki modelu również naruszają prawa.</li>
+<li>Wyjątek TDM (§ 44b UrhG, art. 4 dyrektywy) <strong>nie ma zastosowania</strong>: obejmuje analizę, a nie utrwalenie utworu w modelu.</li>
+<li>Wyrok nieprawomocny: OpenAI wniosło apelację do OLG München. W sprawie GEMA v. Suno ten sam sąd orzekł podobnie (31.07.2026).</li>
+</ul>
+<h3 id="the-new-york-times-v.-microsoft-i-openai-usa">The New York Times v. Microsoft i OpenAI (USA)</h3>
+<ul>
+<li>Pozew z <strong>27.12.2023</strong>, Sąd Okręgowy dla Południowego Dystryktu Nowego Jorku, No. 1:23-cv-11195.</li>
+<li>Zarzut: kopiowanie milionów artykułów do trenowania modeli GPT; ChatGPT i Bing odtwarzają fragmenty niemal dosłownie i konkurują z gazetą.</li>
+<li>Żądania: odszkodowanie liczone w miliardach dolarów i <strong>zniszczenie modeli</strong> zawierających utwory NYT.</li>
+<li>Obrona: <em>fair use</em>, „transformatywny” charakter treningu.</li>
+<li>04.2025: sąd (sędzia S. Stein) nie odrzucił zarzutów naruszenia; sprawę połączono z innymi w postępowaniu MDL 3143. Wrzesień 2026: wnioski stron o rozstrzygnięcie w kwestii <em>fair use</em>. Daty rozprawy brak.</li>
+</ul>
+<h3 id="bartz-v.-anthropic-usa">Bartz v. Anthropic (USA)</h3>
+<ul>
+<li>Sąd Okręgowy dla Północnego Dystryktu Kalifornii, No. 3:24-cv-05417, sędzia W. Alsup, postanowienie z <strong>23.06.2025</strong>.</li>
+<li>Trening modeli Claude na książkach: <strong><em>fair use</em></strong>, użycie „wyjątkowo transformatywne”.</li>
+<li>Kupione i zeskanowane książki papierowe: <em>fair use</em>.</li>
+<li>Kopie pobrane z <strong>pirackich bibliotek</strong> i trzymane w „centralnej bibliotece”: <strong>nie</strong> <em>fair use</em>. Sprawa trafiła do procesu.</li>
+<li>Ugoda grupowa: <strong>1,5 mld dolarów</strong>, ok. 3000 dolarów za utwór, ok. 480 tys. książek. Ostatecznie zatwierdzona <strong>20.07.2026</strong>. Obejmuje tylko roszczenia dotyczące danych wejściowych do 25.08.2025.</li>
+</ul>
+<h3 id="ugoda-bartz-v.-anthropic-ok.-3000-usd-za-książkę">Ugoda Bartz v. Anthropic: ok. 3000 USD za książkę</h3>
+<figure>
+<img src="media/07_w_bartz_odszkodowanie_za_dzielo.svg" style="width:88.0%" alt="Wykres punktowy w skali logarytmicznej: odszkodowanie ustawowe za jedno dzieło mieści się między 200 a 150 000 dolarów, minimum przy zwykłym naruszeniu to 750 dolarów, a ugoda w sprawie Bartz v. Anthropic daje około 3000 dolarów za dzieło." />
+<figcaption aria-hidden="true">Wykres punktowy w skali logarytmicznej: odszkodowanie ustawowe za jedno dzieło mieści się między 200 a 150 000 dolarów, minimum przy zwykłym naruszeniu to 750 dolarów, a ugoda w sprawie Bartz v. Anthropic daje około 3000 dolarów za dzieło.</figcaption>
+</figure>
+<h3 id="inne-spory-które-warto-znać">Inne spory, które warto znać</h3>
+<ul>
+<li><strong>Kadrey v. Meta</strong> (N.D. Cal., 25.06.2025): <em>fair use</em> wobec 13 autorów, bo nie wykazali szkody rynkowej; sędzia dopuścił argument „rozwodnienia rynku”.</li>
+<li><strong>Thomson Reuters v. ROSS</strong> (3. Okręg, <strong>29.09.2026</strong>): streszczenia orzeczeń Westlaw są chronione; użycie do trenowania konkurencyjnego narzędzia <strong>nie jest</strong> <em>fair use</em>. Pierwsza apelacyjna decyzja o treningu AI w USA (AI niegeneratywna).</li>
+<li><strong>TSUE C-250/25 Like Company v. Google</strong> (Gemini): pierwsze pytania prejudycjalne o generatywną AI i prawo autorskie; rozprawa 10.03.2026, opinii rzecznika generalnego brak.</li>
+<li>Muzyka: wytwórnie przeciwko Suno i Udio, częściowo zakończone ugodami (2025).</li>
+</ul>
+<h3 id="ue-a-usa-dwa-modele-prawa-autorskiego-wobec-ai">UE a USA: dwa modele prawa autorskiego wobec AI</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th></th>
+<th>UE</th>
+<th>USA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Podstawa</td>
+<td>wyjątki TDM (art. 3–4 dyr.)</td>
+<td><em>fair use</em> (§ 107)</td>
+</tr>
+<tr>
+<td>Uprawniony</td>
+<td><em>opt-out</em></td>
+<td>ocena sądu ex post</td>
+</tr>
+<tr>
+<td>Przejrzystość</td>
+<td>streszczenie (art. 53)</td>
+<td>brak obowiązku</td>
+</tr>
+<tr>
+<td>Pytanie sądów</td>
+<td>czy model „przechowuje” utwór?</td>
+<td>transformatywność, szkoda rynkowa</td>
+</tr>
+</tbody>
+</table>
+<h3 id="podsumowanie">Podsumowanie</h3>
+<ul>
+<li>AI Act reguluje według ryzyka: zakazy (od 2025), przejrzystość (od 2.08.2026), wysokie ryzyko (od 12.2027 i 08.2028), GPAI (od 2025).</li>
+<li>Omnibus 2026/1744 przesunął terminy, ale nie zmienił logiki rozporządzenia.</li>
+<li>W Polsce nadzór sprawuje KRiBSI na podstawie ustawy z 3.07.2026.</li>
+<li>Konwencja Rady Europy, DSA i DMA tworzą otoczenie AI Act.</li>
+<li>Prawo autorskie: wytwór bez twórczego wkładu człowieka nie jest utworem; o legalności treningu decydują TDM i <em>opt-out</em> w UE oraz <em>fair use</em> w USA; sądy dopiero kształtują linię orzeczniczą.</li>
+</ul>
+<h3 id="na-następne-spotkanie">Na następne spotkanie</h3>
+<ul>
+<li><strong>Spotkanie 8: Prawne wyzwania AI (II): dane osobowe, odpowiedzialność, wymiar sprawiedliwości.</strong></li>
+<li>Przeczytaj: art. 22 RODO; wyrok TSUE C-634/21 SCHUFA (pkt 40–73).</li>
+<li>Studium przypadku z <code>cwiczenia.md</code>: zakwalifikuj system według AI Act.</li>
+<li>Sprawdź na stronie kursu klasyfikator ryzyka AI Act i quiz modułu 07.</li>
+</ul>
+</div>
+  <p class="crumbs"><a href="index.html">← Strona dzielnicy</a></p>
+</div>
+
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne · Wykład monograficzny · prawo · WPiA UMCS · semestr zimowy 2026/2027<br>
+    Prowadzący: dr Karol Kasprowicz, <a href="mailto:karol.kasprowicz@mail.umcs.pl">karol.kasprowicz@mail.umcs.pl</a> · Stan materiałów na 22.10.2026 · <a href="../../styl.html">Księga stylu</a></p>
+  </div>
+</footer>
+<script src="../../assets/ui.js"></script>
+
+</body>
+</html>

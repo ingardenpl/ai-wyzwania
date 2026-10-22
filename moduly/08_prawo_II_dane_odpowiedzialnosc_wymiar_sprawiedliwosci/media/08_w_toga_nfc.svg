@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Potrzeba domknięcia poznawczego: prawnicy a norma</title><desc id="d"> Zdecydowanie: próba 22,15, norma 18,5, d = 1,20; Preferowanie porządku: próba 31,08, norma 28,9, d = 0,38; Zamkniętość umysłowa: próba 17,67, norma 16,6, d = 0,36; Preferowanie przewidywalności: próba 31,69, norma 31,0, n.i.; Nietolerancja wieloznaczności: próba 25,18, norma 24,7, n.i.</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Potrzeba domknięcia poznawczego: prawnicy a norma</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#9095ad" text-anchor="start" >Średnie w podskalach skali NFC; złote: różnica istotna (p &lt; 0,001), z wielkością efektu d Cohena</text>
+<line x1="318.0" x2="318.0" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="318.0" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >15</text>
+<line x1="395.3" x2="395.3" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="395.3" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >18</text>
+<line x1="472.7" x2="472.7" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="472.7" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >21</text>
+<line x1="550.0" x2="550.0" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="550.0" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >24</text>
+<line x1="627.3" x2="627.3" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="627.3" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >27</text>
+<line x1="704.7" x2="704.7" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="704.7" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >30</text>
+<line x1="782.0" x2="782.0" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="782.0" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >33</text>
+<text x="304.0" y="156.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Zdecydowanie</text>
+<line x1="408.2" x2="502.3" y1="150.0" y2="150.0" stroke="#fcee0a" stroke-width="4"/>
+<circle cx="408.2" cy="150.0" r="8" fill="#07080f" stroke="#7df9ff" stroke-width="3"/>
+<circle cx="502.3" cy="150.0" r="9" fill="#fcee0a"/>
+<text x="800.0" y="156.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="start" >d = 1,20</text>
+<text x="304.0" y="224.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Preferowanie porządku</text>
+<line x1="676.3" x2="732.5" y1="218.0" y2="218.0" stroke="#fcee0a" stroke-width="4"/>
+<circle cx="676.3" cy="218.0" r="8" fill="#07080f" stroke="#7df9ff" stroke-width="3"/>
+<circle cx="732.5" cy="218.0" r="9" fill="#fcee0a"/>
+<text x="800.0" y="224.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="start" >d = 0,38</text>
+<text x="304.0" y="292.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Zamkniętość umysłowa</text>
+<line x1="359.2" x2="386.8" y1="286.0" y2="286.0" stroke="#fcee0a" stroke-width="4"/>
+<circle cx="359.2" cy="286.0" r="8" fill="#07080f" stroke="#7df9ff" stroke-width="3"/>
+<circle cx="386.8" cy="286.0" r="9" fill="#fcee0a"/>
+<text x="800.0" y="292.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="start" >d = 0,36</text>
+<text x="304.0" y="360.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#9095ad" text-anchor="end" >Preferowanie przewidywalności</text>
+<line x1="730.4" x2="748.2" y1="354.0" y2="354.0" stroke="#9095ad" stroke-width="4"/>
+<circle cx="730.4" cy="354.0" r="8" fill="#07080f" stroke="#7df9ff" stroke-width="3"/>
+<circle cx="748.2" cy="354.0" r="9" fill="#9095ad"/>
+<text x="800.0" y="360.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#9095ad" text-anchor="start" >n.i.</text>
+<text x="304.0" y="428.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#9095ad" text-anchor="end" >Nietolerancja wieloznaczności</text>
+<line x1="568.0" x2="580.4" y1="422.0" y2="422.0" stroke="#9095ad" stroke-width="4"/>
+<circle cx="568.0" cy="422.0" r="8" fill="#07080f" stroke="#7df9ff" stroke-width="3"/>
+<circle cx="580.4" cy="422.0" r="9" fill="#9095ad"/>
+<text x="800.0" y="428.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#9095ad" text-anchor="start" >n.i.</text>
+<circle cx="326" cy="92" r="7" fill="#07080f" stroke="#7df9ff" stroke-width="3"/>
+<text x="340.0" y="97.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13.5" font-weight="400" fill="#c2c6d8" text-anchor="start" >norma ogólnopolska</text>
+<circle cx="518" cy="92" r="8" fill="#fcee0a"/>
+<text x="532.0" y="97.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13.5" font-weight="400" fill="#c2c6d8" text-anchor="start" >prawnicy (n = 152)</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: Algorytm w Todze (2026), test t dla jednej próby wobec norm M. Kossowskiej (2003); n.i. – nieistotne</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

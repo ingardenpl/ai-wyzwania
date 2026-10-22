@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Co prawo powinno uregulować najpilniej?</title><desc id="d"> Ochrona danych i prywatności: 114; Odpowiedzialność za decyzje AI: 106; Certyfikacja i kontrola jakości narzędzi: 93; Standardy etyczne: 88; Przejrzystość algorytmów: 81</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Co prawo powinno uregulować najpilniej?</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#9095ad" text-anchor="start" >Liczba wskazań, możliwy wybór kilku odpowiedzi (n = 152)</text>
+<rect x="358.0" y="113.0" width="454.0" height="44.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="113.0" width="398.1" height="44.0" fill="#fcee0a"/>
+<text x="346.0" y="141.3" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Ochrona danych i prywatności</text>
+<text x="766.1" y="141.8" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >114</text>
+<rect x="358.0" y="191.0" width="454.0" height="44.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="191.0" width="370.2" height="44.0" fill="#fcee0a"/>
+<text x="346.0" y="219.3" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Odpowiedzialność za decyzje AI</text>
+<text x="738.2" y="219.8" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >106</text>
+<rect x="358.0" y="269.0" width="454.0" height="44.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="269.0" width="324.8" height="44.0" fill="#00f0ff"/>
+<text x="346.0" y="287.3" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Certyfikacja i kontrola</text>
+<text x="346.0" y="307.3" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >jakości narzędzi</text>
+<text x="692.8" y="297.8" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >93</text>
+<rect x="358.0" y="347.0" width="454.0" height="44.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="347.0" width="307.3" height="44.0" fill="#00f0ff"/>
+<text x="346.0" y="375.3" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Standardy etyczne</text>
+<text x="675.3" y="375.8" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >88</text>
+<rect x="358.0" y="425.0" width="454.0" height="44.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="425.0" width="282.9" height="44.0" fill="#00f0ff"/>
+<text x="346.0" y="453.3" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Przejrzystość algorytmów</text>
+<text x="650.9" y="453.8" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >81</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: M. Dudka, K. Kasprowicz, M. Stodółkiewicz, B. Stolarz, Algorytm w Todze (2026), wykres 10</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

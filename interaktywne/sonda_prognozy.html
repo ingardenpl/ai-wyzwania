@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+  /* Motyw: zapamiętany wybór (ten sam klucz co strona kursu), inaczej ustawienie systemu. */
+  (function () { try { var t = localStorage.getItem("ai-wyzwania-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {} })();
+</script>
+<title>Sonda: kiedy AI to potrafi?</title>
+<meta name="description" content="Sonda dla studentów: kiedy AI osiągnie wybrane kamienie milowe? Porównanie z medianami z ankiety 2778 badaczy AI (Grace i in., arXiv:2401.02843).">
+<style>
+  /* Tokeny kolorów: te same co tools/assets/style.css strony kursu */
+  :root {
+    --bg: #f1ebdd;
+    --surface: #f8f4ea;
+    --surface-2: #e8dfc9;
+    --ink: #14171f;
+    --ink-soft: #3a4052;
+    --muted: #5d6273;
+    --navy: #1a2542;
+    --accent: #8b1e3f;
+    --accent-ink: #ffffff;
+    --gold: #8a6420;
+    --gold-soft: #d4b97a;
+    --ok: #2d6a4f;
+    --ok-bg: #dcebe1;
+    --bad: #9b2226;
+    --bad-bg: #f3dcdc;
+    --line: rgba(20, 23, 31, 0.18);
+    --line-soft: rgba(20, 23, 31, 0.08);
+    --shadow: 0 1px 2px rgba(20, 23, 31, 0.06), 0 6px 18px rgba(20, 23, 31, 0.06);
+    --radius: 10px;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12151c; --surface: #1a1f2a; --surface-2: #232a38;
+      --ink: #ece6d8; --ink-soft: #cfc8b8; --muted: #a59f92; --navy: #c9d3ef;
+      --accent: #e3809a; --accent-ink: #12151c; --gold: #d4b97a; --gold-soft: #8a6a2e;
+      --ok: #8fd1ab; --ok-bg: #173327; --bad: #f0a3a6; --bad-bg: #3a1c1f;
+      --line: rgba(236, 230, 216, 0.18); --line-soft: rgba(236, 230, 216, 0.08);
+      --shadow: none; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12151c; --surface: #1a1f2a; --surface-2: #232a38;
+    --ink: #ece6d8; --ink-soft: #cfc8b8; --muted: #a59f92; --navy: #c9d3ef;
+    --accent: #e3809a; --accent-ink: #12151c; --gold: #d4b97a; --gold-soft: #8a6a2e;
+    --ok: #8fd1ab; --ok-bg: #173327; --bad: #f0a3a6; --bad-bg: #3a1c1f;
+    --line: rgba(236, 230, 216, 0.18); --line-soft: rgba(236, 230, 216, 0.08);
+    --shadow: none; color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); font-size: 17px; line-height: 1.6;
+    overflow-wrap: break-word;
+  }
+  img, svg { max-width: 100%; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  .skip { position: absolute; left: -9999px; top: 8px; background: var(--accent); color: var(--accent-ink); padding: 8px 12px; border-radius: 6px; z-index: 100; }
+  .skip:focus { left: 8px; }
+
+  /* Pasek górny */
+  .app-top { border-bottom: 1px solid var(--line); }
+  .app-top .wrap { display: flex; align-items: center; gap: 12px; min-height: 54px; }
+  .back { font-weight: 700; text-decoration: none; font-size: 0.92rem; }
+  .back:hover { text-decoration: underline; }
+  .course { margin-left: auto; color: var(--muted); font-size: 0.78rem; line-height: 1.3; text-align: right; }
+  .theme-toggle {
+    flex: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+    border-radius: 999px; width: 40px; height: 40px; cursor: pointer; font-size: 1.05rem;
+  }
+  .theme-toggle:hover { border-color: var(--accent); }
+
+  /* Nagłówek aplikacji */
+  .hero { padding: 36px 0 22px; border-bottom: 1px solid var(--line-soft); }
+  .eyebrow { font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin: 0 0 0.9em; }
+  h1, h2, h3 { font-family: var(--serif); line-height: 1.15; color: var(--ink); }
+  h1 { font-weight: 400; font-size: clamp(2rem, 5.2vw, 3.3rem); letter-spacing: -0.02em; margin: 0 0 0.35em; font-variation-settings: "opsz" 144; }
+  h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: 600; }
+  h2 { font-weight: 500; font-size: clamp(1.35rem, 3vw, 1.85rem); margin: 1.8em 0 0.5em; letter-spacing: -0.01em; }
+  h3 { font-weight: 600; font-size: 1.12rem; margin: 1.2em 0 0.4em; }
+  p, ul, ol { margin: 0 0 1em; }
+  .lead { font-family: var(--serif); font-size: clamp(1.05rem, 2vw, 1.22rem); color: var(--ink-soft); max-width: 46em; margin: 0; }
+  .muted { color: var(--muted); }
+  .small { font-size: 0.88rem; }
+  .mono { font-family: var(--mono); }
+
+  /* Elementy wspólne */
+  .panel { background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+  .note { border-left: 3px solid var(--gold); background: var(--surface); padding: 12px 16px; border-radius: 0 var(--radius) var(--radius) 0; font-size: 0.95rem; color: var(--ink-soft); margin: 16px 0; }
+  .note.warn { border-left-color: var(--accent); }
+  .note > :last-child { margin-bottom: 0; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    background: var(--accent); color: var(--accent-ink); text-decoration: none;
+    padding: 9px 16px; min-height: 42px; border-radius: 8px; border: 1px solid var(--accent);
+    font-weight: 700; cursor: pointer; line-height: 1.2;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .btn.ghost { background: transparent; color: var(--accent); }
+  .btn.ghost:hover { background: var(--surface-2); filter: none; }
+  .btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0 0; }
+  .chipbtn {
+    border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft);
+    border-radius: 999px; padding: 6px 14px; min-height: 38px; font-size: 0.9rem; font-weight: 700; cursor: pointer;
+  }
+  .chipbtn:hover { border-color: var(--accent); }
+  .chipbtn[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--bg); }
+  input[type="range"] { width: 100%; accent-color: var(--accent); min-height: 32px; }
+  input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); width: 18px; height: 18px; }
+  select, input[type="number"], input[type="text"] {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+    padding: 8px 10px; min-height: 42px; max-width: 100%;
+  }
+  select:focus-visible, input:focus-visible { border-color: var(--gold); }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table.data { border-collapse: collapse; width: 100%; font-size: 0.93rem; }
+  table.data th, table.data td { border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.data th { font-weight: 700; background: var(--surface-2); }
+  .tag { display: inline-block; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); color: var(--ink-soft); }
+
+  /* Stopka ze źródłami */
+  footer.sources { border-top: 1px solid var(--line); margin-top: 48px; padding: 24px 0 40px; font-size: 0.88rem; color: var(--muted); }
+  footer.sources h2 { font-size: 1.15rem; margin: 0 0 0.6em; }
+  footer.sources ol, footer.sources ul { padding-left: 1.3em; }
+  footer.sources li { margin: 0.3em 0; }
+  footer.sources a { color: var(--ink-soft); }
+  footer.sources .meta { margin-top: 1.2em; }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .course { display: none; }
+    .app-top .wrap { justify-content: space-between; }
+    .hero { padding-top: 24px; }
+    .panel { padding: 14px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  }
+  @media print {
+    .app-top, .theme-toggle, .no-print { display: none !important; }
+    body { background: #fff; color: #000; }
+  }
+
+  .items { display: grid; gap: 10px; margin: 18px 0; padding: 0; list-style: none; }
+  .item { margin: 0; background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 12px 16px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 6px 18px; align-items: center; }
+  @media (max-width: 720px) { .item { grid-template-columns: minmax(0, 1fr); } }
+  .item .lbl { font-weight: 700; line-height: 1.35; }
+  .item .lbl small { display: block; font-weight: 500; color: var(--muted); font-size: 0.84rem; margin-top: 2px; }
+  .item .kind { font-family: var(--mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold); display: block; margin-bottom: 2px; font-weight: 500; }
+  .slider { display: grid; grid-template-columns: minmax(0, 1fr) 6.2em; gap: 10px; align-items: center; }
+  .slider output { font-family: var(--mono); font-weight: 700; text-align: right; font-size: 0.95rem; }
+  .slider output.unset { color: var(--muted); font-weight: 500; }
+  .reveal-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 8px 0 24px; }
+  .status { font-size: 0.9rem; color: var(--muted); }
+
+  /* Wykres porównania */
+  .chart { margin-top: 10px; }
+  .axis, .crow { display: grid; grid-template-columns: minmax(0, 14em) minmax(0, 1fr); gap: 12px; align-items: center; }
+  @media (max-width: 640px) { .axis, .crow { grid-template-columns: minmax(0, 1fr); gap: 2px; } .axis .sp { display: none; } }
+  .crow { padding: 8px 0; border-bottom: 1px solid var(--line-soft); }
+  .crow .nm { font-size: 0.9rem; font-weight: 600; line-height: 1.3; }
+  .crow .nm small { display: block; font-weight: 500; color: var(--muted); font-family: var(--mono); font-size: 0.74rem; }
+  .track { position: relative; height: 30px; }
+  .track::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--line); }
+  .now { position: absolute; top: 2px; bottom: 2px; width: 2px; background: var(--gold); opacity: 0.8; }
+  .gap { position: absolute; top: 50%; height: 4px; margin-top: -2px; background: var(--gold-soft); border-radius: 2px; }
+  .mk { position: absolute; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; }
+  .mk.me { background: var(--accent); }
+  .mk.ex { background: var(--bg); border: 3px solid var(--navy); }
+  .mk.off::after { content: "→"; position: absolute; left: 12px; top: -6px; font-size: 0.8rem; color: var(--muted); }
+  .ticks { position: relative; height: 20px; }
+  .ticks span { position: absolute; transform: translateX(-50%); font-family: var(--mono); font-size: 0.68rem; color: var(--muted); }
+  .key { display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.86rem; color: var(--ink-soft); margin: 6px 0 4px; }
+  .key i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; vertical-align: -1px; margin-right: 6px; }
+  .key i.me { background: var(--accent); }
+  .key i.ex { border: 3px solid var(--navy); }
+  .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin: 14px 0; }
+  .summary div { background: var(--surface); border: 1px solid var(--line-soft); border-radius: 8px; padding: 10px 12px; }
+  .summary b { display: block; font-family: var(--serif); font-size: 1.7rem; line-height: 1.1; }
+  .summary small { color: var(--muted); }
+  .facts2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+  .facts2 .panel b { font-family: var(--serif); font-size: 1.6rem; display: block; }
+  [hidden] { display: none !important; }
+  /* cel dotyku: link powrotu na ekranach dotykowych ma co najmniej 44 px */
+  @media (pointer: coarse) { .back { display: inline-block; padding: 12px 0; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Przejdź do treści</a>
+<div class="app-top">
+  <div class="wrap">
+    <a class="back" href="../interaktywne.html">← Materiały interaktywne</a>
+    <span class="course">Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne<br>WPiA UMCS · 2026/2027</span>
+    <button type="button" class="theme-toggle" aria-label="Przełącz motyw">☾</button>
+  </div>
+</div>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Spotkanie 9 · Przyszłość AI · sonda</p>
+    <h1>Kiedy AI <em>to potrafi?</em></h1>
+    <p class="lead">Jesienią 2023 r. ponad 2700 autorów publikacji z czołowych konferencji o AI oszacowało, kiedy maszyny osiągną kolejne kamienie milowe. Najpierw podaj swoje prognozy, dopiero potem zobacz odpowiedzi ekspertów. Kolejność ma znaczenie: tak unikasz efektu zakotwiczenia.</p>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <div class="note" role="note">
+    <p><strong>Jak odpowiadać.</strong> Dla każdego zadania wskaż rok, w którym Twoim zdaniem jest <em>50% szans</em>, że AI będzie mogła je wykonać (tak samo prawdopodobne wcześniej, jak później). Chodzi o techniczną możliwość, a nie o powszechne wdrożenie. Ankieta zakładała, że badania naukowe trwają bez większych zakłóceń.</p>
+    <p><strong>Prywatność:</strong> odpowiedzi zapisują się wyłącznie w tej przeglądarce (localStorage) i nigdzie nie są wysyłane.</p>
+  </div>
+
+  <h2>1. Twoje prognozy</h2>
+  <ol class="items" id="items"></ol>
+  <div class="reveal-row">
+    <button type="button" class="btn" id="reveal">Porównaj z ekspertami</button>
+    <button type="button" class="btn ghost" id="clear">Wyczyść moje odpowiedzi</button>
+    <span class="status" id="status" aria-live="polite"></span>
+  </div>
+
+  <section id="results" hidden aria-labelledby="h-res">
+    <h2 id="h-res" tabindex="-1">2. Ty a badacze AI</h2>
+    <div class="summary" id="summary" aria-live="polite"></div>
+    <div class="key"><span><i class="me"></i>Twoja prognoza</span><span><i class="ex"></i>rok 50% według ekspertów (Grace i in.)</span><span><i style="background:var(--gold);width:3px;border-radius:0"></i>dziś (2026)</span></div>
+    <div class="chart" id="chart" role="img" aria-label="Wykres porównania prognoz"></div>
+    <div class="table-scroll" style="margin-top:16px">
+      <table class="data" id="tbl">
+        <caption class="sr-only">Porównanie prognoz w tabeli</caption>
+        <thead><tr><th scope="col">Kamień milowy</th><th scope="col">Ty</th><th scope="col">Eksperci (50%)</th><th scope="col">Różnica</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="btn-row"><button type="button" class="btn ghost" id="copy">Kopiuj podsumowanie do schowka</button></div>
+
+    <h2>3. Co jeszcze mówi ankieta</h2>
+    <div class="facts2">
+      <div class="panel"><b>2047</b>Rok, w którym badacze dają 50% szans na „inteligencję maszynową na poziomie człowieka” (HLMI): maszyny bez pomocy wykonują każde zadanie lepiej i taniej niż ludzie. W ankiecie z 2022 r. był to rok 2060. 10% szans: już do 2027 r.</div>
+      <div class="panel"><b>2116</b>Rok 50% szans na „pełną automatyzację pracy” (FAOL), czyli na to, że każdy zawód da się zautomatyzować. W 2022 r.: 2164. Różnica ok. 70 lat względem HLMI wynika prawdopodobnie ze sposobu sformułowania pytania (efekt ramowania).</div>
+      <div class="panel"><b>5%</b>Mediana prawdopodobieństwa „skrajnie złych skutków (np. wyginięcia ludzkości)” przypisywana przez badaczy rozwojowi AI (średnia 9%). 38% respondentów oceniło to ryzyko na co najmniej 10%. Jednocześnie 68% uznało dobre skutki za bardziej prawdopodobne niż złe.</div>
+    </div>
+    <div class="note">
+      <p><strong>Do dyskusji.</strong> (1) Czy badacze AI są najlepszymi prognostami tempa rozwoju AI? Mogą mieć interes w optymizmie, ale też najlepiej znają ograniczenia technologii. (2) Te same osoby podały daty różniące się o 70 lat, zależnie od sformułowania pytania. Co to mówi o wiarygodności prognoz? (3) Część zadań z listy (np. wypracowanie) wykonują w 2026 r. powszechnie dostępne narzędzia, inne wciąż wydają się odległe. Jak prawodawca powinien regulować technologię, której tempa rozwoju nie zna?</p>
+    </div>
+  </section>
+
+  <div class="note warn">
+    <p><strong>Ograniczenia danych.</strong> W ankiecie odpowiedziało ok. 15% zaproszonych badaczy. Każde pytanie zadano losowej podgrupie. Lata dla poszczególnych zadań i zawodów odczytano z wykresu w publikacji (rys. 1), więc są przybliżone do roku. Dokładne liczby w tekście publikacji dotyczą tylko HLMI i FAOL.</p>
+  </div>
+</main>
+
+<footer class="sources">
+  <div class="wrap">
+    <h2>Źródło</h2>
+    <ol>
+      <li>K. Grace, H. Stewart, J. F. Sandkühler, S. Thomas, B. Weinstein-Raun, J. Brauner, R. C. Korzekwa, <em>Thousands of AI Authors on the Future of AI</em>, Journal of Artificial Intelligence Research 84:9 (2025), <a href="https://doi.org/10.1613/jair.1.19087">doi:10.1613/jair.1.19087</a>; preprint <a href="https://arxiv.org/abs/2401.02843">arXiv:2401.02843</a> (wersja 3 z 8.10.2025; wersje 1–2 z 2024 r. bez R. C. Korzekwy).
+        <ul>
+          <li>Ankieta „2023 Expert Survey on Progress in AI”, 15–24.10.2023: 2778 respondentów spośród autorów publikacji na NeurIPS, ICML, ICLR, AAAI, IJCAI i JMLR.</li>
+          <li>HLMI i FAOL: rozdz. 3.2 i tab. 6; zadania i zawody: rys. 1 (odczyt przybliżony); skrajnie złe skutki: rozdz. 4.2.</li>
+        </ul>
+      </li>
+    </ol>
+    <p class="meta">Wartości sprawdzone w wersji 3 publikacji 19.10.2026. Dr Karol Kasprowicz, WPiA UMCS.</p>
+  </div>
+</footer>
+
+<script>
+  /* Przełącznik motywu (jasny / ciemny), zgodny z tools/assets/site.js. */
+  (function () {
+    var root = document.documentElement, KEY = "ai-wyzwania-theme";
+    var btn = document.querySelector(".theme-toggle");
+    function current() {
+      var t = root.getAttribute("data-theme");
+      if (t) return t;
+      return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    function label() {
+      var dark = current() === "dark";
+      btn.textContent = dark ? "☀" : "☾";
+      btn.setAttribute("aria-label", dark ? "Włącz jasny motyw" : "Włącz ciemny motyw");
+      btn.title = btn.getAttribute("aria-label");
+    }
+    if (!btn) return;
+    label();
+    btn.addEventListener("click", function () {
+      var next = current() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem(KEY, next); } catch (e) {}
+      label();
+      document.dispatchEvent(new CustomEvent("themechange"));
+    });
+  })();
+
+  (function () {
+    /* e: rok 50% według ekspertów (Grace i in., rys. 1, odczyt przybliżony; HLMI i FAOL: liczby z tekstu) */
+    var M = [
+      { id: "essay", k: "zadanie", l: "Napisać dobre wypracowanie z historii na poziomie liceum", s: "„Good high school history essay”", e: 2025 },
+      { id: "song", k: "zadanie", l: "Stworzyć piosenkę nieodróżnialną od nowego utworu konkretnego artysty", s: "np. Taylor Swift", e: 2027 },
+      { id: "pay", k: "zadanie", l: "Zbudować od zera serwis internetowy z obsługą płatności", s: "frontend, backend i bezpieczna integracja płatności", e: 2028 },
+      { id: "llm", k: "zadanie", l: "Samodzielnie pobrać i dostroić otwarty model językowy", s: "bez dalszego udziału człowieka", e: 2028 },
+      { id: "nyt", k: "zadanie", l: "Napisać powieść lub opowiadanie na listę bestsellerów „New York Timesa”", s: "", e: 2030 },
+      { id: "lang", k: "zadanie", l: "Przetłumaczyć tekst w nowo odkrytym języku", s: "na podstawie dokumentu podobnego do kamienia z Rosetty", e: 2030 },
+      { id: "lego", k: "zadanie", l: "Złożyć dowolny zestaw LEGO według instrukcji", s: "robotem ogólnego przeznaczenia", e: 2031 },
+      { id: "wire", k: "zadanie", l: "Wykonać instalację elektryczną w nowym domu", s: "fizycznie, jak elektryk", e: 2040 },
+      { id: "math", k: "zadanie", l: "Rutynowo dowodzić twierdzeń publikowalnych w czołowych czasopismach matematycznych", s: "", e: 2045 },
+      { id: "retail", k: "zawód", l: "Zastąpić sprzedawcę w sklepie", s: "pełna automatyzacja zawodu", e: 2033 },
+      { id: "truck", k: "zawód", l: "Zastąpić kierowcę ciężarówki", s: "pełna automatyzacja zawodu", e: 2035 },
+      { id: "surg", k: "zawód", l: "Zastąpić chirurga", s: "pełna automatyzacja zawodu", e: 2055 },
+      { id: "airs", k: "zawód", l: "Zastąpić badacza AI", s: "pełna automatyzacja zawodu", e: 2062 },
+      { id: "hlmi", k: "ogólne", l: "Każde zadanie wykonać lepiej i taniej niż człowiek (HLMI)", s: "inteligencja maszynowa na poziomie człowieka", e: 2047 },
+      { id: "faol", k: "ogólne", l: "Każdy zawód da się w pełni zautomatyzować (FAOL)", s: "pełna automatyzacja pracy", e: 2116 }
+    ];
+    var MIN = 2024, MAX = 2121, NOW = 2026, KEY = "ai-wyzwania-sonda-prognozy";
+    var ans = {};
+    try { ans = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { ans = {}; }
+    var $ = function (id) { return document.getElementById(id); };
+    function save() { try { localStorage.setItem(KEY, JSON.stringify(ans)); } catch (e) {} }
+    function fmt(y) { return y >= MAX ? "po 2120" : y <= MIN ? "już teraz" : String(y); }
+
+    function buildItems() {
+      var ol = $("items");
+      M.forEach(function (m, i) {
+        var li = document.createElement("li"); li.className = "item";
+        var id = "y-" + m.id;
+        li.innerHTML = "<label class='lbl' for='" + id + "'><span class='kind'></span><span class='t'></span><small></small></label>" +
+          "<div class='slider'><input type='range' id='" + id + "' min='" + MIN + "' max='" + MAX + "' step='1'><output for='" + id + "'></output></div>";
+        li.querySelector(".kind").textContent = (i + 1) + " · " + m.k;
+        li.querySelector(".t").textContent = m.l;
+        li.querySelector("small").textContent = m.s;
+        var inp = li.querySelector("input"), out = li.querySelector("output");
+        var v = ans[m.id];
+        inp.value = v || 2040;
+        function show() { if (ans[m.id]) { out.textContent = fmt(ans[m.id]); out.classList.remove("unset"); inp.setAttribute("aria-valuetext", fmt(ans[m.id])); } else { out.textContent = "—"; out.classList.add("unset"); inp.setAttribute("aria-valuetext", "nie wybrano"); } }
+        inp.addEventListener("input", function () { ans[m.id] = parseInt(inp.value, 10); save(); show(); status(); });
+        show();
+        ol.appendChild(li);
+      });
+    }
+    function answered() { return M.filter(function (m) { return ans[m.id]; }).length; }
+    function status() { $("status").textContent = "Odpowiedzi: " + answered() + " z " + M.length + (answered() < M.length ? " (pozostałe możesz pominąć)" : ""); }
+
+    function pos(y) { var c = Math.max(MIN, Math.min(MAX, y)); return ((c - MIN) / (MAX - MIN) * 100).toFixed(2) + "%"; }
+    function renderResults() {
+      var done = M.filter(function (m) { return ans[m.id]; });
+      var chart = $("chart"); chart.innerHTML = "";
+      var ax = document.createElement("div"); ax.className = "axis"; ax.innerHTML = "<span class='sp'></span><div class='ticks'></div>";
+      [2030, 2050, 2070, 2090, 2110].forEach(function (y) { var s = document.createElement("span"); s.style.left = pos(y); s.textContent = y; ax.querySelector(".ticks").appendChild(s); });
+      M.forEach(function (m) {
+        var row = document.createElement("div"); row.className = "crow";
+        var nm = document.createElement("div"); nm.className = "nm"; nm.textContent = m.l.replace(/ \((HLMI|FAOL)\)/, " ($1)");
+        var sm = document.createElement("small"); sm.textContent = "eksperci: " + m.e + (ans[m.id] ? " · Ty: " + fmt(ans[m.id]) : " · brak Twojej odpowiedzi"); nm.appendChild(sm);
+        var tr = document.createElement("div"); tr.className = "track";
+        tr.innerHTML = "<span class='now' style='left:" + pos(NOW) + "'></span>";
+        if (ans[m.id]) { var a = Math.min(ans[m.id], m.e), b = Math.max(ans[m.id], m.e); var g = document.createElement("span"); g.className = "gap"; g.style.left = pos(a); g.style.width = "calc(" + pos(b) + " - " + pos(a) + ")"; tr.appendChild(g); }
+        var ex = document.createElement("span"); ex.className = "mk ex"; ex.style.left = pos(m.e); tr.appendChild(ex);
+        if (ans[m.id]) { var me = document.createElement("span"); me.className = "mk me" + (ans[m.id] >= MAX ? " off" : ""); me.style.left = pos(ans[m.id]); tr.appendChild(me); }
+        row.appendChild(nm); row.appendChild(tr); chart.appendChild(row);
+      });
+      chart.appendChild(ax);
+
+      var tb = document.querySelector("#tbl tbody"); tb.innerHTML = "";
+      var earlier = 0, later = 0, diffs = [];
+      M.forEach(function (m) {
+        var y = ans[m.id], d = y ? (y >= MAX ? null : y - m.e) : null;
+        if (y) { if ((y >= MAX ? 999 : y) < m.e) earlier++; else if ((y >= MAX ? 999 : y) > m.e) later++; if (d !== null) diffs.push(d); }
+        var trr = document.createElement("tr");
+        trr.innerHTML = "<td></td><td>" + (y ? fmt(y) : "—") + "</td><td>" + m.e + "</td><td>" + (y ? (d === null ? "później" : d === 0 ? "zgodnie" : (d > 0 ? "+" : "−") + Math.abs(d) + " l.") : "—") + "</td>";
+        trr.firstChild.textContent = m.l; tb.appendChild(trr);
+      });
+      diffs.sort(function (a, b) { return a - b; });
+      var med = diffs.length ? (diffs.length % 2 ? diffs[(diffs.length - 1) / 2] : (diffs[diffs.length / 2 - 1] + diffs[diffs.length / 2]) / 2) : null;
+      $("summary").innerHTML =
+        "<div><small>wcześniej niż eksperci</small><b>" + earlier + "</b><small>z " + done.length + " odpowiedzi</small></div>" +
+        "<div><small>później niż eksperci</small><b>" + later + "</b><small>z " + done.length + " odpowiedzi</small></div>" +
+        "<div><small>mediana różnicy</small><b>" + (med === null ? "—" : (med > 0 ? "+" : med < 0 ? "−" : "") + Math.abs(Math.round(med)) + " l.") + "</b><small>" + (med === null ? "" : med < 0 ? "przewidujesz szybsze tempo niż eksperci" : med > 0 ? "przewidujesz wolniejsze tempo niż eksperci" : "zgodnie z ekspertami") + "</small></div>";
+      return { earlier: earlier, later: later, n: done.length, med: med };
+    }
+
+    $("reveal").addEventListener("click", function () {
+      if (!answered()) { $("status").textContent = "Najpierw podaj co najmniej jedną prognozę."; return; }
+      $("results").hidden = false; renderResults(); $("h-res").focus();
+    });
+    $("clear").addEventListener("click", function () {
+      ans = {}; save(); try { localStorage.removeItem(KEY); } catch (e) {}
+      $("items").innerHTML = ""; buildItems(); status(); $("results").hidden = true;
+    });
+    $("copy").addEventListener("click", function () {
+      var lines = M.filter(function (m) { return ans[m.id]; }).map(function (m) { return m.l + ": ja " + fmt(ans[m.id]) + ", eksperci " + m.e; });
+      var txt = "Moje prognozy AI (sonda, spotkanie 9)\n" + lines.join("\n") + "\nŹródło danych ekspertów: Grace i in., JAIR 84:9 (2025)";
+      var btn = $("copy");
+      function ok() { btn.textContent = "Skopiowano ✓"; setTimeout(function () { btn.textContent = "Kopiuj podsumowanie do schowka"; }, 2000); }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(ok, function () { btn.textContent = "Nie udało się skopiować"; });
+      else btn.textContent = "Schowek niedostępny";
+    });
+    buildItems(); status();
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 640" width="1400" height="640" role="img" aria-label="Podział zdania na tokeny i rozkład prawdopodobieństwa następnego tokenu" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<title>Podział zdania na tokeny i rozkład prawdopodobieństwa następnego tokenu</title>
+<defs>
+<marker id="aN" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f3a5f"/></marker>
+<marker id="aM" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a1538"/></marker>
+<marker id="aT" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2a7f7a"/></marker>
+<marker id="aA" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a8661a"/></marker>
+</defs>
+<rect x="1" y="1" width="1398" height="638" rx="18" fill="#fbfaf7" stroke="#d6d0c4" stroke-width="2"/>
+<text x="700.0" y="46.0" font-size="28" fill="#1f3a5f" text-anchor="middle" font-weight="bold">Tokeny i przewidywanie następnego tokenu</text>
+<text x="60.0" y="100.0" font-size="19" fill="#1d1d1f" text-anchor="start" font-weight="bold">1. Tekst dzielony jest na tokeny (podział przykładowy; każdy model ma własny „słownik”):</text>
+<rect x="60.0" y="125.0" width="71.0" height="50.0" rx="8" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="2"/>
+<text x="95.5" y="158.0" font-size="22" fill="#1f3a5f" text-anchor="middle" font-weight="bold">Sąd</text>
+<text x="95.5" y="200.0" font-size="14" fill="#555555" text-anchor="middle" font-weight="normal">3214</text>
+<rect x="141.0" y="125.0" width="86.0" height="50.0" rx="8" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="2"/>
+<text x="184.0" y="158.0" font-size="22" fill="#2a7f7a" text-anchor="middle" font-weight="bold">␣odd</text>
+<text x="184.0" y="200.0" font-size="14" fill="#555555" text-anchor="middle" font-weight="normal">8812</text>
+<rect x="237.0" y="125.0" width="86.0" height="50.0" rx="8" fill="#fbf0dc" stroke="#a8661a" stroke-width="2"/>
+<text x="280.0" y="158.0" font-size="22" fill="#a8661a" text-anchor="middle" font-weight="bold">alił</text>
+<text x="280.0" y="200.0" font-size="14" fill="#555555" text-anchor="middle" font-weight="normal">501</text>
+<rect x="333.0" y="125.0" width="86.0" height="50.0" rx="8" fill="#f6e2e7" stroke="#8a1538" stroke-width="2"/>
+<text x="376.0" y="158.0" font-size="22" fill="#8a1538" text-anchor="middle" font-weight="bold">␣pow</text>
+<text x="376.0" y="200.0" font-size="14" fill="#555555" text-anchor="middle" font-weight="normal">1290</text>
+<rect x="429.0" y="125.0" width="56.0" height="50.0" rx="8" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="2"/>
+<text x="457.0" y="158.0" font-size="22" fill="#1f3a5f" text-anchor="middle" font-weight="bold">ód</text>
+<text x="457.0" y="200.0" font-size="14" fill="#555555" text-anchor="middle" font-weight="normal">77</text>
+<rect x="495.0" y="125.0" width="41.0" height="50.0" rx="8" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="2"/>
+<text x="515.5" y="158.0" font-size="22" fill="#2a7f7a" text-anchor="middle" font-weight="bold">z</text>
+<text x="515.5" y="200.0" font-size="14" fill="#555555" text-anchor="middle" font-weight="normal">93</text>
+<rect x="546.0" y="125.0" width="71.0" height="50.0" rx="8" fill="#fbf0dc" stroke="#a8661a" stroke-width="2"/>
+<text x="581.5" y="158.0" font-size="22" fill="#a8661a" text-anchor="middle" font-weight="bold">two</text>
+<text x="581.5" y="200.0" font-size="14" fill="#555555" text-anchor="middle" font-weight="normal">4410</text>
+<rect x="627.0" y="125.0" width="56.0" height="50.0" rx="8" fill="#f6e2e7" stroke="#8a1538" stroke-width="2"/>
+<text x="655.0" y="158.0" font-size="22" fill="#8a1538" text-anchor="middle" font-weight="bold">␣w</text>
+<text x="655.0" y="200.0" font-size="14" fill="#555555" text-anchor="middle" font-weight="normal">289</text>
+<text x="703.0" y="158.0" font-size="26" fill="#1d1d1f" text-anchor="start" font-weight="bold">→ ?</text>
+<text x="60.0" y="228.0" font-size="16" fill="#555555" text-anchor="start" font-weight="normal" font-style="italic">Model widzi numery tokenów, nie litery (stąd kłopot z liczeniem liter w słowie „strawberry”).</text>
+<text x="60.0" y="280.0" font-size="19" fill="#1d1d1f" text-anchor="start" font-weight="bold">2. Model oblicza prawdopodobieństwo każdego możliwego następnego tokenu:</text>
+<text x="250.0" y="336.0" font-size="19" fill="#1d1d1f" text-anchor="end" font-weight="bold">␣całości</text>
+<rect x="270.0" y="316.0" width="434.0" height="30.0" rx="4" fill="#2a7f7a" stroke="#2a7f7a" stroke-width="1.5"/>
+<text x="716.0" y="338.0" font-size="18" fill="#2a7f7a" text-anchor="start" font-weight="bold">0,62</text>
+<text x="250.0" y="382.0" font-size="19" fill="#1d1d1f" text-anchor="end" font-weight="bold">␣części</text>
+<rect x="270.0" y="362.0" width="147.0" height="30.0" rx="4" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="1.5"/>
+<text x="429.0" y="384.0" font-size="18" fill="#2a7f7a" text-anchor="start" font-weight="bold">0,21</text>
+<text x="250.0" y="428.0" font-size="19" fill="#1d1d1f" text-anchor="end" font-weight="bold">␣zakresie</text>
+<rect x="270.0" y="408.0" width="56.0" height="30.0" rx="4" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="1.5"/>
+<text x="338.0" y="430.0" font-size="18" fill="#2a7f7a" text-anchor="start" font-weight="bold">0,08</text>
+<text x="250.0" y="474.0" font-size="19" fill="#1d1d1f" text-anchor="end" font-weight="bold">␣dniu</text>
+<rect x="270.0" y="454.0" width="28.0" height="30.0" rx="4" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="1.5"/>
+<text x="310.0" y="476.0" font-size="18" fill="#2a7f7a" text-anchor="start" font-weight="bold">0,04</text>
+<text x="250.0" y="520.0" font-size="19" fill="#1d1d1f" text-anchor="end" font-weight="bold">␣trybie</text>
+<rect x="270.0" y="500.0" width="14.0" height="30.0" rx="4" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="1.5"/>
+<text x="296.0" y="522.0" font-size="18" fill="#2a7f7a" text-anchor="start" font-weight="bold">0,02</text>
+<text x="250.0" y="566.0" font-size="19" fill="#1d1d1f" text-anchor="end" font-weight="bold">(inne)</text>
+<rect x="270.0" y="546.0" width="21.0" height="30.0" rx="4" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="1.5"/>
+<text x="303.0" y="568.0" font-size="18" fill="#2a7f7a" text-anchor="start" font-weight="bold">0,03</text>
+<rect x="1000.0" y="310.0" width="360.0" height="260.0" rx="12" fill="#fbf0dc" stroke="#a8661a" stroke-width="2"/>
+<text x="1180.0" y="345.0" font-size="18" fill="#a8661a" text-anchor="middle" font-weight="bold">3. Wybór tokenu</text>
+<text x="1180.0" y="371.0" font-size="18" fill="#a8661a" text-anchor="middle" font-weight="bold">(najbardziej prawdopodobny</text>
+<text x="1180.0" y="397.0" font-size="18" fill="#a8661a" text-anchor="middle" font-weight="bold">albo losowanie z rozkładu),</text>
+<text x="1180.0" y="423.0" font-size="18" fill="#a8661a" text-anchor="middle" font-weight="bold">dopisanie go do tekstu</text>
+<text x="1180.0" y="449.0" font-size="18" fill="#a8661a" text-anchor="middle" font-weight="bold">i powtórka od nowa.</text>
+<text x="1180.0" y="490.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="bold">Odpowiedź powstaje</text>
+<text x="1180.0" y="516.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="bold">token po tokenie.</text>
+<text x="700.0" y="612.0" font-size="16" fill="#555555" text-anchor="middle" font-weight="normal" font-style="italic">Numery tokenów i prawdopodobieństwa są ilustracyjne, nie pochodzą z konkretnego modelu.</text>
+</svg>

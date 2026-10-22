@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Kobiety są bardziej narażone na generatywną AI</title><desc id="d"> Polska (ILO-NASK, VI 2025): próba 39,10, norma 22,8, 39,1% vs 22,8%; Europa i Azja Środkowa (ILO, V 2025): próba 39,00, norma 26,0, 39% vs 26%; Kraje wysokodochodowe (ILO, V 2025): próba 41,00, norma 28,0, 41% vs 28%</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Kobiety są bardziej narażone na generatywną AI</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#9095ad" text-anchor="start" >Odsetek zatrudnienia w zawodach z jakąkolwiek ekspozycją na GenAI (gradienty 1-4), mężczyźni vs kobiety</text>
+<line x1="318.0" x2="318.0" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="318.0" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >0</text>
+<line x1="369.6" x2="369.6" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="369.6" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >5</text>
+<line x1="421.1" x2="421.1" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="421.1" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >10</text>
+<line x1="472.7" x2="472.7" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="472.7" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >15</text>
+<line x1="524.2" x2="524.2" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="524.2" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >20</text>
+<line x1="575.8" x2="575.8" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="575.8" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >25</text>
+<line x1="627.3" x2="627.3" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="627.3" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >30</text>
+<line x1="678.9" x2="678.9" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="678.9" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >35</text>
+<line x1="730.4" x2="730.4" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="730.4" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >40</text>
+<line x1="782.0" x2="782.0" y1="106" y2="456" stroke="#1a2a36"/>
+<text x="782.0" y="476.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >45</text>
+<text x="304.0" y="178.7" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Polska (ILO-NASK, VI 2025)</text>
+<line x1="553.1" x2="721.2" y1="172.7" y2="172.7" stroke="#fcee0a" stroke-width="4"/>
+<circle cx="553.1" cy="172.7" r="8" fill="#07080f" stroke="#7df9ff" stroke-width="3"/>
+<circle cx="721.2" cy="172.7" r="9" fill="#fcee0a"/>
+<text x="800.0" y="178.7" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="start" >39,1% vs 22,8%</text>
+<text x="304.0" y="292.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#9095ad" text-anchor="end" >Europa i Azja Środkowa (ILO, V 2025)</text>
+<line x1="586.1" x2="720.1" y1="286.0" y2="286.0" stroke="#9095ad" stroke-width="4"/>
+<circle cx="586.1" cy="286.0" r="8" fill="#07080f" stroke="#7df9ff" stroke-width="3"/>
+<circle cx="720.1" cy="286.0" r="9" fill="#9095ad"/>
+<text x="800.0" y="292.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#9095ad" text-anchor="start" >39% vs 26%</text>
+<text x="304.0" y="405.3" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#9095ad" text-anchor="end" >Kraje wysokodochodowe (ILO, V 2025)</text>
+<line x1="606.7" x2="740.8" y1="399.3" y2="399.3" stroke="#9095ad" stroke-width="4"/>
+<circle cx="606.7" cy="399.3" r="8" fill="#07080f" stroke="#7df9ff" stroke-width="3"/>
+<circle cx="740.8" cy="399.3" r="9" fill="#9095ad"/>
+<text x="800.0" y="405.3" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#9095ad" text-anchor="start" >41% vs 28%</text>
+<circle cx="326" cy="92" r="7" fill="#07080f" stroke="#7df9ff" stroke-width="3"/>
+<text x="340.0" y="97.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13.5" font-weight="400" fill="#c2c6d8" text-anchor="start" >mężczyźni</text>
+<circle cx="518" cy="92" r="8" fill="#fcee0a"/>
+<text x="532.0" y="97.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13.5" font-weight="400" fill="#c2c6d8" text-anchor="start" >kobiety</text>
+<text x="28.0" y="507.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: ILO Working Paper 140 (20 V 2025), s. 43-44; M. Troszyński, J. Berg, P. Gmyrek i in., Generatywna</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >sztuczna inteligencja a polski rynek pracy, NASK-PIB (VI 2025), wykres 1 i s. 17-18</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

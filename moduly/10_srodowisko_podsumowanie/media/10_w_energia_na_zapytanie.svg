@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Ile energii zużywa jedno zapytanie do modelu?</title><desc id="d"> Google, Gemini Apps (08.2025): 0,24 Wh; Epoch AI, GPT-4o (02.2025): ok. 0,3 Wh; OpenAI, S. Altman (06.2025): ok. 0,34 Wh; Starsze szacunki (Epoch AI): ok. 3 Wh</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Ile energii zużywa jedno zapytanie do modelu?</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#9095ad" text-anchor="start" >Szacunki energii na zapytanie tekstowe; różne metody i zakresy pomiaru (skala logarytmiczna)</text>
+<line x1="328.0" x2="328.0" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="328.0" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >0,1 Wh</text>
+<line x1="570.0" x2="570.0" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="570.0" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >1 Wh</text>
+<line x1="812.0" x2="812.0" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="812.0" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >10 Wh</text>
+<text x="314.0" y="155.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >Google, Gemini Apps (08.2025)</text>
+<text x="314.0" y="172.8" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >mediana; zmierzone w produkcji, maj 2025</text>
+<circle cx="420.0" cy="155.8" r="9" fill="#00f0ff"/>
+<text x="436.0" y="161.8" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#00f0ff" text-anchor="start" >0,24 Wh</text>
+<text x="314.0" y="243.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >Epoch AI, GPT-4o (02.2025)</text>
+<text x="314.0" y="260.2" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >model teoretyczny, 500 tokenów</text>
+<circle cx="443.5" cy="243.2" r="9" fill="#00f0ff"/>
+<text x="459.5" y="249.2" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#00f0ff" text-anchor="start" >ok. 0,3 Wh</text>
+<text x="314.0" y="330.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >OpenAI, S. Altman (06.2025)</text>
+<text x="314.0" y="347.8" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >średnia; bez metodologii</text>
+<circle cx="456.6" cy="330.8" r="9" fill="#00f0ff"/>
+<text x="472.6" y="336.8" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#00f0ff" text-anchor="start" >ok. 0,34 Wh</text>
+<text x="314.0" y="418.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >Starsze szacunki (Epoch AI)</text>
+<text x="314.0" y="435.2" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >przed poprawą modeli i sprzętu</text>
+<circle cx="685.5" cy="418.2" r="9" fill="#fcee0a"/>
+<text x="701.5" y="424.2" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#fcee0a" text-anchor="start" >ok. 3 Wh</text>
+<text x="28.0" y="507.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >(21.08.2025) i Google 2026 Environmental Report; Epoch AI (Josh You), How much energy does ChatGPT use?,</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >7.02.2025; S. Altman, The Gentle Singularity (06.2025)</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

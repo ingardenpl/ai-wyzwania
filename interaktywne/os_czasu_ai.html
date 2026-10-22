@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+  /* Motyw: zapamiętany wybór (ten sam klucz co strona kursu), inaczej ustawienie systemu. */
+  (function () { try { var t = localStorage.getItem("ai-wyzwania-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {} })();
+</script>
+<title>Oś czasu AI 1943–2026</title>
+<meta name="description" content="Interaktywna oś czasu sztucznej inteligencji 1943–2026: technika, prawo i regulacja, kultura. Każde wydarzenie z opisem i źródłem.">
+<style>
+  /* Tokeny kolorów: te same co tools/assets/style.css strony kursu */
+  :root {
+    --bg: #f1ebdd;
+    --surface: #f8f4ea;
+    --surface-2: #e8dfc9;
+    --ink: #14171f;
+    --ink-soft: #3a4052;
+    --muted: #5d6273;
+    --navy: #1a2542;
+    --accent: #8b1e3f;
+    --accent-ink: #ffffff;
+    --gold: #8a6420;
+    --gold-soft: #d4b97a;
+    --ok: #2d6a4f;
+    --ok-bg: #dcebe1;
+    --bad: #9b2226;
+    --bad-bg: #f3dcdc;
+    --line: rgba(20, 23, 31, 0.18);
+    --line-soft: rgba(20, 23, 31, 0.08);
+    --shadow: 0 1px 2px rgba(20, 23, 31, 0.06), 0 6px 18px rgba(20, 23, 31, 0.06);
+    --radius: 10px;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12151c; --surface: #1a1f2a; --surface-2: #232a38;
+      --ink: #ece6d8; --ink-soft: #cfc8b8; --muted: #a59f92; --navy: #c9d3ef;
+      --accent: #e3809a; --accent-ink: #12151c; --gold: #d4b97a; --gold-soft: #8a6a2e;
+      --ok: #8fd1ab; --ok-bg: #173327; --bad: #f0a3a6; --bad-bg: #3a1c1f;
+      --line: rgba(236, 230, 216, 0.18); --line-soft: rgba(236, 230, 216, 0.08);
+      --shadow: none; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12151c; --surface: #1a1f2a; --surface-2: #232a38;
+    --ink: #ece6d8; --ink-soft: #cfc8b8; --muted: #a59f92; --navy: #c9d3ef;
+    --accent: #e3809a; --accent-ink: #12151c; --gold: #d4b97a; --gold-soft: #8a6a2e;
+    --ok: #8fd1ab; --ok-bg: #173327; --bad: #f0a3a6; --bad-bg: #3a1c1f;
+    --line: rgba(236, 230, 216, 0.18); --line-soft: rgba(236, 230, 216, 0.08);
+    --shadow: none; color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); font-size: 17px; line-height: 1.6;
+    overflow-wrap: break-word;
+  }
+  img, svg { max-width: 100%; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  .skip { position: absolute; left: -9999px; top: 8px; background: var(--accent); color: var(--accent-ink); padding: 8px 12px; border-radius: 6px; z-index: 100; }
+  .skip:focus { left: 8px; }
+
+  /* Pasek górny */
+  .app-top { border-bottom: 1px solid var(--line); }
+  .app-top .wrap { display: flex; align-items: center; gap: 12px; min-height: 54px; }
+  .back { font-weight: 700; text-decoration: none; font-size: 0.92rem; }
+  .back:hover { text-decoration: underline; }
+  .course { margin-left: auto; color: var(--muted); font-size: 0.78rem; line-height: 1.3; text-align: right; }
+  .theme-toggle {
+    flex: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+    border-radius: 999px; width: 40px; height: 40px; cursor: pointer; font-size: 1.05rem;
+  }
+  .theme-toggle:hover { border-color: var(--accent); }
+
+  /* Nagłówek aplikacji */
+  .hero { padding: 36px 0 22px; border-bottom: 1px solid var(--line-soft); }
+  .eyebrow { font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin: 0 0 0.9em; }
+  h1, h2, h3 { font-family: var(--serif); line-height: 1.15; color: var(--ink); }
+  h1 { font-weight: 400; font-size: clamp(2rem, 5.2vw, 3.3rem); letter-spacing: -0.02em; margin: 0 0 0.35em; font-variation-settings: "opsz" 144; }
+  h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: 600; }
+  h2 { font-weight: 500; font-size: clamp(1.35rem, 3vw, 1.85rem); margin: 1.8em 0 0.5em; letter-spacing: -0.01em; }
+  h3 { font-weight: 600; font-size: 1.12rem; margin: 1.2em 0 0.4em; }
+  p, ul, ol { margin: 0 0 1em; }
+  .lead { font-family: var(--serif); font-size: clamp(1.05rem, 2vw, 1.22rem); color: var(--ink-soft); max-width: 46em; margin: 0; }
+  .muted { color: var(--muted); }
+  .small { font-size: 0.88rem; }
+  .mono { font-family: var(--mono); }
+
+  /* Elementy wspólne */
+  .panel { background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+  .note { border-left: 3px solid var(--gold); background: var(--surface); padding: 12px 16px; border-radius: 0 var(--radius) var(--radius) 0; font-size: 0.95rem; color: var(--ink-soft); margin: 16px 0; }
+  .note.warn { border-left-color: var(--accent); }
+  .note > :last-child { margin-bottom: 0; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    background: var(--accent); color: var(--accent-ink); text-decoration: none;
+    padding: 9px 16px; min-height: 42px; border-radius: 8px; border: 1px solid var(--accent);
+    font-weight: 700; cursor: pointer; line-height: 1.2;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .btn.ghost { background: transparent; color: var(--accent); }
+  .btn.ghost:hover { background: var(--surface-2); filter: none; }
+  .btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0 0; }
+  .chipbtn {
+    border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft);
+    border-radius: 999px; padding: 6px 14px; min-height: 38px; font-size: 0.9rem; font-weight: 700; cursor: pointer;
+  }
+  .chipbtn:hover { border-color: var(--accent); }
+  .chipbtn[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--bg); }
+  input[type="range"] { width: 100%; accent-color: var(--accent); min-height: 32px; }
+  input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); width: 18px; height: 18px; }
+  select, input[type="number"], input[type="text"] {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+    padding: 8px 10px; min-height: 42px; max-width: 100%;
+  }
+  select:focus-visible, input:focus-visible { border-color: var(--gold); }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table.data { border-collapse: collapse; width: 100%; font-size: 0.93rem; }
+  table.data th, table.data td { border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.data th { font-weight: 700; background: var(--surface-2); }
+  .tag { display: inline-block; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); color: var(--ink-soft); }
+
+  /* Stopka ze źródłami */
+  footer.sources { border-top: 1px solid var(--line); margin-top: 48px; padding: 24px 0 40px; font-size: 0.88rem; color: var(--muted); }
+  footer.sources h2 { font-size: 1.15rem; margin: 0 0 0.6em; }
+  footer.sources ol, footer.sources ul { padding-left: 1.3em; }
+  footer.sources li { margin: 0.3em 0; }
+  footer.sources a { color: var(--ink-soft); }
+  footer.sources .meta { margin-top: 1.2em; }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .course { display: none; }
+    .app-top .wrap { justify-content: space-between; }
+    .hero { padding-top: 24px; }
+    .panel { padding: 14px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  }
+  @media print {
+    .app-top, .theme-toggle, .no-print { display: none !important; }
+    body { background: #fff; color: #000; }
+  }
+
+  .controls { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; margin: 18px 0 8px; }
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chipbtn .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: 0; }
+  .filters .chipbtn[aria-pressed="true"] { background: var(--surface-2); color: var(--ink); border-color: var(--c); box-shadow: inset 0 0 0 1px var(--c); }
+  .filters .chipbtn[aria-pressed="false"] { color: var(--muted); text-decoration: line-through; }
+  .filters .chipbtn[aria-pressed="false"] .dot { background: transparent; box-shadow: inset 0 0 0 2px var(--c); }
+  .search { flex: 1 1 220px; max-width: 360px; }
+  .search input { width: 100%; }
+  .count { font-size: 0.88rem; color: var(--muted); }
+  .c-tech { --c: var(--navy); }
+  .c-prawo { --c: var(--accent); }
+  .c-kultura { --c: var(--gold); }
+  .dot { background: var(--c); }
+
+  /* Pasek przeglądowy */
+  .strip { position: relative; height: 64px; margin: 18px 0 6px; border-bottom: 1px solid var(--line); }
+  .band { position: absolute; top: 0; bottom: 0; background: repeating-linear-gradient(135deg, var(--surface-2) 0 6px, transparent 6px 12px); border-radius: 4px 4px 0 0; }
+  .band span { position: absolute; top: 2px; left: 4px; font-size: 0.66rem; font-family: var(--mono); color: var(--muted); white-space: nowrap; }
+  .tick { position: absolute; bottom: -20px; transform: translateX(-50%); font-family: var(--mono); font-size: 0.7rem; color: var(--muted); }
+  .tick::before { content: ""; position: absolute; left: 50%; top: -6px; height: 5px; width: 1px; background: var(--line); }
+  .pin { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--c); transform: translate(-50%, 0); border: 0; padding: 0; cursor: pointer; }
+  .pin:hover, .pin:focus-visible { transform: translate(-50%, 0) scale(1.6); }
+  .strip-wrap { padding-bottom: 26px; }
+
+  /* Lista */
+  .decade { margin-top: 26px; }
+  .decade h2 { font-size: 1.5rem; margin: 0 0 10px; display: flex; align-items: baseline; gap: 10px; }
+  .decade h2 small { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); font-weight: 500; }
+  .events { list-style: none; margin: 0; padding: 0 0 0 18px; border-left: 2px solid var(--line); display: grid; gap: 8px; }
+  .ev { margin: 0; position: relative; }
+  .ev::before { content: ""; position: absolute; left: -25px; top: 17px; width: 12px; height: 12px; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 3px var(--bg); }
+  .ev > button {
+    width: 100%; text-align: left; background: var(--surface); border: 1px solid var(--line-soft); border-left: 4px solid var(--c);
+    border-radius: 8px; padding: 9px 12px; cursor: pointer; display: grid; grid-template-columns: 6.6em minmax(0, 1fr) auto; gap: 10px; align-items: baseline;
+  }
+  .ev > button:hover { border-color: var(--c); }
+  .ev .date { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+  .ev .title { font-weight: 700; line-height: 1.35; }
+  .ev .chev { font-family: var(--mono); color: var(--muted); transition: transform 0.2s; }
+  .ev > button[aria-expanded="true"] .chev { transform: rotate(90deg); }
+  .ev .body { background: var(--surface); border: 1px solid var(--line-soft); border-top: 0; border-radius: 0 0 8px 8px; margin: -4px 0 0 4px; padding: 12px 14px 10px; }
+  .ev .body p { margin: 0 0 8px; }
+  .ev .src { font-size: 0.86rem; color: var(--muted); }
+  .ev .src a { color: var(--ink-soft); }
+  .catlbl { font-family: var(--mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--c); font-weight: 700; }
+  .ev.hl > button { box-shadow: 0 0 0 3px var(--gold); }
+  .empty { padding: 20px; text-align: center; color: var(--muted); }
+  @media (max-width: 560px) {
+    .ev > button { grid-template-columns: minmax(0, 1fr) auto; gap: 2px 8px; }
+    .ev .date { grid-column: 1 / -1; }
+    .events { padding-left: 14px; }
+    .ev::before { left: -21px; }
+    .strip { height: 56px; }
+    .band span { display: none; }
+  }
+  /* cel dotyku: link powrotu na ekranach dotykowych ma co najmniej 44 px */
+  @media (pointer: coarse) { .back { display: inline-block; padding: 12px 0; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Przejdź do treści</a>
+<div class="app-top">
+  <div class="wrap">
+    <a class="back" href="../interaktywne.html">← Materiały interaktywne</a>
+    <span class="course">Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne<br>WPiA UMCS · 2026/2027</span>
+    <button type="button" class="theme-toggle" aria-label="Przełącz motyw">☾</button>
+  </div>
+</div>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Spotkanie 2 · Historia sztucznej inteligencji · oś czasu</p>
+    <h1>Oś czasu <em>AI</em> 1943–2026</h1>
+    <p class="lead">Od modelu neuronu McCullocha i Pittsa do omnibusu cyfrowego i polskiej ustawy o systemach sztucznej inteligencji. Filtruj wydarzenia według trzech wątków i klikaj, aby zobaczyć opis oraz źródło.</p>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <div class="controls">
+    <div class="filters" role="group" aria-label="Filtruj według wątku">
+      <button type="button" class="chipbtn c-tech" data-cat="tech" aria-pressed="true"><span class="dot" aria-hidden="true"></span>Technika</button>
+      <button type="button" class="chipbtn c-prawo" data-cat="prawo" aria-pressed="true"><span class="dot" aria-hidden="true"></span>Prawo i regulacja</button>
+      <button type="button" class="chipbtn c-kultura" data-cat="kultura" aria-pressed="true"><span class="dot" aria-hidden="true"></span>Kultura</button>
+    </div>
+    <div class="search"><label for="q" class="sr-only">Szukaj wydarzenia</label><input type="text" id="q" placeholder="Szukaj, np. AlphaGo, RODO, Lem…" autocomplete="off"></div>
+    <span class="count" id="count" aria-live="polite"></span>
+  </div>
+
+  <div class="strip-wrap no-print">
+    <div class="strip" id="strip" aria-label="Przegląd osi czasu: kliknij punkt, aby przejść do wydarzenia"></div>
+  </div>
+  <div class="btn-row no-print"><button type="button" class="btn ghost" id="expandAll">Rozwiń wszystkie</button><button type="button" class="btn ghost" id="collapseAll">Zwiń wszystkie</button></div>
+
+  <div id="list"></div>
+
+  <div class="note">
+    <p><strong>Jak czytać daty.</strong> Granice „zim AI” (okresów ograniczenia finansowania i zainteresowania badaniami) są umowne. Podano je według periodyzacji przyjętej w sylabusie: 1974–1980 i 1987–1993. Przy aktach prawnych podano datę przyjęcia albo, gdy wskazuje na to tytuł, datę wejścia w życie lub stosowania. Pozostałe daty podano w opisie.</p>
+  </div>
+</main>
+
+<footer class="sources">
+  <div class="wrap">
+    <h2>Źródła i weryfikacja</h2>
+    <p>Źródło każdego wydarzenia podane jest w jego opisie (publikacja oryginalna, akt w EUR-Lex lub ISAP, strona sądu albo instytucji). Wybrane opracowania ogólne:</p>
+    <ul>
+      <li>S. Russell, P. Norvig, <em>Artificial Intelligence: A Modern Approach</em>, wyd. 4, Pearson 2021, rozdz. 1.3 (historia AI).</li>
+      <li>M. Mitchell, <em>Sztuczna inteligencja. Przewodnik dla myślących istot</em>, Wydawnictwo Poznańskie 2020.</li>
+      <li>N. J. Nilsson, <em>The Quest for Artificial Intelligence</em>, Cambridge University Press 2010.</li>
+    </ul>
+    <p class="meta">Daty sprawdzone 19.10.2026 w źródłach pierwotnych i oficjalnych. Dr Karol Kasprowicz, WPiA UMCS.</p>
+  </div>
+</footer>
+
+<script>
+  /* Przełącznik motywu (jasny / ciemny), zgodny z tools/assets/site.js. */
+  (function () {
+    var root = document.documentElement, KEY = "ai-wyzwania-theme";
+    var btn = document.querySelector(".theme-toggle");
+    function current() {
+      var t = root.getAttribute("data-theme");
+      if (t) return t;
+      return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    function label() {
+      var dark = current() === "dark";
+      btn.textContent = dark ? "☀" : "☾";
+      btn.setAttribute("aria-label", dark ? "Włącz jasny motyw" : "Włącz ciemny motyw");
+      btn.title = btn.getAttribute("aria-label");
+    }
+    if (!btn) return;
+    label();
+    btn.addEventListener("click", function () {
+      var next = current() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem(KEY, next); } catch (e) {}
+      label();
+      document.dispatchEvent(new CustomEvent("themechange"));
+    });
+  })();
+
+  (function () {
+    /* d: data wyświetlana, y: rok (z ułamkiem do sortowania), c: wątek */
+    var E = [
+      { y: 1943, d: "1943", c: "tech", t: "McCulloch i Pitts: model sztucznego neuronu", o: "Warren McCulloch i Walter Pitts opisują neuron jako prosty element logiczny, który „odpala” po przekroczeniu progu. To matematyczny fundament sieci neuronowych.", s: "W. S. McCulloch, W. Pitts, A Logical Calculus of the Ideas Immanent in Nervous Activity, Bulletin of Mathematical Biophysics 5 (1943), s. 115–133", u: "https://doi.org/10.1007/BF02478259" },
+      { y: 1950.8, d: "X 1950", c: "tech", t: "Turing: „Czy maszyny mogą myśleć?”", o: "Alan Turing proponuje „grę w naśladownictwo”, później nazwaną testem Turinga. Zamiast definiować myślenie, pyta, czy maszyna może w rozmowie nie dać się odróżnić od człowieka.", s: "A. M. Turing, Computing Machinery and Intelligence, Mind 59 (236), 1950, s. 433–460", u: "https://doi.org/10.1093/mind/LIX.236.433" },
+      { y: 1950.9, d: "XII 1950", c: "kultura", t: "Asimov, „Ja, robot”", o: "Zbiór opowiadań Isaaca Asimova utrwala w kulturze trzy prawa robotyki. Do dziś są punktem odniesienia w debacie o etyce maszyn, choć same opowiadania pokazują, że sztywne reguły zawodzą.", s: "I. Asimov, I, Robot, Gnome Press, 2.12.1950", u: "https://www.isfdb.org/cgi-bin/title.cgi?1069" },
+      { y: 1956.5, d: "lato 1956", c: "tech", t: "Konferencja w Dartmouth", o: "Letni projekt badawczy w Dartmouth College (ok. 18.06–17.08.1956) uznaje się za narodziny AI jako dziedziny. Termin „artificial intelligence” pojawił się we wniosku z 31.08.1955 (McCarthy, Minsky, Rochester, Shannon).", s: "J. McCarthy i in., A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence, 31.08.1955", u: "http://jmc.stanford.edu/articles/dartmouth/dartmouth.pdf" },
+      { y: 1958, d: "1958", c: "tech", t: "Perceptron Rosenblatta", o: "Frank Rosenblatt przedstawia perceptron, czyli sieć, która uczy się klasyfikacji na przykładach. Prasa zapowiada maszynę, która „będzie chodzić, mówić i mieć świadomość”. To jeden z pierwszych cykli przesadnych oczekiwań wobec AI.", s: "F. Rosenblatt, The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain, Psychological Review 65 (6), 1958, s. 386–408", u: "https://doi.org/10.1037/h0042519" },
+      { y: 1964, d: "1964", c: "kultura", t: "Lem, „Summa Technologiae”", o: "Stanisław Lem analizuje przyszłość techniki, w tym „intelektronikę”, czyli wzmacnianie inteligencji maszynami. Wiele jego intuicji wyprzedza współczesne debaty o AI. W 1981 r. ukazał się „Golem XIV”, monolog superinteligentnego komputera.", s: "S. Lem, Summa Technologiae, Wydawnictwo Literackie 1964; oficjalna strona: solaris.lem.pl", u: "https://solaris.lem.pl/ksiazki/beletrystyka/golem-xiv" },
+      { y: 1966, d: "I 1966", c: "tech", t: "ELIZA Weizenbauma", o: "Program Josepha Weizenbauma symuluje psychoterapeutę za pomocą prostych reguł przekształcania zdań. Użytkownicy przypisywali mu zrozumienie. Zjawisko to nazwano później „efektem ELIZY”, a sam Weizenbaum stał się krytykiem AI.", s: "J. Weizenbaum, ELIZA – A Computer Program for the Study of Natural Language Communication between Man and Machine, Communications of the ACM 9 (1), 1966, s. 36–45", u: "https://doi.org/10.1145/365153.365168" },
+      { y: 1968.3, d: "2 IV 1968", c: "kultura", t: "„2001: Odyseja kosmiczna” i HAL 9000", o: "Film Stanleya Kubricka (scenariusz z Arthurem C. Clarke'em) tworzy archetyp AI, która wykonuje cel kosztem ludzi. Wątek HAL 9000 bywa przywoływany w dyskusjach o problemie dostosowania (alignment).", s: "AFI Catalog: 2001: A Space Odyssey (premiera 2.04.1968)", u: "https://catalog.afi.com/Catalog/moviedetails/22785" },
+      { y: 1969, d: "1969", c: "tech", t: "Minsky i Papert, „Perceptrons”", o: "Książka wykazuje ograniczenia jednowarstwowego perceptronu (np. nie nauczy się funkcji XOR). Przyczyniła się do spadku zainteresowania sieciami neuronowymi na ponad dekadę.", s: "M. Minsky, S. Papert, Perceptrons, MIT Press 1969", u: "https://mitpress.mit.edu/9780262630221/perceptrons/" },
+      { y: 1973, d: "1973", c: "tech", t: "Raport Lighthilla i pierwsza zima AI", o: "Raport dla brytyjskiej Science Research Council (datowany 1972, opublikowany 1973) krytykuje brak postępów AI. Cięcia finansowania w Wielkiej Brytanii i USA otwierają pierwszą „zimę AI” (umownie 1974–1980).", s: "J. Lighthill, Artificial Intelligence: A General Survey, Science Research Council 1973", u: "http://www.chilton-computing.org.uk/inf/literature/reports/lighthill_report/p001.htm" },
+      { y: 1980, d: "1980", c: "tech", t: "Systemy ekspertowe: XCON w DEC", o: "System R1/XCON konfiguruje zamówienia komputerów w firmie Digital Equipment Corporation. To początek komercyjnego boomu systemów ekspertowych opartych na regułach, w tym pierwszych systemów prawniczych.", s: "J. McDermott, R1: A Rule-Based Configurer of Computer Systems, Artificial Intelligence 19 (1), 1982, s. 39–88", u: "https://doi.org/10.1016/0004-3702(82)90021-2" },
+      { y: 1982.5, d: "25 VI 1982", c: "kultura", t: "„Łowca androidów”", o: "Film Ridleya Scotta według prozy Philipa K. Dicka. Test Voighta-Kampffa, który odróżnia ludzi od replikantów po reakcjach empatycznych, to kulturowy odpowiednik testu Turinga.", s: "AFI Catalog: Blade Runner (premiera w USA 25.06.1982)", u: "https://catalog.afi.com/Catalog/moviedetails/56925" },
+      { y: 1984.8, d: "26 X 1984", c: "kultura", t: "„Terminator”", o: "Skynet staje się najpopularniejszym obrazem AI wymykającej się spod kontroli. Ten obraz do dziś kształtuje wyobrażenia o zagrożeniach i bywa nazywany „efektem Terminatora” w debacie publicznej.", s: "AFI Catalog: The Terminator (premiera 26.10.1984)", u: "https://catalog.afi.com/Catalog/moviedetails/57000" },
+      { y: 1986.8, d: "9 X 1986", c: "tech", t: "Propagacja wsteczna", o: "Rumelhart, Hinton i Williams pokazują, jak skutecznie uczyć sieci wielowarstwowe metodą propagacji wstecznej błędu. Otwiera to drogę do głębokiego uczenia.", s: "D. E. Rumelhart, G. E. Hinton, R. J. Williams, Learning Representations by Back-Propagating Errors, Nature 323, 1986, s. 533–536", u: "https://doi.org/10.1038/323533a0" },
+      { y: 1987, d: "1987", c: "tech", t: "Druga zima AI", o: "Załamanie rynku specjalistycznych komputerów do AI i rozczarowanie kosztownymi w utrzymaniu systemami ekspertowymi. Według periodyzacji sylabusa druga „zima AI” trwa do ok. 1993 r.", s: "S. Russell, P. Norvig, Artificial Intelligence: A Modern Approach, wyd. 4, 2021, rozdz. 1.3", u: "" },
+      { y: 1995.8, d: "24 X 1995", c: "prawo", t: "Dyrektywa 95/46/WE: zautomatyzowane decyzje", o: "Art. 15 dyrektywy o ochronie danych osobowych przyznaje prawo, by nie podlegać decyzji opartej wyłącznie na zautomatyzowanym przetwarzaniu danych. To bezpośredni poprzednik art. 22 RODO.", s: "Dyrektywa 95/46/WE z 24.10.1995", u: "http://data.europa.eu/eli/dir/1995/46/oj" },
+      { y: 1997.4, d: "11 V 1997", c: "tech", t: "Deep Blue pokonuje Kasparowa", o: "Komputer IBM wygrywa rewanżowy mecz z mistrzem świata w szachach 3,5:2,5. Zwycięstwo zapewniły moc obliczeniowa i przeszukiwanie, a nie uczenie maszynowe.", s: "IBM, Deep Blue", u: "https://www.ibm.com/history/deep-blue" },
+      { y: 2011.1, d: "14–16 II 2011", c: "tech", t: "IBM Watson wygrywa w „Jeopardy!”", o: "System odpowiadający na pytania w języku naturalnym pokonuje najlepszych graczy teleturnieju. Późniejsze próby zastosowania Watsona w medycynie przyniosły rozczarowanie.", s: "IBM, Watson, Jeopardy! champion", u: "https://www.ibm.com/history/watson-jeopardy" },
+      { y: 2011.9, d: "4 XII 2011", c: "kultura", t: "„Czarne lustro”", o: "Pierwszy odcinek serialu Charliego Brookera. Kolejne sezony pokazują m.in. cyfrowe kopie zmarłych i systemy ocen społecznych, które stały się punktem odniesienia w debacie o etyce technologii.", s: "Channel 4, Black Mirror, odc. „The National Anthem”, 4.12.2011", u: "https://www.channel4.com/programmes/black-mirror" },
+      { y: 2012.8, d: "IX–X 2012", c: "tech", t: "AlexNet i przełom głębokiego uczenia", o: "Sieć konwolucyjna Krizhevsky'ego, Sutskevera i Hintona wygrywa konkurs ImageNet (ILSVRC 2012) z błędem top-5 15,3%, znacznie lepszym od konkurencji. To początek dominacji głębokiego uczenia, możliwej dzięki dużym zbiorom danych i kartom graficznym.", s: "O. Russakovsky i in., ImageNet Large Scale Visual Recognition Challenge, 2015, arXiv:1409.0575", u: "https://arxiv.org/abs/1409.0575" },
+      { y: 2013.8, d: "X–XII 2013", c: "kultura", t: "„Ona” (Her)", o: "Film Spike'a Jonze'a o relacji człowieka z asystentem głosowym (premiera na festiwalu w Nowym Jorku 12.10.2013, w kinach w USA od 18.12.2013). Dekadę później emocjonalne relacje z chatbotami stały się realnym zjawiskiem społecznym.", s: "AFI Catalog: Her", u: "https://catalog.afi.com/Catalog/moviedetails/70393" },
+      { y: 2016.2, d: "9–15 III 2016", c: "tech", t: "AlphaGo pokonuje Lee Sedola", o: "Program DeepMind wygrywa z mistrzem go 4:1. „Ruch 37” w drugiej partii (10.03.2016) eksperci uznali najpierw za błąd, a potem za twórczy. Go uchodziło za grę zbyt złożoną dla komputerów.", s: "Google DeepMind, AlphaGo", u: "https://deepmind.google/research/breakthroughs/alphago/" },
+      { y: 2016.3, d: "27 IV 2016", c: "prawo", t: "RODO przyjęte", o: "Ogólne rozporządzenie o ochronie danych (stosowane od 25.05.2018) w art. 22 reguluje decyzje oparte wyłącznie na zautomatyzowanym przetwarzaniu, w tym profilowaniu.", s: "Rozporządzenie (UE) 2016/679", u: "http://data.europa.eu/eli/reg/2016/679/oj" },
+      { y: 2016.5, d: "13 VII 2016", c: "prawo", t: "State v. Loomis", o: "Sąd Najwyższy Wisconsin dopuszcza użycie algorytmu COMPAS do oceny ryzyka recydywy przy wymiarze kary. Zastrzega jednak ostrzeżenia o jego ograniczeniach. Sprawa stała się symbolem sporu o nieprzejrzyste algorytmy w sądach.", s: "State v. Loomis, 2016 WI 68, 881 N.W.2d 749", u: "https://law.justia.com/cases/wisconsin/supreme-court/2016/2015ap000157-cr.html" },
+      { y: 2017.1, d: "16 II 2017", c: "prawo", t: "Parlament Europejski o „osobach elektronicznych”", o: "Rezolucja w sprawie przepisów prawa cywilnego dotyczących robotyki rozważa w przyszłości status „osoby elektronicznej” dla najbardziej zaawansowanych robotów. Pomysł spotkał się z szeroką krytyką i nie wszedł do prawa.", s: "Rezolucja PE z 16.02.2017, P8_TA(2017)0051", u: "https://www.europarl.europa.eu/doceo/document/TA-8-2017-0051_EN.html" },
+      { y: 2017.45, d: "12 VI 2017", c: "tech", t: "Transformer: „Attention Is All You Need”", o: "Zespół Google proponuje architekturę transformera opartą na mechanizmie uwagi. Stała się ona podstawą dużych modeli językowych (GPT, BERT, Claude, Gemini, Llama).", s: "A. Vaswani i in., Attention Is All You Need, arXiv:1706.03762", u: "https://arxiv.org/abs/1706.03762" },
+      { y: 2018.8, d: "25 X 2018", c: "kultura", t: "Obraz AI sprzedany w Christie's", o: "„Portret Edmonda de Belamy” kolektywu Obvious, wygenerowany siecią GAN, osiąga cenę 432 500 USD. Rozpoczyna to spór o autorstwo i wartość sztuki generatywnej.", s: "Christie's, Is artificial intelligence set to become art's next medium?", u: "https://www.christies.com/features/a-collaboration-between-two-artists-one-human-one-a-machine-9332-1.aspx" },
+      { y: 2019.27, d: "8 IV 2019", c: "prawo", t: "Wytyczne etyczne dla godnej zaufania AI", o: "Grupa ekspertów wysokiego szczebla (HLEG) przy Komisji Europejskiej formułuje 7 wymogów godnej zaufania AI. Wytyczne wpłynęły na późniejszy AI Act. 22.05.2019 OECD przyjmuje Zasady dotyczące AI (zmienione 3.05.2024).", s: "HLEG AI, Ethics Guidelines for Trustworthy AI; OECD, Recommendation of the Council on AI (OECD/LEGAL/0449)", u: "https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai" },
+      { y: 2020.1, d: "5 II 2020", c: "prawo", t: "Wyrok w sprawie SyRI (Holandia)", o: "Sąd rejonowy w Hadze uznaje, że algorytmiczny system wykrywania nadużyć w świadczeniach socjalnych narusza art. 8 EKPC (prawo do prywatności) z powodu nieprzejrzystości i braku zabezpieczeń. Państwo nie wniosło apelacji.", s: "Rechtbank Den Haag, ECLI:NL:RBDHA:2020:865 (tłum. ang.: ECLI:NL:RBDHA:2020:1878)", u: "https://uitspraken.rechtspraak.nl/details?id=ECLI:NL:RBDHA:2020:865" },
+      { y: 2021.3, d: "21 IV 2021", c: "prawo", t: "Projekt AI Act", o: "Komisja Europejska przedstawia wniosek rozporządzenia o sztucznej inteligencji oparty na podejściu opartym na ryzyku: praktyki zakazane, systemy wysokiego ryzyka, obowiązki przejrzystości.", s: "COM(2021) 206", u: "https://eur-lex.europa.eu/legal-content/PL/TXT/?uri=CELEX:52021PC0206" },
+      { y: 2021.9, d: "23 XI 2021", c: "prawo", t: "Rekomendacja UNESCO w sprawie etyki AI", o: "Pierwszy globalny standard etyki AI przyjęty przez państwa członkowskie UNESCO, w tym zasady proporcjonalności, przejrzystości i nadzoru człowieka.", s: "UNESCO, Recommendation on the Ethics of Artificial Intelligence", u: "https://unesdoc.unesco.org/ark:/48223/pf0000381137" },
+      { y: 2022.67, d: "VIII–IX 2022", c: "kultura", t: "Obraz z Midjourney wygrywa konkurs", o: "„Théâtre D'opéra Spatial” Jasona Allena wygrywa kategorię sztuki cyfrowej na Colorado State Fair. Wywołuje debatę o tym, czy obraz wygenerowany promptem jest dziełem artysty.", s: "K. Roose, An A.I.-Generated Picture Won an Art Prize. Artists Aren't Happy, The New York Times, 2.09.2022", u: "https://www.nytimes.com/2022/09/02/technology/ai-artificial-intelligence-artists.html" },
+      { y: 2022.8, d: "19 X 2022", c: "prawo", t: "Akt o usługach cyfrowych (DSA)", o: "Rozporządzenie nakłada na platformy obowiązki m.in. w zakresie moderacji treści, przejrzystości systemów rekomendacyjnych i oceny ryzyk systemowych. 14.09.2022 przyjęto akt o rynkach cyfrowych (DMA).", s: "Rozporządzenie (UE) 2022/2065; rozporządzenie (UE) 2022/1925", u: "http://data.europa.eu/eli/reg/2022/2065/oj" },
+      { y: 2022.91, d: "30 XI 2022", c: "tech", t: "ChatGPT", o: "OpenAI udostępnia czat oparty na modelu GPT-3.5. W ciągu kilku miesięcy staje się jedną z najszybciej rosnących usług internetowych w historii. Generatywna AI wchodzi do debaty publicznej, edukacji i praktyki prawniczej.", s: "OpenAI, Introducing ChatGPT", u: "https://openai.com/index/chatgpt/" },
+      { y: 2023.2, d: "14 III 2023", c: "tech", t: "GPT-4", o: "Model multimodalny OpenAI osiąga wyniki na poziomie zdających w wielu egzaminach zawodowych, w tym w amerykańskim egzaminie adwokackim (Uniform Bar Exam), według raportu producenta.", s: "OpenAI, GPT-4 Technical Report, arXiv:2303.08774", u: "https://openai.com/index/gpt-4-research/" },
+      { y: 2023.28, d: "IV 2023", c: "kultura", t: "Eldagsen odrzuca nagrodę, „Heart on My Sleeve”", o: "Boris Eldagsen odmawia przyjęcia Sony World Photography Award za obraz wygenerowany przez AI (ceremonia 13.04.2023). Kilka dni wcześniej (4.04.2023) w sieci pojawia się utwór z głosami Drake'a i The Weeknd podrobionymi przez AI.", s: "B. Eldagsen, oświadczenie autora", u: "https://www.eldagsen.com/sony-world-photography-awards-2023/" },
+      { y: 2023.34, d: "V–XI 2023", c: "kultura", t: "Strajki scenarzystów i aktorów w Hollywood", o: "Strajki WGA (2.05–27.09.2023) i SAG-AFTRA (14.07–9.11.2023) kończą się umowami zbiorowymi z pierwszymi zabezpieczeniami przed zastępowaniem twórców przez AI i użyciem cyfrowych replik aktorów.", s: "WGA, Summary of the 2023 MBA; SAG-AFTRA, 2023 TV/Theatrical Contracts", u: "https://www.wga.org/contracts/contracts/mba/summary-of-the-2023-wga-mba" },
+      { y: 2023.47, d: "22 VI 2023", c: "prawo", t: "Mata v. Avianca: zmyślone orzeczenia", o: "Sąd federalny w Nowym Jorku nakłada sankcje na pełnomocników, którzy złożyli pismo z orzeczeniami wymyślonymi przez ChatGPT. Sprawa jest symbolem ryzyka halucynacji w pracy prawnika.", s: "Mata v. Avianca, Inc., No. 22-cv-1461 (PKC), S.D.N.Y., 678 F.Supp.3d 443", u: "https://www.courtlistener.com/docket/63107798/mata-v-avianca-inc/" },
+      { y: 2023.83, d: "30 X – 1 XI 2023", c: "prawo", t: "Rozporządzenie wykonawcze Bidena i deklaracja z Bletchley", o: "30.10.2023 prezydent USA wydaje Executive Order 14110 o bezpiecznej AI. 1.11.2023 na szczycie w Bletchley Park 28 państw i UE podpisuje deklarację o ryzykach modeli granicznych.", s: "Executive Order 14110; The Bletchley Declaration", u: "https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration" },
+      { y: 2023.93, d: "7 XII 2023", c: "prawo", t: "TSUE, C-634/21 SCHUFA", o: "Trybunał uznaje, że ustalenie scoringu kredytowego jest „decyzją” w rozumieniu art. 22 RODO, jeśli w dużej mierze przesądza o udzieleniu kredytu.", s: "Wyrok TSUE z 7.12.2023, C-634/21, ECLI:EU:C:2023:957", u: "https://curia.europa.eu/juris/liste.jsf?num=C-634/21" },
+      { y: 2023.98, d: "27 XII 2023", c: "prawo", t: "New York Times pozywa OpenAI i Microsoft", o: "Wydawca zarzuca naruszenie praw autorskich przez trenowanie modeli na artykułach i odtwarzanie ich fragmentów. To jeden z najważniejszych sporów o dane treningowe.", s: "The New York Times Co. v. Microsoft Corp. et al., No. 1:23-cv-11195 (S.D.N.Y.)", u: "https://www.courtlistener.com/docket/68117049/the-new-york-times-company-v-microsoft-corporation/" },
+      { y: 2024.27, d: "IV 2024", c: "kultura", t: "Bielik: polski model językowy", o: "Społeczność SpeakLeash z ACK Cyfronet AGH udostępnia Bielika, otwarty model językowy trenowany na polskich tekstach. Pod koniec lutego 2025 r. Ministerstwo Cyfryzacji przedstawia PLLuM, model rozwijany przez konsorcjum polskich instytucji naukowych. Oba modele wyrażają dążenie do „suwerenności językowej” w AI.", s: "SpeakLeash, Bielik-7B (Hugging Face)", u: "https://huggingface.co/speakleash/Bielik-7B-v0.1" },
+      { y: 2024.37, d: "17 V 2024", c: "prawo", t: "Konwencja ramowa Rady Europy o AI", o: "Pierwszy wiążący traktat międzynarodowy o AI, prawach człowieka, demokracji i państwie prawa (CETS nr 225). Otwarty do podpisu 5.09.2024 w Wilnie. UE ratyfikowała go 15.05.2026 jako pierwsza strona. Według stanu na wrzesień 2026 r. konwencja nie weszła jeszcze w życie.", s: "Rada Europy, CETS No. 225", u: "https://www.coe.int/en/web/conventions/full-list?module=treaty-detail&treatynum=225" },
+      { y: 2024.45, d: "13 VI 2024", c: "prawo", t: "AI Act przyjęty", o: "Rozporządzenie (UE) 2024/1689 podpisano 13.06.2024, opublikowano 12.07.2024, a w życie weszło 1.08.2024. To pierwsza kompleksowa regulacja AI oparta na kategoriach ryzyka.", s: "Rozporządzenie (UE) 2024/1689", u: "http://data.europa.eu/eli/reg/2024/1689/oj" },
+      { y: 2024.7, d: "12 IX 2024", c: "tech", t: "Modele „rozumujące” (o1)", o: "OpenAI udostępnia o1-preview, model, który przed odpowiedzią generuje długi łańcuch rozumowania. Poprawia to wyniki w matematyce i programowaniu kosztem większego zużycia obliczeń przy każdym zapytaniu.", s: "OpenAI, Introducing OpenAI o1-preview", u: "https://openai.com/index/introducing-openai-o1-preview/" },
+      { y: 2024.77, d: "8–9 X 2024", c: "tech", t: "Nagrody Nobla za AI", o: "Nobel z fizyki dla Johna Hopfielda i Geoffreya Hintona za podstawy uczenia sieci neuronowych. Nobel z chemii: połowa dla Davida Bakera, połowa dla Demisa Hassabisa i Johna Jumpera (AlphaFold, przewidywanie struktury białek).", s: "nobelprize.org: Physics 2024, Chemistry 2024", u: "https://www.nobelprize.org/prizes/physics/2024/summary/" },
+      { y: 2024.81, d: "23 X 2024", c: "prawo", t: "Nowa dyrektywa o produktach wadliwych", o: "Dyrektywa (UE) 2024/2853 obejmuje oprogramowanie, w tym systemy AI, odpowiedzialnością za produkt niebezpieczny. Termin transpozycji upływa 9.12.2026.", s: "Dyrektywa (UE) 2024/2853", u: "http://data.europa.eu/eli/dir/2024/2853/oj" },
+      { y: 2025.05, d: "20–23 I 2025", c: "tech", t: "DeepSeek-R1 i agenci AI", o: "Chiński DeepSeek-R1 (20.01.2025), otwarty model rozumujący, dorównuje czołowym modelom przy znacznie niższych deklarowanych kosztach. 23.01.2025 OpenAI pokazuje Operatora, agenta wykonującego zadania w przeglądarce. Rok 2025 przynosi upowszechnienie agentów AI.", s: "DeepSeek, Release news 20.01.2025; OpenAI, Introducing Operator", u: "https://api-docs.deepseek.com/news/news250120" },
+      { y: 2025.06, d: "20–23 I 2025", c: "prawo", t: "USA: zwrot w polityce wobec AI", o: "Prezydent Trump uchyla rozporządzenie 14110 (EO 14148 z 20.01.2025) i wydaje EO 14179 „Removing Barriers to American Leadership in AI” (23.01.2025). Polityka USA przesuwa się od bezpieczeństwa do deregulacji.", s: "Federal Register, EO 14179", u: "https://www.federalregister.gov/documents/2025/01/31/2025-02172/removing-barriers-to-american-leadership-in-artificial-intelligence" },
+      { y: 2025.09, d: "2 II 2025", c: "prawo", t: "AI Act: zakazy i kompetencje w zakresie AI", o: "Zaczynają obowiązywać zakazy praktyk z art. 5 (m.in. scoring społeczny, manipulacja, rozpoznawanie emocji w pracy i szkole) oraz art. 4 o kompetencjach w zakresie AI.", s: "Rozporządzenie (UE) 2024/1689, art. 113 lit. a", u: "http://data.europa.eu/eli/reg/2024/1689/oj" },
+      { y: 2025.16, d: "27 II 2025", c: "prawo", t: "TSUE, C-203/22 Dun & Bradstreet Austria", o: "Osoba, wobec której zapadła zautomatyzowana decyzja, ma prawo do wyjaśnienia procedury i zasad faktycznie zastosowanych przy jej podejmowaniu (art. 15 ust. 1 lit. h RODO). Tajemnica przedsiębiorstwa nie wyłącza tego prawa automatycznie.", s: "Wyrok TSUE z 27.02.2025, C-203/22, ECLI:EU:C:2025:117", u: "https://curia.europa.eu/juris/liste.jsf?num=C-203/22" },
+      { y: 2025.21, d: "18 III 2025", c: "prawo", t: "Thaler v. Perlmutter", o: "Sąd apelacyjny dla Dystryktu Kolumbii potwierdza, że utwór stworzony samodzielnie przez AI nie podlega rejestracji w amerykańskim prawie autorskim: autorem musi być człowiek. 2.03.2026 Sąd Najwyższy USA odmówił rozpoznania sprawy.", s: "Thaler v. Perlmutter, No. 23-5233 (D.C. Cir. 2025)", u: "https://media.cadc.uscourts.gov/opinions/docs/2025/03/23-5233.pdf" },
+      { y: 2025.23, d: "25 III 2025", c: "kultura", t: "Fala obrazów „w stylu Ghibli”", o: "Po udostępnieniu generowania obrazów w GPT-4o miliony użytkowników przerabiają zdjęcia na styl Studia Ghibli. Wraca pytanie, czy styl artysty podlega ochronie i na jakich danych trenowano model.", s: "OpenAI, Introducing 4o Image Generation", u: "https://openai.com/index/introducing-4o-image-generation/" },
+      { y: 2025.47, d: "23 VI 2025", c: "prawo", t: "Bartz v. Anthropic", o: "Sąd federalny uznaje trenowanie modelu na legalnie nabytych książkach za dozwolony użytek (fair use), ale nie korzystanie z pirackich kopii. Ugoda na 1,5 mld USD (ogłoszona 5.09.2025) zostaje ostatecznie zatwierdzona 20.07.2026.", s: "Bartz v. Anthropic PBC, N.D. Cal.; Authors Guild, komunikat o zatwierdzeniu ugody", u: "https://authorsguild.org/news/court-grants-final-approval-anthropic-copyright-settlement/" },
+      { y: 2025.58, d: "2 VIII 2025", c: "prawo", t: "AI Act: obowiązki dostawców modeli GPAI", o: "Zaczynają obowiązywać obowiązki dostawców modeli AI ogólnego przeznaczenia (art. 53 i 55), m.in. dokumentacja, polityka prawa autorskiego i streszczenie danych treningowych. 10.07.2025 opublikowano kodeks praktyk dla GPAI.", s: "Komisja Europejska, The General-Purpose AI Code of Practice", u: "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai" },
+      { y: 2025.76, d: "6 X 2025", c: "prawo", t: "Wycofanie projektu dyrektywy o odpowiedzialności za AI", o: "Komisja zapowiedziała wycofanie projektu (AILD) w programie prac z 11.02.2025. Decyzję podjęła 16.07.2025, a zawiadomienie opublikowano w Dzienniku Urzędowym 6.10.2025. Odpowiedzialność za AI pozostaje w prawie krajowym i w dyrektywie 2024/2853.", s: "EAPIL, European Commission withdraws two proposals, 9.10.2025", u: "https://eapil.org/2025/10/09/european-commission-withdraws-two-proposals-assignments-of-claims-regulation-and-ai-liability-directive/" },
+      { y: 2025.84, d: "4 XI 2025", c: "prawo", t: "Getty Images v. Stability AI", o: "High Court Anglii i Walii oddala roszczenia z tytułu wtórnego naruszenia praw autorskich: model nie jest „kopią naruszającą”. Częściowo uwzględnia roszczenia ze znaków towarowych (znaki wodne Getty na generowanych obrazach).", s: "[2025] EWHC 2863 (Ch)", u: "https://www.judiciary.uk/judgments/getty-images-v-stability-ai/" },
+      { y: 2025.86, d: "11 XI 2025", c: "prawo", t: "GEMA v. OpenAI", o: "Sąd krajowy w Monachium uznaje, że zapamiętanie tekstów piosenek w modelu i ich odtwarzanie narusza prawo autorskie, a wyjątek eksploracji tekstów i danych (TDM) tego nie obejmuje. Wyrok nieprawomocny.", s: "LG München I, 42 O 14139/24", u: "https://www.lto.de/recht/nachrichten/n/42o1413924-lg-muenchen-i-gema-openai-chatgpt-songtexte-ki" },
+      { y: 2025.88, d: "19 XI 2025", c: "prawo", t: "Omnibus cyfrowy: projekt", o: "Komisja proponuje zmiany AI Act w pakiecie upraszczającym prawo cyfrowe, w tym przesunięcie terminów dla systemów wysokiego ryzyka.", s: "COM(2025) 836", u: "https://digital-strategy.ec.europa.eu/en/library/digital-omnibus-ai-regulation-proposal" },
+      { y: 2026.06, d: "22 I 2026", c: "prawo", t: "Korea Płd.: ustawa podstawowa o AI w mocy", o: "Ustawa o rozwoju AI i budowie zaufania (uchwalona 26.12.2024, ogłoszona 21.01.2025) wchodzi w życie. To jeden z pierwszych po AI Act kompleksowych aktów o AI, bardziej nastawiony na wspieranie rozwoju niż na zakazy.", s: "Korea Law Information Center (law.go.kr)", u: "https://www.law.go.kr" },
+      { y: 2026.56, d: "27 VII 2026", c: "prawo", t: "Omnibus cyfrowy w mocy", o: "Rozporządzenie (UE) 2026/1744 zmienia AI Act. Obowiązki dla systemów wysokiego ryzyka z zał. III stosuje się od 2.12.2027, a z zał. I od 2.08.2028. Nowe zakazy z art. 5 (m.in. generowanie intymnych wizerunków bez zgody i CSAM) stosuje się od 2.12.2026.", s: "Rozporządzenie (UE) 2026/1744", u: "https://eur-lex.europa.eu/eli/reg/2026/1744/oj" },
+      { y: 2026.5, d: "3 VII 2026", c: "prawo", t: "Polska ustawa o systemach sztucznej inteligencji", o: "Ustawa (Dz.U. 2026 poz. 1003, ogłoszona 27.07.2026) tworzy Komisję Rozwoju i Bezpieczeństwa Sztucznej Inteligencji (KRiBSI) jako organ nadzoru. Weszła w życie 11.08.2026, a główna część przepisów (m.in. kontrole i sankcje) stosowana jest od 28.10.2026.", s: "Dz.U. 2026 poz. 1003", u: "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001003" },
+      { y: 2026.59, d: "2 VIII 2026", c: "prawo", t: "AI Act: obowiązki przejrzystości (art. 50)", o: "Zaczyna się ogólne stosowanie AI Act (bez przepisów o systemach wysokiego ryzyka, przesuniętych przez omnibus), w tym obowiązki przejrzystości. Chatboty muszą ujawniać, że są AI, a deepfake'i i treści syntetyczne podlegają oznaczaniu. Systemy z art. 50 ust. 2 wprowadzone przed tą datą mają czas do 2.12.2026.", s: "Rozporządzenie (UE) 2024/1689, art. 50 i 113; rozporządzenie (UE) 2026/1744, art. 111 ust. 4", u: "http://data.europa.eu/eli/reg/2024/1689/oj" }
+    ];
+    var BANDS = [{ a: 1974, b: 1980, l: "I zima AI" }, { a: 1987, b: 1993, l: "II zima AI" }];
+    var CAT = { tech: "Technika", prawo: "Prawo i regulacja", kultura: "Kultura" };
+    var MIN = 1940, MAX = 2027;
+    var on = { tech: true, prawo: true, kultura: true }, q = "";
+    var list = document.getElementById("list"), strip = document.getElementById("strip"), count = document.getElementById("count");
+    E.sort(function (a, b) { return a.y - b.y; });
+    E.forEach(function (e, i) { e.id = "ev" + i; });
+
+    function pos(y) { return ((y - MIN) / (MAX - MIN) * 100).toFixed(2) + "%"; }
+    function norm(s) { return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ł/g, "l"); }
+    function visible(e) { return on[e.c] && (!q || norm(e.t + " " + e.o + " " + e.d + " " + e.s).indexOf(q) >= 0); }
+
+    function buildStrip() {
+      strip.innerHTML = "";
+      BANDS.forEach(function (b) { var d = document.createElement("div"); d.className = "band"; d.style.left = pos(b.a); d.style.width = ((b.b - b.a) / (MAX - MIN) * 100) + "%"; d.innerHTML = "<span>" + b.l + "</span>"; d.setAttribute("aria-hidden", "true"); strip.appendChild(d); });
+      [1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020].forEach(function (y) { var t = document.createElement("span"); t.className = "tick"; t.style.left = pos(y); t.textContent = y; t.setAttribute("aria-hidden", "true"); strip.appendChild(t); });
+      var rows = { tech: 18, prawo: 32, kultura: 46 };
+      E.forEach(function (e) {
+        if (!visible(e)) return;
+        var b = document.createElement("button"); b.type = "button"; b.className = "pin c-" + e.c;
+        b.style.left = pos(e.y); b.style.top = rows[e.c] + "px";
+        b.setAttribute("aria-label", e.d + ": " + e.t); b.title = e.d + " · " + e.t;
+        b.addEventListener("click", function () { openEv(e.id, true); });
+        strip.appendChild(b);
+      });
+    }
+
+    function buildList() {
+      list.innerHTML = "";
+      var shown = E.filter(visible), groups = {};
+      shown.forEach(function (e) { var dec = Math.floor(e.y / 10) * 10; (groups[dec] = groups[dec] || []).push(e); });
+      Object.keys(groups).sort().forEach(function (dec) {
+        var sec = document.createElement("section"); sec.className = "decade";
+        var h = document.createElement("h2"); h.innerHTML = dec + "–" + (+dec + 9 > 2026 ? 2026 : +dec + 9) + " <small>" + groups[dec].length + " wyd.</small>";
+        if (dec === "1940") h.innerHTML = "1943–1949 <small>" + groups[dec].length + " wyd.</small>";
+        sec.appendChild(h);
+        var ul = document.createElement("ol"); ul.className = "events";
+        groups[dec].forEach(function (e) {
+          var li = document.createElement("li"); li.className = "ev c-" + e.c; li.id = e.id;
+          var b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-expanded", "false"); b.setAttribute("aria-controls", e.id + "-b");
+          b.innerHTML = "<span class='date'></span><span class='title'></span><span class='chev' aria-hidden='true'>›</span>";
+          b.querySelector(".date").textContent = e.d; b.querySelector(".title").textContent = e.t;
+          var body = document.createElement("div"); body.className = "body"; body.id = e.id + "-b"; body.hidden = true;
+          var lab = document.createElement("div"); lab.className = "catlbl"; lab.textContent = CAT[e.c];
+          var p = document.createElement("p"); p.textContent = e.o;
+          var src = document.createElement("p"); src.className = "src"; src.appendChild(document.createTextNode("Źródło: "));
+          if (e.u) { var a = document.createElement("a"); a.href = e.u; a.textContent = e.s; a.rel = "noopener noreferrer"; a.target = "_blank"; src.appendChild(a); }
+          else src.appendChild(document.createTextNode(e.s));
+          body.appendChild(lab); body.appendChild(p); body.appendChild(src);
+          b.addEventListener("click", function () { toggle(li, b.getAttribute("aria-expanded") !== "true"); });
+          li.appendChild(b); li.appendChild(body); ul.appendChild(li);
+        });
+        sec.appendChild(ul); list.appendChild(sec);
+      });
+      if (!shown.length) list.innerHTML = "<p class='empty'>Brak wydarzeń dla wybranych filtrów.</p>";
+      count.textContent = "Wydarzeń: " + shown.length + " z " + E.length;
+    }
+    function toggle(li, open) { var b = li.querySelector("button"); b.setAttribute("aria-expanded", open ? "true" : "false"); li.querySelector(".body").hidden = !open; }
+    function openEv(id, scroll) {
+      var li = document.getElementById(id); if (!li) return;
+      toggle(li, true);
+      document.querySelectorAll(".ev.hl").forEach(function (x) { x.classList.remove("hl"); });
+      li.classList.add("hl");
+      if (scroll) { li.scrollIntoView({ behavior: "smooth", block: "center" }); li.querySelector("button").focus({ preventScroll: true }); }
+    }
+    function refresh() { buildStrip(); buildList(); }
+
+    document.querySelectorAll("[data-cat]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var c = b.getAttribute("data-cat"); on[c] = !on[c];
+        if (!on.tech && !on.prawo && !on.kultura) on[c] = true;
+        b.setAttribute("aria-pressed", on[c] ? "true" : "false"); refresh();
+      });
+    });
+    document.getElementById("q").addEventListener("input", function (ev) { q = norm(ev.target.value.trim()); refresh(); });
+    document.getElementById("expandAll").addEventListener("click", function () { document.querySelectorAll(".ev").forEach(function (li) { toggle(li, true); }); });
+    document.getElementById("collapseAll").addEventListener("click", function () { document.querySelectorAll(".ev").forEach(function (li) { toggle(li, false); }); });
+    refresh();
+  })();
+</script>
+</body>
+</html>

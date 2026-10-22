@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Poza granicą: AI szkodzi</title><desc id="d"> Bez AI: 84,5%; GPT-4 z przeglądem: 70,6%; GPT-4: 60,0%</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Poza granicą: AI szkodzi</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#9095ad" text-anchor="start" >Odsetek poprawnych rozwiązań zadania leżącego poza możliwościami modelu</text>
+<line x1="96" x2="916" y1="444.0" y2="444.0" stroke="#1a2a36"/>
+<text x="86.0" y="448.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="end" >0</text>
+<line x1="96" x2="916" y1="359.0" y2="359.0" stroke="#1a2a36"/>
+<text x="86.0" y="363.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="end" >25</text>
+<line x1="96" x2="916" y1="274.0" y2="274.0" stroke="#1a2a36"/>
+<text x="86.0" y="278.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="end" >50</text>
+<line x1="96" x2="916" y1="189.0" y2="189.0" stroke="#1a2a36"/>
+<text x="86.0" y="193.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="end" >75</text>
+<line x1="96" x2="916" y1="104.0" y2="104.0" stroke="#1a2a36"/>
+<text x="86.0" y="108.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="end" >100</text>
+<text x="96.0" y="92.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#9095ad" text-anchor="start" >% poprawnych odpowiedzi</text>
+<rect x="187.7" y="156.7" width="90.0" height="287.3" fill="#00f0ff"/>
+<text x="232.7" y="144.7" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >84,5%</text>
+<text x="232.7" y="466.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >Bez AI</text>
+<rect x="461.0" y="204.0" width="90.0" height="240.0" fill="#ff2a6d"/>
+<text x="506.0" y="192.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >70,6%</text>
+<text x="506.0" y="466.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >GPT-4 z</text>
+<text x="506.0" y="482.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >przeglądem</text>
+<rect x="734.3" y="240.0" width="90.0" height="204.0" fill="#ff003c"/>
+<text x="779.3" y="228.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >60,0%</text>
+<text x="779.3" y="466.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >GPT-4</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: Dell&#x27;Acqua i in. (2023): AI obniżyła trafność średnio o 19 punktów procentowych</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="dr Karol Kasprowicz">
+  <title>AI a zrównoważony rozwój. Podsumowanie wykładu</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="../../assets/slajdy.css"/>
+</head>
+<body>
+<a class="deck-back" href="index.html" title="Wróć do strony dzielnicy: plan, konspekt, lektury, quiz">← Strona dzielnicy</a>
+<a class="deck-mobile" href="slajdy-tekst.html">Na telefonie? Otwórz slajdy do czytania →</a>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">AI a zrównoważony rozwój. Podsumowanie wykładu</h1>
+  <p class="subtitle">Sztuczna inteligencja. Wyzwania społeczne,
+kulturowe i prawne</p>
+  <p class="author">dr Karol Kasprowicz</p>
+  <p class="institute">Katedra Prawa Informatycznego i Zawodów
+Prawniczych, WPiA UMCS</p>
+  <p class="date">Spotkanie 10</p>
+</section>
+
+<section id="plan-spotkania" class="slide level2">
+<h2>Plan spotkania</h2>
+<ol type="1">
+<li>Ślad energetyczny i wodny AI. Centra danych a system
+energetyczny</li>
+<li>Surowce i łańcuchy dostaw: kobalt, cyna, lit. Historyczny precedens
+gutaperki</li>
+<li>„Logika ekstrakcji” (K. Crawford) i nierówności globalne</li>
+<li>AI na rzecz klimatu. Regulacje dotyczące raportowania wpływu
+środowiskowego</li>
+<li>Podsumowanie wykładu i przygotowanie do zaliczenia</li>
+</ol>
+<aside class="notes">
+<p>Plan zgodny z sylabusem v2, spotkanie 10. Dane o energii i wodzie
+zaktualizowano według raportów IEA z 2025 i 2026 r. oraz pracy Li i in.
+w wersji opublikowanej w „Communications of the ACM” (2025). Prezentacja
+źródłowa („Zmagania ze sztuczną inteligencją”) pochodzi z 2024 r.</p>
+</aside>
+</section>
+<section>
+<section id="część-i.-zapomniany-koszt-postępu"
+class="title-slide slide level1">
+<h1>Część I. Zapomniany koszt postępu</h1>
+
+</section>
+<section id="środowisko.-zapomniany-koszt-technologicznego-postępu"
+class="slide level2">
+<h2>Środowisko. Zapomniany koszt technologicznego postępu</h2>
+<figure>
+<img data-src="media/10_gutaperka_drzewo.jpg" style="width:30.0%"
+alt="Ilustracja: rozłożyste drzewo liściaste" />
+<figcaption aria-hidden="true">Ilustracja: rozłożyste drzewo
+liściaste</figcaption>
+</figure>
+<ul>
+<li>Każda technologia informacyjna ma swoje ciało: kable, chipy,
+serwery, elektrownie</li>
+<li>Zaczniemy od XIX-wiecznego internetu: telegrafu</li>
+</ul>
+<aside class="notes">
+<p>Ilustracja z prezentacji pptx [źródło do ustalenia].</p>
+</aside>
+</section>
+<section id="gutaperka-i-pierwszy-kabel-transatlantycki"
+class="slide level2">
+<h2>Gutaperka i pierwszy kabel transatlantycki</h2>
+<ul>
+<li>Gutaperka: lateks z drzewa <em>Palaquium gutta</em> (Malaje,
+Singapur), izolacja kabli podmorskich</li>
+<li>Kabel transatlantycki z 1857 r.: ok. 1800 mil (ok. 2900 km), 2000
+ton, ok. <strong>250 ton gutaperki</strong></li>
+<li>Z jednego dorosłego drzewa: ok. 300 g lateksu</li>
+<li>Na jeden kabel potrzeba było więc setek tysięcy drzew</li>
+</ul>
+<aside class="notes">
+<p>Wraz z rozwojem telegrafii podwodnej rosło zapotrzebowanie na pnie
+drzew Palaquium gutta. Za nędznie wynagradzaną, niebezpieczną pracę
+miejscowi robotnicy malajscy, chińscy i dajaccy ścinali drzewa i powoli
+odciągali lateks. Lateks przetwarzano i sprzedawano przez giełdę w
+Singapurze na rynek brytyjski, gdzie przerabiano go m.in. na powłoki
+kabli podmorskich oplatających glob.</p>
+<p>Korekta względem pptx: K. Crawford (<em>Atlas sztucznej
+inteligencji</em>, rozdz. „Ziemia”, za J. Tullym) pisze, że do
+wyprodukowania jednej tony gutaperki potrzeba było ok. 900 tys. pni.
+Przy wydajności ok. 300 g z drzewa na tonę przypada ok. 3300 drzew, a
+900 tys. to rząd wielkości dla całego kabla (250 t). Tę rozbieżność
+warto pokazać jako ćwiczenie z krytycznego czytania liczb.</p>
+</aside>
+</section>
+<section id="palaquium-gutta-wiktoriańska-katastrofa-ekologiczna"
+class="slide level2">
+<h2><em>Palaquium gutta</em>: wiktoriańska katastrofa ekologiczna</h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<figure>
+<img data-src="media/10_palaquium_gutta.jpg" style="width:80.0%"
+alt="Rycina botaniczna: liście, kwiaty i owoce drzewa Palaquium gutta" />
+<figcaption aria-hidden="true">Rycina botaniczna: liście, kwiaty i owoce
+drzewa Palaquium gutta</figcaption>
+</figure>
+<p><small>Rycina botaniczna, XIX w. [źródło do weryfikacji,
+prawdopodobnie domena publiczna]</small></p>
+</div><div class="column" style="width:65%;">
+<ul>
+<li>Lasy Malezji i Singapuru zostały splądrowane</li>
+<li>W 1883 r. Brytyjczycy zakazali pozyskiwania lateksu, ale gatunek był
+już niemal wymarły</li>
+<li>Związek technologii z materiałami, środowiskiem i warunkami
+pracy</li>
+<li>Dziś w tej roli: górnictwo i globalne łańcuchy dostaw</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Wiktoriańska katastrofa ekologiczna gutaperki u zarania globalnego
+społeczeństwa informacyjnego pokazuje ścisły związek między technologią
+a materiałami, środowiskiem i praktykami pracy. Źródło: J. Tully, <em>A
+Victorian Ecological Disaster: Imperialism, the Telegraph, and
+Gutta-Percha</em>, „Journal of World History” 20 (2009), nr 4, s.
+559–579.</p>
+</aside>
+</section>
+<section id="od-hardwareu-do-softwareu" class="slide level2">
+<h2>Od hardware’u do software’u</h2>
+<figure>
+<img data-src="media/10_hardware_software.jpg" style="width:26.0%"
+alt="Ilustracja: fabryka, kominy, wiatraki i centrum danych w jednym krajobrazie" />
+<figcaption aria-hidden="true">Ilustracja: fabryka, kominy, wiatraki i
+centrum danych w jednym krajobrazie</figcaption>
+</figure>
+<ul>
+<li>„Chmura” to metafora: w rzeczywistości to hale z serwerami,
+chłodzenie i linie energetyczne</li>
+<li>Koszt obejmuje wydobycie surowców, produkcję chipów, trenowanie i
+każde użycie modelu</li>
+</ul>
+<aside class="notes">
+<p>Ilustracja z prezentacji pptx [źródło do ustalenia; prawdopodobnie
+obraz generowany]. Tekst ze slajdu pptx: koszt środowiskowy AI obejmuje
+zarówno hardware (wydobycie surowców, energia i woda przy produkcji
+procesorów i serwerów, zanieczyszczenie), jak i software (trenowanie i
+uruchamianie modeli na dużą skalę, emisje gazów cieplarnianych,
+zwłaszcza gdy energia pochodzi z paliw kopalnych).</p>
+</aside>
+</section></section>
+<section>
+<section id="część-ii.-energia" class="title-slide slide level1">
+<h1>Część II. Energia</h1>
+
+</section>
+<section id="centra-danych-a-system-energetyczny" class="slide level2">
+<h2>Centra danych a system energetyczny</h2>
+<figure>
+<img data-src="media/10_w_iea_centra_danych.svg" style="width:69.0%"
+alt="Wykres słupkowy: zużycie energii przez centra danych na świecie: 415 TWh w 2024, 485 TWh w 2025, ok. 945 TWh w 2030, ok. 1200 TWh w 2035" />
+<figcaption aria-hidden="true">Wykres słupkowy: zużycie energii przez
+centra danych na świecie: 415 TWh w 2024, 485 TWh w 2025, ok. 945 TWh w
+2030, ok. 1200 TWh w 2035</figcaption>
+</figure>
+<aside class="notes">
+<p>IEA, <em>Energy and AI</em> (10.04.2025): 415 TWh w 2024 r. (ok. 1,5%
+światowego zużycia), wzrost ok. 12% rocznie od 2017 r.; 2030: ok. 945
+TWh („nieco więcej niż dzisiejsze zużycie Japonii”); 2035: scenariusz
+bazowy ok. 1200 TWh, zakres 700–1700 TWh. IEA, <em>Key Questions on
+Energy and AI</em> (16.04.2026): w 2025 r. ok. 485 TWh (+17%), centra
+danych nastawione na AI +50%; 2030: ok. 950 TWh, ok. 3% światowego
+zużycia.</p>
+<p>Dla porównania: prezentacja z 2024 r. podawała (za IEA,
+<em>Electricity 2024</em>) ok. 460 TWh w 2022 r. dla centrów danych,
+kryptowalut i AI łącznie. To inny zakres danych, więc liczb nie należy
+zestawiać bezpośrednio.</p>
+</aside>
+</section>
+<section id="gdzie-rośnie-popyt" class="slide level2">
+<h2>Gdzie rośnie popyt?</h2>
+<ul>
+<li>2024: USA <strong>45%</strong>, Chiny <strong>25%</strong>, Europa
+<strong>15%</strong> zużycia centrów danych</li>
+<li>Do 2030 r. USA i Chiny odpowiadają za ok. 80% wzrostu</li>
+<li>W USA centra danych to prawie połowa wzrostu popytu na energię do
+2030 r.</li>
+<li>Na mieszkańca: USA ok. 540 kWh rocznie, Afryka poniżej 1 kWh</li>
+<li>Wąskie gardła (IEA 2026): przyłącza do sieci, turbiny gazowe,
+transformatory, sprzeciw lokalnych społeczności</li>
+</ul>
+<p><small>Źródło: IEA, <em>Energy and AI</em> (2025); <em>Key Questions
+on Energy and AI</em> (2026)</small></p>
+</section>
+<section id="kto-napędza-wzrost-zużycia-energii-przez-centra-danych"
+class="slide level2">
+<h2>Kto napędza wzrost zużycia energii przez centra danych?</h2>
+<figure>
+<img data-src="media/10_w_iea_wzrost_regiony.svg" style="width:88.0%"
+alt="Wykres słupkowy poziomy: do 2030 r. zużycie energii przez centra danych wzrośnie w USA o ok. 240 TWh, w Chinach o ok. 175 TWh, w Europie o ponad 45 TWh, a w Japonii o ok. 15 TWh." />
+<figcaption aria-hidden="true">Wykres słupkowy poziomy: do 2030 r.
+zużycie energii przez centra danych wzrośnie w USA o ok. 240 TWh, w
+Chinach o ok. 175 TWh, w Europie o ponad 45 TWh, a w Japonii o ok. 15
+TWh.</figcaption>
+</figure>
+<aside class="notes">
+<p>Wzrost rocznego zużycia energii przez centra danych 2024 → 2030
+(scenariusz bazowy IEA). Źródło: IEA, Energy and AI, 2025, rozdz. Energy
+demand from AI i Executive summary
+(https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai).</p>
+</aside>
+</section>
+<section id="irlandia-centra-danych-zużywają-już-23-prądu"
+class="slide level2">
+<h2>Irlandia: centra danych zużywają już 23% prądu</h2>
+<figure>
+<img data-src="media/10_w_irlandia_centra_danych.svg"
+style="width:88.0%"
+alt="Wykres słupkowy: zużycie energii elektrycznej przez centra danych w Irlandii rośnie z 1240 GWh w 2015 r. (5% zużycia) do 7663 GWh w 2025 r. (23% zużycia)." />
+<figcaption aria-hidden="true">Wykres słupkowy: zużycie energii
+elektrycznej przez centra danych w Irlandii rośnie z 1240 GWh w 2015 r.
+(5% zużycia) do 7663 GWh w 2025 r. (23% zużycia).</figcaption>
+</figure>
+<aside class="notes">
+<p>Zużycie energii elektrycznej przez centra danych w Irlandii (GWh);
+nad słupkiem udział w zużyciu kraju. Źródło: Central Statistics Office
+(Irlandia), Data Centres Metered Electricity Consumption 2025, komunikat
+statystyczny z 7.07.2026, tabela 1
+(https://www.cso.ie/en/releasesandpublications/ep/p-dcmec/datacentresmeteredelectricityconsumption2025/keyfindings/).</p>
+</aside>
+</section>
+<section id="ile-energii-zużywa-jedno-zapytanie" class="slide level2">
+<h2>Ile energii zużywa jedno zapytanie?</h2>
+<ul>
+<li>Google (08.2025): mediana zapytania tekstowego do Gemini:
+<strong>0,24 Wh</strong>, 0,03 g CO₂e</li>
+<li>Epoch AI (02.2025): typowe zapytanie do GPT-4o ok. <strong>0,3
+Wh</strong> (wcześniejsze szacunki: ok. 3 Wh)</li>
+<li>S. Altman (06.2025): średnio <strong>0,34 Wh</strong> na zapytanie,
+bez podanej metodologii</li>
+<li>Jedno zapytanie to mało. Problem to <strong>skala</strong>: miliardy
+zapytań dziennie, coraz dłuższe odpowiedzi „rozumujących” modeli i
+trenowanie</li>
+</ul>
+<aside class="notes">
+<p>Google: spadek zużycia energii na zapytanie 33-krotny między majem
+2024 a majem 2025 r.; dane nie obejmują trenowania, sieci ani urządzeń
+użytkownika i nie były niezależnie weryfikowane. Dla intuicji: 0,3 Wh to
+mniej więcej kilka minut świecenia żarówki LED.</p>
+</aside>
+</section>
+<section id="energia-na-zapytanie-cztery-szacunki" class="slide level2">
+<h2>Energia na zapytanie: cztery szacunki</h2>
+<figure>
+<img data-src="media/10_w_energia_na_zapytanie.svg" style="width:88.0%"
+alt="Wykres punktowy w skali logarytmicznej: Google szacuje 0,24 Wh na zapytanie do Gemini, Epoch AI ok. 0,3 Wh, Altman 0,34 Wh, a starsze oszacowanie wynosiło ok. 3 Wh." />
+<figcaption aria-hidden="true">Wykres punktowy w skali logarytmicznej:
+Google szacuje 0,24 Wh na zapytanie do Gemini, Epoch AI ok. 0,3 Wh,
+Altman 0,34 Wh, a starsze oszacowanie wynosiło ok. 3 Wh.</figcaption>
+</figure>
+<aside class="notes">
+<p>Szacunki energii na zapytanie tekstowe; różne metody i zakresy
+pomiaru (skala logarytmiczna). Źródło: Google, Measuring the
+environmental impact of delivering AI at Google Scale, arXiv:2508.15734
+(21.08.2025) i Google 2026 Environmental Report; Epoch AI (Josh You),
+How much energy does ChatGPT use?, 7.02.2025; S. Altman, The Gentle
+Singularity (06.2025) (https://arxiv.org/abs/2508.15734).</p>
+</aside>
+</section>
+<section id="energia-sam-altman-w-davos" class="slide level2">
+<h2>Energia: Sam Altman w Davos</h2>
+<ul>
+<li>Styczeń 2024: AI będzie zużywać coraz więcej energii</li>
+<li>„Nie da się tam dojść bez przełomu”: potrzebna fuzja jądrowa albo
+znacznie tańsza energia słoneczna z magazynowaniem</li>
+<li>OpenAI szacowało, że od 2012 r. moc obliczeniowa do trenowania
+największych modeli rosła wykładniczo</li>
+</ul>
+<aside class="notes">
+<p>Wypowiedź z 16.01.2024 r. podczas wydarzenia Bloomberga w Davos
+(relacja Reutersa). Altman dodał, że to motywuje do inwestowania w fuzję
+jądrową.</p>
+<p>Z notatek pptx: „OpenAI szacuje, że od 2012 r. moc obliczeniowa
+wykorzystywana do trenowania jednego modelu AI wzrastała każdego roku
+10-krotnie” [do weryfikacji: analiza OpenAI „AI and Compute” (2018)
+mówiła o podwajaniu co ok. 3,4 miesiąca, czyli ok. 10× rocznie].
+„ChatGPT w wersji 3 zużywa tyle energii co 33 tys. amerykańskich
+gospodarstw domowych” [do weryfikacji, źródło nieustalone; nie podawać
+na zajęciach jako faktu].</p>
+</aside>
+</section>
+<section id="meta-microsoft-i-energia-jądrowa" class="slide level2">
+<h2>Meta, Microsoft i energia jądrowa</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<figure>
+<img data-src="media/10_zuckerberg_podcast.jpg" style="width:95.0%"
+alt="Mark Zuckerberg podczas rozmowy w studiu podcastu" />
+<figcaption aria-hidden="true">Mark Zuckerberg podczas rozmowy w studiu
+podcastu</figcaption>
+</figure>
+<p><small>M. Zuckerberg w podcaście D. Patela, 18.04.2024 (kadr z
+nagrania)</small></p>
+</div><div class="column" style="width:55%;">
+<ul>
+<li>Zuckerberg (2024): nowe centra danych mają 50–150 MW; centrum 1 GW
+to „elektrownia jądrowa” tylko do trenowania</li>
+<li>Microsoft: ponowne uruchomienie bloku Three Mile Island (835 MW,
+umowa na 20 lat, 09.2024)</li>
+<li>Google–Kairos Power: małe reaktory, 500 MW do 2035 r.</li>
+<li>Amazon–X-energy, Meta–elektrownia Clinton (1121 MW, od 2027 r.)</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Zuckerberg mówił, że energia stanie się głównym ograniczeniem rozwoju
+AI (https://youtu.be/i-o5YbNfmh0). Dokładne wartości MW za relacjami
+prasowymi z podcastu [do weryfikacji w transkrypcji]. Restart bloku
+TMI-1 (Crane Clean Energy Center) planowany na 2027 r., możliwe
+opóźnienia z powodu przyłączenia do sieci PJM.</p>
+</aside>
+</section>
+<section id="emisje-rosną-mimo-obietnic" class="slide level2">
+<h2>Emisje rosną mimo obietnic</h2>
+<ul>
+<li>Microsoft (raport 2025): emisje <strong>+23,4%</strong> względem
+2020 r., choć celem jest „ujemny węglowo” do 2030 r.</li>
+<li>Google (raport 2025): emisje <strong>+51%</strong> względem 2019 r.;
+zużycie wody +28% w ciągu roku</li>
+<li>Google (raport 2026): emisje +18% w ciągu roku i ok. +81% wobec 2019
+r.</li>
+<li>Microsoft (raport 2026, rok obrotowy 2025): emisje ok. +57% wobec
+2020 r.</li>
+<li>Główny powód: budowa infrastruktury dla AI</li>
+</ul>
+<aside class="notes">
+<p>Microsoft 2024: +29,1% względem 2020 r. Dane z raportów
+zrównoważonego rozwoju firm i relacji prasowych; raport Microsoftu z
+2026 r. podaje wzrost ok. 25% rok do roku (rok obrotowy 2025 wobec
+2024). Pytanie do sali: czy dobrowolne cele klimatyczne firm są wiążące?
+Kiedy rozbieżność między deklaracją a działaniem staje się nieuczciwą
+praktyką rynkową (greenwashing)?</p>
+</aside>
+</section>
+<section id="emisje-microsoftu-i-google-w-liczbach"
+class="slide level2">
+<h2>Emisje Microsoftu i Google w liczbach</h2>
+<figure>
+<img data-src="media/10_w_emisje_microsoft_google.svg"
+style="width:88.0%"
+alt="Wykres hantlowy: całkowite emisje Microsoftu wzrosły z 12,88 mln ton CO2e w roku obrotowym 2020 do 20,29 mln ton w 2025, o 57,5%, a emisje Google z 8,00 mln ton w 2019 do 14,47 mln ton w 2025, o 80,9%." />
+<figcaption aria-hidden="true">Wykres hantlowy: całkowite emisje
+Microsoftu wzrosły z 12,88 mln ton CO2e w roku obrotowym 2020 do 20,29
+mln ton w 2025, o 57,5%, a emisje Google z 8,00 mln ton w 2019 do 14,47
+mln ton w 2025, o 80,9%.</figcaption>
+</figure>
+<aside class="notes">
+<p>Emisje gazów cieplarnianych: rok bazowy a 2025 (mln t CO₂e); metody
+firm różnią się, nie porównywać wprost. Źródło: Microsoft, 2026
+Environmental Data Fact Sheet, tabela 1B (kryteria zarządu, zakresy
+1+2+3, metoda rynkowa), FY20 i FY25; Google, 2026 Environmental Report,
+tabela emisji (emisje ambition-based), s. 74 i 90
+(https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/msc/documents/presentations/CSR/2026-Microsoft-Environmental-Data-Fact-Sheet-PDF.pdf).</p>
+</aside>
+</section>
+<section id="paradoks-jevonsa" class="slide level2">
+<h2>Paradoks Jevonsa</h2>
+<ul>
+<li>W. S. Jevons (1865): sprawniejsze maszyny parowe zwiększyły, a nie
+zmniejszyły zużycie węgla</li>
+<li>DeepSeek (styczeń 2025): tańszy i sprawniejszy model, a zarazem
+obawa o „koniec popytu” na chipy</li>
+<li>S. Nadella (27.01.2025): „Paradoks Jevonsa znów uderza!”</li>
+<li>Wniosek: większa efektywność jednego zapytania nie gwarantuje
+mniejszego zużycia łącznie</li>
+</ul>
+</section></section>
+<section>
+<section id="część-iii.-woda" class="title-slide slide level1">
+<h1>Część III. Woda</h1>
+
+</section>
+<section id="ile-wody-wypija-rozmowa-z-czatem" class="slide level2">
+<h2>Ile wody „wypija” rozmowa z czatem?</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<figure>
+<img data-src="media/10_sokrates_woda.jpg" style="width:89.0%"
+alt="Malarska ilustracja: zamyślony starzec z brodą" />
+<figcaption aria-hidden="true">Malarska ilustracja: zamyślony starzec z
+brodą</figcaption>
+</figure>
+</div><div class="column" style="width:60%;">
+<ul>
+<li>Li i in. (2025): pół litra wody na ok. <strong>10–50</strong>
+średniej długości odpowiedzi</li>
+<li>Zależy od tego, kiedy i gdzie działa centrum danych</li>
+<li>Wcześniejsze wersje pracy podawały „20–50 pytań”</li>
+<li>Liczy się woda do chłodzenia <strong>i</strong> woda w
+elektrowniach</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Ilustracja z prezentacji pptx [źródło do ustalenia; prawdopodobnie
+obraz generowany]. Na slajdzie pptx: „Seria od 5 do 50 zapytań w ChatGPT
+zużywa średnio 0,5 l wody”; poprawione według wersji opublikowanej: P.
+Li, J. Yang, M. A. Islam, S. Ren, <em>Making AI Less „Thirsty”</em>,
+„Communications of the ACM” 68 (2025), nr 7, s. 54–61
+(arXiv:2304.03271). Dotyczy modelu GPT-3; średnia dla USA w tabeli pracy
+to ok. 30 odpowiedzi na 0,5 l.</p>
+</aside>
+</section>
+<section id="ślad-wodny-chłodzenie-i-produkcja-chipów"
+class="slide level2">
+<h2>Ślad wodny: chłodzenie i produkcja chipów</h2>
+<figure>
+<img data-src="media/10_slad_wodny.jpg" style="width:26.0%"
+alt="Ilustracja: serwerownia z systemami chłodzenia wodnego i stylizowanym mózgiem" />
+<figcaption aria-hidden="true">Ilustracja: serwerownia z systemami
+chłodzenia wodnego i stylizowanym mózgiem</figcaption>
+</figure>
+<ul>
+<li><strong>Chłodzenie centrów danych</strong>: ciepło z serwerów
+odprowadza się często przez odparowanie wody</li>
+<li><strong>Produkcja półprzewodników</strong>: ultraczysta woda do
+czyszczenia i obróbki płytek krzemowych</li>
+<li><strong>Elektrownie</strong>: woda zużywana pośrednio przy
+wytwarzaniu energii</li>
+</ul>
+<aside class="notes">
+<p>Ilustracja z prezentacji pptx [źródło do ustalenia; prawdopodobnie
+obraz generowany]. Paradoks z notatek pptx: AI może pomagać w
+zarządzaniu zasobami wodnymi (rolnictwo, przemysł, miasta), ale sama
+musi być rozwijana w sposób zrównoważony.</p>
+</aside>
+</section>
+<section id="szacunki-różnią-się-ponad-stukrotnie" class="slide level2">
+<h2>Szacunki różnią się ponad stukrotnie</h2>
+<figure>
+<img data-src="media/10_w_woda_na_odpowiedz.svg" style="width:69.0%"
+alt="Wykres punktowy: zużycie wody na jedną odpowiedź według Google, OpenAI, Li i in. oraz Mistral, od 0,26 ml do 50 ml" />
+<figcaption aria-hidden="true">Wykres punktowy: zużycie wody na jedną
+odpowiedź według Google, OpenAI, Li i in. oraz Mistral, od 0,26 ml do 50
+ml</figcaption>
+</figure>
+<aside class="notes">
+<p>Dlaczego różnice? Google liczy tylko wodę zużytą w centrum danych
+(mediana), Li i in. dodają wodę w elektrowniach, Mistral liczy pełny
+cykl życia (w tym produkcję sprzętu i trenowanie, rozłożone na
+odpowiedzi). Altman podał 0,000085 galona (ok. 0,32 ml) bez metodologii.
+Wniosek prawny: bez wspólnej metodologii raportowania liczby są
+nieporównywalne.</p>
+</aside>
+</section>
+<section id="woda-skala-i-prognozy" class="slide level2">
+<h2>Woda: skala i prognozy</h2>
+<ul>
+<li>Trenowanie GPT-3 w centrach danych Microsoftu w USA: ok. <strong>5,4
+mln litrów</strong> wody, w tym ok. 700 tys. litrów bezpośrednio w
+centrum danych</li>
+<li>Prognoza na 2027 r.: AI może odpowiadać za pobór <strong>4,2–6,6 mld
+m³</strong> wody rocznie</li>
+<li>To więcej niż roczny pobór wody w 4–6 krajach wielkości Danii albo
+połowa poboru Wielkiej Brytanii</li>
+<li>Microsoft: zużycie wody +34% w 2022 r. (ok. 6,4 mln m³)</li>
+</ul>
+<p><small>Źródło: Li i in., „Communications of the ACM” 68 (2025), nr 7;
+Microsoft za AP (2023)</small></p>
+</section>
+<section id="konflikty-o-wodę" class="slide level2">
+<h2>Konflikty o wodę</h2>
+<ul>
+<li><strong>Urugwaj</strong> (2023): Google planował centrum danych
+zużywające do 7,6 mln litrów wody pitnej dziennie, w czasie najgorszej
+suszy od 74 lat; projekt zmieniono na chłodzenie powietrzem</li>
+<li><strong>Aragonia</strong> (Hiszpania): planowane centra danych
+Amazona z pozwoleniami na ok. 756 tys. m³ wody rocznie; ruch „Tu Nube
+Seca Mi Río” („Twoja chmura wysusza moją rzekę”)</li>
+<li><strong>Querétaro</strong> (Meksyk): susza i ograniczenia dostaw
+wody obok inwestycji w centra danych</li>
+</ul>
+<aside class="notes">
+<p>Źródła: „The Guardian” (lipiec 2023) o Urugwaju; SourceMaterial /
+„The Guardian” (2025) o Aragonii; Thomson Reuters Foundation (Context) o
+Querétaro. Pytanie do sali: kto powinien decydować o priorytecie dostępu
+do wody w czasie suszy? Jakie znaczenie ma tu ocena oddziaływania na
+środowisko?</p>
+</aside>
+</section></section>
+<section>
+<section id="część-iv.-surowce-i-łańcuchy-dostaw"
+class="title-slide slide level1">
+<h1>Część IV. Surowce i łańcuchy dostaw</h1>
+
+</section>
+<section id="lit.-białe-złoto-xxi-wieku" class="slide level2">
+<h2>Lit. „Białe złoto” XXI wieku?</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<figure>
+<img data-src="media/10_lit.jpg" style="width:90.0%"
+alt="Granulki metalicznego litu w pojemniku z linijką" />
+<figcaption aria-hidden="true">Granulki metalicznego litu w pojemniku z
+linijką</figcaption>
+</figure>
+<p><small>[źródło zdjęcia do weryfikacji, prawdopodobnie Wikimedia
+Commons]</small></p>
+</div><div class="column" style="width:60%;">
+<ul>
+<li>Baterie litowo-jonowe: od smartfonów po magazyny energii dla centrów
+danych</li>
+<li>Portugalia: kopalnia Barroso (strategiczny projekt UE)</li>
+<li>7.11.2023: premier António Costa podaje się do dymisji w związku ze
+śledztwem w sprawie koncesji na lit, wodoru i <strong>centrum danych w
+Sines</strong></li>
+<li>Od 1.12.2024 r. Costa jest przewodniczącym Rady Europejskiej</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Śledztwo nazwane przez media „Operação Influencer”. Z notatek pptx:
+„UE i Portugalia… Antonio Costa… Korupcja i łamanie reguł…”. Kopalnia
+Barroso (Savannah Resources) otrzymała status projektu strategicznego na
+podstawie aktu w sprawie surowców krytycznych; stan decyzji
+środowiskowej w 2026 r.: [do weryfikacji].</p>
+</aside>
+</section>
+<section id="cyna-z-wysp-bangka-i-belitung" class="slide level2">
+<h2>Cyna z wysp Bangka i Belitung</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<figure>
+<img data-src="media/10_cyna_mapa.jpg" style="width:78.0%"
+alt="Mapa Indonezji z zaznaczonymi wyspami Bangka i Belitung" />
+<figcaption aria-hidden="true">Mapa Indonezji z zaznaczonymi wyspami
+Bangka i Belitung</figcaption>
+</figure>
+<figure>
+<img data-src="media/10_cyna_gornicy.jpg" style="width:53.0%"
+alt="Górnicy na prowizorycznej platformie wydobywają cynę z dna morskiego" />
+<figcaption aria-hidden="true">Górnicy na prowizorycznej platformie
+wydobywają cynę z dna morskiego</figcaption>
+</figure>
+<p><small>Zdjęcie: [źródło do ustalenia]</small></p>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Indonezja to drugi producent cyny na świecie (2025: 61 tys. t z 290
+tys. t), po Chinach</li>
+<li>Bangka i Belitung: ok. 90% indonezyjskiej cyny</li>
+<li>Cyna to m.in. luty w każdym urządzeniu elektronicznym</li>
+<li>Afera PT Timah: szkody szacowane na 300 bln rupii; wyrok 20 lat dla
+H. Moeisa (2025)</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Warunki pracy (z notatek pptx): prowizoryczne pontony, górnicy w
+szarej strefie wzruszają dno morskie bambusowymi tyczkami, nurkują i
+zasysają piasek z cyną przez węże. Zebraną cynę sprzedają pośrednikom,
+którzy mieszają ją z cyną z legalnych kopalń i sprzedają m.in. PT Timah.
+Śledztwa Bloomberg Businessweek (2012) i Friends of the Earth (2012)
+łączyły cynę z Bangki z łańcuchami dostaw dużych producentów elektroniki
+(Samsung przyznał to w 2013 r.). Dane o produkcji: USGS, <em>Mineral
+Commodity Summaries 2026</em>. Szkody w aferze PT Timah obejmują szkody
+środowiskowe.</p>
+</aside>
+</section>
+<section id="od-krwawych-diamentów-do-krwawych-minerałów"
+class="slide level2 dense">
+<h2 class="dense">Od „krwawych diamentów” do „krwawych minerałów”</h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<figure>
+<img data-src="media/10_kongo_mapa.jpg" style="width:54.0%"
+alt="Mapa Afryki z zaznaczoną Demokratyczną Republiką Konga" />
+<figcaption aria-hidden="true">Mapa Afryki z zaznaczoną Demokratyczną
+Republiką Konga</figcaption>
+</figure>
+<figure>
+<img data-src="media/10_krwawy_kobalt.jpg" style="width:35.0%"
+alt="Okładka polskiego wydania książki Siddhartha Kary „Krwawy kobalt”" />
+<figcaption aria-hidden="true">Okładka polskiego wydania książki
+Siddhartha Kary „Krwawy kobalt”</figcaption>
+</figure>
+<p><small>S. Kara, <em>Krwawy kobalt</em>, W.A.B. 2024</small></p>
+</div><div class="column" style="width:65%;">
+<ul>
+<li>DR Konga: ok. <strong>74%</strong> światowego wydobycia kobaltu
+(2025, USGS)</li>
+<li>Kopalnie rzemieślnicze, praca dzieci, warunki bliskie
+niewolnictwu</li>
+<li>Wojna na wschodzie kraju: M23 zajmuje Gomę (styczeń 2025); koltan i
+cyna finansują konflikt</li>
+<li>2025: zakaz eksportu kobaltu, potem kwoty eksportowe</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Dane: USGS, <em>Mineral Commodity Summaries 2026</em> (230 tys. t z
+310 tys. t). Z notatek pptx: „Czy Big Techy o tym wiedzą? Intel
+potrzebował 4 lat intensywnych dochodzeń, aby zbadać własny łańcuch
+dostaw. Podobnie holenderski Philips. Intel i Apple sprawdzają jedynie
+huty, a nie kopalnie, a to tam dzieje się krzywda ludzi” [do
+weryfikacji; teza pochodzi prawdopodobnie z K. Crawford, <em>Atlas
+sztucznej inteligencji</em>, rozdz. „Ziemia”]. Terminy „krwawe diamenty”
+i „krwawe minerały” ukrywają rzeczywistość okrucieństw, których źródłem
+jest przemysł wydobywczy.</p>
+</aside>
+</section>
+<section id="metale-ziem-rzadkich" class="slide level2">
+<h2>Metale ziem rzadkich</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<figure>
+<img data-src="media/10_metale_ziem_rzadkich.jpg" style="width:100.0%"
+alt="Wykres słupkowy OSW: Chiny 270 tys. ton, USA 45 tys., Mjanma 31 tys., kolejne kraje poniżej 15 tys. ton" />
+<figcaption aria-hidden="true">Wykres słupkowy OSW: Chiny 270 tys. ton,
+USA 45 tys., Mjanma 31 tys., kolejne kraje poniżej 15 tys.
+ton</figcaption>
+</figure>
+<p><small>Źródło: OSW na podstawie USGS, <em>Mineral Commodity Summaries
+2025</em> (dane za 2024 r.)</small></p>
+</div><div class="column" style="width:45%;">
+<ul>
+<li>Chiny wydobywają ok. 70% metali ziem rzadkich i dominują w ich
+przetwórstwie</li>
+<li>2025: chińskie ograniczenia eksportu (kwiecień, październik); część
+zawieszono na rok w listopadzie</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>USGS w <em>Mineral Commodity Summaries 2026</em> skorygował niektóre
+dane za 2024 r. (m.in. Australia 29 tys. t, Mjanma 27 tys. t). Surowce
+są dziś narzędziem polityki zagranicznej, co wiąże ekologię AI z
+geopolityką (por. C. Miller, <em>Wojna o czipy</em>).</p>
+</aside>
+</section>
+<section id="kilka-państw-kontroluje-surowce-dla-ai-i-baterii"
+class="slide level2">
+<h2>Kilka państw kontroluje surowce dla AI i baterii</h2>
+<figure>
+<img data-src="media/10_w_koncentracja_wydobycia_surowcow.svg"
+style="width:88.0%"
+alt="Wykres słupkowy poziomy: Chiny wydobywają około 78% światowego grafitu i około 69% ziem rzadkich, Demokratyczna Republika Konga około 74% kobaltu, Indonezja około 67% niklu, a Chiny około 24% cyny." />
+<figcaption aria-hidden="true">Wykres słupkowy poziomy: Chiny wydobywają
+około 78% światowego grafitu i około 69% ziem rzadkich, Demokratyczna
+Republika Konga około 74% kobaltu, Indonezja około 67% niklu, a Chiny
+około 24% cyny.</figcaption>
+</figure>
+<aside class="notes">
+<p>Udział największego producenta w światowym wydobyciu kopalnianym w
+2025 r. (szacunki USGS). Źródło: U.S. Geological Survey, Mineral
+Commodity Summaries 2026 (luty 2026), rozdziały: Cobalt, Graphite
+(Natural), Rare Earths, Nickel, Tin; produkcja kopalniana 2025e
+(https://pubs.usgs.gov/periodicals/mcs2026/mcs2026.pdf).</p>
+</aside>
+</section>
+<section id="koszty-środowiskowe" class="slide level2">
+<h2>Koszty środowiskowe</h2>
+<figure>
+<img data-src="media/10_koszty_srodowiskowe.jpg" style="width:26.0%"
+alt="Ilustracja: centrum danych otoczone kominami fabryk i turbinami wiatrowymi" />
+<figcaption aria-hidden="true">Ilustracja: centrum danych otoczone
+kominami fabryk i turbinami wiatrowymi</figcaption>
+</figure>
+<ul>
+<li>Nierówny podział kosztów: „globalne Południe” często staje się
+przedmiotem eksploatacji</li>
+<li>Wydobycie odbywa się tak, by prawdziwe koszty nie były widoczne</li>
+<li>Łańcuch dostaw jest tak rozległy, że trudno go prześledzić „od nitki
+do kłębka”</li>
+<li>Greenwashing wielkich firm technologicznych</li>
+</ul>
+<aside class="notes">
+<p>Ilustracja z prezentacji pptx [źródło do ustalenia; prawdopodobnie
+obraz generowany].</p>
+</aside>
+</section></section>
+<section>
+<section id="część-v.-logika-ekstrakcji"
+class="title-slide slide level1">
+<h1>Część V. Logika ekstrakcji</h1>
+
+</section>
+<section id="kate-crawford-logika-ekstrakcji" class="slide level2">
+<h2>Kate Crawford: logika ekstrakcji</h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<figure>
+<img data-src="media/10_atlas_ai.jpg" style="width:69.0%"
+alt="Okładka książki Kate Crawford „Atlas of AI”" />
+<figcaption aria-hidden="true">Okładka książki Kate Crawford „Atlas of
+AI”</figcaption>
+</figure>
+<p><small>K. Crawford, <em>Atlas of AI</em>, Yale UP 2021</small></p>
+</div><div class="column" style="width:65%;">
+<ul>
+<li>AI to nie tylko algorytmy, ale przemysł wydobywczy</li>
+<li>Współczesne technologie eksploatują zasoby naturalne, ludzką pracę i
+dane na ogromną skalę</li>
+<li>Koszty etyczne i społeczne zostają poza rachunkiem</li>
+<li>Wyd. pol.: <em>Atlas sztucznej inteligencji. Władza, pieniądze i
+środowisko naturalne</em>, przeł. T. Chawziuk, Wyd. UJ (bo.wiem),
+2024</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>Crawford opisuje, że rozwój AI obejmuje fizyczne i materialne
+aspekty: wydobycie minerałów do produkcji sprzętu, eksploatację pracy
+ludzi montujących urządzenia oraz zbieranie i wykorzystywanie danych z
+życia codziennego użytkowników. Logika ekstrakcji to systematyczne
+pobieranie zasobów z różnych źródeł w celu napędzania technologii i
+zysku, prowadzące do nierówności i szkód środowiskowych. Uwaga: sylabus
+v2 podaje jako wydawcę PWN; według katalogu wydawcy polskie wydanie
+ukazało się nakładem Wydawnictwa UJ (seria bo.wiem), 28.02.2024.</p>
+</aside>
+</section>
+<section id="trzy-ekstrakcje" class="slide level2">
+<h2>Trzy ekstrakcje</h2>
+<table>
+<thead>
+<tr>
+<th>Zasób</th>
+<th>Przykład</th>
+<th>Spotkanie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ziemia</td>
+<td>lit, kobalt, cyna, woda, energia</td>
+<td>10</td>
+</tr>
+<tr>
+<td>praca</td>
+<td>oznaczanie danych, moderatorzy treści, górnicy</td>
+<td>4, 5</td>
+</tr>
+<tr>
+<td>dane</td>
+<td>teksty, obrazy, głosy użytkowników i twórców</td>
+<td>7, 8</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Te same łańcuchy dostaw łączą środowisko, prawo pracy, ochronę
+danych i prawo autorskie</li>
+</ul>
+</section>
+<section id="nierówności-globalne" class="slide level2">
+<h2>Nierówności globalne</h2>
+<ul>
+<li>Korzyści z AI trafiają głównie do państw i firm z Północy, koszty
+środowiskowe częściej do Południa</li>
+<li>Zużycie energii przez centra danych na mieszkańca: USA ok. 540 kWh,
+Afryka poniżej 1 kWh</li>
+<li>„Maksymalizm obliczeniowy” przykrywa koszt środowiskowy</li>
+<li>Pytanie: czy prawo UE może skutecznie regulować łańcuchy dostaw poza
+UE?</li>
+</ul>
+<aside class="notes">
+<p>Z notatek pptx: „Maksymalizm obliczeniowy przykrywa koszt
+środowiskowy”. Wątek nierówności dostępu do AI: moduł 04.</p>
+</aside>
+</section></section>
+<section>
+<section id="część-vi.-ai-dla-klimatu-i-prawo"
+class="title-slide slide level1">
+<h1>Część VI. AI dla klimatu i prawo</h1>
+
+</section>
+<section id="ai-na-rzecz-klimatu-i-środowiska" class="slide level2">
+<h2>AI na rzecz klimatu i środowiska</h2>
+<ul>
+<li>DeepMind (2016): do <strong>40%</strong> mniej energii na chłodzenie
+centrów danych Google</li>
+<li>Google, American Airlines (2023): <strong>54%</strong> mniej smug
+kondensacyjnych w lotach testowych</li>
+<li>GraphCast (2023): 10-dniowa prognoza pogody w niecałą minutę, lepsza
+od referencyjnej w 90% miar</li>
+<li>Flood Hub (2024): prognozy powodzi w ponad 80 krajach</li>
+<li>Pytanie: czy korzyści równoważą koszty? Kto to liczy?</li>
+</ul>
+<aside class="notes">
+<p>Źródła: blog DeepMind (20.07.2016); komunikat Google (8.08.2023; loty
+testowe zużyły ok. 2% więcej paliwa); R. Lam i in., „Science” 382
+(2023), s. 1416–1421; G. Nearing i in., „Nature” 627 (2024). Liczba 460
+mln osób objętych Flood Hub pochodzi z komunikatu Google z 2023 r., a
+nie z artykułu w „Nature”.</p>
+</aside>
+</section>
+<section id="raportowanie-centra-danych-w-ue" class="slide level2">
+<h2>Raportowanie: centra danych w UE</h2>
+<ul>
+<li>Dyrektywa (UE) 2023/1791 o efektywności energetycznej, art. 12 i
+zał. VII: centra danych od <strong>500 kW</strong> raportują zużycie
+energii i wody</li>
+<li>Rozporządzenie delegowane (UE) 2024/1364: system oceny centrów
+danych; raporty do 15 maja każdego roku</li>
+<li>Wrzesień 2026: projekt Komisji wprowadzający etykiety
+<strong>A–G</strong> (efektywność energetyczna i wodna), od 2027 r.</li>
+<li>Projekt aktu o rozwoju chmury i AI (<em>Cloud and AI Development
+Act</em>, COM(2026) 502): więcej centrów danych w UE, z kryteriami
+zrównoważenia</li>
+</ul>
+<aside class="notes">
+<p>Pierwszy raport do 15.09.2024 r. Projekt aktu delegowanego
+zmieniającego rozporządzenie 2024/1364 przedstawiono 21.09.2026 r.
+(wskaźniki PUE i WUE, źródła energii, wykorzystanie ciepła odpadowego)
+[szczegóły do weryfikacji po publikacji]. CADA: wniosek z 3.06.2026,
+procedura 2026/0138(COD), na etapie prac legislacyjnych.</p>
+</aside>
+</section>
+<section id="ai-act-a-środowisko" class="slide level2">
+<h2>AI Act a środowisko</h2>
+<ul>
+<li>Zał. XI pkt 2 lit. e: dokumentacja modelu GPAI obejmuje znane lub
+szacowane <strong>zużycie energii</strong> modelu (art. 53 ust. 1 lit.
+a)</li>
+<li>Art. 40 ust. 2: normy zharmonizowane mają dotyczyć także
+efektywności zasobowej i energetycznej</li>
+<li>Art. 95 ust. 2 lit. b: dobrowolne kodeksy postępowania mogą
+obejmować zrównoważenie środowiskowe</li>
+<li>Art. 112 ust. 6: przegląd postępów w normalizacji energooszczędnych
+modeli GPAI do 2.08.2028 r.</li>
+<li>Ocena: obowiązki środowiskowe są <strong>miękkie</strong> i dotyczą
+głównie dokumentacji</li>
+</ul>
+</section>
+<section id="łańcuchy-dostaw-prawo-ue-i-usa" class="slide level2">
+<h2>Łańcuchy dostaw: prawo UE i USA</h2>
+<ul>
+<li>Rozporządzenie (UE) 2017/821 o minerałach z regionów konfliktów:
+cyna, tantal, wolfram, złoto (od 1.01.2021); <strong>kobaltu nie
+obejmuje</strong></li>
+<li>Rozporządzenie (UE) 2023/1542 o bateriach: należyta staranność dla
+kobaltu, litu, niklu i grafitu, przesunięta na
+<strong>18.08.2027</strong> (rozp. 2025/1561)</li>
+<li>Akt w sprawie surowców krytycznych (rozp. (UE) 2024/1252): cele dla
+wydobycia, przetwarzania i recyklingu w UE do 2030 r.</li>
+<li>Omnibus I (dyrektywa (UE) 2026/470): węższy zakres CSRD i CSDDD</li>
+<li>USA: Dodd-Frank Act, sekcja 1502 (2010) o minerałach z regionów
+konfliktów</li>
+</ul>
+<aside class="notes">
+<p>CRMA, cele na 2030 r.: 10% wydobycia, 40% przetwarzania, 25%
+recyklingu krajowego zapotrzebowania UE; nie więcej niż 65% z jednego
+państwa trzeciego. Omnibus I: CSRD dla przedsiębiorstw z ponad 1000
+pracowników i ponad 450 mln EUR obrotu; CSDDD dla ponad 5000 pracowników
+i 1,5 mld EUR obrotu, stosowanie od 26.07.2029 r.; usunięto obowiązek
+planu transformacji klimatycznej i unijny reżim odpowiedzialności
+cywilnej. USA: projekt <em>Artificial Intelligence Environmental Impacts
+Act</em> (sen. E. Markey, 1.02.2024) nie został uchwalony; nową wersję z
+obowiązkowym raportowaniem wniesiono w czerwcu 2026 r. [numer i stan do
+weryfikacji].</p>
+</aside>
+</section></section>
+<section>
+<section id="część-vii.-podsumowanie-wykładu"
+class="title-slide slide level1">
+<h1>Część VII. Podsumowanie wykładu</h1>
+
+</section>
+<section id="co-dalej" class="slide level2">
+<h2>Co dalej…?</h2>
+<figure>
+<img data-src="media/10_co_dalej.jpg" style="width:55.0%"
+alt="Czarno-białe zdjęcie: człowiek wchodzący po schodach ku światłu" />
+<figcaption aria-hidden="true">Czarno-białe zdjęcie: człowiek wchodzący
+po schodach ku światłu</figcaption>
+</figure>
+<aside class="notes">
+<p>Zdjęcie z prezentacji pptx [źródło do ustalenia; prawdopodobnie
+zdjęcie stockowe].</p>
+</aside>
+</section>
+<section id="dziesięć-spotkań-w-pigułce-15" class="slide level2">
+<h2>Dziesięć spotkań w pigułce (1–5)</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Spotkanie</th>
+<th>Najważniejsza teza</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Czym jest AI?</td>
+<td>prawo definiuje AI przez <strong>wnioskowanie</strong> (art. 3 pkt 1
+AI Act)</td>
+</tr>
+<tr>
+<td>2. Historia</td>
+<td>postęp falami: złote lata, zimy AI, przełomy (2012, 2017, 2022)</td>
+</tr>
+<tr>
+<td>3. Jak działa AI?</td>
+<td>model przewiduje kolejny token; halucynacje wynikają z samej zasady
+działania</td>
+</tr>
+<tr>
+<td>4. Praca i edukacja</td>
+<td>„poszarpana granica”: AI pomaga w jednych zadaniach, szkodzi w
+innych</td>
+</tr>
+<tr>
+<td>5. Etyka</td>
+<td>stronniczość, przejrzystość, art. 22 RODO, SCHUFA, moderacja
+treści</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dziesięć-spotkań-w-pigułce-610" class="slide level2">
+<h2>Dziesięć spotkań w pigułce (6–10)</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Spotkanie</th>
+<th>Najważniejsza teza</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6. Kultura</td>
+<td>regulacja to wybór kulturowy: ryzyko (UE) a rozwój (Korea,
+Japonia)</td>
+</tr>
+<tr>
+<td>7. Prawo I</td>
+<td>AI Act, omnibus cyfrowy, ustawa o systemach AI, spory o prawa
+autorskie</td>
+</tr>
+<tr>
+<td>8. Prawo II</td>
+<td>dane osobowe, odpowiedzialność, AI w sądach i zawodach
+prawniczych</td>
+</tr>
+<tr>
+<td>9. Przyszłość</td>
+<td>prognozy są niepewne; wdrożenia udają się przy nadzorze i
+weryfikacji</td>
+</tr>
+<tr>
+<td>10. Środowisko</td>
+<td>AI ma ciało: energię, wodę i surowce</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="trzy-wnioski-z-całego-kursu" class="slide level2">
+<h2>Trzy wnioski z całego kursu</h2>
+<ol type="1">
+<li><strong>AI to technologia materialna i społeczna</strong>, nie tylko
+matematyczna: ma koszty, właścicieli i ofiary</li>
+<li><strong>Prawo reguluje zastosowania i skutki</strong>, nie
+„inteligencję”: ryzyko, przejrzystość, odpowiedzialność</li>
+<li><strong>Prawnik odpowiada za wynik</strong>, także gdy pomagała mu
+AI: weryfikuj, ujawniaj, chroń dane</li>
+</ol>
+</section>
+<section id="najważniejsze-akty-prawne" class="slide level2">
+<h2>Najważniejsze akty prawne</h2>
+<ul>
+<li>Rozporządzenie (UE) 2024/1689 (AI Act) i rozporządzenie (UE)
+2026/1744 (omnibus cyfrowy)</li>
+<li>Ustawa z 3.07.2026 r. o systemach sztucznej inteligencji (Dz.U. 2026
+poz. 1003), organ nadzoru: KRiBSI</li>
+<li>RODO (zwłaszcza art. 5, 6, 22, 35), DSA, DMA</li>
+<li>Dyrektywa (UE) 2019/790 (TDM, art. 3 i 4) i ustawa o prawie
+autorskim</li>
+<li>Dyrektywa (UE) 2024/2853 o produktach wadliwych (transpozycja do
+9.12.2026)</li>
+<li>Konwencja ramowa Rady Europy o AI (CETS nr 225)</li>
+</ul>
+</section>
+<section id="kluczowe-terminy-ai-act" class="slide level2">
+<h2>Kluczowe terminy AI Act</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Od</th>
+<th>Co</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2.02.2025</td>
+<td>zakazy (art. 5), kompetencje w zakresie AI (art. 4)</td>
+</tr>
+<tr>
+<td>2.08.2025</td>
+<td>obowiązki dostawców modeli GPAI</td>
+</tr>
+<tr>
+<td>2.08.2026</td>
+<td>przejrzystość (art. 50); dla systemów z art. 50 ust. 2 sprzed tej
+daty: do 2.12.2026</td>
+</tr>
+<tr>
+<td>2.12.2026</td>
+<td>nowe zakazy z art. 5 (m.in. materiały intymne bez zgody, CSAM)</td>
+</tr>
+<tr>
+<td>2.12.2027</td>
+<td>systemy wysokiego ryzyka z zał. III</td>
+</tr>
+<tr>
+<td>2.08.2028</td>
+<td>systemy wysokiego ryzyka z zał. I</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="najważniejsze-orzeczenia" class="slide level2">
+<h2>Najważniejsze orzeczenia</h2>
+<ul>
+<li>TSUE: C-634/21 <em>SCHUFA</em> (7.12.2023), C-203/22 <em>Dun &amp;
+Bradstreet Austria</em> (27.02.2025)</li>
+<li><em>State v. Loomis</em> (2016), SyRI (Haga, 2020)</li>
+<li><em>Mata v. Avianca</em> (2023)</li>
+<li><em>Thaler v. Perlmutter</em> (2025), <em>Getty Images v. Stability
+AI</em> (2025), <em>GEMA v. OpenAI</em> (2025), <em>Bartz v.
+Anthropic</em> (2025)</li>
+<li><em>Moffatt v. Air Canada</em> (2024)</li>
+</ul>
+</section>
+<section id="zaliczenie-przypomnienie" class="slide level2">
+<h2>Zaliczenie: przypomnienie</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>A. Test</strong></p>
+<ul>
+<li>20 pytań jednokrotnego wyboru (po 1 pkt)</li>
+<li>2 pytania otwarte (po 5 pkt)</li>
+<li>30 pkt, próg 60% (18 pkt)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>B. Projekt</strong></p>
+<ul>
+<li>referat 10–15 stron albo prezentacja z opracowaniem 5–8 stron</li>
+<li>oświadczenie o użyciu AI</li>
+<li>autor odpowiada za każde źródło</li>
+</ul>
+</div>
+</div>
+<ul>
+<li>Termin: sesja <strong>5–18 lutego 2027 r.</strong>, poprawka do 28
+lutego 2027 r.</li>
+<li>Aktywność może podnieść ocenę o pół stopnia</li>
+</ul>
+</section>
+<section id="jak-rozwiązać-pytanie-otwarte" class="slide level2">
+<h2>Jak rozwiązać pytanie otwarte?</h2>
+<ol type="1">
+<li><strong>Kwalifikacja</strong>: czy to system AI (art. 3 pkt 1)? Jaka
+kategoria ryzyka?</li>
+<li><strong>Role</strong>: kto jest dostawcą, kto podmiotem
+stosującym?</li>
+<li><strong>Przepisy</strong>: które obowiązki i od kiedy się je stosuje
+(pamiętaj o omnibusie)?</li>
+<li><strong>Inne reżimy</strong>: RODO, prawo autorskie, k.c., prawo
+konsumenckie, etyka zawodowa</li>
+<li><strong>Ocena</strong>: własne, uzasadnione stanowisko, najlepiej z
+orzeczeniem lub przykładem</li>
+</ol>
+</section>
+<section id="przykładowe-pytanie-otwarte" class="slide level2">
+<h2>Przykładowe pytanie otwarte</h2>
+<blockquote>
+<p>Bank w Lublinie stosuje model uczenia maszynowego do oceny zdolności
+kredytowej i odmawia kredytu pani Kowalskiej bez udziału pracownika.
+Pani Kowalska żąda wyjaśnienia, dlaczego otrzymała odmowę. Oceń jej
+sytuację prawną.</p>
+</blockquote>
+<ul>
+<li>Na co zwrócić uwagę: art. 22 RODO i wyroki <em>SCHUFA</em> oraz
+<em>Dun &amp; Bradstreet</em>; zał. III pkt 5 lit. b AI Act (system
+wysokiego ryzyka, od 2.12.2027 r.); art. 86 AI Act (prawo do
+wyjaśnienia); art. 27 (ocena skutków dla praw podstawowych)</li>
+</ul>
+</section>
+<section id="projekt-lista-kontrolna-przed-oddaniem"
+class="slide level2">
+<h2>Projekt: lista kontrolna przed oddaniem</h2>
+<ul>
+<li>Czy temat był uzgodniony z prowadzącym?</li>
+<li>Czy każde orzeczenie i każdy przepis sprawdziłeś w źródle (EUR-Lex,
+ISAP, curia.europa.eu)?</li>
+<li>Czy stan prawny jest aktualny (omnibus cyfrowy, ustawa o systemach
+AI)?</li>
+<li>Czy dołączyłeś oświadczenie o korzystaniu z AI?</li>
+<li>Czy praca ma własną tezę, a nie tylko streszczenie?</li>
+</ul>
+</section>
+<section id="podsumowanie" class="slide level2">
+<h2>Podsumowanie</h2>
+<ul>
+<li>Centra danych zużyły ok. 485 TWh w 2025 r. i według IEA do 2030 r.
+zużycie się podwoi</li>
+<li>Ślad wodny jednej odpowiedzi to od ułamka mililitra do
+kilkudziesięciu mililitrów, zależnie od metody liczenia</li>
+<li>Gutaperka, lit, cyna i kobalt pokazują ten sam wzór: koszty
+technologii ponoszą inni i gdzie indziej</li>
+<li>Prawo UE wymaga raportowania od centrów danych, ale obowiązki
+środowiskowe w AI Act są miękkie</li>
+<li>Kurs w jednym zdaniu: AI jest technologią materialną, społeczną i
+prawną, a prawnik musi rozumieć wszystkie trzy wymiary</li>
+</ul>
+</section>
+<section id="ostatnie-zlecenie-właz-pod-rynkiem" class="slide level2">
+<h2>Ostatnie zlecenie: właz pod Rynkiem</h2>
+<ul>
+<li>Pod Starym Miastem, pod gmachem Trybunału Koronnego, jest miejsce
+bez sieci: <strong>strefa ciszy</strong></li>
+<li>Tam Archiwistka przechowuje papierowe akta wszystkich spraw Biura;
+ECHO nie ma tam wstępu</li>
+<li>Na mapie kursu, pod Starym Miastem, miga sygnał. Otwórz go i wpisz
+<strong>kod dostępu</strong>, który za chwilę podam</li>
+<li>Na dole: mapa całego śledztwa, sprawa przekrojowa do powtórki i
+ostatni przedmiot</li>
+</ul>
+<aside class="notes">
+<p>Kod dostępu jest w pliku <code>01_moduly/_podziemia/kod.txt</code> w
+repozytorium kursu. Podaj go ustnie albo napisz na tablicy; nie ma go na
+stronie ani w slajdach. Po zajęciach przebuduj stronę, żeby podziemia
+otworzyły się dla nieobecnych. Szczegóły:
+<code>01_moduly/_podziemia/README.md</code>.</p>
+<p>Tu jest miejsce na ostatnią dyskusję („Ostatnie przesłuchanie” na
+stronie podziemi): który moment kursu najbardziej zmienił rozumienie AI,
+czego prawnik nie powinien oddawać systemowi, gdzie w przyszłej pracy
+pojawi się „skrót”.</p>
+</aside>
+</section>
+<section id="po-zajęciach-zaliczenie" class="slide level2">
+<h2>Po zajęciach: zaliczenie</h2>
+<ul>
+<li>Powtórz konspekty tematów 1–10, rozwiąż quizy i „Akta Trybunału” w
+podziemiach</li>
+<li>Ścieżka B: oddaj projekt w sesji, najpóźniej do 18.02.2027 r. (PDF,
+pocztą elektroniczną)</li>
+<li>Ścieżka A: test w sesji 5–18.02.2027 r.; termin i sala zostaną
+podane na stronie kursu</li>
+<li>Dziękuję za udział w wykładzie!</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/search/search.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.05,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

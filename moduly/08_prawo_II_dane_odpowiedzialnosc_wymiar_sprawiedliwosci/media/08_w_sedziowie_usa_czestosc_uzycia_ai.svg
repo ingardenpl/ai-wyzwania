@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Jak często sędziowie federalni USA używają AI w pracy?</title><desc id="d"> Codziennie lub co tydzień: 22,4%; Co miesiąc: 19,6%; Rzadko: 19,6%; Nigdy: 38,4%</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Jak często sędziowie federalni USA używają AI w pracy?</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.7" font-weight="400" fill="#9095ad" text-anchor="start" >Najczęstsze użycie któregokolwiek z narzędzi AI w pracy sędziowskiej; ankieta losowej próby 502 sędziów federalnych, odpowiedziało 112 (22,3%)</text>
+<rect x="358.0" y="122.8" width="454.0" height="44.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="122.8" width="226.0" height="44.0" fill="#39ff88"/>
+<text x="346.0" y="151.1" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Codziennie lub co tydzień</text>
+<text x="594.0" y="151.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >22,4%</text>
+<rect x="358.0" y="220.2" width="454.0" height="44.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="220.2" width="197.7" height="44.0" fill="#00f0ff"/>
+<text x="346.0" y="248.6" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Co miesiąc</text>
+<text x="565.7" y="249.1" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >19,6%</text>
+<rect x="358.0" y="317.8" width="454.0" height="44.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="317.8" width="197.7" height="44.0" fill="#00f0ff"/>
+<text x="346.0" y="346.1" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Rzadko</text>
+<text x="565.7" y="346.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >19,6%</text>
+<rect x="358.0" y="415.2" width="454.0" height="44.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="415.2" width="387.4" height="44.0" fill="#ff003c"/>
+<text x="346.0" y="443.6" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Nigdy</text>
+<text x="755.4" y="444.1" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >38,4%</text>
+<text x="28.0" y="507.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: A. Jaitley, D. W. Linna Jr., X. Rodriguez, V. S. Subrahmanian, S. Tao, Artificial Intelligence in</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Federal Courts: A Random-Sample Survey of Judges, Sedona Conference Journal 27 (2026), s. 13</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

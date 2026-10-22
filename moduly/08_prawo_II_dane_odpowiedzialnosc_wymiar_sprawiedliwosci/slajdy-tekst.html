@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slajdy do czytania: Prawne wyzwania AI (II): dane osobowe, odpowiedzialność, wymiar sprawiedliwości · Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne</title>
+<meta name="description" content="Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne. Wykład monograficzny · prawo · WPiA UMCS · semestr zimowy 2026/2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Tiny5&family=Chakra+Petch:wght@500;600;700&family=Anton&family=VT323&display=swap">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="manifest" href="../../assets/manifest.webmanifest">
+<meta name="theme-color" content="#07080f">
+<link rel="icon" href="../../assets/ikona-192.png" type="image/png">
+<link rel="apple-touch-icon" href="../../assets/ikona-180.png">
+<script src="../../assets/site.js"></script>
+<script src="../../assets/gra.js"></script>
+
+</head>
+<body>
+<a class="skip-link" href="#tresc">Przejdź do treści</a>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../../index.html"><b>NEO-LUBLIN 2049</b><small>Wykład monograficzny · WPiA UMCS</small></a>
+    <nav class="topnav" aria-label="Nawigacja kursu"><a href="../../index.html">Mapa</a><a href="../../sylabus.html">Sylabus</a><a href="../../zaliczenie.html">Zaliczenie</a><a href="../../zrodla.html">Źródła</a><a href="../../slowniczek.html">Słowniczek</a><a href="../../fiszki.html">Fiszki</a><a href="../../biblioteka.html">Biblioteka</a><a href="../../interaktywne.html">Interaktywne</a></nav>
+  </div>
+</header>
+<main id="tresc" tabindex="-1">
+
+<div class="wrap narrow">
+  <p class="crumbs"><a href="index.html">← Strona dzielnicy</a> · <a href="slajdy.html">Pokaz slajdów</a></p>
+  <p class="eyebrow">Slajdy do czytania · dzielnica 08</p>
+  <h1>Prawne wyzwania AI (II): dane osobowe, odpowiedzialność, wymiar sprawiedliwości</h1>
+  <p class="muted">Treść slajdów w układzie wygodnym na telefonie. Szersze omówienie jest w konspekcie i w Wiedzy na stronie dzielnicy.</p>
+  <div class="prose slajdy-tekst"><h3 id="plan-spotkania">Plan spotkania</h3>
+<ol type="1">
+<li>Ochrona danych osobowych a AI: podstawy przetwarzania, minimalizacja danych, prawa osób, ocena skutków, zautomatyzowane podejmowanie decyzji</li>
+<li>Naruszenia prywatności przez systemy AI: rozpoznawanie twarzy, profilowanie, decyzje organów nadzorczych</li>
+<li>Odpowiedzialność cywilna: kodeks cywilny, dyrektywa 2024/2853, wycofanie projektu dyrektywy o odpowiedzialności za AI</li>
+<li>Odpowiedzialność karna. Debata o osobowości prawnej AI</li>
+<li>AI w wymiarze sprawiedliwości i zawodach prawniczych: systemy wysokiego ryzyka, halucynowane orzeczenia (Mata v. Avianca), badanie „Algorytm w Todze”, etyka zawodowa</li>
+</ol>
+<h2 id="część-i.-rodo-a-sztuczna-inteligencja">Część I. RODO a sztuczna inteligencja</h2>
+<h3 id="pytanie-na-początek">Pytanie na początek</h3>
+<p>Aplikant wkleja do ogólnodostępnego czatu AI skan pozwu z danymi klienta i prosi o projekt odpowiedzi na pozew.</p>
+<ul>
+<li>Czy to przetwarzanie danych osobowych? Kto jest administratorem?</li>
+<li>Czy narusza tajemnicę zawodową?</li>
+<li>Co, jeżeli dostawca używa rozmów do trenowania modelu?</li>
+</ul>
+<h3 id="rodo-w-cyklu-życia-modelu">RODO w cyklu życia modelu</h3>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><strong>Trenowanie</strong></p>
+<ul>
+<li>dane z internetu (<em>web scraping</em>)</li>
+<li>dane klientów i użytkowników</li>
+<li>podstawa prawna? informacja?</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<p><strong>Wdrożenie</strong></p>
+<ul>
+<li>polecenia (<em>prompty</em>) zawierające dane</li>
+<li>retencja rozmów</li>
+<li>powierzenie przetwarzania</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<p><strong>Wynik</strong></p>
+<ul>
+<li>informacje o osobach generowane przez model</li>
+<li>profilowanie i decyzje</li>
+<li>prawidłowość danych</li>
+</ul>
+</div>
+</div>
+<p>RODO stosuje się na każdym etapie, a role (administrator, podmiot przetwarzający) mogą być różne.</p>
+<h3 id="podstawy-przetwarzania-i-zasady">Podstawy przetwarzania i zasady</h3>
+<ul>
+<li><strong>Art. 6 RODO:</strong> przy trenowaniu modeli najczęściej powołuje się <strong>prawnie uzasadniony interes</strong> (lit. f), co wymaga testu równowagi</li>
+<li><strong>Art. 9 RODO:</strong> dane szczególnych kategorii (zdrowie, poglądy, biometria) wymagają szczególnej podstawy</li>
+<li><strong>Art. 5 RODO:</strong> ograniczenie celu, <strong>minimalizacja danych</strong>, <strong>prawidłowość</strong>, ograniczenie przechowywania</li>
+<li>Napięcie: modele „lubią” dużo danych, a RODO wymaga ich minimum</li>
+</ul>
+<h3 id="prawidłowość-danych-a-halucynacje">Prawidłowość danych a halucynacje</h3>
+<ul>
+<li>Model może generować <strong>fałszywe informacje o realnych osobach</strong></li>
+<li>Przykład: skarga noyb (2025) w Norwegii: ChatGPT przypisał mężczyźnie zabójstwo jego dzieci</li>
+<li>Art. 5 ust. 1 lit. d RODO: dane mają być prawidłowe</li>
+<li>Art. 16 RODO: prawo do sprostowania. Jak „sprostować” model, który nie przechowuje danych jak baza?</li>
+<li>Odpowiedź dostawców: filtry wyników, blokowanie nazwisk, ostrzeżenia o błędach</li>
+</ul>
+<h3 id="prawa-osób-i-ocena-skutków">Prawa osób i ocena skutków</h3>
+<ul>
+<li><strong>Dostęp (art. 15), sprostowanie (art. 16), usunięcie (art. 17), sprzeciw (art. 21)</strong>: wykonanie wobec modelu jest technicznie trudne</li>
+<li><strong>Art. 22:</strong> decyzje zautomatyzowane, w wykładni TSUE w sprawach SCHUFA i Dun &amp; Bradstreet (spotkanie 5)</li>
+<li><strong>Art. 35 RODO:</strong> ocena skutków dla ochrony danych (DPIA) przy przetwarzaniu wysokiego ryzyka, zwłaszcza przy nowych technologiach i profilowaniu</li>
+<li><strong>Art. 27 AI Act:</strong> ocena skutków dla praw podstawowych (FRIA) przy systemach wysokiego ryzyka stosowanych m.in. przez podmioty publiczne</li>
+<li><strong>Art. 25 RODO:</strong> uwzględnianie ochrony danych w fazie projektowania</li>
+</ul>
+<h2 id="część-ii.-naruszenia-prywatności-przez-systemy-ai">Część II. Naruszenia prywatności przez systemy AI</h2>
+<h3 id="rozpoznawanie-twarzy-clearview-ai">Rozpoznawanie twarzy: Clearview AI</h3>
+<ul>
+<li>Baza miliardów zdjęć pobranych z internetu bez wiedzy osób, sprzedawana m.in. policji</li>
+<li>Kary europejskich organów: Włochy, Francja, Grecja (po 20 mln euro, 2022), Holandia (<strong>30,5 mln euro</strong>, decyzja ogłoszona 3.09.2024)</li>
+<li>Holenderski organ: kody biometryczne to dane szczególnej kategorii; żaden wyjątek z art. 9 RODO nie ma zastosowania</li>
+<li>AI Act: zakaz tworzenia baz rozpoznawania twarzy przez <strong>nieukierunkowane pozyskiwanie</strong> wizerunków z internetu lub monitoringu (art. 5 ust. 1 lit. e)</li>
+</ul>
+<h3 id="kary-organów-ochrony-danych-dla-firm-ai">Kary organów ochrony danych dla firm AI</h3>
+<figure>
+<img src="media/08_w_kary_organow_ochrony_danych_ai.svg" style="width:88.0%" alt="Wykres słupkowy poziomy: Clearview AI ukarano w Holandii na 30,5 mln euro, a we Włoszech, Francji i Grecji po 20 mln euro; OpenAI we Włoszech 15 mln euro (decyzję uchylono), a firmę Replika 5 mln euro." />
+<figcaption aria-hidden="true">Wykres słupkowy poziomy: Clearview AI ukarano w Holandii na 30,5 mln euro, a we Włoszech, Francji i Grecji po 20 mln euro; OpenAI we Włoszech 15 mln euro (decyzję uchylono), a firmę Replika 5 mln euro.</figcaption>
+</figure>
+<h3 id="biometria-w-ai-act">Biometria w AI Act</h3>
+<ul>
+<li><strong>Art. 5 ust. 1 lit. h:</strong> zakaz zdalnej identyfikacji biometrycznej <strong>w czasie rzeczywistym</strong> w przestrzeni publicznej do celów ścigania, z wąskimi wyjątkami (poszukiwanie ofiar, zapobieganie atakom terrorystycznym, poważne przestępstwa) i po uprzednim zezwoleniu</li>
+<li><strong>Art. 5 ust. 1 lit. g:</strong> zakaz kategoryzacji biometrycznej w celu wnioskowania o rasie, poglądach politycznych, orientacji seksualnej</li>
+<li><strong>Zał. III pkt 1:</strong> pozostała identyfikacja biometryczna (także <em>post factum</em>) to system wysokiego ryzyka</li>
+<li>Kontekst: test NIST i różnice skuteczności między grupami (spotkanie 5)</li>
+</ul>
+<h3 id="organy-nadzorcze-wobec-dostawców-modeli">Organy nadzorcze wobec dostawców modeli</h3>
+<ul>
+<li>Włochy (marzec 2023): czasowe ograniczenie przetwarzania danych przez ChatGPT</li>
+<li>Włochy (grudzień 2024): kara <strong>15 mln euro</strong> dla OpenAI (brak podstawy prawnej trenowania, przejrzystość, weryfikacja wieku, niezgłoszone naruszenie)</li>
+<li>Sąd w Rzymie (wyrok nr 4153/2026, 18.03.2026) uwzględnił sprzeciw OpenAI wobec decyzji</li>
+<li>Polska: postępowanie Prezesa UODO wobec OpenAI wszczęte po skardze (2023)</li>
+<li>EROD: grupa zadaniowa ds. ChatGPT, opinia 28/2024 o modelach AI</li>
+</ul>
+<h3 id="profilowanie-w-organach-ścigania">Profilowanie w organach ścigania</h3>
+<ul>
+<li>Przewidywanie miejsc i czasu przestępstw (<em>predictive policing</em>)</li>
+<li>Rozpoznawanie twarzy na nagraniach z monitoringu</li>
+<li>Analiza mediów społecznościowych i analiza sentymentu</li>
+<li>Automatyczna transkrypcja rozpraw, analiza transakcji kryptowalutowych</li>
+<li>Ryzyka: uprzedzenia w danych historycznych, prywatność, nieprzejrzystość</li>
+</ul>
+<h2 id="część-iii.-odpowiedzialność-cywilna">Część III. Odpowiedzialność cywilna</h2>
+<h3 id="luka-odpowiedzialności">Luka odpowiedzialności</h3>
+<ul>
+<li><strong>Wielość podmiotów:</strong> dostawca modelu, twórca aplikacji, integrator, użytkownik</li>
+<li><strong>Nieprzejrzystość:</strong> trudno wykazać, co zawiodło</li>
+<li><strong>Autonomia i zmienność:</strong> system zmienia się po wdrożeniu (aktualizacje, dalsze uczenie)</li>
+<li><strong>Skutek:</strong> poszkodowany ma trudność z udowodnieniem winy i związku przyczynowego (art. 6 k.c.)</li>
+</ul>
+<h3 id="reżimy-kodeksu-cywilnego">Reżimy kodeksu cywilnego</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Podstawa</th>
+<th>Przesłanka</th>
+<th>Zastosowanie do AI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>art. 415 k.c.</td>
+<td>wina</td>
+<td>użytkownik, który nie sprawdził wyniku</td>
+</tr>
+<tr>
+<td>art. 416, 430 k.c.</td>
+<td>wina organu, podwładnego</td>
+<td>kancelaria, szpital, bank</td>
+</tr>
+<tr>
+<td>art. 435 k.c.</td>
+<td>ryzyko (przedsiębiorstwo wprawiane w ruch siłami przyrody)</td>
+<td>spór: czy obejmuje przedsiębiorstwa oparte na AI?</td>
+</tr>
+<tr>
+<td>art. 436 k.c.</td>
+<td>ryzyko (mechaniczne środki komunikacji)</td>
+<td>pojazdy autonomiczne</td>
+</tr>
+<tr>
+<td>art. 449¹ i n. k.c.</td>
+<td>produkt niebezpieczny</td>
+<td>zmiany po transpozycji dyrektywy 2024/2853</td>
+</tr>
+<tr>
+<td>art. 471 k.c.</td>
+<td>niewykonanie zobowiązania</td>
+<td>klient wobec kancelarii, kancelaria wobec dostawcy</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dyrektywa-ue-20242853-o-produktach-wadliwych">Dyrektywa (UE) 2024/2853 o produktach wadliwych</h3>
+<ul>
+<li><strong>Oprogramowanie, w tym systemy AI, jest produktem</strong> (także dostarczane jako usługa w chmurze)</li>
+<li>Odpowiada producent, także za <strong>aktualizacje</strong> i brak aktualizacji bezpieczeństwa; kto istotnie modyfikuje produkt, staje się producentem</li>
+<li>Szkoda: śmierć, uszkodzenie ciała (w tym zdrowia psychicznego), mienie, <strong>zniszczenie lub uszkodzenie danych</strong> (nie do celów zawodowych)</li>
+<li><strong>Ujawnianie dowodów</strong> przez pozwanego i <strong>domniemania</strong> wadliwości oraz związku przyczynowego, gdy dowód jest nadmiernie trudny</li>
+<li>Transpozycja do <strong>9.12.2026</strong>; nowe przepisy dla produktów wprowadzonych do obrotu po tej dacie</li>
+</ul>
+<h3 id="wycofany-projekt-dyrektywy-o-odpowiedzialności-za-ai">Wycofany projekt dyrektywy o odpowiedzialności za AI</h3>
+<ul>
+<li>Projekt Komisji z 28.09.2022, COM(2022) 496 (AILD)</li>
+<li>Miał ułatwić dochodzenie roszczeń <strong>opartych na winie</strong>: ujawnianie dowodów o systemach wysokiego ryzyka, wzruszalne domniemanie związku przyczynowego</li>
+<li>Program prac Komisji (11.02.2025): zapowiedź wycofania („brak przewidywalnego porozumienia”)</li>
+<li>Decyzja o wycofaniu: 16.07.2025; ogłoszenie w Dz.Urz. UE: 6.10.2025</li>
+<li>Skutek: odpowiedzialność na zasadzie winy pozostaje w prawie krajowym, w Polsce w kodeksie cywilnym</li>
+</ul>
+<h3 id="kto-zapłaci-przykład">Kto zapłaci? Przykład</h3>
+<p>Kancelaria przygotowuje opinię prawną z pomocą komercyjnego modelu. Opinia powołuje nieistniejący wyrok. Klient, polegając na niej, nie wnosi apelacji i przegrywa.</p>
+<ul>
+<li><strong>Klient → kancelaria:</strong> art. 471 k.c. (nienależyte wykonanie umowy), wymagana zawodowa staranność (art. 355 § 2 k.c.)</li>
+<li><strong>Kancelaria → dostawca:</strong> umowa licencyjna, zwykle z wyłączeniem odpowiedzialności</li>
+<li><strong>Dyrektywa 2024/2853:</strong> nie pomoże (szkoda czysto majątkowa)</li>
+<li><strong>Odpowiedzialność dyscyplinarna</strong> prawnika: niezależnie od cywilnej</li>
+</ul>
+<h2 id="część-iv.-odpowiedzialność-karna-i-osobowość-prawna">Część IV. Odpowiedzialność karna i osobowość prawna</h2>
+<h3 id="odpowiedzialność-karna">Odpowiedzialność karna</h3>
+<ul>
+<li>Odpowiada <strong>człowiek</strong>, któremu można przypisać winę (art. 1 § 3 k.k.); system AI nie jest sprawcą</li>
+<li>Kogo pociągnąć: programistę, producenta, użytkownika, nadzorującego?</li>
+<li>Najczęściej w grę wchodzi <strong>nieumyślność</strong> (art. 9 § 2 k.k.): niezachowanie ostrożności wymaganej w danych okolicznościach</li>
+<li>Przykład: wypadek autonomicznego samochodu Ubera (Tempe, Arizona, 2018): odpowiedzialność poniosła kierowczyni nadzorująca, nie firma</li>
+<li>Podmioty zbiorowe (ustawa z 28.10.2002 r.): odpowiedzialność zależna od skazania osoby fizycznej</li>
+</ul>
+<h3 id="osobowość-prawna-ai">Osobowość prawna AI?</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Za</strong></p>
+<ul>
+<li>adresat odpowiedzialności przy autonomicznych systemach</li>
+<li>analogia do osób prawnych</li>
+<li>fundusz odszkodowawczy przypisany systemowi</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Przeciw</strong></p>
+<ul>
+<li>osoba prawna działa przez ludzi, AI nie</li>
+<li>ryzyko przerzucenia odpowiedzialności z producentów na „maszynę”</li>
+<li>brak świadomości i interesów własnych</li>
+</ul>
+</div>
+</div>
+<ul>
+<li>Parlament Europejski (16.02.2017): rozważenie statusu „osoby elektronicznej”; sprzeciw ponad 150 ekspertów w liście otwartym (2018)</li>
+<li>Parlament Europejski (20.10.2020): nadanie osobowości prawnej systemom AI nie jest konieczne</li>
+<li>Sądy: AI nie może być wynalazcą (<em>Thaler v Comptroller-General</em>, UK Supreme Court, 20.12.2023) ani autorem (<em>Thaler v. Perlmutter</em>, spotkanie 7)</li>
+</ul>
+<h2 id="część-v.-ai-w-wymiarze-sprawiedliwości-i-zawodach-prawniczych">Część V. AI w wymiarze sprawiedliwości i zawodach prawniczych</h2>
+<h3 id="wymiar-sprawiedliwości-a-nowe-technologie">Wymiar sprawiedliwości a nowe technologie</h3>
+<ul>
+<li><strong>Internalizacja:</strong> wykorzystanie narzędzi w działaniu wymiaru sprawiedliwości (transkrypcja, anonimizacja, wyszukiwanie orzeczeń, projekty pism)</li>
+<li><strong>Eksternalizacja:</strong> rozstrzyganie spraw związanych z nowymi technologiami (spory o AI, dowody cyfrowe, deepfake jako dowód)</li>
+<li>Obie wymagają od sędziów nowych kompetencji</li>
+</ul>
+<h3 id="ai-act-wymiar-sprawiedliwości-jako-obszar-wysokiego-ryzyka">AI Act: wymiar sprawiedliwości jako obszar wysokiego ryzyka</h3>
+<ul>
+<li><strong>Zał. III pkt 8 lit. a:</strong> systemy przeznaczone do pomocy organowi sądowemu w <strong>badaniu i interpretacji faktów i prawa</strong> oraz w <strong>stosowaniu prawa</strong> do konkretnego stanu faktycznego (także w ADR)</li>
+<li><strong>Motyw 61:</strong> ostateczna decyzja musi pozostać działaniem człowieka; AI może wspierać, nie zastępować sędziego</li>
+<li>Nie są wysokiego ryzyka czynności czysto pomocnicze: anonimizacja orzeczeń, komunikacja, zadania administracyjne</li>
+<li>Obowiązki: nadzór człowieka (art. 14), obowiązki podmiotu stosującego (art. 26), FRIA (art. 27), prawo do wyjaśnienia (art. 86)</li>
+<li>Stosowanie: od <strong>2.12.2027</strong> (po zmianach z rozporządzenia 2026/1744)</li>
+</ul>
+<h3 id="standardy-europejskie-dla-sądownictwa">Standardy europejskie dla sądownictwa</h3>
+<ul>
+<li><strong>CEPEJ (Rada Europy), Europejska karta etyczna wykorzystania AI w systemach sądowych (grudzień 2018)</strong>: 5 zasad
+<ol type="1">
+<li>poszanowanie praw podstawowych</li>
+<li>niedyskryminacja</li>
+<li>jakość i bezpieczeństwo</li>
+<li>przejrzystość, bezstronność i rzetelność</li>
+<li>„pod kontrolą użytkownika”</li>
+</ol></li>
+<li><strong>Francja (2019):</strong> zakaz wykorzystywania danych o tożsamości sędziów do oceny i przewidywania ich praktyki orzeczniczej</li>
+</ul>
+<h3 id="zastosowania-i-predykcja-wyroków">Zastosowania i predykcja wyroków</h3>
+<ul>
+<li>Automatyczna transkrypcja i analiza rozpraw</li>
+<li>Wyszukiwanie i katalogowanie orzeczeń, ujednolicanie orzecznictwa</li>
+<li>Predykcyjna analiza wyroków na podstawie danych historycznych</li>
+<li>Ryzyka: utrwalanie dawnych rozstrzygnięć, efekt „zakotwiczenia” sędziego, nieprzejrzystość</li>
+<li>Granica: prognoza wyniku a <strong>uzasadnienie</strong> wyroku</li>
+</ul>
+<h3 id="rekomendacje-grai-dla-sądownictwa">Rekomendacje GRAI dla sądownictwa</h3>
+<ol type="1">
+<li>Zgodność z prawem krajowym i międzynarodowym (RODO, AI Act), zwłaszcza anonimizacja</li>
+<li>Ochrona praw procesowych: rzetelny proces, równość broni, prywatność</li>
+<li>Jasne ramy odpowiedzialności za decyzje wspierane przez AI</li>
+<li>Przejrzystość, kontrola i niezależny audyt systemów</li>
+<li>Analiza etyczna: godność, sprawiedliwość, równość, autonomia</li>
+<li>Współpraca międzysektorowa i stała ewolucja prawa</li>
+</ol>
+<h3 id="pakistan-1559-sędziów-i-szkolenie-z-ai">Pakistan: 1559 sędziów i szkolenie z AI</h3>
+<ul>
+<li>Eksperyment terenowy (Mehmood, Goessmann, Ash, 2026): 1559 sędziów w 118 sądach, ok. połowa sędziów I instancji w kraju</li>
+<li>Przed szkoleniem duże modele językowe znało ok. 25% sędziów</li>
+<li>Po szkoleniu sądy załatwiały więcej spraw (+6,3% przy medianowej ekspozycji), a liczba apelacji nieznacznie spadła</li>
+<li>2026: krajowe wytyczne dla sądów Pakistanu: AI tylko wspiera sędziego, który zapisuje własne uzasadnienie; fragmenty z AI trzeba oznaczać</li>
+</ul>
+<h3 id="sędziowie-i-obywatele-wobec-ai-dane-z-kilku-krajów">Sędziowie i obywatele wobec AI: dane z kilku krajów</h3>
+<ul>
+<li>USA: 61,6% sędziów federalnych użyło AI w pracy, ale tylko ok. 22% robi to co tydzień lub codziennie (Jaitley i in., 2026)</li>
+<li>Kenia: wyrok oparty na analizie „asystenta AI” oceniono jako równie legitymowany jak oparty na analizie człowieka (2246 osób; Flanagan i in., 2025)</li>
+<li>Brazylia: AI w sądach służy głównie selekcji spraw i egzekucji podatkowej, bez systemów w pełni autonomicznych (Ferreira e Silva i in., 2026)</li>
+<li>GPT-4o w eksperymencie z apelacją rozumował jak student, nie jak sędzia (Posner, Saran, 2025)</li>
+<li><small>Więcej badań: <a href="https://aiqedu.pl/mapa-regulacji-ai/#research">AIQ, zakładka Badania</a></small></li>
+</ul>
+<h3 id="jak-często-sędziowie-federalni-usa-używają-ai-w-pracy">Jak często sędziowie federalni USA używają AI w pracy?</h3>
+<figure>
+<img src="media/08_w_sedziowie_usa_czestosc_uzycia_ai.svg" style="width:88.0%" alt="Wykres słupkowy poziomy: 38,4% sędziów federalnych USA nigdy nie użyło AI w pracy, 19,6% używa rzadko, 19,6% co miesiąc, a 22,4% co tydzień lub codziennie." />
+<figcaption aria-hidden="true">Wykres słupkowy poziomy: 38,4% sędziów federalnych USA nigdy nie użyło AI w pracy, 19,6% używa rzadko, 19,6% co miesiąc, a 22,4% co tydzień lub codziennie.</figcaption>
+</figure>
+<h3 id="niedeterminizm-prompt-engineering-i-rag">Niedeterminizm, prompt engineering i RAG</h3>
+<ul>
+<li>Ten sam model na to samo pytanie może dać różne odpowiedzi (immanentna cecha modeli językowych)</li>
+<li>Ograniczanie halucynacji: techniki formułowania poleceń, dostęp do <strong>zweryfikowanych baz</strong> (RAG, <em>retrieval-augmented generation</em>)</li>
+<li>RAG zmniejsza ryzyko zmyślonych źródeł, ale <strong>nie eliminuje</strong> błędów rozumowania</li>
+<li>Polskie narzędzia oparte na bazach prawniczych (np. LEX Expert AI, 2025)</li>
+</ul>
+<h3 id="mata-v.-avianca-s.d.n.y.-22.06.2023">Mata v. Avianca (S.D.N.Y., 22.06.2023)</h3>
+<ul>
+<li>Pełnomocnik powoda złożył pismo powołujące <strong>sześć nieistniejących orzeczeń</strong> wygenerowanych przez ChatGPT</li>
+<li>Zapytany przez model, czy orzeczenia są prawdziwe, otrzymał odpowiedź twierdzącą</li>
+<li>Sędzia P. Kevin Castel: działanie w złej wierze (świadome unikanie i wprowadzające w błąd oświadczenia)</li>
+<li>Sankcja: <strong>5000 dolarów</strong> solidarnie dla adwokatów i kancelarii; obowiązek powiadomienia klienta i sędziów, którym przypisano fikcyjne wyroki</li>
+<li>Powództwo oddalono jako spóźnione</li>
+</ul>
+<p><small><em>Mata v. Avianca, Inc.</em>, No. 22-cv-1461 (PKC), 678 F. Supp. 3d 443 (S.D.N.Y. 2023).</small></p>
+<h3 id="lawina-przypadków">Lawina przypadków</h3>
+<ul>
+<li>Baza D. Charlotina: ok. 210 przypadków halucynowanych cytowań w lipcu 2025 r., ok. 900 w lutym 2026 r., ponad 2200 w październiku 2026 r.</li>
+<li><em>Coomer v. Lindell</em> (USA, lipiec 2025): kary po 3000 dolarów dla dwóch pełnomocników</li>
+<li><em>Ayinde v. London Borough of Haringey</em> (High Court, Divisional Court, 6.06.2025): pięć fikcyjnych orzeczeń; ostrzeżenie dla całego zawodu, wyrok przekazany samorządom</li>
+<li>Polska: <strong>NSA, postanowienie z 23.06.2026, I FZ 104/26</strong>: zażalenie powoływało trzy orzeczenia, które nie zawierały przypisanych im tez; NSA: „nader krytycznie należy ocenić bezrefleksyjne korzystanie z narzędzi AI przez zawodowego pełnomocnika”</li>
+</ul>
+<h3 id="halucynacje-ai-w-sądach-lawinowy-wzrost-liczby-spraw">Halucynacje AI w sądach: lawinowy wzrost liczby spraw</h3>
+<figure>
+<img src="media/08_w_halucynacje_baza_charlotina.svg" style="width:88.0%" alt="Wykres słupkowy: liczba spraw w bazie halucynacji AI w sądach rośnie z 210 w lipcu 2025 r. przez 727 w styczniu 2026 r. i 1523 w czerwcu 2026 r. do 2202 w październiku 2026 r." />
+<figcaption aria-hidden="true">Wykres słupkowy: liczba spraw w bazie halucynacji AI w sądach rośnie z 210 w lipcu 2025 r. przez 727 w styczniu 2026 r. i 1523 w czerwcu 2026 r. do 2202 w październiku 2026 r.</figcaption>
+</figure>
+<h3 id="ekonomia-weryfikacji">Ekonomia weryfikacji</h3>
+<ul>
+<li>Gdy koszt <strong>generowania</strong> tekstu spada do zera, rośnie wartość <strong>weryfikacji</strong></li>
+<li>A. Karpathy: automatyzacji poddają się najszybciej zadania <strong>weryfikowalne</strong> (szachy, kod), nie najprostsze</li>
+<li>Prawo nie spełnia warunków weryfikowalności: sprawy nie da się „zresetować”, pętla zwrotna trwa lata, poprawność wyroku konstruuje się w procesie</li>
+<li><strong>Błąd weryfikowalności:</strong> oceniamy, co AI potrafi, według złożoności zadania, a nie według tego, czy da się sprawdzić wynik</li>
+<li>Syndrom „lizusostwa” (<em>sycophancy</em>): model chętnie przyzna, że Twój argument jest dobry</li>
+</ul>
+<h3 id="algorytm-w-todze-badanie">„Algorytm w Todze”: badanie</h3>
+<ul>
+<li>M. Dudka, K. Kasprowicz, M. Stodółkiewicz, B. Stolarz, Wydawnictwo UMCS 2026 (w druku)</li>
+<li><strong>152</strong> przedstawicieli zawodów prawniczych z województwa lubelskiego (81 kobiet, 70 mężczyzn)</li>
+<li>Adwokaci, radcowie prawni, sędziowie, prokuratorzy, notariusze, komornicy, aplikanci, pracownicy sądów i prokuratur</li>
+<li>Ankieta internetowa, styczeń 2025 r.; próba celowa (badanie pilotażowe)</li>
+</ul>
+<p><strong>Pełny raport interaktywny na stronie kursu:</strong> „Algorytm w Todze”</p>
+<h3 id="paradoks-adaptacyjny">Paradoks adaptacyjny</h3>
+<div class="columns">
+<div class="column" style="width:62%;">
+<figure>
+<img src="media/08_w_toga_czestotliwosc.svg" style="width:100.0%" alt="Wykres: 54,6% prawników nie korzysta z AI w pracy, 18,4% kilka razy w tygodniu, 14,5% kilka razy w miesiącu, 7,9% codziennie, 5,9% rzadziej niż raz w miesiącu" />
+<figcaption aria-hidden="true">Wykres: 54,6% prawników nie korzysta z AI w pracy, 18,4% kilka razy w tygodniu, 14,5% kilka razy w miesiącu, 7,9% codziennie, 5,9% rzadziej niż raz w miesiącu</figcaption>
+</figure>
+</div><div class="column" style="width:38%;">
+<ul>
+<li>61% ocenia swoją znajomość AI jako przeciętną lub niższą; tylko 6% jako bardzo dobrą</li>
+<li>Gotowość do adaptacji wysoka lub bardzo wysoka: 69 osób; niska lub bardzo niska: 20 osób</li>
+<li>Zmiana jest postrzegana jako nieuchronna, ale wciąż <strong>zewnętrzna</strong></li>
+</ul>
+</div>
+</div>
+<h3 id="czego-chcą-prawnicy-od-ustawodawcy">Czego chcą prawnicy od ustawodawcy?</h3>
+<div class="columns">
+<div class="column" style="width:62%;">
+<figure>
+<img src="media/08_w_toga_obszary.svg" style="width:100.0%" alt="Wykres: ochrona danych i prywatności 114 wskazań, odpowiedzialność za decyzje AI 106, certyfikacja narzędzi 93, standardy etyczne 88, przejrzystość algorytmów 81" />
+<figcaption aria-hidden="true">Wykres: ochrona danych i prywatności 114 wskazań, odpowiedzialność za decyzje AI 106, certyfikacja narzędzi 93, standardy etyczne 88, przejrzystość algorytmów 81</figcaption>
+</figure>
+</div><div class="column" style="width:38%;">
+<ul>
+<li>107 na 152 respondentów uważa obecne regulacje za <strong>niewystarczające</strong>; tylko 4 za wystarczające</li>
+<li>Dwa typy obaw: <strong>epistemiczne</strong> (wiarygodność, halucynacje) i <strong>egzystencjalne</strong> (przyszłość zawodu, dehumanizacja prawa)</li>
+</ul>
+</div>
+</div>
+<h3 id="potrzeba-domknięcia-poznawczego">Potrzeba domknięcia poznawczego</h3>
+<p><img src="media/08_w_toga_nfc.svg" style="width:75.0%" alt="Wykres: prawnicy mają istotnie wyższe wyniki niż norma w podskalach zdecydowanie (d = 1,20), preferowanie porządku (d = 0,38) i zamkniętość umysłowa (d = 0,36); w dwóch pozostałych różnice nieistotne" /> </p>
+<ul>
+<li>Najsilniejszy efekt: <strong>zdecydowanie</strong> (d Cohena = 1,20)</li>
+<li>Zasób: szybkie decyzje, jasne reguły. Ryzyko: skłonność do przyjęcia <strong>pierwszej autorytatywnej odpowiedzi</strong>, także od AI</li>
+</ul>
+<h3 id="rekomendacje-raportu-de-lege-ferenda">Rekomendacje raportu (de lege ferenda)</h3>
+<ol type="1">
+<li><strong>Trójwarstwowa odpowiedzialność:</strong> prawnik (weryfikacja wyników), kancelaria (polityka, szkolenia, dobór narzędzi), dostawca narzędzi <em>legal-grade</em></li>
+<li><strong>Przejrzystość:</strong> informowanie klienta o użyciu AI; oznaczanie pism, w których AI generowała cytaty orzeczeń</li>
+<li><strong>Obowiązkowy nadzór człowieka</strong> przy czynnościach wywołujących skutki prawne</li>
+<li><strong>Certyfikacja narzędzi Legal AI</strong> (wskaźniki halucynacji, RODO, źródła, audyt)</li>
+<li><strong>Tajemnica zawodowa:</strong> zakaz używania niezweryfikowanych systemów do treści objętych tajemnicą</li>
+<li><strong>AI literacy</strong> w samorządach zawodowych jako konkretyzacja art. 4 AI Act</li>
+</ol>
+<h3 id="etyka-zawodowa-i-tajemnica">Etyka zawodowa i tajemnica</h3>
+<ul>
+<li>Tajemnica zawodowa: art. 6 ustawy Prawo o adwokaturze, art. 3 ust. 3 ustawy o radcach prawnych</li>
+<li>Wprowadzenie danych klienta do publicznego modelu, który zachowuje polecenia, może naruszać tajemnicę</li>
+<li>CCBE (październik 2025): prawnik informuje klienta o zamiarze użycia AI generatywnej i daje możliwość sprzeciwu</li>
+<li>Wielka Brytania: sądy oczekują najwyższych standardów od profesjonalnych pełnomocników; wytyczne Bar Council i Law Society (2025)</li>
+<li>Polska: samorządy pracują nad zasadami korzystania z AI</li>
+</ul>
+<h3 id="do-dyskusji">Do dyskusji</h3>
+<ul>
+<li>Czy sędzia powinien mieć prawo korzystać z modelu generatywnego przy pisaniu uzasadnienia? Na jakich warunkach?</li>
+<li>Czy pełnomocnik, który powołał halucynowane orzeczenie, powinien tracić wynagrodzenie (por. pytanie NSA)?</li>
+<li>Czy osobowość prawna AI rozwiązałaby problem odpowiedzialności, czy go ukryła?</li>
+</ul>
+<h3 id="podsumowanie">Podsumowanie</h3>
+<ul>
+<li>RODO obejmuje cały cykl życia modelu; kluczowe są podstawa prawna, minimalizacja, prawidłowość danych i DPIA</li>
+<li>Biometria i scraping twarzy to obszar zakazów AI Act i wysokich kar RODO</li>
+<li>Odpowiedzialność cywilna: kodeks cywilny i nowa dyrektywa produktowa (oprogramowanie jako produkt); AILD wycofano</li>
+<li>Odpowiedzialność karną ponosi człowiek; osobowość prawna AI pozostaje postulatem</li>
+<li>Systemy wspierające orzekanie to systemy wysokiego ryzyka; decyzja należy do człowieka</li>
+<li>Halucynowane orzeczenia to problem odpowiedzialności zawodowej, także w Polsce (NSA, I FZ 104/26)</li>
+</ul>
+<h3 id="na-następne-spotkanie">Na następne spotkanie</h3>
+<ul>
+<li><strong>Temat:</strong> Przyszłość AI: trendy, scenariusze, wdrożenia</li>
+<li><strong>Przeczytaj:</strong> lektury obowiązkowe modułu 09 (m.in. scenariusz „AI 2027”)</li>
+<li><strong>Zadanie:</strong> poproś model o trzy orzeczenia SN w wybranej sprawie i sprawdź je w bazie SN lub portalu orzeczeń. Zanotuj, ile istnieje i czy zawierają przypisane tezy</li>
+<li><strong>Quiz</strong> modułu 08 na stronie kursu</li>
+</ul>
+</div>
+  <p class="crumbs"><a href="index.html">← Strona dzielnicy</a></p>
+</div>
+
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne · Wykład monograficzny · prawo · WPiA UMCS · semestr zimowy 2026/2027<br>
+    Prowadzący: dr Karol Kasprowicz, <a href="mailto:karol.kasprowicz@mail.umcs.pl">karol.kasprowicz@mail.umcs.pl</a> · Stan materiałów na 22.10.2026 · <a href="../../styl.html">Księga stylu</a></p>
+  </div>
+</footer>
+<script src="../../assets/ui.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 570" width="1400" height="570" role="img" aria-label="Mechanizm uwagi: wagi powiązań słowa on z wcześniejszymi słowami" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<title>Mechanizm uwagi: wagi powiązań słowa on z wcześniejszymi słowami</title>
+<defs>
+<marker id="aN" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f3a5f"/></marker>
+<marker id="aM" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a1538"/></marker>
+<marker id="aT" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2a7f7a"/></marker>
+<marker id="aA" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a8661a"/></marker>
+</defs>
+<rect x="1" y="1" width="1398" height="568" rx="18" fill="#fbfaf7" stroke="#d6d0c4" stroke-width="2"/>
+<text x="700.0" y="46.0" font-size="27" fill="#1f3a5f" text-anchor="middle" font-weight="bold">Mechanizm uwagi (attention): na które słowa „patrzy” model?</text>
+<rect x="50.0" y="330.0" width="170.5" height="52.0" rx="8" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="1.5"/>
+<text x="135.2" y="364.0" font-size="20" fill="#1f3a5f" text-anchor="middle" font-weight="bold">Wynajmujący</text>
+<rect x="232.5" y="330.0" width="184.0" height="52.0" rx="8" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="1.5"/>
+<text x="324.5" y="364.0" font-size="20" fill="#1f3a5f" text-anchor="middle" font-weight="bold">wypowiedział</text>
+<rect x="428.5" y="330.0" width="116.5" height="52.0" rx="8" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="1.5"/>
+<text x="486.8" y="364.0" font-size="20" fill="#1f3a5f" text-anchor="middle" font-weight="bold">najemcy</text>
+<rect x="557.0" y="330.0" width="103.0" height="52.0" rx="8" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="1.5"/>
+<text x="608.5" y="364.0" font-size="20" fill="#1f3a5f" text-anchor="middle" font-weight="bold">umowę,</text>
+<rect x="672.0" y="330.0" width="49.0" height="52.0" rx="8" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="1.5"/>
+<text x="696.5" y="364.0" font-size="20" fill="#1f3a5f" text-anchor="middle" font-weight="bold">bo</text>
+<rect x="733.0" y="330.0" width="49.0" height="52.0" rx="8" fill="#f6e2e7" stroke="#8a1538" stroke-width="3"/>
+<text x="757.5" y="364.0" font-size="20" fill="#8a1538" text-anchor="middle" font-weight="bold">on</text>
+<rect x="794.0" y="330.0" width="62.5" height="52.0" rx="8" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="1.5"/>
+<text x="825.2" y="364.0" font-size="20" fill="#1f3a5f" text-anchor="middle" font-weight="bold">nie</text>
+<rect x="868.5" y="330.0" width="103.0" height="52.0" rx="8" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="1.5"/>
+<text x="920.0" y="364.0" font-size="20" fill="#1f3a5f" text-anchor="middle" font-weight="bold">płacił</text>
+<rect x="983.5" y="330.0" width="130.0" height="52.0" rx="8" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="1.5"/>
+<text x="1048.5" y="364.0" font-size="20" fill="#1f3a5f" text-anchor="middle" font-weight="bold">czynszu.</text>
+<path d="M 757.5 326 Q 446.4 -16.8 135.2 326" fill="none" stroke="#8a1538" stroke-width="3.8" stroke-opacity="0.48"/>
+<text x="135.2" y="410.0" font-size="17" fill="#8a1538" text-anchor="middle" font-weight="bold">0,20</text>
+<path d="M 757.5 326 Q 622.1 140.7 486.8 326" fill="none" stroke="#8a1538" stroke-width="10.1" stroke-opacity="0.77"/>
+<text x="486.8" y="410.0" font-size="17" fill="#8a1538" text-anchor="middle" font-weight="bold">0,65</text>
+<path d="M 757.5 326 Q 683.0 195.2 608.5 326" fill="none" stroke="#8a1538" stroke-width="2.4" stroke-opacity="0.41"/>
+<text x="608.5" y="410.0" font-size="17" fill="#8a1538" text-anchor="middle" font-weight="bold">0,10</text>
+<path d="M 757.5 326 Q 727.0 234.7 696.5 326" fill="none" stroke="#8a1538" stroke-width="1.7" stroke-opacity="0.38"/>
+<text x="696.5" y="410.0" font-size="17" fill="#8a1538" text-anchor="middle" font-weight="bold">0,05</text>
+<text x="700.0" y="470.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">Kim jest „on”? Przy słowie „on” model przypisuje wagi wcześniejszym słowom i najmocniej łączy je z „najemcy”.</text>
+<text x="700.0" y="493.4" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">Dzięki temu znaczenie każdego słowa zależy od kontekstu całego zdania, a nie tylko od sąsiadów.</text>
+<text x="700.0" y="540.0" font-size="16" fill="#555555" text-anchor="middle" font-weight="normal" font-style="italic">Liczby pod słowami = wagi uwagi (ilustracyjne). Model liczy je równolegle dla każdego słowa i w wielu „głowicach” uwagi naraz (Vaswani i in. 2017).</text>
+</svg>

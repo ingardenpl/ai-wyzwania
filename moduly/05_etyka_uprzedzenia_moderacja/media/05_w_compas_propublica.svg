@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">COMPAS: kto częściej jest błędnie oceniony?</title><desc id="d"> Fałszywie podwyższone ryzyko: czarnoskórzy: 44,9%; biali: 23,5% | Fałszywie niskie ryzyko: czarnoskórzy: 28,0%; biali: 47,7%</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >COMPAS: kto częściej jest błędnie oceniony?</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#9095ad" text-anchor="start" >Ocena ryzyka recydywy w ciągu 2 lat · hrabstwo Broward (Floryda), 7214 oskarżonych, analiza ProPublica 2016</text>
+<rect x="28.0" y="96" width="441.0" height="344" fill="#0b0d17" stroke="#1a2a36"/>
+<text x="42.0" y="124.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="19" font-weight="700" fill="#7df9ff" text-anchor="start" >Fałszywie podwyższone ryzyko</text>
+<rect x="152.0" y="198.0" width="241.0" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="152.0" y="198.0" width="180.3" height="26.0" fill="#ff003c"/>
+<text x="140.0" y="215.7" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >czarnoskórzy</text>
+<text x="342.3" y="216.1" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >44,9%</text>
+<rect x="152.0" y="340.0" width="241.0" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="152.0" y="340.0" width="94.4" height="26.0" fill="#00f0ff"/>
+<text x="140.0" y="357.7" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >biali</text>
+<text x="256.4" y="358.1" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >23,5%</text>
+<rect x="491.0" y="96" width="441.0" height="344" fill="#0b0d17" stroke="#1a2a36"/>
+<text x="505.0" y="124.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="19" font-weight="700" fill="#7df9ff" text-anchor="start" >Fałszywie niskie ryzyko</text>
+<rect x="615.0" y="198.0" width="241.0" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="615.0" y="198.0" width="112.5" height="26.0" fill="#ff003c"/>
+<text x="603.0" y="215.7" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >czarnoskórzy</text>
+<text x="737.5" y="216.1" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >28,0%</text>
+<rect x="615.0" y="340.0" width="241.0" height="26.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="615.0" y="340.0" width="191.6" height="26.0" fill="#00f0ff"/>
+<text x="603.0" y="357.7" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12.5" font-weight="400" fill="#c2c6d8" text-anchor="end" >biali</text>
+<text x="816.6" y="358.1" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#fcee0a" text-anchor="start" >47,7%</text>
+<rect x="28" y="452" width="14" height="14" fill="#ff003c"/>
+<text x="48.0" y="464.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13.5" font-weight="400" fill="#c2c6d8" text-anchor="start" >oskarżeni czarnoskórzy</text>
+<rect x="225.2" y="452" width="14" height="14" fill="#00f0ff"/>
+<text x="245.2" y="464.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13.5" font-weight="400" fill="#c2c6d8" text-anchor="start" >oskarżeni biali</text>
+<text x="28.0" y="507.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: J. Larson, S. Mattu, L. Kirchner, J. Angwin (ProPublica), How We Analyzed the COMPAS Recidivism</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Algorithm (23 V 2016)</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

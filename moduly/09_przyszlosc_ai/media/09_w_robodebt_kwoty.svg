@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Robodebt w liczbach</title><desc id="d"> Bezprawnie naliczone długi (ok. 433 tys. osób): ≥ 1763 mln AUD; Odzyskane od obywateli (ok. 381 tys. osób): ok. 751 mln AUD; Ugoda w sprawie zbiorowej (z kosztami prawnymi): 112 mln AUD</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Robodebt w liczbach</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#9095ad" text-anchor="start" >Automatyczne naliczanie długów z uśrednionych dochodów (Australia, 2015–2019): długi, zwroty, ugoda</text>
+<rect x="358.0" y="139.0" width="454.0" height="44.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="139.0" width="400.2" height="44.0" fill="#ff003c"/>
+<text x="346.0" y="157.3" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Bezprawnie naliczone długi</text>
+<text x="346.0" y="177.3" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >(ok. 433 tys. osób)</text>
+<text x="768.2" y="167.8" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >≥ 1763 mln AUD</text>
+<rect x="358.0" y="269.0" width="454.0" height="44.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="269.0" width="170.5" height="44.0" fill="#fcee0a"/>
+<text x="346.0" y="287.3" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Odzyskane od obywateli (ok.</text>
+<text x="346.0" y="307.3" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >381 tys. osób)</text>
+<text x="538.5" y="297.8" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >ok. 751 mln AUD</text>
+<rect x="358.0" y="399.0" width="454.0" height="44.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="399.0" width="25.4" height="44.0" fill="#00f0ff"/>
+<text x="346.0" y="417.3" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Ugoda w sprawie zbiorowej (z</text>
+<text x="346.0" y="437.3" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >kosztami prawnymi)</text>
+<text x="393.4" y="427.8" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >112 mln AUD</text>
+<text x="28.0" y="507.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: Federal Court of Australia, Prygodicz v Commonwealth of Australia (No 2) [2021] FCA 634, streszczenie</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >wyroku z 11.06.2021 (zatwierdzenie ugody)</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

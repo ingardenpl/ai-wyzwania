@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Ile wody zużywa jedna odpowiedź modelu?</title><desc id="d"> Google, Gemini (08.2025): 0,26 ml; OpenAI, S. Altman (06.2025): ok. 0,3 ml; Li i in. (2025): 10–50 ml; Mistral Large 2 (07.2025): 45 ml</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Ile wody zużywa jedna odpowiedź modelu?</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#9095ad" text-anchor="start" >Szacunki różnią się ponad stukrotnie, bo mierzą co innego (skala logarytmiczna)</text>
+<line x1="328.0" x2="328.0" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="328.0" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >0,1 ml</text>
+<line x1="489.3" x2="489.3" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="489.3" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >1 ml</text>
+<line x1="650.7" x2="650.7" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="650.7" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >10 ml</text>
+<line x1="812.0" x2="812.0" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="812.0" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >100 ml</text>
+<text x="314.0" y="155.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >Google, Gemini (08.2025)</text>
+<text x="314.0" y="172.8" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >mediana; tylko centrum danych</text>
+<circle cx="394.9" cy="155.8" r="9" fill="#00f0ff"/>
+<text x="410.9" y="161.8" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#00f0ff" text-anchor="start" >0,26 ml</text>
+<text x="314.0" y="243.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >OpenAI, S. Altman (06.2025)</text>
+<text x="314.0" y="260.2" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >średnia; bez metodologii</text>
+<circle cx="409.5" cy="243.2" r="9" fill="#00f0ff"/>
+<text x="425.5" y="249.2" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#00f0ff" text-anchor="start" >ok. 0,3 ml</text>
+<text x="314.0" y="330.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >Li i in. (2025)</text>
+<text x="314.0" y="347.8" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >z wodą w elektrowniach</text>
+<rect x="650.7" y="321.8" width="112.8" height="18" fill="#fcee0a" fill-opacity="0.35" stroke="#fcee0a"/>
+<text x="779.4" y="336.8" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#fcee0a" text-anchor="start" >10–50 ml</text>
+<text x="314.0" y="418.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >Mistral Large 2 (07.2025)</text>
+<text x="314.0" y="435.2" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >pełny cykl życia; 400 tokenów</text>
+<circle cx="756.1" cy="418.2" r="9" fill="#ff2a6d"/>
+<text x="772.1" y="424.2" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#ff2a6d" text-anchor="start" >45 ml</text>
+<text x="28.0" y="507.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: Google Cloud (08.2025); S. Altman, The Gentle Singularity (06.2025); Li i in., Comm. ACM 68(7) 2025;</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Mistral AI (07.2025)</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

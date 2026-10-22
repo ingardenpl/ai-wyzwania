@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+  /* Motyw: zapamiętany wybór (ten sam klucz co strona kursu), inaczej ustawienie systemu. */
+  (function () { try { var t = localStorage.getItem("ai-wyzwania-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {} })();
+</script>
+<title>Macierz wypłat: regulator i firma technologiczna</title>
+<meta name="description" content="Gra regulator–firma technologiczna o przejrzystość algorytmiczną: edytowalna macierz wypłat, równowagi Nasha, strategie dominujące i porównanie z dylematem więźnia.">
+<style>
+  /* Tokeny kolorów: te same co tools/assets/style.css strony kursu */
+  :root {
+    --bg: #f1ebdd;
+    --surface: #f8f4ea;
+    --surface-2: #e8dfc9;
+    --ink: #14171f;
+    --ink-soft: #3a4052;
+    --muted: #5d6273;
+    --navy: #1a2542;
+    --accent: #8b1e3f;
+    --accent-ink: #ffffff;
+    --gold: #8a6420;
+    --gold-soft: #d4b97a;
+    --ok: #2d6a4f;
+    --ok-bg: #dcebe1;
+    --bad: #9b2226;
+    --bad-bg: #f3dcdc;
+    --line: rgba(20, 23, 31, 0.18);
+    --line-soft: rgba(20, 23, 31, 0.08);
+    --shadow: 0 1px 2px rgba(20, 23, 31, 0.06), 0 6px 18px rgba(20, 23, 31, 0.06);
+    --radius: 10px;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12151c; --surface: #1a1f2a; --surface-2: #232a38;
+      --ink: #ece6d8; --ink-soft: #cfc8b8; --muted: #a59f92; --navy: #c9d3ef;
+      --accent: #e3809a; --accent-ink: #12151c; --gold: #d4b97a; --gold-soft: #8a6a2e;
+      --ok: #8fd1ab; --ok-bg: #173327; --bad: #f0a3a6; --bad-bg: #3a1c1f;
+      --line: rgba(236, 230, 216, 0.18); --line-soft: rgba(236, 230, 216, 0.08);
+      --shadow: none; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12151c; --surface: #1a1f2a; --surface-2: #232a38;
+    --ink: #ece6d8; --ink-soft: #cfc8b8; --muted: #a59f92; --navy: #c9d3ef;
+    --accent: #e3809a; --accent-ink: #12151c; --gold: #d4b97a; --gold-soft: #8a6a2e;
+    --ok: #8fd1ab; --ok-bg: #173327; --bad: #f0a3a6; --bad-bg: #3a1c1f;
+    --line: rgba(236, 230, 216, 0.18); --line-soft: rgba(236, 230, 216, 0.08);
+    --shadow: none; color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); font-size: 17px; line-height: 1.6;
+    overflow-wrap: break-word;
+  }
+  img, svg { max-width: 100%; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  .skip { position: absolute; left: -9999px; top: 8px; background: var(--accent); color: var(--accent-ink); padding: 8px 12px; border-radius: 6px; z-index: 100; }
+  .skip:focus { left: 8px; }
+
+  /* Pasek górny */
+  .app-top { border-bottom: 1px solid var(--line); }
+  .app-top .wrap { display: flex; align-items: center; gap: 12px; min-height: 54px; }
+  .back { font-weight: 700; text-decoration: none; font-size: 0.92rem; }
+  .back:hover { text-decoration: underline; }
+  .course { margin-left: auto; color: var(--muted); font-size: 0.78rem; line-height: 1.3; text-align: right; }
+  .theme-toggle {
+    flex: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+    border-radius: 999px; width: 40px; height: 40px; cursor: pointer; font-size: 1.05rem;
+  }
+  .theme-toggle:hover { border-color: var(--accent); }
+
+  /* Nagłówek aplikacji */
+  .hero { padding: 36px 0 22px; border-bottom: 1px solid var(--line-soft); }
+  .eyebrow { font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin: 0 0 0.9em; }
+  h1, h2, h3 { font-family: var(--serif); line-height: 1.15; color: var(--ink); }
+  h1 { font-weight: 400; font-size: clamp(2rem, 5.2vw, 3.3rem); letter-spacing: -0.02em; margin: 0 0 0.35em; font-variation-settings: "opsz" 144; }
+  h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: 600; }
+  h2 { font-weight: 500; font-size: clamp(1.35rem, 3vw, 1.85rem); margin: 1.8em 0 0.5em; letter-spacing: -0.01em; }
+  h3 { font-weight: 600; font-size: 1.12rem; margin: 1.2em 0 0.4em; }
+  p, ul, ol { margin: 0 0 1em; }
+  .lead { font-family: var(--serif); font-size: clamp(1.05rem, 2vw, 1.22rem); color: var(--ink-soft); max-width: 46em; margin: 0; }
+  .muted { color: var(--muted); }
+  .small { font-size: 0.88rem; }
+  .mono { font-family: var(--mono); }
+
+  /* Elementy wspólne */
+  .panel { background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+  .note { border-left: 3px solid var(--gold); background: var(--surface); padding: 12px 16px; border-radius: 0 var(--radius) var(--radius) 0; font-size: 0.95rem; color: var(--ink-soft); margin: 16px 0; }
+  .note.warn { border-left-color: var(--accent); }
+  .note > :last-child { margin-bottom: 0; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    background: var(--accent); color: var(--accent-ink); text-decoration: none;
+    padding: 9px 16px; min-height: 42px; border-radius: 8px; border: 1px solid var(--accent);
+    font-weight: 700; cursor: pointer; line-height: 1.2;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .btn.ghost { background: transparent; color: var(--accent); }
+  .btn.ghost:hover { background: var(--surface-2); filter: none; }
+  .btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0 0; }
+  .chipbtn {
+    border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft);
+    border-radius: 999px; padding: 6px 14px; min-height: 38px; font-size: 0.9rem; font-weight: 700; cursor: pointer;
+  }
+  .chipbtn:hover { border-color: var(--accent); }
+  .chipbtn[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--bg); }
+  input[type="range"] { width: 100%; accent-color: var(--accent); min-height: 32px; }
+  input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); width: 18px; height: 18px; }
+  select, input[type="number"], input[type="text"] {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+    padding: 8px 10px; min-height: 42px; max-width: 100%;
+  }
+  select:focus-visible, input:focus-visible { border-color: var(--gold); }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table.data { border-collapse: collapse; width: 100%; font-size: 0.93rem; }
+  table.data th, table.data td { border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.data th { font-weight: 700; background: var(--surface-2); }
+  .tag { display: inline-block; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); color: var(--ink-soft); }
+
+  /* Stopka ze źródłami */
+  footer.sources { border-top: 1px solid var(--line); margin-top: 48px; padding: 24px 0 40px; font-size: 0.88rem; color: var(--muted); }
+  footer.sources h2 { font-size: 1.15rem; margin: 0 0 0.6em; }
+  footer.sources ol, footer.sources ul { padding-left: 1.3em; }
+  footer.sources li { margin: 0.3em 0; }
+  footer.sources a { color: var(--ink-soft); }
+  footer.sources .meta { margin-top: 1.2em; }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .course { display: none; }
+    .app-top .wrap { justify-content: space-between; }
+    .hero { padding-top: 24px; }
+    .panel { padding: 14px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  }
+  @media print {
+    .app-top, .theme-toggle, .no-print { display: none !important; }
+    body { background: #fff; color: #000; }
+  }
+
+  .presets { display: flex; gap: 8px; flex-wrap: wrap; margin: 18px 0 14px; }
+  .game { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+  @media (max-width: 900px) { .game { grid-template-columns: minmax(0, 1fr); } }
+  .matrix { width: 100%; border-collapse: separate; border-spacing: 6px; table-layout: fixed; }
+  .matrix th { font-weight: 700; font-size: 0.86rem; line-height: 1.3; padding: 6px; vertical-align: bottom; }
+  .matrix thead th.player { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); text-align: center; }
+  .matrix tbody th { text-align: right; vertical-align: middle; width: 30%; }
+  .matrix th.rowplayer { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); }
+  .cell { background: var(--bg); border: 2px solid var(--line); border-radius: var(--radius); padding: 10px 8px; text-align: center; position: relative; vertical-align: middle; }
+  .cell.ne { border-color: var(--gold); background: rgba(212, 185, 122, 0.22); }
+  .cell.sel { box-shadow: 0 0 0 3px var(--accent); }
+  .pair { display: flex; justify-content: center; align-items: center; gap: 4px; font-family: var(--serif); font-size: 1.4rem; }
+  .pair input { width: 3.1em; text-align: center; font-family: var(--serif); font-size: 1.25rem; padding: 4px 2px; min-height: 40px; background: var(--surface); }
+  .pair input.p1 { color: var(--navy); }
+  .pair input.p2 { color: var(--accent); }
+  .pair input.br { font-weight: 800; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  .badges { display: flex; gap: 4px; justify-content: center; flex-wrap: wrap; margin-top: 6px; min-height: 22px; }
+  .badge { font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 2px 6px; border-radius: 999px; white-space: nowrap; }
+  .badge.ne { background: var(--gold); color: var(--bg); }
+  .badge.po { background: var(--ok-bg); color: var(--ok); }
+  .cellbtn { margin-top: 4px; font-size: 0.78rem; background: none; border: 0; color: var(--accent); text-decoration: underline; cursor: pointer; padding: 2px; }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 0.85rem; color: var(--muted); margin-top: 6px; }
+  .legend b.p1 { color: var(--navy); }
+  .legend b.p2 { color: var(--accent); }
+  .analysis h3 { margin-top: 0; }
+  .analysis dl { margin: 0; display: grid; gap: 10px; }
+  .analysis dt { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .analysis dd { margin: 2px 0 0; }
+  .type { font-family: var(--serif); font-size: 1.3rem; line-height: 1.25; }
+  .desc { margin-top: 14px; }
+  .seq { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .seq .panel h3 { margin-top: 0; }
+  .compare th:first-child { width: 26%; }
+  @media (max-width: 480px) {
+    .matrix { border-spacing: 3px; }
+    .matrix th { font-size: 0.76rem; padding: 3px; }
+    .pair { font-size: 1.1rem; gap: 2px; }
+    .pair input { width: 2.6em; font-size: 1.05rem; }
+    .cell { padding: 8px 3px; }
+    .badge { font-size: 0.58rem; padding: 2px 4px; }
+  }
+  /* cel dotyku: link powrotu na ekranach dotykowych ma co najmniej 44 px */
+  @media (pointer: coarse) { .back { display: inline-block; padding: 12px 0; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Przejdź do treści</a>
+<div class="app-top">
+  <div class="wrap">
+    <a class="back" href="../interaktywne.html">← Materiały interaktywne</a>
+    <span class="course">Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne<br>WPiA UMCS · 2026/2027</span>
+    <button type="button" class="theme-toggle" aria-label="Przełącz motyw">☾</button>
+  </div>
+</div>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Spotkanie 6 · Heurystyki i teoria gier w regulacji AI · gra</p>
+    <h1>Macierz <em>wypłat</em></h1>
+    <p class="lead">Regulator wybiera surowe albo elastyczne wymogi przejrzystości algorytmicznej. Firma technologiczna wybiera wysoką albo niską przejrzystość swoich systemów. Wynik zależy od decyzji obu stron. Zmieniaj wypłaty i obserwuj, gdzie leżą równowagi Nasha.</p>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <div class="presets" role="group" aria-label="Wybór gry">
+    <button type="button" class="chipbtn" data-preset="ai" aria-pressed="true">Przejrzystość algorytmiczna (referat)</button>
+    <button type="button" class="chipbtn" data-preset="pd" aria-pressed="false">Dylemat więźnia</button>
+    <button type="button" class="btn ghost" id="restore">Przywróć wartości</button>
+  </div>
+
+  <div class="game">
+    <section class="panel" aria-labelledby="h-mat">
+      <h2 id="h-mat" class="sr-only">Macierz wypłat</h2>
+      <table class="matrix" id="matrix">
+        <caption class="sr-only" id="matCap"></caption>
+        <thead>
+          <tr><th scope="col" class="rowplayer" id="rowName"></th><th colspan="2" class="player" id="colName"></th></tr>
+          <tr><th></th><th scope="col" id="c0"></th><th scope="col" id="c1"></th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row" id="r0"></th><td class="cell" id="cell00"></td><td class="cell" id="cell01"></td></tr>
+          <tr><th scope="row" id="r1"></th><td class="cell" id="cell10"></td><td class="cell" id="cell11"></td></tr>
+        </tbody>
+      </table>
+      <div class="legend">
+        <span><b class="p1" id="lg1"></b>: pierwsza liczba</span>
+        <span><b class="p2" id="lg2"></b>: druga liczba</span>
+        <span><u><b>pogrubienie</b></u>: najlepsza odpowiedź</span>
+      </div>
+      <p class="small muted" style="margin:8px 0 0" id="scaleNote"></p>
+      <div class="desc note" id="desc" aria-live="polite"></div>
+    </section>
+
+    <section class="panel analysis" aria-labelledby="h-an" aria-live="polite">
+      <h3 id="h-an">Analiza (liczona na bieżąco)</h3>
+      <dl>
+        <div><dt>Typ gry</dt><dd class="type" id="aType"></dd></div>
+        <div><dt>Strategie dominujące</dt><dd id="aDom"></dd></div>
+        <div><dt>Równowagi Nasha (strategie czyste)</dt><dd id="aNe"></dd></div>
+        <div><dt>Równowaga w strategiach mieszanych</dt><dd id="aMix"></dd></div>
+        <div><dt>Optimum w sensie Pareto</dt><dd id="aPar"></dd></div>
+        <div><dt>Wniosek</dt><dd id="aLesson"></dd></div>
+      </dl>
+    </section>
+  </div>
+
+  <h2>Kto ruszy pierwszy?</h2>
+  <p>W grze jednoczesnej strony decydują, nie znając wyboru drugiej. W praktyce regulacja często jest grą sekwencyjną. Albo prawodawca z góry ogłasza wymogi, albo rynek tworzy fakty dokonane, zanim przepisy powstaną. Wynik poniżej wyznacza indukcja wsteczna: druga strona odpowiada najlepiej, jak może, a pierwsza to przewiduje.</p>
+  <div class="seq">
+    <div class="panel"><h3 id="seqA_h"></h3><p id="seqA"></p></div>
+    <div class="panel"><h3 id="seqB_h"></h3><p id="seqB"></p></div>
+  </div>
+
+  <h2>Porównanie z dylematem więźnia</h2>
+  <div class="table-scroll">
+    <table class="data compare" id="compare">
+      <caption class="sr-only">Porównanie gry o przejrzystość z dylematem więźnia (wartości domyślne)</caption>
+      <thead><tr><th scope="col">Cecha</th><th scope="col">Przejrzystość algorytmiczna</th><th scope="col">Dylemat więźnia</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <p class="small muted">Tabela dotyczy wartości z referatu (slajdy 19 i 21), niezależnie od Twoich zmian w macierzy.</p>
+
+  <div class="note">
+    <p><strong>Do dyskusji.</strong> (1) Jak zmieniłaby się gra, gdyby kary za brak przejrzystości przy surowych wymogach były wyższe (np. art. 99 AI Act)? Obniż wypłatę firmy w komórce „niska przejrzystość / surowe wymogi” i sprawdź. (2) Czy liczby w macierzy są faktami, czy założeniami autora? Jakie heurystyki (np. dostępności, zakotwiczenia) mogą wpływać na ich szacowanie przez regulatora? (3) Czy AI Act działa jak zobowiązanie „pierwszego ruchu” regulatora?</p>
+  </div>
+</main>
+
+<footer class="sources">
+  <div class="wrap">
+    <h2>Źródła</h2>
+    <ol>
+      <li>K. Kasprowicz, <em>Kognitywne bariery optymalnej regulacji AI: heurystyki i teoria gier</em>, referat konferencyjny, slajdy 19–21 (macierz wypłat dla przejrzystości algorytmicznej, jej interpretacja i macierz dylematu więźnia).</li>
+      <li>J. F. Nash, <em>Equilibrium Points in n-Person Games</em>, Proceedings of the National Academy of Sciences 36(1), 1950, s. 48–49, <a href="https://doi.org/10.1073/pnas.36.1.48">doi:10.1073/pnas.36.1.48</a>.</li>
+      <li>T. C. Schelling, <em>The Strategy of Conflict</em>, Harvard University Press 1960: zobowiązanie i przewaga pierwszego ruchu.</li>
+      <li>M. J. Osborne, <em>An Introduction to Game Theory</em>, Oxford University Press 2004: strategie dominujące, równowagi mieszane, gry sekwencyjne.</li>
+      <li>Rozporządzenie (UE) 2024/1689 (AI Act), art. 13, 50 i 99, <a href="https://eur-lex.europa.eu/legal-content/PL/TXT/?uri=CELEX:32024R1689">EUR-Lex</a>.</li>
+    </ol>
+    <p class="meta">Wypłaty mają charakter ilustracyjny (skala 1–10 według referatu). Obliczenia wykonywane w przeglądarce. Stan na 19.10.2026. Dr Karol Kasprowicz, WPiA UMCS.</p>
+  </div>
+</footer>
+
+<script>
+  /* Przełącznik motywu (jasny / ciemny), zgodny z tools/assets/site.js. */
+  (function () {
+    var root = document.documentElement, KEY = "ai-wyzwania-theme";
+    var btn = document.querySelector(".theme-toggle");
+    function current() {
+      var t = root.getAttribute("data-theme");
+      if (t) return t;
+      return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    function label() {
+      var dark = current() === "dark";
+      btn.textContent = dark ? "☀" : "☾";
+      btn.setAttribute("aria-label", dark ? "Włącz jasny motyw" : "Włącz ciemny motyw");
+      btn.title = btn.getAttribute("aria-label");
+    }
+    if (!btn) return;
+    label();
+    btn.addEventListener("click", function () {
+      var next = current() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem(KEY, next); } catch (e) {}
+      label();
+      document.dispatchEvent(new CustomEvent("themechange"));
+    });
+  })();
+
+  (function () {
+    var PRESETS = {
+      ai: {
+        rowP: "Firma technologiczna", colP: "Regulator", rowShort: "Firma", colShort: "Regulator",
+        rows: ["Wysoka przejrzystość", "Niska przejrzystość"], cols: ["Surowe wymogi przejrzystości", "Elastyczne wymogi przejrzystości"],
+        rowsShort: ["wysoka przejrzystość", "niska przejrzystość"], colsShort: ["surowe wymogi", "elastyczne wymogi"],
+        pay: [[[5, 8], [4, 3]], [[2, 1], [7, 4]]],
+        scale: "Skala 1–10: wyższa wartość oznacza lepszy wynik (slajd 20 referatu).",
+        desc: [
+          ["Firmy ponoszą umiarkowane koszty związane z transparentnością, ale zyskują zaufanie użytkowników. Regulatorzy osiągają optymalny rezultat dzięki pełnej możliwości nadzoru i zgodności z wartościami społecznymi.",
+           "Firmy nadal ponoszą koszty przejrzystości bez wyraźnego przymusu regulacyjnego, co daje im nieco niższy wynik. Regulatorzy nie wykorzystują w pełni potencjału nadzorczego, więc ich wypłata jest stosunkowo niska."],
+          ["Najgorszy scenariusz dla obu stron. Firmy ponoszą kary za nieprzestrzeganie wymogów, regulatorzy nie osiągają celów nadzorczych i tracą autorytet.",
+           "Optymalny scenariusz dla firm (ochrona IP, niskie koszty zgodności), umiarkowanie korzystny dla regulatorów (mniej obciążeń administracyjnych, ale ograniczona zdolność nadzoru)."]
+        ]
+      },
+      pd: {
+        rowP: "Adam", colP: "Bartek", rowShort: "Adam", colShort: "Bartek",
+        rows: ["Milczy", "Przyznaje się"], cols: ["Milczy", "Przyznaje się"],
+        rowsShort: ["milczy", "przyznaje się"], colsShort: ["milczy", "przyznaje się"],
+        pay: [[[-1, -1], [-5, 0]], [[0, -5], [-3, -3]]],
+        scale: "Wypłaty ujemne: lata więzienia (slajd 21 referatu). Wyższa wartość jest lepsza.",
+        desc: [
+          ["Obaj milczą: po roku więzienia. Najlepszy wynik wspólny, ale każdy z nich może go poprawić, zdradzając.",
+           "Adam milczy, Bartek się przyznaje: Bartek wychodzi na wolność, Adam dostaje 5 lat."],
+          ["Adam się przyznaje, Bartek milczy: Adam wychodzi na wolność, Bartek dostaje 5 lat.",
+           "Obaj się przyznają: po 3 lata. Racjonalny wybór każdego z osobna daje gorszy wynik dla obu."]
+        ]
+      }
+    };
+    var cur = "ai", G, sel = null;
+    var $ = function (id) { return document.getElementById(id); };
+    function clone(o) { return JSON.parse(JSON.stringify(o)); }
+    function nf(x) { return String(x).replace("-", "−"); }
+
+    /* ---- Analiza gry 2×2 (A: wypłaty gracza wierszowego, B: kolumnowego) ---- */
+    function analyse(g) {
+      var A = [[g.pay[0][0][0], g.pay[0][1][0]], [g.pay[1][0][0], g.pay[1][1][0]]];
+      var B = [[g.pay[0][0][1], g.pay[0][1][1]], [g.pay[1][0][1], g.pay[1][1][1]]];
+      var res = { A: A, B: B, brRow: [[0, 0], [0, 0]], brCol: [[0, 0], [0, 0]], ne: [], pareto: [] };
+      for (var j = 0; j < 2; j++) { var m = Math.max(A[0][j], A[1][j]); for (var i = 0; i < 2; i++) if (A[i][j] === m) res.brRow[i][j] = 1; }
+      for (i = 0; i < 2; i++) { m = Math.max(B[i][0], B[i][1]); for (j = 0; j < 2; j++) if (B[i][j] === m) res.brCol[i][j] = 1; }
+      for (i = 0; i < 2; i++) for (j = 0; j < 2; j++) if (res.brRow[i][j] && res.brCol[i][j]) res.ne.push([i, j]);
+      function dom(get) { /* zwraca {idx, strict} albo null */
+        var d0 = [get(0, 0) - get(1, 0), get(0, 1) - get(1, 1)];
+        if (d0[0] > 0 && d0[1] > 0) return { idx: 0, strict: true };
+        if (d0[0] < 0 && d0[1] < 0) return { idx: 1, strict: true };
+        if (d0[0] >= 0 && d0[1] >= 0 && (d0[0] > 0 || d0[1] > 0)) return { idx: 0, strict: false };
+        if (d0[0] <= 0 && d0[1] <= 0 && (d0[0] < 0 || d0[1] < 0)) return { idx: 1, strict: false };
+        return null;
+      }
+      res.domRow = dom(function (s, o) { return A[s][o]; });
+      res.domCol = dom(function (s, o) { return B[o][s]; });
+      for (i = 0; i < 2; i++) for (j = 0; j < 2; j++) {
+        var dominated = false;
+        for (var k = 0; k < 2; k++) for (var l = 0; l < 2; l++)
+          if (A[k][l] >= A[i][j] && B[k][l] >= B[i][j] && (A[k][l] > A[i][j] || B[k][l] > B[i][j])) dominated = true;
+        if (!dominated) res.pareto.push([i, j]);
+      }
+      var dp = B[0][0] - B[1][0] - B[0][1] + B[1][1], dq = A[0][0] - A[0][1] - A[1][0] + A[1][1];
+      var p = dp !== 0 ? (B[1][1] - B[1][0]) / dp : NaN, q = dq !== 0 ? (A[1][1] - A[0][1]) / dq : NaN;
+      res.mix = (p > 0 && p < 1 && q > 0 && q < 1) ? { p: p, q: q, uA: q * A[0][0] + (1 - q) * A[0][1], uB: p * B[0][0] + (1 - p) * B[1][0] } : null;
+      /* gry sekwencyjne */
+      function leaderCol() { var best = null; for (var j = 0; j < 2; j++) { var i = A[0][j] > A[1][j] ? 0 : A[1][j] > A[0][j] ? 1 : (B[0][j] >= B[1][j] ? 0 : 1); if (!best || B[i][j] > B[best[0]][best[1]]) best = [i, j]; } return best; }
+      function leaderRow() { var best = null; for (var i = 0; i < 2; i++) { var j = B[i][0] > B[i][1] ? 0 : B[i][1] > B[i][0] ? 1 : (A[i][0] >= A[i][1] ? 0 : 1); if (!best || A[i][j] > A[best[0]][best[1]]) best = [i, j]; } return best; }
+      res.colFirst = leaderCol(); res.rowFirst = leaderRow();
+      return res;
+    }
+    function has(list, i, j) { return list.some(function (c) { return c[0] === i && c[1] === j; }); }
+    function cellName(g, c) { return "(" + g.rowsShort[c[0]] + ", " + g.colsShort[c[1]] + ")"; }
+    function payStr(g, c) { return "(" + nf(g.pay[c[0]][c[1]][0]) + ", " + nf(g.pay[c[0]][c[1]][1]) + ")"; }
+    function sameNE(r, i, j) { return has(r.ne, i, j); }
+
+    function classify(g, r) {
+      var both = r.domRow && r.domRow.strict && r.domCol && r.domCol.strict;
+      if (both && r.ne.length === 1 && !has(r.pareto, r.ne[0][0], r.ne[0][1])) return { t: "Dylemat więźnia", l: "Każda strona ma strategię dominującą, ale ich połączenie daje wynik gorszy dla obu niż wspólna współpraca. Indywidualna racjonalność prowadzi do zbiorowo złego rezultatu. Wyjście z dylematu wymaga zewnętrznego mechanizmu: umowy, sankcji, powtarzalności gry albo reputacji." };
+      if (r.ne.length === 1 && has(r.pareto, r.ne[0][0], r.ne[0][1])) return { t: "Gra z jedną, efektywną równowagą", l: "Interesy stron prowadzą do jednego wyniku, którego nie da się poprawić dla nikogo bez pogorszenia sytuacji drugiej strony. Regulacja nie musi tu niczego wymuszać." };
+      if (r.ne.length === 1) return { t: "Gra z jedną, nieefektywną równowagą", l: "Jedyna równowaga nie jest optymalna w sensie Pareto: istnieje wynik lepszy dla obu stron, do którego same nie dojdą." };
+      if (r.ne.length >= 2) {
+        var a = r.ne[0], b = r.ne[1], A = r.A, B = r.B;
+        var aBetter = A[a[0]][a[1]] >= A[b[0]][b[1]] && B[a[0]][a[1]] >= B[b[0]][b[1]];
+        var bBetter = A[b[0]][b[1]] >= A[a[0]][a[1]] && B[b[0]][b[1]] >= B[a[0]][a[1]];
+        if (aBetter || bBetter) return { t: "Gra koordynacyjna (typu „polowanie na jelenia”)", l: "Są dwie równowagi, a jedna jest lepsza dla obu stron. Problemem nie jest konflikt interesów, tylko zaufanie i koordynacja oczekiwań." };
+        return { t: "Gra koordynacyjna z konfliktem (typu „walka płci”)", l: "Są dwie równowagi i każda strona woli inną. Obu stronom opłaca się dopasować do drugiej, ale spierają się, do której równowagi dojść. O wyniku może przesądzić ten, kto pierwszy się zobowiąże: regulator przez wiążące przepisy, firma przez fakty dokonane na rynku. W macierzy z referatu nie jest to dylemat więźnia: nikt nie ma strategii dominującej." };
+      }
+      return { t: "Brak równowagi w strategiach czystych", l: "Każdy układ skłania którąś stronę do zmiany decyzji (jak w grze „orzeł–reszka”). Stabilna jest tylko strategia mieszana: nieprzewidywalność, np. losowe kontrole." };
+    }
+
+    function buildCells() {
+      for (var i = 0; i < 2; i++) for (var j = 0; j < 2; j++) (function (i, j) {
+        var td = $("cell" + i + j); td.innerHTML = "";
+        var pair = document.createElement("div"); pair.className = "pair";
+        var in1 = document.createElement("input"), in2 = document.createElement("input");
+        [in1, in2].forEach(function (inp, k) {
+          inp.type = "number"; inp.step = "1"; inp.min = "-10"; inp.max = "10"; inp.inputMode = "numeric";
+          inp.className = k ? "p2" : "p1";
+          inp.setAttribute("aria-label", "Wypłata: " + (k ? G.colShort : G.rowShort) + ", gdy " + G.rowShort.toLowerCase() + " – " + G.rowsShort[i] + ", " + G.colShort.toLowerCase() + " – " + G.colsShort[j]);
+          inp.value = G.pay[i][j][k];
+          inp.addEventListener("input", function () { var v = parseInt(inp.value, 10); if (!isNaN(v)) { G.pay[i][j][k] = Math.max(-99, Math.min(99, v)); update(); } });
+        });
+        pair.appendChild(document.createTextNode("(")); pair.appendChild(in1); pair.appendChild(document.createTextNode(",")); pair.appendChild(in2); pair.appendChild(document.createTextNode(")"));
+        var badges = document.createElement("div"); badges.className = "badges";
+        var more = document.createElement("button"); more.type = "button"; more.className = "cellbtn"; more.textContent = "opis";
+        more.setAttribute("aria-label", "Pokaż opis wyniku " + G.rowsShort[i] + ", " + G.colsShort[j]);
+        more.addEventListener("click", function () { sel = [i, j]; update(); });
+        td.appendChild(pair); td.appendChild(badges); td.appendChild(more);
+      })(i, j);
+    }
+
+    function load(key, keepPay) {
+      cur = key;
+      var P = PRESETS[key]; var old = G;
+      G = clone(P); if (keepPay && old) G.pay = old.pay;
+      $("rowName").textContent = G.rowShort + " ↓"; $("colName").textContent = G.colP + " →";
+      $("r0").textContent = G.rows[0]; $("r1").textContent = G.rows[1]; $("c0").textContent = G.cols[0]; $("c1").textContent = G.cols[1];
+      $("lg1").textContent = G.rowShort; $("lg2").textContent = G.colShort; $("scaleNote").textContent = G.scale;
+      $("matCap").textContent = "Macierz wypłat: " + G.rowP + " (wiersze) i " + G.colP + " (kolumny)";
+      document.querySelectorAll("[data-preset]").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-preset") === key ? "true" : "false"); });
+      sel = null; buildCells(); update();
+    }
+
+    function update() {
+      var r = analyse(G), P = PRESETS[cur];
+      for (var i = 0; i < 2; i++) for (var j = 0; j < 2; j++) {
+        var td = $("cell" + i + j), ins = td.querySelectorAll("input");
+        ins[0].classList.toggle("br", !!r.brRow[i][j]); ins[1].classList.toggle("br", !!r.brCol[i][j]);
+        var isNe = has(r.ne, i, j), isPo = has(r.pareto, i, j);
+        td.classList.toggle("ne", isNe); td.classList.toggle("sel", !!sel && sel[0] === i && sel[1] === j);
+        var bd = td.querySelector(".badges"); bd.innerHTML = "";
+        if (isNe) bd.innerHTML += "<span class='badge ne'>Nash</span>";
+        if (isPo) bd.innerHTML += "<span class='badge po'>Pareto</span>";
+      }
+      function domTxt(d, name, strat) { return d ? name + ": <strong>" + strat[d.idx] + "</strong> (" + (d.strict ? "ściśle" : "słabo") + " dominująca)" : name + ": brak. Najlepszy wybór zależy od ruchu drugiej strony."; }
+      $("aDom").innerHTML = domTxt(r.domRow, G.rowShort, G.rowsShort) + "<br>" + domTxt(r.domCol, G.colShort, G.colsShort);
+      $("aNe").innerHTML = r.ne.length ? r.ne.map(function (c) { return "<strong>" + cellName(G, c) + "</strong> z wypłatami " + payStr(G, c); }).join("<br>") : "brak";
+      $("aMix").innerHTML = r.mix ? G.rowShort + " wybiera „" + G.rowsShort[0] + "” z prawdopodobieństwem <strong>" + Math.round(r.mix.p * 100) + "%</strong>, " + G.colShort.toLowerCase() + " wybiera „" + G.colsShort[0] + "” z prawdopodobieństwem <strong>" + Math.round(r.mix.q * 100) + "%</strong>. Oczekiwane wypłaty: " + r.mix.uA.toFixed(2).replace(".", ",") + " i " + r.mix.uB.toFixed(2).replace(".", ",") + "." : "brak (albo gra ma strategie dominujące, albo wypłaty są zdegenerowane)";
+      $("aPar").innerHTML = r.pareto.map(function (c) { return cellName(G, c) + " " + payStr(G, c); }).join("<br>");
+      var cl = classify(G, r); $("aType").textContent = cl.t; $("aLesson").textContent = cl.l;
+
+      var d = $("desc"); d.innerHTML = "";
+      if (sel) {
+        var orig = P.pay[sel[0]][sel[1]], now = G.pay[sel[0]][sel[1]];
+        var p = document.createElement("p");
+        p.innerHTML = "<strong>" + G.rows[sel[0]] + " + " + G.cols[sel[1]].toLowerCase() + " " + payStr(G, sel) + ".</strong> ";
+        p.appendChild(document.createTextNode(P.desc[sel[0]][sel[1]]));
+        d.appendChild(p);
+        if (orig[0] !== now[0] || orig[1] !== now[1]) { var p2 = document.createElement("p"); p2.className = "small muted"; p2.textContent = "Uwaga: wypłaty w tej komórce zostały zmienione. Opis dotyczy wartości z referatu (" + nf(orig[0]) + ", " + nf(orig[1]) + ")."; d.appendChild(p2); }
+      } else d.innerHTML = "<p class='small'>Kliknij „opis” w komórce, aby zobaczyć interpretację wyniku z referatu.</p>";
+
+      $("seqA_h").textContent = G.colP + " decyduje pierwszy";
+      $("seqA").innerHTML = G.colShort + " przewiduje najlepszą odpowiedź drugiej strony i wybiera strategię <strong>„" + G.colsShort[r.colFirst[1]] + "”</strong>. Wynik: <strong>" + cellName(G, r.colFirst) + " " + payStr(G, r.colFirst) + "</strong>.";
+      $("seqB_h").textContent = G.rowP + (cur === "pd" ? " decyduje pierwszy" : " decyduje pierwsza");
+      $("seqB").innerHTML = G.rowShort + " przewiduje najlepszą odpowiedź drugiej strony i wybiera strategię <strong>„" + G.rowsShort[r.rowFirst[0]] + "”</strong>. Wynik: <strong>" + cellName(G, r.rowFirst) + " " + payStr(G, r.rowFirst) + "</strong>.";
+    }
+
+    function compareTable() {
+      var a = analyse(PRESETS.ai), b = analyse(PRESETS.pd), ga = PRESETS.ai, gb = PRESETS.pd;
+      function dom(r, g) { return [r.domRow ? g.rowShort + ": " + g.rowsShort[r.domRow.idx] : g.rowShort + ": brak", r.domCol ? g.colShort + ": " + g.colsShort[r.domCol.idx] : g.colShort + ": brak"].join("; "); }
+      function ne(r, g) { return r.ne.map(function (c) { return cellName(g, c) + " " + payStr(g, c); }).join("; "); }
+      function neEff(r) { return r.ne.every(function (c) { return has(r.pareto, c[0], c[1]); }) ? "tak" : "nie: istnieje wynik lepszy dla obu"; }
+      var rows = [
+        ["Strategie dominujące", dom(a, ga), dom(b, gb)],
+        ["Równowagi Nasha", ne(a, ga), ne(b, gb)],
+        ["Czy równowagi są efektywne (Pareto)?", neEff(a), neEff(b)],
+        ["Typ gry", classify(ga, a).t, classify(gb, b).t],
+        ["Źródło problemu", "koordynacja: która z dwóch równowag zostanie wybrana", "konflikt interesu indywidualnego i wspólnego"],
+        ["Rola prawa", "zobowiązanie regulatora z wyprzedzeniem (np. AI Act) przesuwa grę do wyniku (5, 8)", "zewnętrzny mechanizm (umowa, sankcja, gra powtarzalna) umożliwia współpracę"]
+      ];
+      var tb = document.querySelector("#compare tbody");
+      rows.forEach(function (row) { var tr = document.createElement("tr"); row.forEach(function (c, k) { var el = document.createElement(k ? "td" : "th"); if (!k) el.scope = "row"; el.textContent = c; tr.appendChild(el); }); tb.appendChild(tr); });
+    }
+
+    document.querySelectorAll("[data-preset]").forEach(function (b) { b.addEventListener("click", function () { load(b.getAttribute("data-preset")); }); });
+    $("restore").addEventListener("click", function () { load(cur); });
+    load("ai"); compareTable();
+  })();
+</script>
+</body>
+</html>

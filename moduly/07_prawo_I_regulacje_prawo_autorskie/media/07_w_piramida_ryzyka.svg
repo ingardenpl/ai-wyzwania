@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">AI Act: podejście oparte na ryzyku</title><desc id="d"> Ryzyko niedopuszczalne: praktyki zakazane (art. 5); Wysokie ryzyko: wymogi i ocena zgodności (art. 6, zał. I i III); Obowiązki przejrzystości: czatboty, deepfake, treści syntetyczne (art. 50); Ryzyko minimalne: brak nowych obowiązków, kodeksy dobrowolne; Modele GPAI: odrębny reżim dla dostawców modeli ogólnego przeznaczenia (art. 51–55)</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >AI Act: podejście oparte na ryzyku</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#9095ad" text-anchor="start" >Uproszczenie: kategorie mogą się nakładać (system wysokiego ryzyka może podlegać też art. 50)</text>
+<path d="M330.0 103.0 L330.0 103.0 L400.0 189.5 L260.0 189.5 Z" fill="#ff003c" fill-opacity="0.90"/>
+<text x="387.0" y="142.2" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="18" font-weight="700" fill="#ff003c" text-anchor="start" >Ryzyko niedopuszczalne</text>
+<text x="387.0" y="162.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13.5" font-weight="400" fill="#c2c6d8" text-anchor="start" >praktyki zakazane (art. 5)</text>
+<path d="M260.0 195.5 L400.0 195.5 L470.0 282.0 L190.0 282.0 Z" fill="#ff2a6d" fill-opacity="0.78"/>
+<text x="457.0" y="234.8" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="18" font-weight="700" fill="#ff2a6d" text-anchor="start" >Wysokie ryzyko</text>
+<text x="457.0" y="254.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13.5" font-weight="400" fill="#c2c6d8" text-anchor="start" >wymogi i ocena zgodności (art. 6, zał. I i III)</text>
+<path d="M190.0 288.0 L470.0 288.0 L540.0 374.5 L120.0 374.5 Z" fill="#fcee0a" fill-opacity="0.66"/>
+<text x="527.0" y="327.2" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="18" font-weight="700" fill="#fcee0a" text-anchor="start" >Obowiązki przejrzystości</text>
+<text x="527.0" y="347.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13.5" font-weight="400" fill="#c2c6d8" text-anchor="start" >czatboty, deepfake, treści syntetyczne (art. 50)</text>
+<path d="M120.0 380.5 L540.0 380.5 L610.0 467.0 L50.0 467.0 Z" fill="#00f0ff" fill-opacity="0.54"/>
+<text x="597.0" y="419.8" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="18" font-weight="700" fill="#00f0ff" text-anchor="start" >Ryzyko minimalne</text>
+<text x="597.0" y="439.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13.5" font-weight="400" fill="#c2c6d8" text-anchor="start" >brak nowych obowiązków, kodeksy dobrowolne</text>
+<rect x="698" y="104" width="234" height="96" fill="none" stroke="#7df9ff" stroke-dasharray="6 4"/>
+<text x="710.0" y="132.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#7df9ff" text-anchor="start" >Modele GPAI</text>
+<text x="710.0" y="154.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="start" >odrębny reżim dla dostawców</text>
+<text x="710.0" y="171.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="start" >modeli ogólnego przeznaczenia</text>
+<text x="710.0" y="188.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="start" >(art. 51–55)</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: Rozporządzenie (UE) 2024/1689 ze zm. wprowadzonymi rozporządzeniem (UE) 2026/1744; opracowanie własne</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

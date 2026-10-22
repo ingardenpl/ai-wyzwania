@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 560" width="1400" height="560" role="img" aria-label="Porównanie systemu ekspertowego i uczenia maszynowego" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<title>Porównanie systemu ekspertowego i uczenia maszynowego</title>
+<defs>
+<marker id="aN" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f3a5f"/></marker>
+<marker id="aM" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a1538"/></marker>
+<marker id="aT" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2a7f7a"/></marker>
+<marker id="aA" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a8661a"/></marker>
+</defs>
+<rect x="1" y="1" width="1398" height="558" rx="18" fill="#fbfaf7" stroke="#d6d0c4" stroke-width="2"/>
+<text x="700.0" y="46.0" font-size="28" fill="#1f3a5f" text-anchor="middle" font-weight="bold">Od reguł do danych</text>
+<text x="370.0" y="108.0" font-size="21" fill="#a8661a" text-anchor="middle" font-weight="bold">System ekspertowy (programowanie klasyczne)</text>
+<rect x="70.0" y="150.0" width="280.0" height="80.0" rx="12" fill="#fbf0dc" stroke="#a8661a" stroke-width="2"/>
+<text x="210.0" y="197.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="bold">reguły (napisane przez ludzi)</text>
+<line x1="352.0" y1="190.0" x2="405.0" y2="265.0" stroke="#a8661a" stroke-width="2.5" marker-end="url(#aA)"/>
+<rect x="70.0" y="260.0" width="280.0" height="80.0" rx="12" fill="#fbf0dc" stroke="#a8661a" stroke-width="2"/>
+<text x="210.0" y="307.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="bold">dane: nowa sprawa</text>
+<line x1="352.0" y1="300.0" x2="405.0" y2="265.0" stroke="#a8661a" stroke-width="2.5" marker-end="url(#aA)"/>
+<rect x="410.0" y="215.0" width="110.0" height="100.0" rx="12" fill="#fbfaf7" stroke="#a8661a" stroke-width="3"/>
+<text x="465.0" y="271.0" font-size="17" fill="#a8661a" text-anchor="middle" font-weight="bold">program</text>
+<line x1="522.0" y1="265.0" x2="548.0" y2="265.0" stroke="#a8661a" stroke-width="2.5" marker-end="url(#aA)"/>
+<rect x="552.0" y="205.0" width="128.0" height="120.0" rx="12" fill="#fbf0dc" stroke="#a8661a" stroke-width="2"/>
+<text x="616.0" y="260.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="bold">odpowiedź</text>
+<text x="370.0" y="420.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">Jak ustawa: najpierw norma,</text>
+<text x="370.0" y="443.4" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">potem subsumpcja stanu faktycznego.</text>
+<text x="1030.0" y="108.0" font-size="21" fill="#2a7f7a" text-anchor="middle" font-weight="bold">Uczenie maszynowe</text>
+<rect x="730.0" y="150.0" width="280.0" height="80.0" rx="12" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="2"/>
+<text x="870.0" y="197.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="bold">dane: tysiące przykładów</text>
+<line x1="1012.0" y1="190.0" x2="1065.0" y2="265.0" stroke="#2a7f7a" stroke-width="2.5" marker-end="url(#aT)"/>
+<rect x="730.0" y="260.0" width="280.0" height="80.0" rx="12" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="2"/>
+<text x="870.0" y="307.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="bold">odpowiedzi do tych przykładów</text>
+<line x1="1012.0" y1="300.0" x2="1065.0" y2="265.0" stroke="#2a7f7a" stroke-width="2.5" marker-end="url(#aT)"/>
+<rect x="1070.0" y="215.0" width="110.0" height="100.0" rx="12" fill="#fbfaf7" stroke="#2a7f7a" stroke-width="3"/>
+<text x="1125.0" y="271.0" font-size="17" fill="#2a7f7a" text-anchor="middle" font-weight="bold">trening</text>
+<line x1="1182.0" y1="265.0" x2="1208.0" y2="265.0" stroke="#2a7f7a" stroke-width="2.5" marker-end="url(#aT)"/>
+<rect x="1212.0" y="205.0" width="128.0" height="120.0" rx="12" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="2"/>
+<text x="1276.0" y="260.0" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="bold">„reguły”</text>
+<text x="1276.0" y="280.8" font-size="16" fill="#1d1d1f" text-anchor="middle" font-weight="bold">(model)</text>
+<text x="1030.0" y="420.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">Jak wyprowadzanie linii orzeczniczej</text>
+<text x="1030.0" y="443.4" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">z wielu rozstrzygnięć, bez spisanej normy.</text>
+<line x1="700.0" y1="90.0" x2="700.0" y2="480.0" stroke="#bbb" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="700.0" y="525.0" font-size="18" fill="#555555" text-anchor="middle" font-weight="normal" font-style="italic">System ekspertowy jest tak dobry jak jego reguły. Model uczony jest tak dobry jak jego dane.</text>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Polacy a narzędzia generatywnej AI: znajomość</title><desc id="d"> Pracujący, po podaniu przykładów narzędzi: 65,8%; Ogół Polaków, po podaniu przykładów: 58,8%; Pracujący, spontanicznie (bez podpowiedzi): 19,4%; Ogół Polaków, spontanicznie: 16,7%</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Polacy a narzędzia generatywnej AI: znajomość</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#9095ad" text-anchor="start" >Odsetek znających co najmniej jedno narzędzie GenAI · grudzień 2024, Polacy n = 3200, pracujący n = 2168</text>
+<rect x="358.0" y="122.8" width="454.0" height="44.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="122.8" width="298.7" height="44.0" fill="#fcee0a"/>
+<text x="346.0" y="141.1" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Pracujący, po podaniu</text>
+<text x="346.0" y="161.1" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >przykładów narzędzi</text>
+<text x="666.7" y="151.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >65,8%</text>
+<rect x="358.0" y="220.2" width="454.0" height="44.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="220.2" width="267.0" height="44.0" fill="#fcee0a"/>
+<text x="346.0" y="238.6" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Ogół Polaków, po podaniu</text>
+<text x="346.0" y="258.6" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >przykładów</text>
+<text x="635.0" y="249.1" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >58,8%</text>
+<rect x="358.0" y="317.8" width="454.0" height="44.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="317.8" width="88.1" height="44.0" fill="#00f0ff"/>
+<text x="346.0" y="336.1" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Pracujący, spontanicznie (bez</text>
+<text x="346.0" y="356.1" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >podpowiedzi)</text>
+<text x="456.1" y="346.6" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >19,4%</text>
+<rect x="358.0" y="415.2" width="454.0" height="44.0" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="415.2" width="75.8" height="44.0" fill="#00f0ff"/>
+<text x="346.0" y="443.6" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Ogół Polaków, spontanicznie</text>
+<text x="443.8" y="444.1" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >16,7%</text>
+<text x="28.0" y="507.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: M. Troszyński, J. Berg, P. Gmyrek i in., Generatywna sztuczna inteligencja a polski rynek pracy,</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >NASK-PIB (czerwiec 2025), wykres 7</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

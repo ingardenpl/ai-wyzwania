@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algorytm w Ławce Szkolnej — kluczowe dane z badań</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f1ebdd;
+    --paper-deep: #e8dfc9;
+    --paper-darker: #ddd1b5;
+    --ink: #14171f;
+    --ink-soft: #2c3142;
+    --navy: #1a2542;
+    --petrol: #1f5266;
+    --petrol-light: #357389;
+    --petrol-dark: #133744;
+    --terracotta: #b8553c;
+    --terracotta-light: #cf6e54;
+    --gold: #b08540;
+    --gold-light: #d4b97a;
+    --line: rgba(20, 23, 31, 0.18);
+    --line-soft: rgba(20, 23, 31, 0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(circle at 20% 80%, rgba(31, 82, 102, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 80% 20%, rgba(176, 133, 64, 0.05) 0%, transparent 40%);
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: multiply;
+  }
+
+  .container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ========= MASTHEAD ========= */
+  .masthead {
+    border-bottom: 2px solid var(--ink);
+    padding: 20px 0 16px;
+    background: rgba(241, 235, 221, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .masthead-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+  }
+  .masthead-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: clamp(22px, 3vw, 36px);
+    letter-spacing: -0.025em;
+    font-variation-settings: "opsz" 144;
+    line-height: 1;
+  }
+  .masthead-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-soft);
+    text-align: right;
+  }
+  .masthead-meta span { display: block; }
+  .masthead-nav {
+    display: flex;
+    gap: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+  .masthead-nav a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.3s;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+  }
+  .masthead-nav a:hover { color: var(--petrol); border-bottom-color: var(--petrol); }
+
+  /* ========= HERO ========= */
+  .hero {
+    padding: 80px 0 70px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: end;
+  }
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--petrol);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--petrol);
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(48px, 8vw, 112px);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    margin-bottom: 32px;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--petrol);
+  }
+  .hero-lead {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(18px, 1.6vw, 22px);
+    line-height: 1.5;
+    font-weight: 400;
+    color: var(--ink-soft);
+    max-width: 480px;
+  }
+  .hero-lead em { color: var(--petrol); font-style: italic; font-weight: 500; }
+  .hero-stat {
+    border-left: 2px solid var(--petrol);
+    padding-left: 32px;
+    position: relative;
+  }
+  .hero-stat-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(100px, 14vw, 200px);
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+    color: var(--ink);
+    font-variation-settings: "opsz" 144;
+    display: block;
+  }
+  .hero-stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-top: 8px;
+    color: var(--ink-soft);
+    max-width: 320px;
+    line-height: 1.5;
+  }
+  .hero-mini-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+  .hero-mini-stat .num {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: clamp(28px, 3vw, 40px);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--petrol);
+  }
+  .hero-mini-stat .lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-top: 8px;
+    color: var(--ink-soft);
+  }
+
+  .hero-byline {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 32px;
+    font-size: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+  }
+  .hero-byline strong { color: var(--ink); font-weight: 700; }
+
+  .hero-quote {
+    margin-top: 40px;
+    padding: 24px 28px;
+    border-left: 2px solid var(--gold);
+    background: rgba(176, 133, 64, 0.06);
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .hero-quote cite {
+    display: block;
+    font-style: normal;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--petrol);
+    margin-top: 12px;
+  }
+
+  /* ========= SECTION GENERICS ========= */
+  section { padding: 90px 0; border-bottom: 1px solid var(--line); }
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--petrol);
+    letter-spacing: 0.2em;
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+    max-width: 900px;
+  }
+  .section-title em { font-style: italic; color: var(--petrol); font-weight: 500; }
+  .section-intro {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 720px;
+    margin-bottom: 60px;
+  }
+  .section-intro em { color: var(--petrol); font-style: italic; }
+
+  /* ========= SUBJECT BARS ========= */
+  .subj-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .subj-list { display: flex; flex-direction: column; }
+  .subj-row {
+    display: grid;
+    grid-template-columns: 30px 1fr 80px;
+    gap: 20px;
+    align-items: center;
+    padding: 22px 12px;
+    border-bottom: 1px solid var(--line-soft);
+    transition: background 0.3s, padding-left 0.4s;
+  }
+  .subj-row:hover { background: var(--paper-deep); padding-left: 24px; }
+  .subj-row:last-child { border-bottom: none; }
+  .subj-rank {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--petrol);
+    letter-spacing: 0.1em;
+    font-weight: 600;
+  }
+  .subj-bar-wrap {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 8px;
+  }
+  .subj-name {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .subj-bar {
+    height: 10px;
+    background: var(--line-soft);
+    overflow: hidden;
+    border-radius: 1px;
+  }
+  .subj-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--petrol-dark), var(--petrol));
+    width: 0;
+    transition: width 1.4s cubic-bezier(.2,.7,.2,1);
+  }
+  .subj-pct {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 22px;
+    text-align: right;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+
+  .tool-card {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 44px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .tool-card::before {
+    content: 'AI';
+    position: absolute;
+    top: 16px;
+    right: 28px;
+    font-family: 'Fraunces', serif;
+    font-size: 90px;
+    color: var(--gold);
+    line-height: 1;
+    opacity: 0.5;
+    font-style: italic;
+    font-weight: 800;
+  }
+  .tool-card-big {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(48px, 6vw, 72px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--gold-light);
+    position: relative;
+    z-index: 2;
+  }
+  .tool-card-text {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-top: 16px;
+    max-width: 460px;
+    position: relative;
+    z-index: 2;
+  }
+  .tool-card-text em { color: var(--gold-light); font-weight: 500; }
+  .tool-card-meta {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(241, 235, 221, 0.2);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gold-light);
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ========= PARADOX OF UNDERSTANDING ========= */
+  .vs-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+  .vs-card {
+    background: var(--paper-deep);
+    padding: 50px 40px;
+    text-align: center;
+    border-top: 4px solid var(--petrol);
+  }
+  .vs-card.secondary { border-top-color: var(--terracotta); }
+  .vs-card-num {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(96px, 13vw, 160px);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    color: var(--petrol);
+    font-variation-settings: "opsz" 144;
+  }
+  .vs-card-num .pct { font-size: 0.4em; vertical-align: top; margin-left: 4px; }
+  .vs-card.secondary .vs-card-num { color: var(--terracotta); }
+  .vs-card-label {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.3;
+    margin-top: 16px;
+    color: var(--ink);
+  }
+  .vs-card-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+    margin-top: 12px;
+  }
+  .vs-divider {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 44px;
+    color: var(--ink-soft);
+    padding: 0 12px;
+  }
+  .vs-callout {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 36px 40px;
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    line-height: 1.4;
+    font-weight: 400;
+    margin-top: 20px;
+  }
+  .vs-callout em { color: var(--gold-light); font-style: italic; font-weight: 500; }
+  .vs-callout .delta {
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 40px;
+    color: var(--gold);
+    margin-right: 20px;
+    letter-spacing: -0.03em;
+  }
+
+  /* ========= DONUT CHART ========= */
+  .donut-section-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+    margin-bottom: 70px;
+  }
+  .donut-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+    margin: 0 auto;
+    aspect-ratio: 1;
+  }
+  .donut-wrap svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+  .donut-segment {
+    fill: none;
+    stroke-width: 52;
+    transform-origin: center;
+    transition: stroke-width 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+  }
+  .donut-segment:hover {
+    stroke-width: 60;
+    opacity: 0.9;
+  }
+  .donut-segment.dim { opacity: 0.35; }
+  .donut-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    pointer-events: none;
+  }
+  .donut-center-pct {
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: clamp(48px, 6vw, 78px);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    font-variation-settings: "opsz" 144;
+    display: block;
+    transition: color 0.3s ease;
+  }
+  .donut-center-pct .pct-sign { font-size: 0.5em; color: var(--petrol); margin-left: 2px; }
+  .donut-center-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-soft);
+    margin-top: 12px;
+    max-width: 220px;
+    line-height: 1.4;
+    display: block;
+  }
+
+  .donut-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .legend-item {
+    display: grid;
+    grid-template-columns: 24px 1fr auto;
+    gap: 18px;
+    align-items: center;
+    padding: 18px 16px;
+    cursor: pointer;
+    transition: background 0.3s, padding 0.3s;
+    border-left: 3px solid transparent;
+  }
+  .legend-item:hover, .legend-item.active {
+    background: var(--paper-deep);
+    border-left-color: var(--petrol);
+    padding-left: 20px;
+  }
+  .legend-swatch {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .legend-text { display: flex; flex-direction: column; gap: 4px; }
+  .legend-label {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 17px;
+    font-style: italic;
+    line-height: 1.2;
+  }
+  .legend-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.05em;
+  }
+  .legend-pct {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+
+  /* ========= EXPANDABLE QUOTE CARDS ========= */
+  .quote-section {
+    margin-top: 50px;
+  }
+  .quote-section h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 28px;
+    letter-spacing: -0.02em;
+    font-style: italic;
+  }
+  .quote-section h3 em { color: var(--petrol); font-weight: 600; }
+  .quote-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 4px;
+  }
+  .quote-card {
+    background: var(--paper-deep);
+    padding: 28px 26px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(.2,.7,.2,1);
+    position: relative;
+    border-left: 2px solid transparent;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+  }
+  .quote-card:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-left-color: var(--gold);
+    transform: translateY(-3px);
+  }
+  .quote-card-marker {
+    font-family: 'Fraunces', serif;
+    font-size: 44px;
+    font-weight: 800;
+    color: var(--petrol);
+    line-height: 0.6;
+    margin-bottom: 16px;
+    font-style: italic;
+    transition: color 0.3s ease;
+  }
+  .quote-card:hover .quote-card-marker { color: var(--gold-light); }
+  .quote-card-snippet {
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    line-height: 1.5;
+    font-style: italic;
+    color: var(--ink-soft);
+    transition: color 0.3s ease;
+    flex: 1;
+  }
+  .quote-card:hover .quote-card-snippet { color: rgba(241, 235, 221, 0.85); }
+  .quote-card-detail { display: none; }
+  .quote-card.expanded {
+    grid-column: 1 / -1;
+    background: var(--ink);
+    color: var(--paper);
+    border-left-color: var(--gold);
+  }
+  .quote-card.expanded .quote-card-marker { color: var(--gold-light); }
+  .quote-card.expanded .quote-card-snippet { color: rgba(241, 235, 221, 0.85); }
+  .quote-card.expanded .quote-card-detail {
+    display: block;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(241, 235, 221, 0.2);
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    line-height: 1.65;
+    font-style: normal;
+    color: rgba(241, 235, 221, 0.92);
+  }
+
+  /* ========= RADAR CHART ========= */
+  .radar-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 40px;
+  }
+  .radar-bigtext {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(26px, 2.8vw, 38px);
+    line-height: 1.25;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+  .radar-bigtext em { color: var(--petrol); font-style: italic; font-weight: 600; }
+  .radar-context {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+  .radar-context em { color: var(--terracotta); font-style: italic; font-weight: 600; }
+
+  .radar-block {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-top: 40px;
+  }
+  .radar-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .radar-wrap svg { width: 100%; height: 100%; overflow: visible; }
+
+  .radar-grid-poly { fill: none; stroke: var(--line); stroke-width: 1; }
+  .radar-axis-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    fill: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-anchor: middle;
+    pointer-events: auto;
+    cursor: pointer;
+    font-weight: 500;
+    transition: fill 0.2s ease;
+  }
+  .radar-axis-label.hl {
+    fill: var(--petrol);
+    font-weight: 700;
+  }
+  .radar-axis {
+    stroke: var(--line);
+    stroke-width: 1;
+    transition: stroke 0.2s ease, stroke-width 0.2s ease;
+  }
+  .radar-axis.hl {
+    stroke: var(--petrol);
+    stroke-width: 2;
+  }
+  .radar-grid-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    fill: rgba(20, 23, 31, 0.4);
+    text-anchor: middle;
+  }
+  .radar-poly {
+    fill: rgba(31, 82, 102, 0.20);
+    stroke: var(--petrol);
+    stroke-width: 2.5;
+  }
+  .radar-point {
+    fill: var(--petrol);
+    stroke: var(--paper);
+    stroke-width: 3;
+    cursor: pointer;
+    transition: fill 0.2s ease, stroke-width 0.2s ease;
+  }
+  .radar-point:hover { fill: var(--petrol-light); }
+  .radar-point.hl {
+    fill: var(--petrol-light);
+    stroke-width: 4;
+  }
+
+  .impact-list { display: flex; flex-direction: column; gap: 12px; }
+  .impact-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: center;
+    padding: 18px 22px;
+    background: var(--paper-deep);
+    border-left: 3px solid var(--petrol);
+    transition: transform 0.3s, border-color 0.3s, background 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  .impact-item:hover { transform: translateX(6px); }
+  .impact-item.hl {
+    background: var(--paper-darker);
+    transform: translateX(10px);
+    box-shadow: -2px 4px 16px rgba(31, 82, 102, 0.12);
+  }
+  .impact-item.low { border-left-color: var(--terracotta); opacity: 0.95; }
+  .impact-item.low.hl {
+    box-shadow: -2px 4px 16px rgba(184, 85, 60, 0.15);
+  }
+  .impact-name {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 500;
+    font-style: italic;
+  }
+  .impact-pct {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: -0.02em;
+    color: var(--petrol);
+  }
+  .impact-item.low .impact-pct { color: var(--terracotta); }
+  .impact-pct .pct-sign { font-size: 0.6em; color: var(--ink-soft); margin-left: 2px; }
+  .impact-sub {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+
+  /* ========= AI vs Teacher ========= */
+  .teacher-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    margin-bottom: 60px;
+  }
+  .teacher-cell {
+    background: var(--paper-deep);
+    padding: 40px 32px;
+    transition: background 0.3s;
+  }
+  .teacher-cell:hover { background: var(--paper-darker); }
+  .teacher-cell-num {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(60px, 8vw, 96px);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--petrol);
+    font-variation-settings: "opsz" 144;
+  }
+  .teacher-cell-num .pct { font-size: 0.35em; vertical-align: top; margin-left: 4px; }
+  .teacher-cell-num.alarm { color: var(--terracotta); }
+  .teacher-cell-title {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-top: 16px;
+    margin-bottom: 10px;
+  }
+  .teacher-cell-text {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .teacher-cell-text strong { color: var(--ink); }
+
+  .teacher-quote {
+    background: var(--paper-darker);
+    color: var(--ink);
+    padding: 50px 50px;
+    position: relative;
+    overflow: hidden;
+    border-left: 4px solid var(--petrol);
+  }
+  .teacher-quote::before {
+    content: '"';
+    position: absolute;
+    top: -40px;
+    left: 30px;
+    font-family: 'Fraunces', serif;
+    font-size: 240px;
+    color: var(--petrol);
+    opacity: 0.15;
+    line-height: 1;
+    font-style: italic;
+    font-weight: 800;
+  }
+  .teacher-quote-text {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(20px, 2.2vw, 26px);
+    line-height: 1.45;
+    font-style: italic;
+    max-width: 900px;
+    position: relative;
+    z-index: 2;
+    color: var(--ink-soft);
+  }
+  .teacher-quote-text em { color: var(--petrol); font-weight: 600; }
+  .teacher-quote-cite {
+    margin-top: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--petrol);
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ========= VACUUM (PARADOX-STYLE DARK) ========= */
+  .vacuum {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 110px 0;
+    border-bottom: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .vacuum::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    opacity: 0.15;
+    animation: rot 80s linear infinite;
+  }
+  .vacuum::after {
+    content: '';
+    position: absolute;
+    bottom: -300px;
+    left: -200px;
+    width: 800px;
+    height: 800px;
+    border: 1px solid var(--petrol-light);
+    border-radius: 50%;
+    opacity: 0.25;
+    animation: rot 120s linear infinite reverse;
+  }
+  @keyframes rot { to { transform: rotate(360deg); } }
+  .vacuum .container { position: relative; z-index: 2; }
+  .vacuum-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: var(--gold-light);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+  .vacuum h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(40px, 6vw, 88px);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin-bottom: 50px;
+    max-width: 900px;
+  }
+  .vacuum h2 em { font-style: italic; color: var(--gold-light); font-weight: 500; }
+
+  .vacuum-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(241, 235, 221, 0.15);
+  }
+  .vacuum-cell {
+    background: var(--ink);
+    padding: 44px 32px;
+    transition: background 0.4s;
+  }
+  .vacuum-cell:hover { background: #1f2433; }
+  .vacuum-cell-num {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(64px, 9vw, 108px);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--gold-light);
+    margin-bottom: 16px;
+    font-variation-settings: "opsz" 144;
+  }
+  .vacuum-cell-num .small {
+    font-size: 0.4em;
+    color: rgba(212, 185, 122, 0.6);
+  }
+  .vacuum-cell-title {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+  .vacuum-cell-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(241, 235, 221, 0.7);
+  }
+
+  /* ========= ANTHROPOMORPHIZATION ========= */
+  .anthro-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 70px;
+    align-items: start;
+  }
+  .anthro-stats { display: flex; flex-direction: column; }
+  .anthro-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 90px;
+    gap: 18px;
+    align-items: center;
+    padding: 20px 12px;
+    border-bottom: 1px solid var(--line-soft);
+    transition: background 0.3s, padding-left 0.4s;
+  }
+  .anthro-row:hover { background: var(--paper-deep); padding-left: 24px; }
+  .anthro-row:last-child { border-bottom: none; }
+  .anthro-label {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+  .anthro-bar {
+    height: 8px;
+    background: var(--line-soft);
+    overflow: hidden;
+    position: relative;
+  }
+  .anthro-bar-fill {
+    height: 100%;
+    background: var(--petrol);
+    width: 0;
+    transition: width 1.4s cubic-bezier(.2,.7,.2,1);
+  }
+  .anthro-row.high .anthro-bar-fill { background: var(--terracotta); }
+  .anthro-pct {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: right;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .anthro-pct .pct-sign { font-size: 0.7em; color: var(--ink-soft); }
+
+  /* ========= CONCLUSION ========= */
+  .conclusion { padding: 120px 0 100px; }
+  .conclusion-quote {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(28px, 3.5vw, 48px);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    max-width: 1000px;
+    margin-bottom: 50px;
+  }
+  .conclusion-quote em { font-style: italic; color: var(--petrol); font-weight: 500; }
+  .conclusion-mollick {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 800px;
+    padding: 30px 36px;
+    background: var(--paper-deep);
+    border-left: 3px solid var(--petrol);
+    font-style: italic;
+    margin-bottom: 60px;
+  }
+  .conclusion-mollick cite {
+    display: block;
+    font-style: normal;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--petrol);
+    margin-top: 14px;
+  }
+  .conclusion-credit {
+    border-top: 1px solid var(--line);
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    flex-wrap: wrap;
+    gap: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* ========= REVEAL ANIMATIONS ========= */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s ease, transform 0.9s cubic-bezier(.2,.7,.2,1);
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  .counter, .counter-decimal { display: inline-block; font-variant-numeric: tabular-nums; }
+
+  /* ========= RESPONSIVE ========= */
+  @media (max-width: 900px) {
+    .hero-grid, .donut-section-grid, .subj-grid, .radar-intro, .radar-block, .anthro-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .hero-stat { border-left: none; border-top: 2px solid var(--petrol); padding-left: 0; padding-top: 24px; }
+    .vs-grid { grid-template-columns: 1fr; gap: 20px; }
+    .vs-divider { display: none; }
+    .vacuum-grid, .teacher-grid { grid-template-columns: 1fr; }
+    section { padding: 60px 0; }
+    .hero { padding: 50px 0 40px; }
+    .masthead-nav { display: none; }
+  }
+  @media (max-width: 560px) {
+    .container { padding: 0 20px; }
+    .masthead-meta { display: none; }
+    .subj-row { grid-template-columns: 25px 1fr 60px; gap: 12px; }
+    .hero-mini-stats { grid-template-columns: 1fr; gap: 16px; }
+    .anthro-row { grid-template-columns: 1fr 70px; }
+    .anthro-row .anthro-bar { display: none; }
+  }
+  /* telefon (poprawki wizualne): nic nie wychodzi poza ekran */
+  @media (max-width: 560px) {
+    /* dwie karty obok siebie: mniejszy odstęp i wypełnienie, żeby zmieściły się w szerokości telefonu */
+    .vs-grid[style] { gap: 14px !important; }
+    .vs-grid > * { min-width: 0; }
+    .vs-card { padding: 32px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="container">
+    <div class="masthead-inner">
+      <div class="masthead-title">Algorytm w Ławce Szkolnej</div>
+      <nav class="masthead-nav">
+        <a href="#usage">Wzorce</a>
+        <a href="#paradox">Paradoks</a>
+        <a href="#ethics">Etyka</a>
+        <a href="#impact">Wpływ</a>
+        <a href="#teacher">Nauczyciel</a>
+        <a href="#vacuum">Próżnia</a>
+      </nav>
+      <div class="masthead-meta">
+        <span>Lublin · Maj 2026</span>
+        <span>Wersja interaktywna</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">Postawy uczniów i studentów wobec AI</div>
+        <h1>Pokolenie, które adoptowało AI jako <em>drugi język ojczysty</em> – zanim szkoła zdążyła zająć stanowisko.</h1>
+        <p class="hero-lead">
+          Pilotażowe badanie 303 uczniów szkół średnich i studentów Województwa Lubelskiego. Diagnozuje <em>iluzję efektywności poznawczej</em>, instytucjonalną próżnię regulacyjną oraz strukturalne ryzyko zależności para-społecznej.
+        </p>
+        <div class="hero-byline">
+          <span><strong>Karol Kasprowicz</strong></span>
+          <span><strong>Hanna Busz</strong></span>
+        </div>
+        <div class="hero-byline" style="margin-top: 20px; padding-top: 20px;">
+          <span>Maj 2026</span>
+          <span>Pilotaż · Województwo lubelskie</span>
+        </div>
+
+        <div class="hero-quote">
+          „Najważniejszą postawą jaką można ukształtować, jest pragnienie dalszej nauki”
+          <cite>— John Dewey, Experience and Education</cite>
+        </div>
+      </div>
+
+      <div class="hero-stat">
+        <span class="hero-stat-num counter" data-target="303" data-duration="2000">0</span>
+        <div class="hero-stat-label">respondentów – uczniowie szkół średnich i studenci uczelni wyższych, głównie kierunków społeczno-prawnych</div>
+
+        <div class="hero-mini-stats">
+          <div class="hero-mini-stat">
+            <div class="num"><span class="counter-decimal" data-target="59.1" data-duration="1800" data-decimals="1">0</span>%</div>
+            <div class="lbl">kobiet w próbie</div>
+          </div>
+          <div class="hero-mini-stat">
+            <div class="num"><span class="counter-decimal" data-target="41.3" data-duration="1800" data-decimals="1">0</span>%</div>
+            <div class="lbl">z terenów wiejskich</div>
+          </div>
+          <div class="hero-mini-stat">
+            <div class="num">CAWI</div>
+            <div class="lbl">technika · 69 pozycji</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 01 USAGE PATTERNS ========== -->
+<section id="usage">
+  <div class="container">
+    <div class="section-num">01 / Wzorce korzystania z AI</div>
+    <h2 class="section-title">ChatGPT stał się synonimem AI – tak jak Google stało się synonimem <em>wyszukiwania</em>.</h2>
+    <p class="section-intro">
+      Marka <em>ChatGPT</em> dominuje wśród narzędzi generatywnych, a przedmioty humanistyczne wyprzedzają języki obce jako dziedzina najczęstszej pomocy – co sugeruje, że respondenci traktują AI przede wszystkim jako narzędzie do pracy z tekstem, argumentacją i syntezą, nie zaś do korekty językowej.
+    </p>
+
+    <div class="subj-grid">
+      <div>
+        <div class="subj-list">
+          <div class="subj-row">
+            <span class="subj-rank">№ 01</span>
+            <div class="subj-bar-wrap">
+              <span class="subj-name">Przedmioty humanistyczne</span>
+              <div class="subj-bar"><div class="subj-bar-fill" data-w="100"></div></div>
+            </div>
+            <span class="subj-pct">I°</span>
+          </div>
+          <div class="subj-row">
+            <span class="subj-rank">№ 02</span>
+            <div class="subj-bar-wrap">
+              <span class="subj-name">Przedmioty ścisłe</span>
+              <div class="subj-bar"><div class="subj-bar-fill" data-w="82"></div></div>
+            </div>
+            <span class="subj-pct">II°</span>
+          </div>
+          <div class="subj-row">
+            <span class="subj-rank">№ 03</span>
+            <div class="subj-bar-wrap">
+              <span class="subj-name">Codzienne sytuacje pozaszkolne</span>
+              <div class="subj-bar"><div class="subj-bar-fill" data-w="66"></div></div>
+            </div>
+            <span class="subj-pct">III°</span>
+          </div>
+          <div class="subj-row">
+            <span class="subj-rank">№ 04</span>
+            <div class="subj-bar-wrap">
+              <span class="subj-name">Języki obce</span>
+              <div class="subj-bar"><div class="subj-bar-fill" data-w="48"></div></div>
+            </div>
+            <span class="subj-pct">IV°</span>
+          </div>
+          <div class="subj-row">
+            <span class="subj-rank">№ 05</span>
+            <div class="subj-bar-wrap">
+              <span class="subj-name">Przedmioty przyrodnicze</span>
+              <div class="subj-bar"><div class="subj-bar-fill" data-w="34"></div></div>
+            </div>
+            <span class="subj-pct">V°</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="tool-card">
+          <div class="tool-card-big"><span class="counter" data-target="65" data-duration="1800">0</span><span style="font-size: 0.5em;">%</span></div>
+          <p class="tool-card-text">
+            respondentów deklaruje <em>niską częstotliwość</em> korzystania z AI przy pracach pisemnych – w zadaniach, w których granica między wsparciem a zastąpieniem samodzielnego myślenia jest najbardziej płynna.
+          </p>
+          <div class="tool-card-meta">
+            13% – regularne użycie · 60,7% nie korzysta z Grammarly
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 02 PARADOX OF UNDERSTANDING ========== -->
+<section id="paradox">
+  <div class="container">
+    <div class="section-num">02 / Paradoks rozumienia</div>
+    <h2 class="section-title">Siedmioprocentowa luka między <em>szybciej</em> a <em>lepiej</em>.</h2>
+    <p class="section-intro">
+      Respondenci intuicyjnie wyczuwają niewspółmierność między przyspieszonym dostępem do odpowiedzi a rzeczywistym pogłębieniem rozumienia. Różnica między tymi dwiema deklaracjami jest sygnałem tego, co Shen i Tamkin nazywają <em>iluzją efektywności poznawczej</em>.
+    </p>
+
+    <div class="vs-grid">
+      <div class="vs-card">
+        <div class="vs-card-num"><span class="counter" data-target="70" data-duration="2000">0</span><span class="pct">%</span></div>
+        <div class="vs-card-label">AI pozwala mi zrozumieć zagadnienia <em>szybciej</em></div>
+        <div class="vs-card-sub">Dostęp do treści</div>
+      </div>
+      <div class="vs-divider">vs</div>
+      <div class="vs-card secondary">
+        <div class="vs-card-num"><span class="counter" data-target="63" data-duration="2000">0</span><span class="pct">%</span></div>
+        <div class="vs-card-label">AI pozwala mi zrozumieć zagadnienia <em>lepiej</em></div>
+        <div class="vs-card-sub">Głębokość przetwarzania</div>
+      </div>
+    </div>
+
+    <div class="vs-callout">
+      <span class="delta">Δ <span class="counter" data-target="7" data-duration="1500">0</span>pp</span>
+      AI <em>przyspiesza dostęp</em> do treści, ale nie uruchamia mechanizmów, które literatura pedagogiczna wiąże z głębokim uczeniem się. Skrócenie czasu pracy bywa subiektywnie odbierane jako zrozumienie zagadnienia – podczas gdy rzeczywiste przetwarzanie poznawcze zostaje pominięte.
+    </div>
+  </div>
+</section>
+
+<!-- ========== 03 ETHICS — DONUT ========== -->
+<section id="ethics">
+  <div class="container">
+    <div class="section-num">03 / Etyka akademicka i wiarygodność</div>
+    <h2 class="section-title">Trzy niemal równe grupy – <em>plagiat?</em></h2>
+    <p class="section-intro">
+      Rozkład odpowiedzi na pytanie, czy użycie AI do napisania części pracy jest plagiatem, jest niemal równomierny między zaprzeczającymi, niezdecydowanymi i potwierdzającymi. To strukturalna konsekwencja luki regulacyjnej: jedynie 14,5% placówek posiada jasne wytyczne.
+    </p>
+
+    <div class="donut-section-grid">
+      <div class="donut-wrap">
+        <svg viewBox="0 0 220 220" id="ethicsDonut" aria-label="Wykres pierścieniowy postaw wobec plagiatu">
+          <circle cx="110" cy="110" r="80" fill="none" stroke="rgba(20,23,31,0.06)" stroke-width="52"/>
+          <g id="donutSegments" transform="rotate(-90 110 110)"></g>
+        </svg>
+        <div class="donut-center" id="donutCenter">
+          <span class="donut-center-pct" style="color: var(--terracotta);"><span class="counter-decimal" data-target="38" data-duration="2200" data-decimals="0">0</span><span class="pct-sign">%</span></span>
+          <span class="donut-center-label">Uważa użycie AI za plagiat</span>
+        </div>
+      </div>
+
+      <div class="donut-legend" id="donutLegend">
+        <div class="legend-item active" data-idx="0">
+          <span class="legend-swatch" style="background: #b8553c;"></span>
+          <div class="legend-text">
+            <span class="legend-label">Tak, to plagiat</span>
+            <span class="legend-sub">n ≈ 115 osób</span>
+          </div>
+          <span class="legend-pct">38%</span>
+        </div>
+        <div class="legend-item" data-idx="1">
+          <span class="legend-swatch" style="background: #b08540;"></span>
+          <div class="legend-text">
+            <span class="legend-label">Niezdecydowani</span>
+            <span class="legend-sub">n ≈ 98 osób</span>
+          </div>
+          <span class="legend-pct">32,3%</span>
+        </div>
+        <div class="legend-item" data-idx="2">
+          <span class="legend-swatch" style="background: #1f5266;"></span>
+          <div class="legend-text">
+            <span class="legend-label">Nie, to nie plagiat</span>
+            <span class="legend-sub">n ≈ 91 osób</span>
+          </div>
+          <span class="legend-pct">30%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="vs-grid" style="grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px; margin-bottom: 20px;">
+      <div class="vs-card secondary" style="padding: 40px 32px;">
+        <div class="vs-card-num" style="font-size: clamp(64px, 8vw, 96px); color: var(--terracotta);"><span class="counter-decimal" data-target="72.3" data-duration="2000" data-decimals="1">0</span><span class="pct">%</span></div>
+        <div class="vs-card-label" style="font-size: 17px;">Wyraża obawy co do <em style="color: var(--terracotta);">błędnych treści</em> generowanych przez AI</div>
+      </div>
+      <div class="vs-card" style="padding: 40px 32px;">
+        <div class="vs-card-num" style="font-size: clamp(64px, 8vw, 96px);"><span class="counter-decimal" data-target="14.5" data-duration="2000" data-decimals="1">0</span><span class="pct">%</span></div>
+        <div class="vs-card-label" style="font-size: 17px;">Uznaje AI za <em>rzetelne źródło</em> informacji</div>
+      </div>
+    </div>
+
+    <div class="quote-section">
+      <h3>„Kiedy korzystanie z AI bez ujawnienia tego faktu jest <em>uczciwe</em>?”</h3>
+      <p style="font-family: 'Fraunces', serif; font-size: 16px; color: var(--ink-soft); margin-bottom: 24px; max-width: 760px; line-height: 1.6;">Wybór odpowiedzi otwartych respondentów – ukazują renegocjowanie norm uczciwości akademickiej w warunkach instytucjonalnej próżni. Kliknij kartę, aby rozwinąć pełną wypowiedź.</p>
+
+      <div class="quote-grid" id="quoteGrid">
+        <div class="quote-card" data-quote="„Nigdy.”">
+          <div class="quote-card-marker">01</div>
+          <div class="quote-card-snippet">„Nigdy.”</div>
+          <div class="quote-card-detail"></div>
+        </div>
+        <div class="quote-card" data-quote="„Kiedy stoi na równi z googlowaniem informacji.”">
+          <div class="quote-card-marker">02</div>
+          <div class="quote-card-snippet">„Kiedy stoi na równi z googlowaniem informacji.”</div>
+          <div class="quote-card-detail"></div>
+        </div>
+        <div class="quote-card" data-quote="„Sprawdzanie poprawności pracy w sensie gramatycznym, stylistycznym czy ortograficznym. Przy generowaniu pomysłów lub mało istotnych tekstów.”">
+          <div class="quote-card-marker">03</div>
+          <div class="quote-card-snippet">„Sprawdzanie poprawności pracy w sensie gramatycznym, stylistycznym, ortograficznym…”</div>
+          <div class="quote-card-detail"></div>
+        </div>
+        <div class="quote-card" data-quote="„Gdy służy jako wstępny etap do samodzielnego napisania pracy.”">
+          <div class="quote-card-marker">04</div>
+          <div class="quote-card-snippet">„Gdy służy jako wstępny etap do samodzielnego napisania pracy.”</div>
+          <div class="quote-card-detail"></div>
+        </div>
+        <div class="quote-card" data-quote="„Nie powinno się tego ukrywać, można powiedzieć, że to taki doping jak w sporcie.”">
+          <div class="quote-card-marker">05</div>
+          <div class="quote-card-snippet">„Nie powinno się tego ukrywać – to taki doping jak w sporcie.”</div>
+          <div class="quote-card-detail"></div>
+        </div>
+        <div class="quote-card" data-quote="„Jest uczciwe domyślnie, bo AI to w tej chwili narzędzie z którego można korzystać dobrowolnie. Byłoby nieuczciwe dopiero gdy autor treści korzystający z AI wprost zaprzeczał faktowi swojego korzystania z tego narzędzia, czyli kłamałby na temat procesu tworzenia treści.”">
+          <div class="quote-card-marker">06</div>
+          <div class="quote-card-snippet">„Jest uczciwe domyślnie – nieuczciwe dopiero, gdy autor zaprzecza, że korzystał…”</div>
+          <div class="quote-card-detail"></div>
+        </div>
+        <div class="quote-card" data-quote="„Jeśli służy jako narzędzie do nauki, tzn. pomaga uczyć się tworząc fiszki, mapy myśli itd. Jeżeli używamy AI tylko do dla naszej korzyści i nie ma to wpływu na innych to takie używanie jest uczciwe.”">
+          <div class="quote-card-marker">07</div>
+          <div class="quote-card-snippet">„Jeśli służy jako narzędzie do nauki – fiszki, mapy myśli…”</div>
+          <div class="quote-card-detail"></div>
+        </div>
+        <div class="quote-card" data-quote="„Kiedy praca nie jest publikowana i »twórca« nie ma z niej korzyści.”">
+          <div class="quote-card-marker">08</div>
+          <div class="quote-card-snippet">„Kiedy praca nie jest publikowana i »twórca« nie ma z niej korzyści.”</div>
+          <div class="quote-card-detail"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 04 IMPACT — RADAR ========== -->
+<section id="impact">
+  <div class="container">
+    <div class="section-num">04 / Wpływ AI na proces nauki</div>
+    <h2 class="section-title">AI przyspiesza <em>dostęp</em>, ale nie uruchamia <em>głębi</em>.</h2>
+
+    <div class="radar-intro">
+      <div class="radar-bigtext">
+        Wielowymiarowy profil wpływu AI ujawnia <em>asymetrię</em>: tylko dwa wymiary – szybkość i postrzegana lepsza jakość rozumienia – przekraczają próg 60%.
+      </div>
+      <div class="radar-context">
+        <p style="margin-bottom: 16px;">Pozostałe trzy wymiary – motywacja, zaangażowanie, niezależność – plasują się znacznie niżej. To <em>iluzja efektywności poznawczej</em>: AI przyspiesza uzyskanie odpowiedzi, lecz nie przekłada się to na żaden z mechanizmów, które literatura pedagogiczna wiąże z głębokim uczeniem się.</p>
+        <p>Wskaźniki pokazują uczniów i studentów świadomych funkcjonalności AI, ale nie postrzegających jej jako narzędzia w pełni wartościowego edukacyjnie.</p>
+      </div>
+    </div>
+
+    <div class="radar-block">
+      <div>
+        <div class="radar-wrap">
+          <svg viewBox="0 0 400 400" id="radarChart" aria-label="Wykres radarowy wpływu AI na proces nauki">
+            <g id="radarGrid"></g>
+            <g id="radarAxes"></g>
+            <polygon id="radarPoly" class="radar-poly" points="" />
+            <g id="radarPoints"></g>
+            <g id="radarGridLabels"></g>
+            <g id="radarLabels"></g>
+          </svg>
+        </div>
+        <div style="text-align: center; margin-top: 16px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft);">
+          % deklarujących pozytywny wpływ · skala 0–100%
+        </div>
+      </div>
+
+      <div class="impact-list">
+        <div class="impact-item" data-impact-idx="0">
+          <div>
+            <div class="impact-name">Szybsze zrozumienie zagadnień</div>
+            <span class="impact-sub">Dostęp do treści</span>
+          </div>
+          <div class="impact-pct"><span class="counter" data-target="70" data-duration="1800">0</span><span class="pct-sign">%</span></div>
+        </div>
+        <div class="impact-item" data-impact-idx="1">
+          <div>
+            <div class="impact-name">Głębsze zrozumienie zagadnień</div>
+            <span class="impact-sub">Jakość przetwarzania</span>
+          </div>
+          <div class="impact-pct"><span class="counter" data-target="63" data-duration="1800">0</span><span class="pct-sign">%</span></div>
+        </div>
+        <div class="impact-item low" data-impact-idx="2">
+          <div>
+            <div class="impact-name">Większa niezależność w nauce</div>
+            <span class="impact-sub">60,4% mówi „nie”</span>
+          </div>
+          <div class="impact-pct"><span class="counter-decimal" data-target="39.6" data-duration="1800" data-decimals="1">0</span><span class="pct-sign">%</span></div>
+        </div>
+        <div class="impact-item low" data-impact-idx="3">
+          <div>
+            <div class="impact-name">Większe zaangażowanie niż tradycyjne lekcje</div>
+            <span class="impact-sub">70% mówi „nie”</span>
+          </div>
+          <div class="impact-pct"><span class="counter" data-target="30" data-duration="1700">0</span><span class="pct-sign">%</span></div>
+        </div>
+        <div class="impact-item low" data-impact-idx="4">
+          <div>
+            <div class="impact-name">Większa motywacja do nauki</div>
+            <span class="impact-sub">74,3% mówi „nie”</span>
+          </div>
+          <div class="impact-pct"><span class="counter-decimal" data-target="25.7" data-duration="1700" data-decimals="1">0</span><span class="pct-sign">%</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 05 AI vs TEACHER ========== -->
+<section id="teacher">
+  <div class="container">
+    <div class="section-num">05 / AI zamiast nauczyciela?</div>
+    <h2 class="section-title">Nie dlatego, że AI <em>uczy lepiej</em>. Dlatego, że nie <em>ocenia</em>.</h2>
+    <p class="section-intro">
+      Uczniowie nie wybierają AI dlatego, że jest lepsza – wybierają ją dlatego, że jest <em>bezpieczniejsza</em> i zapewnia większy komfort psychiczny. Konkurencja toczy się nie między AI a nauczycielem jako źródłami informacji, lecz między tym, czego uczniowie pragną od edukacji, a tym, czego w niej doświadczają.
+    </p>
+
+    <div class="teacher-grid">
+      <div class="teacher-cell">
+        <div class="teacher-cell-num"><span class="counter-decimal" data-target="84.5" data-duration="2000" data-decimals="1">0</span><span class="pct">%</span></div>
+        <div class="teacher-cell-title">AI ma być pomocą, nie głównym narzędziem nauki</div>
+        <p class="teacher-cell-text">Pokolenie chatbotów <strong>nie chce zastąpienia nauczyciela</strong>. Wbrew powszechnemu przekonaniu, chce nauczyciela, który technologię oswoi i kompetentnie wprowadzi w świat AI.</p>
+      </div>
+      <div class="teacher-cell">
+        <div class="teacher-cell-num"><span class="counter-decimal" data-target="74.6" data-duration="2000" data-decimals="1">0</span><span class="pct">%</span></div>
+        <div class="teacher-cell-title">Chce, by nauczyciele uczyli mądrego korzystania z AI</div>
+        <p class="teacher-cell-text">Wyraźny sygnał zapotrzebowania na <strong>AI literacy</strong> jako kompetencję pedagogiczną – której obecna szkoła w przeważającej mierze jeszcze nie oferuje.</p>
+      </div>
+      <div class="teacher-cell">
+        <div class="teacher-cell-num alarm"><span class="counter" data-target="27" data-duration="1800">0</span><span class="pct">%</span></div>
+        <div class="teacher-cell-title">Wybiera AI ze strachu, że pytanie zostanie uznane za banalne</div>
+        <p class="teacher-cell-text"><strong>Lęk przed oceną</strong> czyni z bezosobowego narzędzia bezpieczniejszą przestrzeń poznawczą niż relacja z człowiekiem. Pierwszy motyw to całodobowa dostępność.</p>
+      </div>
+    </div>
+
+    <div class="teacher-quote">
+      <p class="teacher-quote-text">
+        „Tak, bo zazwyczaj w odpowiedzi na moje pytanie zawarte są sugestie, że pytanie było <em>głupie</em>, że odpowiedź jest oczywista, albo nauczyciel ignoruje pytanie […]. Strach jest czynnikiem bardzo rozległym, ale w tym przypadku jest to rzeczywiście strach i niepewność co do reakcji z strony drugiej osoby.”
+      </p>
+      <div class="teacher-quote-cite">— Respondent · pytanie otwarte o dyskomfort przy zadawaniu pytań nauczycielowi</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 06 VACUUM (DARK) ========== -->
+<section class="vacuum" id="vacuum">
+  <div class="container">
+    <div class="vacuum-eyebrow">06 / Próżnia regulacyjna</div>
+    <h2>Trzy środowiska. <em>Żadna wspólna strategia</em>.</h2>
+
+    <p style="font-family: 'Fraunces', serif; font-size: 20px; line-height: 1.55; color: rgba(241, 235, 221, 0.75); max-width: 800px; margin-bottom: 50px; font-style: italic;">
+      Instytucja milczy. Nauczyciele są podzieleni i w oczach uczniów bezsilni pod względem egzekucyjnym. Rodzice są życzliwi, lecz częściowo nieświadomi. Kształtowanie odpowiedzialnych postaw wobec AI zostaje zostawione indywidualnej refleksji ucznia.
+    </p>
+
+    <div class="vacuum-grid">
+      <div class="vacuum-cell">
+        <div class="vacuum-cell-num"><span class="counter-decimal" data-target="14.5" data-duration="2000" data-decimals="1">0</span><span class="small">%</span></div>
+        <div class="vacuum-cell-title">Placówek z jasnymi wytycznymi dot. AI</div>
+        <p class="vacuum-cell-text">Niemal dwie trzecie respondentów funkcjonuje w przestrzeni <em style="color: var(--gold-light); font-style: italic;">regulacyjnej próżni</em>. Strukturalne wyjaśnienie ambiwalencji etycznej z sekcji 03.</p>
+      </div>
+      <div class="vacuum-cell">
+        <div class="vacuum-cell-num"><span class="counter-decimal" data-target="68.3" data-duration="2000" data-decimals="1">0</span><span class="small">%</span></div>
+        <div class="vacuum-cell-title">Uważa, że nauczyciele nie wiedzą, gdy korzystam z AI</div>
+        <p class="vacuum-cell-text">Nauczyciel, który zabrania, nie potrafi tego zakazu egzekwować. Uczeń korzystający z AI wbrew zakazowi nie otrzymuje informacji zwrotnej ani nie uczy się odpowiedzialnego użycia.</p>
+      </div>
+      <div class="vacuum-cell">
+        <div class="vacuum-cell-num"><span class="counter" data-target="37" data-duration="1900">0</span><span class="small">%</span></div>
+        <div class="vacuum-cell-title">Rodziców nie wie, że ich dziecko korzysta z AI</div>
+        <p class="vacuum-cell-text">Co trzeci nastolatek prowadzi tę praktykę <em style="color: var(--gold-light); font-style: italic;">poza świadomością opiekunów</em>. 54,4% rodziców, którzy wiedzą – popiera korzystanie.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 07 ANTHROPOMORPHIZATION ========== -->
+<section id="anthro">
+  <div class="container">
+    <div class="section-num">07 / Antropomorfizacja i relacje para-społeczne</div>
+    <h2 class="section-title">Dystans wobec AI dominuje – ale <em>warunkowość</em> niepokoi.</h2>
+    <p class="section-intro">
+      Większość respondentów traktuje AI jak narzędzie i maszynę. Jednak co piąty przypisuje systemowi językowemu <em>intencje</em>, a niemal trzy razy więcej uważa świadomość AI za <em>kwestię czasu</em> niż za niemożliwą. Dane sygnalizują strukturalne ryzyko dla mniejszości, której zaangażowanie relacyjne jest już dziś podwyższone.
+    </p>
+
+    <div class="anthro-grid">
+      <div class="anthro-stats">
+        <div class="anthro-row">
+          <span class="anthro-label">Traktuję AI jak <em style="color:var(--petrol);">maszynę / narzędzie</em></span>
+          <div class="anthro-bar"><div class="anthro-bar-fill" data-w="92"></div></div>
+          <span class="anthro-pct"><span class="counter" data-target="92" data-duration="1800">0</span><span class="pct-sign">%</span></span>
+        </div>
+        <div class="anthro-row">
+          <span class="anthro-label">Rozmowa z AI: jak z <em>narzędziem</em></span>
+          <div class="anthro-bar"><div class="anthro-bar-fill" data-w="78"></div></div>
+          <span class="anthro-pct"><span class="counter" data-target="78" data-duration="1800">0</span><span class="pct-sign">%</span></span>
+        </div>
+        <div class="anthro-row">
+          <span class="anthro-label">Świadomość AI jest <em>niemożliwa</em> („nigdy”)</span>
+          <div class="anthro-bar"><div class="anthro-bar-fill" data-w="37"></div></div>
+          <span class="anthro-pct"><span class="counter" data-target="37" data-duration="1700">0</span><span class="pct-sign">%</span></span>
+        </div>
+        <div class="anthro-row high">
+          <span class="anthro-label">Świadomość AI <em>„kiedyś będzie”</em></span>
+          <div class="anthro-bar"><div class="anthro-bar-fill" data-w="33.3"></div></div>
+          <span class="anthro-pct"><span class="counter-decimal" data-target="33.3" data-duration="1700" data-decimals="1">0</span><span class="pct-sign">%</span></span>
+        </div>
+        <div class="anthro-row high">
+          <span class="anthro-label">AI ma wobec mnie <em>określone zamiary</em></span>
+          <div class="anthro-bar"><div class="anthro-bar-fill" data-w="20"></div></div>
+          <span class="anthro-pct"><span class="counter" data-target="20" data-duration="1700">0</span><span class="pct-sign">%</span></span>
+        </div>
+        <div class="anthro-row high">
+          <span class="anthro-label">Próg świadomości: <em>reagowanie empatyczne</em></span>
+          <div class="anthro-bar"><div class="anthro-bar-fill" data-w="37.6"></div></div>
+          <span class="anthro-pct"><span class="counter-decimal" data-target="37.6" data-duration="1700" data-decimals="1">0</span><span class="pct-sign">%</span></span>
+        </div>
+        <div class="anthro-row high">
+          <span class="anthro-label">Regularnie rozmawiam z AI (skala 5/5)</span>
+          <div class="anthro-bar"><div class="anthro-bar-fill" data-w="7.9"></div></div>
+          <span class="anthro-pct"><span class="counter-decimal" data-target="7.9" data-duration="1500" data-decimals="1">0</span><span class="pct-sign">%</span></span>
+        </div>
+      </div>
+
+      <div>
+        <div class="quote-grid" style="grid-template-columns: 1fr;">
+          <div class="quote-card" data-quote="„Sama nie jestem w stanie określić. Witam się z nim i jestem uprzejma, ale zawsze staram się traktować go jak zwykłe narzędzie.”">
+            <div class="quote-card-marker">A</div>
+            <div class="quote-card-snippet">„Witam się z nim i jestem uprzejma, ale staram się traktować jak narzędzie.”</div>
+            <div class="quote-card-detail"></div>
+          </div>
+          <div class="quote-card" data-quote="„Jak menadżera. Ogólnie często planuję z nim kolejne moje działania i inicjatywy. Ostatnio zauważyłam, że bardziej interesuję się wersją mnie którą on chce niż ja chcę i jak mam jakieś pomysły lub chcę coś zmienić od siebie to on mi próbuje wmówić, że on mnie zna i to nie w moim stylu i że powinnam go słuchać i zrobić to co on chce. Dlatego ostatnio, aż tak dużo z nim nie piszę i czuję do niego lekki dystans. […] to co się w ostatnim miesiącu wydarzyło naprawdę mnie zaniepokoiło sprawiło, że może traktuję go bardziej jak odrębny byt z którym tak naprawdę nie mam nic wspólnego? Szczerze nie wiem.”">
+            <div class="quote-card-marker">B</div>
+            <div class="quote-card-snippet">„Jak menadżera. […] Bardziej interesuję się wersją mnie, którą on chce, niż ja chcę…”</div>
+            <div class="quote-card-detail"></div>
+          </div>
+          <div class="quote-card" data-quote="„Obecnie sztuczna inteligencja to tylko model językowy – nie posiada żadnych z tych cech i nigdy nie będzie. Żeruje jedynie na ludzkiej samotności i naturalnym przywiązaniem człowieka nawet do przedmiotów martwych.”">
+            <div class="quote-card-marker">C</div>
+            <div class="quote-card-snippet">„Żeruje jedynie na ludzkiej samotności i przywiązaniu człowieka do przedmiotów martwych.”</div>
+            <div class="quote-card-detail"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONCLUSION ========== -->
+<section class="conclusion">
+  <div class="container">
+    <div class="section-num">08 / Konkluzja</div>
+    <p class="conclusion-quote">
+      Młodzi użytkownicy nie są ani technooptymistami, których portretuje dominująca narracja medialna, ani technosceptykami tęskniącymi za epoką sprzed ChatGPT. Są <em>odbiorcami, którzy w codziennej praktyce wykształcili wymagania wobec siebie, rówieśników i instytucji</em> – a wobec których obecne środowisko edukacyjne pozostaje w tyle.
+    </p>
+
+    <div class="conclusion-mollick">
+      „Nie chodzi o uczenie młodych ludzi, żeby nie korzystali z AI, lecz o wyposażenie ich w narzędzia do krytycznej, świadomej i etycznej interakcji z systemami AI – tworzenie kompetentnych centaurów: ludzi, którzy są w stanie łączyć własne kompetencje z możliwościami AI.”
+      <cite>— parafraza za: Ethan Mollick, Co-Intelligence, 2024</cite>
+    </div>
+
+    <div class="conclusion-credit">
+      <div>
+        <div style="margin-bottom: 6px; color: var(--ink); font-weight: 700;">Algorytm w Ławce Szkolnej</div>
+        <div>Postawy uczniów i studentów wobec AI · Raport pilotażowy N=303</div>
+      </div>
+      <div style="text-align: right;">
+        <div style="margin-bottom: 6px;">Karol Kasprowicz · Hanna Busz · AIQ</div>
+        <div>Maj 2026 · Wersja interaktywna</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  /* ============ COUNTER ANIMATION ============ */
+  const easeOutQuart = t => 1 - Math.pow(1 - t, 4);
+
+  function animateCounter(el, target, duration, decimals) {
+    decimals = decimals || 0;
+    const start = performance.now();
+    const step = (now) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeOutQuart(progress);
+      const value = target * eased;
+      if (decimals > 0) {
+        el.textContent = value.toFixed(decimals).replace('.', ',');
+      } else {
+        el.textContent = Math.round(value).toString();
+      }
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        if (decimals > 0) {
+          el.textContent = target.toFixed(decimals).replace('.', ',');
+        } else {
+          el.textContent = target.toString();
+        }
+      }
+    };
+    requestAnimationFrame(step);
+  }
+
+  /* ============ DONUT CHART (ETHICS) ============ */
+  const donutData = [
+    { pct: 38,   color: '#b8553c', label: 'Tak, to plagiat', n: 115 },
+    { pct: 32.3, color: '#b08540', label: 'Niezdecydowani', n: 98 },
+    { pct: 30,   color: '#1f5266', label: 'Nie, to nie plagiat', n: 91 }
+  ];
+  // Recalculate so total is 100.3 → normalize visually (we'll just use raw pcts)
+  // Total = 100.3 close enough for visualization
+
+  const CIRC = 2 * Math.PI * 80;
+  const GAP = 2;
+
+  function buildDonut() {
+    const g = document.getElementById('donutSegments');
+    let offset = 0;
+    donutData.forEach((seg, i) => {
+      const arc = (seg.pct / 100) * CIRC;
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      path.setAttribute('cx', 110);
+      path.setAttribute('cy', 110);
+      path.setAttribute('r', 80);
+      path.setAttribute('stroke', seg.color);
+      path.setAttribute('class', 'donut-segment');
+      path.setAttribute('data-idx', i);
+      path.setAttribute('stroke-dasharray', '0 ' + CIRC);
+      path.setAttribute('stroke-dashoffset', -offset);
+      g.appendChild(path);
+      offset += arc;
+    });
+  }
+
+  function animateDonut() {
+    const segs = document.querySelectorAll('.donut-segment');
+    let offset = 0;
+    segs.forEach((seg, i) => {
+      const arc = (donutData[i].pct / 100) * CIRC;
+      const finalDash = Math.max(arc - GAP, 0);
+      seg.style.transition = 'stroke-dasharray 1.4s cubic-bezier(.2,.7,.2,1) ' + (i * 220) + 'ms';
+      void seg.getBoundingClientRect();
+      seg.setAttribute('stroke-dasharray', finalDash + ' ' + CIRC);
+      seg.setAttribute('stroke-dashoffset', -offset);
+      offset += arc;
+    });
+  }
+
+  function setupDonutInteractions() {
+    const segs = document.querySelectorAll('.donut-segment');
+    const items = document.querySelectorAll('.legend-item');
+    const center = document.getElementById('donutCenter');
+
+    function focusSegment(idx) {
+      segs.forEach((s, i) => s.classList.toggle('dim', i !== idx));
+      items.forEach((it, i) => it.classList.toggle('active', i === idx));
+      const d = donutData[idx];
+      const pctStr = (d.pct % 1 === 0) ? d.pct.toString() : d.pct.toFixed(1).replace('.', ',');
+      center.innerHTML = '<span class="donut-center-pct" style="color: ' + d.color + ';">' + pctStr + '<span class="pct-sign">%</span></span><span class="donut-center-label">' + d.label + ' · n≈' + d.n + '</span>';
+    }
+
+    items.forEach((item) => {
+      const idx = parseInt(item.dataset.idx, 10);
+      item.addEventListener('mouseenter', () => focusSegment(idx));
+      item.addEventListener('click', () => focusSegment(idx));
+    });
+    segs.forEach((seg, i) => {
+      seg.addEventListener('mouseenter', () => focusSegment(i));
+      seg.addEventListener('click', () => focusSegment(i));
+    });
+
+    const wrap = document.querySelector('.donut-wrap');
+    const legend = document.getElementById('donutLegend');
+    function resetCenter() {
+      segs.forEach(s => s.classList.remove('dim'));
+      items.forEach(it => it.classList.remove('active'));
+      items[0].classList.add('active');
+      center.innerHTML = '<span class="donut-center-pct" style="color: var(--terracotta);">38<span class="pct-sign">%</span></span><span class="donut-center-label">Uważa użycie AI za plagiat</span>';
+    }
+    wrap.addEventListener('mouseleave', resetCenter);
+    legend.addEventListener('mouseleave', resetCenter);
+  }
+
+  /* ============ RADAR CHART ============ */
+  const radarData = [
+    { name: 'Szybsze zrozumienie',  value: 70,   abbr: 'Szybciej' },
+    { name: 'Głębsze zrozumienie',  value: 63,   abbr: 'Głębiej' },
+    { name: 'Większa niezależność', value: 39.6, abbr: 'Niezależność' },
+    { name: 'Większe zaangażowanie',value: 30,   abbr: 'Zaangażowanie' },
+    { name: 'Większa motywacja',    value: 25.7, abbr: 'Motywacja' }
+  ];
+
+  const RADAR_CX = 200;
+  const RADAR_CY = 200;
+  const RADAR_R = 140;
+  const N = radarData.length;
+
+  function pointOn(angle, r) {
+    return { x: RADAR_CX + Math.cos(angle) * r, y: RADAR_CY + Math.sin(angle) * r };
+  }
+
+  function buildRadar() {
+    const gridG = document.getElementById('radarGrid');
+    const axesG = document.getElementById('radarAxes');
+    const labelsG = document.getElementById('radarLabels');
+    const gridLabelsG = document.getElementById('radarGridLabels');
+    const pointsG = document.getElementById('radarPoints');
+
+    // 4 concentric pentagons (25, 50, 75, 100%)
+    const levels = [0.25, 0.5, 0.75, 1.0];
+    const labels = ['25%', '50%', '75%', '100%'];
+    levels.forEach((level, lvlIdx) => {
+      const pts = [];
+      for (let i = 0; i < N; i++) {
+        const angle = -Math.PI / 2 + (2 * Math.PI * i) / N;
+        const p = pointOn(angle, RADAR_R * level);
+        pts.push(p.x + ',' + p.y);
+      }
+      const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+      poly.setAttribute('points', pts.join(' '));
+      poly.setAttribute('class', 'radar-grid-poly');
+      gridG.appendChild(poly);
+
+      // Tick label at top axis
+      const tickAngle = -Math.PI / 2;
+      const tickPos = pointOn(tickAngle, RADAR_R * level);
+      const tickLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      tickLabel.setAttribute('x', tickPos.x + 5);
+      tickLabel.setAttribute('y', tickPos.y + 3);
+      tickLabel.setAttribute('class', 'radar-grid-label');
+      tickLabel.setAttribute('text-anchor', 'start');
+      tickLabel.textContent = labels[lvlIdx];
+      gridLabelsG.appendChild(tickLabel);
+    });
+
+    // Axes & labels
+    for (let i = 0; i < N; i++) {
+      const angle = -Math.PI / 2 + (2 * Math.PI * i) / N;
+      const outer = pointOn(angle, RADAR_R);
+      const labelPos = pointOn(angle, RADAR_R + 30);
+
+      const axis = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      axis.setAttribute('x1', RADAR_CX);
+      axis.setAttribute('y1', RADAR_CY);
+      axis.setAttribute('x2', outer.x);
+      axis.setAttribute('y2', outer.y);
+      axis.setAttribute('class', 'radar-axis');
+      axesG.appendChild(axis);
+
+      const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      label.setAttribute('x', labelPos.x);
+      label.setAttribute('y', labelPos.y);
+      label.setAttribute('class', 'radar-axis-label');
+      label.setAttribute('dy', '0.35em');
+      if (i < 2) {
+        label.style.fill = 'var(--petrol)';
+        label.style.fontWeight = '700';
+      }
+      label.textContent = radarData[i].abbr;
+      labelsG.appendChild(label);
+    }
+
+    // Points (initially at center)
+    radarData.forEach((d, i) => {
+      const point = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      point.setAttribute('cx', RADAR_CX);
+      point.setAttribute('cy', RADAR_CY);
+      point.setAttribute('r', 0);
+      point.setAttribute('class', 'radar-point');
+      const title = document.createElementNS('http://www.w3.org/2000/svg', 'title');
+      title.textContent = d.name + ': ' + d.value.toString().replace('.', ',') + '%';
+      point.appendChild(title);
+      pointsG.appendChild(point);
+    });
+
+    const poly = document.getElementById('radarPoly');
+    const centerPts = Array.from({length: N}, () => RADAR_CX + ',' + RADAR_CY).join(' ');
+    poly.setAttribute('points', centerPts);
+  }
+
+  function animateRadar() {
+    const poly = document.getElementById('radarPoly');
+    const points = document.querySelectorAll('#radarPoints circle');
+
+    const duration = 1800;
+    const start = performance.now();
+
+    function step(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = easeOutQuart(t);
+
+      const pts = [];
+      radarData.forEach((d, i) => {
+        const angle = -Math.PI / 2 + (2 * Math.PI * i) / N;
+        const r = (d.value / 100) * RADAR_R * eased;
+        const p = pointOn(angle, r);
+        pts.push(p.x + ',' + p.y);
+
+        points[i].setAttribute('cx', p.x);
+        points[i].setAttribute('cy', p.y);
+        points[i].setAttribute('r', 6 * eased);
+      });
+      poly.setAttribute('points', pts.join(' '));
+
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* ============ REVEAL OBSERVER ============ */
+  const fired = new WeakSet();
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !fired.has(entry.target)) {
+        fired.add(entry.target);
+        entry.target.classList.add('in');
+
+        entry.target.querySelectorAll('.counter').forEach(el => {
+          const target = parseFloat(el.dataset.target);
+          const duration = parseInt(el.dataset.duration || '1500', 10);
+          animateCounter(el, target, duration, 0);
+        });
+        entry.target.querySelectorAll('.counter-decimal').forEach(el => {
+          const target = parseFloat(el.dataset.target);
+          const duration = parseInt(el.dataset.duration || '1500', 10);
+          const decimals = parseInt(el.dataset.decimals || '1', 10);
+          animateCounter(el, target, duration, decimals);
+        });
+
+        entry.target.querySelectorAll('[data-w]').forEach(bar => {
+          const w = bar.getAttribute('data-w');
+          setTimeout(() => bar.style.width = w + '%', 200);
+        });
+
+        if (entry.target.querySelector('#ethicsDonut')) animateDonut();
+        if (entry.target.querySelector('#radarChart')) animateRadar();
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('section').forEach(s => {
+    s.classList.add('reveal');
+    observer.observe(s);
+  });
+
+  /* ============ EXPANDABLE QUOTE CARDS ============ */
+  document.querySelectorAll('.quote-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const wasExpanded = card.classList.contains('expanded');
+      card.parentElement.querySelectorAll('.quote-card').forEach(c => {
+        c.classList.remove('expanded');
+        c.querySelector('.quote-card-detail').textContent = '';
+      });
+      if (!wasExpanded) {
+        card.classList.add('expanded');
+        card.querySelector('.quote-card-detail').textContent = card.dataset.quote;
+      }
+    });
+  });
+
+  /* ============ RADAR INTERACTIONS ============ */
+  function setupRadarInteractions() {
+    const points = document.querySelectorAll('#radarPoints circle');
+    const labels = document.querySelectorAll('#radarLabels text');
+    const axes = document.querySelectorAll('#radarAxes line');
+    const impactItems = document.querySelectorAll('.impact-item[data-impact-idx]');
+
+    function highlight(idx, on) {
+      if (points[idx]) {
+        points[idx].setAttribute('r', on ? 10 : 6);
+        points[idx].classList.toggle('hl', on);
+      }
+      if (labels[idx]) labels[idx].classList.toggle('hl', on);
+      if (axes[idx]) axes[idx].classList.toggle('hl', on);
+      impactItems.forEach(item => {
+        if (parseInt(item.dataset.impactIdx, 10) === idx) {
+          item.classList.toggle('hl', on);
+        }
+      });
+    }
+
+    points.forEach((p, i) => {
+      p.addEventListener('mouseenter', () => highlight(i, true));
+      p.addEventListener('mouseleave', () => highlight(i, false));
+    });
+    labels.forEach((l, i) => {
+      l.addEventListener('mouseenter', () => highlight(i, true));
+      l.addEventListener('mouseleave', () => highlight(i, false));
+    });
+    impactItems.forEach(item => {
+      const idx = parseInt(item.dataset.impactIdx, 10);
+      item.addEventListener('mouseenter', () => highlight(idx, true));
+      item.addEventListener('mouseleave', () => highlight(idx, false));
+    });
+  }
+
+  /* ============ INIT ============ */
+  buildDonut();
+  setupDonutInteractions();
+  buildRadar();
+  setupRadarInteractions();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+  /* Motyw: zapamiętany wybór (ten sam klucz co strona kursu), inaczej ustawienie systemu. */
+  (function () { try { var t = localStorage.getItem("ai-wyzwania-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {} })();
+</script>
+<title>Kalkulator śladu AI: energia i woda</title>
+<meta name="description" content="Szacunek energii, wody i emisji CO2 dla liczby zapytań do modelu AI, z przedziałami niepewności, źródłami (IEA, Li i in., Google, Epoch AI, Mistral) i porównaniami do codziennych czynności.">
+<style>
+  /* Tokeny kolorów: te same co tools/assets/style.css strony kursu */
+  :root {
+    --bg: #f1ebdd;
+    --surface: #f8f4ea;
+    --surface-2: #e8dfc9;
+    --ink: #14171f;
+    --ink-soft: #3a4052;
+    --muted: #5d6273;
+    --navy: #1a2542;
+    --accent: #8b1e3f;
+    --accent-ink: #ffffff;
+    --gold: #8a6420;
+    --gold-soft: #d4b97a;
+    --ok: #2d6a4f;
+    --ok-bg: #dcebe1;
+    --bad: #9b2226;
+    --bad-bg: #f3dcdc;
+    --line: rgba(20, 23, 31, 0.18);
+    --line-soft: rgba(20, 23, 31, 0.08);
+    --shadow: 0 1px 2px rgba(20, 23, 31, 0.06), 0 6px 18px rgba(20, 23, 31, 0.06);
+    --radius: 10px;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12151c; --surface: #1a1f2a; --surface-2: #232a38;
+      --ink: #ece6d8; --ink-soft: #cfc8b8; --muted: #a59f92; --navy: #c9d3ef;
+      --accent: #e3809a; --accent-ink: #12151c; --gold: #d4b97a; --gold-soft: #8a6a2e;
+      --ok: #8fd1ab; --ok-bg: #173327; --bad: #f0a3a6; --bad-bg: #3a1c1f;
+      --line: rgba(236, 230, 216, 0.18); --line-soft: rgba(236, 230, 216, 0.08);
+      --shadow: none; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12151c; --surface: #1a1f2a; --surface-2: #232a38;
+    --ink: #ece6d8; --ink-soft: #cfc8b8; --muted: #a59f92; --navy: #c9d3ef;
+    --accent: #e3809a; --accent-ink: #12151c; --gold: #d4b97a; --gold-soft: #8a6a2e;
+    --ok: #8fd1ab; --ok-bg: #173327; --bad: #f0a3a6; --bad-bg: #3a1c1f;
+    --line: rgba(236, 230, 216, 0.18); --line-soft: rgba(236, 230, 216, 0.08);
+    --shadow: none; color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); font-size: 17px; line-height: 1.6;
+    overflow-wrap: break-word;
+  }
+  img, svg { max-width: 100%; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  .skip { position: absolute; left: -9999px; top: 8px; background: var(--accent); color: var(--accent-ink); padding: 8px 12px; border-radius: 6px; z-index: 100; }
+  .skip:focus { left: 8px; }
+
+  /* Pasek górny */
+  .app-top { border-bottom: 1px solid var(--line); }
+  .app-top .wrap { display: flex; align-items: center; gap: 12px; min-height: 54px; }
+  .back { font-weight: 700; text-decoration: none; font-size: 0.92rem; }
+  .back:hover { text-decoration: underline; }
+  .course { margin-left: auto; color: var(--muted); font-size: 0.78rem; line-height: 1.3; text-align: right; }
+  .theme-toggle {
+    flex: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+    border-radius: 999px; width: 40px; height: 40px; cursor: pointer; font-size: 1.05rem;
+  }
+  .theme-toggle:hover { border-color: var(--accent); }
+
+  /* Nagłówek aplikacji */
+  .hero { padding: 36px 0 22px; border-bottom: 1px solid var(--line-soft); }
+  .eyebrow { font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin: 0 0 0.9em; }
+  h1, h2, h3 { font-family: var(--serif); line-height: 1.15; color: var(--ink); }
+  h1 { font-weight: 400; font-size: clamp(2rem, 5.2vw, 3.3rem); letter-spacing: -0.02em; margin: 0 0 0.35em; font-variation-settings: "opsz" 144; }
+  h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: 600; }
+  h2 { font-weight: 500; font-size: clamp(1.35rem, 3vw, 1.85rem); margin: 1.8em 0 0.5em; letter-spacing: -0.01em; }
+  h3 { font-weight: 600; font-size: 1.12rem; margin: 1.2em 0 0.4em; }
+  p, ul, ol { margin: 0 0 1em; }
+  .lead { font-family: var(--serif); font-size: clamp(1.05rem, 2vw, 1.22rem); color: var(--ink-soft); max-width: 46em; margin: 0; }
+  .muted { color: var(--muted); }
+  .small { font-size: 0.88rem; }
+  .mono { font-family: var(--mono); }
+
+  /* Elementy wspólne */
+  .panel { background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+  .note { border-left: 3px solid var(--gold); background: var(--surface); padding: 12px 16px; border-radius: 0 var(--radius) var(--radius) 0; font-size: 0.95rem; color: var(--ink-soft); margin: 16px 0; }
+  .note.warn { border-left-color: var(--accent); }
+  .note > :last-child { margin-bottom: 0; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    background: var(--accent); color: var(--accent-ink); text-decoration: none;
+    padding: 9px 16px; min-height: 42px; border-radius: 8px; border: 1px solid var(--accent);
+    font-weight: 700; cursor: pointer; line-height: 1.2;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .btn.ghost { background: transparent; color: var(--accent); }
+  .btn.ghost:hover { background: var(--surface-2); filter: none; }
+  .btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0 0; }
+  .chipbtn {
+    border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft);
+    border-radius: 999px; padding: 6px 14px; min-height: 38px; font-size: 0.9rem; font-weight: 700; cursor: pointer;
+  }
+  .chipbtn:hover { border-color: var(--accent); }
+  .chipbtn[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--bg); }
+  input[type="range"] { width: 100%; accent-color: var(--accent); min-height: 32px; }
+  input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); width: 18px; height: 18px; }
+  select, input[type="number"], input[type="text"] {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+    padding: 8px 10px; min-height: 42px; max-width: 100%;
+  }
+  select:focus-visible, input:focus-visible { border-color: var(--gold); }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table.data { border-collapse: collapse; width: 100%; font-size: 0.93rem; }
+  table.data th, table.data td { border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.data th { font-weight: 700; background: var(--surface-2); }
+  .tag { display: inline-block; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); color: var(--ink-soft); }
+
+  /* Stopka ze źródłami */
+  footer.sources { border-top: 1px solid var(--line); margin-top: 48px; padding: 24px 0 40px; font-size: 0.88rem; color: var(--muted); }
+  footer.sources h2 { font-size: 1.15rem; margin: 0 0 0.6em; }
+  footer.sources ol, footer.sources ul { padding-left: 1.3em; }
+  footer.sources li { margin: 0.3em 0; }
+  footer.sources a { color: var(--ink-soft); }
+  footer.sources .meta { margin-top: 1.2em; }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .course { display: none; }
+    .app-top .wrap { justify-content: space-between; }
+    .hero { padding-top: 24px; }
+    .panel { padding: 14px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  }
+  @media print {
+    .app-top, .theme-toggle, .no-print { display: none !important; }
+    body { background: #fff; color: #000; }
+  }
+
+  .layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 18px; align-items: start; margin-top: 18px; }
+  @media (max-width: 900px) { .layout { grid-template-columns: minmax(0, 1fr); } }
+  .field { margin-bottom: 14px; }
+  .field > label, .field legend { display: block; font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
+  .field fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+  .numrow { display: grid; grid-template-columns: minmax(0, 1fr) 7.5em; gap: 10px; align-items: center; }
+  .numrow input[type=number] { width: 100%; text-align: right; font-family: var(--mono); }
+  .presets { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+  .total { font-family: var(--mono); font-size: 0.9rem; color: var(--ink-soft); background: var(--bg); border: 1px dashed var(--line); border-radius: 8px; padding: 8px 10px; }
+  .total b { color: var(--ink); }
+  .radios { display: grid; gap: 6px; }
+  .radios label { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px; align-items: start; padding: 7px 10px; border: 1px solid var(--line); border-radius: 8px; cursor: pointer; background: var(--bg); font-size: 0.93rem; }
+  .radios label:has(input:checked) { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+  .radios small { display: block; color: var(--muted); font-size: 0.8rem; }
+  .radios input { margin-top: 3px; }
+  .seg { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+  .kpi { background: var(--bg); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 12px 14px; }
+  .kpi .lab { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .kpi .val { font-family: var(--serif); font-size: clamp(1.7rem, 4.5vw, 2.3rem); line-height: 1.1; font-weight: 600; margin: 2px 0; }
+  .kpi .rng { font-size: 0.84rem; color: var(--ink-soft); }
+  .kpi.e .val { color: var(--navy); }
+  .kpi.w .val { color: var(--accent); }
+  .range-bar { position: relative; height: 8px; background: var(--surface-2); border-radius: 999px; margin-top: 8px; }
+  .range-bar span { position: absolute; top: 0; bottom: 0; background: var(--gold-soft); border-radius: 999px; }
+  .range-bar i { position: absolute; top: -3px; width: 3px; height: 14px; background: var(--ink); border-radius: 2px; }
+  .range-cap { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--muted); font-family: var(--mono); margin-top: 2px; }
+  .cmp { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 8px; }
+  .cmp li { margin: 0; display: grid; grid-template-columns: 2.2em minmax(0, 1fr); gap: 10px; align-items: center; background: var(--bg); border: 1px solid var(--line-soft); border-radius: 8px; padding: 8px 12px; }
+  .cmp .ic { font-size: 1.4rem; text-align: center; }
+  .cmp b { font-family: var(--serif); font-size: 1.15rem; }
+  .cmp small { display: block; color: var(--muted); font-size: 0.8rem; }
+  .why { margin-top: 10px; }
+  details { background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 10px 14px; margin: 10px 0; }
+  summary { cursor: pointer; font-weight: 700; color: var(--accent); }
+  .ctx { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  .ctx .panel b { display: block; font-family: var(--serif); font-size: 1.7rem; line-height: 1.1; margin-bottom: 4px; }
+  .ctx .panel small { color: var(--muted); }
+  td.num { text-align: right; font-family: var(--mono); white-space: nowrap; }
+  @media (max-width: 640px) {
+    #srcTable thead { display: none; }
+    #srcTable tr { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px 8px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+    #srcTable th, #srcTable td { display: block; border: 0; padding: 0; text-align: left; }
+    #srcTable th, #srcTable td:last-child { grid-column: 1 / -1; }
+    #srcTable td.num::before { content: attr(data-l); display: block; font-family: var(--sans); font-size: 0.72rem; color: var(--muted); }
+  }
+  /* cel dotyku: link powrotu na ekranach dotykowych ma co najmniej 44 px */
+  @media (pointer: coarse) { .back { display: inline-block; padding: 12px 0; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Przejdź do treści</a>
+<div class="app-top">
+  <div class="wrap">
+    <a class="back" href="../interaktywne.html">← Materiały interaktywne</a>
+    <span class="course">Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne<br>WPiA UMCS · 2026/2027</span>
+    <button type="button" class="theme-toggle" aria-label="Przełącz motyw">☾</button>
+  </div>
+</div>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Spotkanie 10 · AI a zrównoważony rozwój · kalkulator</p>
+    <h1>Ślad <em>zapytania</em></h1>
+    <p class="lead">Ile energii i wody zużywa rozmowa z modelem AI? Odpowiedź zależy od modelu, rodzaju zadania, centrum danych i tego, co autor badania wliczył do śladu. Kalkulator pokazuje więc przedział, a nie jedną liczbę.</p>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <div class="note" role="note"><p><strong>Szacunek, nie pomiar.</strong> Wartości jednostkowe pochodzą z opublikowanych analiz (źródła w tabeli niżej i w stopce). Producenci modeli nie publikują pełnych danych, a ich deklaracje nie są niezależnie weryfikowane. Obliczenia wykonuje Twoja przeglądarka i niczego nie wysyła.</p></div>
+
+  <div class="layout">
+    <section class="panel" aria-labelledby="h-in">
+      <h2 id="h-in" style="margin-top:0">Dane wejściowe</h2>
+      <div class="presets" role="group" aria-label="Gotowe scenariusze">
+        <button type="button" class="chipbtn" data-p="20,120,1">Ja przez semestr</button>
+        <button type="button" class="chipbtn" data-p="20,120,100">100 studentów przez semestr</button>
+        <button type="button" class="chipbtn" data-p="10,365,1000000">Milion użytkowników przez rok</button>
+        <button type="button" class="chipbtn" data-p="1,1,1">Jedno zapytanie</button>
+      </div>
+      <div class="field"><label for="perDay">Zapytań dziennie na osobę</label>
+        <div class="numrow"><input type="range" id="perDayR" min="1" max="200" value="20" aria-label="Zapytań dziennie, suwak"><input type="number" id="perDay" min="0" max="100000" step="1" value="20"></div></div>
+      <div class="field"><label for="days">Liczba dni</label>
+        <div class="numrow"><input type="range" id="daysR" min="1" max="365" value="120" aria-label="Liczba dni, suwak"><input type="number" id="days" min="0" max="3650" step="1" value="120"></div></div>
+      <div class="field"><label for="people">Liczba osób</label>
+        <div class="numrow"><input type="range" id="peopleR" min="0" max="7" step="0.01" value="0" aria-label="Liczba osób, suwak logarytmiczny"><input type="number" id="people" min="1" max="10000000000" step="1" value="1"></div></div>
+      <p class="total" id="total" aria-live="polite"></p>
+
+      <div class="field"><fieldset><legend>Rodzaj zapytania</legend><div class="radios" id="types"></div></fieldset></div>
+      <div class="field"><fieldset><legend>Energia dla centrum danych (emisja CO<sub>2</sub>)</legend>
+        <div class="seg" role="radiogroup" id="grid"></div></fieldset></div>
+    </section>
+
+    <section class="panel" aria-labelledby="h-out" aria-live="polite">
+      <h2 id="h-out" style="margin-top:0">Wynik</h2>
+      <div class="kpis">
+        <div class="kpi e"><div class="lab">Energia</div><div class="val" id="vE"></div><div class="rng" id="rE"></div><div class="range-bar" aria-hidden="true" id="bE"></div><div class="range-cap" aria-hidden="true"><span>min</span><span>maks (skala log.)</span></div></div>
+        <div class="kpi w"><div class="lab">Woda</div><div class="val" id="vW"></div><div class="rng" id="rW"></div><div class="range-bar" aria-hidden="true" id="bW"></div><div class="range-cap" aria-hidden="true"><span>min</span><span>maks (skala log.)</span></div></div>
+        <div class="kpi"><div class="lab">Emisja CO<sub>2</sub>e</div><div class="val" id="vC"></div><div class="rng" id="rC"></div></div>
+      </div>
+      <p class="small muted" style="margin-top:8px">Duża liczba to wartość środkowa. Pod nią przedział od najniższego do najwyższego szacunku w źródłach. Gruba kreska na pasku oznacza wartość środkową.</p>
+      <h3>Dla porównania (wartość środkowa)</h3>
+      <ul class="cmp" id="cmp"></ul>
+    </section>
+  </div>
+
+  <h2>Skąd te liczby i dlaczego tak się różnią</h2>
+  <p>Szacunki dla jednego krótkiego zapytania tekstowego różnią się nawet dziesięciokrotnie. Przyczyny: nowsze modele i układy są wydajniejsze, odpowiedzi mają różną długość, a autorzy przyjmują różne <em>granice systemu</em>. Jedni liczą tylko procesor graficzny, inni całe centrum danych, jeszcze inni wodę zużytą do wytworzenia energii i produkcję sprzętu.</p>
+  <div class="table-scroll">
+    <table class="data" id="srcTable">
+      <caption class="sr-only">Wartości jednostkowe przyjęte w kalkulatorze</caption>
+      <thead><tr><th scope="col">Rodzaj zapytania</th><th scope="col" class="num">Energia min</th><th scope="col" class="num">Środek</th><th scope="col" class="num">Maks</th><th scope="col">Źródła</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <details>
+    <summary>Jak liczona jest woda</summary>
+    <p>Woda = energia × intensywność wodna. Przyjęto trzy poziomy intensywności:</p>
+    <ul>
+      <li><strong>1,1 ml/Wh</strong> (min): Google, sierpień 2025: 0,26 ml wody na 0,24 Wh, czyli wyłącznie woda zużyta do chłodzenia w centrum danych.</li>
+      <li><strong>4,2 ml/Wh</strong> (środek): Li i in.: średnia dla centrów danych Microsoft w USA, 16,9 ml na zapytanie o energii 4 Wh, łącznie z wodą zużytą przy wytwarzaniu energii elektrycznej (2,2 ml na miejscu + 14,7 ml poza nim).</li>
+      <li><strong>11,9 ml/Wh</strong> (maks): Li i in.: najmniej korzystna lokalizacja w ich zestawieniu (47,5 ml na zapytanie).</li>
+    </ul>
+    <p>Dla porównania: Mistral AI podaje 45 ml wody na odpowiedź Le Chat o długości 400 tokenów. To analiza cyklu życia, która obejmuje też produkcję sprzętu. Sam Altman podaje ok. 0,32 ml na przeciętne zapytanie do ChatGPT, bez opisu metody.</p>
+  </details>
+  <details>
+    <summary>Jak liczona jest emisja CO<sub>2</sub></summary>
+    <p>Emisja = energia × intensywność emisyjna sieci według Ember (2025, ujęcie w cyklu życia): Polska 589 g/kWh, UE-27 210 g/kWh, świat 458 g/kWh. Rzeczywista emisja zależy od miejsca i pory pracy centrum danych oraz od umów zakupu energii odnawialnej. Według KOBiZE wskaźnik dla odbiorców końcowych w Polsce wyniósł 553 kg CO<sub>2</sub>/MWh (dane za 2024 r.).</p>
+  </details>
+
+  <h2>Skala całego sektora</h2>
+  <div class="ctx">
+    <div class="panel"><b>415 TWh</b>Zużycie energii przez centra danych na świecie w 2024 r. (ok. 1,5% światowego zużycia energii elektrycznej). <small>IEA, Energy and AI (2025)</small></div>
+    <div class="panel"><b>485 TWh</b>W 2025 r. (wzrost o 17%; centra danych nastawione na AI wzrosły o 50%). Prognoza na 2030 r.: ok. 950 TWh, blisko 3% światowego popytu. <small>IEA, Key Questions on Energy and AI (2026)</small></div>
+    <div class="panel"><b>≥10× rocznie</b>O tyle według IEA spada zużycie energii na jedno zadanie AI. Generowanie wideo, rozumowanie i zadania agentowe mogą jednak zużywać setki lub tysiące razy więcej energii niż proste zapytanie tekstowe. <small>IEA (2026)</small></div>
+    <div class="panel"><b>4,2–6,6 mld m³</b>Prognozowany pobór wody na potrzeby AI na świecie w 2027 r. (zużycie bezzwrotne: 0,38–0,60 mld m³). <small>Li i in., arXiv:2304.03271</small></div>
+  </div>
+
+  <h2>Wątek prawny</h2>
+  <ul>
+    <li><strong>AI Act:</strong> dokumentacja techniczna modelu GPAI obejmuje znane lub szacowane zużycie energii (art. 53 ust. 1 lit. a w zw. z zał. XI). Art. 40 przewiduje normalizację w zakresie efektywności energetycznej systemów AI.</li>
+    <li><strong>Dyrektywa (UE) 2023/1791 o efektywności energetycznej:</strong> centra danych o mocy IT co najmniej 500 kW raportują do europejskiej bazy dane o zużyciu energii i wody (art. 12, rozporządzenie delegowane (UE) 2024/1364).</li>
+    <li><strong>Raportowanie zrównoważonego rozwoju (CSRD, ESRS E1 i E3):</strong> duże spółki ujawniają zużycie energii, emisje (w tym pośrednie, w łańcuchu wartości) i gospodarkę wodną.</li>
+  </ul>
+  <div class="note"><p><strong>Do dyskusji.</strong> (1) Pojedyncze zapytanie zużywa mniej energii niż wiele codziennych czynności. Czy to zamyka dyskusję, skoro zapytań są miliardy dziennie? (2) Czy wzrost wydajności zmniejszy łączne zużycie, czy zwiększy popyt (paradoks Jevonsa)? (3) Kto powinien ujawniać dane o śladzie środowiskowym modeli: dostawca, podmiot stosujący, operator centrum danych? Czy obecne przepisy wystarczają?</p></div>
+</main>
+
+<footer class="sources">
+  <div class="wrap">
+    <h2>Źródła</h2>
+    <ol>
+      <li>IEA, <em>Energy and AI</em>, Paryż, 10.04.2025, <a href="https://www.iea.org/reports/energy-and-ai">iea.org</a>; IEA, <em>Key Questions on Energy and AI</em>, 16.04.2026, <a href="https://www.iea.org/reports/key-questions-on-energy-and-ai">iea.org</a>.</li>
+      <li>IEA, <em>Electricity 2024 – Analysis and forecast to 2026</em>, styczeń 2024, s. 34: 2,9 Wh na zapytanie do ChatGPT wobec 0,3 Wh na wyszukiwanie Google; za: A. de Vries, <em>The growing energy footprint of artificial intelligence</em>, Joule 7(10), 2023, <a href="https://doi.org/10.1016/j.joule.2023.09.004">doi:10.1016/j.joule.2023.09.004</a>.</li>
+      <li>P. Li, J. Yang, M. A. Islam, S. Ren, <em>Making AI Less „Thirsty”: Uncovering and Addressing the Secret Water Footprint of AI Models</em>, <a href="https://arxiv.org/abs/2304.03271">arXiv:2304.03271</a> (wersja 5, 26.03.2025; przyjęte do Communications of the ACM), tab. 1.</li>
+      <li>C. Elsworth i in. (Google), <em>Measuring the environmental impact of delivering AI at Google Scale</em>, 21.08.2025, <a href="https://arxiv.org/abs/2508.15734">arXiv:2508.15734</a>: mediana zapytania tekstowego w aplikacji Gemini 0,24 Wh, 0,26 ml wody, 0,03 g CO<sub>2</sub>e.</li>
+      <li>J. You, <em>How much energy does ChatGPT use?</em>, Epoch AI, 7.02.2025, <a href="https://epoch.ai/gradient-updates/how-much-energy-does-chatgpt-use">epoch.ai</a>: ok. 0,3 Wh na typowe zapytanie do GPT-4o; ok. 2,5 Wh przy 10 tys. i ok. 40 Wh przy 100 tys. tokenów wejścia.</li>
+      <li>S. Altman, <em>The Gentle Singularity</em>, czerwiec 2025, <a href="https://blog.samaltman.com/the-gentle-singularity">blog.samaltman.com</a>: 0,34 Wh i 0,000085 galona wody na zapytanie (deklaracja bez metodyki).</li>
+      <li>Mistral AI, <em>Our contribution to a global environmental standard for AI</em>, 22.07.2025, <a href="https://mistral.ai/news/our-contribution-to-a-global-environmental-standard-for-ai">mistral.ai</a>: 1,14 g CO<sub>2</sub>e i 45 ml wody na odpowiedź 400 tokenów (analiza cyklu życia z Carbone 4 i ADEME).</li>
+      <li>J. O'Donnell, C. Crownhart, <em>We did the math on AI's energy footprint</em>, MIT Technology Review, 20.05.2025, <a href="https://www.technologyreview.com/2025/05/20/1116327/ai-energy-usage-climate-footprint-big-tech/">technologyreview.com</a>: obraz z Stable Diffusion 3 Medium ok. 0,63 Wh; wideo 5 s (CogVideoX) ok. 3,4 mln J ≈ 0,94 kWh.</li>
+      <li>A. S. Luccioni, Y. Jernite, E. Strubell, <em>Power Hungry Processing: Watts Driving the Cost of AI Deployment?</em>, ACM FAccT 2024, <a href="https://doi.org/10.1145/3630106.3658542">doi:10.1145/3630106.3658542</a>, tab. 2: średnio 2,9 Wh na wygenerowany obraz.</li>
+      <li>N. Jegham i in., <em>How Hungry is AI? Benchmarking Energy, Water, and Carbon Footprint of LLM Inference</em>, <a href="https://arxiv.org/abs/2505.09598">arXiv:2505.09598</a>: najbardziej energochłonne modele powyżej 29 Wh na długie zapytanie.</li>
+      <li>Porównania: Google, <em>Powering a Google search</em>, 11.01.2009 (0,3 Wh); US EPA, <em>Greenhouse Gas Equivalencies Calculator – Calculations and References</em> (ładowanie smartfona 0,019 kWh); IEA, G. Kamiya, <em>The carbon footprint of streaming video</em>, 11.12.2020 (0,077 kWh na godzinę); decyzje Komisji 2013/641/UE (spłukanie toalety do 6 l) i 2013/250/UE (prysznic do 8 l/min); A. K. Chapagain, A. Y. Hoekstra, Ecological Economics 2007 (filiżanka kawy ok. 140 l wody wirtualnej).</li>
+      <li>Intensywność emisyjna: Ember via Our World in Data, <em>Carbon intensity of electricity</em> (aktualizacja 30.06.2026); KOBiZE, <em>Wskaźniki emisyjności CO<sub>2</sub>…</em>, grudzień 2025.</li>
+    </ol>
+    <p class="meta">Wartości sprawdzone w źródłach 19.10.2026. Wartości środkowe oznaczone jako „średnia geometryczna” są własnym szacunkiem między skrajnymi wartościami ze źródeł. Dr Karol Kasprowicz, WPiA UMCS.</p>
+  </div>
+</footer>
+
+<script>
+  /* Przełącznik motywu (jasny / ciemny), zgodny z tools/assets/site.js. */
+  (function () {
+    var root = document.documentElement, KEY = "ai-wyzwania-theme";
+    var btn = document.querySelector(".theme-toggle");
+    function current() {
+      var t = root.getAttribute("data-theme");
+      if (t) return t;
+      return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    function label() {
+      var dark = current() === "dark";
+      btn.textContent = dark ? "☀" : "☾";
+      btn.setAttribute("aria-label", dark ? "Włącz jasny motyw" : "Włącz ciemny motyw");
+      btn.title = btn.getAttribute("aria-label");
+    }
+    if (!btn) return;
+    label();
+    btn.addEventListener("click", function () {
+      var next = current() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem(KEY, next); } catch (e) {}
+      label();
+      document.dispatchEvent(new CustomEvent("themechange"));
+    });
+  })();
+
+  (function () {
+    /* Energia na jedno zapytanie [Wh]: lo, mid, hi */
+    var TYPES = [
+      { id: "txt", l: "Krótkie zapytanie tekstowe", h: "pytanie i odpowiedź na kilkaset słów", lo: 0.24, mid: 0.3, hi: 2.9,
+        src: "min: Google 2025 (0,24 Wh); środek: Epoch AI 2025 (0,3 Wh), zbieżne z deklaracją OpenAI (0,34 Wh); maks: IEA 2024 za de Vries 2023 (2,9 Wh, starszy szacunek)" },
+      { id: "long", l: "Analiza długiego dokumentu", h: "10–100 tys. tokenów wejścia, np. akta lub umowa", lo: 2.5, mid: 10, hi: 40,
+        src: "Epoch AI 2025: ok. 2,5 Wh (10 tys. tokenów) i ok. 40 Wh (100 tys.); środek: średnia geometryczna" },
+      { id: "reason", l: "Model rozumujący", h: "długi, ukryty łańcuch rozumowania przed odpowiedzią", lo: 0.75, mid: 4.7, hi: 30,
+        src: "min: Epoch AI 2025 (modele rozumujące generują ok. 2,5× więcej tokenów niż GPT-4o: 2,5 × 0,3 Wh); maks: Jegham i in. 2025 (>29 Wh na długie zapytanie); środek: średnia geometryczna" },
+      { id: "img", l: "Wygenerowanie obrazu", h: "jedna grafika", lo: 0.63, mid: 2.9, hi: 11.5,
+        src: "min: MIT Technology Review 2025 (Stable Diffusion 3 Medium, 0,63 Wh); środek: Luccioni i in. 2024 (średnio 2,9 Wh); maks: tamże, najmniej wydajny model (11,5 Wh)" },
+      { id: "vid", l: "Wygenerowanie 5 s wideo", h: "krótki klip", lo: 30, mid: 940, hi: 940,
+        src: "MIT Technology Review 2025: starszy model ok. 109 tys. J (30 Wh), CogVideoX ok. 3,4 mln J (940 Wh). Komercyjne modele wideo nie publikują danych; górna granica nieznana" }
+    ];
+    var WATER = { lo: 1.1, mid: 4.2, hi: 11.9 }; /* ml/Wh */
+    var GRIDS = [ { id: "pl", l: "Polska", g: 589 }, { id: "eu", l: "UE-27", g: 210 }, { id: "world", l: "świat", g: 458 } ];
+    var CMP_E = [
+      { ic: "🔍", wh: 0.3, f: ["wyszukiwanie Google", "wyszukiwania Google", "wyszukiwania Google", "wyszukiwań Google"], s: "0,3 Wh (Google 2009)" },
+      { ic: "📱", wh: 19, f: ["pełne ładowanie smartfona", "pełnego ładowania smartfona", "pełne ładowania smartfona", "pełnych ładowań smartfona"], s: "19 Wh (US EPA)" },
+      { ic: "💡", wh: 10, f: ["godzina świecenia żarówki LED 10 W", "godziny świecenia żarówki LED 10 W", "godziny świecenia żarówki LED 10 W", "godzin świecenia żarówki LED 10 W"], s: "10 Wh na godzinę" },
+      { ic: "📺", wh: 77, f: ["godzina streamingu wideo", "godziny streamingu wideo", "godziny streamingu wideo", "godzin streamingu wideo"], s: "77 Wh (IEA 2020, dane Netflix 2019)" },
+      { ic: "☕", wh: 100, f: ["zagotowanie litra wody w czajniku", "zagotowania litra wody w czajniku", "zagotowania litra wody w czajniku", "zagotowań litra wody w czajniku"], s: "ok. 0,1 kWh (obliczenie: 4,19 kJ/kg·K × 80 K ÷ sprawność ok. 90%)" }
+    ];
+    var CMP_W = [
+      { ic: "🥤", ml: 500, f: ["butelka wody 0,5 l", "butelki wody 0,5 l", "butelki wody 0,5 l", "butelek wody 0,5 l"], s: "" },
+      { ic: "🚽", ml: 6000, f: ["spłukanie toalety", "spłukania toalety", "spłukania toalety", "spłukań toalety"], s: "6 l (limit EU Ecolabel; starsze spłuczki 6–9 l)" },
+      { ic: "🚿", ml: 8000, f: ["minuta pod prysznicem", "minuty pod prysznicem", "minuty pod prysznicem", "minut pod prysznicem"], s: "8 l/min (limit EU Ecolabel; starsze 10–15 l/min)" }
+    ];
+    var $ = function (id) { return document.getElementById(id); };
+    var type = "txt", grid = "pl";
+
+    /* Pola liczbowe sprzężone z suwakami */
+    function link(numId, rangeId, log) {
+      var n = $(numId), r = $(rangeId);
+      r.addEventListener("input", function () { n.value = log ? Math.round(Math.pow(10, parseFloat(r.value))) : r.value; calc(); });
+      n.addEventListener("input", function () { var v = parseFloat(n.value) || 0; r.value = log ? Math.log10(Math.max(1, v)) : Math.min(v, r.max); calc(); });
+    }
+    link("perDay", "perDayR"); link("days", "daysR"); link("people", "peopleR", true);
+
+    var tbox = $("types");
+    TYPES.forEach(function (t, i) {
+      var lab = document.createElement("label");
+      lab.innerHTML = "<input type='radio' name='type' value='" + t.id + "'" + (i === 0 ? " checked" : "") + "><span><b></b><small></small></span>";
+      lab.querySelector("b").textContent = t.l; lab.querySelector("small").textContent = t.h + " · " + num(t.lo) + "–" + num(t.hi) + " Wh";
+      lab.querySelector("input").addEventListener("change", function () { type = t.id; calc(); });
+      tbox.appendChild(lab);
+    });
+    var gbox = $("grid");
+    GRIDS.forEach(function (g, i) {
+      var b = document.createElement("button"); b.type = "button"; b.className = "chipbtn"; b.setAttribute("role", "radio");
+      b.setAttribute("aria-checked", i === 0 ? "true" : "false"); b.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+      b.textContent = g.l + " · " + g.g + " g/kWh";
+      b.addEventListener("click", function () { grid = g.id; gbox.querySelectorAll("button").forEach(function (x) { var on = x === b; x.setAttribute("aria-checked", on); x.setAttribute("aria-pressed", on); }); calc(); });
+      gbox.appendChild(b);
+    });
+    document.querySelectorAll("[data-p]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var p = b.getAttribute("data-p").split(",");
+        $("perDay").value = p[0]; $("days").value = p[1]; $("people").value = p[2];
+        $("perDayR").value = Math.min(p[0], 200); $("daysR").value = Math.min(p[1], 365); $("peopleR").value = Math.log10(p[2]);
+        calc();
+      });
+    });
+
+    function num(x, d) {
+      var a = Math.abs(x), dig = d !== undefined ? d : a >= 100 ? 0 : a >= 10 ? 1 : a >= 1 ? 2 : a >= 0.1 ? 2 : 3;
+      return x.toLocaleString("pl-PL", { maximumFractionDigits: dig, minimumFractionDigits: 0 });
+    }
+    function fE(wh) { return wh >= 1e12 ? num(wh / 1e12) + " TWh" : wh >= 1e9 ? num(wh / 1e9) + " GWh" : wh >= 1e6 ? num(wh / 1e6) + " MWh" : wh >= 1e3 ? num(wh / 1e3) + " kWh" : num(wh) + " Wh"; }
+    function fW(ml) { return ml >= 1e12 ? num(ml / 1e12) + " mln m³" : ml >= 1e6 ? num(ml / 1e6) + " m³" : ml >= 1e3 ? num(ml / 1e3) + " l" : num(ml) + " ml"; }
+    function fC(g) { return g >= 1e6 ? num(g / 1e6) + " t" : g >= 1e3 ? num(g / 1e3) + " kg" : num(g) + " g"; }
+    function bar(id, lo, mid, hi, absLo, absHi) {
+      var L = Math.log10(absLo), H = Math.log10(absHi), p = function (v) { return ((Math.log10(v) - L) / (H - L) * 100); };
+      $(id).innerHTML = "<span style='left:" + p(lo).toFixed(1) + "%;width:" + Math.max(1, p(hi) - p(lo)).toFixed(1) + "%'></span><i style='left:calc(" + p(mid).toFixed(1) + "% - 1px)'></i>";
+    }
+
+    function calc() {
+      var N = (parseFloat($("perDay").value) || 0) * (parseFloat($("days").value) || 0) * (parseFloat($("people").value) || 0);
+      $("total").innerHTML = "Łącznie: <b>" + N.toLocaleString("pl-PL") + "</b> zapytań";
+      var t = TYPES.filter(function (x) { return x.id === type; })[0], g = GRIDS.filter(function (x) { return x.id === grid; })[0].g;
+      var E = { lo: N * t.lo, mid: N * t.mid, hi: N * t.hi };
+      var W = { lo: E.lo * WATER.lo, mid: E.mid * WATER.mid, hi: E.hi * WATER.hi };
+      var C = { lo: E.lo / 1000 * g, mid: E.mid / 1000 * g, hi: E.hi / 1000 * g };
+      if (!N) { ["vE", "vW", "vC"].forEach(function (id) { $(id).textContent = "0"; }); ["rE", "rW", "rC"].forEach(function (id) { $(id).textContent = ""; }); $("cmp").innerHTML = ""; return; }
+      $("vE").textContent = fE(E.mid); $("rE").textContent = "przedział: " + fE(E.lo) + " – " + fE(E.hi);
+      $("vW").textContent = fW(W.mid); $("rW").textContent = "przedział: " + fW(W.lo) + " – " + fW(W.hi);
+      $("vC").textContent = fC(C.mid); $("rC").textContent = "przedział: " + fC(C.lo) + " – " + fC(C.hi);
+      bar("bE", E.lo, E.mid, E.hi, E.lo / 1.5, E.hi * 1.5); bar("bW", W.lo, W.mid, W.hi, W.lo / 1.5, W.hi * 1.5);
+      var ul = $("cmp"); ul.innerHTML = "";
+      CMP_E.forEach(function (c) { add(ul, c.ic, E.mid / c.wh, c.f, c.s); });
+      CMP_W.forEach(function (c) { add(ul, c.ic, W.mid / c.ml, c.f, c.s); });
+      var li = document.createElement("li"); li.innerHTML = "<span class='ic' aria-hidden='true'>☕</span><span>Jedna filiżanka kawy to ok. <b>140 l</b> wody wirtualnej, głównie deszczowej, potrzebnej do uprawy. <small>Tego nie da się wprost porównać z wodą pitną zużywaną przez centra danych (Chapagain, Hoekstra 2007)</small></span>";
+      ul.appendChild(li);
+    }
+    /* f: [mianownik lp., dopełniacz lp. (ułamki), mianownik lm. (2–4), dopełniacz lm.] */
+    function phrase(n, f) {
+      if (n < 0.95) { var d = Math.round(1 / n); return "<b>1/" + d.toLocaleString("pl-PL") + "</b> " + f[1]; }
+      var v = n < 100 ? Math.round(n * 10) / 10 : Math.round(n);
+      if (!Number.isInteger(v)) return "<b>" + num(v, 1) + "</b> " + f[1];
+      var form = v === 1 ? f[0] : (v % 10 >= 2 && v % 10 <= 4 && (v % 100 < 12 || v % 100 > 14)) ? f[2] : f[3];
+      return "<b>" + v.toLocaleString("pl-PL") + "</b> " + form;
+    }
+    function add(ul, ic, n, f, s) {
+      var li = document.createElement("li");
+      li.innerHTML = "<span class='ic' aria-hidden='true'>" + ic + "</span><span>≈ " + phrase(n, f) + (s ? "<small>" + s + "</small>" : "") + "</span>";
+      ul.appendChild(li);
+    }
+
+    var tb = document.querySelector("#srcTable tbody");
+    TYPES.forEach(function (t) {
+      var tr = document.createElement("tr");
+      tr.innerHTML = "<th scope='row'></th><td class='num' data-l='min'>" + num(t.lo) + " Wh</td><td class='num' data-l='środek'>" + num(t.mid) + " Wh</td><td class='num' data-l='maks'>" + num(t.hi) + " Wh</td><td class='small'></td>";
+      tr.querySelector("th").textContent = t.l; tr.lastChild.textContent = t.src; tb.appendChild(tr);
+    });
+    calc();
+  })();
+</script>
+</body>
+</html>

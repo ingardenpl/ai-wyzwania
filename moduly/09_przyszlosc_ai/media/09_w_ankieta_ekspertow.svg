@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Kiedy maszyny prześcigną ludzi? Ankieta 2778 badaczy AI</title><desc id="d"> Maszyny lepsze od ludzi we wszystkich zadaniach (HLMI): 10% szans do 2027, 50% do 2047 (w ankiecie z 2022: 2060); Pełna automatyzacja wszystkich zawodów: 10% szans do 2037, 50% do 2116 (w ankiecie z 2022: 2164)</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Kiedy maszyny prześcigną ludzi? Ankieta 2778 badaczy AI</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#9095ad" text-anchor="start" >Zagregowane prognozy: rok, w którym szansa osiąga 10% i 50% (ankieta jesienią 2023 r.)</text>
+<defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#9095ad"/></marker></defs><line x1="328.0" x2="328.0" y1="110" y2="440" stroke="#1a2a36"/>
+<text x="328.0" y="462.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#9095ad" text-anchor="middle" >2020</text>
+<line x1="423.7" x2="423.7" y1="110" y2="440" stroke="#1a2a36"/>
+<text x="423.7" y="462.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#9095ad" text-anchor="middle" >2045</text>
+<line x1="519.3" x2="519.3" y1="110" y2="440" stroke="#1a2a36"/>
+<text x="519.3" y="462.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#9095ad" text-anchor="middle" >2070</text>
+<line x1="615.0" x2="615.0" y1="110" y2="440" stroke="#1a2a36"/>
+<text x="615.0" y="462.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#9095ad" text-anchor="middle" >2095</text>
+<line x1="710.7" x2="710.7" y1="110" y2="440" stroke="#1a2a36"/>
+<text x="710.7" y="462.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#9095ad" text-anchor="middle" >2120</text>
+<line x1="806.3" x2="806.3" y1="110" y2="440" stroke="#1a2a36"/>
+<text x="806.3" y="462.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#9095ad" text-anchor="middle" >2145</text>
+<line x1="902.0" x2="902.0" y1="110" y2="440" stroke="#1a2a36"/>
+<text x="902.0" y="462.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#9095ad" text-anchor="middle" >2170</text>
+<text x="314.0" y="203.5" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >Maszyny lepsze od ludzi we</text>
+<text x="314.0" y="221.5" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >wszystkich zadaniach (HLMI)</text>
+<line x1="354.8" x2="431.3" y1="207.5" y2="207.5" stroke="#00f0ff" stroke-width="5" stroke-opacity="0.55"/>
+<circle cx="481.1" cy="207.5" r="8" fill="none" stroke="#9095ad" stroke-width="2" stroke-dasharray="3 3"/>
+<text x="481.1" y="235.5" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="middle" >2060 (2022)</text>
+<path d="M471.1 221.5 L443.3 221.5" stroke="#9095ad" stroke-dasharray="2 4" marker-end="url(#ar)"/>
+<circle cx="354.8" cy="207.5" r="7" fill="#00f0ff"/>
+<text x="354.8" y="233.5" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#00f0ff" text-anchor="middle" >10%: 2027</text>
+<circle cx="431.3" cy="207.5" r="10" fill="#fcee0a"/>
+<text x="431.3" y="191.5" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15" font-weight="700" fill="#fcee0a" text-anchor="middle" >50%: 2047</text>
+<text x="314.0" y="358.5" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >Pełna automatyzacja wszystkich</text>
+<text x="314.0" y="376.5" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >zawodów</text>
+<line x1="393.1" x2="695.4" y1="362.5" y2="362.5" stroke="#00f0ff" stroke-width="5" stroke-opacity="0.55"/>
+<circle cx="879.0" cy="362.5" r="8" fill="none" stroke="#9095ad" stroke-width="2" stroke-dasharray="3 3"/>
+<text x="879.0" y="390.5" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="middle" >2164 (2022)</text>
+<path d="M869.0 376.5 L707.4 376.5" stroke="#9095ad" stroke-dasharray="2 4" marker-end="url(#ar)"/>
+<circle cx="393.1" cy="362.5" r="7" fill="#00f0ff"/>
+<text x="393.1" y="388.5" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#00f0ff" text-anchor="middle" >10%: 2037</text>
+<circle cx="695.4" cy="362.5" r="10" fill="#fcee0a"/>
+<text x="695.4" y="346.5" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15" font-weight="700" fill="#fcee0a" text-anchor="middle" >50%: 2116</text>
+<text x="28.0" y="507.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: K. Grace i in., Thousands of AI Authors on the Future of AI, arXiv:2401.02843 (2024); kółka przerywane:</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >ankieta z 2022 r.</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

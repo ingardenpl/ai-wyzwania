@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 590" width="1200" height="590" role="img" aria-label="Porównanie funkcji AND i XOR: liniowa separowalność" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<title>Porównanie funkcji AND i XOR: liniowa separowalność</title>
+<defs>
+<marker id="aN" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f3a5f"/></marker>
+<marker id="aM" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a1538"/></marker>
+<marker id="aT" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2a7f7a"/></marker>
+<marker id="aA" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a8661a"/></marker>
+</defs>
+<rect x="1" y="1" width="1198" height="588" rx="18" fill="#fbfaf7" stroke="#d6d0c4" stroke-width="2"/>
+<text x="600.0" y="46.0" font-size="25" fill="#1f3a5f" text-anchor="middle" font-weight="bold">Dlaczego jeden perceptron nie wystarcza? Problem XOR (Minsky, Papert 1969)</text>
+<text x="270.0" y="100.0" font-size="22" fill="#1d1d1f" text-anchor="middle" font-weight="bold">AND: „A i B”</text>
+<line x1="150.0" y1="430.0" x2="450.0" y2="430.0" stroke="#888" stroke-width="2"/>
+<line x1="150.0" y1="430.0" x2="150.0" y2="130.0" stroke="#888" stroke-width="2"/>
+<text x="410.0" y="474.0" font-size="18" fill="#555555" text-anchor="middle" font-weight="normal">1</text>
+<text x="150.0" y="474.0" font-size="18" fill="#555555" text-anchor="middle" font-weight="normal">0</text>
+<text x="118.0" y="176.0" font-size="18" fill="#555555" text-anchor="middle" font-weight="normal">1</text>
+<text x="280.0" y="500.0" font-size="17" fill="#555555" text-anchor="middle" font-weight="normal">przesłanka A spełniona?</text>
+<text x="100" y="300.0" font-size="17" fill="#555555" text-anchor="middle" transform="rotate(-90 100 300.0)">przesłanka B spełniona?</text>
+<rect x="132.0" y="412.0" width="36.0" height="36.0" rx="2" fill="#fbfaf7" stroke="#1f3a5f" stroke-width="4"/>
+<rect x="132.0" y="152.0" width="36.0" height="36.0" rx="2" fill="#fbfaf7" stroke="#1f3a5f" stroke-width="4"/>
+<rect x="392.0" y="412.0" width="36.0" height="36.0" rx="2" fill="#fbfaf7" stroke="#1f3a5f" stroke-width="4"/>
+<circle cx="410.0" cy="170.0" r="20" fill="#8a1538" stroke="#8a1538" stroke-width="2"/>
+<line x1="254.0" y1="138.8" x2="441.2" y2="326.0" stroke="#2a7f7a" stroke-width="4"/><text x="293.0" y="300.0" font-size="17" fill="#2a7f7a" text-anchor="middle" font-weight="bold">jedna prosta</text><text x="293.0" y="322.0" font-size="17" fill="#2a7f7a" text-anchor="middle" font-weight="bold">wystarcza</text>
+<text x="850.0" y="100.0" font-size="22" fill="#1d1d1f" text-anchor="middle" font-weight="bold">XOR: „albo A, albo B”</text>
+<line x1="730.0" y1="430.0" x2="1030.0" y2="430.0" stroke="#888" stroke-width="2"/>
+<line x1="730.0" y1="430.0" x2="730.0" y2="130.0" stroke="#888" stroke-width="2"/>
+<text x="990.0" y="474.0" font-size="18" fill="#555555" text-anchor="middle" font-weight="normal">1</text>
+<text x="730.0" y="474.0" font-size="18" fill="#555555" text-anchor="middle" font-weight="normal">0</text>
+<text x="698.0" y="176.0" font-size="18" fill="#555555" text-anchor="middle" font-weight="normal">1</text>
+<text x="860.0" y="500.0" font-size="17" fill="#555555" text-anchor="middle" font-weight="normal">przesłanka A spełniona?</text>
+<text x="680" y="300.0" font-size="17" fill="#555555" text-anchor="middle" transform="rotate(-90 680 300.0)">przesłanka B spełniona?</text>
+<rect x="712.0" y="412.0" width="36.0" height="36.0" rx="2" fill="#fbfaf7" stroke="#1f3a5f" stroke-width="4"/>
+<circle cx="730.0" cy="170.0" r="20" fill="#8a1538" stroke="#8a1538" stroke-width="2"/>
+<circle cx="990.0" cy="430.0" r="20" fill="#8a1538" stroke="#8a1538" stroke-width="2"/>
+<rect x="972.0" y="152.0" width="36.0" height="36.0" rx="2" fill="#fbfaf7" stroke="#1f3a5f" stroke-width="4"/>
+<text x="860.0" y="300.0" font-size="18" fill="#8a1538" text-anchor="middle" font-weight="bold">żadna prosta</text><text x="860.0" y="324.0" font-size="18" fill="#8a1538" text-anchor="middle" font-weight="bold">nie oddzieli ● od □</text>
+<text x="600.0" y="560.0" font-size="16" fill="#555555" text-anchor="middle" font-weight="normal" font-style="italic">● = wynik „tak”, □ = wynik „nie”. Rozwiązanie: kilka warstw neuronów i metoda ich trenowania (propagacja wsteczna, 1986).</text>
+</svg>

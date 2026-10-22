@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slajdy do czytania: Jak działa AI? Podstawy technologiczne dla prawników · Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne</title>
+<meta name="description" content="Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne. Wykład monograficzny · prawo · WPiA UMCS · semestr zimowy 2026/2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Tiny5&family=Chakra+Petch:wght@500;600;700&family=Anton&family=VT323&display=swap">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="manifest" href="../../assets/manifest.webmanifest">
+<meta name="theme-color" content="#07080f">
+<link rel="icon" href="../../assets/ikona-192.png" type="image/png">
+<link rel="apple-touch-icon" href="../../assets/ikona-180.png">
+<script src="../../assets/site.js"></script>
+<script src="../../assets/gra.js"></script>
+
+</head>
+<body>
+<a class="skip-link" href="#tresc">Przejdź do treści</a>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../../index.html"><b>NEO-LUBLIN 2049</b><small>Wykład monograficzny · WPiA UMCS</small></a>
+    <nav class="topnav" aria-label="Nawigacja kursu"><a href="../../index.html">Mapa</a><a href="../../sylabus.html">Sylabus</a><a href="../../zaliczenie.html">Zaliczenie</a><a href="../../zrodla.html">Źródła</a><a href="../../slowniczek.html">Słowniczek</a><a href="../../fiszki.html">Fiszki</a><a href="../../biblioteka.html">Biblioteka</a><a href="../../interaktywne.html">Interaktywne</a></nav>
+  </div>
+</header>
+<main id="tresc" tabindex="-1">
+
+<div class="wrap narrow">
+  <p class="crumbs"><a href="index.html">← Strona dzielnicy</a> · <a href="slajdy.html">Pokaz slajdów</a></p>
+  <p class="eyebrow">Slajdy do czytania · dzielnica 03</p>
+  <h1>Jak działa AI? Podstawy technologiczne dla prawników</h1>
+  <p class="muted">Treść slajdów w układzie wygodnym na telefonie. Szersze omówienie jest w konspekcie i w Wiedzy na stronie dzielnicy.</p>
+  <div class="prose slajdy-tekst"><h3 id="plan-spotkania">Plan spotkania</h3>
+<ol type="1">
+<li>Od reguł do danych: systemy ekspertowe a uczenie maszynowe</li>
+<li>Uczenie nadzorowane, nienadzorowane i ze wzmocnieniem</li>
+<li>Sieci neuronowe i głębokie uczenie. Mózg a sieć neuronowa: granice analogii</li>
+<li>Duże modele językowe: tokeny, przewidywanie kolejnego tokenu, mechanizm uwagi</li>
+<li>Halucynacje i ich przyczyny</li>
+<li>Czarna skrzynka i wyjaśnialna AI (XAI)</li>
+<li>Modele ogólnego przeznaczenia (GPAI), modele multimodalne, agenci AI</li>
+</ol>
+<h3 id="jak-myśli-ai-pasażer-na-gapę">Jak „myśli” AI? Pasażer na gapę</h3>
+<div class="columns">
+<div class="column" style="width:25%;">
+<p><img src="media/03_pasazer_1_pustynia.jpg" style="width:100.0%" alt="Pustynia z wydmami" /> </p>
+</div><div class="column" style="width:25%;">
+<p><img src="media/03_pasazer_2_morze.jpg" style="width:100.0%" alt="Morze w słońcu" /> </p>
+</div><div class="column" style="width:25%;">
+<p><img src="media/03_pasazer_3_ciezarowka.jpg" style="width:100.0%" alt="Ciężarówka na autostradzie" /> </p>
+</div><div class="column" style="width:25%;">
+<p><img src="media/03_pasazer_4_samolot.jpg" style="width:100.0%" alt="Samolot widziany od tyłu" /> </p>
+</div>
+</div>
+<p>Jesteś pasażerem na gapę. Widzisz tylko kolejne „klatki”. <strong>Co zobaczysz następnie?</strong></p>
+<p><small>Obrazy z prezentacji prowadzącego [źródło do ustalenia: zdjęcia stockowe]</small></p>
+<h2 id="część-i.-od-reguł-do-danych">Część I. Od reguł do danych</h2>
+<h3 id="od-reguł-do-danych">Od reguł do danych</h3>
+<p><img src="media/03_reguly_a_dane.svg" style="width:95.0%" alt="Porównanie systemu ekspertowego, w którym ludzie piszą reguły, z uczeniem maszynowym, w którym model wyprowadza reguły z przykładów" /> </p>
+<h3 id="trzy-sposoby-uczenia-maszyn">Trzy sposoby uczenia maszyn</h3>
+<p><img src="media/03_rodzaje_uczenia.svg" style="width:100.0%" alt="Uczenie nadzorowane, nienadzorowane i ze wzmocnieniem: dane, cel, analogia prawnicza i przykład" /> </p>
+<h3 id="uczenie-nadzorowane-w-praktyce-prawniczej">Uczenie nadzorowane w praktyce prawniczej</h3>
+<ul>
+<li><strong>Przegląd dokumentów</strong> (<em>technology-assisted review</em>): prawnik oznacza kilkaset dokumentów jako „istotne” lub „nieistotne”, a model klasyfikuje kolejne setki tysięcy</li>
+<li><strong>Klasyfikacja pism i spraw</strong>: kierowanie pism do właściwych referatów, wykrywanie klauzul abuzywnych w umowach</li>
+<li><strong>Ryzyko:</strong> model uczy się z przeszłych decyzji ludzi, więc <strong>powiela ich błędy i uprzedzenia</strong></li>
+<li>Jakość etykiet = jakość modelu: „śmieci na wejściu, śmieci na wyjściu”</li>
+</ul>
+<h3 id="uczenie-ze-wzmocnieniem-od-alphago-do-czatu">Uczenie ze wzmocnieniem: od AlphaGo do czatu</h3>
+<ul>
+<li><strong>AlphaGo</strong> (2016) uczył się najpierw na partiach mistrzów (uczenie nadzorowane), potem grając przeciwko sobie (wzmocnienie); <strong>AlphaGo Zero</strong> (2017) uczył się już wyłącznie przez grę z samym sobą</li>
+<li><strong>RLHF</strong> (<em>reinforcement learning from human feedback</em>): ludzie oceniają odpowiedzi modelu, a model uczy się dawać odpowiedzi lepiej oceniane</li>
+<li>Efekt RLHF: model 1,3 mld parametrów po RLHF był preferowany przez oceniających względem 175-miliardowego GPT-3 (Ouyang i in. 2022)</li>
+<li><strong>Ryzyko:</strong> model uczy się tego, co jest <strong>nagradzane</strong>, a nie tego, co jest <strong>prawdziwe</strong></li>
+</ul>
+<h2 id="część-ii.-sieci-neuronowe-i-mózg">Część II. Sieci neuronowe i mózg</h2>
+<h3 id="sieć-neuronowa-warstwy-i-wagi">Sieć neuronowa: warstwy i wagi</h3>
+<p><img src="media/03_siec_neuronowa.svg" style="width:95.0%" alt="Schemat sieci neuronowej z warstwą wejściową, dwiema warstwami ukrytymi i warstwą wyjściową; każda linia to jedna waga" /> </p>
+<h3 id="jak-sieć-się-uczy-bez-matematyki">Jak sieć się uczy? Bez matematyki</h3>
+<ul>
+<li>Na początku wagi są <strong>losowe</strong>: sieć odpowiada przypadkowo</li>
+<li>Pokazujemy przykład, sieć zgaduje, porównujemy z poprawną odpowiedzią i mierzymy <strong>błąd</strong></li>
+<li>Wszystkie wagi przesuwamy <strong>odrobinę</strong> w kierunku, który zmniejsza błąd (propagacja wsteczna)</li>
+<li>Powtarzamy miliardy razy na milionach przykładów</li>
+</ul>
+<p><strong>Analogia:</strong> schodzenie z góry we mgle. Nie widać doliny, ale czuć, w którą stronę teren opada. Robimy mały krok w dół i sprawdzamy znowu.</p>
+<h3 id="mózg-a-sieć-neuronowa-granice-analogii">Mózg a sieć neuronowa: granice analogii</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Mózg człowieka</strong></p>
+<ul>
+<li>ok. <strong>86 mld</strong> neuronów</li>
+<li>synaps rzędu <strong>100 bilionów</strong> (10<sup>14</sup>)</li>
+<li>neurony komunikują się impulsami w czasie, chemią i elektrycznością</li>
+<li>uczy się przez całe życie, na bieżąco</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Duży model językowy</strong></p>
+<ul>
+<li>parametry liczone w <strong>setkach miliardów</strong></li>
+<li>parametr przypomina raczej <strong>synapsę</strong> niż neuron</li>
+<li>„neuron” to prosta funkcja matematyczna</li>
+<li>po treningu wagi są <strong>zamrożone</strong></li>
+</ul>
+</div>
+</div>
+<h3 id="c.-elegans-pierwszy-w-pełni-zmapowany-układ-nerwowy">C. elegans: pierwszy w pełni zmapowany układ nerwowy</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="media/03_c_elegans.jpg" style="width:100.0%" alt="Nicień C. elegans w mikroskopii fluorescencyjnej" /> </p>
+<p><small>Obraz z prezentacji prowadzącego [źródło do ustalenia]</small></p>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Nicień o długości ok. 1 mm</li>
+<li><strong>302 neurony</strong> i ok. <strong>7000 połączeń</strong> (synaps)</li>
+<li>Pełna mapa połączeń, czyli <strong>konektom</strong>, opublikowana w 1986 r.</li>
+<li>Mimo to nie umiemy w pełni przewidzieć zachowania robaka na podstawie samej mapy</li>
+</ul>
+<p><strong>Dlaczego mózgu nie możemy skopiować?</strong></p>
+</div>
+</div>
+<h3 id="microns-milimetr-sześcienny-mózgu-myszy">MICrONS: milimetr sześcienny mózgu myszy</h3>
+<p><img src="media/03_microns.jpg" style="width:75.0%" alt="Wizualizacja rekonstrukcji neuronów z fragmentu kory wzrokowej myszy w projekcie MICrONS" /> </p>
+<ul>
+<li>Ok. 1 mm³ kory wzrokowej myszy, mniej więcej ziarenko piasku</li>
+<li>Ponad <strong>200 tys. komórek</strong>, w tym ok. <strong>84 tys. neuronów</strong>, ponad <strong>500 mln synaps</strong>, ok. <strong>4 km aksonów</strong></li>
+</ul>
+<p><small>Źródło: MICrONS Consortium, „Functional connectomics spanning multiple areas of mouse visual cortex”, <em>Nature</em> 640 (2025): 435–447; obraz z prezentacji prowadzącego [źródło obrazu do ustalenia]</small></p>
+<h3 id="dragon-hatchling-w-stronę-modeli-bliższych-mózgowi">„Dragon Hatchling”: w stronę modeli bliższych mózgowi?</h3>
+<p><img src="media/03_dragon_hatchling.jpg" style="width:70.0%" alt="Wizualizacja sieci modelu Dragon Hatchling: gęsta, bezskalowa sieć połączeń wokół jasnego centrum" /> </p>
+<ul>
+<li>Wrzesień 2025: polski zespół firmy Pathway (A. Kosowski i in.) publikuje nową architekturę modelu</li>
+<li>Architektura oparta na sieci lokalnie oddziałujących „neuronów” z pamięcią opartą na wzmacnianiu połączeń (reguła Hebba)</li>
+<li>Przy tej samej liczbie parametrów osiąga wyniki porównywalne z GPT-2; autorzy podkreślają lepszą interpretowalność</li>
+</ul>
+<p><small>A. Kosowski, P. Uznański, J. Chorowski, Z. Stamirowska, M. Bartoszkiewicz, „The Dragon Hatchling: The Missing Link between the Transformer and Models of the Brain”, arXiv:2509.26507 (30.09.2025). Źródło obrazu: prezentacja prowadzącego, prawdopodobnie ilustracja z tej pracy [do weryfikacji]</small></p>
+<h3 id="antropomorfizacja-myśli-rozumie-halucynuje">Antropomorfizacja: „myśli”, „rozumie”, „halucynuje”</h3>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img src="media/03_antropomorfizacja.jpg" style="width:100.0%" alt="Ilustracja: człowiek i robot z pytajnikiem w miejscu twarzy" /> </p>
+<p><small>Ilustracja z prezentacji prowadzącego [źródło do ustalenia]</small></p>
+</div><div class="column" style="width:60%;">
+<ul>
+<li>Mówimy o AI językiem psychologii: „myśli”, „wie”, „kłamie”, „halucynuje”</li>
+<li>Już w 1966 r. użytkownicy zwierzali się programowi ELIZA, który nie rozumiał ani słowa</li>
+<li>Model językowy pisze w pierwszej osobie, bo uczył się na tekstach ludzi</li>
+<li><strong>Dla prawnika:</strong> język ma skutki. „Asystent”, „doradca”, „agent” sugerują kompetencje i odpowiedzialność, których system nie ma</li>
+</ul>
+</div>
+</div>
+<h2 id="część-iii.-duże-modele-językowe">Część III. Duże modele językowe</h2>
+<h3 id="llm-co-znaczą-trzy-litery">LLM: co znaczą trzy litery?</h3>
+<ul>
+<li><strong>L</strong>arge: bardzo dużo parametrów (liczonych w miliardach) i ogromne dane treningowe (Llama 3: ponad 15 bln tokenów)</li>
+<li><strong>L</strong>anguage: model przetwarza język (a dziś także obraz, dźwięk, kod)</li>
+<li><strong>M</strong>odel: matematyczna funkcja, która przekształca dane wejściowe (<em>input</em>) w dane wyjściowe (<em>output</em>)</li>
+</ul>
+<p><strong>Dokończ zdanie:</strong> „Ten wykład będzie …”</p>
+<h3 id="jak-powstaje-czat-oparty-na-llm">Jak powstaje czat oparty na LLM?</h3>
+<p><img src="media/03_etapy_llm.svg" style="width:100.0%" alt="Cztery etapy: pretrening na bilionach tokenów, dostrajanie na wzorcowych odpowiedziach, wzmocnienie na ocenach ludzi i użycie modelu z zamrożonymi wagami" /> </p>
+<h3 id="tokeny-jak-model-widzi-tekst">Tokeny: jak model „widzi” tekst</h3>
+<p><img src="media/03_tokeny.svg" style="width:100.0%" alt="Podział zdania „Sąd oddalił powództwo w” na tokeny z numerami i rozkład prawdopodobieństwa następnego tokenu" /> </p>
+<h3 id="tokeny-po-polsku-drożej-i-gorzej">Tokeny po polsku: drożej i gorzej?</h3>
+<ul>
+<li>Ten sam tekst w różnych językach daje różną liczbę tokenów: różnice sięgają <strong>15 razy</strong> (Petrov i in. 2023)</li>
+<li>Tokenizator modelu Mistral 7B: ok. <strong>3,1–3,2 tokenu na polskie słowo</strong> wobec ok. 1,3–1,9 na angielskie</li>
+<li>Skutki: wyższe koszty (płaci się za tokeny), krótszy tekst mieszczący się w oknie kontekstu, często słabsza jakość</li>
+<li>Odpowiedź: polskie modele z własnym tokenizatorem (Bielik, PLLuM), np. ok. 1,6 tokenu na słowo</li>
+</ul>
+<h3 id="przewidywanie-następnego-tokenu">Przewidywanie następnego tokenu</h3>
+<ul>
+<li>Model dostaje tekst (polecenie + dotychczasowa odpowiedź) i oblicza <strong>prawdopodobieństwo każdego możliwego następnego tokenu</strong></li>
+<li>Wybiera jeden token, dopisuje go i <strong>powtarza</strong> całą operację</li>
+<li>Parametr „temperatury” decyduje, czy model wybiera zawsze najbardziej prawdopodobny token, czy czasem mniej oczywisty</li>
+<li>Model <strong>nie sprawdza prawdy</strong>: wybiera to, co w świetle treningu najlepiej „pasuje” do kontekstu</li>
+</ul>
+<p><strong>Analogia:</strong> aplikant, który przeczytał wszystkie akta świata i dokańcza każde pismo najbardziej typowym ciągiem dalszym, ale nigdy nie był w sądzie.</p>
+<h3 id="test-lema-i-strawberry">Test Lema i „strawberry”</h3>
+<ul>
+<li>Stanisław Lem, „Cyberiada” (1965): Klapaucjusz zadaje maszynie Elektrybałt wiersz, w którym wszystkie słowa zaczynają się na literę <strong>„c”</strong></li>
+<li>Współczesny test: „Ile liter »r« jest w słowie »strawberry«?” Starsze modele odpowiadały: <strong>2</strong></li>
+<li>Przyczyna: model widzi tokeny (np. „str” / „aw” / „berry”), a nie litery</li>
+<li>Wiersz na jedną literę jest dla modelu trudniejszy, niż wygląda: wymaga planowania na poziomie liter, których model nie „widzi”</li>
+</ul>
+<h3 id="mechanizm-uwagi-2017">Mechanizm uwagi (2017)</h3>
+<p><img src="media/03_mechanizm_uwagi.svg" style="width:100.0%" alt="Zdanie „Wynajmujący wypowiedział najemcy umowę, bo on nie płacił czynszu” z łukami pokazującymi, że przy słowie „on” model najmocniej łączy je ze słowem „najemcy”" /> </p>
+<h3 id="okno-kontekstu-ile-akt-zmieści-model">Okno kontekstu: ile akt zmieści model?</h3>
+<ul>
+<li><strong>Okno kontekstu</strong>: maksymalna liczba tokenów, które model „widzi” naraz (polecenie, załączniki, dotychczasowa rozmowa)</li>
+<li>Od kilku tysięcy tokenów (2020) do <strong>1 mln tokenów</strong> (Gemini 1.5, luty 2024) i więcej</li>
+<li>1 mln tokenów to setki tysięcy słów, czyli kilka tomów akt; po polsku mniej niż po angielsku</li>
+<li><strong>Ale:</strong> duży kontekst nie oznacza, że model równie uważnie „czyta” każdą stronę; informacje ze środka długiego tekstu bywają pomijane</li>
+</ul>
+<h2 id="część-iv.-halucynacje">Część IV. Halucynacje</h2>
+<h3 id="halucynacje-czy-halucynacje">Halucynacje czy „halucynacje”?</h3>
+<ul>
+<li><strong>Halucynacja AI</strong>: odpowiedź, która brzmi wiarygodnie, ale jest fałszywa lub zmyślona (wyrok, który nie istnieje; przepis o innej treści; nieprawdziwy cytat)</li>
+<li>Czy AI „śni o elektrycznych owcach”? Aby halucynować w sensie psychologicznym, trzeba świadomie doświadczać</li>
+<li>Trafniejsze terminy: <strong>konfabulacja</strong> (uzupełnianie luk wiarygodną treścią) albo po prostu <strong>błąd</strong></li>
+<li>Termin „halucynacja” się przyjął, ale może <strong>usprawiedliwiać</strong> błąd jako coś niezależnego od producenta</li>
+</ul>
+<h3 id="dlaczego-halucynujemy-my">Dlaczego „halucynujemy” my?</h3>
+<ul>
+<li>Badania w laboratorium Donalda Hebba (McGill University, lata 50.): studenci leżeli w izolacji, w goglach rozpraszających światło i rękawicach ograniczających dotyk</li>
+<li>Po dłuższym czasie <strong>monotonii i braku bodźców</strong> zgłaszali halucynacje: od prostych wzorów po złożone sceny</li>
+<li>Mózg, który nie dostaje danych, <strong>sam je dopowiada</strong></li>
+<li>Model językowy, któremu brakuje wiedzy, też „dopowiada”, ale z innego powodu: tak go wytrenowano</li>
+</ul>
+<h3 id="why-language-models-hallucinate-2025">„Why Language Models Hallucinate” (2025)</h3>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img src="media/03_kalai_2025.jpg" style="width:100.0%" alt="Pierwsza strona preprintu „Why Language Models Hallucinate” z abstraktem" /> </p>
+<p><small>Źródło: A. T. Kalai, O. Nachum, S. S. Vempala, E. Zhang, arXiv:2509.04664 (CC BY 4.0)</small></p>
+</div><div class="column" style="width:55%;">
+<ul>
+<li>Autorzy: trzech badaczy OpenAI i jeden z Georgia Tech (preprint, 4.09.2025)</li>
+<li>Teza: halucynacje nie są tajemnicze; to <strong>zwykłe błędy klasyfikacji</strong></li>
+<li>Problem <strong>„Is-It-Valid”</strong>: czy dana odpowiedź jest poprawna? Tak / nie</li>
+<li>Wygenerować poprawną odpowiedź jest trudniej niż ocenić gotową: odsetek błędów generowania jest co najmniej ok. <strong>2 razy</strong> większy niż odsetek błędów oceny</li>
+</ul>
+</div>
+</div>
+<h3 id="dlaczego-pretrening-prowadzi-do-błędów">Dlaczego pretrening prowadzi do błędów?</h3>
+<ul>
+<li>Nawet przy <strong>bezbłędnych danych</strong> cel treningu (naśladuj rozkład tekstu) prowadzi do błędów</li>
+<li><strong>Fakty arbitralne</strong> (daty urodzin, sygnatury, numery) nie mają wzorca, z którego można je wywnioskować</li>
+<li>Jeśli 20% dat urodzin występuje w danych <strong>tylko raz</strong>, model powinien mylić się w co najmniej ok. <strong>20%</strong> pytań o takie daty (tzw. <em>singleton rate</em>)</li>
+<li>Przykład z pracy: zapytany o datę urodzin jednego z autorów, model w trzech próbach podał <strong>trzy różne błędne daty</strong></li>
+</ul>
+<p><strong>Dla prawnika:</strong> sygnatura akt, data wyroku, numer Dziennika Ustaw to klasyczne „fakty arbitralne”.</p>
+<h3 id="egzamin-bez-punktów-ujemnych">Egzamin bez punktów ujemnych</h3>
+<table>
+<thead>
+<tr>
+<th>Ocena odpowiedzi</th>
+<th>Poprawna</th>
+<th>Błędna</th>
+<th>„Nie wiem”</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Typowy test modeli (0–1)</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Propozycja Kalaia i in. (próg pewności t = 0,75)</td>
+<td>1</td>
+<td>−3</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Przy ocenie 0–1 <strong>zgadywanie zawsze się opłaca</strong>: modele są w trybie „rozwiązywania testu”</li>
+<li>Dostrajanie (RLHF) nie usuwa halucynacji, bo <strong>rankingi modeli</strong> nagradzają zgadywanie</li>
+<li>Propozycja: w instrukcji testu jawnie podać próg pewności, np. „odpowiadaj tylko, jeśli masz ponad 75% pewności; za błąd tracisz 3 punkty”</li>
+</ul>
+<h3 id="machine-bullshit-obojętność-wobec-prawdy">„Machine Bullshit”: obojętność wobec prawdy</h3>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img src="media/03_machine_bullshit.jpg" style="width:100.0%" alt="Pierwsza strona preprintu „Machine Bullshit: Characterizing the Emergent Disregard for Truth in Large Language Models”" /> </p>
+<p><small>Źródło: K. Liang i in., arXiv:2507.07484 (2025)</small></p>
+</div><div class="column" style="width:55%;">
+<ul>
+<li>Nawiązanie do H. G. Frankfurta („On Bullshit”): mówca obojętny na prawdę, a nie kłamca</li>
+<li><strong>Bullshit Index</strong>: na ile twierdzenia modelu są niezależne od jego własnej „oceny” prawdy</li>
+<li>Cztery formy: pusta retoryka, półprawdy, wymijające sformułowania („wielu ekspertów uważa”), twierdzenia bez dowodów</li>
+<li>Po <strong>RLHF</strong> wskaźnik rośnie</li>
+</ul>
+</div>
+</div>
+<h3 id="halucynacje-w-praktyce-prawniczej">Halucynacje w praktyce prawniczej</h3>
+<ul>
+<li>Baza Damiena Charlotina „AI Hallucination Cases”: <strong>ponad 2200 spraw</strong> sądowych, w których sąd stwierdził oparcie pisma na zmyślonych treściach (stan na 19.10.2026)</li>
+<li>Większość z USA, ale są też sprawy z Kanady, Australii, Wielkiej Brytanii i <strong>6 z Polski</strong></li>
+<li>Najsłynniejsza sprawa: <em>Mata v. Avianca</em> (S.D.N.Y. 2023), omówimy ją na spotkaniu 8</li>
+<li><strong>Zasada:</strong> każdą sygnaturę, datę, cytat i numer przepisu z modelu sprawdzamy w źródle</li>
+</ul>
+<h2 id="część-v.-czarna-skrzynka-i-wyjaśnialna-ai">Część V. Czarna skrzynka i wyjaśnialna AI</h2>
+<h3 id="czarna-skrzynka-czy-biała-plama">Czarna skrzynka czy biała plama?</h3>
+<ul>
+<li>Decyzja modelu wynika z <strong>miliardów wag</strong>; żadna z nich nie odpowiada regule zrozumiałej dla człowieka</li>
+<li>Nawet twórcy modelu nie potrafią wprost powiedzieć, <strong>dlaczego</strong> padła ta, a nie inna odpowiedź</li>
+<li>Dla prawa to problem <strong>uzasadnienia</strong> i <strong>kontroli</strong>:
+<ul>
+<li>prawo do wyjaśnienia decyzji opartej na systemie wysokiego ryzyka (art. 86 AI Act)</li>
+<li>przejrzystość i nadzór człowieka (art. 13 i 14 AI Act)</li>
+<li>zautomatyzowane decyzje i „istotne informacje o zasadach ich podejmowania” (art. 22 i art. 15 ust. 1 lit. h RODO)</li>
+</ul></li>
+</ul>
+<h3 id="wyjaśnialna-ai-xai-metody-z-zewnątrz">Wyjaśnialna AI (XAI): metody „z zewnątrz”</h3>
+<ul>
+<li>Pytanie XAI: <strong>które czynniki</strong> wpłynęły na ten konkretny wynik?</li>
+<li><strong>LIME</strong> (2016): lekko zmieniamy dane wejściowe i patrzymy, jak zmienia się wynik</li>
+<li><strong>SHAP</strong> (2017): rozdzielamy „zasługę” za wynik między poszczególne cechy, jak wkłady wspólników w zysk</li>
+<li>Przykład: odmowa kredytu. Najważniejsze czynniki: dochód (−), zaległość z 2024 r. (−), staż pracy (+)</li>
+<li><strong>Ograniczenie:</strong> to przybliżenie zachowania modelu, a nie opis jego „rozumowania”</li>
+</ul>
+<h3 id="zajrzeć-do-środka-interpretowalność-mechanistyczna">Zajrzeć do środka: interpretowalność mechanistyczna</h3>
+<ul>
+<li><strong>2024</strong>: badacze Anthropic wyodrębnili z modelu ok. 34 mln „cech” (pojęć); wzmocnienie cechy „Golden Gate Bridge” sprawiło, że model we wszystkim widział ten most</li>
+<li><strong>2025</strong>: śledzenie „myśli” modelu przy pisaniu wiersza: model <strong>planuje rym z wyprzedzeniem</strong>, zanim napisze wers</li>
+<li>Przy dodawaniu 36 + 59 model liczy dwiema równoległymi ścieżkami, ale zapytany, jak to zrobił, opisuje <strong>szkolne „przeniesienie jedynki”</strong></li>
+<li><strong>Wniosek dla prawnika:</strong> „uzasadnienie” podane przez model <strong>nie musi odpowiadać</strong> temu, jak rzeczywiście doszedł do wyniku</li>
+</ul>
+<h3 id="czy-model-rozumie-innych-teoria-umysłu">Czy model „rozumie” innych? Teoria umysłu</h3>
+<p><img src="media/03_strachan_2024.jpg" style="width:65.0%" alt="Wykres z badania porównującego wyniki ludzi i modeli GPT-4, GPT-3.5 i LLaMA2 w testach teorii umysłu" /> </p>
+<p><small>Źródło: J. W. A. Strachan i in., „Testing theory of mind in large language models and humans”, <em>Nature Human Behaviour</em> 8 (2024): 1285–1295 (CC BY 4.0)</small></p>
+<h3 id="pytanie-fundamentalne">Pytanie fundamentalne</h3>
+<p><strong>Czy AI może „zrozumieć” pojęcie prawdy, sprawiedliwości, wolności?</strong></p>
+<p>Inaczej: czy z przewidywania słów można dojść do „rozumienia” i „pojmowania” pojęć podstawowych?</p>
+<ul>
+<li><strong>Tak:</strong> żeby dobrze przewidywać tekst o świecie, trzeba zbudować wewnętrzny model świata</li>
+<li><strong>Nie:</strong> model zna tylko relacje między słowami, a nie świat, do którego słowa się odnoszą</li>
+<li><strong>Dla prawnika:</strong> pojęcia prawne (dobra wiara, należyta staranność, interes publiczny) żyją w praktyce i w sporach, nie tylko w tekstach</li>
+</ul>
+<h2 id="część-vi.-gpai-multimodalność-agenci">Część VI. GPAI, multimodalność, agenci</h2>
+<h3 id="modele-ai-ogólnego-przeznaczenia-w-ai-act">Modele AI ogólnego przeznaczenia w AI Act</h3>
+<ul>
+<li><strong>Model AI ogólnego przeznaczenia</strong> (art. 3 pkt 63): model trenowany dużą ilością danych, wykazujący znaczną ogólność, który kompetentnie wykonuje szeroki zakres zadań i może być zintegrowany z różnymi systemami</li>
+<li><strong>System AI ogólnego przeznaczenia</strong> (art. 3 pkt 66): system oparty na takim modelu (np. czat)</li>
+<li><strong>Ryzyko systemowe</strong> (art. 3 pkt 65, art. 51): domniemanie, gdy moc obliczeniowa treningu przekracza <strong>10<sup>25</sup> operacji zmiennoprzecinkowych</strong> (art. 51 ust. 2)</li>
+<li>Obowiązki dostawców (art. 53, a przy ryzyku systemowym także art. 55) stosuje się od <strong>2.08.2025</strong>; kodeks praktyk GPAI z 10.07.2025</li>
+</ul>
+<h3 id="modele-multimodalne">Modele multimodalne</h3>
+<ul>
+<li><strong>Multimodalność</strong>: jeden model przyjmuje i generuje różne rodzaje danych: tekst, obraz, dźwięk, wideo, dane z czujników</li>
+<li>13.05.2024: GPT-4o („o” od <em>omni</em>): rozmowa głosowa z czasem reakcji zbliżonym do ludzkiego</li>
+<li>Mechanizm: obraz czy dźwięk też zamienia się na „tokeny”, które trafiają do tego samego transformera</li>
+<li>Zastosowania prawnicze: analiza skanów akt i zdjęć z miejsca zdarzenia, transkrypcja rozpraw, porównywanie nagrań</li>
+<li>Ryzyka: deepfake i obowiązki oznaczania treści syntetycznych (art. 50 ust. 2 i 4 AI Act)</li>
+</ul>
+<h3 id="agenci-ai-model-w-pętli-działania">Agenci AI: model w pętli działania</h3>
+<p><img src="media/03_agent_petla.svg" style="width:90.0%" alt="Pętla agenta: cel od człowieka, plan modelu, działanie narzędziem, obserwacja wyniku i kolejna iteracja, z punktem kontroli człowieka" /> </p>
+<h3 id="agenci-bez-nadzoru-nieprzewidywalna-dynamika">Agenci bez nadzoru: nieprzewidywalna dynamika</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="media/03_claude_opus4_atraktor.jpg" style="width:100.0%" alt="Fragment karty systemowej modelu Claude Opus 4 z przykładami wypowiedzi modelu na wczesnym, środkowym i późnym etapie rozmowy" /> </p>
+<p><small>Źródło: Anthropic, <em>System Card: Claude Opus 4 &amp; Claude Sonnet 4</em> (maj 2025), sekcja 5.5.2</small></p>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Dwie instancje Claude Opus 4 w swobodnej rozmowie: w <strong>90–100%</strong> przypadków dryf ku rozważaniom o świadomości i „duchowej błogości”</li>
+<li>W testach bezpieczeństwa z konkretnymi zadaniami: ok. <strong>13%</strong> rozmów w ciągu 50 tur</li>
+<li><strong>Lekcja:</strong> zachowanie wielu agentów bywa nieprzewidywalne nawet dla twórców</li>
+</ul>
+</div>
+</div>
+<h3 id="podsumowanie">Podsumowanie</h3>
+<ul>
+<li>Uczenie maszynowe zastąpiło reguły pisane przez ludzi wzorcami wyprowadzanymi z danych</li>
+<li>Sieć neuronowa to miliardy wag dostrojonych w treningu; analogia z mózgiem ma wyraźne granice</li>
+<li>Duży model językowy dzieli tekst na tokeny i <strong>przewiduje kolejny token</strong>; mechanizm uwagi pozwala mu uwzględnić cały kontekst</li>
+<li>Halucynacje wynikają z celu treningu i ze sposobu oceniania modeli, które <strong>nagradza zgadywanie</strong></li>
+<li>Czarna skrzynka utrudnia uzasadnienie decyzji; „wyjaśnienie” podane przez model nie musi odpowiadać jego rzeczywistemu działaniu</li>
+<li>AI Act reguluje osobno modele ogólnego przeznaczenia; agenci przenoszą AI od mówienia do działania</li>
+</ul>
+<h3 id="na-następne-spotkanie">Na następne spotkanie</h3>
+<ul>
+<li><strong>Temat:</strong> Społeczne wyzwania AI (I): praca i edukacja</li>
+<li><strong>Lektura:</strong> lektury obowiązkowe do spotkania 4 (na stronie kursu)</li>
+<li><strong>Zadanie:</strong> test halucynacji i „pewności siebie” modelu na pytaniach o polskie orzecznictwo (szczegóły w <code>cwiczenia.md</code>)</li>
+<li><strong>Quiz</strong> do tego spotkania jest dostępny na stronie kursu</li>
+</ul>
+</div>
+  <p class="crumbs"><a href="index.html">← Strona dzielnicy</a></p>
+</div>
+
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne · Wykład monograficzny · prawo · WPiA UMCS · semestr zimowy 2026/2027<br>
+    Prowadzący: dr Karol Kasprowicz, <a href="mailto:karol.kasprowicz@mail.umcs.pl">karol.kasprowicz@mail.umcs.pl</a> · Stan materiałów na 22.10.2026 · <a href="../../styl.html">Księga stylu</a></p>
+  </div>
+</footer>
+<script src="../../assets/ui.js"></script>
+
+</body>
+</html>

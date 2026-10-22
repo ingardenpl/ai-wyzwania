@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 600" width="1500" height="600" role="img" aria-label="Uczenie nadzorowane, nienadzorowane i ze wzmocnieniem" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<title>Uczenie nadzorowane, nienadzorowane i ze wzmocnieniem</title>
+<defs>
+<marker id="aN" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f3a5f"/></marker>
+<marker id="aM" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a1538"/></marker>
+<marker id="aT" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2a7f7a"/></marker>
+<marker id="aA" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a8661a"/></marker>
+</defs>
+<rect x="1" y="1" width="1498" height="598" rx="18" fill="#fbfaf7" stroke="#d6d0c4" stroke-width="2"/>
+<text x="750.0" y="46.0" font-size="28" fill="#1f3a5f" text-anchor="middle" font-weight="bold">Trzy sposoby uczenia maszyn</text>
+<rect x="40.0" y="80.0" width="460.0" height="490.0" rx="12" fill="#fbfaf7" stroke="#1f3a5f" stroke-width="2.5"/>
+<rect x="40.0" y="80.0" width="460.0" height="56.0" rx="12" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="2.5"/>
+<text x="270.0" y="117.0" font-size="22" fill="#1f3a5f" text-anchor="middle" font-weight="bold">Uczenie nadzorowane</text>
+<text x="270.0" y="180.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="bold">dane z etykietami:</text>
+<text x="270.0" y="203.4" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="bold">„spam” / „nie spam”,</text>
+<text x="270.0" y="226.8" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="bold">„kot” / „pies”</text>
+<line x1="270.0" y1="255.0" x2="270.0" y2="285.0" stroke="#1f3a5f" stroke-width="2.5" marker-end="url(#aN)"/>
+<text x="270.0" y="315.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">Model uczy się przewidywać</text>
+<text x="270.0" y="338.4" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">etykietę dla nowych danych.</text>
+<line x1="80.0" y1="375.0" x2="460.0" y2="375.0" stroke="#ccc" stroke-width="1.5"/>
+<text x="270.0" y="405.0" font-size="17" fill="#555555" text-anchor="middle" font-weight="bold">Analogia:</text>
+<text x="270.0" y="435.0" font-size="17" fill="#555555" text-anchor="middle" font-weight="normal">Aplikant dostaje pisma</text>
+<text x="270.0" y="457.1" font-size="17" fill="#555555" text-anchor="middle" font-weight="normal">z poprawkami patrona</text>
+<text x="270.0" y="479.2" font-size="17" fill="#555555" text-anchor="middle" font-weight="normal">i uczy się na wzorach.</text>
+<text x="270.0" y="545.0" font-size="16" fill="#1f3a5f" text-anchor="middle" font-weight="bold">Przykład: filtr antyspamowy, OCR</text>
+<rect x="520.0" y="80.0" width="460.0" height="490.0" rx="12" fill="#fbfaf7" stroke="#2a7f7a" stroke-width="2.5"/>
+<rect x="520.0" y="80.0" width="460.0" height="56.0" rx="12" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="2.5"/>
+<text x="750.0" y="117.0" font-size="22" fill="#2a7f7a" text-anchor="middle" font-weight="bold">Uczenie nienadzorowane</text>
+<text x="750.0" y="180.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="bold">dane bez etykiet:</text>
+<text x="750.0" y="203.4" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="bold">tysiące umów, wyroków,</text>
+<text x="750.0" y="226.8" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="bold">transakcji</text>
+<line x1="750.0" y1="255.0" x2="750.0" y2="285.0" stroke="#2a7f7a" stroke-width="2.5" marker-end="url(#aT)"/>
+<text x="750.0" y="315.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">Model sam szuka struktur:</text>
+<text x="750.0" y="338.4" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">grupy, podobieństwa, anomalie.</text>
+<line x1="560.0" y1="375.0" x2="940.0" y2="375.0" stroke="#ccc" stroke-width="1.5"/>
+<text x="750.0" y="405.0" font-size="17" fill="#555555" text-anchor="middle" font-weight="bold">Analogia:</text>
+<text x="750.0" y="435.0" font-size="17" fill="#555555" text-anchor="middle" font-weight="normal">Ktoś dostaje stos akt</text>
+<text x="750.0" y="457.1" font-size="17" fill="#555555" text-anchor="middle" font-weight="normal">bez instrukcji i układa je</text>
+<text x="750.0" y="479.2" font-size="17" fill="#555555" text-anchor="middle" font-weight="normal">w kupki podobnych spraw.</text>
+<text x="750.0" y="545.0" font-size="16" fill="#2a7f7a" text-anchor="middle" font-weight="bold">Przykład: wykrywanie oszustw, klasteryzacja</text>
+<rect x="1000.0" y="80.0" width="460.0" height="490.0" rx="12" fill="#fbfaf7" stroke="#8a1538" stroke-width="2.5"/>
+<rect x="1000.0" y="80.0" width="460.0" height="56.0" rx="12" fill="#f6e2e7" stroke="#8a1538" stroke-width="2.5"/>
+<text x="1230.0" y="117.0" font-size="22" fill="#8a1538" text-anchor="middle" font-weight="bold">Uczenie ze wzmocnieniem</text>
+<text x="1230.0" y="180.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="bold">działanie → nagroda</text>
+<text x="1230.0" y="203.4" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="bold">lub kara;</text>
+<text x="1230.0" y="226.8" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="bold">próby i błędy</text>
+<line x1="1230.0" y1="255.0" x2="1230.0" y2="285.0" stroke="#8a1538" stroke-width="2.5" marker-end="url(#aM)"/>
+<text x="1230.0" y="315.0" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">Model uczy się strategii,</text>
+<text x="1230.0" y="338.4" font-size="18" fill="#1d1d1f" text-anchor="middle" font-weight="normal">która daje najwięcej nagród.</text>
+<line x1="1040.0" y1="375.0" x2="1420.0" y2="375.0" stroke="#ccc" stroke-width="1.5"/>
+<text x="1230.0" y="405.0" font-size="17" fill="#555555" text-anchor="middle" font-weight="bold">Analogia:</text>
+<text x="1230.0" y="435.0" font-size="17" fill="#555555" text-anchor="middle" font-weight="normal">Negocjator, który po każdej</text>
+<text x="1230.0" y="457.1" font-size="17" fill="#555555" text-anchor="middle" font-weight="normal">rozmowie widzi wynik</text>
+<text x="1230.0" y="479.2" font-size="17" fill="#555555" text-anchor="middle" font-weight="normal">i koryguje taktykę.</text>
+<text x="1230.0" y="545.0" font-size="16" fill="#8a1538" text-anchor="middle" font-weight="bold">Przykład: AlphaGo, RLHF w czatach</text>
+</svg>

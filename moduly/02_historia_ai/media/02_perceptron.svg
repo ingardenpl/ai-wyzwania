@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-label="Schemat perceptronu Rosenblatta z pętlą korekty wag" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<title>Schemat perceptronu Rosenblatta z pętlą korekty wag</title>
+<defs>
+<marker id="aN" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f3a5f"/></marker>
+<marker id="aM" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a1538"/></marker>
+<marker id="aT" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2a7f7a"/></marker>
+<marker id="aA" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a8661a"/></marker>
+</defs>
+<rect x="1" y="1" width="1198" height="598" rx="18" fill="#fbfaf7" stroke="#d6d0c4" stroke-width="2"/>
+<text x="600.0" y="46.0" font-size="26" fill="#1f3a5f" text-anchor="middle" font-weight="bold">Perceptron Rosenblatta (1958): neuron, który się uczy</text>
+<circle cx="150.0" cy="140.0" r="32" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="2"/>
+<text x="150.0" y="148.0" font-size="22" fill="#1f3a5f" text-anchor="middle" font-weight="bold">x₁</text>
+<line x1="184.0" y1="140.0" x2="478.0" y2="224.0" stroke="#1f3a5f" stroke-width="6" marker-end="url(#aN)"/>
+<text x="270.0" y="148.6" font-size="18" fill="#2a7f7a" text-anchor="middle" font-weight="bold">w₁ = 0,8</text>
+<circle cx="150.0" cy="260.0" r="32" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="2"/>
+<text x="150.0" y="268.0" font-size="22" fill="#1f3a5f" text-anchor="middle" font-weight="bold">x₂</text>
+<line x1="184.0" y1="260.0" x2="478.0" y2="260.0" stroke="#1f3a5f" stroke-width="1.5" marker-end="url(#aN)"/>
+<text x="270.0" y="244.0" font-size="18" fill="#2a7f7a" text-anchor="middle" font-weight="bold">w₂ = 0,1</text>
+<circle cx="150.0" cy="380.0" r="32" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="2"/>
+<text x="150.0" y="388.0" font-size="22" fill="#1f3a5f" text-anchor="middle" font-weight="bold">x₃</text>
+<line x1="184.0" y1="380.0" x2="478.0" y2="296.0" stroke="#1f3a5f" stroke-width="3.5" marker-end="url(#aN)"/>
+<text x="270.0" y="339.4" font-size="18" fill="#2a7f7a" text-anchor="middle" font-weight="bold">w₃ = −0,5</text>
+<circle cx="560.0" cy="260.0" r="78" fill="#e3f1ef" stroke="#2a7f7a" stroke-width="3"/>
+<text x="560.0" y="254.0" font-size="24" fill="#1d1d1f" text-anchor="middle" font-weight="bold">Σ wᵢ·xᵢ</text>
+<text x="560.0" y="286.0" font-size="20" fill="#1d1d1f" text-anchor="middle" font-weight="normal">≥ próg?</text>
+<line x1="640.0" y1="260.0" x2="818.0" y2="260.0" stroke="#1f3a5f" stroke-width="3" marker-end="url(#aN)"/>
+<rect x="825.0" y="218.0" width="270.0" height="84.0" rx="12" fill="#dfe7f1" stroke="#1f3a5f" stroke-width="2"/>
+<text x="960.0" y="252.0" font-size="20" fill="#1f3a5f" text-anchor="middle" font-weight="bold">odpowiedź modelu</text>
+<text x="960.0" y="282.0" font-size="17" fill="#1d1d1f" text-anchor="middle" font-weight="normal">np. „litera A” / „nie A”</text>
+<line x1="960.0" y1="304.0" x2="960.0" y2="392.0" stroke="#a8661a" stroke-width="2.5" marker-end="url(#aA)" stroke-dasharray="6 4"/>
+<rect x="825.0" y="400.0" width="270.0" height="74.0" rx="12" fill="#fbf0dc" stroke="#a8661a" stroke-width="2"/>
+<text x="960.0" y="430.0" font-size="18" fill="#a8661a" text-anchor="middle" font-weight="bold">porównanie z poprawną</text>
+<text x="960.0" y="456.0" font-size="18" fill="#a8661a" text-anchor="middle" font-weight="bold">odpowiedzią (etykietą)</text>
+<path d="M 822 440 C 620 530, 360 530, 320 410" fill="none" stroke="#2a7f7a" stroke-width="3" stroke-dasharray="8 5" marker-end="url(#aT)"/>
+<text x="570.0" y="520.0" font-size="20" fill="#2a7f7a" text-anchor="middle" font-weight="bold">błąd → korekta wag (uczenie)</text>
+<text x="600.0" y="572.0" font-size="17" fill="#555555" text-anchor="middle" font-weight="normal" font-style="italic">Grubość linii = waga. Wejście o dużej wadze mocniej wpływa na wynik. Wagi ustala trening, nie programista.</text>
+</svg>

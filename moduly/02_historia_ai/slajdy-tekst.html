@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slajdy do czytania: Historia sztucznej inteligencji: od automatów do modeli fundamentalnych · Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne</title>
+<meta name="description" content="Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne. Wykład monograficzny · prawo · WPiA UMCS · semestr zimowy 2026/2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Tiny5&family=Chakra+Petch:wght@500;600;700&family=Anton&family=VT323&display=swap">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="manifest" href="../../assets/manifest.webmanifest">
+<meta name="theme-color" content="#07080f">
+<link rel="icon" href="../../assets/ikona-192.png" type="image/png">
+<link rel="apple-touch-icon" href="../../assets/ikona-180.png">
+<script src="../../assets/site.js"></script>
+<script src="../../assets/gra.js"></script>
+
+</head>
+<body>
+<a class="skip-link" href="#tresc">Przejdź do treści</a>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../../index.html"><b>NEO-LUBLIN 2049</b><small>Wykład monograficzny · WPiA UMCS</small></a>
+    <nav class="topnav" aria-label="Nawigacja kursu"><a href="../../index.html">Mapa</a><a href="../../sylabus.html">Sylabus</a><a href="../../zaliczenie.html">Zaliczenie</a><a href="../../zrodla.html">Źródła</a><a href="../../slowniczek.html">Słowniczek</a><a href="../../fiszki.html">Fiszki</a><a href="../../biblioteka.html">Biblioteka</a><a href="../../interaktywne.html">Interaktywne</a></nav>
+  </div>
+</header>
+<main id="tresc" tabindex="-1">
+
+<div class="wrap narrow">
+  <p class="crumbs"><a href="index.html">← Strona dzielnicy</a> · <a href="slajdy.html">Pokaz slajdów</a></p>
+  <p class="eyebrow">Slajdy do czytania · dzielnica 02</p>
+  <h1>Historia sztucznej inteligencji: od automatów do modeli fundamentalnych</h1>
+  <p class="muted">Treść slajdów w układzie wygodnym na telefonie. Szersze omówienie jest w konspekcie i w Wiedzy na stronie dzielnicy.</p>
+  <div class="prose slajdy-tekst"><h3 id="plan-spotkania">Plan spotkania</h3>
+<ol type="1">
+<li>Prehistoria: mity, automaty, Lullus i Leibniz, maszyna analityczna</li>
+<li>Fundamenty: McCulloch i Pitts (1943), Turing (1950), Dartmouth (1956), perceptron (1958)</li>
+<li>Złote lata (1956–1974) i pierwsza zima AI (1974–1980)</li>
+<li>Systemy ekspertowe (1980–1987), w tym pierwsze systemy prawnicze, i druga zima (1987–1993)</li>
+<li>Przełomy: Deep Blue (1997), ImageNet (2012), AlphaGo i „ruch 37” (2016)</li>
+<li>Transformer (2017), ChatGPT (2022), agenci AI (2024–2026)</li>
+<li>Wnioski dla prawnika</li>
+</ol>
+<h3 id="mapa-spotkania">Mapa spotkania</h3>
+<p><img src="media/02_os_czasu.svg" style="width:100.0%" alt="Oś czasu historii AI od 1943 do 2026 r. z okresami entuzjazmu i dwiema zimami AI" /> </p>
+<h2 id="część-i.-prehistoria-marzenie-o-myślącej-maszynie">Część I. Prehistoria: marzenie o myślącej maszynie</h2>
+<h3 id="mity-i-opowieści">Mity i opowieści</h3>
+<ul>
+<li><strong>Talos</strong>: w mitologii greckiej spiżowy olbrzym, który strzegł Krety</li>
+<li><strong>Golem</strong>: w legendzie praskiej istota z gliny ożywiona przez rabina; posłuszna, ale groźna, gdy wymknie się spod kontroli</li>
+<li><strong>„R.U.R.” Karla Čapka</strong> (1920, prapremiera 1921): w tej sztuce pierwszy raz pojawia się słowo „robot” (od czeskiego <em>robota</em>, praca przymusowa); zaproponował je brat autora, Josef Čapek</li>
+<li>Wspólny motyw: sztuczny sługa, który wyręczy człowieka, i lęk przed utratą nad nim kontroli</li>
+</ul>
+<h3 id="automaty-mechaniczna-imitacja-życia">Automaty: mechaniczna imitacja życia</h3>
+<ul>
+<li><strong>Heron z Aleksandrii</strong> (I w.): opisy mechanizmów poruszanych parą, wodą i ciężarkami</li>
+<li><strong>Al-Dżazari</strong> (1206): „Księga wiedzy o pomysłowych urządzeniach mechanicznych”, m.in. automaty muzyczne</li>
+<li><strong>Kaczka Vaucansona</strong> (pokazana w 1739 r.): mechaniczna kaczka, która „jadła” i „trawiła”</li>
+<li><strong>Automaty Jaquet-Droza</strong> (1768–1774): „Pisarz” kreśli gęsim piórem zaprogramowany tekst</li>
+</ul>
+<p><strong>Wspólna cecha:</strong> automat wykonuje z góry ustaloną sekwencję. Nie reaguje na otoczenie i niczego się nie uczy.</p>
+<h3 id="turek-kempelena-człowiek-ukryty-w-maszynie">„Turek” Kempelena: człowiek ukryty w maszynie</h3>
+<ul>
+<li>1770: Wolfgang von Kempelen pokazuje na dworze Marii Teresy automat grający w szachy</li>
+<li>Przez dekady „Turek” wygrywa pokazy w Europie i Ameryce</li>
+<li>W rzeczywistości w skrzyni ukrywał się żywy szachista</li>
+<li>2005: Amazon nazywa swoją platformę mikrozadań <strong>Amazon Mechanical Turk</strong>; to na niej opisywano później m.in. zdjęcia do zbioru ImageNet</li>
+</ul>
+<p><strong>Pytanie:</strong> ile „ludzi w skrzyni” jest dziś w systemach, które nazywamy sztuczną inteligencją?</p>
+<h3 id="rajmund-lullus-myślenie-jako-kombinatoryka">Rajmund Lullus: myślenie jako kombinatoryka</h3>
+<ul>
+<li>Rajmund Lullus (Ramon Llull, ok. 1232–1316), filozof i misjonarz z Majorki</li>
+<li>„Ars generalis ultima” (1305–1308), ostatnia wersja jego „Sztuki”</li>
+<li>Obracające się koła z pojęciami (np. dobroć, wielkość, mądrość): każde ustawienie kół daje nowe zestawienie twierdzeń</li>
+<li>Cel: mechanicznie dowodzić prawd wiary w sporach z innowiercami</li>
+</ul>
+<p><strong>Idea, która przetrwała:</strong> rozumowanie da się rozłożyć na proste symbole i reguły ich łączenia.</p>
+<h3 id="leibniz-calculemus">Leibniz: „Calculemus!”</h3>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Gottfried Wilhelm Leibniz (1646–1716): filozof, matematyk i <strong>doktor prawa</strong></li>
+<li>Maszyna licząca: model pokazany w Royal Society (1673), ukończona ok. 1694</li>
+<li>Arytmetyka dwójkowa (opis opublikowany za rok 1703): język zer i jedynek</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<ul>
+<li><em>Characteristica universalis</em>: uniwersalny język pojęć</li>
+<li><em>Calculus ratiocinator</em>: rachunek, który rozstrzyga spory</li>
+<li>„Calculemus!”: zamiast się kłócić, policzmy</li>
+</ul>
+</div>
+</div>
+<h3 id="babbage-i-lovelace-maszyna-analityczna">Babbage i Lovelace: maszyna analityczna</h3>
+<ul>
+<li>Charles Babbage projektuje <strong>maszynę analityczną</strong> od 1834 r. (pełny opis 1837): pamięć, jednostka licząca, program na kartach perforowanych</li>
+<li>Maszyny nigdy nie zbudowano</li>
+<li>Ada Lovelace (1843) przekłada artykuł Menabrei o maszynie i dodaje własne „Notes” (A–G)</li>
+<li>W nocie G: algorytm obliczania liczb Bernoulliego, często nazywany pierwszym programem komputerowym</li>
+<li>Lovelace: maszyna „nie ma żadnych pretensji do tworzenia czegokolwiek”; robi tylko to, co umiemy jej polecić</li>
+</ul>
+<h2 id="część-ii.-fundamenty-19431958">Część II. Fundamenty (1943–1958)</h2>
+<h3 id="mcculloch-i-pitts-1943-neuron-jako-bramka-logiczna">McCulloch i Pitts (1943): neuron jako bramka logiczna</h3>
+<p><img src="media/02_neuron_mcculloch_pitts.svg" style="width:85.0%" alt="Schemat neuronu McCullocha i Pittsa: wejścia 0 lub 1, suma porównywana z progiem, wyjście 0 lub 1" /> </p>
+<h3 id="walter-pitts-samouk-z-biblioteki">Walter Pitts: samouk z biblioteki</h3>
+<ul>
+<li>Urodzony w 1923 r. w Detroit, bez formalnego wykształcenia</li>
+<li>Jako nastolatek czytał w bibliotece „Principia Mathematica” Russella i Whiteheada</li>
+<li>W chwili publikacji artykułu z McCullochem miał 20 lat</li>
+<li>Model z 1943 r. wpłynął na Johna von Neumanna i projekt pierwszych komputerów</li>
+</ul>
+<p><strong>Lekcja:</strong> sztuczna inteligencja od początku powstawała na styku dziedzin: neurologii, logiki i matematyki.</p>
+<h3 id="alan-turing-czy-maszyny-mogą-myśleć">Alan Turing: „Czy maszyny mogą myśleć?”</h3>
+<ul>
+<li>1936: „On Computable Numbers”: teoretyczny model uniwersalnej maszyny liczącej</li>
+<li>1950: „Computing Machinery and Intelligence”, <em>Mind</em> 59, nr 236, s. 433–460</li>
+<li>Zamiast definiować „myślenie” Turing proponuje <strong>grę w naśladowanie</strong> (szczegóły: spotkanie 1)</li>
+<li>Prognoza: za około 50 lat przeciętny przesłuchujący po 5 minutach rozmowy będzie miał nie więcej niż 70% szans na trafną identyfikację maszyny</li>
+<li>Turing omawia zarzuty, w tym zarzut Lady Lovelace, i proponuje „maszynę uczącą się” (<em>child machine</em>)</li>
+</ul>
+<h3 id="dartmouth-1956-narodziny-nazwy">Dartmouth (1956): narodziny nazwy</h3>
+<ul>
+<li>31.08.1955: propozycja letniego projektu badawczego; autorzy: John McCarthy, Marvin Minsky, Nathaniel Rochester, Claude Shannon</li>
+<li>Pierwsze użycie terminu <strong>„artificial intelligence”</strong></li>
+<li>Założenie: każdy aspekt uczenia się i inteligencji można opisać tak dokładnie, że maszyna zdoła go symulować</li>
+<li>Warsztat: ok. 18.06–17.08.1956 w Dartmouth College; uczestnicy przyjeżdżali na część czasu</li>
+<li>Wśród gości Allen Newell i Herbert Simon z programem <strong>Logic Theorist</strong> (dowodzenie twierdzeń logiki)</li>
+</ul>
+<h3 id="perceptron-rosenblatta-1958-neuron-który-się-uczy">Perceptron Rosenblatta (1958): neuron, który się uczy</h3>
+<p><img src="media/02_perceptron.svg" style="width:85.0%" alt="Schemat perceptronu: wejścia z wagami, suma, próg, porównanie z poprawną odpowiedzią i korekta wag" /> </p>
+<h3 id="embrion-komputera-który-będzie-świadomy">„Embrion komputera, który będzie świadomy”</h3>
+<ul>
+<li>8.07.1958, <em>The New York Times</em>: „New Navy Device Learns By Doing”</li>
+<li>Marynarka wojenna USA przedstawia perceptron jako zalążek komputera, który ma chodzić, mówić, widzieć, pisać, reprodukować się i być świadomy swojego istnienia</li>
+<li>W rzeczywistości maszyna uczyła się odróżniać proste kształty</li>
+</ul>
+<p><strong>Wzorzec, który zobaczymy jeszcze kilka razy:</strong> realny postęp + przesadzona obietnica = późniejsze rozczarowanie.</p>
+<h2 id="część-iii.-złote-lata-i-pierwsza-zima-19561980">Część III. Złote lata i pierwsza zima (1956–1980)</h2>
+<h3 id="złote-lata-19561974">Złote lata (1956–1974)</h3>
+<ul>
+<li><strong>Logic Theorist</strong> (1955–1956) i <strong>General Problem Solver</strong> (1957–1959): rozumowanie jako przeszukiwanie możliwych kroków</li>
+<li><strong>ELIZA</strong> (Joseph Weizenbaum, 1966): program udający psychoterapeutę za pomocą prostych reguł podmiany słów</li>
+<li><strong>Shakey</strong> (SRI, 1966–1972): pierwszy robot mobilny, który planował własne działania</li>
+<li>Hojne finansowanie wojskowe (DARPA w USA) i poczucie, że przełom jest blisko</li>
+</ul>
+<h3 id="prognozy-z-lat-60.">Prognozy z lat 60.</h3>
+<ul>
+<li>Herbert Simon (1965): maszyny w ciągu 20 lat będą zdolne wykonać każdą pracę, którą wykonuje człowiek</li>
+<li>Marvin Minsky (1967): w ciągu jednego pokolenia problem stworzenia „sztucznej inteligencji” zostanie zasadniczo rozwiązany</li>
+</ul>
+<p><strong>Pytanie:</strong> dlaczego wybitni badacze tak bardzo się pomylili? Co było łatwe dla maszyn, a co okazało się trudne?</p>
+<h3 id="perceptrons-1969-granice-jednego-neuronu">„Perceptrons” (1969): granice jednego neuronu</h3>
+<p><img src="media/02_xor.svg" style="width:85.0%" alt="Porównanie funkcji AND i XOR: punkty AND da się oddzielić jedną prostą, punktów XOR nie" /> </p>
+<h3 id="raport-lighthilla-i-pierwsza-zima-ai-19741980">Raport Lighthilla i pierwsza zima AI (1974–1980)</h3>
+<ul>
+<li>1973: Sir James Lighthill, „Artificial Intelligence: A General Survey”, raport dla brytyjskiej Science Research Council</li>
+<li>Diagnoza: AI działa w „zabawkowych” światach, a w realnych problemach grzęźnie w <strong>eksplozji kombinatorycznej</strong> (liczba możliwości rośnie szybciej niż moc komputerów)</li>
+<li>Skutek: cięcia finansowania badań AI w Wielkiej Brytanii</li>
+<li>USA: poprawka Mansfielda (1969) zawęża badania wojskowe do zastosowań, a DARPA w latach 1973–1974 tnie budżety na AI</li>
+<li>Termin <strong>„zima AI”</strong> pada w 1984 r. na spotkaniu AAAI jako ostrzeżenie przed kolejnym krachem</li>
+</ul>
+<h2 id="część-iv.-systemy-ekspertowe-19801993">Część IV. Systemy ekspertowe (1980–1993)</h2>
+<h3 id="czym-jest-system-ekspertowy">Czym jest system ekspertowy?</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Budowa</strong></p>
+<ul>
+<li><strong>baza wiedzy</strong>: setki lub tysiące reguł „JEŻELI … TO …”</li>
+<li><strong>silnik wnioskowania</strong>: łączy reguły z faktami sprawy</li>
+<li><strong>inżynier wiedzy</strong>: wydobywa reguły z głów ekspertów</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Przykład reguły</strong></p>
+<p>JEŻELI pracownik ma co najmniej 10 lat stażu<br> I umowę rozwiązuje pracodawca<br> TO okres wypowiedzenia wynosi 3 miesiące</p>
+<p><small>Por. art. 36 § 1 pkt 3 k.p.</small></p>
+</div>
+</div>
+<h3 id="złota-era-systemów-ekspertowych">Złota era systemów ekspertowych</h3>
+<ul>
+<li><strong>DENDRAL</strong> (Stanford, od 1965): rozpoznawanie struktury cząsteczek chemicznych</li>
+<li><strong>MYCIN</strong> (Edward Shortliffe, ok. 1972–1976): diagnoza zakażeń bakteryjnych i dobór antybiotyków</li>
+<li><strong>XCON / R1</strong> (DEC, od 1980): konfiguracja zamówień komputerów; oszczędności szacowane na 25–40 mln USD rocznie (ok. 1986)</li>
+<li><strong>Japonia, 1982</strong>: rządowy program komputerów piątej generacji</li>
+<li>Lata 80.: rynek wyspecjalizowanych komputerów do AI (maszyny LISP) i boom inwestycyjny</li>
+</ul>
+<h3 id="pierwsze-systemy-prawnicze-taxman">Pierwsze systemy prawnicze: TAXMAN</h3>
+<ul>
+<li>L. Thorne McCarty (Harvard, później Rutgers), „Reflections on TAXMAN: An Experiment in Artificial Intelligence and Legal Reasoning”, <em>Harvard Law Review</em> 90 (1977): 837</li>
+<li>Dziedzina: amerykańskie prawo podatkowe dotyczące reorganizacji spółek</li>
+<li>Cel: zapisać pojęcia prawne (akcja, spółka, przeniesienie) w formie logicznej i sprawdzić, jak program klasyfikuje transakcje</li>
+<li>Kolejna wersja (TAXMAN II) modelowała argumentację w sprawie <em>Eisner v. Macomber</em> (1920): jak sędziowie budują i zmieniają pojęcia prawne</li>
+</ul>
+<h3 id="hypo-i-british-nationality-act">HYPO i British Nationality Act</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>HYPO</strong> (Edwina Rissland, Kevin Ashley, UMass Amherst, lata 80.)</p>
+<ul>
+<li>dziedzina: ochrona tajemnicy handlowej</li>
+<li>rozumowanie z precedensów, a nie z reguł</li>
+<li>program wskazuje sprawy podobne i odróżnia je od siebie oraz tworzy przypadki hipotetyczne</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Ustawa jako program</strong> (Sergot, Kowalski i in., 1986)</p>
+<ul>
+<li>brytyjska ustawa o obywatelstwie z 1981 r. zapisana w języku logiki (Prolog)</li>
+<li>program odpowiada, czy osoba nabywa obywatelstwo</li>
+<li>ujawnia luki i niejasności w tekście ustawy</li>
+</ul>
+</div>
+</div>
+<h3 id="dlaczego-systemy-ekspertowe-zawiodły">Dlaczego systemy ekspertowe zawiodły?</h3>
+<ul>
+<li><strong>Wąskie gardło wiedzy:</strong> eksperci nie potrafią wypowiedzieć wszystkiego, co wiedzą (wiedza milcząca)</li>
+<li><strong>Kruchość:</strong> system działa tylko w swoim wąskim świecie; przypadek nietypowy go „łamie”</li>
+<li><strong>Koszt utrzymania:</strong> każda zmiana przepisów lub praktyki wymaga ręcznej zmiany reguł</li>
+<li><strong>W prawie dodatkowo:</strong> otwarta tekstura pojęć, klauzule generalne, wykładnia celowościowa, ocena dowodów</li>
+</ul>
+<h3 id="druga-zima-ai-19871993">Druga zima AI (1987–1993)</h3>
+<ul>
+<li>1987: krach rynku maszyn LISP; zwykłe komputery osobiste stają się tańsze i wystarczająco szybkie</li>
+<li>Drogie systemy ekspertowe okazują się trudne w utrzymaniu; firmy wycofują się z inwestycji</li>
+<li>Japoński program piątej generacji kończy się bez zapowiadanego przełomu</li>
+<li>Słowo „sztuczna inteligencja” traci wiarygodność; badacze mówią raczej o „uczeniu maszynowym”, „systemach inteligentnych” czy „analizie danych”</li>
+</ul>
+<h2 id="część-v.-przełomy-od-deep-blue-do-alphago">Część V. Przełomy: od Deep Blue do AlphaGo</h2>
+<h3 id="powrót-sieci-neuronowych">Powrót sieci neuronowych</h3>
+<ul>
+<li>1986: David Rumelhart, Geoffrey Hinton, Ronald Williams, „Learning representations by back-propagating errors”, <em>Nature</em> 323</li>
+<li><strong>Propagacja wsteczna</strong> (<em>backpropagation</em>): metoda korygowania wag w sieci wielowarstwowej, warstwa po warstwie, od wyjścia do wejścia</li>
+<li>Wcześniejsze prace: Seppo Linnainmaa (1970), Paul Werbos (1974)</li>
+<li>Lata 90. i 2000.: uczenie maszynowe rozwija się „po cichu”: filtry antyspamowe, rozpoznawanie pisma, systemy rekomendacji</li>
+</ul>
+<h3 id="deep-blue-kasparow-1997-ruch-44">Deep Blue – Kasparow (1997): „ruch 44”</h3>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img src="media/02_kasparow_1997.jpg" style="width:100.0%" alt="Garri Kasparow podczas partii z komputerem Deep Blue w 1997 r." /> </p>
+<p><small>Fot. [źródło do ustalenia], prezentacja prowadzącego</small></p>
+</div><div class="column" style="width:55%;">
+<ul>
+<li>Luty 1996, Filadelfia: Kasparow wygrywa 4:2</li>
+<li>Maj 1997, Nowy Jork: Deep Blue (IBM) wygrywa 3½:2½; ostatnia partia 11.05.1997</li>
+<li>Siła: przeszukiwanie setek milionów pozycji na sekundę i wiedza szachowa wpisana przez ludzi</li>
+<li><strong>Ruch 44</strong> w 1. partii 1997 r.: dziwny ruch wynikający z błędu programu</li>
+</ul>
+</div>
+</div>
+<h3 id="imagenet-i-alexnet-2012-dane-gpu-sieci">ImageNet i AlexNet (2012): dane + GPU + sieci</h3>
+<ul>
+<li><strong>ImageNet</strong> (zespół Fei-Fei Li, Princeton i Stanford): zbiór opisanych zdjęć; w 2009 r. 3,2 mln obrazów, później ok. 14 mln; opisy robili ludzie przez Amazon Mechanical Turk</li>
+<li>Coroczny konkurs ILSVRC: który program najlepiej rozpozna, co jest na zdjęciu?</li>
+<li>2012: <strong>AlexNet</strong> (Alex Krizhevsky, Ilya Sutskever, Geoffrey Hinton): błąd top-5 <strong>15,3%</strong> wobec 26,2% drugiego zespołu</li>
+<li>Sieć trenowano na dwóch kartach graficznych (GPU) do gier</li>
+</ul>
+<p><strong>Trzy składniki rewolucji:</strong> dane, moc obliczeniowa, algorytmy.</p>
+<h3 id="alphago-lee-sedol-2016-ruch-37">AlphaGo – Lee Sedol (2016): „ruch 37”</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="media/02_lee_sedol_2016.jpg" style="width:100.0%" alt="Lee Sedol podczas meczu z programem AlphaGo w Seulu w marcu 2016 r." /> </p>
+<p><small>Fot. [źródło do ustalenia], prezentacja prowadzącego</small></p>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Seul, 9–15.03.2016: AlphaGo (DeepMind) wygrywa z Lee Sedolem 4:1</li>
+<li><strong>Ruch 37</strong> w 2. partii (10.03.2016): AlphaGo szacował, że człowiek zagrałby go z prawdopodobieństwem ok. 1 na 10 000</li>
+<li>Komentatorzy uznali go najpierw za błąd, potem za genialny</li>
+<li><strong>Ruch 78</strong> Lee Sedola w 4. partii: jedyne zwycięstwo człowieka</li>
+</ul>
+</div>
+</div>
+<h3 id="od-ruchu-44-do-ruchu-37-co-się-zmieniło">Od ruchu 44 do ruchu 37: co się zmieniło?</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th></th>
+<th>Deep Blue (1997)</th>
+<th>AlphaGo (2016)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wiedza o grze</td>
+<td>wpisana przez ludzi</td>
+<td>wyuczona z danych i z gry z samym sobą</td>
+</tr>
+<tr>
+<td>Metoda</td>
+<td>przeszukiwanie „siłowe”</td>
+<td>sieci neuronowe + uczenie ze wzmocnieniem</td>
+</tr>
+<tr>
+<td>Dziwny ruch</td>
+<td>błąd programu</td>
+<td>strategia, której ludzie nie znali</td>
+</tr>
+<tr>
+<td>Po meczu</td>
+<td>koniec projektu</td>
+<td>ludzie uczą się od maszyny</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ćwiczenie-co-jest-nie-tak-na-tej-osi-czasu">Ćwiczenie: co jest nie tak na tej osi czasu?</h3>
+<p><img src="media/02_os_czasu_solvatio.jpg" style="width:85.0%" alt="Infografika firmy Solvatio „Timeline – The History of Artificial Intelligence” z wydarzeniami od 1950 do 2018 r." /> </p>
+<p><small>Źródło: solvatio.com, infografika z prezentacji „Maraton: rozwój AI w II poł. XX wieku”</small></p>
+<h2 id="część-vi.-era-modeli-fundamentalnych-20172026">Część VI. Era modeli fundamentalnych (2017–2026)</h2>
+<h3 id="transformer-2017-attention-is-all-you-need">Transformer (2017): „Attention Is All You Need”</h3>
+<ul>
+<li>12.06.2017: Ashish Vaswani i 7 współautorów (Google) publikują opis nowej architektury sieci: <strong>transformera</strong></li>
+<li>Kluczowy element: <strong>mechanizm uwagi</strong> (<em>attention</em>): model patrzy na całe zdanie naraz i sam ustala, które słowa są dla siebie ważne</li>
+<li>Przetwarzanie równoległe: trening na ogromnych zbiorach tekstu staje się wykonalny</li>
+<li>Litera „T” w „GPT” to właśnie transformer (<em>Generative Pre-trained Transformer</em>)</li>
+</ul>
+<h3 id="od-gpt-1-do-modeli-fundamentalnych">Od GPT-1 do modeli fundamentalnych</h3>
+<ul>
+<li>2018: GPT-1 (OpenAI), BERT (Google)</li>
+<li>2019: GPT-2</li>
+<li>2020: GPT-3, <strong>175 mld parametrów</strong>; model wykonuje zadania, do których nie był specjalnie trenowany</li>
+<li>2021: zespół ze Stanford proponuje termin <strong>„modele fundamentalne”</strong> (<em>foundation models</em>): modele trenowane na ogromnych, ogólnych danych, które można dostosować do wielu zadań</li>
+<li>W AI Act ich odpowiednikiem jest <strong>model AI ogólnego przeznaczenia</strong> (GPAI, art. 3 pkt 63)</li>
+</ul>
+<h3 id="chatgpt-30.11.2022-ai-w-rękach-wszystkich">ChatGPT (30.11.2022): AI w rękach wszystkich</h3>
+<ul>
+<li>OpenAI udostępnia ChatGPT jako bezpłatny „podgląd badawczy”</li>
+<li>Szacunek (UBS na danych Similarweb, styczeń 2023): ok. <strong>100 mln aktywnych użytkowników miesięcznie</strong> po około dwóch miesiącach</li>
+<li>14.03.2023: GPT-4</li>
+<li>Przełom nie polegał tylko na modelu, ale na <strong>interfejsie</strong>: rozmowa w języku naturalnym zamiast kodu</li>
+</ul>
+<h3 id="nagrody-ai-wchodzi-do-panteonu-nauki">Nagrody: AI wchodzi do panteonu nauki</h3>
+<ul>
+<li><strong>Nagroda Turinga 2018</strong> (ogłoszona w 2019 r.): Geoffrey Hinton, Yann LeCun, Yoshua Bengio za głębokie uczenie</li>
+<li><strong>Nobel z fizyki 2024</strong>: John Hopfield i Geoffrey Hinton za podstawy uczenia maszynowego z użyciem sieci neuronowych</li>
+<li><strong>Nobel z chemii 2024</strong>: David Baker (projektowanie białek) oraz Demis Hassabis i John Jumper (AlphaFold: przewidywanie struktury białek)</li>
+</ul>
+<p><strong>Ciekawostka:</strong> Hinton, współautor przełomu z 1986 r. i 2012 r., po odejściu z Google w 2023 r. stał się jednym z najgłośniejszych ostrzegających przed ryzykiem AI.</p>
+<h3 id="modele-rozumujące-i-agenci-20242025">Modele rozumujące i agenci (2024–2025)</h3>
+<ul>
+<li><strong>12.09.2024</strong>: OpenAI o1: model, który przed odpowiedzią „rozpisuje” rozumowanie krok po kroku</li>
+<li><strong>22.10.2024</strong>: Anthropic udostępnia funkcję <em>computer use</em>: model obsługuje komputer jak człowiek</li>
+<li><strong>25.11.2024</strong>: Model Context Protocol (MCP): standard podłączania modeli do narzędzi i danych</li>
+<li><strong>20.01.2025</strong>: DeepSeek-R1 (Chiny): otwarty model rozumujący</li>
+<li><strong>23.01.2025</strong>: OpenAI Operator; <strong>24.02.2025</strong>: Claude Code; <strong>17.07.2025</strong>: ChatGPT agent</li>
+</ul>
+<p><strong>Od czatu, który odpowiada, do agenta, który działa.</strong></p>
+<h3 id="agenci-w-pracy-2026">Agenci w pracy (2026)</h3>
+<ul>
+<li><strong>Styczeń 2026</strong>: agenci pracujący bezpośrednio na plikach i folderach użytkownika (np. Claude Cowork, 12.01.2026)</li>
+<li><strong>Luty 2026</strong>: platformy do wdrażania i zarządzania agentami w firmach (np. OpenAI Frontier, 5.02.2026)</li>
+<li><strong>17.02.2026</strong>: amerykański NIST uruchamia inicjatywę standardów dla agentów AI (bezpieczeństwo, tożsamość, interoperacyjność)</li>
+<li>Pytania prawne: kto odpowiada za działanie agenta? czy agent może złożyć oświadczenie woli? jak udowodnić, co agent zrobił?</li>
+</ul>
+<h3 id="gdzie-jesteśmy-obecnie-modele-szeregów-czasowych">Gdzie jesteśmy obecnie? Modele szeregów czasowych</h3>
+<p><img src="media/02_time_series_llm.jpg" style="width:80.0%" alt="Schemat modelu OpenTSLM: dane z zegarka (tętno, saturacja) przetwarzane przez koder szeregów czasowych i model językowy, który formułuje uzasadnienie i przewidywanie" /> </p>
+<p><small>Źródło: P. Langer i in., „OpenTSLM: Time-Series Language Models for Reasoning over Multivariate Medical Text- and Time-Series Data”, arXiv:2510.02410 (2025), schemat z repozytorium projektu</small></p>
+<h3 id="zastosowania-w-medycynie-i-pytania-prawne">Zastosowania w medycynie i pytania prawne</h3>
+<ul>
+<li>Zegarek lub opaska zbiera dane całą dobę; model językowy je interpretuje i tłumaczy pacjentowi</li>
+<li>Możliwe zastosowania: fazy snu, arytmie w EKG, monitorowanie aktywności i rehabilitacji</li>
+<li><strong>Prawo:</strong> dane o zdrowiu to szczególna kategoria danych (art. 9 RODO)</li>
+<li>System AI będący wyrobem medycznym może być systemem wysokiego ryzyka (art. 6 ust. 1 i zał. I AI Act); po zmianach z rozporządzenia (UE) 2026/1744 obowiązki dla tej grupy stosuje się od <strong>2.08.2028</strong></li>
+<li>Kto odpowiada, gdy model przeoczy objaw albo „zhalucynuje” diagnozę?</li>
+</ul>
+<h2 id="część-vii.-wnioski">Część VII. Wnioski</h2>
+<h3 id="czego-uczy-historia-ai">Czego uczy historia AI?</h3>
+<ol type="1">
+<li><strong>Cykle:</strong> przesadzone obietnice → rozczarowanie → odpływ pieniędzy → spokojna praca → nowy przełom</li>
+<li><strong>Dwie szkoły:</strong> AI symboliczna (reguły, logika, systemy ekspertowe) i AI koneksjonistyczna (sieci neuronowe, uczenie z danych); dziś łączy się je w systemach hybrydowych</li>
+<li><strong>Trzy paliwa:</strong> dane, moc obliczeniowa i algorytmy; żadne z nich nie wystarcza osobno</li>
+<li><strong>Paradoks Moraveca:</strong> to, co łatwe dla człowieka, bywa najtrudniejsze dla maszyny, i odwrotnie</li>
+<li><strong>Nazwa „AI” to też marketing:</strong> raz przyciąga pieniądze, raz je odstrasza</li>
+</ol>
+<h3 id="co-z-tego-wynika-dla-prawnika">Co z tego wynika dla prawnika?</h3>
+<ul>
+<li><strong>Ostrożność wobec prognoz:</strong> zarówno obietnic („za 5 lat AI zastąpi prawników”), jak i zapewnień, że „to tylko statystyka”</li>
+<li><strong>Neutralność technologiczna regulacji:</strong> AI Act definiuje system AI przez cechy (autonomia, wnioskowanie z danych), a nie przez konkretną technikę; to odpowiedź na szybkie zmiany technologii</li>
+<li><strong>Stare pytania wracają:</strong> wyjaśnialność (systemy ekspertowe były przejrzyste, sieci nie są), odpowiedzialność (MYCIN), legalność danych (ImageNet)</li>
+<li><strong>AI i prawo to dziedzina z 50-letnią tradycją:</strong> TAXMAN, HYPO i „ustawa jako program” to poprzednicy dzisiejszych narzędzi legal tech</li>
+</ul>
+<h3 id="podsumowanie">Podsumowanie</h3>
+<ul>
+<li>Marzenie o myślącej maszynie jest starożytne; jego techniczne podstawy powstały w latach 1943–1958</li>
+<li>AI przeszła dwie „zimy”: po przesadzonych obietnicach lat 60. i po boomie systemów ekspertowych lat 80.</li>
+<li>Pierwsze systemy prawnicze (TAXMAN, HYPO) pokazały granice zapisywania prawa w regułach</li>
+<li>Od 2012 r. dominują sieci neuronowe uczone na dużych danych; od 2017 r. transformery</li>
+<li>Lata 2022–2026: modele fundamentalne trafiają do wszystkich, a agenci AI zaczynają działać w imieniu ludzi</li>
+</ul>
+<h3 id="na-następne-spotkanie">Na następne spotkanie</h3>
+<ul>
+<li><strong>Temat:</strong> Jak działa AI? Podstawy technologiczne dla prawników</li>
+<li><strong>Lektura:</strong> lektury obowiązkowe do spotkania 3 (A. T. Kalai i in., „Why Language Models Hallucinate”, 2025, fragmenty; Anthropic, „Tracing the thoughts of a large language model”, 2025)</li>
+<li><strong>Zadanie:</strong> poproś model generatywny o oś czasu historii AI i sprawdź pięć dat w źródłach (szczegóły w <code>cwiczenia.md</code>)</li>
+<li><strong>Quiz</strong> do tego spotkania jest dostępny na stronie kursu</li>
+</ul>
+</div>
+  <p class="crumbs"><a href="index.html">← Strona dzielnicy</a></p>
+</div>
+
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne · Wykład monograficzny · prawo · WPiA UMCS · semestr zimowy 2026/2027<br>
+    Prowadzący: dr Karol Kasprowicz, <a href="mailto:karol.kasprowicz@mail.umcs.pl">karol.kasprowicz@mail.umcs.pl</a> · Stan materiałów na 22.10.2026 · <a href="../../styl.html">Księga stylu</a></p>
+  </div>
+</footer>
+<script src="../../assets/ui.js"></script>
+
+</body>
+</html>

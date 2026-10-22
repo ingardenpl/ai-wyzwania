@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Jak szybko podwajała się gospodarka świata?</title><desc id="d"> Łowiectwo i zbieractwo: ok. 224 tys. lat; Rolnictwo: ok. 909 lat; Przemysł: ok. 6,3 roku; Hipotetyczny nowy tryb: ok. 2 tygodnie</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Jak szybko podwajała się gospodarka świata?</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Czas podwajania światowej produkcji w kolejnych &quot;trybach&quot; wzrostu wg Hansona (model CES z trzema trybami) i jego hipoteza o następnym trybie; skala logarytmiczna</text>
+<line x1="328.0" x2="328.0" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="328.0" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >0,0</text>
+<line x1="388.5" x2="388.5" y1="106" y2="462" stroke="#1a2a36"/>
+<line x1="449.0" x2="449.0" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="449.0" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >1</text>
+<line x1="509.5" x2="509.5" y1="106" y2="462" stroke="#1a2a36"/>
+<line x1="570.0" x2="570.0" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="570.0" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >100</text>
+<line x1="630.5" x2="630.5" y1="106" y2="462" stroke="#1a2a36"/>
+<line x1="691.0" x2="691.0" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="691.0" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >10 tys.</text>
+<line x1="751.5" x2="751.5" y1="106" y2="462" stroke="#1a2a36"/>
+<line x1="812.0" x2="812.0" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="812.0" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >1 mln</text>
+<text x="812.0" y="98.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="end" >skala log · lat</text>
+<text x="314.0" y="155.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >Łowiectwo i zbieractwo</text>
+<text x="314.0" y="172.8" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >tryb &quot;hunting&quot;</text>
+<circle cx="772.7" cy="155.8" r="9" fill="#00f0ff"/>
+<text x="788.7" y="161.8" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#00f0ff" text-anchor="start" >ok. 224 tys. lat</text>
+<text x="314.0" y="243.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >Rolnictwo</text>
+<text x="314.0" y="260.2" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >tryb &quot;farming&quot;</text>
+<circle cx="628.0" cy="243.2" r="9" fill="#00f0ff"/>
+<text x="644.0" y="249.2" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#00f0ff" text-anchor="start" >ok. 909 lat</text>
+<text x="314.0" y="330.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >Przemysł</text>
+<text x="314.0" y="347.8" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >tryb &quot;industry&quot;</text>
+<circle cx="497.4" cy="330.8" r="9" fill="#fcee0a"/>
+<text x="513.4" y="336.8" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#fcee0a" text-anchor="start" >ok. 6,3 roku</text>
+<text x="314.0" y="418.2" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >Hipotetyczny nowy tryb</text>
+<text x="314.0" y="435.2" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >wg Hansona: ok. 2 tygodni lub krócej</text>
+<circle cx="363.1" cy="418.2" r="9" fill="#ff003c"/>
+<text x="379.1" y="424.2" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#ff003c" text-anchor="start" >ok. 2 tygodnie</text>
+<text x="28.0" y="507.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: R. Hanson, Long-Term Growth As A Sequence of Exponential Modes, George Mason University, grudzień 2000</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >(wersja pierwsza wrzesień 1998), tabela 2 i podsumowanie</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

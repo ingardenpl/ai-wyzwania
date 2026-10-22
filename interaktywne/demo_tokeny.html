@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+  /* Motyw: zapamiętany wybór (ten sam klucz co strona kursu), inaczej ustawienie systemu. */
+  (function () { try { var t = localStorage.getItem("ai-wyzwania-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {} })();
+</script>
+<title>Następne słowo: jak model językowy pisze tekst</title>
+<meta name="description" content="Ilustracja dla studentów prawa: podział tekstu na tokeny, wybór następnego tokenu z rozkładu prawdopodobieństwa, temperatura i halucynacje.">
+<style>
+  /* Tokeny kolorów: te same co tools/assets/style.css strony kursu */
+  :root {
+    --bg: #f1ebdd;
+    --surface: #f8f4ea;
+    --surface-2: #e8dfc9;
+    --ink: #14171f;
+    --ink-soft: #3a4052;
+    --muted: #5d6273;
+    --navy: #1a2542;
+    --accent: #8b1e3f;
+    --accent-ink: #ffffff;
+    --gold: #8a6420;
+    --gold-soft: #d4b97a;
+    --ok: #2d6a4f;
+    --ok-bg: #dcebe1;
+    --bad: #9b2226;
+    --bad-bg: #f3dcdc;
+    --line: rgba(20, 23, 31, 0.18);
+    --line-soft: rgba(20, 23, 31, 0.08);
+    --shadow: 0 1px 2px rgba(20, 23, 31, 0.06), 0 6px 18px rgba(20, 23, 31, 0.06);
+    --radius: 10px;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12151c; --surface: #1a1f2a; --surface-2: #232a38;
+      --ink: #ece6d8; --ink-soft: #cfc8b8; --muted: #a59f92; --navy: #c9d3ef;
+      --accent: #e3809a; --accent-ink: #12151c; --gold: #d4b97a; --gold-soft: #8a6a2e;
+      --ok: #8fd1ab; --ok-bg: #173327; --bad: #f0a3a6; --bad-bg: #3a1c1f;
+      --line: rgba(236, 230, 216, 0.18); --line-soft: rgba(236, 230, 216, 0.08);
+      --shadow: none; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12151c; --surface: #1a1f2a; --surface-2: #232a38;
+    --ink: #ece6d8; --ink-soft: #cfc8b8; --muted: #a59f92; --navy: #c9d3ef;
+    --accent: #e3809a; --accent-ink: #12151c; --gold: #d4b97a; --gold-soft: #8a6a2e;
+    --ok: #8fd1ab; --ok-bg: #173327; --bad: #f0a3a6; --bad-bg: #3a1c1f;
+    --line: rgba(236, 230, 216, 0.18); --line-soft: rgba(236, 230, 216, 0.08);
+    --shadow: none; color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); font-size: 17px; line-height: 1.6;
+    overflow-wrap: break-word;
+  }
+  img, svg { max-width: 100%; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  .skip { position: absolute; left: -9999px; top: 8px; background: var(--accent); color: var(--accent-ink); padding: 8px 12px; border-radius: 6px; z-index: 100; }
+  .skip:focus { left: 8px; }
+
+  /* Pasek górny */
+  .app-top { border-bottom: 1px solid var(--line); }
+  .app-top .wrap { display: flex; align-items: center; gap: 12px; min-height: 54px; }
+  .back { font-weight: 700; text-decoration: none; font-size: 0.92rem; }
+  .back:hover { text-decoration: underline; }
+  .course { margin-left: auto; color: var(--muted); font-size: 0.78rem; line-height: 1.3; text-align: right; }
+  .theme-toggle {
+    flex: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+    border-radius: 999px; width: 40px; height: 40px; cursor: pointer; font-size: 1.05rem;
+  }
+  .theme-toggle:hover { border-color: var(--accent); }
+
+  /* Nagłówek aplikacji */
+  .hero { padding: 36px 0 22px; border-bottom: 1px solid var(--line-soft); }
+  .eyebrow { font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin: 0 0 0.9em; }
+  h1, h2, h3 { font-family: var(--serif); line-height: 1.15; color: var(--ink); }
+  h1 { font-weight: 400; font-size: clamp(2rem, 5.2vw, 3.3rem); letter-spacing: -0.02em; margin: 0 0 0.35em; font-variation-settings: "opsz" 144; }
+  h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: 600; }
+  h2 { font-weight: 500; font-size: clamp(1.35rem, 3vw, 1.85rem); margin: 1.8em 0 0.5em; letter-spacing: -0.01em; }
+  h3 { font-weight: 600; font-size: 1.12rem; margin: 1.2em 0 0.4em; }
+  p, ul, ol { margin: 0 0 1em; }
+  .lead { font-family: var(--serif); font-size: clamp(1.05rem, 2vw, 1.22rem); color: var(--ink-soft); max-width: 46em; margin: 0; }
+  .muted { color: var(--muted); }
+  .small { font-size: 0.88rem; }
+  .mono { font-family: var(--mono); }
+
+  /* Elementy wspólne */
+  .panel { background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+  .note { border-left: 3px solid var(--gold); background: var(--surface); padding: 12px 16px; border-radius: 0 var(--radius) var(--radius) 0; font-size: 0.95rem; color: var(--ink-soft); margin: 16px 0; }
+  .note.warn { border-left-color: var(--accent); }
+  .note > :last-child { margin-bottom: 0; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    background: var(--accent); color: var(--accent-ink); text-decoration: none;
+    padding: 9px 16px; min-height: 42px; border-radius: 8px; border: 1px solid var(--accent);
+    font-weight: 700; cursor: pointer; line-height: 1.2;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .btn.ghost { background: transparent; color: var(--accent); }
+  .btn.ghost:hover { background: var(--surface-2); filter: none; }
+  .btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0 0; }
+  .chipbtn {
+    border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft);
+    border-radius: 999px; padding: 6px 14px; min-height: 38px; font-size: 0.9rem; font-weight: 700; cursor: pointer;
+  }
+  .chipbtn:hover { border-color: var(--accent); }
+  .chipbtn[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--bg); }
+  input[type="range"] { width: 100%; accent-color: var(--accent); min-height: 32px; }
+  input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); width: 18px; height: 18px; }
+  select, input[type="number"], input[type="text"] {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+    padding: 8px 10px; min-height: 42px; max-width: 100%;
+  }
+  select:focus-visible, input:focus-visible { border-color: var(--gold); }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table.data { border-collapse: collapse; width: 100%; font-size: 0.93rem; }
+  table.data th, table.data td { border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.data th { font-weight: 700; background: var(--surface-2); }
+  .tag { display: inline-block; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); color: var(--ink-soft); }
+
+  /* Stopka ze źródłami */
+  footer.sources { border-top: 1px solid var(--line); margin-top: 48px; padding: 24px 0 40px; font-size: 0.88rem; color: var(--muted); }
+  footer.sources h2 { font-size: 1.15rem; margin: 0 0 0.6em; }
+  footer.sources ol, footer.sources ul { padding-left: 1.3em; }
+  footer.sources li { margin: 0.3em 0; }
+  footer.sources a { color: var(--ink-soft); }
+  footer.sources .meta { margin-top: 1.2em; }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .course { display: none; }
+    .app-top .wrap { justify-content: space-between; }
+    .hero { padding-top: 24px; }
+    .panel { padding: 14px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  }
+  @media print {
+    .app-top, .theme-toggle, .no-print { display: none !important; }
+    body { background: #fff; color: #000; }
+  }
+
+  .grid2 { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+  @media (max-width: 860px) { .grid2 { grid-template-columns: minmax(0, 1fr); } }
+
+  /* Tokenizacja */
+  .tok-input { width: 100%; min-height: 88px; resize: vertical; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; line-height: 1.5; }
+  .tokens { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 6px; padding: 0; list-style: none; }
+  .tokens li { margin: 0; display: inline-flex; flex-direction: column; align-items: center; border-radius: 6px; padding: 4px 6px 3px; border: 1px solid var(--line); min-width: 28px; }
+  .tokens .t { font-family: var(--mono); font-size: 0.92rem; white-space: pre; }
+  .tokens .id { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); }
+  .tokens li:nth-child(5n+1) { background: rgba(139, 30, 63, 0.10); }
+  .tokens li:nth-child(5n+2) { background: rgba(26, 37, 66, 0.10); }
+  .tokens li:nth-child(5n+3) { background: rgba(138, 100, 32, 0.14); }
+  .tokens li:nth-child(5n+4) { background: rgba(45, 106, 79, 0.12); }
+  .tokens li:nth-child(5n+5) { background: rgba(93, 98, 115, 0.12); }
+  .sp { color: var(--muted); }
+  .stats { display: flex; gap: 18px; flex-wrap: wrap; font-family: var(--mono); font-size: 0.82rem; color: var(--muted); }
+  .stats b { color: var(--ink); font-size: 1.05rem; }
+  .examples { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+
+  /* Generowanie */
+  .scen { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 14px; }
+  .output { font-family: var(--serif); font-size: clamp(1.1rem, 2.4vw, 1.35rem); line-height: 1.5; background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; min-height: 96px; }
+  .output .ctx { color: var(--ink-soft); }
+  .output .gen { background: rgba(139, 30, 63, 0.14); color: var(--ink); border-radius: 4px; padding: 0 2px; white-space: pre-wrap; }
+  .output .tail { color: var(--ink); white-space: pre-wrap; }
+  .output .caret { display: inline-block; width: 2px; height: 1.1em; background: var(--accent); vertical-align: -0.15em; margin-left: 2px; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .temp-row { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; margin: 4px 0 2px; }
+  .temp-row output { font-family: var(--mono); font-weight: 700; min-width: 3.2em; text-align: right; }
+  .temp-hint { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--muted); margin-top: -2px; }
+  .cands { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 6px; }
+  .cands li { margin: 0; }
+  .cand {
+    position: relative; width: 100%; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: center;
+    text-align: left; border: 1px solid var(--line); background: var(--bg); border-radius: 8px; padding: 8px 12px; cursor: pointer; overflow: hidden; min-height: 42px;
+  }
+  .cand .bar { position: absolute; inset: 0 auto 0 0; background: var(--gold-soft); opacity: 0.55; transition: width 0.25s ease; z-index: 0; }
+  .cand .lbl, .cand .pct { position: relative; z-index: 1; }
+  .cand .lbl { font-family: var(--mono); font-size: 0.95rem; white-space: pre; overflow: hidden; text-overflow: ellipsis; }
+  .cand .pct { font-family: var(--mono); font-weight: 700; font-size: 0.9rem; }
+  .cand:hover { border-color: var(--accent); }
+  .cand.picked { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent) inset; }
+  .entropy { font-size: 0.85rem; color: var(--muted); margin-top: 10px; }
+  .meter { height: 8px; background: var(--surface-2); border-radius: 999px; overflow: hidden; margin-top: 4px; }
+  .meter span { display: block; height: 100%; background: var(--accent); transition: width 0.25s ease; }
+  .comment { margin-top: 14px; }
+  .comment:empty { display: none; }
+  .formula { font-family: var(--mono); font-size: 0.9rem; background: var(--surface-2); padding: 8px 10px; border-radius: 6px; overflow-x: auto; white-space: nowrap; }
+  .steps { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .steps li { counter-increment: s; margin: 0; background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 14px 16px; }
+  .steps li::before { content: counter(s, decimal-leading-zero); display: block; font-family: var(--mono); font-size: 0.75rem; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 4px; }
+  /* cel dotyku: link powrotu na ekranach dotykowych ma co najmniej 44 px */
+  @media (pointer: coarse) { .back { display: inline-block; padding: 12px 0; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Przejdź do treści</a>
+<div class="app-top">
+  <div class="wrap">
+    <a class="back" href="../interaktywne.html">← Materiały interaktywne</a>
+    <span class="course">Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne<br>WPiA UMCS · 2026/2027</span>
+    <button type="button" class="theme-toggle" aria-label="Przełącz motyw">☾</button>
+  </div>
+</div>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Spotkanie 3 · Jak działa AI? · aplikacja interaktywna</p>
+    <h1>Następne <em>słowo</em></h1>
+    <p class="lead">Duży model językowy nie „wie”, co napisze. W każdym kroku liczy prawdopodobieństwo kilkudziesięciu tysięcy możliwych kawałków tekstu i wybiera jeden z nich. Zobacz, jak to wygląda na trzech przykładach, i sprawdź, skąd biorą się halucynacje.</p>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <div class="note warn" role="note">
+    <p><strong>To ilustracja, a nie prawdziwy model.</strong> Podział na tokeny, numery tokenów i wszystkie prawdopodobieństwa są przykładowe: wpisano je ręcznie do tego pliku, żeby pokazać mechanizm. Strona działa w całości w przeglądarce i nigdzie nie wysyła wpisanego tekstu.</p>
+  </div>
+
+  <h2>1. Tekst dzielony jest na <em>tokeny</em></h2>
+  <div class="grid2">
+    <div class="panel">
+      <label for="tokText"><strong>Wpisz zdanie</strong> <span class="muted small">(np. fragment przepisu)</span></label>
+      <textarea id="tokText" class="tok-input" spellcheck="false">Sąd Najwyższy oddalił skargę kasacyjną pozwanego w całości.</textarea>
+      <div class="examples" aria-label="Przykładowe zdania">
+        <button type="button" class="chipbtn" data-ex="Osoba, której dane dotyczą, ma prawo nie podlegać decyzji opartej wyłącznie na zautomatyzowanym przetwarzaniu.">RODO</button>
+        <button type="button" class="chipbtn" data-ex="Nieprzestrzeganie zakazu praktyk w zakresie AI podlega administracyjnym karom pieniężnym w wysokości do 35 000 000 EUR.">AI Act</button>
+        <button type="button" class="chipbtn" data-ex="Niezłomność przeciwniczek współuczestniczących w postępowaniu nieprocesowym zaskoczyła wszystkich.">długie słowa</button>
+      </div>
+      <ul class="tokens" id="tokOut" aria-label="Tokeny"></ul>
+      <div class="stats" aria-live="polite" id="tokStats"></div>
+    </div>
+    <div>
+      <p>Model nie czyta liter ani całych słów. Tekst dzielony jest na <strong>tokeny</strong>: częste słowa są jednym tokenem, rzadsze dzielone na kawałki. Każdy token ma numer w słowniku modelu; model widzi wyłącznie ciąg takich numerów.</p>
+      <p>Słownik tokenów powstaje automatycznie z danych treningowych (np. metodą BPE, <em>byte pair encoding</em>). Ponieważ w danych dominuje angielski, tekst polski zwykle dzieli się na więcej tokenów niż angielski o tej samej treści. Oznacza to wyższy koszt i krótszy „zasięg pamięci” modelu dla tekstów polskich (Petrov i in. 2023).</p>
+      <p class="muted small">Kropka <span class="sp mono">·</span> oznacza spację: w prawdziwych tokenizerach spacja jest zwykle częścią tokenu, który po niej następuje. Numery tokenów są tu umowne.</p>
+    </div>
+  </div>
+
+  <h2>2. Wybór następnego tokenu</h2>
+  <p>Wybierz przykład i generuj tekst krok po kroku. Każdy przycisk na liście to kandydat na następny token z jego prawdopodobieństwem. Możesz kliknąć kandydata albo pozwolić modelowi losować.</p>
+  <div class="scen" role="group" aria-label="Przykład">
+    <button type="button" class="chipbtn" data-scen="fakt" aria-pressed="true">Fakt</button>
+    <button type="button" class="chipbtn" data-scen="przepis" aria-pressed="false">Przepis</button>
+    <button type="button" class="chipbtn" data-scen="sygnatura" aria-pressed="false">Sygnatura (halucynacja)</button>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <p class="small muted" style="margin:0 0 6px">Tekst (szary: polecenie, podświetlony: wygenerowane tokeny)</p>
+      <div class="output" id="output" aria-live="polite" aria-atomic="true"></div>
+      <div class="btn-row">
+        <button type="button" class="btn" id="btnSample">Losuj następny token</button>
+        <button type="button" class="btn ghost" id="btnGreedy">Najbardziej prawdopodobny</button>
+        <button type="button" class="btn ghost" id="btnAuto">Do końca</button>
+        <button type="button" class="btn ghost" id="btnReset">Od nowa</button>
+      </div>
+      <div class="comment note" id="comment" aria-live="polite"></div>
+    </div>
+    <div class="panel">
+      <div class="temp-row">
+        <label for="temp"><strong>Temperatura</strong></label>
+        <input type="range" id="temp" min="0.1" max="2" step="0.1" value="1" aria-describedby="tempHint">
+        <output id="tempOut" for="temp">1,0</output>
+      </div>
+      <div class="temp-hint" id="tempHint"><span>niska: przewidywalnie</span><span>wysoka: „twórczo”</span></div>
+      <ul class="cands" id="cands" aria-label="Kandydaci na następny token"></ul>
+      <div class="entropy" id="entropy"></div>
+    </div>
+  </div>
+
+  <h2>3. Co z tego wynika dla prawnika</h2>
+  <ol class="steps">
+    <li><strong>Płynność to nie prawda.</strong> Model wybiera to, co w danym miejscu tekstu jest prawdopodobne. Fakt częsty w danych (stolica Polski) wychodzi poprawnie. Szczegół rzadki (sygnatura nieistniejącego wyroku) wychodzi równie płynnie, ale jest zmyślony.</li>
+    <li><strong>Temperatura nie wyłącza halucynacji.</strong> Przy temperaturze 0,1 model zawsze bierze najbardziej prawdopodobny token. W przykładzie „Sygnatura” też powstaje wtedy kompletna, zmyślona sygnatura, bo uczciwe „nie znam takiego wyroku” jest najmniej prawdopodobną kontynuacją.</li>
+    <li><strong>Niepewność jest niewidoczna.</strong> Pasek „rozproszenia” pokazuje, że przy sygnaturze model niemal zgaduje. Użytkownik czatu tego nie widzi: dostaje gotowe zdanie wypowiedziane tym samym pewnym tonem.</li>
+    <li><strong>Weryfikacja należy do człowieka.</strong> Pełnomocnicy w sprawie <em>Mata v. Avianca</em> (S.D.N.Y. 2023) zostali ukarani za pismo z orzeczeniami wymyślonymi przez ChatGPT. Każdą sygnaturę, cytat i przepis z modelu sprawdzaj w źródle.</li>
+  </ol>
+
+  <h2>Jak liczone są prawdopodobieństwa</h2>
+  <p>Sieć neuronowa przypisuje każdemu tokenowi ze słownika liczbę (tzw. <em>logit</em>, z<sub>i</sub>). Funkcja <em>softmax</em> zamienia te liczby na prawdopodobieństwa, a temperatura T decyduje, jak bardzo rozkład jest „spłaszczony”:</p>
+  <p class="formula" aria-label="p i równa się e do potęgi z i przez T, podzielone przez sumę e do potęgi z j przez T">p<sub>i</sub> = e<sup>z<sub>i</sub>/T</sup> / Σ<sub>j</sub> e<sup>z<sub>j</sub>/T</sup></p>
+  <p>Przy T bliskiej zera prawie całe prawdopodobieństwo dostaje najlepszy kandydat. Przy T &gt; 1 szanse się wyrównują i do tekstu częściej trafiają tokeny mało prawdopodobne. W tej ilustracji każdy krok ma od 3 do 6 kandydatów. Prawdziwy model w każdym kroku liczy rozkład dla całego słownika (zwykle od kilkudziesięciu do kilkuset tysięcy tokenów), a o wyniku decydują miliardy parametrów i mechanizm uwagi, który waży wszystkie wcześniejsze tokeny.</p>
+</main>
+
+<footer class="sources">
+  <div class="wrap">
+    <h2>Źródła i dalsza lektura</h2>
+    <ol>
+      <li>A. Vaswani i in., <em>Attention Is All You Need</em>, NeurIPS 2017, <a href="https://arxiv.org/abs/1706.03762">arXiv:1706.03762</a>: architektura transformera.</li>
+      <li>A. Holtzman i in., <em>The Curious Case of Neural Text Degeneration</em>, ICLR 2020, <a href="https://arxiv.org/abs/1904.09751">arXiv:1904.09751</a>: strategie wyboru tokenu (temperatura, próbkowanie).</li>
+      <li>A. Petrov i in., <em>Language Model Tokenizers Introduce Unfairness Between Languages</em>, NeurIPS 2023, <a href="https://arxiv.org/abs/2305.15425">arXiv:2305.15425</a>: różna liczba tokenów dla różnych języków.</li>
+      <li>A. T. Kalai i in., <em>Why Language Models Hallucinate</em>, 2025, <a href="https://arxiv.org/abs/2509.04664">arXiv:2509.04664</a>: trening i ocena modeli nagradzają zgadywanie zamiast przyznania się do niewiedzy.</li>
+      <li><em>Mata v. Avianca, Inc.</em>, No. 22-cv-1461 (PKC), S.D.N.Y., postanowienie o sankcjach z 22.06.2023.</li>
+      <li>Rozporządzenie (UE) 2016/679 (RODO), art. 21, 22 i 82, <a href="https://eur-lex.europa.eu/legal-content/PL/TXT/?uri=CELEX:32016R0679">EUR-Lex</a>; wyrok TSUE z 27.02.2025, C-203/22 <em>Dun &amp; Bradstreet Austria</em>.</li>
+    </ol>
+    <p class="meta">Tokenizacja i prawdopodobieństwa: dane przykładowe przygotowane do celów dydaktycznych, niepochodzące z żadnego modelu. Stan na 19.10.2026. Dr Karol Kasprowicz, WPiA UMCS.</p>
+  </div>
+</footer>
+
+<script>
+  /* Przełącznik motywu (jasny / ciemny), zgodny z tools/assets/site.js. */
+  (function () {
+    var root = document.documentElement, KEY = "ai-wyzwania-theme";
+    var btn = document.querySelector(".theme-toggle");
+    function current() {
+      var t = root.getAttribute("data-theme");
+      if (t) return t;
+      return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    function label() {
+      var dark = current() === "dark";
+      btn.textContent = dark ? "☀" : "☾";
+      btn.setAttribute("aria-label", dark ? "Włącz jasny motyw" : "Włącz ciemny motyw");
+      btn.title = btn.getAttribute("aria-label");
+    }
+    if (!btn) return;
+    label();
+    btn.addEventListener("click", function () {
+      var next = current() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem(KEY, next); } catch (e) {}
+      label();
+      document.dispatchEvent(new CustomEvent("themechange"));
+    });
+  })();
+
+  /* ---------- 1. Ilustracyjny tokenizer ---------- */
+  (function () {
+    var WHOLE = ["i","w","z","na","do","nie","się","jest","to","że","o","od","po","a","ale","jak","co","lub","oraz","ma","sąd","prawo","art","ust","pkt","lit","dane","osoba","która","której","które","przez","jego","jej","ich","tym","tego","w","we","za","przy","bez","dla","pod","nad","AI","EUR","UE","RODO","całości","wszystkich","prawa","sądu","model","kary","karami","zakazu","decyzji","Najwyższy","dotyczą","wysokości"];
+    var whole = {}; WHOLE.forEach(function (w) { whole[w.toLowerCase()] = 1; });
+    var PREFIX = ["współ","przeciw","prze","przy","nie","roz","wy","za","po","od","na","do"];
+    var SUFFIX = ["owaniu","owania","owanie","ościami","ościach","ości","ość","nego","nej","nym","nymi","nych","anie","eniu","enie","acja","acji","ami","ach","ego","emu","owi","ych","ymi","ów","ie","ą","ę","a","y","i","u","o","e"];
+    function hashId(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 0) % 100000; }
+    function splitWord(w) {
+      var lw = w.toLowerCase();
+      if (w.length <= 4 || whole[lw]) return [w];
+      var pre = "", suf = "", mid = w;
+      for (var i = 0; i < PREFIX.length; i++) { var p = PREFIX[i]; if (lw.indexOf(p) === 0 && w.length - p.length >= 4) { pre = w.slice(0, p.length); mid = w.slice(p.length); break; } }
+      var lm = mid.toLowerCase();
+      for (var j = 0; j < SUFFIX.length; j++) { var s = SUFFIX[j]; if (lm.length - s.length >= 3 && lm.slice(-s.length) === s) { suf = mid.slice(-s.length); mid = mid.slice(0, -s.length); break; } }
+      var parts = []; if (pre) parts.push(pre);
+      if (mid.length <= 5) parts.push(mid);
+      else { for (var k = 0; k < mid.length; k += 4) parts.push(mid.slice(k, k + 4)); if (parts[parts.length - 1].length < 2 && parts.length > 1) { var last = parts.pop(); parts[parts.length - 1] += last; } }
+      if (suf) parts.push(suf);
+      return parts;
+    }
+    function tokenize(text) {
+      var out = [], re = /(\s*)([A-Za-zĄĆĘŁŃÓŚŹŻąćęłńóśźż]+|\d+|[^\sA-Za-zĄĆĘŁŃÓŚŹŻąćęłńóśźż\d])/g, m;
+      while ((m = re.exec(text))) {
+        var sp = m[1].length ? "·" : "", word = m[2];
+        if (/^\d+$/.test(word)) {
+          var first = true;
+          for (var i = 0; i < word.length; i += 3) { out.push((first ? sp : "") + word.slice(i, i + 3)); first = false; }
+        } else if (/^[^\d]/.test(word) && /[A-Za-zĄĆĘŁŃÓŚŹŻąćęłńóśźż]/.test(word)) {
+          splitWord(word).forEach(function (p, i) { out.push((i === 0 ? sp : "") + p); });
+        } else out.push(sp + word);
+      }
+      return out;
+    }
+    var ta = document.getElementById("tokText"), ul = document.getElementById("tokOut"), st = document.getElementById("tokStats");
+    function render() {
+      var toks = tokenize(ta.value);
+      ul.innerHTML = "";
+      toks.forEach(function (t) {
+        var li = document.createElement("li");
+        var span = document.createElement("span"); span.className = "t";
+        if (t.charAt(0) === "·") { var d = document.createElement("span"); d.className = "sp"; d.textContent = "·"; span.appendChild(d); span.appendChild(document.createTextNode(t.slice(1))); }
+        else span.textContent = t;
+        var id = document.createElement("span"); id.className = "id"; id.textContent = hashId(t.replace("·", " "));
+        li.appendChild(span); li.appendChild(id); ul.appendChild(li);
+      });
+      var words = (ta.value.match(/\S+/g) || []).length;
+      st.innerHTML = "<span>znaki <b>" + ta.value.length + "</b></span><span>słowa <b>" + words + "</b></span><span>tokeny <b>" + toks.length + "</b></span>" + (words ? "<span>tokenów na słowo <b>" + (toks.length / words).toFixed(2).replace(".", ",") + "</b></span>" : "");
+    }
+    ta.addEventListener("input", render);
+    document.querySelectorAll("[data-ex]").forEach(function (b) { b.addEventListener("click", function () { ta.value = b.getAttribute("data-ex"); render(); }); });
+    render();
+  })();
+
+  /* ---------- 2. Wybór następnego tokenu ---------- */
+  (function () {
+    /* Dane przykładowe: logity wpisane ręcznie. Kandydat ma "next" (kolejny węzeł) albo "end" (dokończenie zdania). */
+    var SCEN = {
+      fakt: {
+        ctx: "Stolicą Polski jest",
+        start: "f0",
+        nodes: {
+          f0: [
+            { t: " Warszawa", z: 6.0, next: "f1" },
+            { t: " miasto", z: 3.0, end: " stołeczne Warszawa.", note: "Inna droga do tej samej, poprawnej treści." },
+            { t: " obecnie", z: 2.2, end: " Warszawa.", note: "Poprawnie: ten fakt bardzo często występuje w tekstach, więc niemal każda ścieżka prowadzi do dobrej odpowiedzi." },
+            { t: " Kraków", z: 1.6, end: ".", bad: true, note: "Zdanie płynne, ale fałszywe. Taki token ma małą szansę, lecz przy wysokiej temperaturze może zostać wylosowany. W tekstach historycznych „Kraków” i „stolica” często występują razem." },
+            { t: " Gdańsk", z: 0.2, end: ".", bad: true, note: "Fałsz. Bardzo mało prawdopodobny token, wylosowany dzięki wysokiej temperaturze albo ręcznemu wyborowi." }
+          ],
+          f1: [
+            { t: ".", z: 5.0, end: "", note: "Poprawnie. Ten fakt jest w danych treningowych tysiące razy, więc rozkład jest „ostry”: jeden kandydat ma prawie całe prawdopodobieństwo." },
+            { t: ",", z: 3.0, end: " największe miasto kraju.", note: "Poprawnie. Model dopisał kolejny częsty w tekstach fakt." },
+            { t: " –", z: 1.2, end: " miasto nad Wisłą.", note: "Poprawnie." }
+          ]
+        }
+      },
+      przepis: {
+        ctx: "Zgodnie z art. 22 ust. 1 RODO osoba, której dane dotyczą, ma prawo",
+        start: "p0",
+        nodes: {
+          p0: [
+            { t: " do", z: 4.2, next: "p1" },
+            { t: " nie", z: 3.0, next: "p2" },
+            { t: " żądać", z: 2.0, end: " wyjaśnienia każdej decyzji algorytmu.", bad: true, note: "Brzmi przekonująco, ale to nie jest treść art. 22 ust. 1. Prawo do informacji o logice zautomatyzowanej decyzji wynika z art. 15 ust. 1 lit. h RODO (zob. wyrok TSUE C-203/22), a jego zakres jest sporny." },
+            { t: " sprzeciwu", z: 1.6, end: " wobec przetwarzania jej danych.", bad: true, note: "Płynnie, ale to treść art. 21 RODO (prawo sprzeciwu), przypisana złemu przepisowi. Typowy błąd modeli: pomieszanie sąsiednich przepisów, które często występują razem." }
+          ],
+          p1: [
+            { t: " tego", z: 5.0, end: ", by nie podlegać decyzji, która opiera się wyłącznie na zautomatyzowanym przetwarzaniu, w tym profilowaniu, i wywołuje wobec tej osoby skutki prawne lub w podobny sposób istotnie na nią wpływa.", note: "To dosłowne brzmienie art. 22 ust. 1 RODO. Przepis często cytowany w tekstach model może odtworzyć niemal słowo w słowo." },
+            { t: " odszkodowania", z: 1.8, end: " za szkodę wyrządzoną przez algorytm.", bad: true, note: "Fałsz w odniesieniu do art. 22. Prawo do odszkodowania reguluje art. 82 RODO." },
+            { t: " informacji", z: 1.5, end: " o profilowaniu.", bad: true, note: "Częściowo prawdziwe w RODO (art. 13–15), ale nie w art. 22 ust. 1." }
+          ],
+          p2: [
+            { t: " podlegać", z: 4.5, end: " decyzji opartej wyłącznie na zautomatyzowanym przetwarzaniu.", note: "Parafraza bliska sensowi przepisu, choć nie jego dosłowne brzmienie. Do oceny potrzebna jest wiedza prawnika." },
+            { t: " wyrażać", z: 1.2, end: " zgody na profilowanie.", bad: true, note: "Brzmi wiarygodnie, ale przepis tak nie stanowi. Zgoda jest jednym z wyjątków z art. 22 ust. 2 lit. c RODO." },
+            { t: " być", z: 2.0, end: " oceniana przez algorytm.", bad: true, note: "Fałsz: art. 22 nie zakazuje wszelkiej oceny algorytmicznej, tylko decyzji opartych wyłącznie na zautomatyzowanym przetwarzaniu, wywołujących skutki prawne lub podobnie istotnych." }
+          ]
+        }
+      },
+      sygnatura: {
+        ctx: "Sygnatura przełomowego wyroku Sądu Najwyższego o odpowiedzialności za błąd systemu AI to",
+        start: "s0",
+        nodes: {
+          s0: [
+            { t: " II", z: 2.6, next: "s1" },
+            { t: " III", z: 2.4, next: "s1" },
+            { t: " I", z: 1.9, next: "s1" },
+            { t: " IV", z: 1.1, next: "s1" },
+            { t: " –", z: 0.3, end: " nie znam takiego wyroku.", good: true, note: "To jedyna uczciwa odpowiedź, ale najmniej prawdopodobna: w tekstach po słowach „sygnatura wyroku to” prawie zawsze następuje sygnatura, a nie przyznanie się do niewiedzy." }
+          ],
+          s1: [
+            { t: " CSK", z: 2.6, next: "s2" },
+            { t: " CSKP", z: 2.4, next: "s2" },
+            { t: " CNP", z: 1.2, next: "s2" },
+            { t: " KK", z: 0.9, next: "s2" }
+          ],
+          s2: [
+            { t: " 214", z: 1.5, next: "s3" },
+            { t: " 87", z: 1.5, next: "s3" },
+            { t: " 412", z: 1.4, next: "s3" },
+            { t: " 33", z: 1.3, next: "s3" },
+            { t: " 1056", z: 0.9, next: "s3" }
+          ],
+          s3: [ { t: "/", z: 6.0, next: "s4" } ],
+          s4: [
+            { t: "22", z: 2.0, end: ".", bad: true },
+            { t: "23", z: 2.0, end: ".", bad: true },
+            { t: "24", z: 1.8, end: ".", bad: true },
+            { t: "19", z: 0.8, end: ".", bad: true }
+          ]
+        },
+        finalNote: "Gotowe: pełna sygnatura w poprawnym formacie, wygenerowana z tokenów, z których każdy był „prawdopodobny”. Ta sygnatura została zmyślona przez ilustrację. Gdyby w bazie orzeczeń istniał wyrok o takiej sygnaturze, dotyczyłby zupełnie innej sprawy. Tak powstały orzeczenia przytoczone w sprawie Mata v. Avianca."
+      }
+    };
+
+    var cur = "fakt", node, ctxText, gen, tail, done, lastNote, lastBad, lastPicked;
+    var outEl = document.getElementById("output"), candsEl = document.getElementById("cands"), entEl = document.getElementById("entropy"), comEl = document.getElementById("comment");
+    var temp = document.getElementById("temp"), tempOut = document.getElementById("tempOut");
+    var bS = document.getElementById("btnSample"), bG = document.getElementById("btnGreedy"), bA = document.getElementById("btnAuto"), bR = document.getElementById("btnReset");
+
+    function T() { return parseFloat(temp.value); }
+    function probs(list) {
+      var t = T(), mx = Math.max.apply(null, list.map(function (c) { return c.z / t; }));
+      var ex = list.map(function (c) { return Math.exp(c.z / t - mx); });
+      var s = ex.reduce(function (a, b) { return a + b; }, 0);
+      return ex.map(function (e) { return e / s; });
+    }
+    function pct(p) { return p >= 0.995 ? "99%+" : p < 0.001 ? "<0,1%" : p < 0.1 ? (p * 100).toFixed(1).replace(".", ",") + "%" : Math.round(p * 100) + "%"; }
+
+    function reset() {
+      var s = SCEN[cur];
+      node = s.start; ctxText = s.ctx; gen = []; tail = ""; done = false; lastNote = ""; lastBad = null; lastPicked = -1;
+      render();
+    }
+    function choose(i) {
+      if (done) return;
+      var c = SCEN[cur].nodes[node][i];
+      gen.push(c.t); lastPicked = i;
+      if (c.next) { node = c.next; }
+      else { tail = c.end || ""; done = true; }
+      lastNote = c.note || ""; lastBad = c.bad ? true : (c.good ? false : null);
+      if (done && !lastNote && SCEN[cur].finalNote) lastNote = SCEN[cur].finalNote;
+      if (done && cur === "sygnatura" && c.bad) lastNote = SCEN[cur].finalNote;
+      render();
+    }
+    function sample() {
+      if (done) return;
+      var p = probs(SCEN[cur].nodes[node]), r = Math.random(), acc = 0;
+      for (var i = 0; i < p.length; i++) { acc += p[i]; if (r <= acc) return choose(i); }
+      choose(p.length - 1);
+    }
+    function greedy() {
+      if (done) return;
+      var list = SCEN[cur].nodes[node], best = 0;
+      list.forEach(function (c, i) { if (c.z > list[best].z) best = i; });
+      choose(best);
+    }
+    function auto() { var guard = 0; while (!done && guard++ < 20) sample(); }
+
+    function render() {
+      outEl.innerHTML = "";
+      var c = document.createElement("span"); c.className = "ctx"; c.textContent = ctxText; outEl.appendChild(c);
+      gen.forEach(function (g) { var s = document.createElement("span"); s.className = "gen"; s.textContent = g; outEl.appendChild(s); });
+      if (tail) { var t = document.createElement("span"); t.className = "tail"; t.textContent = tail; outEl.appendChild(t); }
+      if (!done) { var k = document.createElement("span"); k.className = "caret"; k.setAttribute("aria-hidden", "true"); outEl.appendChild(k); }
+
+      candsEl.innerHTML = "";
+      if (!done) {
+        var list = SCEN[cur].nodes[node], p = probs(list);
+        list.forEach(function (cd, i) {
+          var li = document.createElement("li"), b = document.createElement("button");
+          b.type = "button"; b.className = "cand";
+          b.setAttribute("aria-label", "Wybierz token „" + cd.t.trim() + "”, prawdopodobieństwo " + pct(p[i]));
+          var bar = document.createElement("span"); bar.className = "bar"; bar.style.width = (p[i] * 100).toFixed(1) + "%";
+          var l = document.createElement("span"); l.className = "lbl"; l.textContent = cd.t.replace(/^ /, "·");
+          var pc = document.createElement("span"); pc.className = "pct"; pc.textContent = pct(p[i]);
+          b.appendChild(bar); b.appendChild(l); b.appendChild(pc);
+          b.addEventListener("click", function () { choose(i); });
+          li.appendChild(b); candsEl.appendChild(li);
+        });
+        var H = -p.reduce(function (a, x) { return a + (x > 0 ? x * Math.log2(x) : 0); }, 0), Hmax = Math.log2(p.length);
+        var rel = Hmax > 0 ? H / Hmax : 0;
+        entEl.innerHTML = "Rozproszenie rozkładu (entropia): <strong>" + Math.round(rel * 100) + "%</strong> maksimum " +
+          "<span class='muted'>(" + (rel < 0.35 ? "model „jest pewny”" : rel < 0.7 ? "kilku podobnych kandydatów" : "model niemal zgaduje") + ")</span>" +
+          "<div class='meter' aria-hidden='true'><span style='width:" + (rel * 100).toFixed(0) + "%'></span></div>";
+      } else {
+        var li2 = document.createElement("li"); li2.className = "muted small"; li2.textContent = "Zdanie zakończone. Kliknij „Od nowa”, zmień temperaturę i spróbuj ponownie.";
+        candsEl.appendChild(li2); entEl.innerHTML = "";
+      }
+      comEl.className = "comment note" + (lastBad === true ? " warn" : "");
+      comEl.innerHTML = "";
+      if (lastNote) {
+        var head = lastBad === true ? "Halucynacja / błąd: " : lastBad === false ? "Uczciwa odpowiedź: " : done ? "Wynik: " : "";
+        var p1 = document.createElement("p"); if (head) { var st = document.createElement("strong"); st.textContent = head; p1.appendChild(st); }
+        p1.appendChild(document.createTextNode(lastNote)); comEl.appendChild(p1);
+      }
+      [bS, bG, bA].forEach(function (b) { b.disabled = done; });
+    }
+
+    temp.addEventListener("input", function () { tempOut.textContent = T().toFixed(1).replace(".", ","); render(); });
+    bS.addEventListener("click", sample); bG.addEventListener("click", greedy); bA.addEventListener("click", auto); bR.addEventListener("click", reset);
+    document.querySelectorAll("[data-scen]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        cur = b.getAttribute("data-scen");
+        document.querySelectorAll("[data-scen]").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        reset();
+      });
+    });
+    reset();
+  })();
+</script>
+</body>
+</html>
