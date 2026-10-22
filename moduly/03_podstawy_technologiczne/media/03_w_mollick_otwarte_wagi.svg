@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Modele otwarte i zamknięte względem GPT-4</title><desc id="d"> Zamknięte, powyżej GPT-4: 109; Otwarte wagi, powyżej GPT-4: 64; Inny dostęp, powyżej GPT-4: 6; Zamknięte, poniżej GPT-4: 15; Otwarte wagi, poniżej GPT-4: 57; Inny dostęp, poniżej GPT-4: 18</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Modele otwarte i zamknięte względem GPT-4</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#9095ad" text-anchor="start" >Liczba modeli w Epoch Capabilities Index z wynikiem wyższym i niższym niż GPT-4 (marzec 2023)</text>
+<rect x="358.0" y="109.7" width="454.0" height="37.7" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="109.7" width="412.4" height="37.7" fill="#00f0ff"/>
+<text x="346.0" y="134.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Zamknięte, powyżej GPT-4</text>
+<text x="780.4" y="135.3" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >109</text>
+<rect x="358.0" y="174.7" width="454.0" height="37.7" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="174.7" width="242.1" height="37.7" fill="#39ff88"/>
+<text x="346.0" y="199.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Otwarte wagi, powyżej GPT-4</text>
+<text x="610.1" y="200.3" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >64</text>
+<rect x="358.0" y="239.7" width="454.0" height="37.7" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="239.7" width="22.7" height="37.7" fill="#7df9ff"/>
+<text x="346.0" y="264.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Inny dostęp, powyżej GPT-4</text>
+<text x="390.7" y="265.3" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >6</text>
+<rect x="358.0" y="304.6" width="454.0" height="37.7" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="304.6" width="56.8" height="37.7" fill="#ffb347"/>
+<text x="346.0" y="329.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Zamknięte, poniżej GPT-4</text>
+<text x="424.8" y="330.3" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >15</text>
+<rect x="358.0" y="369.6" width="454.0" height="37.7" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="369.6" width="215.7" height="37.7" fill="#ffb347"/>
+<text x="346.0" y="394.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Otwarte wagi, poniżej GPT-4</text>
+<text x="583.6" y="395.3" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >57</text>
+<rect x="358.0" y="434.6" width="454.0" height="37.7" fill="#ffffff" fill-opacity="0.035"/>
+<rect x="358.0" y="434.6" width="68.1" height="37.7" fill="#ffb347"/>
+<text x="346.0" y="459.8" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#c2c6d8" text-anchor="end" >Inny dostęp, poniżej GPT-4</text>
+<text x="436.1" y="460.3" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="20" font-weight="700" fill="#fcee0a" text-anchor="start" >18</text>
+<text x="28.0" y="507.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: Epoch AI, Epoch Capabilities Index, eci_scores.csv (aktualizacja 21 X 2026, CC-BY); za: E. Mollick, One</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Useful Thing (20 X 2026)</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

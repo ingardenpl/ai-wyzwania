@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Cena 1000 pytań GPQA Diamond spadła 725 razy</title><desc id="d"> o3 (high): 299 USD; Gemini 2.5 Pro (czerwiec 2025): 12,9 USD; DeepSeek-V3.2: 8,8 USD; Qwen3.5 397B-A17B: 7,1 USD; Qwen 3.5 Flash (35B-A3B): 2,2 USD; MiniMax-M3: 1,2 USD; GPT-5.6 Luna (low): 0,41 USD</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Cena 1000 pytań GPQA Diamond spadła 725 razy</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#9095ad" text-anchor="start" >Najtańszy model z wynikiem 75% (po korekcie na zgadywanie), kolejne rekordy cenowe 2025–2026</text>
+<line x1="328.0" x2="328.0" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="328.0" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >0,1 USD</text>
+<line x1="449.0" x2="449.0" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="449.0" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >1 USD</text>
+<line x1="570.0" x2="570.0" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="570.0" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >10 USD</text>
+<line x1="691.0" x2="691.0" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="691.0" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >100 USD</text>
+<line x1="812.0" x2="812.0" y1="106" y2="462" stroke="#1a2a36"/>
+<text x="812.0" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >1 tys. USD</text>
+<text x="314.0" y="137.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >o3 (high)</text>
+<text x="314.0" y="154.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >2025 (data wg Epoch: 31.01)</text>
+<circle cx="748.5" cy="137.0" r="9" fill="#ff003c"/>
+<text x="764.5" y="143.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#ff003c" text-anchor="start" >299 USD</text>
+<text x="314.0" y="187.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >Gemini 2.5 Pro (czerwiec 2025)</text>
+<text x="314.0" y="204.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >czerwiec 2025</text>
+<circle cx="583.5" cy="187.0" r="9" fill="#fcee0a"/>
+<text x="599.5" y="193.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#fcee0a" text-anchor="start" >12,9 USD</text>
+<text x="314.0" y="237.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >DeepSeek-V3.2</text>
+<text x="314.0" y="254.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >grudzień 2025</text>
+<circle cx="563.4" cy="237.0" r="9" fill="#fcee0a"/>
+<text x="579.4" y="243.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#fcee0a" text-anchor="start" >8,8 USD</text>
+<text x="314.0" y="287.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >Qwen3.5 397B-A17B</text>
+<text x="314.0" y="304.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >luty 2026</text>
+<circle cx="552.0" cy="287.0" r="9" fill="#fcee0a"/>
+<text x="568.0" y="293.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#fcee0a" text-anchor="start" >7,1 USD</text>
+<text x="314.0" y="337.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >Qwen 3.5 Flash (35B-A3B)</text>
+<text x="314.0" y="354.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >luty 2026</text>
+<circle cx="490.0" cy="337.0" r="9" fill="#fcee0a"/>
+<text x="506.0" y="343.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#fcee0a" text-anchor="start" >2,2 USD</text>
+<text x="314.0" y="387.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >MiniMax-M3</text>
+<text x="314.0" y="404.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >czerwiec 2026</text>
+<circle cx="459.1" cy="387.0" r="9" fill="#fcee0a"/>
+<text x="475.1" y="393.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#fcee0a" text-anchor="start" >1,2 USD</text>
+<text x="314.0" y="437.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#c2c6d8" text-anchor="end" >GPT-5.6 Luna (low)</text>
+<text x="314.0" y="454.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="end" >lipiec 2026</text>
+<circle cx="402.4" cy="437.0" r="9" fill="#00f0ff"/>
+<text x="418.4" y="443.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="17" font-weight="700" fill="#00f0ff" text-anchor="start" >0,41 USD</text>
+<text x="28.0" y="507.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: L. Emberson, D. Roodman (Epoch AI), The plunging price of thought, 22 IX 2026, Figure 2 (dane:</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >github.com/droodman/inference-cost); za: E. Mollick, One Useful Thing (20 X 2026)</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>

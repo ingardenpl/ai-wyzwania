@@ -6,7 +6,7 @@
 <text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Jak szybko podwajała się gospodarka świata?</text>
 <text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Czas podwajania światowej produkcji w kolejnych &quot;trybach&quot; wzrostu wg Hansona (model CES z trzema trybami) i jego hipoteza o następnym trybie; skala logarytmiczna</text>
 <line x1="328.0" x2="328.0" y1="106" y2="462" stroke="#1a2a36"/>
-<text x="328.0" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >0,0</text>
+<text x="328.0" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >0,01</text>
 <line x1="388.5" x2="388.5" y1="106" y2="462" stroke="#1a2a36"/>
 <line x1="449.0" x2="449.0" y1="106" y2="462" stroke="#1a2a36"/>
 <text x="449.0" y="482.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12.5" font-weight="400" fill="#9095ad" text-anchor="middle" >1</text>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="t d">
+<title id="t">Kolejni liderzy rankingu zdolności modeli AI</title><desc id="d"> 14.03.2023: GPT-4 (OpenAI), ECI 125,7; 20.06.2024: Claude 3.5 Sonnet (Anthropic), ECI 130,0; 17.12.2024: o1 (OpenAI), ECI 141,7; 16.04.2025: o3 (OpenAI), ECI 146,7; 07.08.2025: GPT-5 (OpenAI), ECI 150,0; 18.11.2025: Gemini 3 Pro (Google), ECI 153,1; 05.03.2026: GPT-5.4 Pro (OpenAI), ECI 159,6; 22.09.2026: Claude Opus 5.5 (Anthropic), ECI 168,8</desc>
+<path d="M0 0 H942 L960 18 V540 H18 L0 522 Z" fill="#07080f"/>
+<path d="M0 0 H942 L960 18" fill="none" stroke="#fcee0a" stroke-width="3"/>
+<rect x="0" y="0" width="6" height="64" fill="#fcee0a"/>
+<text x="28.0" y="42.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="27" font-weight="700" fill="#e7e9f2" text-anchor="start" >Kolejni liderzy rankingu zdolności modeli AI</text>
+<text x="28.0" y="70.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="16" font-weight="400" fill="#9095ad" text-anchor="start" >Najwyższy wynik w Epoch Capabilities Index (ECI) w danym dniu, od GPT-4 do października 2026</text>
+<line x1="40" x2="920" y1="300" y2="300" stroke="#00f0ff" stroke-width="3"/>
+<line x1="251.1" x2="251.1" y1="292" y2="308" stroke="#9095ad"/>
+<text x="251.1" y="328.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="14" font-weight="400" fill="#9095ad" text-anchor="middle" >2024</text>
+<line x1="489.8" x2="489.8" y1="292" y2="308" stroke="#9095ad"/>
+<text x="489.8" y="328.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="14" font-weight="400" fill="#9095ad" text-anchor="middle" >2025</text>
+<line x1="727.8" x2="727.8" y1="292" y2="308" stroke="#9095ad"/>
+<text x="727.8" y="328.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="14" font-weight="400" fill="#9095ad" text-anchor="middle" >2026</text>
+<line x1="60.0" x2="60.0" y1="300" y2="270.0" stroke="#00f0ff" stroke-opacity="0.6"/>
+<circle cx="60.0" cy="300" r="7" fill="#00f0ff" stroke="#07080f" stroke-width="2"/>
+<text x="60.0" y="254.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15" font-weight="700" fill="#00f0ff" text-anchor="start" >14.03.2023</text>
+<text x="60.0" y="272.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="start" >GPT-4 (OpenAI), ECI</text>
+<text x="60.0" y="288.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="start" >125,7</text>
+<line x1="362.6" x2="362.6" y1="300" y2="338.0" stroke="#ffb347" stroke-opacity="0.6"/>
+<circle cx="362.6" cy="300" r="7" fill="#ffb347" stroke="#07080f" stroke-width="2"/>
+<text x="362.6" y="354.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15" font-weight="700" fill="#ffb347" text-anchor="middle" >20.06.2024</text>
+<text x="362.6" y="372.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >Claude 3.5 Sonnet</text>
+<text x="362.6" y="388.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >(Anthropic), ECI 130,0</text>
+<line x1="480.0" x2="480.0" y1="300" y2="196.0" stroke="#00f0ff" stroke-opacity="0.6"/>
+<circle cx="480.0" cy="300" r="7" fill="#00f0ff" stroke="#07080f" stroke-width="2"/>
+<text x="480.0" y="180.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15" font-weight="700" fill="#00f0ff" text-anchor="middle" >17.12.2024</text>
+<text x="480.0" y="198.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >o1 (OpenAI), ECI 141,7</text>
+<line x1="558.3" x2="558.3" y1="300" y2="412.0" stroke="#00f0ff" stroke-opacity="0.6"/>
+<circle cx="558.3" cy="300" r="7" fill="#00f0ff" stroke="#07080f" stroke-width="2"/>
+<text x="558.3" y="428.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15" font-weight="700" fill="#00f0ff" text-anchor="middle" >16.04.2025</text>
+<text x="558.3" y="446.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >o3 (OpenAI), ECI 146,7</text>
+<line x1="632.0" x2="632.0" y1="300" y2="270.0" stroke="#00f0ff" stroke-opacity="0.6"/>
+<circle cx="632.0" cy="300" r="7" fill="#00f0ff" stroke="#07080f" stroke-width="2"/>
+<text x="632.0" y="254.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15" font-weight="700" fill="#00f0ff" text-anchor="middle" >07.08.2025</text>
+<text x="632.0" y="272.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >GPT-5 (OpenAI), ECI</text>
+<text x="632.0" y="288.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >150,0</text>
+<line x1="699.1" x2="699.1" y1="300" y2="338.0" stroke="#39ff88" stroke-opacity="0.6"/>
+<circle cx="699.1" cy="300" r="7" fill="#39ff88" stroke="#07080f" stroke-width="2"/>
+<text x="699.1" y="354.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15" font-weight="700" fill="#39ff88" text-anchor="middle" >18.11.2025</text>
+<text x="699.1" y="372.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >Gemini 3 Pro (Google),</text>
+<text x="699.1" y="388.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >ECI 153,1</text>
+<line x1="768.9" x2="768.9" y1="300" y2="196.0" stroke="#00f0ff" stroke-opacity="0.6"/>
+<circle cx="768.9" cy="300" r="7" fill="#00f0ff" stroke="#07080f" stroke-width="2"/>
+<text x="768.9" y="180.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15" font-weight="700" fill="#00f0ff" text-anchor="middle" >05.03.2026</text>
+<text x="768.9" y="198.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >GPT-5.4 Pro (OpenAI),</text>
+<text x="768.9" y="214.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >ECI 159,6</text>
+<line x1="900.0" x2="900.0" y1="300" y2="412.0" stroke="#ffb347" stroke-opacity="0.6"/>
+<circle cx="900.0" cy="300" r="7" fill="#ffb347" stroke="#07080f" stroke-width="2"/>
+<text x="900.0" y="428.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="15" font-weight="700" fill="#ffb347" text-anchor="end" >22.09.2026</text>
+<text x="900.0" y="446.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="end" >Claude Opus 5.5</text>
+<text x="900.0" y="462.0" font-family="'IBM Plex Sans','Segoe UI',Arial,sans-serif" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="end" >(Anthropic), ECI 168,8</text>
+<text x="28.0" y="507.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: Epoch AI, Epoch Capabilities Index, eci_scores.csv (aktualizacja 21 X 2026, CC-BY); za: E. Mollick, One</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Useful Thing (20 X 2026)</text>
+<text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
+</svg>
