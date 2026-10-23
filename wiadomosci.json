@@ -1,6 +1,41 @@
 {
- "aktualizacja": "2026-10-22T18:05Z",
+ "aktualizacja": "2026-10-23T06:32Z",
  "wpisy": [
+  {
+   "t": "Huawei pozyskuje 2,3 miliarda dolarów na inwestycje w chipy AI i umacnia niezależność technologiczną",
+   "u": "https://www.computerworld.pl/article/100054117/huawei-pozyskuje-23-miliarda-dolarow-na-inwestycje-w-chipy-ai-i-umacnia-niezaleznosc-technologiczna.html",
+   "z": "Computerworld",
+   "d": "2026-10-23",
+   "j": "pl"
+  },
+  {
+   "t": "Canva’s first AI image model plans designs before generating them",
+   "u": "https://www.theverge.com/ai-artificial-intelligence/1017151/canva-craft-in-house-ai-model",
+   "z": "The Verge",
+   "d": "2026-10-22",
+   "j": "en"
+  },
+  {
+   "t": "Sharp drops for AI stocks overwhelm markets worldwide as oil prices jump",
+   "u": "https://www.theguardian.com/business/2026/oct/22/stock-markets-drop-ai-oil",
+   "z": "The Guardian",
+   "d": "2026-10-22",
+   "j": "en"
+  },
+  {
+   "t": "Designing an AI serving harness built to last",
+   "u": "https://www.technologyreview.com/2026/10/22/1146109/designing-an-ai-serving-harness-built-to-last/",
+   "z": "MIT Technology Review",
+   "d": "2026-10-22",
+   "j": "en"
+  },
+  {
+   "t": "Meta’s AI could still scrape news sites, legal experts say",
+   "u": "https://www.theverge.com/tech/1017082/meta-terms-update-ai-training-concerns",
+   "z": "The Verge",
+   "d": "2026-10-22",
+   "j": "en"
+  },
   {
    "t": "Microsoft says its AI tool is better than doctors at diagnosing conditions",
    "u": "https://www.theverge.com/ai-artificial-intelligence/1016690/suleyman-microsoft-diagnostic-orchestrator-science-medical-superintelligence",
@@ -9,9 +44,9 @@
    "j": "en"
   },
   {
-   "t": "OpenAI, Anthropic, and Nvidia had record lobbying quarters",
-   "u": "https://www.theverge.com/policy/1016585/openai-anthropic-nvidia-lobbying-records",
-   "z": "The Verge",
+   "t": "The Foundations of Scalable AI",
+   "u": "https://www.technologyreview.com/2026/10/22/1146103/the-foundations-of-scalable-ai/",
+   "z": "MIT Technology Review",
    "d": "2026-10-22",
    "j": "en"
   },
@@ -25,13 +60,6 @@
   {
    "t": "Someone hacked the Switch 2 by using an old game and AI",
    "u": "https://www.theverge.com/games/1016862/nintendo-switch-2-jailbreak-ai",
-   "z": "The Verge",
-   "d": "2026-10-22",
-   "j": "en"
-  },
-  {
-   "t": "Wildwood’s director says AI is ‘antithetical to everything that we are at this studio’",
-   "u": "https://www.theverge.com/entertainment/1016647/wildwood-travis-knight-interview-ai-laika-stop-motion",
    "z": "The Verge",
    "d": "2026-10-22",
    "j": "en"
@@ -77,13 +105,6 @@
    "z": "Computerworld",
    "d": "2026-10-22",
    "j": "pl"
-  },
-  {
-   "t": "AI firms say UK has a year to head off datacentre protests before construction is threatened",
-   "u": "https://www.theguardian.com/uk-news/2026/oct/22/ai-firms-say-uk-has-a-year-to-head-off-datacentre-protests-before-construction-is-threatened",
-   "z": "The Guardian",
-   "d": "2026-10-22",
-   "j": "en"
   },
   {
    "t": "Can maths survive AI? Fields medallist Terence Tao calls for a ‘Maths 2.0’ world",
@@ -135,15 +156,15 @@
    "j": "pl"
   },
   {
-   "t": "Google Cloud otwiera platformę na modele OpenAI",
-   "u": "https://www.computerworld.pl/article/100054058/google-cloud-otwiera-platforme-na-modele-openai.html",
-   "z": "Computerworld",
+   "t": "Amid AI Boom, “Risk Is Spreading Throughout the Economy”: Astra Taylor & Naomi Klein",
+   "u": "https://ainowinstitute.org/news/amid-ai-boom-risk-is-spreading-throughout-the-economy-astra-taylor-naomi-klein",
+   "z": "AI Now Institute",
    "d": "2026-10-21",
-   "j": "pl"
+   "j": "en"
   },
   {
-   "t": "AI na Księżycu. HPE szykuje komputer do przetwarzania danych poza Ziemią",
-   "u": "https://www.computerworld.pl/article/100054039/ai-na-ksiezycu-hpe-szykuje-komputer-do-przetwarzania-danych-poza-ziemia.html",
+   "t": "Google Cloud otwiera platformę na modele OpenAI",
+   "u": "https://www.computerworld.pl/article/100054058/google-cloud-otwiera-platforme-na-modele-openai.html",
    "z": "Computerworld",
    "d": "2026-10-21",
    "j": "pl"
@@ -184,31 +205,10 @@
    "j": "en"
   },
   {
-   "t": "The new economics of enterprise AI",
-   "u": "https://www.technologyreview.com/2026/10/20/1146937/the-new-economics-of-enterprise-ai/",
-   "z": "MIT Technology Review",
-   "d": "2026-10-20",
-   "j": "en"
-  },
-  {
-   "t": "AI adoption by industry shows what other sectors can learn",
-   "u": "https://www.technologyreview.com/2026/10/20/1145423/ai-adoption-by-industry-shows-what-other-sectors-can-learn/",
-   "z": "MIT Technology Review",
-   "d": "2026-10-20",
-   "j": "en"
-  },
-  {
-   "t": "First harmonised standard supporting the AI Act published in the Official Journal",
-   "u": "https://digital-strategy.ec.europa.eu/en/library/first-harmonised-standard-supporting-ai-act-published-official-journal",
-   "z": "Komisja Europejska",
-   "d": "2026-10-19",
-   "j": "en"
-  },
-  {
-   "t": "The $5 Trillion AI Bet You’re Already Paying For",
-   "u": "https://ainowinstitute.org/news/the-5-trillion-ai-bet-youre-already-paying-for",
+   "t": "Mamdani says feds have abdicated on AI, urges New Yorkers to push back",
+   "u": "https://ainowinstitute.org/news/press/mamdani-says-feds-have-abdicated-on-ai-urges-new-yorkers-to-push-back",
    "z": "AI Now Institute",
-   "d": "2026-10-15",
+   "d": "2026-10-19",
    "j": "en"
   }
  ],

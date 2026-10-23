@@ -1,5 +1,7 @@
 # Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne
 
+![NEO-LUBLIN 2049](assets/baner.svg)
+
 Strona wykładu monograficznego na Wydziale Prawa i Administracji UMCS (semestr zimowy 2026/2027),
 w formie miasta NEO-LUBLIN 2049: dzielnice-tematy, Wiedza, slajdy, fiszki, quizy samosprawdzające,
 biblioteka i materiały interaktywne. Działa na komputerze i telefonie, także bez sieci.
