@@ -1,6 +1,13 @@
 {
- "aktualizacja": "2026-10-23T06:44Z",
+ "aktualizacja": "2026-10-23T07:33Z",
  "wpisy": [
+  {
+   "t": "Can AI really predict cancer survival better than a doctor? I have my doubts | Devi Sridhar",
+   "u": "https://www.theguardian.com/commentisfree/2026/oct/23/ai-cancer-survival-doctor-selfie-health-research",
+   "z": "The Guardian",
+   "d": "2026-10-23",
+   "j": "en"
+  },
   {
    "t": "Huawei pozyskuje 2,3 miliarda dolarów na inwestycje w chipy AI i umacnia niezależność technologiczną",
    "u": "https://www.computerworld.pl/article/100054117/huawei-pozyskuje-23-miliarda-dolarow-na-inwestycje-w-chipy-ai-i-umacnia-niezaleznosc-technologiczna.html",
@@ -67,13 +74,6 @@
   {
    "t": "Barclays to cut 5,000 jobs as bank’s bosses hail AI productivity advances",
    "u": "https://www.theguardian.com/business/2026/oct/22/barclays-profits-up-as-uk-banks-brace-for-tax-increase-in-budget",
-   "z": "The Guardian",
-   "d": "2026-10-22",
-   "j": "en"
-  },
-  {
-   "t": "‘The tech bro fight club is real!’ The titans of AI get the Succession treatment in a wild new TV show",
-   "u": "https://www.theguardian.com/tv-and-radio/2026/oct/22/the-audacity-hbo-max-billionaires-succession-treatment",
    "z": "The Guardian",
    "d": "2026-10-22",
    "j": "en"
@@ -170,13 +170,6 @@
    "j": "pl"
   },
   {
-   "t": "Skarga na system AI a kontrola sądowa i prawa skarżącego. Cz. V",
-   "u": "https://legalis.pl/skarga-na-system-ai-a-kontrola-sadowa-i-prawa-skarzacego-cz-v/",
-   "z": "Legalis",
-   "d": "2026-10-21",
-   "j": "pl"
-  },
-  {
    "t": "An AI tool improves weather forecasts up to a month ahead",
    "u": "https://www.nature.com/articles/d41586-026-03077-0",
    "z": "Nature",
@@ -207,6 +200,13 @@
   {
    "t": "Mamdani says feds have abdicated on AI, urges New Yorkers to push back",
    "u": "https://ainowinstitute.org/news/press/mamdani-says-feds-have-abdicated-on-ai-urges-new-yorkers-to-push-back",
+   "z": "AI Now Institute",
+   "d": "2026-10-19",
+   "j": "en"
+  },
+  {
+   "t": "New York City Mayor Mamdani on Artificial Intelligence and Tech Innovation",
+   "u": "https://ainowinstitute.org/news/new-york-city-mayor-mamdani-on-artificial-intelligence-and-tech-innovation",
    "z": "AI Now Institute",
    "d": "2026-10-19",
    "j": "en"

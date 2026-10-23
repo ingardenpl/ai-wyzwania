@@ -545,3 +545,37 @@ html.ex-full-on .radio, html.zoom-on .radio { display: none; }
 /* radio przyklejone do dołu: miejsce na końcu strony; zablokowane radio na telefonie jako sam znacznik */
 body:has(.radio) { padding-bottom: 64px; }
 @media (max-width: 600px) { .radio.zamk .radio-b { display: none; } .radio.zamk .radio-n { max-width: 14em; } }
+
+/* prawo Hicka: jeden następny krok na mapie, ścieżka 1-2-3 w dzielnicy, reszta pod „Więcej” */
+.co-dalej { margin-top: 12px; border: 1px solid var(--line); border-left: 4px solid var(--navy); background: linear-gradient(90deg, rgba(0, 240, 255, 0.08), transparent); padding: 12px 14px; display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; align-items: center; }
+.co-dalej .eyebrow { grid-column: 1 / -1; margin: 0; color: var(--navy); }
+.co-dalej p:not(.eyebrow) { margin: 0; }
+.co-dalej .btn { justify-self: end; }
+@media (max-width: 760px) { .co-dalej { grid-template-columns: 1fr; } .co-dalej .btn { justify-self: stretch; text-align: center; } }
+.sciezka { list-style: none; padding: 0; margin: 16px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; counter-reset: none; }
+.sciezka a { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; gap: 0 10px; align-items: center; min-height: 44px; padding: 10px 12px; border: 1px solid var(--line-soft); background: var(--surface); text-decoration: none; color: var(--ink); }
+.sciezka a:hover, .sciezka a:focus-visible { border-color: var(--navy); }
+.sciezka b { grid-row: 1 / 3; display: grid; place-items: center; width: 2em; height: 2em; border: 1px solid var(--navy); color: var(--navy); font-family: var(--mono); }
+.sciezka span { font-weight: 600; }
+.sciezka small { color: var(--muted); font-size: 0.82rem; }
+.sciezka li.zrobione b { background: var(--ok); border-color: var(--ok); color: #000; }
+details.wiecej { margin: 12px 0 0; }
+details.wiecej > summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font-family: var(--mono); font-size: 0.88rem; color: var(--ink-soft); }
+details.wiecej > summary:hover { color: var(--navy); }
+details.wiecej > summary { list-style: none; }
+details.wiecej > summary::-webkit-details-marker { display: none; }
+details.wiecej > summary::before { content: "▸"; margin-right: 8px; color: var(--navy); }
+details.wiecej[open] > summary::before { content: "▾"; }
+details.wiecej .toc { margin-top: 4px; }
+
+/* przewodnik dla nowych osób */
+.przew-tlo { position: fixed; inset: 0; background: rgba(4, 5, 12, 0.55); z-index: 9990; }
+.przew-ramka { position: absolute; z-index: 9991; border: 2px solid var(--gold); box-shadow: 0 0 0 9999px rgba(4, 5, 12, 0.55), 0 0 18px rgba(249, 240, 2, 0.45); pointer-events: none; }
+.przew-tlo.z-ramka { background: transparent; }
+.przew { position: fixed; z-index: 9992; left: 50%; bottom: 16px; transform: translateX(-50%); width: min(30rem, calc(100vw - 32px)); background: #0b0d17; color: var(--ink); border: 1px solid var(--navy); box-shadow: 0 0 22px rgba(0, 240, 255, 0.3); padding: 16px 18px; }
+.przew h2 { margin: 0 0 6px; font-size: 1.2rem; }
+.przew p { margin: 0 0 10px; }
+.przew .krok { font-family: var(--mono); font-size: 0.78rem; color: var(--navy); letter-spacing: 0.08em; margin: 0 0 4px; }
+.przew .btn-row { margin: 0; justify-content: flex-end; }
+.przew .btn-row .pomin { margin-right: auto; }
+@media print { .przew, .przew-tlo, .przew-ramka, .co-dalej { display: none !important; } }

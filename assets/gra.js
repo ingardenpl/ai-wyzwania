@@ -214,7 +214,53 @@
     d.appendChild(b);
     hud.parentNode.insertBefore(d, hud.nextSibling);
   }
-  document.addEventListener("DOMContentLoaded", function () { zamknijStrone(); listaIKarta(); });
+  // mapa: jeden następny krok zamiast wyboru spośród wszystkich dzielnic (prawo Hicka)
+  function coDalej() {
+    var hud = document.querySelector(".hud");
+    if (!hud || document.querySelector(".co-dalej")) return;
+    var info = dane().info || {}, s = stan(), box = el("div", "co-dalej"), cel = null, opis = "", przycisk = "";
+    box.setAttribute("role", "region"); box.setAttribute("aria-label", "Co dalej");
+    var otwarta = NR.filter(function (n) { return info[n] && odblokowany(n).ok && !(s.quizy[n] >= PROG_QUIZ); })[0];
+    var zamk = NR.filter(function (n) { return info[n] && !odblokowany(n).ok; })[0];
+    if (otwarta) {
+      var i = info[otwarta];
+      cel = "moduly/" + i.slug + "/index.html";
+      opis = "Dzielnica " + otwarta + " · " + i.nazwa + (i.miejsce ? ": " + i.miejsce : "") + ". Przeczytaj Wiedzę, przejrzyj slajdy i zalicz quiz (co najmniej 60%).";
+      przycisk = "Idź do dzielnicy " + otwarta;
+    } else if (zamk) {
+      var r = odblokowany(zamk), j = info[zamk];
+      cel = "fiszki.html";
+      opis = "Wszystkie otwarte dzielnice zaliczone. Dzielnica " + zamk + " (" + j.nazwa + ") otworzy się " +
+        (r.termin && r.termin.t ? r.termin.t.split(" · ")[0] : "w dniu wykładu") + ". Do tego czasu możesz powtórzyć materiał w fiszkach.";
+      przycisk = "Powtórka w fiszkach";
+    } else {
+      cel = "zaliczenie.html";
+      opis = "Wszystkie dzielnice zaliczone. Zostało zaliczenie przedmiotu: test, projekt albo własna propozycja.";
+      przycisk = "Zasady zaliczenia";
+    }
+    box.appendChild(el("p", "eyebrow", "Co dalej?"));
+    box.appendChild(el("p", null, opis));
+    var a = el("a", "btn", przycisk); a.href = cel; box.appendChild(a);
+    hud.parentNode.insertBefore(box, hud);
+  }
+
+  // strona dzielnicy: ścieżka 1-2-3; na telefonie slajdy w wersji do czytania, przy quizie znacznik zaliczenia
+  function sciezka() {
+    var ol = document.querySelector("ol.sciezka");
+    if (!ol) return;
+    var tel = ol.querySelector("a[data-tel]");
+    if (tel && window.matchMedia("(max-width: 760px)").matches && document.querySelector('a[href="' + tel.getAttribute("data-tel") + '"]')) {
+      tel.href = tel.getAttribute("data-tel"); tel.removeAttribute("target");
+    }
+    var qz = ol.querySelector("a[data-quiz]");
+    if (qz && stan().quizy[qz.getAttribute("data-quiz")] >= PROG_QUIZ) {
+      qz.parentNode.classList.add("zrobione");
+      qz.querySelector("b").textContent = "✓";
+      qz.querySelector("small").textContent = "zaliczony (" + Math.round(stan().quizy[qz.getAttribute("data-quiz")] * 100) + "%)";
+    }
+  }
+  document.addEventListener("DOMContentLoaded", function () { zamknijStrone(); listaIKarta(); coDalej(); sciezka(); });
+  document.addEventListener("neo:postep", sciezka);
 
   document.addEventListener("DOMContentLoaded", function () {
     var src = document.getElementById("city-data");
