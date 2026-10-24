@@ -260,9 +260,9 @@
   <h2>2. Wybór następnego tokenu</h2>
   <p>Wybierz przykład i generuj tekst krok po kroku. Każdy przycisk na liście to kandydat na następny token z jego prawdopodobieństwem. Możesz kliknąć kandydata albo pozwolić modelowi losować.</p>
   <div class="scen" role="group" aria-label="Przykład">
-    <button type="button" class="chipbtn" data-scen="fakt" aria-pressed="true">Fakt</button>
-    <button type="button" class="chipbtn" data-scen="przepis" aria-pressed="false">Przepis</button>
-    <button type="button" class="chipbtn" data-scen="sygnatura" aria-pressed="false">Sygnatura (halucynacja)</button>
+    <button type="button" class="chipbtn" id="fakt" data-scen="fakt" aria-pressed="true">Fakt</button>
+    <button type="button" class="chipbtn" id="przepis" data-scen="przepis" aria-pressed="false">Przepis</button>
+    <button type="button" class="chipbtn" id="sygnatura" data-scen="sygnatura" aria-pressed="false">Sygnatura (halucynacja)</button>
   </div>
 
   <div class="grid2">
@@ -292,7 +292,7 @@
   <h2>3. Co z tego wynika dla prawnika</h2>
   <ol class="steps">
     <li><strong>Płynność to nie prawda.</strong> Model wybiera to, co w danym miejscu tekstu jest prawdopodobne. Fakt częsty w danych (stolica Polski) wychodzi poprawnie. Szczegół rzadki (sygnatura nieistniejącego wyroku) wychodzi równie płynnie, ale jest zmyślony.</li>
-    <li><strong>Temperatura nie wyłącza halucynacji.</strong> Przy temperaturze 0,1 model zawsze bierze najbardziej prawdopodobny token. W przykładzie „Sygnatura” też powstaje wtedy kompletna, zmyślona sygnatura, bo uczciwe „nie znam takiego wyroku” jest najmniej prawdopodobną kontynuacją.</li>
+    <li><strong>Temperatura nie wyłącza halucynacji.</strong> Przy temperaturze 0,1 model niemal zawsze bierze najbardziej prawdopodobny token, a gdy kilku kandydatów ma równe szanse, losuje między nimi. W przykładzie „Sygnatura” także wtedy powstaje kompletna, zmyślona sygnatura, bo uczciwe „nie znam takiego wyroku” jest najmniej prawdopodobną kontynuacją.</li>
     <li><strong>Niepewność jest niewidoczna.</strong> Pasek „rozproszenia” pokazuje, że przy sygnaturze model niemal zgaduje. Użytkownik czatu tego nie widzi: dostaje gotowe zdanie wypowiedziane tym samym pewnym tonem.</li>
     <li><strong>Weryfikacja należy do człowieka.</strong> Pełnomocnicy w sprawie <em>Mata v. Avianca</em> (S.D.N.Y. 2023) zostali ukarani za pismo z orzeczeniami wymyślonymi przez ChatGPT. Każdą sygnaturę, cytat i przepis z modelu sprawdzaj w źródle.</li>
   </ol>
@@ -571,7 +571,10 @@
         reset();
       });
     });
-    reset();
+    /* Odnośnik z kotwicą (#fakt, #przepis, #sygnatura) otwiera od razu wybrany przykład, np. ze slajdu. */
+    var h = (location.hash || "").slice(1);
+    if (SCEN[h]) { var hb = document.querySelector("[data-scen='" + h + "']"); if (hb) { hb.click(); setTimeout(function () { var t = document.querySelector(".scen"); if (t) t.scrollIntoView(); }, 50); } }
+    else reset();
   })();
 </script>
 </body>

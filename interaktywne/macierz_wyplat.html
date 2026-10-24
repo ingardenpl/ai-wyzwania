@@ -225,7 +225,7 @@
 <main id="main" class="wrap">
   <div class="presets" role="group" aria-label="Wybór gry">
     <button type="button" class="chipbtn" data-preset="ai" aria-pressed="true">Przejrzystość algorytmiczna (referat)</button>
-    <button type="button" class="chipbtn" data-preset="pd" aria-pressed="false">Dylemat więźnia</button>
+    <button type="button" class="chipbtn" id="pd" data-preset="pd" aria-pressed="false">Dylemat więźnia</button>
     <button type="button" class="btn ghost" id="restore">Przywróć wartości</button>
   </div>
 
@@ -501,7 +501,8 @@
 
     document.querySelectorAll("[data-preset]").forEach(function (b) { b.addEventListener("click", function () { load(b.getAttribute("data-preset")); }); });
     $("restore").addEventListener("click", function () { load(cur); });
-    load("ai"); compareTable();
+    /* Odnośnik z kotwicą #pd otwiera od razu dylemat więźnia. */
+    load(location.hash === "#pd" ? "pd" : "ai"); compareTable();
   })();
 </script>
 </body>

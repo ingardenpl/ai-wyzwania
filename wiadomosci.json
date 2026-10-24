@@ -1,5 +1,5 @@
 {
- "aktualizacja": "2026-10-24T19:34Z",
+ "aktualizacja": "2026-10-24T20:06Z",
  "wpisy": [
   {
    "t": "‘Synthetic twin’: Why Socceroo Cristian Volpato is the latest footballer to license his AI clone",
@@ -191,6 +191,13 @@
    "j": "en"
   },
   {
+   "t": "30 Months on the Exponential (in Charts)",
+   "u": "https://www.oneusefulthing.org/p/30-months-on-the-exponential-in-charts",
+   "z": "One Useful Thing",
+   "d": "2026-10-20",
+   "j": "en"
+  },
+  {
    "t": "Mamdani says feds have abdicated on AI, urges New Yorkers to push back",
    "u": "https://ainowinstitute.org/news/press/mamdani-says-feds-have-abdicated-on-ai-urges-new-yorkers-to-push-back",
    "z": "AI Now Institute",
@@ -203,16 +210,7 @@
    "z": "AI Now Institute",
    "d": "2026-10-19",
    "j": "en"
-  },
-  {
-   "t": "First harmonised standard supporting the AI Act published in the Official Journal",
-   "u": "https://digital-strategy.ec.europa.eu/en/library/first-harmonised-standard-supporting-ai-act-published-official-journal",
-   "z": "Komisja Europejska",
-   "d": "2026-10-19",
-   "j": "en"
   }
  ],
- "bledy": [
-  "One Useful Thing: ConnectionResetError"
- ]
+ "bledy": []
 }
