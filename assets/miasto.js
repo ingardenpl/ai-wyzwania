@@ -586,9 +586,11 @@
     // ekrany dotykowe (telefony, tablety): ok. 15 klatek na sekundę zamiast 30, mniej pracy dla baterii
     var MINDT = (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) ? 66 : 33;
 
+    var rafId = 0;
+    function plan() { if (!rafId && !reduce) rafId = requestAnimationFrame(function (t) { rafId = 0; frame(t); }); }   // jedna pętla, bez dublowania po powrocie do karty
     function frame(now) {
       if (!running) return;
-      if (!reduce) requestAnimationFrame(frame);
+      plan();
       if (now && now - last < MINDT) return;
       last = now || 0; t++;
       if (mode === "siec") { netFrame(); blit(); return; }
@@ -758,14 +760,13 @@
       out.drawImage(buf, view.x, view.y, view.w, view.h, 0, 0, view.w, view.h);
     }
     frame(0);
-    if (!reduce) requestAnimationFrame(frame);
 
     // zatrzymanie, gdy karta jest w tle (oszczędność baterii)
     // oraz gdy mapa jest przewinięta poza ekran
     var tabHidden = false, offscreen = false;
     function setRunning() {
       if (tabHidden || offscreen) running = false;
-      else if (!running) { running = true; if (!reduce) requestAnimationFrame(frame); }
+      else if (!running) { running = true; plan(); }
     }
     document.addEventListener("visibilitychange", function () { tabHidden = document.hidden; setRunning(); });
     if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { offscreen = !es[0].isIntersecting; setRunning(); }).observe(canvas);

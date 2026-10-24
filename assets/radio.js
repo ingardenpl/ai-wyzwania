@@ -111,6 +111,7 @@
   }
   function planuj() {
     var S = STACJE[stacja], szesn = 60 / S.bpm / 4;
+    if (nastepny < ctx.currentTime - 0.05) nastepny = ctx.currentTime + 0.05;   // po uśpieniu karty: bez stosu nut z przeszłości
     while (nastepny < ctx.currentTime + 0.12) { zagraj(nastepny); nastepny += szesn; krok++; }
   }
   function wlacz() {

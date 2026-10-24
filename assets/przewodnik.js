@@ -6,7 +6,7 @@
 (function () {
   "use strict";
   var KLUCZ = "neo-przewodnik";
-  var mapa = document.querySelector(".city-map");
+  var mapa = document.getElementById("city-main") && document.getElementById("city-main").closest(".city-map");
   var spokojnie = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function widziany() { try { return localStorage.getItem(KLUCZ) === "1"; } catch (e) { return true; } }

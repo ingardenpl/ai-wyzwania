@@ -1,6 +1,13 @@
 {
- "aktualizacja": "2026-10-24T17:53Z",
+ "aktualizacja": "2026-10-24T18:53Z",
  "wpisy": [
+  {
+   "t": "Pennsylvania will require labels on AI-generated ads",
+   "u": "https://www.theverge.com/ai-artificial-intelligence/1018187/pennsylvania-ai-deceptive-advertising-act",
+   "z": "The Verge",
+   "d": "2026-10-24",
+   "j": "en"
+  },
   {
    "t": "Google Play otwiera się na prywatne aplikacje tworzone przez AI – czy czeka nas zalew niskiej jakości oprogramowania?",
    "u": "https://www.computerworld.pl/article/100054135/google-play-otwiera-sie-na-prywatne-aplikacje-tworzone-przez-ai-czy-czeka-nas-zalew-niskiej-jakosci-oprogramowania.html",
@@ -60,13 +67,6 @@
   {
    "t": "Meta delays new business terms after publisher pushback on AI scraping",
    "u": "https://www.theverge.com/tech/1017450/meta-business-terms-delayed-ai-scraping",
-   "z": "The Verge",
-   "d": "2026-10-23",
-   "j": "en"
-  },
-  {
-   "t": "Retro gaming is being overrun with AI",
-   "u": "https://www.theverge.com/ai-artificial-intelligence/1015430/ai-retro-games-decomp-recomp-port",
    "z": "The Verge",
    "d": "2026-10-23",
    "j": "en"

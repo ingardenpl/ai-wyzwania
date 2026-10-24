@@ -108,6 +108,9 @@ def main(cel: str) -> int:
         w.pop("_s")
         wynik.append(w)
     wynik = wynik[:RAZEM]
+    if len(wynik) < 5 or len(bledy) > len(KANALY) // 2:   # awaria sieci albo kanałów: zostaje poprzedni plik, workflow zgłosi błąd
+        print(f"Za mało wiadomości ({len(wynik)}), niedziałające kanały: {bledy}; plik {cel} bez zmian.")
+        return 1
     dane = {"aktualizacja": teraz.strftime("%Y-%m-%dT%H:%MZ"), "wpisy": wynik, "bledy": bledy}
     with open(cel, "w", encoding="utf-8", newline="\n") as f:
         json.dump(dane, f, ensure_ascii=False, indent=1)

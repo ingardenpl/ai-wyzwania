@@ -111,6 +111,8 @@
     var me = { x: 8, y: 20 * T + 6, dir: "right", step: 0 };
     var keys = {}, target = null, on = false, here = null, openCard = null;
     var found = readJSON(KEY_JAJKA, []);
+    if (!Array.isArray(found)) found = [];
+    found = found.filter(function (id) { return JAJKA.some(function (j) { return j.id === id; }); });   // tylko wiadomości, które nadal istnieją
 
     function updateNotes() {
       notesSum.textContent = "Wiadomości z sieci: znalezione " + found.length + " z " + JAJKA.length;
@@ -285,7 +287,7 @@
       return a && (a.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName));
     }
     document.addEventListener("keydown", function (e) {
-      if (!on || typing(e) || e.ctrlKey || e.metaKey || e.altKey) return;
+      if (!on || typing(e) || e.ctrlKey || e.metaKey || e.altKey || document.querySelector(".przew")) return;   // przewodnik ma pierwszeństwo
       if (e.key === "Escape") { if (openCard) closeCard(); else if (full) setFull(false); else stop(); e.preventDefault(); return; }
       // E działa zawsze w trybie eksploracji; Enter i spacja tylko na samej mapie,
       // żeby nie przejmować przycisków, linków i rozwijanych list (dostępność klawiatury)

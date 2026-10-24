@@ -15,7 +15,10 @@
 
   function czytaj(k, def) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : def; } catch (e) { return def; } }
   function pisz(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
-  function q(name) { var m = new RegExp("[?&]" + name + "=([^&#]*)").exec(location.search); return m ? decodeURIComponent(m[1]) : null; }
+  function q(name) {
+    var m = new RegExp("[?&]" + name + "=([^&#]*)").exec(location.search);
+    try { return m ? decodeURIComponent(m[1]) : null; } catch (e) { return null; }   // ucięty link (np. „%”) nie wyłącza gry
+  }
 
   // podgląd prowadzącego: ?podglad=prowadzacy włącza go na stałe w tej przeglądarce, ?podglad=wylacz wyłącza
   (function () {
@@ -76,10 +79,12 @@
   // ------------------------------------------------------------------ zapis postępu
   function stan() {
     var s = czytaj(KLUCZ, null);
-    if (!s || s.v !== WERSJA) {
+    if (!s || typeof s !== "object" || s.v !== WERSJA) {
+      var nowszy = s && typeof s === "object" && s.v > WERSJA;   // zapis z nowszej wersji skryptu: nie nadpisujemy go
       s = { v: WERSJA, quizy: {}, miejsca: {}, zadania: {}, znaleziska: {}, ratusz: {} };
-      czytaj("neo-zaliczone", []).forEach(function (n) { if (/^\d\d$/.test(n)) s.quizy[n] = PROG_QUIZ; });
-      pisz(KLUCZ, s);
+      var stare = czytaj("neo-zaliczone", []);
+      (Array.isArray(stare) ? stare : []).forEach(function (n) { if (/^\d\d$/.test(n)) s.quizy[n] = PROG_QUIZ; });
+      if (!nowszy) pisz(KLUCZ, s);
     }
     ["quizy", "miejsca", "zadania", "znaleziska", "ratusz"].forEach(function (k) { if (!s[k] || typeof s[k] !== "object") s[k] = {}; });
     return s;
@@ -155,8 +160,8 @@
 
   function zamknijStrone() {
     if (!NR_STRONY) return;
-    var html = document.documentElement, r = odblokowany(NR_STRONY);
-    html.classList.remove("blokada-sprawdz");
+    var html = document.documentElement, r;
+    try { r = odblokowany(NR_STRONY); } finally { html.classList.remove("blokada-sprawdz"); }   // po błędzie strona ma być widoczna
     if (r.ok) return;
     var info = dane().info || {}, ja = info[NR_STRONY] || {}, main = document.getElementById("tresc");
     if (!main) html.classList.add("bez-main");
@@ -225,7 +230,7 @@
     if (otwarta) {
       var i = info[otwarta];
       cel = "moduly/" + i.slug + "/index.html";
-      opis = "Dzielnica " + otwarta + " · " + i.nazwa + (i.miejsce ? ": " + i.miejsce : "") + ". Przeczytaj Wiedzę, przejrzyj slajdy i zalicz quiz (co najmniej 60%).";
+      opis = "Dzielnica " + otwarta + " · " + i.nazwa + (i.miejsce ? ": " + i.miejsce : "") + ". Przeczytaj treść zajęć, przejrzyj slajdy i zalicz quiz (co najmniej 60%).";
       przycisk = "Idź do dzielnicy " + otwarta;
     } else if (zamk) {
       var r = odblokowany(zamk), j = info[zamk];

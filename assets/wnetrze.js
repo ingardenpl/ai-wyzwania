@@ -140,9 +140,9 @@
       var back = el("div", "wn-back"); back.innerHTML = k.b; back.hidden = true; w.appendChild(back);
       var row = el("p", "wn-btns");
       var pok = el("button", "ex-card-x", "Pokaż odpowiedź"); pok.type = "button";
-      pok.addEventListener("click", function () { back.hidden = false; widziane[i] = true; pok.disabled = true; if (Object.keys(widziane).length >= karty.length) { zaliczMiejsce(m); kon.hidden = false; } });
+      pok.addEventListener("click", function () { back.hidden = false; widziane[i] = true; pok.disabled = true; dal.focus(); if (Object.keys(widziane).length >= karty.length) { zaliczMiejsce(m); kon.hidden = false; } });
       var dal = el("button", "ex-card-x", i + 1 < karty.length ? "Następna →" : "Od początku"); dal.type = "button";
-      dal.addEventListener("click", function () { i = (i + 1) % karty.length; rysuj(); });
+      dal.addEventListener("click", function () { i = (i + 1) % karty.length; rysuj(); var b = w.querySelector("button:not([disabled])"); if (b) b.focus(); });
       row.appendChild(pok); row.appendChild(document.createTextNode(" ")); row.appendChild(dal); w.appendChild(row);
       var kon = el("p", "wn-ok", "Terminal przejrzany ✓"); kon.hidden = Object.keys(widziane).length < karty.length && odwiedzone().indexOf(m.id) < 0; w.appendChild(kon);
       var p = el("p"); p.appendChild(link("../../fiszki.html?temat=" + NR, "Wszystkie fiszki tej dzielnicy")); w.appendChild(p);
@@ -218,7 +218,7 @@
     wysiadzBtn = el("button", "ex-btn wn-wysiadz", "WYSIĄDŹ"); wysiadzBtn.type = "button"; wysiadzBtn.hidden = true;
     fullBtn = el("button", "ex-btn wn-full-btn", "PEŁNY EKRAN"); fullBtn.type = "button"; fullBtn.setAttribute("aria-pressed", "false");
     bar.appendChild(wysiadzBtn); bar.appendChild(fullBtn); root.appendChild(bar);
-    mapBox = el("div", "sm-map wn-map"); mapBox.tabIndex = 0;
+    mapBox = el("div", "sm-map wn-map"); mapBox.tabIndex = 0; mapBox.setAttribute("role", "application");
     mapBox.setAttribute("aria-label", "Mapa dzielnicy " + D.nazwa + ". Strzałki lub WASD: ruch, Shift: bieg, E lub Enter: zbadaj miejsce, wsiądź lub wysiądź z pojazdu. Lista miejsc jest też pod mapą.");
     var scena = el("div", "wn-scena"); mapBox.appendChild(scena);
     cv = el("canvas"); cv.setAttribute("aria-hidden", "true"); scena.appendChild(cv);
@@ -437,11 +437,12 @@
     function wysiadz() {
       var p = me.w; if (!p) return;
       var t = POJ[p.typ], ca = Math.cos(p.a), sa = Math.sin(p.a), boki = t.sz * TS / 2 + 3, przod = t.dl * TS / 2 + 3;
-      var opcje = [[0, boki], [0, -boki], [przod, 0], [-przod, 0], [0, boki + TS], [0, -boki - TS]];
+      var opcje = [[0, boki], [0, -boki], [przod, 0], [-przod, 0], [0, boki + TS], [0, -boki - TS], [przod + TS, 0], [-przod - TS, 0]];
       for (var i = 0; i < opcje.length; i++) {
         var x = p.x + opcje[i][0] * ca - opcje[i][1] * sa, y = p.y + opcje[i][0] * sa + opcje[i][1] * ca;
         if (walk(x, y)) { me.x = x; me.y = y; p.v = 0; me.w = null; wysiadzBtn.hidden = true; wPojezdzie = ""; odswiezHud(true); aktualizujPrompt(); kick(); return; }
       }
+      prT.textContent = "BRAK MIEJSCA DO WYSIADANIA · PODJEDŹ DALEJ"; pr.hidden = false;
     }
     function act() {
       var m = najblizsze();
@@ -502,13 +503,20 @@
       if (gaz < 0 && p.v > 0) p.v *= Math.pow(0.9, f);   // hamowanie
       p.v = Math.max(-vmax * 0.4, Math.min(vmax, p.v));
       if (Math.abs(p.v) < 0.02 && !gaz) p.v = 0;
+      var a0 = p.a;
       p.a += skret * t.skret * f * Math.max(-1, Math.min(1, p.v / (0.8 * SK)));
-      if (!p.v) return false;
+      if (!p.v) { if (!pojazdWolny(p, p.x, p.y, p.a)) p.a = a0; return false; }
       var nx = p.x + Math.cos(p.a) * p.v * f, ny = p.y + Math.sin(p.a) * p.v * f;
       // przechodzień przed maską: pojazd staje, przechodzień odskakuje
       var przod = t.dl * TS / 2 + 2, fx = nx + Math.cos(p.a) * przod * Math.sign(p.v), fy = ny + Math.sin(p.a) * przod * Math.sign(p.v);
-      for (var i = 0; i < ludzie.length; i++) if (Math.hypot(ludzie[i].x - fx, ludzie[i].y - fy) < 4) { p.v = 0; ludzie[i].uwaga = 40; ludzie[i].a = p.a + Math.PI / 2; return false; }
+      for (var i = 0; i < ludzie.length; i++) if (Math.hypot(ludzie[i].x - fx, ludzie[i].y - fy) < 4) {
+        var l = ludzie[i], bx = l.x + Math.cos(p.a + Math.PI / 2) * TS, by = l.y + Math.sin(p.a + Math.PI / 2) * TS;
+        if (!walk(bx, by)) { bx = l.x - Math.cos(p.a + Math.PI / 2) * TS; by = l.y - Math.sin(p.a + Math.PI / 2) * TS; }
+        if (walk(bx, by)) { l.x = bx; l.y = by; }   // odsunięcie na bok także w trybie ograniczonego ruchu (tam przechodnie stoją)
+        p.v = 0; l.uwaga = 40; l.a = p.a + Math.PI / 2; return false;
+      }
       if (pojazdWolny(p, nx, ny, p.a)) { p.x = nx; p.y = ny; me.x = nx; me.y = ny; return true; }
+      p.a = a0;   // ruch odrzucony: cofamy też obrót, żeby narożniki nie utknęły w zabudowie
       p.v = -p.v * 0.25;   // odbicie od krawężnika lub ściany
       return false;
     }
@@ -588,6 +596,7 @@
       mapBox.focus({ preventScroll: true });
     }
     fullBtn.addEventListener("click", function () { ustawPelny(!pelny); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && pelny && e.target !== mapBox && !document.querySelector(".przew")) ustawPelny(false); });
     var tRoz = null;
     window.addEventListener("resize", function () { clearTimeout(tRoz); tRoz = setTimeout(rozmiar, 120); });
 

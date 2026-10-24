@@ -107,7 +107,7 @@ html.ex-full-on, html.ex-full-on body { overflow: hidden; }
 @media (min-width: 900px) { .wn-podpis { font-size: 16px; } }
 .wn-zamknij { margin-top: 8px; min-height: 44px; }
 /* widok z góry jak w GTA II: minimapa, joystick dotykowy, przycisk wysiadania */
-.wn-map .wn-scena canvas { touch-action: none; }
+.wn-map:focus-within .wn-scena canvas, .wn-map.wn-full .wn-scena canvas { touch-action: none; }   /* poza grą strona daje się przewijać palcem po mapie */
 .wn-map .wn-mini { position: absolute; right: 8px; top: 8px; z-index: 4; width: min(140px, 26%); height: auto; image-rendering: pixelated;
   border: 1px solid var(--line); background: #020306; opacity: 0.9; pointer-events: none; }
 .wn-joy { position: absolute; z-index: 5; width: 88px; height: 88px; margin: -44px 0 0 -44px; border-radius: 50%;

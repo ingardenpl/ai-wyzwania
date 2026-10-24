@@ -107,8 +107,9 @@
     if (confirm("Wyzerować postępy wszystkich fiszek w tej przeglądarce?")) { state = {}; save(); rebuild(); }
   });
   document.addEventListener("keydown", function (e) {
-    if (/^(INPUT|SELECT|TEXTAREA)$/.test((e.target || {}).tagName)) return;
-    if (e.key === " " || e.key === "Enter") { if (e.target && e.target.tagName === "BUTTON") return; e.preventDefault(); flip(); }
+    if (e.ctrlKey || e.metaKey || e.altKey) return;   // Ctrl+1, Ctrl+2 to karty przeglądarki, nie ocena fiszki
+    if (/^(INPUT|SELECT|TEXTAREA|BUTTON|A|SUMMARY)$/.test((e.target || {}).tagName)) return;   // Enter na linku otwiera link
+    if (e.key === " " || e.key === "Enter") { e.preventDefault(); flip(); }
     else if (e.key === "1") rate(false);
     else if (e.key === "2") rate(true);
   });
