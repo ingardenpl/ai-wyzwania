@@ -25,7 +25,7 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     var dataEl = document.getElementById("quiz-data");
-    var host = document.getElementById("quiz");
+    var host = document.getElementById("quiz-pytania") || document.getElementById("quiz");
     if (!dataEl || !host) return;
     var data;
     try { data = JSON.parse(dataEl.textContent); } catch (e) { return; }
@@ -34,6 +34,34 @@
     var answered = 0, correct = 0;
 
     var score = el("p", { "class": "quiz-score", "aria-live": "polite" });
+    var wynik = el("div", { "class": "quiz-wynik", role: "status" });
+    // po ostatniej odpowiedzi: zaliczony czy nie, co z pytaniami otwartymi, czy następna dzielnica jest otwarta, co z artefaktem
+    function podsumowanie(ok, pct) {
+      wynik.textContent = "";
+      var G = window.NeoGra, cv = document.querySelector("canvas[data-focus]"), nr = cv && cv.getAttribute("data-focus");
+      var otwarte = qs.length - closed.length;
+      var p1 = el("p", { "class": ok ? "ok" : "bad" });
+      p1.appendChild(el("b", null, ok ? "Quiz zaliczony (" + pct + "%, próg 60%). " : "Poniżej progu 60% (" + pct + "%). "));
+      p1.appendChild(document.createTextNode(ok ? "Wynik zapisał się w karcie wyników na mapie." : "Możesz zacząć od nowa; liczy się najlepszy wynik."));
+      wynik.appendChild(p1);
+      if (otwarte) wynik.appendChild(el("p", { "class": "muted" }, "Do wyniku liczy się " + closed.length + " pytań zamkniętych; " + otwarte + (otwarte === 1 ? " pytanie otwarte jest" : " pytania otwarte są") + " do samooceny według kryteriów."));
+      if (!G || !nr) return;
+      var info = (G.dane().info || {}), nxt = ("0" + (parseInt(nr, 10) + 1)).slice(-2), p2 = el("p");
+      if (ok && info[nxt]) {
+        var r = G.odblokowany(nxt);
+        if (r.ok) {
+          p2.appendChild(document.createTextNode("Dzielnica " + nxt + " (" + info[nxt].nazwa + ") jest otwarta: "));
+          var a = el("a", { href: "../" + info[nxt].slug + "/index.html" }, "przejdź do niej"); p2.appendChild(a);
+        } else if (r.termin && r.termin.t) {
+          p2.appendChild(document.createTextNode("Dzielnica " + nxt + " (" + info[nxt].nazwa + ") otworzy się " + r.termin.t.split(" · ")[0] + "."));
+        }
+        if (p2.childNodes.length) wynik.appendChild(p2);
+      }
+      if (ok && G.wnetrze(nr) && !G.artefakt(nr)) {
+        var p3 = el("p", { "class": "muted" }, "Artefakt tej dzielnicy: zostało jeszcze zadanie i " + G.PROG_MIEJSCA + " z 7 miejsc we wnętrzu dzielnicy (sekcja „Wnętrze dzielnicy” niżej na tej stronie).");
+        wynik.appendChild(p3);
+      }
+    }
     function updateScore() {
       score.textContent = closed.length
         ? "Wynik: " + correct + " / " + closed.length + (answered < closed.length ? " (odpowiedziano na " + answered + ")" : "")
@@ -70,7 +98,7 @@
             fb.appendChild(b);
             if (q.wyjasnienie) fb.appendChild(document.createTextNode(q.wyjasnienie));
             updateScore();
-            if (answered === closed.length) zapiszZaliczenie(correct / closed.length >= 0.6, correct / closed.length);
+            if (answered === closed.length) { zapiszZaliczenie(correct / closed.length >= 0.6, correct / closed.length); podsumowanie(correct / closed.length >= 0.6, Math.round(correct / closed.length * 100)); }
             if (answered === closed.length && window.NeoUI) {
               var ok = correct / closed.length >= 0.6;
               window.NeoUI.banner(ok ? "ZLECENIE ZALICZONE" : "ZLECENIE NIEUKOŃCZONE",
@@ -111,6 +139,7 @@
       var row = el("div", { "class": "btn-row" });
       row.appendChild(reset);
       host.appendChild(score);
+      host.appendChild(wynik);
       host.appendChild(row);
       updateScore();
     }

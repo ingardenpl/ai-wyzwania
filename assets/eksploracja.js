@@ -121,7 +121,7 @@
         var li = el("li"); li.appendChild(cardBody(j)); notesList.appendChild(li);
       });
       notes.hidden = !wolno && found.length === 0;
-      hud.textContent = "ZALICZONE " + P.zaliczone().length + "/10 · WIADOMOŚCI " + found.length + "/" + JAJKA.length;
+      hud.textContent = "ARTEFAKTY " + P.zaliczone().length + "/10 · WIADOMOŚCI " + found.length + "/" + JAJKA.length;
     }
     function cardBody(j) {
       var f = document.createDocumentFragment();
@@ -159,7 +159,7 @@
       if (!w) { prompt.hidden = true; return; }
       var txt;
       if (w.typ === "wlaz") {
-        txt = swiatOtwarty() ? "ZEJDŹ DO PODZIEMI STAREGO MIASTA" : "WŁAZ ZAMKNIĘTY · ZALICZONE DZIELNICE " + P.zaliczone().length + "/10";
+        txt = swiatOtwarty() ? "ZEJDŹ DO PODZIEMI STAREGO MIASTA" : "WŁAZ ZAMKNIĘTY · ARTEFAKTY " + P.zaliczone().length + "/10";
       } else {
         var st = (city.states || {})[w.nr] || "past";
         var ob = window.NeoGra && window.NeoGra.odblokowany ? window.NeoGra.odblokowany(w.nr) : { ok: st === "past" || P.podglad(), data: st === "past" };
@@ -176,7 +176,7 @@
       if (!w) return;
       if (w.typ === "wlaz") {
         if (swiatOtwarty()) location.href = "podziemia.html";
-        else live.textContent = "Właz jest zamknięty. Zalicz wszystkie dzielnice: quiz zdany po terminie spotkania.";
+        else live.textContent = "Właz jest zamknięty. Zdobądź artefakty wszystkich dzielnic: quiz na co najmniej 60%, a tam, gdzie jest wnętrze, także zadanie i 5 z 7 miejsc.";
         return;
       }
       var mk = document.querySelector('.city-marker[data-nr="' + w.nr + '"]');

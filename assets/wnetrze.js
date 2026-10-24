@@ -110,7 +110,7 @@
       auto = false; f.appendChild(terminal(m));
     } else if (m.typ === "pracownia") {
       (D.aplikacje || []).forEach(function (a) { var p2 = el("p"); p2.appendChild(link(a.href, "Otwórz: " + a.tytul, true)); f.appendChild(p2); });
-      if (!(D.aplikacje || []).length) { var p3 = el("p"); p3.appendChild(link("wiedza.html", "Otwórz Wiedzę tej dzielnicy")); f.appendChild(p3); }
+      if (!(D.aplikacje || []).length) { var p3 = el("p"); p3.appendChild(link("wiedza.html", "Otwórz treść zajęć tej dzielnicy")); f.appendChild(p3); }
     } else if (m.typ === "zadanie") {
       var lab = el("label", "wn-check"), cb = el("input"); cb.type = "checkbox"; cb.checked = !!stan().zadania[NR];
       cb.addEventListener("change", function () { G.zapiszZadanie(NR, cb.checked); });

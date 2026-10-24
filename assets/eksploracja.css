@@ -120,7 +120,7 @@ html.ex-full-on, html.ex-full-on body { overflow: hidden; }
 .wn-map.wn-full .ex-btn { min-height: 44px; padding-left: 14px; padding-right: 14px; }
 @media (max-width: 600px) {
   .wn-map:not(.wn-full) .ex-prompt { bottom: auto; top: 8px; }
-  .wn-map.wn-full .wn-panel { left: 8px; right: 8px; top: auto; bottom: 64px; width: auto; max-height: 55%; }
+  .wn-map.wn-full.wn-full .wn-panel { left: 8px; right: 8px; top: auto; bottom: 64px; width: auto; max-height: 55%; }   /* wyższa specyficzność niż reguła ogólna niżej */
   .wn-map.wn-full .ex-prompt { bottom: 64px; }
 }
 /* pełny ekran: opis miejsca jako karta na mapie */

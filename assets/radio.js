@@ -135,7 +135,7 @@
     var dalej = el("button", "radio-b", "⏭"); dalej.type = "button"; dalej.setAttribute("aria-label", "Następna stacja");
     var vol = el("input", "radio-v"); vol.type = "range"; vol.min = 0; vol.max = 100; vol.value = u.glosnosc == null ? 50 : u.glosnosc; vol.setAttribute("aria-label", "Głośność");
     box.appendChild(ikona); box.appendChild(nazwa); box.appendChild(play); box.appendChild(dalej); box.appendChild(vol);
-    document.body.appendChild(box);
+    document.body.appendChild(box); document.body.classList.add("ma-radio");
     function opis() {
       var n = zaliczone(), S = STACJE[stacja];
       if (n < PROG) {

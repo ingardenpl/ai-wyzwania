@@ -262,6 +262,7 @@
     if (!hud || document.querySelector(".karta-wynikow")) return;
     var s = stan(), d = el("details", "karta-wynikow mission");
     d.appendChild(el("summary", null, "Karta wyników quizów"));
+    if (location.hash === "#postepy") { d.open = true; setTimeout(function () { d.scrollIntoView({ block: "start" }); }, 50); }
     var t = el("table"), th = el("tr");
     ["Dzielnica", "Najlepszy wynik", "Status"].forEach(function (x) { th.appendChild(el("th", null, x)); });
     t.appendChild(th);
@@ -339,12 +340,12 @@
     } else if (zamk) {
       var r = odblokowany(zamk), j = info[zamk];
       cel = "fiszki.html";
-      opis = "Wszystkie otwarte dzielnice zaliczone. Dzielnica " + zamk + " (" + j.nazwa + ") otworzy się " +
+      opis = "Quizy wszystkich otwartych dzielnic zaliczone. Dzielnica " + zamk + " (" + j.nazwa + ") otworzy się " +
         (r.termin && r.termin.t ? r.termin.t.split(" · ")[0] : "w dniu wykładu") + ". Do tego czasu możesz powtórzyć materiał w fiszkach.";
       przycisk = "Powtórka w fiszkach";
     } else {
       cel = "zaliczenie.html";
-      opis = "Wszystkie dzielnice zaliczone. Zostało zaliczenie przedmiotu: test, projekt albo własna propozycja.";
+      opis = "Quizy wszystkich dzielnic zaliczone. Zostało zaliczenie przedmiotu: test, projekt albo własna propozycja.";
       przycisk = "Zasady zaliczenia";
     }
     box.appendChild(el("p", "eyebrow", "Co dalej?"));
@@ -416,6 +417,17 @@
           pg.textContent = ""; pg.appendChild(el("span", "who", "ARCHIWISTKA ›")); pg.appendChild(txt(" " + msg.toUpperCase()));
           pg.parentNode.setAttribute("aria-label", "Wiadomość od Archiwistki: " + msg);
         }
+      } else if (mis && !nast.length && NR.every(function (n) { return !info[n] || st[n] === "past"; })) {
+        mis.textContent = "";
+        mis.appendChild(el("p", "eyebrow", "Śledztwo zakończone"));
+        mis.appendChild(el("p", null, "Wszystkie dzielnice odwiedzone. Zamknij akta: test, projekt albo własna propozycja."));
+        var a2 = el("a", null, "Zasady zaliczenia"); a2.href = "zaliczenie.html"; mis.appendChild(a2);
+        var pg2 = document.querySelector(".pager-lcd .scroll");
+        if (pg2) {
+          var msg2 = "INSPEKTORZE, WSZYSTKIE DZIELNICE ODWIEDZONE. ZAMKNIJ AKTA: TEST, PROJEKT ALBO WŁASNA PROPOZYCJA.";
+          pg2.textContent = ""; pg2.appendChild(el("span", "who", "ARCHIWISTKA ›")); pg2.appendChild(txt(" " + msg2));
+          pg2.parentNode.setAttribute("aria-label", "Wiadomość od Archiwistki: " + msg2);
+        }
       }
     }
     // ekwipunek: artefakt zamiast samej daty (zawsze, bo zależy od postępu gracza)
@@ -427,7 +439,7 @@
       if (ma) cv.setAttribute("data-on", ""); else cv.removeAttribute("data-on");
       slot.classList.toggle("on", ma);
       var i = info[n];
-      if (i) slot.title = i.przedmiot + " (dzielnica " + n + ", " + (ma ? "zdobyty" : st[n] === "past" ? "do zdobycia: quiz ≥ 60%" + (i.wnetrze ? ", zadanie i 5 z 7 miejsc" : "") : "dzielnica otworzy się w dniu spotkania") + ")";
+      if (i) slot.title = i.przedmiot + " (dzielnica " + n + ", " + (ma ? "zdobyty" : st[n] === "past" ? "do zdobycia: quiz ≥ 60%" + (i.wnetrze ? ", zadanie i " + PROG_MIEJSCA + " z 7 miejsc" : "") : "dzielnica otworzy się w dniu spotkania") + ")";
     });
     var inv = document.querySelector(".inventory .lbl");
     if (inv) { inv.textContent = "EKWIPUNEK " + art.length + "/10"; inv.parentNode.setAttribute("aria-label", "Ekwipunek: zdobyte artefakty " + art.length + " z 10"); }
@@ -439,7 +451,7 @@
       if (b) b.textContent = ma2 ? "Artefakt zdobyty" : "Artefakt do zdobycia";
       var w = card.querySelector(".item-war") || el("small", "item-war");
       w.textContent = ma2 ? "" : st[n] !== "past" ? "Dzielnica otworzy się w dniu spotkania." :
-        "Warunek: quiz dzielnicy ≥ 60%" + (wnetrze(n) ? ", wykonane zadanie i 5 z 7 miejsc we wnętrzu dzielnicy." : ".");
+        "Warunek: quiz dzielnicy ≥ 60%" + (wnetrze(n) ? ", wykonane zadanie i " + PROG_MIEJSCA + " z 7 miejsc we wnętrzu dzielnicy." : ".");
       if (!w.parentNode) card.lastElementChild.appendChild(w);
     }
   });
