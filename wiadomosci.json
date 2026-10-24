@@ -1,32 +1,116 @@
 {
- "aktualizacja": "2026-10-23T07:33Z",
+ "aktualizacja": "2026-10-24T17:07Z",
  "wpisy": [
   {
-   "t": "Can AI really predict cancer survival better than a doctor? I have my doubts | Devi Sridhar",
-   "u": "https://www.theguardian.com/commentisfree/2026/oct/23/ai-cancer-survival-doctor-selfie-health-research",
+   "t": "Google Play otwiera się na prywatne aplikacje tworzone przez AI – czy czeka nas zalew niskiej jakości oprogramowania?",
+   "u": "https://www.computerworld.pl/article/100054135/google-play-otwiera-sie-na-prywatne-aplikacje-tworzone-przez-ai-czy-czeka-nas-zalew-niskiej-jakosci-oprogramowania.html",
+   "z": "Computerworld",
+   "d": "2026-10-24",
+   "j": "pl"
+  },
+  {
+   "t": "Blue Planet III features cloudier footage to prove authenticity amid AI boom",
+   "u": "https://www.theguardian.com/media/2026/oct/24/blue-planet-iii-cloudier-footage-prove-authenticity-ai-boom",
+   "z": "The Guardian",
+   "d": "2026-10-24",
+   "j": "en"
+  },
+  {
+   "t": "Opposition deepfake video of Spanish PM’s wife sparks outrage before election",
+   "u": "https://www.theguardian.com/world/2026/oct/23/opposition-deepfake-video-spain-election",
+   "z": "The Guardian",
+   "d": "2026-10-24",
+   "j": "en"
+  },
+  {
+   "t": "John Healey pledges to use budget to harness power of AI to bolster Britain’s security",
+   "u": "https://www.theguardian.com/uk-news/2026/oct/24/john-healey-pledges-to-use-budget-to-harness-power-of-ai-to-bolster-britains-security",
+   "z": "The Guardian",
+   "d": "2026-10-24",
+   "j": "en"
+  },
+  {
+   "t": "Predicting protein electrostatics with protein language models",
+   "u": "https://www.nature.com/articles/s41467-026-78406-y",
+   "z": "Nature",
+   "d": "2026-10-24",
+   "j": "en"
+  },
+  {
+   "t": "OpenAI now trains its frontier AI models with no internet access",
+   "u": "https://www.theverge.com/ai-artificial-intelligence/1018021/openai-training-top-ai-models-no-internet",
+   "z": "The Verge",
+   "d": "2026-10-23",
+   "j": "en"
+  },
+  {
+   "t": "Jack Dorsey’s Block made an AI model that talks to you like an awkward new friend",
+   "u": "https://www.theverge.com/ai-artificial-intelligence/1017906/jack-dorsey-block-dessa-ai-voice-speech",
+   "z": "The Verge",
+   "d": "2026-10-23",
+   "j": "en"
+  },
+  {
+   "t": "‘Black October’: cybersecurity experts sound the alarm over new era of AI-enabled hacking",
+   "u": "https://www.theguardian.com/technology/2026/oct/23/cybersecurity-ai-hacking-php-vulnerability",
    "z": "The Guardian",
    "d": "2026-10-23",
    "j": "en"
   },
   {
-   "t": "Huawei pozyskuje 2,3 miliarda dolarów na inwestycje w chipy AI i umacnia niezależność technologiczną",
-   "u": "https://www.computerworld.pl/article/100054117/huawei-pozyskuje-23-miliarda-dolarow-na-inwestycje-w-chipy-ai-i-umacnia-niezaleznosc-technologiczna.html",
+   "t": "Meta delays new business terms after publisher pushback on AI scraping",
+   "u": "https://www.theverge.com/tech/1017450/meta-business-terms-delayed-ai-scraping",
+   "z": "The Verge",
+   "d": "2026-10-23",
+   "j": "en"
+  },
+  {
+   "t": "Retro gaming is being overrun with AI",
+   "u": "https://www.theverge.com/ai-artificial-intelligence/1015430/ai-retro-games-decomp-recomp-port",
+   "z": "The Verge",
+   "d": "2026-10-23",
+   "j": "en"
+  },
+  {
+   "t": "AI zmienia pracę Polaków. Firmy muszą nadążyć z kompetencjami i sprzętem",
+   "u": "https://www.computerworld.pl/article/100054131/ai-zmienia-prace-polakow-firmy-musza-nadazyc-z-kompetencjami-i-sprzetem.html",
    "z": "Computerworld",
    "d": "2026-10-23",
    "j": "pl"
   },
   {
-   "t": "Canva’s first AI image model plans designs before generating them",
-   "u": "https://www.theverge.com/ai-artificial-intelligence/1017151/canva-craft-in-house-ai-model",
-   "z": "The Verge",
-   "d": "2026-10-22",
+   "t": "Agentowa sztuczna inteligencja pozbawiona zadań zaczyna się bawić",
+   "u": "https://www.computerworld.pl/article/100054127/agentowa-sztuczna-inteligencja-pozbawiona-zadan-zaczyna-sie-bawic.html",
+   "z": "Computerworld",
+   "d": "2026-10-23",
+   "j": "pl"
+  },
+  {
+   "t": "Wirusy zaprojektowane przez AI podano pacjentowi. Mają zwalczać oporne bakterie",
+   "u": "https://www.computerworld.pl/article/100054123/wirusy-zaprojektowane-przez-ai-podano-pacjentowi-maja-zwalczac-oporne-bakterie.html",
+   "z": "Computerworld",
+   "d": "2026-10-23",
+   "j": "pl"
+  },
+  {
+   "t": "Putting conversational AI to the test in primary care",
+   "u": "https://www.nature.com/articles/d41591-026-00054-y",
+   "z": "Nature",
+   "d": "2026-10-23",
    "j": "en"
   },
   {
-   "t": "Sharp drops for AI stocks overwhelm markets worldwide as oil prices jump",
-   "u": "https://www.theguardian.com/business/2026/oct/22/stock-markets-drop-ai-oil",
-   "z": "The Guardian",
-   "d": "2026-10-22",
+   "t": "Guidelines for evaluating structure-based methods for protein–ligand binding prediction",
+   "u": "https://www.nature.com/articles/s42256-026-01331-8",
+   "z": "Nature",
+   "d": "2026-10-23",
+   "j": "en"
+  },
+  {
+   "t": "A review of self-supervised imaging phenotypes for genome-wide association studies",
+   "u": "https://www.nature.com/articles/s42003-026-11199-4",
+   "z": "Nature",
+   "d": "2026-10-23",
    "j": "en"
   },
   {
@@ -37,44 +121,9 @@
    "j": "en"
   },
   {
-   "t": "Meta’s AI could still scrape news sites, legal experts say",
-   "u": "https://www.theverge.com/tech/1017082/meta-terms-update-ai-training-concerns",
-   "z": "The Verge",
-   "d": "2026-10-22",
-   "j": "en"
-  },
-  {
-   "t": "Microsoft says its AI tool is better than doctors at diagnosing conditions",
-   "u": "https://www.theverge.com/ai-artificial-intelligence/1016690/suleyman-microsoft-diagnostic-orchestrator-science-medical-superintelligence",
-   "z": "The Verge",
-   "d": "2026-10-22",
-   "j": "en"
-  },
-  {
    "t": "The Foundations of Scalable AI",
    "u": "https://www.technologyreview.com/2026/10/22/1146103/the-foundations-of-scalable-ai/",
    "z": "MIT Technology Review",
-   "d": "2026-10-22",
-   "j": "en"
-  },
-  {
-   "t": "The Guardian view on AI safety: the push for global regulation must advance | Editorial",
-   "u": "https://www.theguardian.com/commentisfree/2026/oct/22/the-guardian-view-on-ai-safety-the-push-for-global-regulation-must-advance",
-   "z": "The Guardian",
-   "d": "2026-10-22",
-   "j": "en"
-  },
-  {
-   "t": "Someone hacked the Switch 2 by using an old game and AI",
-   "u": "https://www.theverge.com/games/1016862/nintendo-switch-2-jailbreak-ai",
-   "z": "The Verge",
-   "d": "2026-10-22",
-   "j": "en"
-  },
-  {
-   "t": "Barclays to cut 5,000 jobs as bank’s bosses hail AI productivity advances",
-   "u": "https://www.theguardian.com/business/2026/oct/22/barclays-profits-up-as-uk-banks-brace-for-tax-increase-in-budget",
-   "z": "The Guardian",
    "d": "2026-10-22",
    "j": "en"
   },
@@ -100,34 +149,6 @@
    "j": "pl"
   },
   {
-   "t": "Anthropic dołącza do wyścigu Agentów AI – debiutuje Claude Duet",
-   "u": "https://www.computerworld.pl/article/100054081/anthropic-dolacza-do-wyscigu-agentow-ai-debiutuje-claude-duet.html",
-   "z": "Computerworld",
-   "d": "2026-10-22",
-   "j": "pl"
-  },
-  {
-   "t": "Can maths survive AI? Fields medallist Terence Tao calls for a ‘Maths 2.0’ world",
-   "u": "https://www.nature.com/articles/d41586-026-03389-1",
-   "z": "Nature",
-   "d": "2026-10-22",
-   "j": "en"
-  },
-  {
-   "t": "Tracing causal cascades underlying biological state changes",
-   "u": "https://www.nature.com/articles/s41592-026-03273-w",
-   "z": "Nature",
-   "d": "2026-10-22",
-   "j": "en"
-  },
-  {
-   "t": "CauTrigger: deciphering biological system state transitions by hierarchical causal decomposition",
-   "u": "https://www.nature.com/articles/s41592-026-03274-9",
-   "z": "Nature",
-   "d": "2026-10-22",
-   "j": "en"
-  },
-  {
    "t": "The new human-crafted Apple Music brand matters in an AI world",
    "u": "https://arstechnica.com/culture/2026/10/the-new-human-crafted-apple-music-brand-matters-in-an-ai-world/",
    "z": "Ars Technica",
@@ -149,30 +170,9 @@
    "j": "en"
   },
   {
-   "t": "4,5 mld USD korzyści z transformacji AI",
-   "u": "https://www.computerworld.pl/article/100054061/45-mld-usd-korzysci-z-transformacji-ai.html",
-   "z": "Computerworld",
-   "d": "2026-10-21",
-   "j": "pl"
-  },
-  {
    "t": "Amid AI Boom, “Risk Is Spreading Throughout the Economy”: Astra Taylor & Naomi Klein",
    "u": "https://ainowinstitute.org/news/amid-ai-boom-risk-is-spreading-throughout-the-economy-astra-taylor-naomi-klein",
    "z": "AI Now Institute",
-   "d": "2026-10-21",
-   "j": "en"
-  },
-  {
-   "t": "Google Cloud otwiera platformę na modele OpenAI",
-   "u": "https://www.computerworld.pl/article/100054058/google-cloud-otwiera-platforme-na-modele-openai.html",
-   "z": "Computerworld",
-   "d": "2026-10-21",
-   "j": "pl"
-  },
-  {
-   "t": "An AI tool improves weather forecasts up to a month ahead",
-   "u": "https://www.nature.com/articles/d41586-026-03077-0",
-   "z": "Nature",
    "d": "2026-10-21",
    "j": "en"
   },
@@ -191,13 +191,6 @@
    "j": "en"
   },
   {
-   "t": "30 Months on the Exponential (in Charts)",
-   "u": "https://www.oneusefulthing.org/p/30-months-on-the-exponential-in-charts",
-   "z": "One Useful Thing",
-   "d": "2026-10-20",
-   "j": "en"
-  },
-  {
    "t": "Mamdani says feds have abdicated on AI, urges New Yorkers to push back",
    "u": "https://ainowinstitute.org/news/press/mamdani-says-feds-have-abdicated-on-ai-urges-new-yorkers-to-push-back",
    "z": "AI Now Institute",
@@ -210,7 +203,16 @@
    "z": "AI Now Institute",
    "d": "2026-10-19",
    "j": "en"
+  },
+  {
+   "t": "First harmonised standard supporting the AI Act published in the Official Journal",
+   "u": "https://digital-strategy.ec.europa.eu/en/library/first-harmonised-standard-supporting-ai-act-published-official-journal",
+   "z": "Komisja Europejska",
+   "d": "2026-10-19",
+   "j": "en"
   }
  ],
- "bledy": []
+ "bledy": [
+  "One Useful Thing: URLError"
+ ]
 }
