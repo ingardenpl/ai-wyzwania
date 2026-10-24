@@ -21,7 +21,7 @@
     { el: function () { return document.querySelector(".co-dalej"); }, t: "Co dalej?",
       p: "Tu zawsze jest jeden następny krok: dzielnica do przerobienia, powtórka albo zaliczenie. Jeśli nie wiesz, od czego zacząć, kliknij ten przycisk." },
     { el: function () { return document.querySelector(".inventory"); }, t: "Ekwipunek i karta wyników",
-      p: "Za każdą zaliczoną dzielnicę dostajesz artefakt. Pod spodem jest karta wyników quizów, którą możesz pokazać prowadzącemu lub wydrukować: quizy liczą się do aktywności. Wyniki zapisują się tylko w tej przeglądarce." },
+      p: "Za każdą zaliczoną dzielnicę dostajesz artefakt. Pod spodem jest karta wyników quizów, którą możesz pokazać prowadzącemu lub wydrukować: quizy liczą się do aktywności. Wyniki zapisują się tylko w tej przeglądarce; kodem postępu z karty przeniesiesz je na inne urządzenie." },
     { el: function () { return navLink("nauka.html"); }, t: "Nauka",
       p: "Fiszki, słowniczek, biblioteka, materiały interaktywne i źródła prawa w jednym miejscu. Materiały do konkretnego tematu są na stronie jego dzielnicy." },
     { el: function () { return navLink("zaliczenie.html"); }, t: "Zaliczenie",

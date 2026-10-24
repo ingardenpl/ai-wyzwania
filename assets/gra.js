@@ -129,8 +129,66 @@
     return r;
   }
 
+  // ------------------------------------------------------------------ kod postępu (przenoszenie między urządzeniami)
+  // Postęp leży tylko w tej przeglądarce. Kod to zapis w base64url z sumą kontrolną; wklejony na innym urządzeniu
+  // łączy się z tamtejszym zapisem (lepszy wynik quizu, suma miejsc i znalezisk). Nic nie jest wysyłane na serwer.
+  function b64(s) { return btoa(unescape(encodeURIComponent(s))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+  function unb64(s) { s = s.replace(/-/g, "+").replace(/_/g, "/"); while (s.length % 4) s += "="; return decodeURIComponent(escape(atob(s))); }
+  function suma(s) { var h = 5381; for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0; return ("0000" + h.toString(36)).slice(-4); }
+  function kodPostepu() {
+    var s = stan(), d = { v: 1, q: {}, m: {}, z: [], n: {}, r: s.ratusz || {} };
+    NR.forEach(function (k) {
+      if (typeof s.quizy[k] === "number") d.q[k] = Math.round(s.quizy[k] * 100);
+      if ((s.miejsca[k] || []).length) d.m[k] = s.miejsca[k];
+      if (s.zadania[k]) d.z.push(k);
+      if ((s.znaleziska[k] || []).length) d.n[k] = s.znaleziska[k];
+    });
+    var t = b64(JSON.stringify(d));
+    return "NL1-" + t + "-" + suma(t);
+  }
+  function wczytajKod(kod) {
+    var m = /^\s*NL1-([A-Za-z0-9_-]+)-([a-z0-9]{4})\s*$/.exec(kod || "");
+    if (!m) return { ok: false, blad: "To nie jest kod postępu (powinien zaczynać się od NL1-)." };
+    if (suma(m[1]) !== m[2]) return { ok: false, blad: "Kod jest niekompletny albo przekłamany; skopiuj go jeszcze raz w całości." };
+    var d; try { d = JSON.parse(unb64(m[1])); } catch (e) { return { ok: false, blad: "Nie udało się odczytać kodu." }; }
+    if (!d || d.v !== 1) return { ok: false, blad: "Kod pochodzi z innej wersji strony." };
+    var ile = 0;
+    zmien(function (s) {
+      NR.forEach(function (k) {
+        var q = d.q && d.q[k];
+        if (typeof q === "number" && q >= 0 && q <= 100 && !(s.quizy[k] >= q / 100)) { s.quizy[k] = q / 100; ile++; }
+        function dolacz(pole, lista) {
+          if (!Array.isArray(lista)) return;
+          var cel = s[pole][k] = s[pole][k] || [];
+          lista.forEach(function (id) { if (typeof id === "string" && id.length < 60 && cel.indexOf(id) < 0) { cel.push(id); ile++; } });
+        }
+        dolacz("miejsca", d.m && d.m[k]); dolacz("znaleziska", d.n && d.n[k]);
+        if (Array.isArray(d.z) && d.z.indexOf(k) >= 0 && !s.zadania[k]) { s.zadania[k] = true; ile++; }
+      });
+      if (d.r && typeof d.r === "object") Object.keys(d.r).forEach(function (x) { if (!s.ratusz[x]) { s.ratusz[x] = d.r[x]; ile++; } });
+    });
+    var l = czytaj("neo-zaliczone", []); if (!Array.isArray(l)) l = [];
+    NR.forEach(function (k) { if (stan().quizy[k] >= PROG_QUIZ && l.indexOf(k) < 0) l.push(k); });
+    l.sort(); pisz("neo-zaliczone", l);
+    return { ok: true, ile: ile };
+  }
+  // link z kodem (index.html#postep=NL1-...): wczytanie i przeładowanie bez kodu w adresie; także gdy link
+  // zostanie wklejony w już otwartej karcie (zmienia się tylko fragment, więc strona sama się nie przeładuje)
+  function importZLinku() {
+    var m = /^#postep=(.+)$/.exec(location.hash || "");
+    if (!m) return;
+    var w; try { w = wczytajKod(decodeURIComponent(m[1])); } catch (e) { w = { ok: false, blad: "Nie udało się odczytać kodu z linku." }; }
+    try { sessionStorage.setItem("neo-postep-import", JSON.stringify(w)); } catch (e) {}
+    // kod znika z adresu bez nawigacji (replaceState), dopiero potem przeładowanie: nawigacja do tego samego adresu
+    // bez fragmentu potrafi zachować fragment i zapętlić stronę
+    if (history.replaceState) history.replaceState(null, "", location.pathname + location.search); else location.hash = "";
+    location.reload();
+  }
+  importZLinku();
+  window.addEventListener("hashchange", importZLinku);
+
   window.NeoGra = {
-    dzis: dzis, stany: stany, nastepnyTermin: nastepnyTermin, podglad: podglad, dane: dane,
+    dzis: dzis, stany: stany, kodPostepu: kodPostepu, wczytajKod: wczytajKod, nastepnyTermin: nastepnyTermin, podglad: podglad, dane: dane,
     stan: stan, zapiszQuiz: zapiszQuiz, zapiszMiejsce: zapiszMiejsce, zapiszZadanie: zapiszZadanie, zapiszZnalezisko: zapiszZnalezisko,
     artefakt: artefakt, artefakty: artefakty, wnetrze: wnetrze, odblokowany: odblokowany,
     otwarta: function (n) { return odblokowany(n).ok; },
@@ -153,7 +211,11 @@
       ".blokada a{color:#00f0ff}.blokada li{margin:6px 0}.blokada .m{color:#9095ad;font-size:.9rem}" +
       "html.bez-main .blokada{position:fixed;inset:0;margin:0;max-width:none;overflow:auto;display:flex;flex-direction:column;justify-content:center;padding:24px 8vw;z-index:9999}" +
       ".karta-wynikow table{border-collapse:collapse;width:100%}.karta-wynikow td,.karta-wynikow th{padding:6px 8px;border-bottom:1px solid rgba(5,217,232,.2);text-align:left}" +
-      ".karta-wynikow summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:600}";
+      ".karta-wynikow summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:600}" +
+      ".postep-kod{margin-top:12px;border-top:1px solid rgba(5,217,232,.2);padding-top:8px}.postep-kod summary{font-weight:600;cursor:pointer;min-height:44px;display:flex;align-items:center}" +
+      ".postep-ta{width:100%;font-family:'IBM Plex Mono',Consolas,monospace;font-size:.8rem;background:#07080f;color:#e7e9f2;border:1px solid rgba(5,217,232,.35);padding:8px;word-break:break-all;resize:vertical}" +
+      ".postep-row{align-items:stretch}.postep-in{flex:1 1 200px;min-height:44px;font-family:'IBM Plex Mono',Consolas,monospace;background:#07080f;color:#e7e9f2;border:1px solid rgba(5,217,232,.35);padding:0 10px}" +
+      ".postep-kod label{display:block;margin-top:10px;font-weight:600}.postep-ok{color:#3ef0a1}.postep-blad{color:#ff6b88}";
     var st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
     if (NR_STRONY && !podglad()) document.documentElement.classList.add("blokada-sprawdz");
   })();
@@ -217,7 +279,49 @@
     var b = el("button", "btn ghost", "Drukuj kartę"); b.type = "button";
     b.addEventListener("click", function () { d.open = true; window.print(); });
     d.appendChild(b);
+    d.appendChild(kodPostepuUI());
     hud.parentNode.insertBefore(d, hud.nextSibling);
+    var imp = null; try { imp = JSON.parse(sessionStorage.getItem("neo-postep-import") || "null"); sessionStorage.removeItem("neo-postep-import"); } catch (e) {}
+    if (imp) { d.open = true; var p = el("p", imp.ok ? "postep-ok" : "postep-blad", imp.ok ? "Postęp z linku wczytany (" + imp.ile + " nowych wpisów)." : imp.blad); p.setAttribute("role", "status"); d.insertBefore(p, d.children[1]); }
+  }
+  // przenoszenie postępu: pokaż kod lub link, wklej kod z innego urządzenia
+  function kodPostepuUI() {
+    var box = el("details", "postep-kod");
+    box.appendChild(el("summary", null, "Postęp na innym urządzeniu"));
+    box.appendChild(el("p", "muted", "Wyniki są zapisane tylko w tej przeglądarce. Żeby mieć je też na telefonie albo innym komputerze, skopiuj stąd kod postępu i wklej go tam w tym samym miejscu (albo otwórz tam link z kodem). Nic nie jest wysyłane na serwer."));
+    var row = el("div", "btn-row");
+    var pokaz = el("button", "btn ghost", "Pokaż kod postępu"); pokaz.type = "button";
+    var wyn = el("div"); wyn.hidden = true;
+    var ta = el("textarea"); ta.readOnly = true; ta.rows = 3; ta.setAttribute("aria-label", "Kod postępu"); ta.className = "postep-ta";
+    var row2 = el("div", "btn-row");
+    var kop = el("button", "btn ghost", "Kopiuj kod"); kop.type = "button";
+    var lnk = el("a", "btn ghost", "Link z kodem"); lnk.target = "_blank"; lnk.rel = "noopener";
+    var stat = el("p", "muted"); stat.setAttribute("role", "status");
+    pokaz.addEventListener("click", function () {
+      var k = kodPostepu(); ta.value = k; wyn.hidden = false;
+      lnk.href = location.pathname.replace(/[^\/]*$/, "index.html") + "#postep=" + encodeURIComponent(k);
+      ta.focus(); ta.select();
+    });
+    kop.addEventListener("click", function () {
+      var k = ta.value; function ok() { stat.textContent = "Skopiowano. Wklej kod na drugim urządzeniu w „Postęp na innym urządzeniu”."; }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(k).then(ok, function () { ta.select(); stat.textContent = "Zaznaczono kod: skopiuj go skrótem Ctrl+C."; });
+      else { ta.select(); stat.textContent = "Zaznaczono kod: skopiuj go skrótem Ctrl+C."; }
+    });
+    row2.appendChild(kop); row2.appendChild(lnk); wyn.appendChild(ta); wyn.appendChild(row2);
+    row.appendChild(pokaz); box.appendChild(row); box.appendChild(wyn);
+    var lab = el("label", null, "Wklej kod z innego urządzenia"); lab.htmlFor = "postep-wklej";
+    var inp = el("input"); inp.id = "postep-wklej"; inp.type = "text"; inp.autocomplete = "off"; inp.spellcheck = false; inp.placeholder = "NL1-…"; inp.className = "postep-in";
+    var wcz = el("button", "btn", "Wczytaj"); wcz.type = "button";
+    wcz.addEventListener("click", function () {
+      var w = wczytajKod(inp.value);
+      stat.className = w.ok ? "postep-ok" : "postep-blad";
+      stat.textContent = w.ok ? "Wczytano: " + w.ile + " nowych wpisów. Odświeżam kartę…" : w.blad;
+      if (w.ok) setTimeout(function () { location.reload(); }, 900);
+    });
+    inp.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); wcz.click(); } });
+    var row3 = el("div", "btn-row postep-row"); row3.appendChild(inp); row3.appendChild(wcz);
+    box.appendChild(lab); box.appendChild(row3); box.appendChild(stat);
+    return box;
   }
   // mapa: jeden następny krok zamiast wyboru spośród wszystkich dzielnic (prawo Hicka)
   function coDalej() {

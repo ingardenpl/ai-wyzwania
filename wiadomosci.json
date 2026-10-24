@@ -1,6 +1,13 @@
 {
- "aktualizacja": "2026-10-24T18:53Z",
+ "aktualizacja": "2026-10-24T19:21Z",
  "wpisy": [
+  {
+   "t": "‘Synthetic twin’: Why Socceroo Cristian Volpato is the latest footballer to license his AI clone",
+   "u": "https://www.theguardian.com/technology/2026/oct/25/synthetic-twin-why-socceroo-cristian-volpato-is-the-latest-footballer-to-license-his-ai-clone",
+   "z": "The Guardian",
+   "d": "2026-10-24",
+   "j": "en"
+  },
   {
    "t": "Pennsylvania will require labels on AI-generated ads",
    "u": "https://www.theverge.com/ai-artificial-intelligence/1018187/pennsylvania-ai-deceptive-advertising-act",
@@ -54,13 +61,6 @@
    "t": "Jack Dorsey’s Block made an AI model that talks to you like an awkward new friend",
    "u": "https://www.theverge.com/ai-artificial-intelligence/1017906/jack-dorsey-block-dessa-ai-voice-speech",
    "z": "The Verge",
-   "d": "2026-10-23",
-   "j": "en"
-  },
-  {
-   "t": "‘Black October’: cybersecurity experts sound the alarm over new era of AI-enabled hacking",
-   "u": "https://www.theguardian.com/technology/2026/oct/23/cybersecurity-ai-hacking-php-vulnerability",
-   "z": "The Guardian",
    "d": "2026-10-23",
    "j": "en"
   },
