@@ -17,7 +17,7 @@
     { t: "Witaj w NEO-LUBLIN 2049",
       p: "To strona wykładu „Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne”. Kurs jest miastem: każdy temat to dzielnica Lublina roku 2049. Przewodnik w minutę pokaże najważniejsze miejsca." },
     { el: function () { return mapa; }, t: "Mapa miasta",
-      p: "Każdy znacznik to dzielnica, czyli jeden temat. Dzielnica otwiera się w dniu wykładu, jeśli quiz poprzedniej dzielnicy masz zaliczony na co najmniej 60%. Te same dzielnice są na liście pod mapą." },
+      p: "Każdy znacznik to dzielnica, czyli jeden temat. Dzielnica otwiera się w dniu wykładu, jeśli quiz poprzedniej dzielnicy masz zaliczony na co najmniej 60%. Przycisk EKSPLORUJ pozwala chodzić po mieście jak w grze; we wnętrzach dzielnic jeździsz też taksówką. Te same dzielnice są na liście pod mapą." },
     { el: function () { return document.querySelector(".co-dalej"); }, t: "Co dalej?",
       p: "Tu zawsze jest jeden następny krok: dzielnica do przerobienia, powtórka albo zaliczenie. Jeśli nie wiesz, od czego zacząć, kliknij ten przycisk." },
     { el: function () { return document.querySelector(".inventory"); }, t: "Ekwipunek i karta wyników",

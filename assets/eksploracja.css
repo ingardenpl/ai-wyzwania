@@ -98,22 +98,30 @@ html.ex-full-on, html.ex-full-on body { overflow: hidden; }
 .wn-dial .wn-on { border-left: 3px solid var(--accent); padding-left: 10px; }
 .wn-dial .wn-ty { border-left: 3px solid var(--navy); padding-left: 10px; color: var(--ink-soft); }
 .wn-pyt { margin-top: 10px; }
-.wn-map.wn-full { position: fixed; z-index: 1000; left: 50%; top: 50%; transform: translate(-50%, -50%);
-  width: min(100vw, 177.78vh); margin: 0; box-shadow: 0 0 0 100vmax #020306; }
-.wn-map.wn-full canvas { width: 100%; height: auto; }
+.wn-map.wn-full { position: fixed; z-index: 1000; inset: 0; width: 100vw; height: 100vh; height: 100dvh; margin: 0; border: 0; background: #020306; }
+.wn-map.wn-full .wn-scena { height: 100%; }
+.wn-map.wn-full .wn-scena canvas { width: 100%; height: 100%; object-fit: contain; }
 .wn-map.wn-full .wn-full-btn { position: absolute; right: 10px; top: 10px; z-index: 7; margin: 0; background: rgba(7, 8, 15, 0.9); }
-@media (orientation: portrait) and (max-width: 700px) {
-  .wn-map.wn-full::after { content: "Obróć telefon poziomo, żeby powiększyć mapę"; position: absolute; left: 0; right: 0; top: calc(100% + 12px);
-    text-align: center; color: var(--muted); font-family: var(--display); font-size: 0.85rem; }
-}
 .wn-podpis { position: absolute; z-index: 2; transform: translateY(-15%); font-family: var(--pixel); font-size: 8px; letter-spacing: 1px; color: #c2c6d8;
   text-shadow: 1px 1px 0 #000, 0 0 4px #000; pointer-events: none; white-space: nowrap; }
 @media (min-width: 900px) { .wn-podpis { font-size: 16px; } }
 .wn-zamknij { margin-top: 8px; min-height: 44px; }
-/* telefon: strzałki pod mapą, żeby nie zasłaniały miejsc; w pełnym ekranie zostają na mapie */
+/* widok z góry jak w GTA II: minimapa, joystick dotykowy, przycisk wysiadania */
+.wn-map .wn-scena canvas { touch-action: none; }
+.wn-map .wn-mini { position: absolute; right: 8px; top: 8px; z-index: 4; width: min(140px, 26%); height: auto; image-rendering: pixelated;
+  border: 1px solid var(--line); background: #020306; opacity: 0.9; pointer-events: none; }
+.wn-joy { position: absolute; z-index: 5; width: 88px; height: 88px; margin: -44px 0 0 -44px; border-radius: 50%;
+  border: 2px solid rgba(0, 240, 255, 0.55); background: rgba(0, 240, 255, 0.08); pointer-events: none; }
+.wn-joy span { position: absolute; left: 50%; top: 50%; width: 36px; height: 36px; border-radius: 50%; background: rgba(0, 240, 255, 0.5);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.6); transform: translate(-50%, -50%); }
+.wn-bar { gap: 8px; }
+.wn-map.wn-full .wn-wysiadz { position: absolute; right: 10px; bottom: 10px; z-index: 7; margin: 0; background: rgba(7, 8, 15, 0.9); }
+.wn-map.wn-full .wn-full-btn { right: auto; left: 10px; top: auto; bottom: 10px; }
+.wn-map.wn-full .ex-btn { min-height: 44px; padding-left: 14px; padding-right: 14px; }
 @media (max-width: 600px) {
-  .wn-map:not(.wn-full) .ex-pad { position: static; margin: 8px auto; width: max-content; grid-template-columns: repeat(3, 48px); grid-template-rows: repeat(2, 48px); }
   .wn-map:not(.wn-full) .ex-prompt { bottom: auto; top: 8px; }
+  .wn-map.wn-full .wn-panel { left: 8px; right: 8px; top: auto; bottom: 64px; width: auto; max-height: 55%; }
+  .wn-map.wn-full .ex-prompt { bottom: 64px; }
 }
 /* pełny ekran: opis miejsca jako karta na mapie */
 .wn-map.wn-full .wn-panel { position: absolute; left: 8px; top: 8px; z-index: 6; width: min(380px, 62%); max-height: calc(100% - 16px); overflow: auto; margin: 0;

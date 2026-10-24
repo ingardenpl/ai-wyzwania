@@ -23,7 +23,7 @@
       if (window.NeoGra) return window.NeoGra.artefakty();
       var past = Postep.past(); return Postep.quizy().filter(function (n) { return past.indexOf(n) >= 0; });
     },
-    eksploracja: function () { return podgladProwadzacego() || Postep.past().length >= 4; },
+    eksploracja: function () { return true; },   // chodzenie po mieście od pierwszej wizyty (decyzja prowadzącego, 24.10.2026)
     podglad: podgladProwadzacego
   };
   window.NeoPostep = Postep;

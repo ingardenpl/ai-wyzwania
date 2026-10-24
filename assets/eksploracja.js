@@ -2,7 +2,7 @@
    Inspektor chodzi po ulicach i wnętrzach dzielnic, wchodzi do dzielnic (E), znajduje ukryte
    „wiadomości z sieci” (prawdziwe wydarzenia o AI w Polsce, dane w jajka.js) i schodzi włazem
    do podziemi Starego Miasta, gdy wszystkie dzielnice są zaliczone.
-   Odblokowanie: po czterech odbytych spotkaniach (NeoPostep.eksploracja()).
+   Dostępny od pierwszej wizyty (NeoPostep.eksploracja()); zamknięte dzielnice otwierają się jak zwykle (gra.js).
    Postęp i znalezione wiadomości zapisują się tylko w tej przeglądarce (localStorage).
    Dołączany przez miasto.js; nie wymaga zmian w build.py. */
 (function () {
