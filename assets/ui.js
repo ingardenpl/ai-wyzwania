@@ -3,6 +3,8 @@
    Bez zależności. Przy prefers-reduced-motion animacje są wyłączone, treść pozostaje. */
 (function () {
   "use strict";
+  // tłumaczenie: window.NEO_I18N ładuje tylko angielska strona (assets/i18n-en.js); bez niego tekst polski
+  var T = function (s, a) { var d = window.NEO_I18N, r = (d && d[s]) || s; return a ? r.replace(/\{(\d+)\}/g, function (m, i) { return a[i]; }) : r; };
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var SVGNS = "http://www.w3.org/2000/svg";
 
@@ -92,7 +94,7 @@
     if (ttl) ttl.insertAdjacentElement("afterend", s); else fig.insertBefore(s, fig.firstChild);
     // tabela dla czytników ekranu
     var tb = el("table", { "class": "sr-only" });
-    var tr = el("tr"); tr.appendChild(el("th", null, d.labelHead || "Kategoria")); tr.appendChild(el("th", null, d.valueHead || "Wartość")); tb.appendChild(tr);
+    var tr = el("tr"); tr.appendChild(el("th", null, d.labelHead || T("Kategoria"))); tr.appendChild(el("th", null, d.valueHead || T("Wartość"))); tb.appendChild(tr);
     d.data.forEach(function (x) { var r = el("tr"); r.appendChild(el("td", null, x.label)); r.appendChild(el("td", null, x.text || String(x.v))); tb.appendChild(r); });
     fig.appendChild(tb);
   }
@@ -145,7 +147,7 @@
         var any = Array.prototype.some.call(g.querySelectorAll(inp.getAttribute("data-search")), function (el) { return !el.hidden && !el.classList.contains("s-miss"); });
         g.classList.toggle("s-miss", !any);
       });
-      if (count) count.textContent = words.length ? "Znaleziono: " + shown : "";
+      if (count) count.textContent = words.length ? T("Znaleziono: {0}", [shown]) : "";
     }
     inp.addEventListener("input", run);
     inp._run = run;
@@ -159,7 +161,7 @@
   function offline() {
     var zPamieci = document.documentElement.hasAttribute("data-z-pamieci");
     var stopka = document.querySelector(".site-foot .wrap");
-    var m = stopka && /Stan materiałów na ([0-9.]+)/.exec(stopka.textContent);
+    var m = stopka && /(?:Stan materiałów na|Materials as of) ([0-9.]+)/.exec(stopka.textContent);
     var data = m ? m[1] : "";
     var pasek = null;
     function pokaz() {
@@ -172,11 +174,11 @@
       }
       pasek.textContent = "";
       var brak = navigator.onLine === false;
-      pasek.appendChild(el("b", null, brak ? "Brak połączenia. " : "Sieć nie odpowiada. "));
-      pasek.appendChild(document.createTextNode((brak ? "Strony kursu pochodzą teraz z pamięci urządzenia" : "Ta strona pochodzi z pamięci urządzenia") +
-        (data ? " (stan materiałów na " + data + ")" : "") + ". Terminy i komunikaty sprawdź po połączeniu z siecią."));
+      pasek.appendChild(el("b", null, brak ? T("Brak połączenia. ") : T("Sieć nie odpowiada. ")));
+      pasek.appendChild(document.createTextNode((brak ? T("Strony kursu pochodzą teraz z pamięci urządzenia") : T("Ta strona pochodzi z pamięci urządzenia")) +
+        (data ? T(" (stan materiałów na {0})", [data]) : "") + T(". Terminy i komunikaty sprawdź po połączeniu z siecią.")));
       if (zPamieci && navigator.onLine !== false) {
-        var b = el("button", { type: "button", "class": "offline-odswiez" }, "Odśwież");
+        var b = el("button", { type: "button", "class": "offline-odswiez" }, T("Odśwież"));
         b.addEventListener("click", function () { location.reload(); });
         pasek.appendChild(document.createTextNode(" ")); pasek.appendChild(b);
       }
@@ -198,21 +200,21 @@
       navigator.serviceWorker.addEventListener("message", function (e) {
         var d = e.data || {};
         if (d.typ === "stan") {
-          info.textContent = "Tryb offline: strony kursu są zapisane w tym urządzeniu; ilustracje " + d.zapisane + " z " + d.media + ".";
+          info.textContent = T("Tryb offline: strony kursu są zapisane w tym urządzeniu; ilustracje {0} z {1}.", [d.zapisane, d.media]);
           if (d.zapisane < d.media) {
             btn.hidden = false; btn.disabled = false;
-            btn.textContent = "Zapisz cały kurs z ilustracjami (ok. " + Math.max(1, Math.round(d.brak / 1e6)) + " MB)";
+            btn.textContent = T("Zapisz cały kurs z ilustracjami (ok. {0} MB)", [Math.max(1, Math.round(d.brak / 1e6))]);
           } else btn.hidden = true;
           if (!box.parentNode) stopka.appendChild(box);
         } else if (d.typ === "postep") {
           btn.disabled = true;
-          btn.textContent = "Zapisywanie… " + d.gotowe + " z " + d.razem;
+          btn.textContent = T("Zapisywanie… {0} z {1}", [d.gotowe, d.razem]);
           if (d.gotowe === d.razem) sw.postMessage({ typ: "stan" });
         }
       });
       btn.addEventListener("click", function () {
         if (navigator.onLine === false) return;
-        btn.disabled = true; btn.textContent = "Zapisywanie…";
+        btn.disabled = true; btn.textContent = T("Zapisywanie…");
         sw.postMessage({ typ: "zapisz-wszystko" });
       });
       sw.postMessage({ typ: "stan" });
@@ -224,11 +226,11 @@
   function powiekszanie() {
     document.querySelectorAll('.prose figure > img[src$=".svg"]').forEach(function (img) {
       img.classList.add("zoomable"); img.tabIndex = 0; img.setAttribute("role", "button");
-      img.setAttribute("aria-description", "Naciśnij Enter, aby powiększyć");
+      img.setAttribute("aria-description", T("Naciśnij Enter, aby powiększyć"));
       function otworz() {
-        var ov = el("div", { "class": "zoom-ov", role: "dialog", "aria-modal": "true", "aria-label": "Powiększony wykres" });
+        var ov = el("div", { "class": "zoom-ov", role: "dialog", "aria-modal": "true", "aria-label": T("Powiększony wykres") });
         var big = el("img"); big.src = img.src; big.alt = img.getAttribute("alt") || "";
-        var x = el("button", { "class": "zoom-x", type: "button" }, "Zamknij ✕");
+        var x = el("button", { "class": "zoom-x", type: "button" }, T("Zamknij ✕"));
         ov.appendChild(x); ov.appendChild(big); document.body.appendChild(ov);
         document.documentElement.classList.add("zoom-on");
         function zamknij() { ov.remove(); document.documentElement.classList.remove("zoom-on"); document.removeEventListener("keydown", esc); img.focus(); }
@@ -247,26 +249,29 @@
   function pasekWiadomosci() {
     var mapa = document.querySelector("section.city .city-map");
     if (!mapa || !window.fetch) return;
-    fetch("wiadomosci.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+    // adres względem katalogu assets/, bo pasek działa też na en/index.html; bez SKRYPT jak dotąd (względem strony)
+    var url = "wiadomosci.json";
+    try { if (SKRYPT) url = new URL("../wiadomosci.json", SKRYPT).href; } catch (x) {}
+    fetch(url, { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
       if (!d || !d.wpisy || !d.wpisy.length) return;
       var W = d.wpisy, i = 0, stop = false, timer = null;
-      var bar = el("div", { "class": "siec-pasek", role: "region", "aria-label": "Najnowsze wiadomości o AI ze świata" });
-      bar.appendChild(el("span", { "class": "sp-lbl" }, "SIEĆ › AI NA ŚWIECIE"));
+      var bar = el("div", { "class": "siec-pasek", role: "region", "aria-label": T("Najnowsze wiadomości o AI ze świata") });
+      bar.appendChild(el("span", { "class": "sp-lbl" }, T("SIEĆ › AI NA ŚWIECIE")));
       var link = el("a", { "class": "sp-t", target: "_blank", rel: "noopener" }), meta = el("span", { "class": "sp-m" });
-      var prev = el("button", { type: "button", "class": "sp-b", "aria-label": "Poprzednia wiadomość" }, "◀");
-      var pauza = el("button", { type: "button", "class": "sp-b", "aria-label": "Zatrzymaj przewijanie" }, "⏸");
-      var next = el("button", { type: "button", "class": "sp-b", "aria-label": "Następna wiadomość" }, "▶");
+      var prev = el("button", { type: "button", "class": "sp-b", "aria-label": T("Poprzednia wiadomość") }, "◀");
+      var pauza = el("button", { type: "button", "class": "sp-b", "aria-label": T("Zatrzymaj przewijanie") }, "⏸");
+      var next = el("button", { type: "button", "class": "sp-b", "aria-label": T("Następna wiadomość") }, "▶");
       var box = el("span", { "class": "sp-txt" }); box.appendChild(link); box.appendChild(meta);
       bar.appendChild(box); bar.appendChild(prev); bar.appendChild(pauza); bar.appendChild(next);
       var lista = el("details", { "class": "sp-lista" });
-      lista.appendChild(el("summary", null, "Wszystkie wiadomości (" + W.length + "), stan na " + String(d.aktualizacja || "").slice(0, 10).split("-").reverse().join(".")));
+      lista.appendChild(el("summary", null, T("Wszystkie wiadomości ({0}), stan na {1}", [W.length, String(d.aktualizacja || "").slice(0, 10).split("-").reverse().join(".")])));
       var ol = el("ol");
       W.forEach(function (w) {
         var li = el("li"), a = el("a", { href: w.u, target: "_blank", rel: "noopener", lang: w.j || "en" }, w.t);
         li.appendChild(a); li.appendChild(el("span", { "class": "sp-m" }, " · " + w.z + " · " + w.d.split("-").reverse().join("."))); ol.appendChild(li);
       });
       lista.appendChild(ol);
-      lista.appendChild(el("p", { "class": "muted" }, "Nagłówki z serwisów i instytucji (RSS), wybierane automatycznie raz dziennie. Kurs ich nie weryfikuje: sprawdzaj źródło, zanim je zacytujesz."));
+      lista.appendChild(el("p", { "class": "muted" }, T("Nagłówki z serwisów i instytucji (RSS), wybierane automatycznie raz dziennie. Kurs ich nie weryfikuje: sprawdzaj źródło, zanim je zacytujesz.")));
       function pokaz() {
         var w = W[i]; link.textContent = w.t; link.href = w.u; link.setAttribute("lang", w.j || "en");
         meta.textContent = " · " + w.z + " · " + w.d.split("-").reverse().join(".");
@@ -277,7 +282,7 @@
       prev.addEventListener("click", function () { krok(-1); });
       next.addEventListener("click", function () { krok(1); });
       pauza.addEventListener("click", function () {
-        stop = !stop; pauza.textContent = stop ? "▶▶" : "⏸"; pauza.setAttribute("aria-label", stop ? "Wznów przewijanie" : "Zatrzymaj przewijanie");
+        stop = !stop; pauza.textContent = stop ? "▶▶" : "⏸"; pauza.setAttribute("aria-label", stop ? T("Wznów przewijanie") : T("Zatrzymaj przewijanie"));
         if (stop) wstrzymaj(); else start();
       });
       bar.addEventListener("mouseenter", wstrzymaj); bar.addEventListener("mouseleave", start);
@@ -299,7 +304,7 @@
     document.querySelectorAll(".mode-switch").forEach(modeSwitch);
     document.querySelectorAll("input[data-search]").forEach(searchBox);
     document.querySelectorAll("[data-demo-banner]").forEach(function (b) {
-      b.addEventListener("click", function () { banner(b.getAttribute("data-title") || "ZLECENIE ZALICZONE", b.getAttribute("data-sub") || ""); });
+      b.addEventListener("click", function () { banner(b.getAttribute("data-title") || T("ZLECENIE ZALICZONE"), b.getAttribute("data-sub") || ""); });
     });
   });
 })();

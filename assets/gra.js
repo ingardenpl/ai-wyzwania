@@ -10,6 +10,8 @@
    Gra nie jest częścią oceny: wszystko zostaje w tej przeglądarce i nic nie jest wysyłane. */
 (function () {
   "use strict";
+  // tłumaczenie: window.NEO_I18N ładuje tylko angielska strona (assets/i18n-en.js); bez niego tekst polski
+  var T = function (s, a) { var d = window.NEO_I18N, r = (d && d[s]) || s; return a ? r.replace(/\{(\d+)\}/g, function (m, i) { return a[i]; }) : r; };
   var KLUCZ = "neo-gra", WERSJA = 1, PROG_QUIZ = 0.6, PROG_MIEJSCA = 5;
   var NR = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"];
 
@@ -148,10 +150,10 @@
   }
   function wczytajKod(kod) {
     var m = /^\s*NL1-([A-Za-z0-9_-]+)-([a-z0-9]{4})\s*$/.exec(kod || "");
-    if (!m) return { ok: false, blad: "To nie jest kod postępu (powinien zaczynać się od NL1-)." };
-    if (suma(m[1]) !== m[2]) return { ok: false, blad: "Kod jest niekompletny albo przekłamany; skopiuj go jeszcze raz w całości." };
-    var d; try { d = JSON.parse(unb64(m[1])); } catch (e) { return { ok: false, blad: "Nie udało się odczytać kodu." }; }
-    if (!d || d.v !== 1) return { ok: false, blad: "Kod pochodzi z innej wersji strony." };
+    if (!m) return { ok: false, blad: T("To nie jest kod postępu (powinien zaczynać się od NL1-).") };
+    if (suma(m[1]) !== m[2]) return { ok: false, blad: T("Kod jest niekompletny albo przekłamany; skopiuj go jeszcze raz w całości.") };
+    var d; try { d = JSON.parse(unb64(m[1])); } catch (e) { return { ok: false, blad: T("Nie udało się odczytać kodu.") }; }
+    if (!d || d.v !== 1) return { ok: false, blad: T("Kod pochodzi z innej wersji strony.") };
     var ile = 0;
     zmien(function (s) {
       NR.forEach(function (k) {
@@ -177,7 +179,7 @@
   function importZLinku() {
     var m = /^#postep=(.+)$/.exec(location.hash || "");
     if (!m) return;
-    var w; try { w = wczytajKod(decodeURIComponent(m[1])); } catch (e) { w = { ok: false, blad: "Nie udało się odczytać kodu z linku." }; }
+    var w; try { w = wczytajKod(decodeURIComponent(m[1])); } catch (e) { w = { ok: false, blad: T("Nie udało się odczytać kodu z linku.") }; }
     try { sessionStorage.setItem("neo-postep-import", JSON.stringify(w)); } catch (e) {}
     // kod znika z adresu bez nawigacji (replaceState), dopiero potem przeładowanie: nawigacja do tego samego adresu
     // bez fragmentu potrafi zachować fragment i zapętlić stronę
@@ -229,20 +231,20 @@
     if (!main) html.classList.add("bez-main");
     html.classList.add("zablokowane");
     var b = el("div", "blokada"); b.setAttribute("role", "status");
-    b.appendChild(el("p", "k", "DZIELNICA " + NR_STRONY + " · DOSTĘP ZAMKNIĘTY"));
-    b.appendChild(el("h1", null, (ja.nazwa || "Dzielnica " + NR_STRONY) + (ja.miejsce ? ": " + ja.miejsce : "")));
-    b.appendChild(el("p", null, "Ta część wykładu otwiera się w dniu wykładu, dla osób, które zaliczyły poprzednią dzielnicę."));
+    b.appendChild(el("p", "k", T("DZIELNICA {0} · DOSTĘP ZAMKNIĘTY", [NR_STRONY])));
+    b.appendChild(el("h1", null, (ja.nazwa || T("Dzielnica {0}", [NR_STRONY])) + (ja.miejsce ? ": " + ja.miejsce : "")));
+    b.appendChild(el("p", null, T("Ta część wykładu otwiera się w dniu wykładu, dla osób, które zaliczyły poprzednią dzielnicę.")));
     var ul = el("ul");
-    if (!r.data && r.termin) ul.appendChild(el("li", null, "Otwarcie: " + r.termin.t + "."));
+    if (!r.data && r.termin) ul.appendChild(el("li", null, T("Otwarcie: {0}.", [r.termin.t])));
     if (r.poprzedni) {
       var p = info[r.poprzedni] || {}, li = el("li");
-      li.appendChild(txt("Najpierw zalicz quiz dzielnicy " + r.poprzedni + (p.nazwa ? " (" + p.nazwa + ")" : "") + " na co najmniej 60%: "));
-      var a = el("a", null, "przejdź do quizu"); a.href = "../" + (p.slug || "") + "/index.html#quiz"; li.appendChild(a);
+      li.appendChild(txt(p.nazwa ? T("Najpierw zalicz quiz dzielnicy {0} ({1}) na co najmniej 60%: ", [r.poprzedni, p.nazwa]) : T("Najpierw zalicz quiz dzielnicy {0} na co najmniej 60%: ", [r.poprzedni])));
+      var a = el("a", null, T("przejdź do quizu")); a.href = "../" + (p.slug || "") + "/index.html#quiz"; li.appendChild(a);
       ul.appendChild(li);
     }
     b.appendChild(ul);
-    b.appendChild(el("p", "m", "Wynik quizu zapisuje się tylko w tej przeglądarce. Na innym urządzeniu wystarczy rozwiązać quiz jeszcze raz."));
-    var back = el("p"), m = el("a", null, "← Mapa miasta"); m.href = "../../index.html"; back.appendChild(m); b.appendChild(back);
+    b.appendChild(el("p", "m", T("Wynik quizu zapisuje się tylko w tej przeglądarce. Na innym urządzeniu wystarczy rozwiązać quiz jeszcze raz.")));
+    var back = el("p"), m = el("a", null, T("← Mapa miasta")); m.href = "../../index.html"; back.appendChild(m); b.appendChild(back);
     if (main) main.insertBefore(b, main.firstChild); else document.body.insertBefore(b, document.body.firstChild);
   }
 
@@ -254,49 +256,49 @@
       if (!n || !ch || ch.querySelector(".chip.zamk")) return;
       var r = odblokowany(n);
       if (r.ok) return;
-      var c = el("span", "chip zamk", "zamknięte");
-      c.title = [(!r.data && r.termin) ? "otwarcie " + r.termin.t.split(" · ")[0] : "", r.poprzedni ? "najpierw quiz dzielnicy " + r.poprzedni : ""].filter(Boolean).join("; ");
+      var c = el("span", "chip zamk", T("zamknięte"));
+      c.title = [(!r.data && r.termin) ? T("otwarcie {0}", [r.termin.t.split(" · ")[0]]) : "", r.poprzedni ? T("najpierw quiz dzielnicy {0}", [r.poprzedni]) : ""].filter(Boolean).join("; ");
       ch.insertBefore(c, ch.firstChild);
     });
     var hud = document.querySelector(".hud");
     if (!hud || document.querySelector(".karta-wynikow")) return;
     var s = stan(), d = el("details", "karta-wynikow mission");
-    d.appendChild(el("summary", null, "Karta wyników quizów"));
+    d.appendChild(el("summary", null, T("Karta wyników quizów")));
     if (location.hash === "#postepy") { d.open = true; setTimeout(function () { d.scrollIntoView({ block: "start" }); }, 50); }
     var t = el("table"), th = el("tr");
-    ["Dzielnica", "Najlepszy wynik", "Status"].forEach(function (x) { th.appendChild(el("th", null, x)); });
+    [T("Dzielnica"), T("Najlepszy wynik"), T("Status")].forEach(function (x) { th.appendChild(el("th", null, x)); });
     t.appendChild(th);
     var zal = 0;
     NR.forEach(function (n) {
       var q = s.quizy[n], tr = el("tr");
       tr.appendChild(el("td", null, n + " · " + ((info[n] || {}).nazwa || "")));
-      tr.appendChild(el("td", null, q == null ? "brak" : Math.round(q * 100) + "%"));
-      tr.appendChild(el("td", null, q >= PROG_QUIZ ? "zaliczony" : q == null ? "nie rozwiązany" : "poniżej 60%"));
+      tr.appendChild(el("td", null, q == null ? T("brak") : Math.round(q * 100) + "%"));
+      tr.appendChild(el("td", null, q >= PROG_QUIZ ? T("zaliczony") : q == null ? T("nie rozwiązany") : T("poniżej 60%")));
       if (q >= PROG_QUIZ) zal++;
       t.appendChild(tr);
     });
     d.appendChild(t);
-    d.appendChild(el("p", "muted", "Zaliczone quizy: " + zal + " z 10. Stan na " + dzis().split("-").reverse().join(".") + ". Wyniki są zapisane tylko w tej przeglądarce; kartę można pokazać prowadzącemu albo wydrukować (liczy się do aktywności)."));
-    var b = el("button", "btn ghost", "Drukuj kartę"); b.type = "button";
+    d.appendChild(el("p", "muted", T("Zaliczone quizy: {0} z 10. Stan na {1}. Wyniki są zapisane tylko w tej przeglądarce; kartę można pokazać prowadzącemu albo wydrukować (liczy się do aktywności).", [zal, dzis().split("-").reverse().join(".")])));
+    var b = el("button", "btn ghost", T("Drukuj kartę")); b.type = "button";
     b.addEventListener("click", function () { d.open = true; window.print(); });
     d.appendChild(b);
     d.appendChild(kodPostepuUI());
     hud.parentNode.insertBefore(d, hud.nextSibling);
     var imp = null; try { imp = JSON.parse(sessionStorage.getItem("neo-postep-import") || "null"); sessionStorage.removeItem("neo-postep-import"); } catch (e) {}
-    if (imp) { d.open = true; var p = el("p", imp.ok ? "postep-ok" : "postep-blad", imp.ok ? "Postęp z linku wczytany (" + imp.ile + " nowych wpisów)." : imp.blad); p.setAttribute("role", "status"); d.insertBefore(p, d.children[1]); }
+    if (imp) { d.open = true; var p = el("p", imp.ok ? "postep-ok" : "postep-blad", imp.ok ? T("Postęp z linku wczytany ({0} nowych wpisów).", [imp.ile]) : imp.blad); p.setAttribute("role", "status"); d.insertBefore(p, d.children[1]); }
   }
   // przenoszenie postępu: pokaż kod lub link, wklej kod z innego urządzenia
   function kodPostepuUI() {
     var box = el("details", "postep-kod");
-    box.appendChild(el("summary", null, "Postęp na innym urządzeniu"));
-    box.appendChild(el("p", "muted", "Wyniki są zapisane tylko w tej przeglądarce. Żeby mieć je też na telefonie albo innym komputerze, skopiuj stąd kod postępu i wklej go tam w tym samym miejscu (albo otwórz tam link z kodem). Nic nie jest wysyłane na serwer."));
+    box.appendChild(el("summary", null, T("Postęp na innym urządzeniu")));
+    box.appendChild(el("p", "muted", T("Wyniki są zapisane tylko w tej przeglądarce. Żeby mieć je też na telefonie albo innym komputerze, skopiuj stąd kod postępu i wklej go tam w tym samym miejscu (albo otwórz tam link z kodem). Nic nie jest wysyłane na serwer.")));
     var row = el("div", "btn-row");
-    var pokaz = el("button", "btn ghost", "Pokaż kod postępu"); pokaz.type = "button";
+    var pokaz = el("button", "btn ghost", T("Pokaż kod postępu")); pokaz.type = "button";
     var wyn = el("div"); wyn.hidden = true;
-    var ta = el("textarea"); ta.readOnly = true; ta.rows = 3; ta.setAttribute("aria-label", "Kod postępu"); ta.className = "postep-ta";
+    var ta = el("textarea"); ta.readOnly = true; ta.rows = 3; ta.setAttribute("aria-label", T("Kod postępu")); ta.className = "postep-ta";
     var row2 = el("div", "btn-row");
-    var kop = el("button", "btn ghost", "Kopiuj kod"); kop.type = "button";
-    var lnk = el("a", "btn ghost", "Link z kodem"); lnk.target = "_blank"; lnk.rel = "noopener";
+    var kop = el("button", "btn ghost", T("Kopiuj kod")); kop.type = "button";
+    var lnk = el("a", "btn ghost", T("Link z kodem")); lnk.target = "_blank"; lnk.rel = "noopener";
     var stat = el("p", "muted"); stat.setAttribute("role", "status");
     pokaz.addEventListener("click", function () {
       var k = kodPostepu(); ta.value = k; wyn.hidden = false;
@@ -304,19 +306,19 @@
       ta.focus(); ta.select();
     });
     kop.addEventListener("click", function () {
-      var k = ta.value; function ok() { stat.textContent = "Skopiowano. Wklej kod na drugim urządzeniu w „Postęp na innym urządzeniu”."; }
-      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(k).then(ok, function () { ta.select(); stat.textContent = "Zaznaczono kod: skopiuj go skrótem Ctrl+C."; });
-      else { ta.select(); stat.textContent = "Zaznaczono kod: skopiuj go skrótem Ctrl+C."; }
+      var k = ta.value; function ok() { stat.textContent = T("Skopiowano. Wklej kod na drugim urządzeniu w „Postęp na innym urządzeniu”."); }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(k).then(ok, function () { ta.select(); stat.textContent = T("Zaznaczono kod: skopiuj go skrótem Ctrl+C."); });
+      else { ta.select(); stat.textContent = T("Zaznaczono kod: skopiuj go skrótem Ctrl+C."); }
     });
     row2.appendChild(kop); row2.appendChild(lnk); wyn.appendChild(ta); wyn.appendChild(row2);
     row.appendChild(pokaz); box.appendChild(row); box.appendChild(wyn);
-    var lab = el("label", null, "Wklej kod z innego urządzenia"); lab.htmlFor = "postep-wklej";
+    var lab = el("label", null, T("Wklej kod z innego urządzenia")); lab.htmlFor = "postep-wklej";
     var inp = el("input"); inp.id = "postep-wklej"; inp.type = "text"; inp.autocomplete = "off"; inp.spellcheck = false; inp.placeholder = "NL1-…"; inp.className = "postep-in";
-    var wcz = el("button", "btn", "Wczytaj"); wcz.type = "button";
+    var wcz = el("button", "btn", T("Wczytaj")); wcz.type = "button";
     wcz.addEventListener("click", function () {
       var w = wczytajKod(inp.value);
       stat.className = w.ok ? "postep-ok" : "postep-blad";
-      stat.textContent = w.ok ? "Wczytano: " + w.ile + " nowych wpisów. Odświeżam kartę…" : w.blad;
+      stat.textContent = w.ok ? T("Wczytano: {0} nowych wpisów. Odświeżam kartę…", [w.ile]) : w.blad;
       if (w.ok) setTimeout(function () { location.reload(); }, 900);
     });
     inp.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); wcz.click(); } });
@@ -329,26 +331,28 @@
     var hud = document.querySelector(".hud");
     if (!hud || document.querySelector(".co-dalej")) return;
     var info = dane().info || {}, s = stan(), box = el("div", "co-dalej"), cel = null, opis = "", przycisk = "";
-    box.setAttribute("role", "region"); box.setAttribute("aria-label", "Co dalej");
+    box.setAttribute("role", "region"); box.setAttribute("aria-label", T("Co dalej"));
     var otwarta = NR.filter(function (n) { return info[n] && odblokowany(n).ok && !(s.quizy[n] >= PROG_QUIZ); })[0];
     var zamk = NR.filter(function (n) { return info[n] && !odblokowany(n).ok; })[0];
     if (otwarta) {
       var i = info[otwarta];
       cel = "moduly/" + i.slug + "/index.html";
-      opis = "Dzielnica " + otwarta + " · " + i.nazwa + (i.miejsce ? ": " + i.miejsce : "") + ". Przeczytaj treść zajęć, przejrzyj slajdy i zalicz quiz (co najmniej 60%).";
-      przycisk = "Idź do dzielnicy " + otwarta;
+      opis = i.miejsce ? T("Dzielnica {0} · {1}: {2}. Przeczytaj treść zajęć, przejrzyj slajdy i zalicz quiz (co najmniej 60%).", [otwarta, i.nazwa, i.miejsce]) :
+        T("Dzielnica {0} · {1}. Przeczytaj treść zajęć, przejrzyj slajdy i zalicz quiz (co najmniej 60%).", [otwarta, i.nazwa]);
+      przycisk = T("Idź do dzielnicy {0}", [otwarta]);
     } else if (zamk) {
       var r = odblokowany(zamk), j = info[zamk];
       cel = "fiszki.html";
-      opis = "Quizy wszystkich otwartych dzielnic zaliczone. Dzielnica " + zamk + " (" + j.nazwa + ") otworzy się " +
-        (r.termin && r.termin.t ? r.termin.t.split(" · ")[0] : "w dniu wykładu") + ". Do tego czasu możesz powtórzyć materiał w fiszkach.";
-      przycisk = "Powtórka w fiszkach";
+      opis = r.termin && r.termin.t ?
+        T("Quizy wszystkich otwartych dzielnic zaliczone. Dzielnica {0} ({1}) otworzy się {2}. Do tego czasu możesz powtórzyć materiał w fiszkach.", [zamk, j.nazwa, r.termin.t.split(" · ")[0]]) :
+        T("Quizy wszystkich otwartych dzielnic zaliczone. Dzielnica {0} ({1}) otworzy się w dniu wykładu. Do tego czasu możesz powtórzyć materiał w fiszkach.", [zamk, j.nazwa]);
+      przycisk = T("Powtórka w fiszkach");
     } else {
       cel = "zaliczenie.html";
-      opis = "Quizy wszystkich dzielnic zaliczone. Zostało zaliczenie przedmiotu: test, projekt albo własna propozycja.";
-      przycisk = "Zasady zaliczenia";
+      opis = T("Quizy wszystkich dzielnic zaliczone. Zostało zaliczenie przedmiotu: test, projekt albo własna propozycja.");
+      przycisk = T("Zasady zaliczenia");
     }
-    box.appendChild(el("p", "eyebrow", "Co dalej?"));
+    box.appendChild(el("p", "eyebrow", T("Co dalej?")));
     box.appendChild(el("p", null, opis));
     var a = el("a", "btn", przycisk); a.href = cel; box.appendChild(a);
     hud.parentNode.insertBefore(box, hud);
@@ -366,7 +370,7 @@
     if (qz && stan().quizy[qz.getAttribute("data-quiz")] >= PROG_QUIZ) {
       qz.parentNode.classList.add("zrobione");
       qz.querySelector("b").textContent = "✓";
-      qz.querySelector("small").textContent = "zaliczony (" + Math.round(stan().quizy[qz.getAttribute("data-quiz")] * 100) + "%)";
+      qz.querySelector("small").textContent = T("zaliczony ({0}%)", [Math.round(stan().quizy[qz.getAttribute("data-quiz")] * 100)]);
     }
   }
   document.addEventListener("DOMContentLoaded", function () { zamknijStrone(); listaIKarta(); coDalej(); sciezka(); });
@@ -392,10 +396,10 @@
         var ch = a.querySelector(".chips");
         if (!ch) return;
         var nx = ch.querySelector(".nextc");
-        if (st[n] === "next" && !nx) ch.insertBefore(el("span", "chip nextc", "następne zlecenie"), ch.firstChild);
+        if (st[n] === "next" && !nx) ch.insertBefore(el("span", "chip nextc", T("następne zlecenie")), ch.firstChild);
         if (st[n] !== "next" && nx) nx.remove();
         var dn = ch.querySelector(".chip.done");
-        if (st[n] === "past" && !dn) ch.insertBefore(el("span", "chip done", "odbyło się"), ch.querySelector(".chip.on") || null);
+        if (st[n] === "past" && !dn) ch.insertBefore(el("span", "chip done", T("odbyło się")), ch.querySelector(".chip.on") || null);
         if (st[n] !== "past" && dn) dn.remove();
       });
       // misja i pager na mapie głównej
@@ -404,7 +408,7 @@
       if (mis && nast.length && info[nast[0]]) {
         var t = nastepnyTermin(nast[0]);
         mis.textContent = "";
-        mis.appendChild(el("p", "eyebrow", "Następne zlecenie · " + (t ? t.t : "termin do ustalenia")));
+        mis.appendChild(el("p", "eyebrow", T("Następne zlecenie · {0}", [t ? t.t : T("termin do ustalenia")])));
         nast.forEach(function (n, i) {
           if (i) mis.appendChild(txt(" + "));
           var a = el("a", null, info[n].nazwa + ": " + info[n].miejsce); a.href = "moduly/" + info[n].slug + "/index.html"; mis.appendChild(a);
@@ -412,21 +416,21 @@
         var p = el("p", "muted", info[nast[0]].zlecenie); p.style.margin = ".3em 0 0"; mis.appendChild(p);
         var pg = document.querySelector(".pager-lcd .scroll");
         if (pg) {
-          var msg = "INSPEKTORZE, NASTĘPNE ZLECENIE: " + nast.map(function (n) { return info[n].nazwa + " · " + info[n].miejsce; }).join(" + ") +
-            " · " + (t ? t.t : "") + ". DO ZDOBYCIA: " + nast.map(function (n) { return info[n].przedmiot; }).join(" + ") + ". NIE UFAJ ECHO BEZ SPRAWDZENIA ŹRÓDŁA.";
-          pg.textContent = ""; pg.appendChild(el("span", "who", "ARCHIWISTKA ›")); pg.appendChild(txt(" " + msg.toUpperCase()));
-          pg.parentNode.setAttribute("aria-label", "Wiadomość od Archiwistki: " + msg);
+          var msg = T("INSPEKTORZE, NASTĘPNE ZLECENIE: {0} · {1}. DO ZDOBYCIA: {2}. NIE UFAJ ECHO BEZ SPRAWDZENIA ŹRÓDŁA.", [nast.map(function (n) { return info[n].nazwa + " · " + info[n].miejsce; }).join(" + "),
+            t ? t.t : "", nast.map(function (n) { return info[n].przedmiot; }).join(" + ")]);
+          pg.textContent = ""; pg.appendChild(el("span", "who", T("ARCHIWISTKA ›"))); pg.appendChild(txt(" " + msg.toUpperCase()));
+          pg.parentNode.setAttribute("aria-label", T("Wiadomość od Archiwistki: {0}", [msg]));
         }
       } else if (mis && !nast.length && NR.every(function (n) { return !info[n] || st[n] === "past"; })) {
         mis.textContent = "";
-        mis.appendChild(el("p", "eyebrow", "Śledztwo zakończone"));
-        mis.appendChild(el("p", null, "Wszystkie dzielnice odwiedzone. Zamknij akta: test, projekt albo własna propozycja."));
-        var a2 = el("a", null, "Zasady zaliczenia"); a2.href = "zaliczenie.html"; mis.appendChild(a2);
+        mis.appendChild(el("p", "eyebrow", T("Śledztwo zakończone")));
+        mis.appendChild(el("p", null, T("Wszystkie dzielnice odwiedzone. Zamknij akta: test, projekt albo własna propozycja.")));
+        var a2 = el("a", null, T("Zasady zaliczenia")); a2.href = "zaliczenie.html"; mis.appendChild(a2);
         var pg2 = document.querySelector(".pager-lcd .scroll");
         if (pg2) {
-          var msg2 = "INSPEKTORZE, WSZYSTKIE DZIELNICE ODWIEDZONE. ZAMKNIJ AKTA: TEST, PROJEKT ALBO WŁASNA PROPOZYCJA.";
+          var msg2 = T("INSPEKTORZE, WSZYSTKIE DZIELNICE ODWIEDZONE. ZAMKNIJ AKTA: TEST, PROJEKT ALBO WŁASNA PROPOZYCJA.");
           pg2.textContent = ""; pg2.appendChild(el("span", "who", "ARCHIWISTKA ›")); pg2.appendChild(txt(" " + msg2));
-          pg2.parentNode.setAttribute("aria-label", "Wiadomość od Archiwistki: " + msg2);
+          pg2.parentNode.setAttribute("aria-label", T("Wiadomość od Archiwistki: {0}", [msg2]));
         }
       }
     }
@@ -439,19 +443,19 @@
       if (ma) cv.setAttribute("data-on", ""); else cv.removeAttribute("data-on");
       slot.classList.toggle("on", ma);
       var i = info[n];
-      if (i) slot.title = i.przedmiot + " (dzielnica " + n + ", " + (ma ? "zdobyty" : st[n] === "past" ? "do zdobycia: quiz ≥ 60%" + (i.wnetrze ? ", zadanie i " + PROG_MIEJSCA + " z 7 miejsc" : "") : "dzielnica otworzy się w dniu spotkania") + ")";
+      if (i) slot.title = T("{0} (dzielnica {1}, {2})", [i.przedmiot, n, ma ? T("zdobyty") : st[n] === "past" ? (i.wnetrze ? T("do zdobycia: quiz ≥ 60%, zadanie i {0} z 7 miejsc", [PROG_MIEJSCA]) : T("do zdobycia: quiz ≥ 60%")) : T("dzielnica otworzy się w dniu spotkania")]);
     });
     var inv = document.querySelector(".inventory .lbl");
-    if (inv) { inv.textContent = "EKWIPUNEK " + art.length + "/10"; inv.parentNode.setAttribute("aria-label", "Ekwipunek: zdobyte artefakty " + art.length + " z 10"); }
+    if (inv) { inv.textContent = T("EKWIPUNEK {0}/10", [art.length]); inv.parentNode.setAttribute("aria-label", T("Ekwipunek: zdobyte artefakty {0} z 10", [art.length])); }
     // karta przedmiotu na stronie dzielnicy
     var foc = document.querySelector("canvas[data-focus]"), card = document.querySelector(".item-card");
     if (foc && card) {
       var n = foc.getAttribute("data-focus"), ma2 = artefakt(n), cv2 = card.querySelector("canvas[data-icon]"), b = card.querySelector("b");
       if (cv2) { if (ma2) cv2.setAttribute("data-on", ""); else cv2.removeAttribute("data-on"); }
-      if (b) b.textContent = ma2 ? "Artefakt zdobyty" : "Artefakt do zdobycia";
+      if (b) b.textContent = ma2 ? T("Artefakt zdobyty") : T("Artefakt do zdobycia");
       var w = card.querySelector(".item-war") || el("small", "item-war");
-      w.textContent = ma2 ? "" : st[n] !== "past" ? "Dzielnica otworzy się w dniu spotkania." :
-        "Warunek: quiz dzielnicy ≥ 60%" + (wnetrze(n) ? ", wykonane zadanie i " + PROG_MIEJSCA + " z 7 miejsc we wnętrzu dzielnicy." : ".");
+      w.textContent = ma2 ? "" : st[n] !== "past" ? T("Dzielnica otworzy się w dniu spotkania.") :
+        wnetrze(n) ? T("Warunek: quiz dzielnicy ≥ 60%, wykonane zadanie i {0} z 7 miejsc we wnętrzu dzielnicy.", [PROG_MIEJSCA]) : T("Warunek: quiz dzielnicy ≥ 60%.");
       if (!w.parentNode) card.lastElementChild.appendChild(w);
     }
   });

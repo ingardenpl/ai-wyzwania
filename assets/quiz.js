@@ -2,6 +2,8 @@
 // Pytania jednokrotnego wyboru: natychmiastowa informacja zwrotna i wyjaśnienie.
 // Pytania otwarte: pole na notatkę i rozwijane kryteria dobrej odpowiedzi.
 (function () {
+  // tłumaczenie: window.NEO_I18N ładuje tylko angielska strona (assets/i18n-en.js); bez niego tekst polski
+  var T = function (s, a) { var d = window.NEO_I18N, r = (d && d[s]) || s; return a ? r.replace(/\{(\d+)\}/g, function (m, i) { return a[i]; }) : r; };
   function el(tag, attrs, text) {
     var n = document.createElement(tag);
     if (attrs) for (var k in attrs) n.setAttribute(k, attrs[k]);
@@ -41,30 +43,30 @@
       var G = window.NeoGra, cv = document.querySelector("canvas[data-focus]"), nr = cv && cv.getAttribute("data-focus");
       var otwarte = qs.length - closed.length;
       var p1 = el("p", { "class": ok ? "ok" : "bad" });
-      p1.appendChild(el("b", null, ok ? "Quiz zaliczony (" + pct + "%, próg 60%). " : "Poniżej progu 60% (" + pct + "%). "));
-      p1.appendChild(document.createTextNode(ok ? "Wynik zapisał się w karcie wyników na mapie." : "Możesz zacząć od nowa; liczy się najlepszy wynik."));
+      p1.appendChild(el("b", null, ok ? T("Quiz zaliczony ({0}%, próg 60%). ", [pct]) : T("Poniżej progu 60% ({0}%). ", [pct])));
+      p1.appendChild(document.createTextNode(ok ? T("Wynik zapisał się w karcie wyników na mapie.") : T("Możesz zacząć od nowa; liczy się najlepszy wynik.")));
       wynik.appendChild(p1);
-      if (otwarte) wynik.appendChild(el("p", { "class": "muted" }, "Do wyniku liczy się " + closed.length + " pytań zamkniętych; " + otwarte + (otwarte === 1 ? " pytanie otwarte jest" : " pytania otwarte są") + " do samooceny według kryteriów."));
+      if (otwarte) wynik.appendChild(el("p", { "class": "muted" }, (otwarte === 1 ? T("Do wyniku liczy się {0} pytań zamkniętych; {1} pytanie otwarte jest do samooceny według kryteriów.", [closed.length, otwarte]) : T("Do wyniku liczy się {0} pytań zamkniętych; {1} pytania otwarte są do samooceny według kryteriów.", [closed.length, otwarte]))));
       if (!G || !nr) return;
       var info = (G.dane().info || {}), nxt = ("0" + (parseInt(nr, 10) + 1)).slice(-2), p2 = el("p");
       if (ok && info[nxt]) {
         var r = G.odblokowany(nxt);
         if (r.ok) {
-          p2.appendChild(document.createTextNode("Dzielnica " + nxt + " (" + info[nxt].nazwa + ") jest otwarta: "));
-          var a = el("a", { href: "../" + info[nxt].slug + "/index.html" }, "przejdź do niej"); p2.appendChild(a);
+          p2.appendChild(document.createTextNode(T("Dzielnica {0} ({1}) jest otwarta: ", [nxt, info[nxt].nazwa])));
+          var a = el("a", { href: "../" + info[nxt].slug + "/index.html" }, T("przejdź do niej")); p2.appendChild(a);
         } else if (r.termin && r.termin.t) {
-          p2.appendChild(document.createTextNode("Dzielnica " + nxt + " (" + info[nxt].nazwa + ") otworzy się " + r.termin.t.split(" · ")[0] + "."));
+          p2.appendChild(document.createTextNode(T("Dzielnica {0} ({1}) otworzy się {2}.", [nxt, info[nxt].nazwa, r.termin.t.split(" · ")[0]])));
         }
         if (p2.childNodes.length) wynik.appendChild(p2);
       }
       if (ok && G.wnetrze(nr) && !G.artefakt(nr)) {
-        var p3 = el("p", { "class": "muted" }, "Artefakt tej dzielnicy: zostało jeszcze zadanie i " + G.PROG_MIEJSCA + " z 7 miejsc we wnętrzu dzielnicy (sekcja „Wnętrze dzielnicy” niżej na tej stronie).");
+        var p3 = el("p", { "class": "muted" }, T("Artefakt tej dzielnicy: zostało jeszcze zadanie i {0} z 7 miejsc we wnętrzu dzielnicy (sekcja „Wnętrze dzielnicy” niżej na tej stronie).", [G.PROG_MIEJSCA]));
         wynik.appendChild(p3);
       }
     }
     function updateScore() {
       score.textContent = closed.length
-        ? "Wynik: " + correct + " / " + closed.length + (answered < closed.length ? " (odpowiedziano na " + answered + ")" : "")
+        ? (answered < closed.length ? T("Wynik: {0} / {1} (odpowiedziano na {2})", [correct, closed.length, answered]) : T("Wynik: {0} / {1}", [correct, closed.length]))
         : "";
     }
 
@@ -94,15 +96,15 @@
               else if (k === j) l.classList.add("wrong");
             });
             fb.innerHTML = "";
-            var b = el("b", { "class": ok ? "ok" : "bad" }, ok ? "Dobrze. " : "Niestety nie. ");
+            var b = el("b", { "class": ok ? "ok" : "bad" }, ok ? T("Dobrze. ") : T("Niestety nie. "));
             fb.appendChild(b);
             if (q.wyjasnienie) fb.appendChild(document.createTextNode(q.wyjasnienie));
             updateScore();
             if (answered === closed.length) { zapiszZaliczenie(correct / closed.length >= 0.6, correct / closed.length); podsumowanie(correct / closed.length >= 0.6, Math.round(correct / closed.length * 100)); }
             if (answered === closed.length && window.NeoUI) {
               var ok = correct / closed.length >= 0.6;
-              window.NeoUI.banner(ok ? "ZLECENIE ZALICZONE" : "ZLECENIE NIEUKOŃCZONE",
-                correct + " / " + closed.length + (ok ? " · REPUTACJA +" + correct * 10 : " · SPRÓBUJ JESZCZE RAZ"));
+              window.NeoUI.banner(ok ? T("ZLECENIE ZALICZONE") : T("ZLECENIE NIEUKOŃCZONE"),
+                ok ? T("{0} / {1} · REPUTACJA +{2}", [correct, closed.length, correct * 10]) : T("{0} / {1} · SPRÓBUJ JESZCZE RAZ", [correct, closed.length]));
             }
           });
           fs.appendChild(lab);
@@ -110,9 +112,9 @@
         box.appendChild(fs);
         box.appendChild(fb);
       } else {
-        box.appendChild(el("p", { "class": "q-text" }, (i + 1) + ". " + q.tresc + (q.punkty ? " (" + q.punkty + " pkt)" : "")));
-        var ta = el("textarea", { rows: "4", "aria-label": "Twoja odpowiedź (notatka, nie jest nigdzie wysyłana)",
-          placeholder: "Zanotuj odpowiedź. Tekst zostaje tylko w tej karcie przeglądarki." });
+        box.appendChild(el("p", { "class": "q-text" }, (i + 1) + ". " + q.tresc + (q.punkty ? T(" ({0} pkt)", [q.punkty]) : "")));
+        var ta = el("textarea", { rows: "4", "aria-label": T("Twoja odpowiedź (notatka, nie jest nigdzie wysyłana)"),
+          placeholder: T("Zanotuj odpowiedź. Tekst zostaje tylko w tej karcie przeglądarki.") });
         ta.style.width = "100%";
         ta.style.font = "inherit";
         ta.style.padding = "8px";
@@ -123,7 +125,7 @@
         box.appendChild(ta);
         if (q.kryteria && q.kryteria.length) {
           var d = el("details");
-          d.appendChild(el("summary", null, "Co powinna zawierać dobra odpowiedź"));
+          d.appendChild(el("summary", null, T("Co powinna zawierać dobra odpowiedź")));
           var ul = el("ul");
           q.kryteria.forEach(function (k) { ul.appendChild(el("li", null, k)); });
           d.appendChild(ul);
@@ -134,7 +136,7 @@
     });
 
     if (closed.length) {
-      var reset = el("button", { type: "button", "class": "btn ghost" }, "Zacznij od nowa");
+      var reset = el("button", { type: "button", "class": "btn ghost" }, T("Zacznij od nowa"));
       reset.addEventListener("click", function () { location.reload(); });
       var row = el("div", { "class": "btn-row" });
       row.appendChild(reset);

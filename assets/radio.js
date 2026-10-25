@@ -4,6 +4,8 @@
    Dźwięk startuje wyłącznie po kliknięciu (zasady przeglądarek); stacja i głośność zapamiętane w tej przeglądarce. */
 (function () {
   "use strict";
+  // tłumaczenie: window.NEO_I18N ładuje tylko angielska strona (assets/i18n-en.js); bez niego tekst polski
+  var T = function (s, a) { var d = window.NEO_I18N, r = (d && d[s]) || s; return a ? r.replace(/\{(\d+)\}/g, function (m, i) { return a[i]; }) : r; };
   var PROG = 2;
   var KLUCZ = "neo-radio";
   var STACJE = [
@@ -132,22 +134,22 @@
     var ikona = el("span", "radio-ik", "📻"); ikona.setAttribute("aria-hidden", "true");
     var nazwa = el("span", "radio-n");
     var play = el("button", "radio-b", "▶"); play.type = "button";
-    var dalej = el("button", "radio-b", "⏭"); dalej.type = "button"; dalej.setAttribute("aria-label", "Następna stacja");
-    var vol = el("input", "radio-v"); vol.type = "range"; vol.min = 0; vol.max = 100; vol.value = u.glosnosc == null ? 50 : u.glosnosc; vol.setAttribute("aria-label", "Głośność");
+    var dalej = el("button", "radio-b", "⏭"); dalej.type = "button"; dalej.setAttribute("aria-label", T("Następna stacja"));
+    var vol = el("input", "radio-v"); vol.type = "range"; vol.min = 0; vol.max = 100; vol.value = u.glosnosc == null ? 50 : u.glosnosc; vol.setAttribute("aria-label", T("Głośność"));
     box.appendChild(ikona); box.appendChild(nazwa); box.appendChild(play); box.appendChild(dalej); box.appendChild(vol);
     document.body.appendChild(box); document.body.classList.add("ma-radio");
     function opis() {
       var n = zaliczone(), S = STACJE[stacja];
       if (n < PROG) {
         box.classList.add("zamk"); play.disabled = dalej.disabled = vol.disabled = true;
-        nazwa.textContent = "RADIO · zalicz " + PROG + " quizy (" + Math.min(n, PROG) + "/" + PROG + ")";
-        play.setAttribute("aria-label", "Radio zablokowane: zalicz " + PROG + " quizy dzielnic");
+        nazwa.textContent = T("RADIO · zalicz {0} quizy ({1}/{0})", [PROG, Math.min(n, PROG)]);
+        play.setAttribute("aria-label", T("Radio zablokowane: zalicz {0} quizy dzielnic", [PROG]));
         return;
       }
       box.classList.remove("zamk"); play.disabled = dalej.disabled = vol.disabled = false;
       nazwa.textContent = S.nazwa + " · " + S.opis;
       play.textContent = gra ? "⏸" : "▶";
-      play.setAttribute("aria-label", gra ? "Wyłącz radio" : "Włącz radio: " + S.nazwa);
+      play.setAttribute("aria-label", gra ? T("Wyłącz radio") : T("Włącz radio: {0}", [S.nazwa]));
       box.classList.toggle("gra", gra);
     }
     play.addEventListener("click", function () { if (gra) wylacz(); else wlacz(); master.gain.value = vol.value / 100 * 0.8; opis(); });

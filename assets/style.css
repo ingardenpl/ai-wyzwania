@@ -75,6 +75,9 @@ a:hover { color: var(--gold); }
 .topnav a { color: var(--ink-soft); text-decoration: none; padding: 6px 10px; font-family: var(--mono); font-size: 0.85rem; border: 1px solid transparent; }
 .topnav a:hover { color: var(--navy); border-color: var(--line); }
 .topnav a[aria-current="page"] { color: var(--gold); border-color: var(--gold-soft); }
+/* przełącznik PL/EN (build.py: lang_switch) */
+.lang-switch { color: var(--muted); text-decoration: none; font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; padding: 4px 8px; border: 1px solid var(--line); }
+.lang-switch:hover { color: var(--navy); border-color: var(--navy); }
 .theme-toggle { display: none; }
 @media (max-width: 720px) {
   .topbar { position: static; }
@@ -85,6 +88,9 @@ a:hover { color: var(--gold); }
     scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
   .topnav::-webkit-scrollbar { display: none; }
   .topnav a { padding: 8px 10px; white-space: nowrap; flex: 0 0 auto; }
+  /* przełącznik języka w wierszu z nazwą strony, menu w osobnym wierszu pod spodem */
+  .lang-switch { order: 1; margin-left: auto; }
+  .topnav { order: 2; }
 }
 .skip-link { position: absolute; left: -9999px; top: 8px; z-index: 100; background: var(--gold); color: #07080f; padding: 10px 14px; font-family: var(--display); font-weight: 700; text-decoration: none; }
 .skip-link:focus { left: 8px; }

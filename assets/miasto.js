@@ -6,6 +6,9 @@
    Brak zależności. Przy prefers-reduced-motion rysowana jest jedna klatka. */
 (function () {
   "use strict";
+  // tłumaczenie: window.NEO_I18N ładuje tylko angielska strona (assets/i18n-en.js); bez niego tekst polski
+  // (tu „tlum”, bo T to rozmiar kafelka mapy)
+  var tlum = function (s, a) { var d = window.NEO_I18N, r = (d && d[s]) || s; return a ? r.replace(/\{(\d+)\}/g, function (m, i) { return a[i]; }) : r; };
   // katalog assets (do dołączania eksploracji i świata podziemnego bez zmian w build.py)
   var BASE = (document.currentScript && document.currentScript.src || "").replace(/miasto\.js(\?.*)?$/, "");
 
@@ -839,8 +842,8 @@
         m.hidden = st === "hidden";
         m.classList.toggle("signal", st === "signal");
         m.querySelector(".n").textContent = st === "open" ? "11" : "??";
-        m.querySelector(".label").textContent = st === "open" ? "PODZIEMIA" : "SYGNAŁ";
-        m.setAttribute("aria-label", st === "open" ? "11: Podziemia Starego Miasta, Archiwum Trybunału" : "Nieznany sygnał spod Starego Miasta");
+        m.querySelector(".label").textContent = st === "open" ? tlum("PODZIEMIA") : tlum("SYGNAŁ");
+        m.setAttribute("aria-label", st === "open" ? tlum("11: Podziemia Starego Miasta, Archiwum Trybunału") : tlum("Nieznany sygnał spod Starego Miasta"));
       });
       document.querySelectorAll("[data-pod]:not(.city-marker)").forEach(function (el) { el.hidden = st !== "open"; });
     }
@@ -852,7 +855,7 @@
       if (zal.indexOf(m.getAttribute("data-nr")) < 0) return;
       m.classList.add("zal");
       var l = m.querySelector(".label"); if (l && !/✓/.test(l.textContent)) l.textContent += " ✓";
-      m.setAttribute("aria-label", (m.getAttribute("aria-label") || "") + " Zaliczona.");
+      m.setAttribute("aria-label", (m.getAttribute("aria-label") || "") + tlum(" Zaliczona."));
     });
     // eksploracja (mapa główna) i świat podziemny (strona podziemi): osobne pliki, dołączane tutaj
     function load(src, css) {

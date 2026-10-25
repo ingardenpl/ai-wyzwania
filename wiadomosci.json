@@ -1,6 +1,20 @@
 {
- "aktualizacja": "2026-10-24T20:58Z",
+ "aktualizacja": "2026-10-25T08:57Z",
  "wpisy": [
+  {
+   "t": "OpenAI stworzyło dedykowany internet dla agentów AI",
+   "u": "https://www.computerworld.pl/article/100054145/openai-stworzylo-dedykowany-internet-dla-agentow-ai.html",
+   "z": "Computerworld",
+   "d": "2026-10-25",
+   "j": "pl"
+  },
+  {
+   "t": "Blue Planet III is keeping the rough edges in the age of AI",
+   "u": "https://www.theverge.com/ai-artificial-intelligence/1018205/blue-planet-iii-authentic-organic-ai",
+   "z": "The Verge",
+   "d": "2026-10-24",
+   "j": "en"
+  },
   {
    "t": "‘Synthetic twin’: Why Socceroo Cristian Volpato is the latest footballer to license his AI clone",
    "u": "https://www.theguardian.com/technology/2026/oct/25/synthetic-twin-why-socceroo-cristian-volpato-is-the-latest-footballer-to-license-his-ai-clone",
@@ -65,13 +79,6 @@
    "j": "en"
   },
   {
-   "t": "Meta delays new business terms after publisher pushback on AI scraping",
-   "u": "https://www.theverge.com/tech/1017450/meta-business-terms-delayed-ai-scraping",
-   "z": "The Verge",
-   "d": "2026-10-23",
-   "j": "en"
-  },
-  {
    "t": "AI zmienia pracę Polaków. Firmy muszą nadążyć z kompetencjami i sprzętem",
    "u": "https://www.computerworld.pl/article/100054131/ai-zmienia-prace-polakow-firmy-musza-nadazyc-z-kompetencjami-i-sprzetem.html",
    "z": "Computerworld",
@@ -81,13 +88,6 @@
   {
    "t": "Agentowa sztuczna inteligencja pozbawiona zadań zaczyna się bawić",
    "u": "https://www.computerworld.pl/article/100054127/agentowa-sztuczna-inteligencja-pozbawiona-zadan-zaczyna-sie-bawic.html",
-   "z": "Computerworld",
-   "d": "2026-10-23",
-   "j": "pl"
-  },
-  {
-   "t": "Wirusy zaprojektowane przez AI podano pacjentowi. Mają zwalczać oporne bakterie",
-   "u": "https://www.computerworld.pl/article/100054123/wirusy-zaprojektowane-przez-ai-podano-pacjentowi-maja-zwalczac-oporne-bakterie.html",
    "z": "Computerworld",
    "d": "2026-10-23",
    "j": "pl"

@@ -1,5 +1,7 @@
 // Przełącznik motywu (jasny / ciemny). Wybór zapamiętywany lokalnie, jeśli przeglądarka na to pozwala.
 (function () {
+  // tłumaczenie: window.NEO_I18N ładuje tylko angielska strona (assets/i18n-en.js); bez niego tekst polski
+  var T = function (s, a) { var d = window.NEO_I18N, r = (d && d[s]) || s; return a ? r.replace(/\{(\d+)\}/g, function (m, i) { return a[i]; }) : r; };
   var root = document.documentElement;
   var KEY = "ai-wyzwania-theme";
   try {
@@ -15,7 +17,7 @@
   function label(btn) {
     var dark = current() === "dark";
     btn.textContent = dark ? "☀" : "☾";
-    btn.setAttribute("aria-label", dark ? "Włącz jasny motyw" : "Włącz ciemny motyw");
+    btn.setAttribute("aria-label", dark ? T("Włącz jasny motyw") : T("Włącz ciemny motyw"));
     btn.title = btn.getAttribute("aria-label");
   }
   document.addEventListener("DOMContentLoaded", function () {

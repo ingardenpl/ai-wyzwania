@@ -5,6 +5,8 @@
    prefers-reduced-motion. Kroki, których element nie istnieje na stronie (np. pasek wiadomości bez sieci), są pomijane. */
 (function () {
   "use strict";
+  // tłumaczenie: window.NEO_I18N ładuje tylko angielska strona (assets/i18n-en.js); bez niego tekst polski
+  var T = function (s, a) { var d = window.NEO_I18N, r = (d && d[s]) || s; return a ? r.replace(/\{(\d+)\}/g, function (m, i) { return a[i]; }) : r; };
   var KLUCZ = "neo-przewodnik";
   var mapa = document.getElementById("city-main") && document.getElementById("city-main").closest(".city-map");
   var spokojnie = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -14,22 +16,22 @@
   function navLink(href) { return document.querySelector('.topnav a[href$="' + href + '"]'); }
 
   var KROKI = [
-    { t: "Witaj w NEO-LUBLIN 2049",
-      p: "To strona wykładu „Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne”. Kurs jest miastem: każdy temat to dzielnica Lublina roku 2049. Przewodnik w minutę pokaże najważniejsze miejsca." },
-    { el: function () { return mapa; }, t: "Mapa miasta",
-      p: "Każdy znacznik to dzielnica, czyli jeden temat. Dzielnica otwiera się w dniu wykładu, jeśli quiz poprzedniej dzielnicy masz zaliczony na co najmniej 60%. Przycisk EKSPLORUJ pozwala chodzić po mieście jak w grze; we wnętrzach dzielnic jeździsz też taksówką. Te same dzielnice są na liście pod mapą." },
-    { el: function () { return document.querySelector(".co-dalej"); }, t: "Co dalej?",
-      p: "Tu zawsze jest jeden następny krok: dzielnica do przerobienia, powtórka albo zaliczenie. Jeśli nie wiesz, od czego zacząć, kliknij ten przycisk." },
-    { el: function () { return document.querySelector(".inventory"); }, t: "Ekwipunek i karta wyników",
-      p: "Artefakt dzielnicy dostajesz za quiz na co najmniej 60%, a tam, gdzie jest wnętrze, także za zadanie i 5 z 7 miejsc. Pod spodem jest karta wyników quizów, którą możesz pokazać prowadzącemu lub wydrukować: quizy liczą się do aktywności. Wyniki zapisują się tylko w tej przeglądarce; kodem postępu z karty przeniesiesz je na inne urządzenie." },
-    { el: function () { return navLink("nauka.html"); }, t: "Nauka",
-      p: "Fiszki, słowniczek, biblioteka, materiały interaktywne i źródła prawa w jednym miejscu. Materiały do konkretnego tematu są na stronie jego dzielnicy." },
-    { el: function () { return navLink("zaliczenie.html"); }, t: "Zaliczenie",
-      p: "Trzy ścieżki: test, projekt aplikacji dla prawników albo własna propozycja. Wybór zgłaszasz do 6.11.2026." },
-    { el: function () { return document.querySelector(".siec-pasek"); }, t: "Wiadomości z sieci",
-      p: "Najnowsze artykuły o AI ze świata, odświeżane codziennie. Po zaliczeniu dwóch quizów włącza się też radio miasta." },
-    { t: "Gotowe",
-      p: "Strona działa też bez internetu i na telefonie (możesz dodać ją do ekranu głównego). Przewodnik uruchomisz ponownie linkiem „Przewodnik po stronie” na dole każdej strony." }
+    { t: T("Witaj w NEO-LUBLIN 2049"),
+      p: T("To strona wykładu „Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne”. Kurs jest miastem: każdy temat to dzielnica Lublina roku 2049. Przewodnik w minutę pokaże najważniejsze miejsca.") },
+    { el: function () { return mapa; }, t: T("Mapa miasta"),
+      p: T("Każdy znacznik to dzielnica, czyli jeden temat. Dzielnica otwiera się w dniu wykładu, jeśli quiz poprzedniej dzielnicy masz zaliczony na co najmniej 60%. Przycisk EKSPLORUJ pozwala chodzić po mieście jak w grze; we wnętrzach dzielnic jeździsz też taksówką. Te same dzielnice są na liście pod mapą.") },
+    { el: function () { return document.querySelector(".co-dalej"); }, t: T("Co dalej?"),
+      p: T("Tu zawsze jest jeden następny krok: dzielnica do przerobienia, powtórka albo zaliczenie. Jeśli nie wiesz, od czego zacząć, kliknij ten przycisk.") },
+    { el: function () { return document.querySelector(".inventory"); }, t: T("Ekwipunek i karta wyników"),
+      p: T("Artefakt dzielnicy dostajesz za quiz na co najmniej 60%, a tam, gdzie jest wnętrze, także za zadanie i 5 z 7 miejsc. Pod spodem jest karta wyników quizów, którą możesz pokazać prowadzącemu lub wydrukować: quizy liczą się do aktywności. Wyniki zapisują się tylko w tej przeglądarce; kodem postępu z karty przeniesiesz je na inne urządzenie.") },
+    { el: function () { return navLink("nauka.html"); }, t: T("Nauka"),
+      p: T("Fiszki, słowniczek, biblioteka, materiały interaktywne i źródła prawa w jednym miejscu. Materiały do konkretnego tematu są na stronie jego dzielnicy.") },
+    { el: function () { return navLink("zaliczenie.html"); }, t: T("Zaliczenie"),
+      p: T("Trzy ścieżki: test, projekt aplikacji dla prawników albo własna propozycja. Wybór zgłaszasz do 6.11.2026.") },
+    { el: function () { return document.querySelector(".siec-pasek"); }, t: T("Wiadomości z sieci"),
+      p: T("Najnowsze artykuły o AI ze świata, odświeżane codziennie. Po zaliczeniu dwóch quizów włącza się też radio miasta.") },
+    { t: T("Gotowe"),
+      p: T("Strona działa też bez internetu i na telefonie (możesz dodać ją do ekranu głównego). Przewodnik uruchomisz ponownie linkiem „Przewodnik po stronie” na dole każdej strony.") }
   ];
 
   var tlo, ramka, okno, kroki, nr, poprzedniFokus;
@@ -69,14 +71,14 @@
   function pokaz() {
     var k = kroki[nr], ost = nr === kroki.length - 1;
     okno.textContent = "";
-    okno.appendChild(el("p", "krok", "PRZEWODNIK · " + (nr + 1) + " / " + kroki.length));
+    okno.appendChild(el("p", "krok", T("PRZEWODNIK · {0} / {1}", [nr + 1, kroki.length])));
     var h = el("h2", null, k.t); h.id = "przew-t"; okno.appendChild(h);
     var p = el("p", null, k.p); p.id = "przew-p"; okno.appendChild(p);
     var row = el("div", "btn-row");
-    var pomin = el("button", "btn ghost pomin", ost ? "Zamknij" : "Pomiń"); pomin.type = "button"; pomin.addEventListener("click", koniec);
+    var pomin = el("button", "btn ghost pomin", ost ? T("Zamknij") : T("Pomiń")); pomin.type = "button"; pomin.addEventListener("click", koniec);
     row.appendChild(pomin);
-    if (nr > 0) { var w = el("button", "btn ghost", "Wstecz"); w.type = "button"; w.addEventListener("click", function () { idz(-1); }); row.appendChild(w); }
-    var d = el("button", "btn", ost ? "Zaczynam" : nr === 0 ? "Pokaż" : "Dalej"); d.type = "button";
+    if (nr > 0) { var w = el("button", "btn ghost", T("Wstecz")); w.type = "button"; w.addEventListener("click", function () { idz(-1); }); row.appendChild(w); }
+    var d = el("button", "btn", ost ? T("Zaczynam") : nr === 0 ? T("Pokaż") : T("Dalej")); d.type = "button";
     d.addEventListener("click", function () { if (ost) koniec(); else idz(1); });
     row.appendChild(d);
     okno.appendChild(row);
