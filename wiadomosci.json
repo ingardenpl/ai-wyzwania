@@ -1,8 +1,57 @@
 {
- "aktualizacja": "2026-10-26T14:23Z",
+ "aktualizacja": "2026-10-26T18:46Z",
  "wpisy": [
   {
-   "t": "Anthropic files for stock market IPO; Meta announces $95bn fundraising drive to pay for AI expansion – business live",
+   "t": "Will the real Anthropic please stand up",
+   "u": "https://www.technologyreview.com/2026/10/26/1147672/will-the-real-anthropic-please-stand-up/",
+   "z": "MIT Technology Review",
+   "d": "2026-10-26",
+   "j": "en"
+  },
+  {
+   "t": "AI book prize judges face a major speed-reading challenge | Brief letters",
+   "u": "https://www.theguardian.com/technology/2026/oct/26/ai-book-prize-judges-face-a-major-speed-reading-challenge",
+   "z": "The Guardian",
+   "d": "2026-10-26",
+   "j": "en"
+  },
+  {
+   "t": "Anthropic’s IPO filing lays out a plan to ‘revolutionize every area of human endeavor’ with AI",
+   "u": "https://www.theverge.com/ai-artificial-intelligence/1018476/anthropic-ipo-details-s1-filed-sec",
+   "z": "The Verge",
+   "d": "2026-10-26",
+   "j": "en"
+  },
+  {
+   "t": "The RealReal won’t let AI agents hog designer clothing",
+   "u": "https://www.theverge.com/news/1018713/meta-muse-agentic-shopping-ai-the-realreal",
+   "z": "The Verge",
+   "d": "2026-10-26",
+   "j": "en"
+  },
+  {
+   "t": "Kevin Roose is AGI-pilled. Why aren’t you?",
+   "u": "https://www.theverge.com/podcast/1018264/kevin-roose-the-agi-chronicles-machine-gods-podcast-youtube-openai-anthropic",
+   "z": "The Verge",
+   "d": "2026-10-26",
+   "j": "en"
+  },
+  {
+   "t": "Five weird details from Anthropic’s IPO filing",
+   "u": "https://www.theverge.com/ai-artificial-intelligence/1018738/anthropic-ipo-s1-filing-weird-details",
+   "z": "The Verge",
+   "d": "2026-10-26",
+   "j": "en"
+  },
+  {
+   "t": "Anthropic reveals rapid revenue gains and larger losses in stock market filing",
+   "u": "https://www.theguardian.com/technology/2026/oct/26/anthropic-files-listing-stock-market",
+   "z": "The Guardian",
+   "d": "2026-10-26",
+   "j": "en"
+  },
+  {
+   "t": "Anthropic files for stock market IPO; Meta announces $95bn fundraising drive to pay for AI expansion – as it happened",
    "u": "https://www.theguardian.com/business/live/2026/oct/26/ai-cloud-computing-companies-guppy-level-death-elon-musk-stock-markets-dollar-oil-bond-yieds-latest-news-updates",
    "z": "The Guardian",
    "d": "2026-10-26",
@@ -16,34 +65,6 @@
    "j": "en"
   },
   {
-   "t": "Anthropic’s IPO filing lays out a plan to ‘revolutionize every area of human endeavor’ with AI",
-   "u": "https://www.theverge.com/ai-artificial-intelligence/1018476/anthropic-ipo-details-s1-filed-sec",
-   "z": "The Verge",
-   "d": "2026-10-26",
-   "j": "en"
-  },
-  {
-   "t": "Meta plans $95bn stock offering to help cover AI expansion",
-   "u": "https://www.theguardian.com/technology/2026/oct/26/meta-plans-95bn-stock-offering-to-help-cover-ai-expansion",
-   "z": "The Guardian",
-   "d": "2026-10-26",
-   "j": "en"
-  },
-  {
-   "t": "Kevin Roose is AGI-pilled. Why aren’t you?",
-   "u": "https://www.theverge.com/podcast/1018264/kevin-roose-the-agi-chronicles-machine-gods-podcast-youtube-openai-anthropic",
-   "z": "The Verge",
-   "d": "2026-10-26",
-   "j": "en"
-  },
-  {
-   "t": "Can AI help solve the COBOL code crisis?",
-   "u": "https://www.theverge.com/ai-artificial-intelligence/1018434/cobol-migration-legacy-code-openai-anthropic",
-   "z": "The Verge",
-   "d": "2026-10-26",
-   "j": "en"
-  },
-  {
    "t": "SpaceX stawia na AI. Musk zapowiada 40 mld dolarów na zakup GPU",
    "u": "https://www.computerworld.pl/article/100054153/spacex-stawia-na-ai-musk-zapowiada-40-mld-dolarow-na-zakup-gpu.html",
    "z": "Computerworld",
@@ -51,16 +72,23 @@
    "j": "pl"
   },
   {
-   "t": "Anthropic files for listing on US stock market with valuation of more than $1.5tn",
-   "u": "https://www.theguardian.com/technology/2026/oct/26/anthropic-files-listing-stock-market",
-   "z": "The Guardian",
+   "t": "The focus on AI safety disasters ignores everyday harms",
+   "u": "https://www.technologyreview.com/2026/10/26/1147645/the-focus-on-ai-safety-disasters-ignores-everyday-harms/",
+   "z": "MIT Technology Review",
    "d": "2026-10-26",
    "j": "en"
   },
   {
-   "t": "The focus on AI safety disasters ignores everyday harms",
-   "u": "https://www.technologyreview.com/2026/10/26/1147645/the-focus-on-ai-safety-disasters-ignores-everyday-harms/",
-   "z": "MIT Technology Review",
+   "t": "Efficient structural information integration into protein language models with implicit mixture-of-experts ProBEiT",
+   "u": "https://www.nature.com/articles/s42003-026-10816-6",
+   "z": "Nature",
+   "d": "2026-10-26",
+   "j": "en"
+  },
+  {
+   "t": "Comparative analysis of end-to-end learning and foundation models for clinical-grade prostate pathology",
+   "u": "https://www.nature.com/articles/s41467-026-78996-7",
+   "z": "Nature",
    "d": "2026-10-26",
    "j": "en"
   },
@@ -79,13 +107,6 @@
    "j": "en"
   },
   {
-   "t": "r/opensource just banned AI, non-English speakers, and more",
-   "u": "https://www.theverge.com/ai-artificial-intelligence/1018217/reddit-opensource-ai-ban",
-   "z": "The Verge",
-   "d": "2026-10-25",
-   "j": "en"
-  },
-  {
    "t": "OpenAI stworzyło dedykowany internet dla agentów AI",
    "u": "https://www.computerworld.pl/article/100054145/openai-stworzylo-dedykowany-internet-dla-agentow-ai.html",
    "z": "Computerworld",
@@ -100,25 +121,11 @@
    "j": "pl"
   },
   {
-   "t": "Predicting protein electrostatics with protein language models",
-   "u": "https://www.nature.com/articles/s41467-026-78406-y",
-   "z": "Nature",
-   "d": "2026-10-24",
-   "j": "en"
-  },
-  {
    "t": "AI zmienia pracę Polaków. Firmy muszą nadążyć z kompetencjami i sprzętem",
    "u": "https://www.computerworld.pl/article/100054131/ai-zmienia-prace-polakow-firmy-musza-nadazyc-z-kompetencjami-i-sprzetem.html",
    "z": "Computerworld",
    "d": "2026-10-23",
    "j": "pl"
-  },
-  {
-   "t": "Putting conversational AI to the test in primary care",
-   "u": "https://www.nature.com/articles/d41591-026-00054-y",
-   "z": "Nature",
-   "d": "2026-10-23",
-   "j": "en"
   },
   {
    "t": "Designing an AI serving harness built to last",
@@ -130,13 +137,6 @@
   {
    "t": "The Foundations of Scalable AI",
    "u": "https://www.technologyreview.com/2026/10/22/1146103/the-foundations-of-scalable-ai/",
-   "z": "MIT Technology Review",
-   "d": "2026-10-22",
-   "j": "en"
-  },
-  {
-   "t": "Making the case for context-aware AI",
-   "u": "https://www.technologyreview.com/2026/10/22/1146812/making-the-case-for-context-aware-ai/",
    "z": "MIT Technology Review",
    "d": "2026-10-22",
    "j": "en"
