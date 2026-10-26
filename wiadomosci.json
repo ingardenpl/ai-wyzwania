@@ -1,11 +1,81 @@
 {
- "aktualizacja": "2026-10-26T00:45Z",
+ "aktualizacja": "2026-10-26T14:23Z",
  "wpisy": [
   {
-   "t": "Anthropic sued for allegedly using 274 Elvis Presley songs to train AI models",
-   "u": "https://www.theguardian.com/us-news/2026/oct/25/elvis-presley-anthropic-lawsuit-ai-models-music",
+   "t": "Anthropic files for stock market IPO; Meta announces $95bn fundraising drive to pay for AI expansion – business live",
+   "u": "https://www.theguardian.com/business/live/2026/oct/26/ai-cloud-computing-companies-guppy-level-death-elon-musk-stock-markets-dollar-oil-bond-yieds-latest-news-updates",
    "z": "The Guardian",
-   "d": "2026-10-25",
+   "d": "2026-10-26",
+   "j": "en"
+  },
+  {
+   "t": "How tall are the AI datacentre power poles that sparked a community backlash in Melbourne?",
+   "u": "https://www.theguardian.com/news/ng-interactive/2026/oct/27/how-big-are-the-ai-datacentre-power-poles-that-sparked-a-community-backlash-in-melbourne",
+   "z": "The Guardian",
+   "d": "2026-10-26",
+   "j": "en"
+  },
+  {
+   "t": "Anthropic’s IPO filing lays out a plan to ‘revolutionize every area of human endeavor’ with AI",
+   "u": "https://www.theverge.com/ai-artificial-intelligence/1018476/anthropic-ipo-details-s1-filed-sec",
+   "z": "The Verge",
+   "d": "2026-10-26",
+   "j": "en"
+  },
+  {
+   "t": "Meta plans $95bn stock offering to help cover AI expansion",
+   "u": "https://www.theguardian.com/technology/2026/oct/26/meta-plans-95bn-stock-offering-to-help-cover-ai-expansion",
+   "z": "The Guardian",
+   "d": "2026-10-26",
+   "j": "en"
+  },
+  {
+   "t": "Kevin Roose is AGI-pilled. Why aren’t you?",
+   "u": "https://www.theverge.com/podcast/1018264/kevin-roose-the-agi-chronicles-machine-gods-podcast-youtube-openai-anthropic",
+   "z": "The Verge",
+   "d": "2026-10-26",
+   "j": "en"
+  },
+  {
+   "t": "Can AI help solve the COBOL code crisis?",
+   "u": "https://www.theverge.com/ai-artificial-intelligence/1018434/cobol-migration-legacy-code-openai-anthropic",
+   "z": "The Verge",
+   "d": "2026-10-26",
+   "j": "en"
+  },
+  {
+   "t": "SpaceX stawia na AI. Musk zapowiada 40 mld dolarów na zakup GPU",
+   "u": "https://www.computerworld.pl/article/100054153/spacex-stawia-na-ai-musk-zapowiada-40-mld-dolarow-na-zakup-gpu.html",
+   "z": "Computerworld",
+   "d": "2026-10-26",
+   "j": "pl"
+  },
+  {
+   "t": "Anthropic files for listing on US stock market with valuation of more than $1.5tn",
+   "u": "https://www.theguardian.com/technology/2026/oct/26/anthropic-files-listing-stock-market",
+   "z": "The Guardian",
+   "d": "2026-10-26",
+   "j": "en"
+  },
+  {
+   "t": "The focus on AI safety disasters ignores everyday harms",
+   "u": "https://www.technologyreview.com/2026/10/26/1147645/the-focus-on-ai-safety-disasters-ignores-everyday-harms/",
+   "z": "MIT Technology Review",
+   "d": "2026-10-26",
+   "j": "en"
+  },
+  {
+   "t": "Machine learning dataset and benchmark for accurate T cell receptor–pHLA binding prediction",
+   "u": "https://www.nature.com/articles/s43588-026-01073-y",
+   "z": "Nature",
+   "d": "2026-10-26",
+   "j": "en"
+  },
+  {
+   "t": "Development of an automated method for audiometric data extraction and analysis using voting optical character recognition",
+   "u": "https://www.nature.com/articles/s41598-026-62755-1",
+   "z": "Nature",
+   "d": "2026-10-26",
    "j": "en"
   },
   {
@@ -23,27 +93,6 @@
    "j": "pl"
   },
   {
-   "t": "Blue Planet III is keeping the rough edges in the age of AI",
-   "u": "https://www.theverge.com/ai-artificial-intelligence/1018205/blue-planet-iii-authentic-organic-ai",
-   "z": "The Verge",
-   "d": "2026-10-24",
-   "j": "en"
-  },
-  {
-   "t": "‘Synthetic twin’: Why Socceroo Cristian Volpato is the latest footballer to license his AI clone",
-   "u": "https://www.theguardian.com/technology/2026/oct/25/synthetic-twin-why-socceroo-cristian-volpato-is-the-latest-footballer-to-license-his-ai-clone",
-   "z": "The Guardian",
-   "d": "2026-10-24",
-   "j": "en"
-  },
-  {
-   "t": "Pennsylvania will require labels on AI-generated ads",
-   "u": "https://www.theverge.com/ai-artificial-intelligence/1018187/pennsylvania-ai-deceptive-advertising-act",
-   "z": "The Verge",
-   "d": "2026-10-24",
-   "j": "en"
-  },
-  {
    "t": "Google Play otwiera się na prywatne aplikacje tworzone przez AI – czy czeka nas zalew niskiej jakości oprogramowania?",
    "u": "https://www.computerworld.pl/article/100054135/google-play-otwiera-sie-na-prywatne-aplikacje-tworzone-przez-ai-czy-czeka-nas-zalew-niskiej-jakosci-oprogramowania.html",
    "z": "Computerworld",
@@ -51,31 +100,10 @@
    "j": "pl"
   },
   {
-   "t": "Blue Planet III features cloudier footage to prove authenticity amid AI boom",
-   "u": "https://www.theguardian.com/media/2026/oct/24/blue-planet-iii-cloudier-footage-prove-authenticity-ai-boom",
-   "z": "The Guardian",
-   "d": "2026-10-24",
-   "j": "en"
-  },
-  {
-   "t": "Opposition deepfake video of Spanish PM’s wife sparks outrage before election",
-   "u": "https://www.theguardian.com/world/2026/oct/23/opposition-deepfake-video-spain-election",
-   "z": "The Guardian",
-   "d": "2026-10-24",
-   "j": "en"
-  },
-  {
    "t": "Predicting protein electrostatics with protein language models",
    "u": "https://www.nature.com/articles/s41467-026-78406-y",
    "z": "Nature",
    "d": "2026-10-24",
-   "j": "en"
-  },
-  {
-   "t": "Google’s AI search changes upended online publishing",
-   "u": "https://www.theverge.com/column/1017983/google-ai-search-online-publishing",
-   "z": "The Verge",
-   "d": "2026-10-23",
    "j": "en"
   },
   {
@@ -86,29 +114,8 @@
    "j": "pl"
   },
   {
-   "t": "Agentowa sztuczna inteligencja pozbawiona zadań zaczyna się bawić",
-   "u": "https://www.computerworld.pl/article/100054127/agentowa-sztuczna-inteligencja-pozbawiona-zadan-zaczyna-sie-bawic.html",
-   "z": "Computerworld",
-   "d": "2026-10-23",
-   "j": "pl"
-  },
-  {
    "t": "Putting conversational AI to the test in primary care",
    "u": "https://www.nature.com/articles/d41591-026-00054-y",
-   "z": "Nature",
-   "d": "2026-10-23",
-   "j": "en"
-  },
-  {
-   "t": "Guidelines for evaluating structure-based methods for protein–ligand binding prediction",
-   "u": "https://www.nature.com/articles/s42256-026-01331-8",
-   "z": "Nature",
-   "d": "2026-10-23",
-   "j": "en"
-  },
-  {
-   "t": "A review of self-supervised imaging phenotypes for genome-wide association studies",
-   "u": "https://www.nature.com/articles/s42003-026-11199-4",
    "z": "Nature",
    "d": "2026-10-23",
    "j": "en"
@@ -133,20 +140,6 @@
    "z": "MIT Technology Review",
    "d": "2026-10-22",
    "j": "en"
-  },
-  {
-   "t": "AI’s hidden storage bill: What inference leaves behind",
-   "u": "https://www.technologyreview.com/2026/10/22/1146948/ais-hidden-storage-bill-what-inference-leaves-behind/",
-   "z": "MIT Technology Review",
-   "d": "2026-10-22",
-   "j": "en"
-  },
-  {
-   "t": "Skarga na system AI w praktyce. Co oznacza dla skarżących i przedsiębiorców? Cz. VI",
-   "u": "https://legalis.pl/skarga-na-system-ai-w-praktyce-co-oznacza-dla-skarzacych-i-przedsiebiorcow-cz-vi/",
-   "z": "Legalis",
-   "d": "2026-10-22",
-   "j": "pl"
   },
   {
    "t": "The new human-crafted Apple Music brand matters in an AI world",
@@ -208,6 +201,13 @@
    "t": "New York City Mayor Mamdani on Artificial Intelligence and Tech Innovation",
    "u": "https://ainowinstitute.org/news/new-york-city-mayor-mamdani-on-artificial-intelligence-and-tech-innovation",
    "z": "AI Now Institute",
+   "d": "2026-10-19",
+   "j": "en"
+  },
+  {
+   "t": "First harmonised standard supporting the AI Act published in the Official Journal",
+   "u": "https://digital-strategy.ec.europa.eu/en/library/first-harmonised-standard-supporting-ai-act-published-official-journal",
+   "z": "Komisja Europejska",
    "d": "2026-10-19",
    "j": "en"
   }
