@@ -85,13 +85,13 @@
           lab.appendChild(el("span", null, String.fromCharCode(97 + j) + ") " + ans));
           labels.push(lab);
           inp.addEventListener("change", function () {
-            if (box.dataset.done) return;
-            box.dataset.done = "1";
+            if (box.dataset.done) { labels[+box.dataset.wybor].querySelector("input").checked = true; return; }   // odpowiedź już udzielona: wybór się nie zmienia
+            box.dataset.done = "1"; box.dataset.wybor = String(j);
             answered++;
             var ok = j === q.poprawna;
             if (ok) correct++;
             labels.forEach(function (l, k) {
-              l.querySelector("input").disabled = true;
+              l.querySelector("input").setAttribute("aria-disabled", "true");   // nie disabled: fokus klawiatury zostaje w pytaniu
               if (k === q.poprawna) l.classList.add("correct");
               else if (k === j) l.classList.add("wrong");
             });

@@ -5,6 +5,7 @@
    . ulica, : plac, , trawa, = tory, _ posadzka (do przejścia); 1–7 miejsca; a–z znaleziska (ukryte);
    inne wielkie litery: drzwi otwierane artefaktem innej dzielnicy. Pole „pojazdy”: taksówki i skutery do jazdy.
    Widok z góry jak w GTA II: kamera za graczem, płynny ruch, pojazdy, przechodnie, minimapa (sekcja „mapa”).
+   Pole „misje”: zlecenia z etapami (rozmowa, pytanie, dojście lub dojazd, zbieranie, jazda za taksówką); dodatek jak znaleziska.
    Postęp: NeoGra (gra.js), tylko w tej przeglądarce. Gra nie jest częścią oceny. */
 (function () {
   "use strict";
@@ -61,6 +62,8 @@
   function stan() { return cache().stan; }
   function odwiedzone() { return stan().miejsca[NR] || []; }
   function znalezione() { return stan().znaleziska[NR] || []; }
+  var MISJE = D.misje || [];
+  function misjeWykonane() { return (stan().misje || {})[NR] || []; }
 
   // ---------------------------------------------------------------- sekcja na stronie (brama do wnętrza)
   function bramka() {
@@ -339,6 +342,7 @@
       });
       ludzie.forEach(function (l) { rysujCzlowieka(l.x, l.y, l.a, l.kol, l.krok || 0, false); if (l.uwaga > 0) { cx.fillStyle = "#f9f002"; cx.fillRect(l.x, l.y - 6, 1, 3); cx.fillRect(l.x, l.y - 2, 1, 1); } });
       pojazdy.forEach(function (p) { rysujPojazd(p, fz); });
+      rysujMisje(fz);
       if (!me.w) rysujCzlowieka(me.x, me.y, me.a, "#1f8a9a", me.step, true);
       var g = cx.createRadialGradient(me.x, me.y, 22, me.x, me.y, Math.max(VW, VH) * 0.75);
       g.addColorStop(0, "rgba(0,0,0,0)"); g.addColorStop(1, "rgba(2,3,8,0.5)");
@@ -351,8 +355,8 @@
     }
     // strzałka na krawędzi ekranu do najbliższego nieodwiedzonego miejsca (gdy jest poza kadrem)
     function strzalka(fz) {
-      var odw = odwiedzone(), cel = null, bd = 1e9;
-      MIEJSCA.forEach(function (m) { if (odw.indexOf(m.id) >= 0) return; var d = Math.hypot(m.x - me.x, m.y - me.y); if (d < bd) { bd = d; cel = m; } });
+      var odw = odwiedzone(), cel = misjaCel(), bd = 1e9;
+      if (!cel) MIEJSCA.forEach(function (m) { if (odw.indexOf(m.id) >= 0) return; var d = Math.hypot(m.x - me.x, m.y - me.y); if (d < bd) { bd = d; cel = m; } });
       if (!cel) return;
       var sx = cel.x - camX, sy = cel.y - camY;
       if (sx > 4 && sy > 4 && sx < VW - 4 && sy < VH - 4) return;
@@ -375,6 +379,9 @@
       var odw = odwiedzone();
       MIEJSCA.forEach(function (m) { mcx.fillStyle = odw.indexOf(m.id) >= 0 ? "#5a6a7a" : D.paleta.neon; mcx.fillRect(Math.floor(m.x / TS) - 1, Math.floor(m.y / TS) - 1, 3, 3); });
       pojazdy.forEach(function (p) { mcx.fillStyle = p.kol; mcx.fillRect(Math.floor(p.x / TS), Math.floor(p.y / TS), 2, 2); });
+      var zr = misjeWykonane();
+      MIS.forEach(function (q) { mcx.fillStyle = zr.indexOf(q.def.id) >= 0 ? "#7a7f90" : "#fcee0a"; mcx.fillRect(Math.floor(q.x / TS) - 1, Math.floor(q.y / TS) - 1, 3, 3); });
+      var mc = misjaCel(); if (mc && (reduce || (fz * 4 | 0) % 2)) { mcx.fillStyle = "#fcee0a"; mcx.fillRect(Math.floor(mc.x / TS) - 2, Math.floor(mc.y / TS) - 2, 5, 5); }
       mcx.strokeStyle = "rgba(255,255,255,.5)"; mcx.lineWidth = 1; mcx.strokeRect(Math.round(camX / TS) + 0.5, Math.round(camY / TS) + 0.5, Math.round(VW / TS) - 1, Math.round(VH / TS) - 1);
       if (reduce || (fz * 3 | 0) % 2) { mcx.fillStyle = "#ffffff"; mcx.fillRect(Math.floor(me.x / TS) - 1, Math.floor(me.y / TS) - 1, 3, 3); }
     }
@@ -392,15 +399,15 @@
     }
     function zamykacz() {
       var x = el("button", "ex-card-x wn-zamknij", "Zamknij"); x.type = "button";
-      x.addEventListener("click", function () { panel.hidden = true; mapBox.focus({ preventScroll: true }); });
+      x.addEventListener("click", function () { panel.hidden = true; panelMisji = false; mapBox.focus({ preventScroll: true }); });
       panel.appendChild(x);
     }
     function pokazMiejsce(m) {
-      panel.textContent = ""; panel.className = "sm-station wn-panel";
+      panelMisji = false; panel.textContent = ""; panel.className = "sm-station wn-panel";
       panel.appendChild(cialoMiejsca(m, true)); zamykacz(); panel.hidden = false; ostatni = m;
     }
     function pokazZnalezisko(z) {
-      panel.textContent = ""; panel.className = "sm-station wn-panel wn-znal";
+      panelMisji = false; panel.textContent = ""; panel.className = "sm-station wn-panel wn-znal";
       panel.appendChild(cialoZnaleziska(z)); zamykacz(); panel.hidden = false; ostatni = z;
     }
     function sprawdzZnaleziska() {
@@ -421,14 +428,15 @@
       return hit;
     }
     function aktualizujPrompt() {
-      var m = najblizsze(), p = !m && !me.w && pojazdObok(), dz = !m && !p && !me.w && drzwiObok();
+      var m = najblizsze(), q = !m && !me.w && zleceniodawcaObok(), p = !m && !q && !me.w && pojazdObok(), dz = !m && !q && !p && !me.w && drzwiObok();
       if (m) { prT.textContent = m.znak + " · " + m.nazwa.toUpperCase(); pr.hidden = false; }
+      else if (q) { prT.textContent = "! ZLECENIE · " + q.def.tytul.toUpperCase(); pr.hidden = false; }
       else if (me.w) { prT.textContent = "WYSIĄDŹ · " + POJ[me.w.typ].nazwa; pr.hidden = Math.abs(me.w.v) > 0.4; }
       else if (p) { prT.textContent = "WSIĄDŹ · " + POJ[p.typ].nazwa; pr.hidden = false; }
       else if (dz) { prT.textContent = "ZAMKNIĘTE · " + (dz.opis || "potrzebny artefakt").toUpperCase(); pr.hidden = false; }
       else pr.hidden = true;
       // miejsce otwiera się samo pieszo albo po zatrzymaniu pojazdu, nie w pełnym pędzie
-      if (m !== blisko && (!me.w || Math.abs(me.w.v) < 0.6)) { blisko = m; if (m) pokazMiejsce(m); }
+      if (m !== blisko && !panelMisji && (!me.w || Math.abs(me.w.v) < 0.6)) { blisko = m; if (m) pokazMiejsce(m); }
     }
     function wsiadz(p) {
       me.w = p; me.vx = me.vy = 0; target = null; wysiadzBtn.hidden = false; wPojezdzie = POJ[p.typ].nazwa;
@@ -440,11 +448,12 @@
       var opcje = [[0, boki], [0, -boki], [przod, 0], [-przod, 0], [0, boki + TS], [0, -boki - TS], [przod + TS, 0], [-przod - TS, 0]];
       for (var i = 0; i < opcje.length; i++) {
         var x = p.x + opcje[i][0] * ca - opcje[i][1] * sa, y = p.y + opcje[i][0] * sa + opcje[i][1] * ca;
-        if (walk(x, y)) { me.x = x; me.y = y; p.v = 0; me.w = null; wysiadzBtn.hidden = true; wPojezdzie = ""; odswiezHud(true); aktualizujPrompt(); kick(); return; }
+        if (walk(x, y)) { me.x = x; me.y = y; p.v = 0; me.w = null; wysiadzBtn.hidden = true; wPojezdzie = ""; odswiezHud(true); aktualizujPrompt(); sprawdzZnaleziska(); kick(); return; }
       }
       prT.textContent = "BRAK MIEJSCA DO WYSIADANIA · PODJEDŹ DALEJ"; pr.hidden = false;
     }
     function act() {
+      if (misjaAct()) return;
       var m = najblizsze();
       if (m) { pokazMiejsce(m); return; }
       if (me.w) { wysiadz(); return; }
@@ -458,6 +467,218 @@
         panel.appendChild(el("p", null, (dz.opis || "Przejście jest zamknięte.") + " Otworzy je artefakt " + (inf ? "„" + inf.przedmiot + "” z dzielnicy " + inf.nazwa : "innej dzielnicy") + "."));
         zamykacz(); panel.hidden = false;
       }
+    }
+    // ---- misje (jak w GTA II): zleceniodawca z „!”, kolejne etapy: rozmowa, pytanie, dojście lub dojazd (czasem na czas),
+    // zbieranie dowodów, jazda za taksówką. Dodatek jak znaleziska: nie wpływa na artefakt ani na podziemia.
+    var MIS = MISJE.map(function (m) { return { def: m, x: (m.start[0] + 0.5) * TS, y: (m.start[1] + 0.5) * TS }; });
+    var akt = null, panelMisji = false, misKadr = 0;
+    var bezLimitu = (function () { try { return localStorage.getItem("neo-bez-limitu") === "1"; } catch (e) { return false; } })();
+    var misBox = el("div", "wn-misja"); misBox.hidden = true; mapBox.appendChild(misBox);
+    var misLive = el("p", "sr-only"); misLive.setAttribute("aria-live", "polite"); mapBox.appendChild(misLive);
+    function pkt(t) { return { x: (t[0] + 0.5) * TS, y: (t[1] + 0.5) * TS }; }
+    function krok() { return akt && akt.q.def.kroki[akt.k]; }
+    function zleceniodawcaObok() {
+      var best = null, bd = 9;
+      MIS.forEach(function (q) { var d = Math.hypot(q.x - me.x, q.y - me.y); if (d < bd) { bd = d; best = q; } });
+      return best;
+    }
+    function opisKroku(k) {
+      if (k.opis) return k.opis;
+      return { rozmowa: "Porozmawiaj: " + (k.postac || "świadek"), pytanie: "Odpowiedz na pytanie", idz: "Dotrzyj do celu",
+               zbierz: "Zbierz dowody", sledz: "Jedź za taksówką" }[k.typ] || "";
+    }
+    function czasTxt(s) { s = Math.max(0, Math.ceil(s)); return Math.floor(s / 60) + ":" + ("0" + s % 60).slice(-2); }
+    function pokazPasek() {
+      if (!akt) { misBox.hidden = true; return; }
+      var k = krok(), n = akt.q.def.kroki.length, t = "MISJA · " + akt.q.def.tytul.toUpperCase() + " · ETAP " + (akt.k + 1) + "/" + n + ": " + opisKroku(k);
+      if (k.typ === "zbierz") t += " (" + Object.keys(akt.zebrane).length + "/" + k.punkty.length + ")";
+      if (k.limit && !bezLimitu) t += " · " + czasTxt(akt.czas) + (reduce ? " (orientacyjnie)" : "");
+      if (k.typ === "sledz" && akt.daleko > 0) t += " · TRACISZ TROP " + czasTxt(8 - akt.daleko);
+      misBox.textContent = t; misBox.hidden = false;
+    }
+    function ogloszenie(t) { misLive.textContent = t; }
+    function zamknijPanelMisji() {
+      var x = el("button", "ex-card-x wn-zamknij", "Zamknij"); x.type = "button";
+      x.addEventListener("click", function () { panel.hidden = true; panelMisji = false; mapBox.focus({ preventScroll: true }); kick(); });
+      panel.appendChild(x);
+    }
+    function panelStart(klasa) { panel.textContent = ""; panel.className = "sm-station wn-panel wn-mis " + (klasa || ""); panelMisji = true; panel.hidden = false; }
+    function pokazZlecenie(q) {
+      var m = q.def, zrobione = misjeWykonane().indexOf(m.id) >= 0;
+      panelStart();
+      panel.appendChild(el("p", "sm-k", "ZLECENIE · " + (m.zleceniodawca || "ARCHIWISTKA").toUpperCase() + (zrobione ? " · WYKONANE ✓" : "")));
+      panel.appendChild(el("h3", null, m.tytul));
+      if (m.opis) m.opis.split("\n\n").forEach(function (p) { panel.appendChild(el("p", null, p)); });
+      var ol = el("ol", "wn-kroki"); m.kroki.forEach(function (k) { ol.appendChild(el("li", null, opisKroku(k) + (k.limit ? " (limit czasu)" : "") + (k.pojazd ? " (pojazdem)" : ""))); });
+      panel.appendChild(ol);
+      if (akt && akt.q === q) {
+        panel.appendChild(el("p", "muted", "Ta misja trwa: etap " + (akt.k + 1) + " z " + m.kroki.length + "."));
+        var prz = el("button", "ex-card-x", "Przerwij misję"); prz.type = "button";
+        prz.addEventListener("click", function () { akt = null; pokazPasek(); panel.hidden = true; panelMisji = false; ogloszenie("Misja przerwana."); mapBox.focus({ preventScroll: true }); });
+        panel.appendChild(prz); zamknijPanelMisji(); return;
+      }
+      if (m.kroki.some(function (k) { return k.limit; })) {
+        var lab = el("label", "wn-check"), cb = el("input"); cb.type = "checkbox"; cb.checked = bezLimitu;
+        cb.addEventListener("change", function () { bezLimitu = cb.checked; try { localStorage.setItem("neo-bez-limitu", bezLimitu ? "1" : "0"); } catch (e) {} });
+        lab.appendChild(cb); lab.appendChild(document.createTextNode(" Bez limitu czasu (dla wszystkich misji)")); panel.appendChild(lab);
+      }
+      var row = el("p", "wn-btns");
+      if (akt) row.appendChild(el("span", "muted", "Trwa inna misja: „" + akt.q.def.tytul + "”. Przyjęcie tej przerwie tamtą. "));
+      var b = el("button", "btn", zrobione ? "Zagraj jeszcze raz" : "Przyjmij zlecenie"); b.type = "button";
+      b.addEventListener("click", function () { akt = { q: q, k: 0 }; ogloszenie("Misja przyjęta: " + m.tytul + "."); startKroku(); });
+      row.appendChild(b); panel.appendChild(row); zamknijPanelMisji();
+      b.focus();
+    }
+    function startKroku() {
+      var k = krok();
+      if (!k) { koniec(); return; }
+      akt.czas = k.limit || 0; akt.zebrane = {}; akt.otwarty = false; akt.daleko = 0; akt.ostrzez = false;
+      if (k.typ === "sledz") { var s0 = pkt(k.trasa[0]); akt.lider = { typ: "taksowka", x: s0.x, y: s0.y, i: 1, a: 0, v: 0, kol: "#ff2a6d" }; }
+      ogloszenie("Etap " + (akt.k + 1) + ": " + opisKroku(k));
+      if ((k.typ === "rozmowa" || k.typ === "pytanie") && !k.cel) otworzKrok();
+      else { panel.hidden = true; panel.textContent = ""; panelMisji = false; mapBox.focus({ preventScroll: true }); }
+      pokazPasek(); kick();
+    }
+    function nastepny() { akt.k++; startKroku(); }
+    function porazka(powod) {
+      var q = akt.q, kk = akt.k;
+      if (window.NeoUI) window.NeoUI.banner("MISJA NIEUDANA", powod.toUpperCase());
+      panelStart("wn-porazka");
+      panel.appendChild(el("p", "sm-k", "MISJA NIEUDANA"));
+      panel.appendChild(el("h3", null, q.def.tytul));
+      panel.appendChild(el("p", null, powod + " Etap możesz powtórzyć od razu."));
+      var b = el("button", "btn", "Powtórz etap"); b.type = "button";
+      b.addEventListener("click", function () { akt = { q: q, k: kk }; startKroku(); });
+      panel.appendChild(b); zamknijPanelMisji(); b.focus();
+      akt = { q: q, k: kk, wstrzymana: true }; pokazPasek(); ogloszenie("Misja nieudana: " + powod);
+    }
+    function koniec() {
+      var m = akt.q.def; akt = null; pokazPasek();
+      G.zapiszMisje(NR, m.id);
+      if (window.NeoUI) window.NeoUI.banner("MISJA WYKONANA", m.tytul.toUpperCase());
+      panelStart("wn-sukces");
+      panel.appendChild(el("p", "sm-k", "MISJA WYKONANA ✓ · " + misjeWykonane().length + "/" + MISJE.length));
+      panel.appendChild(el("h3", null, m.tytul));
+      if (m.nagroda) panel.appendChild(el("p", null, m.nagroda));
+      if (m.zrodlo) { var z = el("p", "sm-legend"); z.appendChild(document.createTextNode("Na podstawie: ")); z.appendChild(link(m.zrodlo.href, m.zrodlo.t, /^https?:/.test(m.zrodlo.href))); panel.appendChild(z); }
+      zamknijPanelMisji(); ogloszenie("Misja wykonana: " + m.tytul + ".");
+      var bz = panel.querySelector("button"); if (bz) bz.focus();
+    }
+    // etap rozmowy albo pytania w panelu (na mapie i w liście tekstowej to ten sam przebieg)
+    function cialoKroku(k, gotowe) {
+      var w = el("div", "wn-dial");
+      if (k.typ === "rozmowa") {
+        var i = 0, linie = k.kwestie || [];
+        var rysuj = function () {
+          w.textContent = "";
+          for (var j = 0; j <= i && j < linie.length; j++) {
+            var p = el("p", linie[j].kto === "ty" ? "wn-ty" : "wn-on");
+            p.appendChild(el("b", null, (linie[j].kto === "ty" ? "Ty" : k.postac || "Świadek") + ": "));
+            p.appendChild(document.createTextNode(linie[j].t)); w.appendChild(p);
+          }
+          var b = el("button", "ex-card-x", i + 1 < linie.length ? "Dalej →" : "Zakończ rozmowę"); b.type = "button";
+          b.addEventListener("click", function () { if (i + 1 < linie.length) { i++; rysuj(); var bb = w.querySelector("button"); if (bb) bb.focus(); } else gotowe(); });
+          w.appendChild(b);
+        };
+        rysuj();
+      } else if (k.typ === "pytanie") {
+        var fs = el("fieldset", "wn-pytanie"); fs.appendChild(el("legend", null, k.tresc));
+        var fb = el("p"); fb.setAttribute("role", "status");
+        var nazwa = "mis-" + Math.random().toString(36).slice(2);
+        k.odpowiedzi.forEach(function (o, j) {
+          var lab = el("label", "wn-odp"), r = el("input"); r.type = "radio"; r.name = nazwa;
+          r.addEventListener("change", function () {
+            if (fs.dataset.ok) return;
+            if (j === k.poprawna) {
+              fs.dataset.ok = "1"; fb.className = "wn-ok"; fb.textContent = "Dobrze. " + (k.wyjasnienie || "");
+              var d = el("button", "ex-card-x", "Dalej →"); d.type = "button"; d.addEventListener("click", gotowe); w.appendChild(d); d.focus();
+            } else { fb.className = "wn-zle"; fb.textContent = "To nie ta odpowiedź. Spróbuj jeszcze raz (podpowiedź jest w treści zajęć tej dzielnicy)."; }
+          });
+          lab.appendChild(r); lab.appendChild(document.createTextNode(" " + o)); fs.appendChild(lab);
+        });
+        w.appendChild(fs); w.appendChild(fb);
+      }
+      return w;
+    }
+    function otworzKrok() {
+      var k = krok(); akt.otwarty = true;
+      panelStart();
+      panel.appendChild(el("p", "sm-k", "MISJA · " + akt.q.def.tytul.toUpperCase() + " · ETAP " + (akt.k + 1) + "/" + akt.q.def.kroki.length));
+      if (k.opis) panel.appendChild(el("p", "muted", k.opis));
+      var idx = akt.k, q0 = akt.q;   // przycisk działa tylko dla swojego etapu (podwójne kliknięcie nie przeskakuje etapów)
+      panel.appendChild(cialoKroku(k, function () { if (akt && akt.q === q0 && akt.k === idx && !akt.wstrzymana) nastepny(); }));
+      zamknijPanelMisji();
+      var b = panel.querySelector("button, input"); if (b) b.focus();
+    }
+    function misjaAct() {
+      if (akt && !akt.wstrzymana) {
+        var k = krok();
+        if ((k.typ === "rozmowa" || k.typ === "pytanie") && (!k.cel || Math.hypot(pkt(k.cel).x - me.x, pkt(k.cel).y - me.y) < 9)) { otworzKrok(); return true; }
+      }
+      var q = zleceniodawcaObok();
+      if (q && !me.w) { pokazZlecenie(q); return true; }
+      return false;
+    }
+    function misjaCel() {
+      if (!akt || akt.wstrzymana) return null;
+      var k = krok();
+      if (k.typ === "zbierz") {
+        var best = null, bd = 1e9;
+        k.punkty.forEach(function (t, i) { if (akt.zebrane[i]) return; var p = pkt(t), d = Math.hypot(p.x - me.x, p.y - me.y); if (d < bd) { bd = d; best = p; } });
+        return best;
+      }
+      if (k.typ === "sledz") return akt.lider;
+      return k.cel ? pkt(k.cel) : null;
+    }
+    function misjaTick(f) {
+      if (!akt || akt.wstrzymana) return;
+      var k = krok(), wstrzym = !panel.hidden;
+      if (k.limit && !bezLimitu && !reduce && !wstrzym) { akt.czas -= f / 60; if (akt.czas <= 0) { porazka("Skończył się czas."); return; } }
+      if (k.typ === "idz") {
+        var c = pkt(k.cel);
+        if (Math.hypot(c.x - me.x, c.y - me.y) < 7) {
+          if (k.pojazd && !me.w) { if (!akt.ostrzez) { akt.ostrzez = true; ogloszenie("Ten etap trzeba przejechać pojazdem."); prT.textContent = "TEN ETAP: POJAZDEM"; pr.hidden = false; } }
+          else { nastepny(); return; }
+        }
+      } else if ((k.typ === "rozmowa" || k.typ === "pytanie") && k.cel && !akt.otwarty) {
+        var c2 = pkt(k.cel);
+        if (Math.hypot(c2.x - me.x, c2.y - me.y) < 7 && (!me.w || Math.abs(me.w.v) < 0.6)) { otworzKrok(); return; }
+      } else if (k.typ === "zbierz") {
+        k.punkty.forEach(function (t, i) {
+          if (akt.zebrane[i]) return;
+          var p = pkt(t);
+          if (Math.hypot(p.x - me.x, p.y - me.y) < (me.w ? 7 : 5)) { akt.zebrane[i] = true; ogloszenie((k.przedmiot || "Dowód") + ": " + Object.keys(akt.zebrane).length + " z " + k.punkty.length + "."); }
+        });
+        if (Object.keys(akt.zebrane).length >= k.punkty.length) { nastepny(); return; }
+      } else if (k.typ === "sledz") {
+        var L = akt.lider, d = Math.hypot(L.x - me.x, L.y - me.y), czeka = wstrzym || (k.pojazd && !me.w);
+        if (!czeka && d < 80) {
+          var w = pkt(k.trasa[L.i]), dx = w.x - L.x, dy = w.y - L.y, dd = Math.hypot(dx, dy), v = (me.w ? 1.5 : 0.7) * SK * f;   // pieszo taksówka zwalnia, żeby dało się za nią nadążyć
+          if (dd <= v) { L.x = w.x; L.y = w.y; L.i++; if (L.i >= k.trasa.length) { nastepny(); return; } }
+          else { L.x += dx / dd * v; L.y += dy / dd * v; L.a = Math.atan2(dy, dx); }
+          akt.daleko = 0;
+        } else if (!czeka) {
+          akt.daleko += f / 60;
+          if (akt.daleko > 8 && !reduce) { porazka("Zgubiłeś trop: taksówka odjechała za daleko."); return; }
+        }
+      }
+      if (misKadr++ % 10 === 0) pokazPasek();
+    }
+    function rysujMisje(fz) {
+      var zrobione = misjeWykonane();
+      MIS.forEach(function (q, i) {
+        var done = zrobione.indexOf(q.def.id) >= 0, aktywna = akt && akt.q === q;
+        var a = reduce ? 0.6 : 0.45 + Math.sin(fz * 3 + i) * 0.25, k = done && !aktywna ? "#7a7f90" : "#fcee0a";
+        cx.save(); cx.globalAlpha = done ? 0.5 : a; cx.fillStyle = k;
+        cx.beginPath(); cx.moveTo(q.x, q.y - 6); cx.lineTo(q.x + 5, q.y); cx.lineTo(q.x, q.y + 6); cx.lineTo(q.x - 5, q.y); cx.closePath(); cx.fill(); cx.restore();
+        cx.fillStyle = "#07080f"; cx.fillRect(q.x - 0.5, q.y - 3, 1.5, 3.5); cx.fillRect(q.x - 0.5, q.y + 1.5, 1.5, 1.5);
+      });
+      if (!akt || akt.wstrzymana) return;
+      var k = krok(), pulse = reduce ? 0.8 : 0.55 + Math.sin(fz * 5) * 0.35;
+      function ring(p) { cx.save(); cx.globalAlpha = pulse; cx.strokeStyle = "#fcee0a"; cx.lineWidth = 1.2; cx.beginPath(); cx.arc(p.x, p.y, 6, 0, 7); cx.stroke(); cx.restore(); }
+      if (k.typ === "zbierz") k.punkty.forEach(function (t, i) { if (akt.zebrane[i]) return; var p = pkt(t); cx.fillStyle = "#fcee0a"; cx.fillRect(p.x - 2, p.y - 2, 4, 3); cx.fillStyle = "#07080f"; cx.fillRect(p.x - 1, p.y - 1, 2, 1); ring(p); });
+      else if (k.typ === "sledz") { rysujPojazd(akt.lider, fz); ring(akt.lider); }
+      else if (k.cel) ring(pkt(k.cel));
     }
     prB.addEventListener("click", act); prT.addEventListener("click", act);
     wysiadzBtn.addEventListener("click", function () { wysiadz(); mapBox.focus({ preventScroll: true }); });
@@ -538,10 +759,11 @@
       if (!reduce) przechodnie(f);
       if (ruch) { aktualizujPrompt(); sprawdzZnaleziska(); }
       else if (me.w && Math.abs(me.w.v) < 0.6) aktualizujPrompt();
+      misjaTick(f);
       kamera(f);
       draw(t);
       odswiezHud();
-      if (widoczna && (!reduce || ruch || target || (me.w && me.w.v))) raf = requestAnimationFrame(tick);
+      if (widoczna && (!reduce || ruch || target || (me.w && me.w.v) || (akt && krok() && krok().typ === "sledz"))) raf = requestAnimationFrame(tick);
       else last = 0;
     }
     function kick() { if (!raf) raf = requestAnimationFrame(tick); }
@@ -589,6 +811,12 @@
     var pelny = false;
     function ustawPelny(v) {
       pelny = v; mapBox.classList.toggle("wn-full", v); document.documentElement.classList.toggle("ex-full-on", v);
+      // reszta strony nieaktywna w pełnym ekranie: fokus klawiatury zostaje na mapie i jej przyciskach
+      var e2 = mapBox;
+      while (e2 && e2.parentNode && e2 !== document.body) {
+        [].forEach.call(e2.parentNode.children, function (sib) { if (sib !== e2 && sib.tagName !== "SCRIPT" && sib.tagName !== "STYLE") { if (v) sib.setAttribute("inert", ""); else sib.removeAttribute("inert"); } });
+        e2 = e2.parentNode;
+      }
       fullBtn.setAttribute("aria-pressed", String(v)); fullBtn.textContent = v ? "ZAMKNIJ PEŁNY EKRAN" : "PEŁNY EKRAN";
       if (v) { mapBox.appendChild(wysiadzBtn); mapBox.appendChild(fullBtn); mapBox.appendChild(panel); }
       else { bar.appendChild(wysiadzBtn); bar.appendChild(fullBtn); lista.parentNode.insertBefore(panel, lista); }
@@ -602,8 +830,8 @@
 
     document.addEventListener("neo:postep", function () { odswiezListe(); odswiezHud(true); });
     root._wn = { me: me, kick: kick, step: tick, miejsca: MIEJSCA, znal: ZNAL, act: act, pojazdy: pojazdy, ludzie: ludzie, keys: keys,
-                 kadr: function () { return { camX: camX, camY: camY, VW: VW, VH: VH }; }, pelny: ustawPelny };   // do testów
-    rozmiar(); aktualizujPrompt(); odswiezHud(true);
+                 kadr: function () { return { camX: camX, camY: camY, VW: VW, VH: VH }; }, pelny: ustawPelny, misja: function () { return akt; } };   // do testów
+    rozmiar(); aktualizujPrompt(); sprawdzZnaleziska(); odswiezHud(true);
     if (coarse && fokus) ustawPelny(true);   // telefon: od razu pełny ekran
     else if (fokus) mapBox.focus({ preventScroll: true });
     kick();
@@ -612,7 +840,7 @@
   var hudTxt = "", artefaktByl = null, wPojezdzie = "";
   function odswiezHud(wymus) {
     var art = cache().art;
-    var t = NR + " · " + D.nazwa.toUpperCase() + " · MIEJSCA " + odwiedzone().length + "/7 · ZNALEZISKA " + znalezione().length + "/" + ZNAL.length + " · ARTEFAKT " + (art ? "✓" : "✗") + (wPojezdzie ? " · " + wPojezdzie : "");
+    var t = NR + " · " + D.nazwa.toUpperCase() + " · MIEJSCA " + odwiedzone().length + "/7 · ZNALEZISKA " + znalezione().length + "/" + ZNAL.length + " · ARTEFAKT " + (art ? "✓" : "✗") + (MISJE.length ? " · MISJE " + misjeWykonane().length + "/" + MISJE.length : "") + (wPojezdzie ? " · " + wPojezdzie : "");
     if (t === hudTxt && !wymus) return;
     hudTxt = t; if (hud) hud.textContent = t;
     if (artefaktByl === false && art && window.NeoUI) window.NeoUI.banner("ARTEFAKT ZDOBYTY", D.przedmiot);
@@ -633,9 +861,64 @@
     lista.appendChild(ol);
     listaP = el("p", "sm-legend"); lista.appendChild(listaP);
     listaZn = el("div"); lista.appendChild(listaZn);
+    if (MISJE.length) lista.appendChild(misjeTekst());
     odswiezListe();
   }
+  // misje w wersji tekstowej (bez mapy): rozmowy i pytania wykonuje się tutaj; etapy ruchu są opisane
+  function misjeTekst() {
+    var box = el("div", "wn-misje-tekst");
+    misjeH4 = el("h4", null, "Misje (tekst) · " + misjeWykonane().length + "/" + MISJE.length); box.appendChild(misjeH4);
+    MISJE.forEach(function (m) {
+      var d = el("details", "wn-miejsce"), s = el("summary", null, m.tytul + (misjeWykonane().indexOf(m.id) >= 0 ? " ✓" : "")), body = null;
+      d.appendChild(s);
+      d.addEventListener("toggle", function () {
+        if (!d.open || body) return;
+        body = el("div", "wn-body");
+        if (m.opis) body.appendChild(el("p", null, m.opis));
+        var ile = 0, pyt = m.kroki.filter(function (k) { return k.typ === "pytanie"; }).length, stat = el("p", "wn-ok");
+        m.kroki.forEach(function (k, i) {
+          body.appendChild(el("p", "sm-k", "ETAP " + (i + 1)));
+          if (k.typ === "rozmowa" || k.typ === "pytanie") {
+            body.appendChild(cialoKrokuTekst(k, function () {
+              if (k.typ === "pytanie") ile++;
+              if (ile >= pyt) { G.zapiszMisje(NR, m.id); s.textContent = m.tytul + " ✓"; stat.textContent = "Misja zaliczona w wersji tekstowej ✓"; }
+            }));
+          } else body.appendChild(el("p", "muted", (k.opis || "Etap na mapie") + " (etap na mapie dzielnicy)"));
+        });
+        body.appendChild(stat);
+        d.appendChild(body);
+      });
+      box.appendChild(d);
+    });
+    return box;
+  }
+  // ta sama rozmowa i pytanie co na mapie, bez przełączania etapów
+  function cialoKrokuTekst(k, gotowe) {
+    var w = el("div", "wn-dial");
+    if (k.typ === "rozmowa") {
+      (k.kwestie || []).forEach(function (l) {
+        var p = el("p", l.kto === "ty" ? "wn-ty" : "wn-on");
+        p.appendChild(el("b", null, (l.kto === "ty" ? "Ty" : k.postac || "Świadek") + ": ")); p.appendChild(document.createTextNode(l.t)); w.appendChild(p);
+      });
+      return w;
+    }
+    var fs = el("fieldset", "wn-pytanie"); fs.appendChild(el("legend", null, k.tresc));
+    var fb = el("p"); fb.setAttribute("role", "status"); var nazwa = "mist-" + Math.random().toString(36).slice(2);
+    k.odpowiedzi.forEach(function (o, j) {
+      var lab = el("label", "wn-odp"), r = el("input"); r.type = "radio"; r.name = nazwa;
+      r.addEventListener("change", function () {
+        if (fs.dataset.ok) return;
+        if (j === k.poprawna) { fs.dataset.ok = "1"; fb.className = "wn-ok"; fb.textContent = "Dobrze. " + (k.wyjasnienie || ""); gotowe(); }
+        else { fb.className = "wn-zle"; fb.textContent = "To nie ta odpowiedź. Spróbuj jeszcze raz."; }
+      });
+      lab.appendChild(r); lab.appendChild(document.createTextNode(" " + o)); fs.appendChild(lab);
+    });
+    w.appendChild(fs); w.appendChild(fb);
+    return w;
+  }
+  var misjeH4 = null;
   function odswiezListe() {
+    if (misjeH4) misjeH4.textContent = "Misje (tekst) · " + misjeWykonane().length + "/" + MISJE.length;
     if (!listaSum) return;
     var odw = odwiedzone(), zn = znalezione();
     listaSum.textContent = "Miejsca w dzielnicy (tekst) · " + odw.length + "/7";

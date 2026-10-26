@@ -1,6 +1,20 @@
 {
- "aktualizacja": "2026-10-25T08:57Z",
+ "aktualizacja": "2026-10-26T00:45Z",
  "wpisy": [
+  {
+   "t": "Anthropic sued for allegedly using 274 Elvis Presley songs to train AI models",
+   "u": "https://www.theguardian.com/us-news/2026/oct/25/elvis-presley-anthropic-lawsuit-ai-models-music",
+   "z": "The Guardian",
+   "d": "2026-10-25",
+   "j": "en"
+  },
+  {
+   "t": "r/opensource just banned AI, non-English speakers, and more",
+   "u": "https://www.theverge.com/ai-artificial-intelligence/1018217/reddit-opensource-ai-ban",
+   "z": "The Verge",
+   "d": "2026-10-25",
+   "j": "en"
+  },
   {
    "t": "OpenAI stworzyło dedykowany internet dla agentów AI",
    "u": "https://www.computerworld.pl/article/100054145/openai-stworzylo-dedykowany-internet-dla-agentow-ai.html",
@@ -51,13 +65,6 @@
    "j": "en"
   },
   {
-   "t": "John Healey pledges to use budget to harness power of AI to bolster Britain’s security",
-   "u": "https://www.theguardian.com/uk-news/2026/oct/24/john-healey-pledges-to-use-budget-to-harness-power-of-ai-to-bolster-britains-security",
-   "z": "The Guardian",
-   "d": "2026-10-24",
-   "j": "en"
-  },
-  {
    "t": "Predicting protein electrostatics with protein language models",
    "u": "https://www.nature.com/articles/s41467-026-78406-y",
    "z": "Nature",
@@ -65,15 +72,8 @@
    "j": "en"
   },
   {
-   "t": "OpenAI now trains its frontier AI models with no internet access",
-   "u": "https://www.theverge.com/ai-artificial-intelligence/1018021/openai-training-top-ai-models-no-internet",
-   "z": "The Verge",
-   "d": "2026-10-23",
-   "j": "en"
-  },
-  {
-   "t": "Jack Dorsey’s Block made an AI model that talks to you like an awkward new friend",
-   "u": "https://www.theverge.com/ai-artificial-intelligence/1017906/jack-dorsey-block-dessa-ai-voice-speech",
+   "t": "Google’s AI search changes upended online publishing",
+   "u": "https://www.theverge.com/column/1017983/google-ai-search-online-publishing",
    "z": "The Verge",
    "d": "2026-10-23",
    "j": "en"

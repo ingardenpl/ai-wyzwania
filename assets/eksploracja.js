@@ -29,7 +29,7 @@
   s.src = BASE + "jajka.js";
   s.onload = s.onerror = function () { waitCity(init); };
   document.body.appendChild(s);
-  function waitCity(cb) { if (cv._city) cb(cv._city); else setTimeout(function () { waitCity(cb); }, 80); }
+  function waitCity(cb, n) { n = n || 0; if (cv._city) cb(cv._city); else if (n < 250) setTimeout(function () { waitCity(cb, n + 1); }, 80); }   // najwyżej ok. 20 s
 
   function init(city) {
     var T = city.T, W = city.W, H = city.H, grid = city.grid, TL = city.tiles, HATCH = city.hatch, D = city.districts;

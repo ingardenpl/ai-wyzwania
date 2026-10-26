@@ -130,3 +130,20 @@ html.ex-full-on, html.ex-full-on body { overflow: hidden; }
 .wn-scena canvas { display: block; width: 100%; height: auto; image-rendering: pixelated; }
 .wn-miejsce > summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font-weight: 600; }
 .wn-miejsce[open] > summary { color: var(--navy); }
+
+/* misje we wnętrzach dzielnic */
+.wn-misja { position: absolute; left: 8px; top: 8px; z-index: 5; max-width: min(60%, 520px); padding: 6px 10px; background: rgba(7, 8, 15, 0.9);
+  border: 1px solid var(--gold-soft); border-left: 3px solid var(--gold); color: var(--gold); font-family: var(--mono); font-size: 0.78rem; line-height: 1.4; pointer-events: none; }
+@media (max-width: 600px) { .wn-map:not(.wn-full) .wn-misja { top: auto; bottom: 8px; max-width: calc(100% - 16px); } }
+.wn-map.wn-full .wn-misja { top: 8px; left: 8px; }
+.wn-mis .sm-k { color: var(--gold); }
+.wn-kroki { padding-left: 1.3em; margin: 6px 0 10px; }
+.wn-pytanie { border: 1px solid var(--line); padding: 8px 12px; margin: 8px 0; }
+.wn-pytanie legend { font-weight: 600; padding: 0 4px; }
+.wn-odp { display: flex; gap: 8px; align-items: flex-start; min-height: 44px; padding: 6px 0; cursor: pointer; }
+.wn-odp input { margin-top: 0.3em; }
+.wn-zle { color: var(--bad); }
+.wn-misje-tekst { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 8px; }
+.wn-misje-tekst h4 { margin: 0 0 6px; }
+.wn-porazka { border-color: var(--red); }
+.wn-sukces { border-color: var(--ok); }

@@ -83,12 +83,12 @@
     var s = czytaj(KLUCZ, null);
     if (!s || typeof s !== "object" || s.v !== WERSJA) {
       var nowszy = s && typeof s === "object" && s.v > WERSJA;   // zapis z nowszej wersji skryptu: nie nadpisujemy go
-      s = { v: WERSJA, quizy: {}, miejsca: {}, zadania: {}, znaleziska: {}, ratusz: {} };
+      s = { v: WERSJA, quizy: {}, miejsca: {}, zadania: {}, znaleziska: {}, ratusz: {}, misje: {} };
       var stare = czytaj("neo-zaliczone", []);
       (Array.isArray(stare) ? stare : []).forEach(function (n) { if (/^\d\d$/.test(n)) s.quizy[n] = PROG_QUIZ; });
       if (!nowszy) pisz(KLUCZ, s);
     }
-    ["quizy", "miejsca", "zadania", "znaleziska", "ratusz"].forEach(function (k) { if (!s[k] || typeof s[k] !== "object") s[k] = {}; });
+    ["quizy", "miejsca", "zadania", "znaleziska", "ratusz", "misje"].forEach(function (k) { if (!s[k] || typeof s[k] !== "object") s[k] = {}; });
     return s;
   }
   function zmien(fn) { var s = stan(); fn(s); pisz(KLUCZ, s); document.dispatchEvent(new CustomEvent("neo:postep")); return s; }
@@ -104,6 +104,8 @@
   function zapiszMiejsce(n, id) { zmien(function (s) { var l = s.miejsca[n] = s.miejsca[n] || []; if (l.indexOf(id) < 0) l.push(id); }); }
   function zapiszZadanie(n, v) { zmien(function (s) { if (v === false) delete s.zadania[n]; else s.zadania[n] = true; }); }
   function zapiszZnalezisko(n, id) { zmien(function (s) { var l = s.znaleziska[n] = s.znaleziska[n] || []; if (l.indexOf(id) < 0) l.push(id); }); }
+  // misje wnętrz (wnetrze.js): dodatek jak znaleziska, nie wpływa na artefakt ani na podziemia
+  function zapiszMisje(n, id) { zmien(function (s) { var l = s.misje[n] = s.misje[n] || []; if (l.indexOf(id) < 0) l.push(id); }); }
 
   // ------------------------------------------------------------------ artefakty
   function wnetrze(n) { var i = (dane().info || {})[n]; return !!(i && i.wnetrze); }
@@ -138,12 +140,13 @@
   function unb64(s) { s = s.replace(/-/g, "+").replace(/_/g, "/"); while (s.length % 4) s += "="; return decodeURIComponent(escape(atob(s))); }
   function suma(s) { var h = 5381; for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0; return ("0000" + h.toString(36)).slice(-4); }
   function kodPostepu() {
-    var s = stan(), d = { v: 1, q: {}, m: {}, z: [], n: {}, r: s.ratusz || {} };
+    var s = stan(), d = { v: 1, q: {}, m: {}, z: [], n: {}, mi: {}, r: s.ratusz || {} };
     NR.forEach(function (k) {
       if (typeof s.quizy[k] === "number") d.q[k] = Math.round(s.quizy[k] * 100);
       if ((s.miejsca[k] || []).length) d.m[k] = s.miejsca[k];
       if (s.zadania[k]) d.z.push(k);
       if ((s.znaleziska[k] || []).length) d.n[k] = s.znaleziska[k];
+      if ((s.misje[k] || []).length) d.mi[k] = s.misje[k];
     });
     var t = b64(JSON.stringify(d));
     return "NL1-" + t + "-" + suma(t);
@@ -164,7 +167,7 @@
           var cel = s[pole][k] = s[pole][k] || [];
           lista.forEach(function (id) { if (typeof id === "string" && id.length < 60 && cel.indexOf(id) < 0) { cel.push(id); ile++; } });
         }
-        dolacz("miejsca", d.m && d.m[k]); dolacz("znaleziska", d.n && d.n[k]);
+        dolacz("miejsca", d.m && d.m[k]); dolacz("znaleziska", d.n && d.n[k]); dolacz("misje", d.mi && d.mi[k]);
         if (Array.isArray(d.z) && d.z.indexOf(k) >= 0 && !s.zadania[k]) { s.zadania[k] = true; ile++; }
       });
       if (d.r && typeof d.r === "object") Object.keys(d.r).forEach(function (x) { if (!s.ratusz[x]) { s.ratusz[x] = d.r[x]; ile++; } });
@@ -191,7 +194,7 @@
 
   window.NeoGra = {
     dzis: dzis, stany: stany, kodPostepu: kodPostepu, wczytajKod: wczytajKod, nastepnyTermin: nastepnyTermin, podglad: podglad, dane: dane,
-    stan: stan, zapiszQuiz: zapiszQuiz, zapiszMiejsce: zapiszMiejsce, zapiszZadanie: zapiszZadanie, zapiszZnalezisko: zapiszZnalezisko,
+    stan: stan, zapiszQuiz: zapiszQuiz, zapiszMiejsce: zapiszMiejsce, zapiszZadanie: zapiszZadanie, zapiszZnalezisko: zapiszZnalezisko, zapiszMisje: zapiszMisje,
     artefakt: artefakt, artefakty: artefakty, wnetrze: wnetrze, odblokowany: odblokowany,
     otwarta: function (n) { return odblokowany(n).ok; },
     PROG_QUIZ: PROG_QUIZ, PROG_MIEJSCA: PROG_MIEJSCA

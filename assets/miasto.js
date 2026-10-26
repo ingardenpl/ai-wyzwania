@@ -829,7 +829,7 @@
   // automatyczne podpięcie
   document.addEventListener("DOMContentLoaded", function () {
     var dataEl = document.getElementById("city-data");
-    var data = dataEl ? JSON.parse(dataEl.textContent) : { districts: [] };
+    var data; try { data = dataEl ? JSON.parse(dataEl.textContent) : { districts: [] }; } catch (e) { data = { districts: [] }; }
     document.querySelectorAll("canvas[data-city]").forEach(function (cv) {
       mount(cv, { districts: data.districts, focus: cv.getAttribute("data-focus") || null, podziemia: data.podziemia,
                   mode: cv.getAttribute("data-mode") || "ulica", radar: cv.hasAttribute("data-radar") });
