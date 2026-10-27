@@ -591,3 +591,15 @@ details.wiecej .toc { margin-top: 4px; }
 .przew .btn-row { margin: 0; justify-content: flex-end; }
 .przew .btn-row .pomin { margin-right: auto; }
 @media print { .przew, .przew-tlo, .przew-ramka, .co-dalej { display: none !important; } }
+
+/* certyfikat.html */
+.cert-stan h2 { margin-top: 0; }
+.cert-lista { margin: 10px 0 0; padding-left: 0; list-style: none; font-family: var(--mono); font-size: 0.9rem; columns: 2 18em; column-gap: 24px; }
+.cert-lista li { padding: 3px 0; color: var(--muted); break-inside: avoid; }
+.cert-lista li.ok { color: var(--ink); }
+.cert-form { margin: 18px 0 14px; }
+.cert-form label { display: block; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.06em; color: var(--navy); margin-bottom: 6px; }
+.cert-form input { width: 100%; max-width: 28em; min-height: 44px; padding: 8px 12px; font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line); }
+.cert-form input:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+.cert-form input:disabled, .cert-form .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.cert-podglad { display: block; width: 100%; height: auto; aspect-ratio: 297 / 210; background: #fff; border: 1px solid var(--line); box-shadow: var(--glow-c); }

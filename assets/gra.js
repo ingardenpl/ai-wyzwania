@@ -284,7 +284,11 @@
     d.appendChild(el("p", "muted", T("Zaliczone quizy: {0} z 10. Stan na {1}. Wyniki są zapisane tylko w tej przeglądarce; kartę można pokazać prowadzącemu albo wydrukować (liczy się do aktywności).", [zal, dzis().split("-").reverse().join(".")])));
     var b = el("button", "btn ghost", T("Drukuj kartę")); b.type = "button";
     b.addEventListener("click", function () { d.open = true; window.print(); });
-    d.appendChild(b);
+    var br = el("div", "btn-row"); br.appendChild(b);
+    // certyfikat ukończenia (certyfikat.html): po zaliczeniu wszystkich dziesięciu quizów
+    if (zal === 10) { var ce = el("a", "btn", T("Certyfikat ukończenia (PDF)")); ce.href = "certyfikat.html"; br.insertBefore(ce, b); }
+    d.appendChild(br);
+    if (zal < 10) d.appendChild(el("p", "muted", T("Po zaliczeniu quizów wszystkich dziesięciu dzielnic pobierzesz certyfikat ukończenia kursu online (PDF, strona Nauka).")));
     d.appendChild(kodPostepuUI());
     hud.parentNode.insertBefore(d, hud.nextSibling);
     var imp = null; try { imp = JSON.parse(sessionStorage.getItem("neo-postep-import") || "null"); sessionStorage.removeItem("neo-postep-import"); } catch (e) {}
@@ -351,9 +355,9 @@
         T("Quizy wszystkich otwartych dzielnic zaliczone. Dzielnica {0} ({1}) otworzy się w dniu wykładu. Do tego czasu możesz powtórzyć materiał w fiszkach.", [zamk, j.nazwa]);
       przycisk = T("Powtórka w fiszkach");
     } else {
-      cel = "zaliczenie.html";
-      opis = T("Quizy wszystkich dzielnic zaliczone. Zostało zaliczenie przedmiotu: test, projekt albo własna propozycja.");
-      przycisk = T("Zasady zaliczenia");
+      cel = "certyfikat.html";
+      opis = T("Quizy wszystkich dzielnic zaliczone: kurs online ukończony. Pobierz certyfikat w PDF. Zaliczenie przedmiotu (test, projekt albo własna propozycja) odbywa się osobno.");
+      przycisk = T("Pobierz certyfikat");
     }
     box.appendChild(el("p", "eyebrow", T("Co dalej?")));
     box.appendChild(el("p", null, opis));

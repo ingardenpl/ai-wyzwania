@@ -1,6 +1,69 @@
 {
- "aktualizacja": "2026-10-26T18:46Z",
+ "aktualizacja": "2026-10-27T08:40Z",
  "wpisy": [
+  {
+   "t": "UK government met 137 businesses over AI datacentres – but no environmental groups",
+   "u": "https://www.theguardian.com/uk-news/2026/oct/27/uk-government-environmental-groups-ai-datacentres-expansion-plans-investigation",
+   "z": "The Guardian",
+   "d": "2026-10-27",
+   "j": "en"
+  },
+  {
+   "t": "Intel Arc Pro B70 z 32 GB pamięci wkracza na rynek – zagrozi RTX 5090 w zadaniach AI?",
+   "u": "https://www.computerworld.pl/article/100054162/intel-arc-pro-b70-z-32-gb-pamieci-wkracza-na-rynek-zagrozi-rtx-5090-w-zadaniach-ai.html",
+   "z": "Computerworld",
+   "d": "2026-10-27",
+   "j": "pl"
+  },
+  {
+   "t": "Four takeaways from Anthropic’s potentially record-breaking stock market filing",
+   "u": "https://www.theguardian.com/technology/2026/oct/26/anthropic-stock-market-filing-takeaways",
+   "z": "The Guardian",
+   "d": "2026-10-27",
+   "j": "en"
+  },
+  {
+   "t": "Chinese markets lose trillions as race for AI supremacy with US takes its toll",
+   "u": "https://www.theguardian.com/world/2026/oct/27/chinese-markets-lose-trillions-ai-race-beijing",
+   "z": "The Guardian",
+   "d": "2026-10-27",
+   "j": "en"
+  },
+  {
+   "t": "scBOA: Bayesian optimization of single-cell analysis pipelines for robust annotation and discovery",
+   "u": "https://www.nature.com/articles/s41467-026-78718-z",
+   "z": "Nature",
+   "d": "2026-10-27",
+   "j": "en"
+  },
+  {
+   "t": "OpenAI announces three big science discoveries and a new way to work with academics",
+   "u": "https://www.theverge.com/ai-artificial-intelligence/1019143/openai-eth-kaseya-science-math-physics",
+   "z": "The Verge",
+   "d": "2026-10-26",
+   "j": "en"
+  },
+  {
+   "t": "Anthropic is burning gas to feed the AI boom",
+   "u": "https://www.theverge.com/ai-artificial-intelligence/1018994/anthropic-ipo-ai-data-center-energy-climate-risk",
+   "z": "The Verge",
+   "d": "2026-10-26",
+   "j": "en"
+  },
+  {
+   "t": "Apple releases iOS and macOS 27.2 with new Siri AI features, new Music logo",
+   "u": "https://arstechnica.com/apple/2026/10/apple-releases-ios-and-macos-27-2-with-new-siri-ai-features-new-music-logo/",
+   "z": "Ars Technica",
+   "d": "2026-10-26",
+   "j": "en"
+  },
+  {
+   "t": "What Should the Rules for A.I. Companies Actually Be? We Asked the Experts.",
+   "u": "https://ainowinstitute.org/news/what-should-the-rules-for-a-i-companies-actually-be-we-asked-the-experts",
+   "z": "AI Now Institute",
+   "d": "2026-10-26",
+   "j": "en"
+  },
   {
    "t": "Will the real Anthropic please stand up",
    "u": "https://www.technologyreview.com/2026/10/26/1147672/will-the-real-anthropic-please-stand-up/",
@@ -16,22 +79,8 @@
    "j": "en"
   },
   {
-   "t": "Anthropic’s IPO filing lays out a plan to ‘revolutionize every area of human endeavor’ with AI",
-   "u": "https://www.theverge.com/ai-artificial-intelligence/1018476/anthropic-ipo-details-s1-filed-sec",
-   "z": "The Verge",
-   "d": "2026-10-26",
-   "j": "en"
-  },
-  {
    "t": "The RealReal won’t let AI agents hog designer clothing",
    "u": "https://www.theverge.com/news/1018713/meta-muse-agentic-shopping-ai-the-realreal",
-   "z": "The Verge",
-   "d": "2026-10-26",
-   "j": "en"
-  },
-  {
-   "t": "Kevin Roose is AGI-pilled. Why aren’t you?",
-   "u": "https://www.theverge.com/podcast/1018264/kevin-roose-the-agi-chronicles-machine-gods-podcast-youtube-openai-anthropic",
    "z": "The Verge",
    "d": "2026-10-26",
    "j": "en"
@@ -40,27 +89,6 @@
    "t": "Five weird details from Anthropic’s IPO filing",
    "u": "https://www.theverge.com/ai-artificial-intelligence/1018738/anthropic-ipo-s1-filing-weird-details",
    "z": "The Verge",
-   "d": "2026-10-26",
-   "j": "en"
-  },
-  {
-   "t": "Anthropic reveals rapid revenue gains and larger losses in stock market filing",
-   "u": "https://www.theguardian.com/technology/2026/oct/26/anthropic-files-listing-stock-market",
-   "z": "The Guardian",
-   "d": "2026-10-26",
-   "j": "en"
-  },
-  {
-   "t": "Anthropic files for stock market IPO; Meta announces $95bn fundraising drive to pay for AI expansion – as it happened",
-   "u": "https://www.theguardian.com/business/live/2026/oct/26/ai-cloud-computing-companies-guppy-level-death-elon-musk-stock-markets-dollar-oil-bond-yieds-latest-news-updates",
-   "z": "The Guardian",
-   "d": "2026-10-26",
-   "j": "en"
-  },
-  {
-   "t": "How tall are the AI datacentre power poles that sparked a community backlash in Melbourne?",
-   "u": "https://www.theguardian.com/news/ng-interactive/2026/oct/27/how-big-are-the-ai-datacentre-power-poles-that-sparked-a-community-backlash-in-melbourne",
-   "z": "The Guardian",
    "d": "2026-10-26",
    "j": "en"
   },
@@ -100,13 +128,6 @@
    "j": "en"
   },
   {
-   "t": "Development of an automated method for audiometric data extraction and analysis using voting optical character recognition",
-   "u": "https://www.nature.com/articles/s41598-026-62755-1",
-   "z": "Nature",
-   "d": "2026-10-26",
-   "j": "en"
-  },
-  {
    "t": "OpenAI stworzyło dedykowany internet dla agentów AI",
    "u": "https://www.computerworld.pl/article/100054145/openai-stworzylo-dedykowany-internet-dla-agentow-ai.html",
    "z": "Computerworld",
@@ -114,18 +135,11 @@
    "j": "pl"
   },
   {
-   "t": "Google Play otwiera się na prywatne aplikacje tworzone przez AI – czy czeka nas zalew niskiej jakości oprogramowania?",
-   "u": "https://www.computerworld.pl/article/100054135/google-play-otwiera-sie-na-prywatne-aplikacje-tworzone-przez-ai-czy-czeka-nas-zalew-niskiej-jakosci-oprogramowania.html",
-   "z": "Computerworld",
-   "d": "2026-10-24",
-   "j": "pl"
-  },
-  {
-   "t": "AI zmienia pracę Polaków. Firmy muszą nadążyć z kompetencjami i sprzętem",
-   "u": "https://www.computerworld.pl/article/100054131/ai-zmienia-prace-polakow-firmy-musza-nadazyc-z-kompetencjami-i-sprzetem.html",
-   "z": "Computerworld",
+   "t": "The big tech defectors you’re not hearing about",
+   "u": "https://ainowinstitute.org/news/the-big-tech-defectors-youre-not-hearing-about",
+   "z": "AI Now Institute",
    "d": "2026-10-23",
-   "j": "pl"
+   "j": "en"
   },
   {
    "t": "Designing an AI serving harness built to last",
@@ -138,6 +152,13 @@
    "t": "The Foundations of Scalable AI",
    "u": "https://www.technologyreview.com/2026/10/22/1146103/the-foundations-of-scalable-ai/",
    "z": "MIT Technology Review",
+   "d": "2026-10-22",
+   "j": "en"
+  },
+  {
+   "t": "“Apocalypse Now and Then”: Author Arundhati Roy on Artificial Intelligence, Capitalism & More",
+   "u": "https://ainowinstitute.org/news/apocalypse-now-and-then-author-arundhati-roy-on-artificial-intelligence-capitalism-more",
+   "z": "AI Now Institute",
    "d": "2026-10-22",
    "j": "en"
   },
@@ -170,38 +191,10 @@
    "j": "en"
   },
   {
-   "t": "Meta drops the word \"train\" from its commercial TOS after AI backlash",
-   "u": "https://arstechnica.com/tech-policy/2026/10/meta-drops-the-word-train-from-its-commercial-tos-after-ai-backlash/",
-   "z": "Ars Technica",
-   "d": "2026-10-20",
-   "j": "en"
-  },
-  {
-   "t": "Zohran Mamdani Backs Major Expansion of New York’s Data Center Moratorium",
-   "u": "https://ainowinstitute.org/news/zohran-mamdani-backs-major-expansion-of-new-yorks-data-center-moratorium",
-   "z": "AI Now Institute",
-   "d": "2026-10-20",
-   "j": "en"
-  },
-  {
    "t": "30 Months on the Exponential (in Charts)",
    "u": "https://www.oneusefulthing.org/p/30-months-on-the-exponential-in-charts",
    "z": "One Useful Thing",
    "d": "2026-10-20",
-   "j": "en"
-  },
-  {
-   "t": "Mamdani says feds have abdicated on AI, urges New Yorkers to push back",
-   "u": "https://ainowinstitute.org/news/press/mamdani-says-feds-have-abdicated-on-ai-urges-new-yorkers-to-push-back",
-   "z": "AI Now Institute",
-   "d": "2026-10-19",
-   "j": "en"
-  },
-  {
-   "t": "New York City Mayor Mamdani on Artificial Intelligence and Tech Innovation",
-   "u": "https://ainowinstitute.org/news/new-york-city-mayor-mamdani-on-artificial-intelligence-and-tech-innovation",
-   "z": "AI Now Institute",
-   "d": "2026-10-19",
    "j": "en"
   },
   {
@@ -210,6 +203,13 @@
    "z": "Komisja Europejska",
    "d": "2026-10-19",
    "j": "en"
+  },
+  {
+   "t": "Póki algorytmy będą się karmić emocjami, przemoc będzie wiralem",
+   "u": "https://panoptykon.org/blokowanie-przemocy-w-internecie-dsa",
+   "z": "Panoptykon",
+   "d": "2026-10-13",
+   "j": "pl"
   }
  ],
  "bledy": []
