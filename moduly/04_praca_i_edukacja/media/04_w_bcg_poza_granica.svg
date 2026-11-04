@@ -26,6 +26,7 @@
 <rect x="734.3" y="240.0" width="90.0" height="204.0" fill="#ff003c"/>
 <text x="779.3" y="228.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="16" font-weight="700" fill="#fcee0a" text-anchor="middle" >60,0%</text>
 <text x="779.3" y="466.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="13" font-weight="400" fill="#c2c6d8" text-anchor="middle" >GPT-4</text>
-<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: Dell&#x27;Acqua i in. (2023): AI obniżyła trafność średnio o 19 punktów procentowych</text>
+<text x="28.0" y="507.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >Źródło: Dell&#x27;Acqua i in., Organization Science (2026), DOI 10.1287/orsc.2025.21838: AI obniżyła trafność średnio</text>
+<text x="28.0" y="522.0" font-family="'IBM Plex Mono','Cascadia Mono',Consolas,'Courier New',monospace" font-size="12" font-weight="400" fill="#9095ad" text-anchor="start" >o 19 punktów procentowych</text>
 <text x="934.0" y="522.0" font-family="'Chakra Petch','Bahnschrift','Segoe UI','Arial Narrow',Arial,sans-serif" font-size="11" font-weight="700" fill="#3a3f55" text-anchor="end" >NEO-LUBLIN 2049</text>
 </svg>

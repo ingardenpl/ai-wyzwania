@@ -71,7 +71,7 @@
 <img src="media/03_etapy_llm.svg" style="width:100.0%" alt="Cztery etapy: pretrening na bilionach tokenów, dostrajanie na wzorcowych odpowiedziach, wzmocnienie na ocenach ludzi i użycie modelu z zamrożonymi wagami" />
 <figcaption aria-hidden="true">Cztery etapy: pretrening na bilionach tokenów, dostrajanie na wzorcowych odpowiedziach, wzmocnienie na ocenach ludzi i użycie modelu z zamrożonymi wagami</figcaption>
 </figure>
-<p><strong>Tokeny.</strong> Model nie widzi liter ani słów, tylko <strong>tokeny</strong>: fragmenty tekstu (słowa, części słów, znaki), z których każdy ma numer w „słowniku” modelu. W języku angielskim token to średnio ok. ¾ słowa. Język polski jest dla wielu tokenizatorów „droższy”: badania pokazują ok. 3 tokeny na polskie słowo wobec poniżej 2 na angielskie. To oznacza wyższe koszty, mniej tekstu w oknie kontekstu i często słabszą jakość. Polskie modele (Bielik, PLLuM) mają własne tokenizatory. Tokenizacja tłumaczy też zagadkę, z którą długo nie radziły sobie modele: ile liter „r” jest w słowie „strawberry”? Model widzi tokeny w rodzaju „str”, „aw”, „berry”, a nie pojedyncze litery. Stanisław Lem w „Cyberiadzie” (1965) postawił maszynie Elektrybałt podobne zadanie: wiersz, w którym każde słowo zaczyna się na „c”.</p>
+<p><strong>Tokeny.</strong> Model nie widzi liter ani słów, tylko <strong>tokeny</strong>: fragmenty tekstu (słowa, części słów, znaki), z których każdy ma numer w „słowniku” modelu. W języku angielskim token to średnio ok. ¾ słowa. Język polski jest dla wielu tokenizatorów „droższy”: badania pokazują od ok. 2 do ponad 3 tokenów na polskie słowo (ok. 3,1 dla tokenizatora Mistral 7B, średnio 2,25 w badaniu sześciu tokenizatorów) wobec poniżej 2 na angielskie. To oznacza wyższe koszty, mniej tekstu w oknie kontekstu i często słabszą jakość. Polskie modele (Bielik, PLLuM) mają własne tokenizatory. Tokenizacja tłumaczy też zagadkę, z którą długo nie radziły sobie modele: ile liter „r” jest w słowie „strawberry”? Model widzi tokeny w rodzaju „str”, „aw”, „berry”, a nie pojedyncze litery. Stanisław Lem w „Cyberiadzie” (1965) postawił maszynie Elektrybałt podobne zadanie: wiersz, w którym każde słowo zaczyna się na „c”.</p>
 <figure>
 <img src="media/03_tokeny.svg" style="width:100.0%" alt="Podział zdania „Sąd oddalił powództwo w” na tokeny z numerami i rozkład prawdopodobieństwa następnego tokenu" />
 <figcaption aria-hidden="true">Podział zdania „Sąd oddalił powództwo w” na tokeny z numerami i rozkład prawdopodobieństwa następnego tokenu</figcaption>
@@ -113,7 +113,7 @@
 <figcaption aria-hidden="true">Trzy panele: oba modele mają podobną trafność (22% i 24%), ale o4-mini myli się w 75% pytań, bo prawie nigdy nie odmawia (1%), a gpt-5-thinking-mini myli się w 26%, odmawiając w 52% przypadków.</figcaption>
 </figure>
 <p>Uzupełnieniem jest praca „Machine Bullshit” (Liang i in., 2025), nawiązująca do eseju Harry’ego Frankfurta „On Bullshit”. Autorzy opisują nie kłamstwo, lecz obojętność wobec prawdy: pustą retorykę, półprawdy, wymijające sformułowania („wielu ekspertów uważa”) i twierdzenia bez dowodów. Ich wskaźnik obojętności wobec prawdy rośnie po RLHF. To logiczne: jeśli oceniającym podoba się pewność siebie i uprzejmość, model uczy się pewności siebie i uprzejmości.</p>
-<p>Skala problemu w praktyce prawniczej jest już duża. Baza Damiena Charlotina gromadzi sprawy sądowe, w których sąd stwierdził oparcie pisma na zmyślonych treściach. Według stanu na 19.10.2026 r. jest ich ponad 2200, w tym 6 z Polski. Najsłynniejszą sprawę, <em>Mata v. Avianca</em> (2023), omówimy na spotkaniu 8. Zasada jest prosta: każdą sygnaturę, datę, cytat i numer przepisu podany przez model sprawdzamy w źródle. Narzędzia łączące model z wyszukiwarką w bazie orzeczeń zmniejszają to ryzyko, ale go nie eliminują.</p>
+<p>Skala problemu w praktyce prawniczej jest już duża. Baza Damiena Charlotina gromadzi sprawy sądowe, w których sąd stwierdził oparcie pisma na zmyślonych treściach. Według stanu na 31.10.2026 r. jest ich ponad 2200 (2246), w tym 10 z Polski. Najsłynniejszą sprawę, <em>Mata v. Avianca</em> (2023), omówimy na spotkaniu 8. Zasada jest prosta: każdą sygnaturę, datę, cytat i numer przepisu podany przez model sprawdzamy w źródle. Narzędzia łączące model z wyszukiwarką w bazie orzeczeń zmniejszają to ryzyko, ale go nie eliminują.</p>
 <p>Mechanizm, który prowadzi do takich błędów, możesz sprawdzić w aplikacji <a href="../../interaktywne/demo_tokeny.html">Następne słowo</a>: pokazuje ona na ręcznie wpisanych przykładach, jak model wybiera kolejny token, dlaczego zmyślona sygnatura brzmi pewnie i czemu niska temperatura nie wyłącza halucynacji.</p>
 <h2 id="czarna-skrzynka-i-wyjaśnialna-ai">6. Czarna skrzynka i wyjaśnialna AI</h2>
 <p>Decyzja modelu wynika z miliardów wag, z których żadna nie odpowiada regule zrozumiałej dla człowieka. Nawet twórcy nie potrafią wprost powiedzieć, dlaczego padła ta, a nie inna odpowiedź. Dla prawa to problem <strong>uzasadnienia</strong> i <strong>kontroli</strong>. AI Act przewiduje przejrzystość i nadzór człowieka nad systemami wysokiego ryzyka (art. 13 i 14) oraz prawo do wyjaśnienia roli systemu AI w decyzji dotyczącej danej osoby (art. 86). RODO chroni przed decyzjami opartymi wyłącznie na zautomatyzowanym przetwarzaniu (art. 22) i daje prawo do istotnych informacji o zasadach ich podejmowania (art. 15 ust. 1 lit. h). Orzecznictwo TSUE w tym zakresie omawiamy na spotkaniu 5.</p>
@@ -128,10 +128,10 @@
 <img src="media/03_agent_petla.svg" style="width:100.0%" alt="Pętla agenta: cel od człowieka, plan modelu, działanie narzędziem, obserwacja wyniku i kolejna iteracja, z punktem kontroli człowieka" />
 <figcaption aria-hidden="true">Pętla agenta: cel od człowieka, plan modelu, działanie narzędziem, obserwacja wyniku i kolejna iteracja, z punktem kontroli człowieka</figcaption>
 </figure>
-<p>Według danych Epoch AI (21.10.2026) spośród 179 modeli, które w indeksie Epoch Capabilities Index wyprzedzają GPT-4 z 2023 r., 64 ma otwarte wagi, czyli każdy może je pobrać i uruchomić. Ma to znaczenie dla AI Act: dostawcy modeli udostępnianych na licencji otwartej korzystają z wyjątków od części obowiązków (art. 53 ust. 2), chyba że model stwarza ryzyko systemowe.</p>
+<p>Według danych Epoch AI (stan na 31.10.2026) spośród 180 modeli, które w indeksie Epoch Capabilities Index wyprzedzają GPT-4 z 2023 r., 67 ma otwarte wagi, czyli każdy może je pobrać i uruchomić. Ma to znaczenie dla AI Act: dostawcy modeli udostępnianych na licencji otwartej korzystają z wyjątków od części obowiązków (art. 53 ust. 2), chyba że model stwarza ryzyko systemowe.</p>
 <figure>
-<img src="media/03_w_mollick_otwarte_wagi.svg" style="width:100.0%" alt="Wykres słupkowy: według Epoch AI 179 z 270 modeli ma wynik wyższy niż GPT-4, w tym 64 modele o otwartych wagach i 109 zamkniętych." />
-<figcaption aria-hidden="true">Wykres słupkowy: według Epoch AI 179 z 270 modeli ma wynik wyższy niż GPT-4, w tym 64 modele o otwartych wagach i 109 zamkniętych.</figcaption>
+<img src="media/03_w_mollick_otwarte_wagi.svg" style="width:100.0%" alt="Wykres słupkowy: według Epoch AI 180 z 271 modeli ma wynik wyższy niż GPT-4, w tym 67 modeli o otwartych wagach i 108 zamkniętych." />
+<figcaption aria-hidden="true">Wykres słupkowy: według Epoch AI 180 z 271 modeli ma wynik wyższy niż GPT-4, w tym 67 modeli o otwartych wagach i 108 zamkniętych.</figcaption>
 </figure>
 <h2 id="pojęcia-kluczowe">Pojęcia kluczowe</h2>
 <table>
@@ -335,7 +335,7 @@ Wskazówka
   <p class="meta">Stanisław Lem · 1965</p>
   <p>Elektrybałt Trurla pisze wiersz na zadany temat sześćdziesiąt lat przed ChatGPT.</p>
 </article></div></div><p class="muted"><a href="../../biblioteka.html">Cała biblioteka kursu</a></p></section><section class="section"><h2 id="weryfikacja">Weryfikacja</h2>
-<p>Dane liczbowe, źródła i stan prawny sprawdzono 19–22.10.2026 w źródłach podanych w części „Lektury i biblioteka” i przy wykresach. Liczba spraw w bazie Damiena Charlotina rośnie z dnia na dzień.</p>
+<p>Dane liczbowe, źródła i stan prawny sprawdzono 19–22.10.2026 w źródłach podanych w części „Lektury i biblioteka” i przy wykresach. Liczbę spraw w bazie Damiena Charlotina sprawdzono 31.10.2026; rośnie ona z dnia na dzień.</p>
 </section></article>
   </div>
   <nav class="pager" aria-label="Sąsiednie tematy"><a href="../02_historia_ai/wiedza.html">← 02. Historia sztucznej inteligencji: od automatów do modeli fundamentalnych</a><a href="../04_praca_i_edukacja/wiedza.html">04. Społeczne wyzwania AI (I): praca i edukacja →</a></nav>
@@ -345,7 +345,7 @@ Wskazówka
 <footer class="site-foot">
   <div class="wrap">
     <p>Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne · Wykład monograficzny · prawo · WPiA UMCS · semestr zimowy 2026/2027<br>
-    Prowadzący: dr Karol Kasprowicz, <a href="mailto:karol.kasprowicz@mail.umcs.pl">karol.kasprowicz@mail.umcs.pl</a> · Stan materiałów na 27.10.2026 · <a href="../../index.html#przewodnik" data-przewodnik>Przewodnik po stronie</a> · <a href="../../styl.html">Księga stylu</a></p>
+    Prowadzący: dr Karol Kasprowicz, <a href="mailto:karol.kasprowicz@mail.umcs.pl">karol.kasprowicz@mail.umcs.pl</a> · Stan materiałów na 04.11.2026 · <a href="../../index.html#przewodnik" data-przewodnik>Przewodnik po stronie</a> · <a href="../../styl.html">Księga stylu</a></p>
   </div>
 </footer>
 <script src="../../assets/ui.js"></script>

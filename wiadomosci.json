@@ -1,60 +1,193 @@
 {
- "aktualizacja": "2026-10-27T08:40Z",
+ "aktualizacja": "2026-11-04T12:16Z",
  "wpisy": [
   {
-   "t": "UK government met 137 businesses over AI datacentres – but no environmental groups",
-   "u": "https://www.theguardian.com/uk-news/2026/oct/27/uk-government-environmental-groups-ai-datacentres-expansion-plans-investigation",
-   "z": "The Guardian",
-   "d": "2026-10-27",
+   "t": "The biggest modding site in PC gaming is taking a stance on AI",
+   "u": "https://www.theverge.com/games/1026085/nexus-mods-ai-disclosures",
+   "z": "The Verge",
+   "d": "2026-11-04",
    "j": "en"
   },
   {
-   "t": "Intel Arc Pro B70 z 32 GB pamięci wkracza na rynek – zagrozi RTX 5090 w zadaniach AI?",
-   "u": "https://www.computerworld.pl/article/100054162/intel-arc-pro-b70-z-32-gb-pamieci-wkracza-na-rynek-zagrozi-rtx-5090-w-zadaniach-ai.html",
+   "t": "RobPicker: a meta-learning framework for robust identification of macromolecules in cryo-electron tomograms",
+   "u": "https://www.nature.com/articles/s41592-026-03250-3",
+   "z": "Nature",
+   "d": "2026-11-04",
+   "j": "en"
+  },
+  {
+   "t": "Please stop asking me when the AI bubble will pop",
+   "u": "https://www.theverge.com/ai-artificial-intelligence/1025826/ai-bubble-pimco-apollo-bonds",
+   "z": "The Verge",
+   "d": "2026-11-03",
+   "j": "en"
+  },
+  {
+   "t": "Google hasn’t figured out how to make AI pay like its search engine",
+   "u": "https://www.theverge.com/ai-artificial-intelligence/1024862/google-search-ai-overviews-alphabet-earnings-q3",
+   "z": "The Verge",
+   "d": "2026-11-03",
+   "j": "en"
+  },
+  {
+   "t": "US tech stocks recover after selloff spooks investors over AI spending",
+   "u": "https://www.theguardian.com/business/2026/nov/03/us-tech-stocks-recovery-ai-spending",
+   "z": "The Guardian",
+   "d": "2026-11-03",
+   "j": "en"
+  },
+  {
+   "t": "AI ‘godfather’ Geoffrey Hinton: it might turn out we were better off without AI",
+   "u": "https://www.theguardian.com/uk-news/2026/nov/03/ai-godfather-geoffrey-hinton-better-off-without-ai",
+   "z": "The Guardian",
+   "d": "2026-11-03",
+   "j": "en"
+  },
+  {
+   "t": "Google says there’s no way to use Search without using artificial intelligence",
+   "u": "https://www.theguardian.com/technology/2026/nov/03/google-search-artificial-intelligence",
+   "z": "The Guardian",
+   "d": "2026-11-03",
+   "j": "en"
+  },
+  {
+   "t": "Apple starts giving Siri AI access to third-party apps",
+   "u": "https://www.theverge.com/tech/1025694/apple-siri-ai-third-party-apps",
+   "z": "The Verge",
+   "d": "2026-11-03",
+   "j": "en"
+  },
+  {
+   "t": "Google will let schools skip AI tools, but they have to give up search, too",
+   "u": "https://arstechnica.com/ai/2026/11/google-will-let-schools-skip-ai-tools-but-they-have-to-give-up-search-too/",
+   "z": "Ars Technica",
+   "d": "2026-11-03",
+   "j": "en"
+  },
+  {
+   "t": "Datacentres are deeply unpopular – so the geniuses at OpenAI are rebranding them | Arwa Mahdawi",
+   "u": "https://www.theguardian.com/commentisfree/2026/nov/03/datacentres-are-deeply-unpopular-so-the-geniuses-at-openai-are-rebranding-them",
+   "z": "The Guardian",
+   "d": "2026-11-03",
+   "j": "en"
+  },
+  {
+   "t": "Nowości w ekosystemie Snowflake – firma przyśpiesza adopcję agentów AI w biznesie",
+   "u": "https://www.computerworld.pl/article/100054353/nowosci-w-ekosystemie-snowflake-firma-przyspiesza-adopcje-agentow-ai-w-biznesie.html",
    "z": "Computerworld",
-   "d": "2026-10-27",
+   "d": "2026-11-03",
    "j": "pl"
   },
   {
-   "t": "Four takeaways from Anthropic’s potentially record-breaking stock market filing",
-   "u": "https://www.theguardian.com/technology/2026/oct/26/anthropic-stock-market-filing-takeaways",
-   "z": "The Guardian",
-   "d": "2026-10-27",
+   "t": "Firmy zwiększają wydatki na AI. Tylko co dziewiąta mierzy zwrot z inwestycji",
+   "u": "https://www.computerworld.pl/article/100054377/firmy-zwiekszaja-wydatki-na-ai-tylko-co-dziewiata-mierzy-zwrot-z-inwestycji.html",
+   "z": "Computerworld",
+   "d": "2026-11-03",
+   "j": "pl"
+  },
+  {
+   "t": "Call for proposals: EU AI Media Platform – Modular multilingual public-interest infrastructure for European news and audiovisual media (IA) - Apply AI",
+   "u": "https://digital-strategy.ec.europa.eu/en/funding/call-proposals-eu-ai-media-platform-modular-multilingual-public-interest-infrastructure-european",
+   "z": "Komisja Europejska",
+   "d": "2026-11-03",
    "j": "en"
   },
   {
-   "t": "Chinese markets lose trillions as race for AI supremacy with US takes its toll",
-   "u": "https://www.theguardian.com/world/2026/oct/27/chinese-markets-lose-trillions-ai-race-beijing",
-   "z": "The Guardian",
-   "d": "2026-10-27",
+   "t": "How “reverse game theory” could keep AI agents in check",
+   "u": "https://www.technologyreview.com/2026/11/03/1147934/reverse-game-theory-mechanism-design-ai-alignment/",
+   "z": "MIT Technology Review",
+   "d": "2026-11-03",
    "j": "en"
   },
   {
-   "t": "scBOA: Bayesian optimization of single-cell analysis pipelines for robust annotation and discovery",
-   "u": "https://www.nature.com/articles/s41467-026-78718-z",
+   "t": "Usunięcie nazwiska klienta radcy nie wystarczy, by korzystać z AI",
+   "u": "https://legalis.pl/usuniecie-nazwiska-klienta-radcy-nie-wystarczy-by-korzystac-z-ai/",
+   "z": "Legalis",
+   "d": "2026-11-03",
+   "j": "pl"
+  },
+  {
+   "t": "Brave pod ostrzałem – pozew wydawców wyznacza nowe granice dla architektury AI i prawa autorskiego",
+   "u": "https://www.computerworld.pl/article/100054373/brave-pod-ostrzalem-pozew-wydawcow-wyznacza-nowe-granice-dla-architektury-ai-i-prawa-autorskiego.html",
+   "z": "Computerworld",
+   "d": "2026-11-03",
+   "j": "pl"
+  },
+  {
+   "t": "Here’s who is falling in line for Trump’s “Super Intelligence” loyalty test",
+   "u": "https://www.technologyreview.com/2026/11/02/1147932/heres-who-is-falling-in-line-for-trumps-super-intelligence-loyalty-test/",
+   "z": "MIT Technology Review",
+   "d": "2026-11-03",
+   "j": "en"
+  },
+  {
+   "t": "Visual LLM-guided consensus spatial domain detection with L-STAR",
+   "u": "https://www.nature.com/articles/s41467-026-78923-w",
    "z": "Nature",
-   "d": "2026-10-27",
+   "d": "2026-11-03",
    "j": "en"
   },
   {
-   "t": "OpenAI announces three big science discoveries and a new way to work with academics",
-   "u": "https://www.theverge.com/ai-artificial-intelligence/1019143/openai-eth-kaseya-science-math-physics",
-   "z": "The Verge",
-   "d": "2026-10-26",
+   "t": "Universities must measure learning, both with and without AI assistance",
+   "u": "https://www.nature.com/articles/d41586-026-03559-1",
+   "z": "Nature",
+   "d": "2026-11-03",
    "j": "en"
   },
   {
-   "t": "Anthropic is burning gas to feed the AI boom",
-   "u": "https://www.theverge.com/ai-artificial-intelligence/1018994/anthropic-ipo-ai-data-center-energy-climate-risk",
-   "z": "The Verge",
-   "d": "2026-10-26",
+   "t": "A document classification benchmark dataset on cybersecurity policy domain",
+   "u": "https://www.nature.com/articles/s41598-026-78103-2",
+   "z": "Nature",
+   "d": "2026-11-03",
    "j": "en"
   },
   {
-   "t": "Apple releases iOS and macOS 27.2 with new Siri AI features, new Music logo",
-   "u": "https://arstechnica.com/apple/2026/10/apple-releases-ios-and-macos-27-2-with-new-siri-ai-features-new-music-logo/",
+   "t": "Claude’s new rules against game cloning won’t stop the AI copying boom",
+   "u": "https://arstechnica.com/ai/2026/11/claudes-new-rules-against-game-cloning-wont-stop-the-ai-copying-boom/",
    "z": "Ars Technica",
-   "d": "2026-10-26",
+   "d": "2026-11-02",
+   "j": "en"
+  },
+  {
+   "t": "Raising the quality of insights in agentic analytics",
+   "u": "https://www.technologyreview.com/2026/11/02/1147660/raising-the-quality-of-insights-in-agentic-analytics/",
+   "z": "MIT Technology Review",
+   "d": "2026-11-02",
+   "j": "en"
+  },
+  {
+   "t": "Stop counting tokens, start counting what ships",
+   "u": "https://www.technologyreview.com/2026/11/02/1147702/stop-counting-tokens-start-counting-what-ships/",
+   "z": "MIT Technology Review",
+   "d": "2026-11-02",
+   "j": "en"
+  },
+  {
+   "t": "Supersonic airliner in doubt as company shifts to powering AI data centers",
+   "u": "https://arstechnica.com/gadgets/2026/10/united-airlines-ceo-doubts-supersonic-airliner-from-boom-will-be-ready-by-2029/",
+   "z": "Ars Technica",
+   "d": "2026-10-30",
+   "j": "en"
+  },
+  {
+   "t": "Anthropic VS code extension on Cursor backdoored for nearly 12 hours",
+   "u": "https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours/",
+   "z": "Ars Technica",
+   "d": "2026-10-30",
+   "j": "en"
+  },
+  {
+   "t": "Who will get to define the danger?",
+   "u": "https://ainowinstitute.org/news/who-will-get-to-define-the-danger",
+   "z": "AI Now Institute",
+   "d": "2026-10-29",
+   "j": "en"
+  },
+  {
+   "t": "COP31 pledge on AI lacks climate targets, critics say",
+   "u": "https://ainowinstitute.org/news/cop31-pledge-on-ai-lacks-climate-targets-critics-say",
+   "z": "AI Now Institute",
+   "d": "2026-10-27",
    "j": "en"
   },
   {
@@ -65,129 +198,10 @@
    "j": "en"
   },
   {
-   "t": "Will the real Anthropic please stand up",
-   "u": "https://www.technologyreview.com/2026/10/26/1147672/will-the-real-anthropic-please-stand-up/",
-   "z": "MIT Technology Review",
-   "d": "2026-10-26",
-   "j": "en"
-  },
-  {
-   "t": "AI book prize judges face a major speed-reading challenge | Brief letters",
-   "u": "https://www.theguardian.com/technology/2026/oct/26/ai-book-prize-judges-face-a-major-speed-reading-challenge",
-   "z": "The Guardian",
-   "d": "2026-10-26",
-   "j": "en"
-  },
-  {
-   "t": "The RealReal won’t let AI agents hog designer clothing",
-   "u": "https://www.theverge.com/news/1018713/meta-muse-agentic-shopping-ai-the-realreal",
-   "z": "The Verge",
-   "d": "2026-10-26",
-   "j": "en"
-  },
-  {
-   "t": "Five weird details from Anthropic’s IPO filing",
-   "u": "https://www.theverge.com/ai-artificial-intelligence/1018738/anthropic-ipo-s1-filing-weird-details",
-   "z": "The Verge",
-   "d": "2026-10-26",
-   "j": "en"
-  },
-  {
-   "t": "SpaceX stawia na AI. Musk zapowiada 40 mld dolarów na zakup GPU",
-   "u": "https://www.computerworld.pl/article/100054153/spacex-stawia-na-ai-musk-zapowiada-40-mld-dolarow-na-zakup-gpu.html",
-   "z": "Computerworld",
-   "d": "2026-10-26",
-   "j": "pl"
-  },
-  {
-   "t": "The focus on AI safety disasters ignores everyday harms",
-   "u": "https://www.technologyreview.com/2026/10/26/1147645/the-focus-on-ai-safety-disasters-ignores-everyday-harms/",
-   "z": "MIT Technology Review",
-   "d": "2026-10-26",
-   "j": "en"
-  },
-  {
-   "t": "Efficient structural information integration into protein language models with implicit mixture-of-experts ProBEiT",
-   "u": "https://www.nature.com/articles/s42003-026-10816-6",
-   "z": "Nature",
-   "d": "2026-10-26",
-   "j": "en"
-  },
-  {
-   "t": "Comparative analysis of end-to-end learning and foundation models for clinical-grade prostate pathology",
-   "u": "https://www.nature.com/articles/s41467-026-78996-7",
-   "z": "Nature",
-   "d": "2026-10-26",
-   "j": "en"
-  },
-  {
-   "t": "Machine learning dataset and benchmark for accurate T cell receptor–pHLA binding prediction",
-   "u": "https://www.nature.com/articles/s43588-026-01073-y",
-   "z": "Nature",
-   "d": "2026-10-26",
-   "j": "en"
-  },
-  {
-   "t": "OpenAI stworzyło dedykowany internet dla agentów AI",
-   "u": "https://www.computerworld.pl/article/100054145/openai-stworzylo-dedykowany-internet-dla-agentow-ai.html",
-   "z": "Computerworld",
-   "d": "2026-10-25",
-   "j": "pl"
-  },
-  {
-   "t": "The big tech defectors you’re not hearing about",
-   "u": "https://ainowinstitute.org/news/the-big-tech-defectors-youre-not-hearing-about",
+   "t": "A.I.’s Rogue Behavior Starts With Its Training",
+   "u": "https://ainowinstitute.org/news/a-i-s-rogue-behavior-starts-with-its-training",
    "z": "AI Now Institute",
-   "d": "2026-10-23",
-   "j": "en"
-  },
-  {
-   "t": "Designing an AI serving harness built to last",
-   "u": "https://www.technologyreview.com/2026/10/22/1146109/designing-an-ai-serving-harness-built-to-last/",
-   "z": "MIT Technology Review",
-   "d": "2026-10-22",
-   "j": "en"
-  },
-  {
-   "t": "The Foundations of Scalable AI",
-   "u": "https://www.technologyreview.com/2026/10/22/1146103/the-foundations-of-scalable-ai/",
-   "z": "MIT Technology Review",
-   "d": "2026-10-22",
-   "j": "en"
-  },
-  {
-   "t": "“Apocalypse Now and Then”: Author Arundhati Roy on Artificial Intelligence, Capitalism & More",
-   "u": "https://ainowinstitute.org/news/apocalypse-now-and-then-author-arundhati-roy-on-artificial-intelligence-capitalism-more",
-   "z": "AI Now Institute",
-   "d": "2026-10-22",
-   "j": "en"
-  },
-  {
-   "t": "The new human-crafted Apple Music brand matters in an AI world",
-   "u": "https://arstechnica.com/culture/2026/10/the-new-human-crafted-apple-music-brand-matters-in-an-ai-world/",
-   "z": "Ars Technica",
-   "d": "2026-10-21",
-   "j": "en"
-  },
-  {
-   "t": "OpenAI's latest AI models are coming to Google Cloud and Antigravity",
-   "u": "https://arstechnica.com/ai/2026/10/openais-latest-ai-models-are-coming-to-google-cloud-and-antigravity/",
-   "z": "Ars Technica",
-   "d": "2026-10-21",
-   "j": "en"
-  },
-  {
-   "t": "The $15 billion ad-powered AI startup your doctor may already be using",
-   "u": "https://arstechnica.com/ai/2026/10/the-15-billion-ad-powered-ai-startup-your-doctor-may-already-be-using/",
-   "z": "Ars Technica",
-   "d": "2026-10-21",
-   "j": "en"
-  },
-  {
-   "t": "Amid AI Boom, “Risk Is Spreading Throughout the Economy”: Astra Taylor & Naomi Klein",
-   "u": "https://ainowinstitute.org/news/amid-ai-boom-risk-is-spreading-throughout-the-economy-astra-taylor-naomi-klein",
-   "z": "AI Now Institute",
-   "d": "2026-10-21",
+   "d": "2026-10-26",
    "j": "en"
   },
   {
@@ -196,20 +210,6 @@
    "z": "One Useful Thing",
    "d": "2026-10-20",
    "j": "en"
-  },
-  {
-   "t": "First harmonised standard supporting the AI Act published in the Official Journal",
-   "u": "https://digital-strategy.ec.europa.eu/en/library/first-harmonised-standard-supporting-ai-act-published-official-journal",
-   "z": "Komisja Europejska",
-   "d": "2026-10-19",
-   "j": "en"
-  },
-  {
-   "t": "Póki algorytmy będą się karmić emocjami, przemoc będzie wiralem",
-   "u": "https://panoptykon.org/blokowanie-przemocy-w-internecie-dsa",
-   "z": "Panoptykon",
-   "d": "2026-10-13",
-   "j": "pl"
   }
  ],
  "bledy": []

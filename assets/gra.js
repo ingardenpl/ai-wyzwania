@@ -121,15 +121,26 @@
 
   // ------------------------------------------------------------------ blokada dzielnic
   // Dzielnica otwiera się w dniu swojego (pierwszego) wykładu i tylko dla osób, które zaliczyły quiz poprzedniej
-  // dzielnicy (co najmniej 60%). Pierwsza dzielnica: sama data. Podgląd prowadzącego otwiera wszystko.
+  // dzielnicy (co najmniej 60%). „Poprzednia” liczy się wg kolejności spotkań, nie wg numeru (tematy nie idą po kolei,
+  // np. 06 jest w listopadzie, 05 w styczniu): to wszystkie dzielnice, których pierwszy wykład był na ostatnim
+  // wcześniejszym spotkaniu. Dzielnice zaczynające się tego samego dnia nie blokują się nawzajem.
+  // Pierwsza dzielnica: sama data. Podgląd prowadzącego otwiera wszystko.
   // To warstwa motywacyjna, nie ochrona treści: materiały są w kodzie strony i w repozytorium publikacji.
   function pierwszyTermin(n) { var i = (dane().info || {})[n]; return i && i.sloty && i.sloty.length ? i.sloty[0] : null; }
+  function kolejnosc() {
+    return NR.slice().sort(function (a, b) {
+      var da = (pierwszyTermin(a) || {}).d || "9999", db = (pierwszyTermin(b) || {}).d || "9999";
+      return da < db ? -1 : da > db ? 1 : (a < b ? -1 : 1);
+    });
+  }
   function odblokowany(n) {
     var r = { ok: true, data: true, poprzedni: null, termin: pierwszyTermin(n) };
     if (podglad()) return r;
     if (r.termin && r.termin.d && r.termin.d > dzis()) { r.data = false; r.ok = false; }
-    var i = NR.indexOf(n);
-    if (i > 0 && !(stan().quizy[NR[i - 1]] >= PROG_QUIZ)) { r.poprzedni = NR[i - 1]; r.ok = false; }
+    var moja = (r.termin || {}).d, wczesn = null, q = stan().quizy;
+    if (moja) NR.forEach(function (k) { var d = (pierwszyTermin(k) || {}).d; if (d && d < moja && (!wczesn || d > wczesn)) wczesn = d; });
+    var brak = wczesn ? kolejnosc().filter(function (k) { return (pierwszyTermin(k) || {}).d === wczesn && !(q[k] >= PROG_QUIZ); })[0] : null;
+    if (brak) { r.poprzedni = brak; r.ok = false; }
     return r;
   }
 
@@ -339,8 +350,9 @@
     if (!hud || document.querySelector(".co-dalej")) return;
     var info = dane().info || {}, s = stan(), box = el("div", "co-dalej"), cel = null, opis = "", przycisk = "";
     box.setAttribute("role", "region"); box.setAttribute("aria-label", T("Co dalej"));
-    var otwarta = NR.filter(function (n) { return info[n] && odblokowany(n).ok && !(s.quizy[n] >= PROG_QUIZ); })[0];
-    var zamk = NR.filter(function (n) { return info[n] && !odblokowany(n).ok; })[0];
+    var K = kolejnosc();   // następny krok wg kolejności spotkań, nie numerów tematów
+    var otwarta = K.filter(function (n) { return info[n] && odblokowany(n).ok && !(s.quizy[n] >= PROG_QUIZ); })[0];
+    var zamk = K.filter(function (n) { return info[n] && !odblokowany(n).ok; })[0];
     if (otwarta) {
       var i = info[otwarta];
       cel = "moduly/" + i.slug + "/index.html";

@@ -180,7 +180,7 @@
 
   function cialoZnaleziska(z) {
     var f = el("div", "wn-body");
-    f.appendChild(el("p", "sm-k", "ZNALEZISKO · " + ({ siec: "WIADOMOŚĆ Z SIECI", lublin: "LUBLIN NAPRAWDĘ", kultura: "ŚLAD Z KULTURY", sprawa: "SPRAWA", event: "WYDARZENIE" }[z.kategoria] || "ZNALEZISKO").toUpperCase() + (z.data ? " · " + z.data : "")));
+    f.appendChild(el("p", "sm-k", "ZNALEZISKO · " + ({ siec: "WIADOMOŚĆ Z SIECI", lublin: "LUBLIN NAPRAWDĘ", kultura: "ŚLAD Z KULTURY", sprawa: "SPRAWA", event: "WYDARZENIE", historia: "HISTORIA TECHNIKI" }[z.kategoria] || "ZNALEZISKO").toUpperCase() + (z.data ? " · " + z.data : "")));
     f.appendChild(el("h3", null, z.tytul));
     f.appendChild(el("p", null, z.tresc));
     if (z.pytanie) { var q = el("p"); q.appendChild(el("b", null, "Pytanie inspektora: ")); q.appendChild(document.createTextNode(z.pytanie)); f.appendChild(q); }
