@@ -108,7 +108,7 @@
         ul.appendChild(li);
       });
       f.appendChild(ul);
-      var p = el("p"); p.appendChild(link("#lektury", "Pełna lista lektur tej dzielnicy")); f.appendChild(p);
+      var p = el("p"); p.appendChild(link("wiedza.html#lektury", "Pełna lista lektur tej dzielnicy")); f.appendChild(p);
     } else if (m.typ === "terminal") {
       auto = false; f.appendChild(terminal(m));
     } else if (m.typ === "pracownia") {
@@ -118,7 +118,7 @@
       var lab = el("label", "wn-check"), cb = el("input"); cb.type = "checkbox"; cb.checked = !!stan().zadania[NR];
       cb.addEventListener("change", function () { G.zapiszZadanie(NR, cb.checked); });
       lab.appendChild(cb); lab.appendChild(document.createTextNode(" Wykonałem zadanie (deklaracja; nikt tego nie sprawdza automatycznie)"));
-      var p4 = el("p"); p4.appendChild(link("#cwiczenia", m.link_tekst || "Treść zadania: Ćwiczenia i dyskusja")); f.appendChild(p4);
+      var p4 = el("p"); p4.appendChild(link("wiedza.html#cwiczenia", m.link_tekst || "Treść zadania: Ćwiczenia i dyskusja")); f.appendChild(p4);
       f.appendChild(lab);
     } else if (m.typ === "swiadek") {
       auto = false; f.appendChild(swiadek(m));

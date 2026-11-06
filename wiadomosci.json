@@ -1,89 +1,173 @@
 {
- "aktualizacja": "2026-11-04T12:16Z",
+ "aktualizacja": "2026-11-06T23:53Z",
  "wpisy": [
   {
-   "t": "The biggest modding site in PC gaming is taking a stance on AI",
-   "u": "https://www.theverge.com/games/1026085/nexus-mods-ai-disclosures",
+   "t": "OpenAI valued at $1.25 trillion, as rival Anthropic nears its IPO",
+   "u": "https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation",
    "z": "The Verge",
-   "d": "2026-11-04",
+   "d": "2026-11-06",
    "j": "en"
   },
   {
-   "t": "RobPicker: a meta-learning framework for robust identification of macromolecules in cryo-electron tomograms",
-   "u": "https://www.nature.com/articles/s41592-026-03250-3",
-   "z": "Nature",
-   "d": "2026-11-04",
-   "j": "en"
-  },
-  {
-   "t": "Please stop asking me when the AI bubble will pop",
-   "u": "https://www.theverge.com/ai-artificial-intelligence/1025826/ai-bubble-pimco-apollo-bonds",
-   "z": "The Verge",
-   "d": "2026-11-03",
-   "j": "en"
-  },
-  {
-   "t": "Google hasn’t figured out how to make AI pay like its search engine",
-   "u": "https://www.theverge.com/ai-artificial-intelligence/1024862/google-search-ai-overviews-alphabet-earnings-q3",
-   "z": "The Verge",
-   "d": "2026-11-03",
-   "j": "en"
-  },
-  {
-   "t": "US tech stocks recover after selloff spooks investors over AI spending",
-   "u": "https://www.theguardian.com/business/2026/nov/03/us-tech-stocks-recovery-ai-spending",
+   "t": "The Guardian view on the AI backlash: American voters want a say in their future | Editorial",
+   "u": "https://www.theguardian.com/commentisfree/2026/nov/06/the-guardian-view-on-the-ai-backlash-american-voters-want-a-say-in-their-future",
    "z": "The Guardian",
-   "d": "2026-11-03",
+   "d": "2026-11-06",
    "j": "en"
   },
   {
-   "t": "AI ‘godfather’ Geoffrey Hinton: it might turn out we were better off without AI",
-   "u": "https://www.theguardian.com/uk-news/2026/nov/03/ai-godfather-geoffrey-hinton-better-off-without-ai",
-   "z": "The Guardian",
-   "d": "2026-11-03",
-   "j": "en"
-  },
-  {
-   "t": "Google says there’s no way to use Search without using artificial intelligence",
-   "u": "https://www.theguardian.com/technology/2026/nov/03/google-search-artificial-intelligence",
-   "z": "The Guardian",
-   "d": "2026-11-03",
-   "j": "en"
-  },
-  {
-   "t": "Apple starts giving Siri AI access to third-party apps",
-   "u": "https://www.theverge.com/tech/1025694/apple-siri-ai-third-party-apps",
+   "t": "China reportedly recruited AI exec to spy on Jensen Huang",
+   "u": "https://www.theverge.com/tech/1029338/nvidia-ceo-jensen-huang-china-spy",
    "z": "The Verge",
-   "d": "2026-11-03",
+   "d": "2026-11-06",
    "j": "en"
   },
   {
-   "t": "Google will let schools skip AI tools, but they have to give up search, too",
-   "u": "https://arstechnica.com/ai/2026/11/google-will-let-schools-skip-ai-tools-but-they-have-to-give-up-search-too/",
+   "t": "Global stocks fall amid ‘big worries over AI’ after Democrats’ midterms triumph",
+   "u": "https://www.theguardian.com/business/2026/nov/06/global-stocks-plunge-amid-ai-slowdown-fears-after-democrats-midterm-triumph",
+   "z": "The Guardian",
+   "d": "2026-11-06",
+   "j": "en"
+  },
+  {
+   "t": "Three men charged in US with using AI to impersonate CEOs and steal millions",
+   "u": "https://www.theguardian.com/us-news/2026/nov/06/ai-ceo-impersonation-theft",
+   "z": "The Guardian",
+   "d": "2026-11-06",
+   "j": "en"
+  },
+  {
+   "t": "All the latest updates on AI data centers",
+   "u": "https://www.theverge.com/ai-artificial-intelligence/902546/data-centers-ai-energy-power-grids-controversy",
+   "z": "The Verge",
+   "d": "2026-11-06",
+   "j": "en"
+  },
+  {
+   "t": "Meta’s Muse AI can create custom ‘spaces’ for the version of the app you need right now",
+   "u": "https://www.theverge.com/tech/1028871/meta-muse-ai-spaces",
+   "z": "The Verge",
+   "d": "2026-11-06",
+   "j": "en"
+  },
+  {
+   "t": "2026 election breakdown: Americans vote down data centers, AI and oligarchy",
+   "u": "https://ainowinstitute.org/news/2026-election-breakdown-americans-vote-down-data-centers-ai-and-oligarchy",
+   "z": "AI Now Institute",
+   "d": "2026-11-06",
+   "j": "en"
+  },
+  {
+   "t": "Could potential AI clones of GTA VI force a quicker official port?",
+   "u": "https://arstechnica.com/gaming/2026/11/could-potential-ai-clones-of-gta-vi-force-a-quicker-official-port/",
    "z": "Ars Technica",
-   "d": "2026-11-03",
+   "d": "2026-11-06",
    "j": "en"
   },
   {
-   "t": "Datacentres are deeply unpopular – so the geniuses at OpenAI are rebranding them | Arwa Mahdawi",
-   "u": "https://www.theguardian.com/commentisfree/2026/nov/03/datacentres-are-deeply-unpopular-so-the-geniuses-at-openai-are-rebranding-them",
+   "t": "Teachers and parents: what are your experiences of AI-generated emails?",
+   "u": "https://www.theguardian.com/technology/2026/nov/06/teachers-and-parents-what-are-your-experiences-of-ai-generated-emails",
    "z": "The Guardian",
-   "d": "2026-11-03",
+   "d": "2026-11-06",
    "j": "en"
   },
   {
-   "t": "Nowości w ekosystemie Snowflake – firma przyśpiesza adopcję agentów AI w biznesie",
-   "u": "https://www.computerworld.pl/article/100054353/nowosci-w-ekosystemie-snowflake-firma-przyspiesza-adopcje-agentow-ai-w-biznesie.html",
+   "t": "I watched a humanoid robot clean my apartment. It felt like a taste of the future.",
+   "u": "https://www.technologyreview.com/2026/11/06/1148090/i-watched-a-humanoid-robot-clean-my-apartment-it-felt-like-a-taste-of-the-future/",
+   "z": "MIT Technology Review",
+   "d": "2026-11-06",
+   "j": "en"
+  },
+  {
+   "t": "Apple tnie budżety inżynierskie na rozwiązania AI",
+   "u": "https://www.computerworld.pl/article/100054553/apple-tnie-budzety-inzynierskie-na-rozwiazania-ai.html",
    "z": "Computerworld",
-   "d": "2026-11-03",
+   "d": "2026-11-06",
    "j": "pl"
   },
   {
-   "t": "Firmy zwiększają wydatki na AI. Tylko co dziewiąta mierzy zwrot z inwestycji",
-   "u": "https://www.computerworld.pl/article/100054377/firmy-zwiekszaja-wydatki-na-ai-tylko-co-dziewiata-mierzy-zwrot-z-inwestycji.html",
+   "t": "Kryzys energetyczny AI – rozwiązania xAI zderzają się z oporem lokalnych społeczności i barierami przesyłowymi",
+   "u": "https://www.computerworld.pl/article/100054546/kryzys-energetyczny-ai-rozwiazania-xai-zderzaja-sie-z-oporem-lokalnych-spolecznosci-i-barierami-przesylowymi.html",
    "z": "Computerworld",
-   "d": "2026-11-03",
+   "d": "2026-11-06",
    "j": "pl"
+  },
+  {
+   "t": "These AI agents design your perfect robot-powered lab — and run it for you",
+   "u": "https://www.nature.com/articles/d41586-026-03587-x",
+   "z": "Nature",
+   "d": "2026-11-06",
+   "j": "en"
+  },
+  {
+   "t": "‘Mathematics is more than a mechanical process’ — why I think the field will survive OpenAI’s disruption",
+   "u": "https://www.nature.com/articles/d41586-026-03622-x",
+   "z": "Nature",
+   "d": "2026-11-06",
+   "j": "en"
+  },
+  {
+   "t": "A gait foundation model for prediction of multisystem health phenotypes from 3D skeletal motion",
+   "u": "https://www.nature.com/articles/s41591-026-04724-9",
+   "z": "Nature",
+   "d": "2026-11-06",
+   "j": "en"
+  },
+  {
+   "t": "Google: Schools can keep search while skipping Gemini, but AI search is non-negotiable",
+   "u": "https://arstechnica.com/ai/2026/11/google-schools-can-keep-search-while-skipping-gemini-but-ai-search-is-non-negotiable/",
+   "z": "Ars Technica",
+   "d": "2026-11-05",
+   "j": "en"
+  },
+  {
+   "t": "Lawsuit: Man introduced his wife to ChatGPT. She used it to plan his murder.",
+   "u": "https://arstechnica.com/tech-policy/2026/11/lawsuit-man-introduced-his-wife-to-chatgpt-she-used-it-to-plan-his-murder/",
+   "z": "Ars Technica",
+   "d": "2026-11-05",
+   "j": "en"
+  },
+  {
+   "t": "Making AI approachable, one byte at a time",
+   "u": "https://www.nature.com/articles/s41592-026-03338-w",
+   "z": "Nature",
+   "d": "2026-11-05",
+   "j": "en"
+  },
+  {
+   "t": "Big Tech claims voters’ AI backlash is “anti-Trump” not “anti-tech”",
+   "u": "https://arstechnica.com/tech-policy/2026/11/big-tech-claims-voters-ai-backlash-is-anti-trump-not-anti-tech/",
+   "z": "Ars Technica",
+   "d": "2026-11-04",
+   "j": "en"
+  },
+  {
+   "t": "Texas was the new epicenter of the AI data center buildout. That might be kaput.",
+   "u": "https://www.technologyreview.com/2026/11/04/1148043/texas-was-the-new-epicenter-of-the-ai-data-center-buildout-that-might-be-kaput/",
+   "z": "MIT Technology Review",
+   "d": "2026-11-04",
+   "j": "en"
+  },
+  {
+   "t": "OpenAI is already trying to shape the 2028 election",
+   "u": "https://ainowinstitute.org/news/openai-is-already-trying-to-shape-the-2028-election",
+   "z": "AI Now Institute",
+   "d": "2026-11-04",
+   "j": "en"
+  },
+  {
+   "t": "Coming Soon: Guest Report on AI Corporate Structure and Mission Accountability",
+   "u": "https://ainowinstitute.org/news/coming-soon-guest-report-on-ai-corporate-structure-and-mission-accountability",
+   "z": "AI Now Institute",
+   "d": "2026-11-04",
+   "j": "en"
+  },
+  {
+   "t": "Securing the agentic enterprise with data lineage",
+   "u": "https://www.technologyreview.com/2026/11/04/1147596/securing-the-agentic-enterprise-with-data-lineage/",
+   "z": "MIT Technology Review",
+   "d": "2026-11-04",
+   "j": "en"
   },
   {
    "t": "Call for proposals: EU AI Media Platform – Modular multilingual public-interest infrastructure for European news and audiovisual media (IA) - Apply AI",
@@ -100,83 +184,6 @@
    "j": "en"
   },
   {
-   "t": "Usunięcie nazwiska klienta radcy nie wystarczy, by korzystać z AI",
-   "u": "https://legalis.pl/usuniecie-nazwiska-klienta-radcy-nie-wystarczy-by-korzystac-z-ai/",
-   "z": "Legalis",
-   "d": "2026-11-03",
-   "j": "pl"
-  },
-  {
-   "t": "Brave pod ostrzałem – pozew wydawców wyznacza nowe granice dla architektury AI i prawa autorskiego",
-   "u": "https://www.computerworld.pl/article/100054373/brave-pod-ostrzalem-pozew-wydawcow-wyznacza-nowe-granice-dla-architektury-ai-i-prawa-autorskiego.html",
-   "z": "Computerworld",
-   "d": "2026-11-03",
-   "j": "pl"
-  },
-  {
-   "t": "Here’s who is falling in line for Trump’s “Super Intelligence” loyalty test",
-   "u": "https://www.technologyreview.com/2026/11/02/1147932/heres-who-is-falling-in-line-for-trumps-super-intelligence-loyalty-test/",
-   "z": "MIT Technology Review",
-   "d": "2026-11-03",
-   "j": "en"
-  },
-  {
-   "t": "Visual LLM-guided consensus spatial domain detection with L-STAR",
-   "u": "https://www.nature.com/articles/s41467-026-78923-w",
-   "z": "Nature",
-   "d": "2026-11-03",
-   "j": "en"
-  },
-  {
-   "t": "Universities must measure learning, both with and without AI assistance",
-   "u": "https://www.nature.com/articles/d41586-026-03559-1",
-   "z": "Nature",
-   "d": "2026-11-03",
-   "j": "en"
-  },
-  {
-   "t": "A document classification benchmark dataset on cybersecurity policy domain",
-   "u": "https://www.nature.com/articles/s41598-026-78103-2",
-   "z": "Nature",
-   "d": "2026-11-03",
-   "j": "en"
-  },
-  {
-   "t": "Claude’s new rules against game cloning won’t stop the AI copying boom",
-   "u": "https://arstechnica.com/ai/2026/11/claudes-new-rules-against-game-cloning-wont-stop-the-ai-copying-boom/",
-   "z": "Ars Technica",
-   "d": "2026-11-02",
-   "j": "en"
-  },
-  {
-   "t": "Raising the quality of insights in agentic analytics",
-   "u": "https://www.technologyreview.com/2026/11/02/1147660/raising-the-quality-of-insights-in-agentic-analytics/",
-   "z": "MIT Technology Review",
-   "d": "2026-11-02",
-   "j": "en"
-  },
-  {
-   "t": "Stop counting tokens, start counting what ships",
-   "u": "https://www.technologyreview.com/2026/11/02/1147702/stop-counting-tokens-start-counting-what-ships/",
-   "z": "MIT Technology Review",
-   "d": "2026-11-02",
-   "j": "en"
-  },
-  {
-   "t": "Supersonic airliner in doubt as company shifts to powering AI data centers",
-   "u": "https://arstechnica.com/gadgets/2026/10/united-airlines-ceo-doubts-supersonic-airliner-from-boom-will-be-ready-by-2029/",
-   "z": "Ars Technica",
-   "d": "2026-10-30",
-   "j": "en"
-  },
-  {
-   "t": "Anthropic VS code extension on Cursor backdoored for nearly 12 hours",
-   "u": "https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours/",
-   "z": "Ars Technica",
-   "d": "2026-10-30",
-   "j": "en"
-  },
-  {
    "t": "Who will get to define the danger?",
    "u": "https://ainowinstitute.org/news/who-will-get-to-define-the-danger",
    "z": "AI Now Institute",
@@ -184,31 +191,17 @@
    "j": "en"
   },
   {
-   "t": "COP31 pledge on AI lacks climate targets, critics say",
-   "u": "https://ainowinstitute.org/news/cop31-pledge-on-ai-lacks-climate-targets-critics-say",
-   "z": "AI Now Institute",
-   "d": "2026-10-27",
-   "j": "en"
-  },
-  {
-   "t": "What Should the Rules for A.I. Companies Actually Be? We Asked the Experts.",
-   "u": "https://ainowinstitute.org/news/what-should-the-rules-for-a-i-companies-actually-be-we-asked-the-experts",
-   "z": "AI Now Institute",
-   "d": "2026-10-26",
-   "j": "en"
-  },
-  {
-   "t": "A.I.’s Rogue Behavior Starts With Its Training",
-   "u": "https://ainowinstitute.org/news/a-i-s-rogue-behavior-starts-with-its-training",
-   "z": "AI Now Institute",
-   "d": "2026-10-26",
-   "j": "en"
-  },
-  {
    "t": "30 Months on the Exponential (in Charts)",
    "u": "https://www.oneusefulthing.org/p/30-months-on-the-exponential-in-charts",
    "z": "One Useful Thing",
    "d": "2026-10-20",
+   "j": "en"
+  },
+  {
+   "t": "First harmonised standard supporting the AI Act published in the Official Journal",
+   "u": "https://digital-strategy.ec.europa.eu/en/library/first-harmonised-standard-supporting-ai-act-published-official-journal",
+   "z": "Komisja Europejska",
+   "d": "2026-10-19",
    "j": "en"
   }
  ],
