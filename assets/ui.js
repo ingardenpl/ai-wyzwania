@@ -8,6 +8,63 @@
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var SVGNS = "http://www.w3.org/2000/svg";
 
+  // Lewy spis w wiedza.html: zaznacza bieżący nagłówek przy przewijaniu i rozwija podnagłówki aktywnej sekcji.
+  function spisNaglowkow() {
+    var nav = document.querySelector(".wiedza-toc");
+    if (!nav) return;
+    var pary = [];
+    nav.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      var cel = document.getElementById(decodeURIComponent(a.getAttribute("href").slice(1)));
+      if (cel) pary.push({ a: a, cel: cel });
+    });
+    if (!pary.length) return;
+    nav.classList.add("spy");
+    var biezacy = null, wskazany = null, czeka = false;
+
+    function ustaw(p) {
+      if (p === biezacy) return;
+      if (biezacy) biezacy.a.removeAttribute("aria-current");
+      nav.querySelectorAll("li.otw").forEach(function (li) { li.classList.remove("otw"); });
+      p.a.setAttribute("aria-current", "location");
+      for (var li = p.a.closest("li"); li; li = li.parentElement.closest("li")) li.classList.add("otw");
+      biezacy = p;
+      // sam spis też przewijamy, żeby bieżący nagłówek był widoczny (bez ruszania strony)
+      if (nav.scrollHeight > nav.clientHeight) {
+        var r = p.a.getBoundingClientRect(), n = nav.getBoundingClientRect();
+        if (r.top < n.top + 8 || r.bottom > n.bottom - 72) nav.scrollTop += r.top - n.top - n.height / 3;
+      }
+    }
+    function odswiez() {
+      czeka = false;
+      if (wskazany) { ustaw(wskazany); return; }
+      var wybrany = pary[0], widoczne = pary.filter(function (p) { return p.cel.offsetParent !== null; });
+      var kon = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+      if (kon && widoczne.length) wybrany = widoczne[widoczne.length - 1];
+      else widoczne.forEach(function (p) { if (p.cel.getBoundingClientRect().top <= 110) wybrany = p; });
+      ustaw(wybrany);
+    }
+    function pozniej() { if (!czeka) { czeka = true; requestAnimationFrame(odswiez); } }
+    function zHasha() {
+      var h = location.hash.slice(1);
+      wskazany = pary.filter(function (p) { return h && p.a.getAttribute("href").slice(1) === h; })[0] || null;
+    }
+    // nagłówek wskazany kliknięciem zostaje zaznaczony, także gdy strona nie może dojechać dalej; zwalnia go przewinięcie przez użytkownika
+    nav.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a) return;
+      wskazany = pary.filter(function (p) { return p.a === a; })[0] || null;
+      pozniej();
+    });
+    ["wheel", "touchmove", "keydown"].forEach(function (typ) {
+      window.addEventListener(typ, function () { wskazany = null; pozniej(); }, { passive: true });
+    });
+    window.addEventListener("hashchange", function () { zHasha(); pozniej(); });
+    window.addEventListener("scroll", pozniej, { passive: true });
+    window.addEventListener("resize", pozniej);
+    zHasha();
+    odswiez();
+  }
+
   function el(tag, attrs, text) {
     var n = document.createElement(tag);
     if (attrs) for (var k in attrs) n.setAttribute(k, attrs[k]);
@@ -298,6 +355,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     offline();
     powiekszanie();
+    spisNaglowkow();
     pasekWiadomosci();
     document.querySelectorAll(".terminal").forEach(typeTerminal);
     document.querySelectorAll("figure.chart").forEach(chart);

@@ -443,7 +443,7 @@ figure.chart { position: relative; }
 .prose details[open] > summary { margin-bottom: 6px; }
 .prose details.rozwiazanie > summary { color: var(--gold); }
 .wiedza-layout { display: grid; grid-template-columns: minmax(200px, 250px) minmax(0, 1fr); gap: 32px; align-items: start; }
-.wiedza-toc { position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow-y: auto; font-family: var(--mono); font-size: 0.82rem;
+.wiedza-toc { position: sticky; top: 72px; max-height: calc(100vh - 84px); overflow-y: auto; font-family: var(--mono); font-size: 0.82rem;
   border-right: 1px solid var(--line-soft); padding-right: 14px; }
 .wiedza-toc h2 { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
 .wiedza-toc ol { list-style: none; margin: 0 0 18px; padding: 0; }
@@ -451,6 +451,14 @@ figure.chart { position: relative; }
 .wiedza-toc a { display: block; padding: 4px 8px; text-decoration: none; color: var(--ink-soft); border-left: 2px solid transparent; }
 .wiedza-toc a:hover, .wiedza-toc a[aria-current] { color: var(--navy); border-left-color: var(--navy); }
 .wiedza-toc .modules a { padding: 2px 8px; }
+/* spis jak w Jupyter Book: bieżący nagłówek zaznaczony, podnagłówki tylko przy aktywnej sekcji; dół listy nie chowa się pod radiem */
+.wiedza-toc { padding-bottom: 72px; }
+.wiedza-toc ol ol { margin: 0 0 4px; padding-left: 12px; font-size: 0.95em; }
+.wiedza-toc.spy li:not(.otw) > ol { display: none; }
+.wiedza-toc a[aria-current="location"] { color: var(--navy); border-left-color: var(--navy); font-weight: 700; }
+.wiedza-toc .inne summary { cursor: pointer; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); padding: 4px 0; }
+.wiedza-toc .inne ol { margin: 6px 0 0; }
+.wiedza h2, .wiedza h3, .wiedza section { scroll-margin-top: 76px; } /* poniżej przyklejonego paska .topbar (59 px) */
 .wiedza-tools { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 20px; }
 @media (max-width: 860px) {
   .wiedza-layout { grid-template-columns: 1fr; }
