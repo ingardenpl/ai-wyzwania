@@ -1,10 +1,52 @@
 {
- "aktualizacja": "2026-11-07T08:18Z",
+ "aktualizacja": "2026-11-08T10:04Z",
  "wpisy": [
+  {
+   "t": "Unia Europejska grozi TikTokowi gigantycznymi karami. Chodzi o algorytmy i ochronę użytkowników",
+   "u": "https://www.computerworld.pl/article/100054614/unia-europejska-grozi-tiktokowi-gigantycznymi-karami-chodzi-o-algorytmy-i-ochrone-uzytkownikow.html",
+   "z": "Computerworld",
+   "d": "2026-11-08",
+   "j": "pl"
+  },
+  {
+   "t": "‘AI clog’: UK public bodies battle onslaught of chatbot-generated complaints",
+   "u": "https://www.theguardian.com/technology/2026/nov/08/ai-clog-public-bodies-local-authorities-onslaught-chatbot-generated-correspondence",
+   "z": "The Guardian",
+   "d": "2026-11-08",
+   "j": "en"
+  },
+  {
+   "t": "Rekrutacyjny skaza na wizerunku. Kandydaci odrzucają oferty firm stosujących wywiady AI",
+   "u": "https://www.computerworld.pl/article/100054612/rekrutacyjny-skaza-na-wizerunku-kandydaci-odrzucaja-oferty-firm-stosujacych-wywiady-ai.html",
+   "z": "Computerworld",
+   "d": "2026-11-08",
+   "j": "pl"
+  },
+  {
+   "t": "NYT Cooking’s AI assistant saved my weeknight chicken, but almost ruined my cake",
+   "u": "https://www.theverge.com/tech/1029489/nyt-cooking-ai-assistant-review",
+   "z": "The Verge",
+   "d": "2026-11-07",
+   "j": "en"
+  },
+  {
+   "t": "Lanarkshire AI datacentre to fully rely on National Grid despite renewables claim",
+   "u": "https://www.theguardian.com/uk-news/2026/nov/07/lanarkshire-ai-datacentre-datavita-chapelhall-national-grid-renewable-energy",
+   "z": "The Guardian",
+   "d": "2026-11-07",
+   "j": "en"
+  },
   {
    "t": "Can AI really save you money on your heating bill? I spent two years testing to find out",
    "u": "https://www.theguardian.com/money/2026/nov/07/can-ai-save-you-money-heating-bill",
    "z": "The Guardian",
+   "d": "2026-11-07",
+   "j": "en"
+  },
+  {
+   "t": "AI broke the cybersecurity world. What’s next?",
+   "u": "https://www.theverge.com/podcast/1029038/ai-cybersecurity-hackers-data-breach-dark-age-alex-stamos",
+   "z": "The Verge",
    "d": "2026-11-07",
    "j": "en"
   },
@@ -23,29 +65,8 @@
    "j": "en"
   },
   {
-   "t": "China reportedly recruited AI exec to spy on Jensen Huang",
-   "u": "https://www.theverge.com/tech/1029338/nvidia-ceo-jensen-huang-china-spy",
-   "z": "The Verge",
-   "d": "2026-11-06",
-   "j": "en"
-  },
-  {
-   "t": "Global stocks fall amid ‘big worries over AI’ after Democrats’ midterms triumph",
-   "u": "https://www.theguardian.com/business/2026/nov/06/global-stocks-plunge-amid-ai-slowdown-fears-after-democrats-midterm-triumph",
-   "z": "The Guardian",
-   "d": "2026-11-06",
-   "j": "en"
-  },
-  {
-   "t": "All the latest updates on AI data centers",
-   "u": "https://www.theverge.com/ai-artificial-intelligence/902546/data-centers-ai-energy-power-grids-controversy",
-   "z": "The Verge",
-   "d": "2026-11-06",
-   "j": "en"
-  },
-  {
-   "t": "Meta’s Muse AI can create custom ‘spaces’ for the version of the app you need right now",
-   "u": "https://www.theverge.com/tech/1028871/meta-muse-ai-spaces",
+   "t": "Why a new report on Anthropic automating AI development is alarming researchers",
+   "u": "https://www.theverge.com/ai-artificial-intelligence/1029126/anthropic-metr-report-accelerating-ai-development",
    "z": "The Verge",
    "d": "2026-11-06",
    "j": "en"
@@ -65,32 +86,11 @@
    "j": "en"
   },
   {
-   "t": "Teachers and parents: what are your experiences of AI-generated emails?",
-   "u": "https://www.theguardian.com/technology/2026/nov/06/teachers-and-parents-what-are-your-experiences-of-ai-generated-emails",
-   "z": "The Guardian",
-   "d": "2026-11-06",
-   "j": "en"
-  },
-  {
    "t": "I watched a humanoid robot clean my apartment. It felt like a taste of the future.",
    "u": "https://www.technologyreview.com/2026/11/06/1148090/i-watched-a-humanoid-robot-clean-my-apartment-it-felt-like-a-taste-of-the-future/",
    "z": "MIT Technology Review",
    "d": "2026-11-06",
    "j": "en"
-  },
-  {
-   "t": "Apple tnie budżety inżynierskie na rozwiązania AI",
-   "u": "https://www.computerworld.pl/article/100054553/apple-tnie-budzety-inzynierskie-na-rozwiazania-ai.html",
-   "z": "Computerworld",
-   "d": "2026-11-06",
-   "j": "pl"
-  },
-  {
-   "t": "Kryzys energetyczny AI – rozwiązania xAI zderzają się z oporem lokalnych społeczności i barierami przesyłowymi",
-   "u": "https://www.computerworld.pl/article/100054546/kryzys-energetyczny-ai-rozwiazania-xai-zderzaja-sie-z-oporem-lokalnych-spolecznosci-i-barierami-przesylowymi.html",
-   "z": "Computerworld",
-   "d": "2026-11-06",
-   "j": "pl"
   },
   {
    "t": "These AI agents design your perfect robot-powered lab — and run it for you",

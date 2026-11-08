@@ -28,11 +28,11 @@
 </header>
 <main id="tresc" tabindex="-1">
 
-<div class="wrap narrow">
+<div class="wrap">
   <p class="crumbs"><a href="nauka.html">← Nauka</a></p>
   <p class="eyebrow">Fiszki · 201 kart · pojęcia kluczowe i pytania z quizów</p>
   <h1>Fiszki</h1>
-  <p class="lead">Zobacz pojęcie lub pytanie, przypomnij sobie odpowiedź, odwróć kartę i oceń się. Karty, które znasz, wracają coraz rzadziej. Postępy zostają tylko w tej przeglądarce (bez konta, bez wysyłania).</p>
+  <p class="lead">Zobacz pojęcie lub pytanie, przypomnij sobie odpowiedź, odwróć kartę i oceń się. Każda karta ma własny harmonogram, jak w Anki: wraca wtedy, gdy zaczynasz ją zapominać. Postępy zostają tylko w tej przeglądarce (bez konta, bez wysyłania).</p>
   <noscript><p class="placeholder">Fiszki wymagają włączonego JavaScriptu.</p></noscript>
   <div class="fc-bar">
     <label for="fc-mod">Temat</label>
@@ -43,16 +43,34 @@
     <select id="fc-tryb"><option value="due">do powtórki dziś</option><option value="all">wszystkie po kolei</option><option value="shuffle">wszystkie losowo</option></select>
   </div>
   <p id="fc-stat" class="muted" aria-live="polite"></p>
+  <div class="fc-uklad">
+  <div>
   <div id="fc-card" class="fc-card" hidden>
     <p class="fc-tag" id="fc-tag"></p>
     <div class="fc-face" id="fc-face" tabindex="0" role="button" aria-label="Odwróć kartę"></div>
     <div class="btn-row">
       <button type="button" class="btn ghost" id="fc-flip">Odwróć (spacja)</button>
-      <button type="button" class="btn" id="fc-no" hidden>Jeszcze nie (1)</button>
-      <button type="button" class="btn" id="fc-yes" hidden>Umiem (2)</button>
+      <button type="button" class="btn fc-ocena" id="fc-no" hidden>Nie pamiętam (1)<small></small></button>
+      <button type="button" class="btn fc-ocena" id="fc-hard" hidden>Trudne (2)<small></small></button>
+      <button type="button" class="btn fc-ocena" id="fc-yes" hidden>Pamiętam (3)<small></small></button>
     </div>
   </div>
   <p id="fc-done" class="placeholder" hidden>Na dziś nic do powtórki w tym zestawie. Wybierz tryb „wszystkie po kolei” albo wróć jutro.</p>
+  </div>
+  <aside class="fc-krzywa" aria-labelledby="fc-krzywa-t">
+    <h2 id="fc-krzywa-t">Krzywa zapominania</h2>
+    <div class="fc-wykres">
+      <svg id="fc-svg" viewBox="0 0 320 200" role="img" aria-label="Krzywa zapominania"></svg>
+      <div id="fc-tip" class="fc-tip" hidden></div>
+    </div>
+    <ul class="fc-leg">
+      <li id="fc-leg-karta" hidden><i class="karta"></i>Ta karta</li>
+      <li id="fc-leg-zestaw" hidden><i class="zestaw"></i>Cały zestaw bez powtórek</li>
+    </ul>
+    <p id="fc-opis" class="muted"></p>
+    <p class="muted fc-przypis">Szacunek na podstawie Twoich ocen. Karta wraca, gdy przewidywana pamięć spada do około 90%.</p>
+  </aside>
+  </div>
   <div class="btn-row">
     <a class="btn ghost" id="fc-csv" download="fiszki.csv" href="#">Pobierz talię (CSV, do Anki)</a>
     <button type="button" class="btn ghost" id="fc-reset">Wyzeruj postępy</button>
@@ -65,7 +83,7 @@
 <footer class="site-foot">
   <div class="wrap">
     <p>Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne · Wykład monograficzny · prawo · WPiA UMCS · semestr zimowy 2026/2027<br>
-    Prowadzący: dr Karol Kasprowicz, <a href="mailto:karol.kasprowicz@mail.umcs.pl">karol.kasprowicz@mail.umcs.pl</a> · Stan materiałów na 07.11.2026 · <a href="index.html#przewodnik" data-przewodnik>Przewodnik po stronie</a> · <a href="styl.html">Księga stylu</a></p>
+    Prowadzący: dr Karol Kasprowicz, <a href="mailto:karol.kasprowicz@mail.umcs.pl">karol.kasprowicz@mail.umcs.pl</a> · Stan materiałów na 08.11.2026 · <a href="index.html#przewodnik" data-przewodnik>Przewodnik po stronie</a> · <a href="styl.html">Księga stylu</a></p>
   </div>
 </footer>
 <script src="assets/ui.js"></script>
