@@ -1,5 +1,5 @@
-/* NEO-LUBLIN 2049: Radio NEO-LUBLIN. Trzy stacje generowane na żywo w przeglądarce (Web Audio API): synthwave,
-   darksynth i ambient, bez sieci i bez licencji. Czwarta stacja, „Wolne Fale 2049”, gra nagrania na licencjach
+/* NEO-LUBLIN 2049: Radio NEO-LUBLIN. Cztery stacje generowane na żywo w przeglądarce (Web Audio API): synthwave,
+   darksynth, ambient i noir ambient, bez sieci i bez licencji. Piąta stacja, „Wolne Fale 2049”, gra nagrania na licencjach
    CC0, CC BY i CC BY-SA z katalogu radio/ (lista i atrybucje: tools/radio/utwory.json, wstawiane przez build.py);
    przy każdym utworze widać tytuł z linkiem do źródła, autora i licencję. Pliki nie trafiają do pamięci offline.
    Odblokowanie: dwa zaliczone quizy (gra.js) albo podgląd prowadzącego.
@@ -13,7 +13,9 @@
   var STACJE = [
     { id: "bystrzyca", nazwa: "Bystrzyca Nocą FM", opis: "synthwave", bpm: 96, tonika: 57, akordy: [[0, 3, 7], [-4, 0, 3], [3, 7, 10], [-2, 2, 5]], styl: "synth" },
     { id: "rdzen", nazwa: "Rdzeń Danych 112.0", opis: "darksynth", bpm: 112, tonika: 50, akordy: [[0, 3, 7], [-4, 0, 3], [-7, -4, 0], [-5, -1, 2]], styl: "dark" },
-    { id: "deszcz", nazwa: "Deszcz nad Rynkiem", opis: "ambient", bpm: 68, tonika: 52, akordy: [[0, 3, 7, 10], [-4, 0, 3, 7], [-7, -4, 0, 3], [-5, -2, 2, 5]], styl: "ambient" }
+    { id: "deszcz", nazwa: "Deszcz nad Rynkiem", opis: "ambient", bpm: 68, tonika: 52, akordy: [[0, 3, 7, 10], [-4, 0, 3, 7], [-7, -4, 0, 3], [-5, -2, 2, 5]], styl: "ambient" },
+    // noir ambient: akord co dwa takty (i – VI – iv – v), dęte z wolno otwieranym filtrem, ciągły deszcz, rzadkie solo i grzmot
+    { id: "mgla", nazwa: "Mgła nad Zalewem", opis: "noir ambient", bpm: 50, tonika: 45, akordy: [[0, 3, 7, 14], [-4, 0, 3, 7], [-7, -4, 0, 3], [-5, -2, 2, 5]], styl: "noir" }
   ];
   // nagrania: lista wstawiana przez build.py; adresy względem tego skryptu (strony leżą na różnych poziomach)
   var UTWORY = [{"plik": "macleod-ethernight-club.mp3", "tytul": "Ethernight Club", "autor": "Kevin MacLeod", "licencja": "CC BY 4.0", "licencja_url": "https://creativecommons.org/licenses/by/4.0/", "zrodlo_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN2100002"}, {"plik": "macleod-floating-cities.mp3", "tytul": "Floating Cities", "autor": "Kevin MacLeod", "licencja": "CC BY 4.0", "licencja_url": "https://creativecommons.org/licenses/by/4.0/", "zrodlo_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1600018"}, {"plik": "macleod-late-night-radio.mp3", "tytul": "Late Night Radio", "autor": "Kevin MacLeod", "licencja": "CC BY 4.0", "licencja_url": "https://creativecommons.org/licenses/by/4.0/", "zrodlo_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN2100003"}, {"plik": "grove-lights-at-night.mp3", "tytul": "Lights at Night", "autor": "Tsorthan Grove", "licencja": "CC0", "licencja_url": "https://creativecommons.org/publicdomain/zero/1.0/", "zrodlo_url": "https://opengameart.org/content/lights-at-night"}, {"plik": "singhal-cyberpunk-beauty.mp3", "tytul": "Cyberpunk Beauty", "autor": "Tarush Singhal", "licencja": "CC0", "licencja_url": "https://creativecommons.org/publicdomain/zero/1.0/", "zrodlo_url": "https://opengameart.org/content/cyberpunk-beauty"}, {"plik": "bogart-neon-city.mp3", "tytul": "Neon City", "autor": "Bogart VGM", "licencja": "CC BY 4.0", "licencja_url": "https://creativecommons.org/licenses/by/4.0/", "zrodlo_url": "https://opengameart.org/content/neon-city"}, {"plik": "bogart-neon-action-ii.mp3", "tytul": "Neon Action II", "autor": "Bogart VGM", "licencja": "CC BY 4.0", "licencja_url": "https://creativecommons.org/licenses/by/4.0/", "zrodlo_url": "https://opengameart.org/content/neon-action-ii"}, {"plik": "mintodog-space-city.mp3", "tytul": "Space City", "autor": "MintoDog", "licencja": "CC0", "licencja_url": "https://creativecommons.org/publicdomain/zero/1.0/", "zrodlo_url": "https://opengameart.org/content/space-city"}, {"plik": "gp-synthwave-type.mp3", "tytul": "synthwave_type", "autor": "G_P", "licencja": "CC0", "licencja_url": "https://creativecommons.org/publicdomain/zero/1.0/", "zrodlo_url": "https://opengameart.org/content/synthwavetype"}, {"plik": "grove-corrupt-data-stream.mp3", "tytul": "Corrupt Data Stream", "autor": "Tsorthan Grove", "licencja": "CC0", "licencja_url": "https://creativecommons.org/publicdomain/zero/1.0/", "zrodlo_url": "https://opengameart.org/content/corrupt-data-stream"}, {"plik": "adiutorium-neon-hyperdrive.mp3", "tytul": "Neon Hyperdrive", "autor": "Adiutorium", "licencja": "CC0", "licencja_url": "https://creativecommons.org/publicdomain/zero/1.0/", "zrodlo_url": "https://opengameart.org/content/neon-hyperdrive"}];
@@ -60,10 +62,97 @@
     echo.connect(fb); fb.connect(echo); echo.connect(eg); eg.connect(master);
     SZUM = szum(1.5);
   }
-  function wyjscie(g, mokro, zEchem) {
+  // długi pogłos (6 s) i 4-sekundowy szum deszczu tylko dla stacji noir; tworzone przy pierwszym jej włączeniu
+  var poglosDlugi = null, SZUM_D = null, tlo = [];
+  function startNoir() {
+    if (poglosDlugi) return;
+    poglosDlugi = ctx.createConvolver();
+    var ir = ctx.createBuffer(2, ctx.sampleRate * 6, ctx.sampleRate);
+    for (var c = 0; c < 2; c++) { var d = ir.getChannelData(c); for (var i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / d.length, 3.2); }
+    poglosDlugi.buffer = ir;
+    var pg = ctx.createGain(); pg.gain.value = 0.3; poglosDlugi.connect(pg); pg.connect(master);
+    SZUM_D = szum(4);
+  }
+  function wyjscie(g, mokro, zEchem, dlugi) {
     g.connect(master);
-    if (mokro) { var w = ctx.createGain(); w.gain.value = mokro; g.connect(w); w.connect(poglos); }
+    if (mokro) { var w = ctx.createGain(); w.gain.value = mokro; g.connect(w); w.connect(dlugi ? poglosDlugi : poglos); }
     if (zEchem) g.connect(echo);
+  }
+  // ciągły deszcz: zapętlony szum z pasmem 900–6500 Hz i powolnym falowaniem natężenia
+  function tloStop() { tlo.forEach(function (n) { try { n.stop(); } catch (e) {} }); tlo = []; }
+  function deszczCiagly() {
+    var s = ctx.createBufferSource(), hp = ctx.createBiquadFilter(), lp = ctx.createBiquadFilter(), g = ctx.createGain();
+    var lfo = ctx.createOscillator(), lg = ctx.createGain();
+    s.buffer = SZUM_D; s.loop = true;
+    hp.type = "highpass"; hp.frequency.value = 900; lp.type = "lowpass"; lp.frequency.value = 6500;
+    g.gain.value = 0.045; lfo.frequency.value = 0.06; lg.gain.value = 0.018;
+    lfo.connect(lg); lg.connect(g.gain);
+    s.connect(hp); hp.connect(lp); lp.connect(g); wyjscie(g, 0.25, false, true);
+    s.start(); lfo.start(); tlo.push(s, lfo);
+  }
+  // dęte w stylu syntezatorów z lat 80.: dwie piły, filtr otwierany i zamykany w czasie nuty, lekkie vibrato
+  function dete(t, m, dl, glos) {
+    var f = ctx.createBiquadFilter(), g = ctx.createGain(), lfo = ctx.createOscillator(), lg = ctx.createGain();
+    f.type = "lowpass"; f.Q.value = 1.2;
+    f.frequency.setValueAtTime(220, t); f.frequency.linearRampToValueAtTime(1700, t + dl * 0.4); f.frequency.exponentialRampToValueAtTime(260, t + dl);
+    g.gain.setValueAtTime(0.0001, t); g.gain.linearRampToValueAtTime(glos, t + dl * 0.35); g.gain.exponentialRampToValueAtTime(0.0001, t + dl);
+    lfo.frequency.value = 4.3; lg.gain.value = 6; lfo.connect(lg);
+    [-7, 7].forEach(function (odstr) {
+      var o = ctx.createOscillator(); o.type = "sawtooth"; o.frequency.value = hz(m); o.detune.value = odstr;
+      lg.connect(o.detune); o.connect(f); o.start(t); o.stop(t + dl + 0.05);
+    });
+    f.connect(g); wyjscie(g, 0.8, false, true);
+    lfo.start(t); lfo.stop(t + dl + 0.05);
+  }
+  // solo przypominające saksofon w deszczu: piła przez filtr pasmowy, vibrato narastające po ataku
+  function solo(t, m, dl, glos) {
+    var o = ctx.createOscillator(), bp = ctx.createBiquadFilter(), lp = ctx.createBiquadFilter(), g = ctx.createGain();
+    var lfo = ctx.createOscillator(), lg = ctx.createGain();
+    o.type = "sawtooth"; o.frequency.value = hz(m);
+    bp.type = "bandpass"; bp.frequency.value = 1100; bp.Q.value = 0.8; lp.type = "lowpass"; lp.frequency.value = 2400;
+    lfo.frequency.value = 5.2; lg.gain.setValueAtTime(0, t); lg.gain.linearRampToValueAtTime(22, t + Math.min(0.6, dl * 0.5));
+    lfo.connect(lg); lg.connect(o.detune);
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(glos, t + 0.14);
+    g.gain.setValueAtTime(glos, t + dl * 0.6); g.gain.exponentialRampToValueAtTime(0.0001, t + dl);
+    o.connect(bp); bp.connect(lp); lp.connect(g); wyjscie(g, 0.7, true, true);
+    o.start(t); lfo.start(t); o.stop(t + dl + 0.05); lfo.stop(t + dl + 0.05);
+  }
+  // dzwonek: dwa sinusy w nieharmonicznym stosunku, długie wybrzmienie
+  function dzwonek(t, m, glos) {
+    [[1, glos], [2.76, glos * 0.35]].forEach(function (p) {
+      var o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = "sine"; o.frequency.value = hz(m) * p[0];
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(p[1], t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + 3.2);
+      o.connect(g); wyjscie(g, 0.9, true, true); o.start(t); o.stop(t + 3.3);
+    });
+  }
+  // odległy grzmot: szum przez niski filtr, powolne narastanie i długie wygaszanie
+  function grzmot(t) {
+    var s = ctx.createBufferSource(), f = ctx.createBiquadFilter(), g = ctx.createGain();
+    s.buffer = SZUM_D; f.type = "lowpass"; f.frequency.value = 140;
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.5, t + 0.9); g.gain.exponentialRampToValueAtTime(0.0001, t + 4.5);
+    s.connect(f); f.connect(g); wyjscie(g, 0.4, false, true); s.start(t); s.stop(t + 4.6);
+  }
+  var PENTA = [0, 3, 5, 7, 10, 12, 15, 17];
+  function zagrajNoir(S, t, k, takt) {
+    var szesn = 60 / S.bpm / 4, bar = szesn * 16, T = S.tonika, ak = S.akordy[Math.floor(takt / 2) % S.akordy.length];
+    if (k === 0 && takt % 2 === 0) {
+      ak.slice(0, 3).forEach(function (i, j) { dete(t + j * 0.08, T + 12 + i, bar * 2.1, 0.03); });
+      nuta(t, T - 12 + ak[0], bar * 2, "sine", 0.14, 300, 0.2, false, 1.5);                                // podkład basowy
+      nuta(t + 0.5, T + 24 + ak[ak.length - 1], bar * 1.9, "triangle", 0.018, 1400, 1, false, 2.5);      // wysoki chór
+    }
+    // fraza solo w nieparzystym takcie: 2–4 nuty pentatoniki molowej, krokami po skali
+    if (k === 0 && takt % 2 === 1 && rnd() < 0.75) {
+      var ile = 2 + Math.floor(rnd() * 3), poz = 2 + Math.floor(rnd() * 3), czas = t, dl;
+      for (var n = 0; n < ile; n++) {
+        dl = szesn * 4 * (n === ile - 1 ? 3 : 1 + Math.floor(rnd() * 2));
+        solo(czas, T + 12 + PENTA[poz], dl * 1.1, 0.055);
+        czas += dl; poz = Math.max(0, Math.min(PENTA.length - 1, poz + (rnd() < 0.5 ? -1 : 1) * (1 + Math.floor(rnd() * 2))));
+      }
+    }
+    if (k === 8 && rnd() < 0.3) dzwonek(t, T + 36 + ak[Math.floor(rnd() * ak.length)], 0.03);
+    if (k === 4 && takt % 4 === 3 && rnd() < 0.35) grzmot(t);
+    if (rnd() < 0.18) nuta(t, 96 + Math.floor(rnd() * 12), 0.05, "sine", 0.006 + rnd() * 0.008, 9000, 0.6, false, 0.003);   // krople
   }
   function nuta(t, m, dl, typ, glos, filtr, mokro, zEchem, atak) {
     var o1 = ctx.createOscillator(), o2 = ctx.createOscillator(), f = ctx.createBiquadFilter(), g = ctx.createGain();
@@ -92,6 +181,7 @@
     var S = STACJE[stacja], k = krok % 16, takt = Math.floor(krok / 16), ak = S.akordy[takt % S.akordy.length], T = S.tonika;
     var szesn = 60 / S.bpm / 4;
     if (k === 0 && takt % 4 === 0) losuj = 1 + takt;   // ten sam wzór w obrębie frazy
+    if (S.styl === "noir") { zagrajNoir(S, t, k, takt); return; }
     if (S.styl === "ambient") {
       if (k === 0) ak.forEach(function (i, j) { nuta(t + j * 0.06, T + 12 + i, szesn * 16 * 1.05, "sawtooth", 0.035, 900, 0.9, false, 1.2); });
       if (k === 0) nuta(t, T - 12 + ak[0], szesn * 16, "sine", 0.12, 400, 0.3, false, 0.4);
@@ -153,21 +243,25 @@
   }
 
   function wlacz() {
+    tloStop();
     if (STACJE[stacja].styl === "nagrania") { wlaczNagrania(); return; }
     if (audio) audio.pause();
     start();
     if (ctx.state === "suspended") ctx.resume();
     var S = STACJE[stacja];
+    if (S.styl === "noir") { startNoir(); deszczCiagly(); }
     echo.delayTime.value = (60 / S.bpm) * 0.75;
     nastepny = ctx.currentTime + 0.05; krok = 0; gra = true;
     if (!timer) timer = setInterval(planuj, 25);
   }
-  function wylacz() { gra = false; if (timer) { clearInterval(timer); timer = null; } if (ctx) ctx.suspend(); if (audio) audio.pause(); }
+  function wylacz() { gra = false; tloStop(); if (timer) { clearInterval(timer); timer = null; } if (ctx) ctx.suspend(); if (audio) audio.pause(); }
 
   // ---------------------------------------------------------------- odbiornik
   document.addEventListener("DOMContentLoaded", function () {
     if (!window.AudioContext && !window.webkitAudioContext) return;
-    var u = czytaj(); stacja = Math.min(STACJE.length - 1, Math.max(0, u.stacja || 0));
+    // stacja zapamiętana po identyfikatorze; stary zapis (numer) według dawnej kolejności stacji
+    var u = czytaj(), sid = u.sid || ["bystrzyca", "rdzen", "deszcz", "wolne"][u.stacja || 0];
+    stacja = Math.max(0, STACJE.map(function (s) { return s.id; }).indexOf(sid));
     var box = el("div", "radio"); box.setAttribute("role", "region"); box.setAttribute("aria-label", "Radio NEO-LUBLIN");
     var ikona = el("span", "radio-ik", "📻"); ikona.setAttribute("aria-hidden", "true");
     var nazwa = el("span", "radio-n");
@@ -207,7 +301,7 @@
     poZmianie = opis;
     play.addEventListener("click", function () { if (gra) wylacz(); else wlacz(); if (master) master.gain.value = vol.value / 100 * 0.8; opis(); });
     dalej.addEventListener("click", function () {
-      stacja = (stacja + 1) % STACJE.length; u.stacja = stacja; pisz(u);
+      stacja = (stacja + 1) % STACJE.length; u.sid = STACJE[stacja].id; delete u.stacja; pisz(u);
       if (gra) { wlacz(); }
       opis();
     });
