@@ -1,6 +1,13 @@
 {
- "aktualizacja": "2026-11-11T06:54Z",
+ "aktualizacja": "2026-11-11T07:17Z",
  "wpisy": [
+  {
+   "t": "AI has made it ‘close to impossible’ to assess university coursework, regulator says",
+   "u": "https://www.theguardian.com/education/2026/nov/11/ai-close-to-impossible-assess-university-coursework-regulator",
+   "z": "The Guardian",
+   "d": "2026-11-11",
+   "j": "en"
+  },
   {
    "t": "From the archive: Weizenbaum’s nightmares: how the inventor of the first chatbot turned against AI – podcast",
    "u": "https://www.theguardian.com/news/audio/2026/nov/11/from-the-archive-weizenbaums-nightmares-how-the-inventor-of-the-first-chatbot-turned-against-ai-podcast",
@@ -75,13 +82,6 @@
    "t": "DeepMind reveals Gemini Robotics 2.5 and open safety benchmark \"ASIMOV-jailbreak\"",
    "u": "https://arstechnica.com/google/2026/11/deepmind-reveals-gemini-robotics-2-5-and-open-safety-benchmark-asimov-jailbreak/",
    "z": "Ars Technica",
-   "d": "2026-11-10",
-   "j": "en"
-  },
-  {
-   "t": "Even Martin Scorsese uses AI for storyboards. Can the art survive?",
-   "u": "https://www.theguardian.com/film/2026/nov/10/storyboard-artists-ai",
-   "z": "The Guardian",
    "d": "2026-11-10",
    "j": "en"
   },

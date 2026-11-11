@@ -574,6 +574,9 @@ html.zoom-on, html.zoom-on body { overflow: hidden; }
 .radio-n { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 16em; }
 .radio-b { font: inherit; font-size: 1rem; min-width: 44px; min-height: 40px; background: transparent; color: inherit; border: 1px solid currentColor; cursor: pointer; }
 .radio-b:disabled { cursor: not-allowed; }
+.radio-n a { color: inherit; }
+.radio-l { font-size: 0.7rem; white-space: nowrap; color: var(--muted); }
+.radio-l[hidden] { display: none; }
 .radio-v { width: 80px; accent-color: var(--accent); }
 @media (max-width: 600px) { .radio-v { display: none; } .radio-n { max-width: 9em; } .radio { left: 8px; bottom: 8px; } }
 @media print { .radio { display: none; } }

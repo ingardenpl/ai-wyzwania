@@ -110,6 +110,7 @@ window.NEO_I18N = {
 "Warunek: quiz dzielnicy ≥ 60%.": "Requirement: district quiz ≥ 60%.",
 "Następna stacja": "Next station",
 "Głośność": "Volume",
+"nagrania na wolnych licencjach": "recordings under free licences",
 "RADIO · zalicz {0} quizy ({1}/{0})": "RADIO · pass {0} quizzes ({1}/{0})",
 "Radio zablokowane: zalicz {0} quizy dzielnic": "Radio locked: pass {0} district quizzes",
 "Wyłącz radio": "Turn the radio off",

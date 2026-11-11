@@ -1,6 +1,8 @@
-/* NEO-LUBLIN 2049: Radio NEO-LUBLIN. Muzyka generowana na żywo w przeglądarce (Web Audio API), bez nagrań
-   i bez zewnętrznych usług, więc bez problemów z licencjami i także bez sieci. Trzy stacje: synthwave,
-   darksynth i ambient. Odblokowanie: dwa zaliczone quizy (gra.js) albo podgląd prowadzącego.
+/* NEO-LUBLIN 2049: Radio NEO-LUBLIN. Trzy stacje generowane na żywo w przeglądarce (Web Audio API): synthwave,
+   darksynth i ambient, bez sieci i bez licencji. Czwarta stacja, „Wolne Fale 2049”, gra nagrania na licencjach
+   CC0, CC BY i CC BY-SA z katalogu radio/ (lista i atrybucje: tools/radio/utwory.json, wstawiane przez build.py);
+   przy każdym utworze widać tytuł z linkiem do źródła, autora i licencję. Pliki nie trafiają do pamięci offline.
+   Odblokowanie: dwa zaliczone quizy (gra.js) albo podgląd prowadzącego.
    Dźwięk startuje wyłącznie po kliknięciu (zasady przeglądarek); stacja i głośność zapamiętane w tej przeglądarce. */
 (function () {
   "use strict";
@@ -13,6 +15,10 @@
     { id: "rdzen", nazwa: "Rdzeń Danych 112.0", opis: "darksynth", bpm: 112, tonika: 50, akordy: [[0, 3, 7], [-4, 0, 3], [-7, -4, 0], [-5, -1, 2]], styl: "dark" },
     { id: "deszcz", nazwa: "Deszcz nad Rynkiem", opis: "ambient", bpm: 68, tonika: 52, akordy: [[0, 3, 7, 10], [-4, 0, 3, 7], [-7, -4, 0, 3], [-5, -2, 2, 5]], styl: "ambient" }
   ];
+  // nagrania: lista wstawiana przez build.py; adresy względem tego skryptu (strony leżą na różnych poziomach)
+  var UTWORY = [{"plik": "macleod-ethernight-club.mp3", "tytul": "Ethernight Club", "autor": "Kevin MacLeod", "licencja": "CC BY 4.0", "licencja_url": "https://creativecommons.org/licenses/by/4.0/", "zrodlo_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN2100002"}, {"plik": "macleod-floating-cities.mp3", "tytul": "Floating Cities", "autor": "Kevin MacLeod", "licencja": "CC BY 4.0", "licencja_url": "https://creativecommons.org/licenses/by/4.0/", "zrodlo_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1600018"}, {"plik": "macleod-late-night-radio.mp3", "tytul": "Late Night Radio", "autor": "Kevin MacLeod", "licencja": "CC BY 4.0", "licencja_url": "https://creativecommons.org/licenses/by/4.0/", "zrodlo_url": "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN2100003"}, {"plik": "grove-lights-at-night.mp3", "tytul": "Lights at Night", "autor": "Tsorthan Grove", "licencja": "CC0", "licencja_url": "https://creativecommons.org/publicdomain/zero/1.0/", "zrodlo_url": "https://opengameart.org/content/lights-at-night"}, {"plik": "singhal-cyberpunk-beauty.mp3", "tytul": "Cyberpunk Beauty", "autor": "Tarush Singhal", "licencja": "CC0", "licencja_url": "https://creativecommons.org/publicdomain/zero/1.0/", "zrodlo_url": "https://opengameart.org/content/cyberpunk-beauty"}, {"plik": "bogart-neon-city.mp3", "tytul": "Neon City", "autor": "Bogart VGM", "licencja": "CC BY 4.0", "licencja_url": "https://creativecommons.org/licenses/by/4.0/", "zrodlo_url": "https://opengameart.org/content/neon-city"}, {"plik": "bogart-neon-action-ii.mp3", "tytul": "Neon Action II", "autor": "Bogart VGM", "licencja": "CC BY 4.0", "licencja_url": "https://creativecommons.org/licenses/by/4.0/", "zrodlo_url": "https://opengameart.org/content/neon-action-ii"}, {"plik": "mintodog-space-city.mp3", "tytul": "Space City", "autor": "MintoDog", "licencja": "CC0", "licencja_url": "https://creativecommons.org/publicdomain/zero/1.0/", "zrodlo_url": "https://opengameart.org/content/space-city"}, {"plik": "gp-synthwave-type.mp3", "tytul": "synthwave_type", "autor": "G_P", "licencja": "CC0", "licencja_url": "https://creativecommons.org/publicdomain/zero/1.0/", "zrodlo_url": "https://opengameart.org/content/synthwavetype"}, {"plik": "grove-corrupt-data-stream.mp3", "tytul": "Corrupt Data Stream", "autor": "Tsorthan Grove", "licencja": "CC0", "licencja_url": "https://creativecommons.org/publicdomain/zero/1.0/", "zrodlo_url": "https://opengameart.org/content/corrupt-data-stream"}, {"plik": "adiutorium-neon-hyperdrive.mp3", "tytul": "Neon Hyperdrive", "autor": "Adiutorium", "licencja": "CC0", "licencja_url": "https://creativecommons.org/publicdomain/zero/1.0/", "zrodlo_url": "https://opengameart.org/content/neon-hyperdrive"}];
+  var BAZA_RADIO = (function () { try { return new URL("../radio/", document.currentScript.src).href; } catch (e) { return "radio/"; } })();
+  if (UTWORY.length) STACJE.push({ id: "wolne", nazwa: "Wolne Fale 2049", opis: "nagrania na wolnych licencjach", bpm: 90, styl: "nagrania" });
 
   function czytaj() { try { return JSON.parse(localStorage.getItem(KLUCZ) || "{}") || {}; } catch (e) { return {}; } }
   function pisz(o) { try { localStorage.setItem(KLUCZ, JSON.stringify(o)); } catch (e) {} }
@@ -116,7 +122,39 @@
     if (nastepny < ctx.currentTime - 0.05) nastepny = ctx.currentTime + 0.05;   // po uśpieniu karty: bez stosu nut z przeszłości
     while (nastepny < ctx.currentTime + 0.12) { zagraj(nastepny); nastepny += szesn; krok++; }
   }
+  // ---------------------------------------------------------------- nagrania
+  var audio = null, kolejka = [], poz = 0, bledy = 0, glosNagran = 0.4, poZmianie = null;
+  function tasuj() {
+    kolejka = UTWORY.map(function (_, i) { return i; });
+    for (var i = kolejka.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), x = kolejka[i]; kolejka[i] = kolejka[j]; kolejka[j] = x; }
+    poz = 0;
+  }
+  function biezacy() { return kolejka.length ? UTWORY[kolejka[poz]] : null; }
+  function kolejny() { poz++; if (poz >= kolejka.length) tasuj(); grajUtwor(); }
+  function grajUtwor() {
+    if (!audio) {
+      audio = new Audio(); audio.preload = "none";
+      audio.addEventListener("ended", function () { bledy = 0; kolejny(); });
+      audio.addEventListener("playing", function () { bledy = 0; });
+      audio.addEventListener("error", function () { if (gra && ++bledy < UTWORY.length) kolejny(); else { wylacz(); if (poZmianie) poZmianie(); } });
+    }
+    if (!kolejka.length) tasuj();
+    audio.src = BAZA_RADIO + biezacy().plik;
+    audio.volume = glosNagran;
+    var p = audio.play(); if (p && p.catch) p.catch(function () {});
+    if (poZmianie) poZmianie();
+  }
+  function wlaczNagrania() {
+    if (timer) { clearInterval(timer); timer = null; }
+    if (ctx && ctx.state === "running") ctx.suspend();
+    gra = true;
+    if (audio && audio.src && audio.paused && !audio.ended) { var p = audio.play(); if (p && p.catch) p.catch(function () {}); }
+    else grajUtwor();
+  }
+
   function wlacz() {
+    if (STACJE[stacja].styl === "nagrania") { wlaczNagrania(); return; }
+    if (audio) audio.pause();
     start();
     if (ctx.state === "suspended") ctx.resume();
     var S = STACJE[stacja];
@@ -124,7 +162,7 @@
     nastepny = ctx.currentTime + 0.05; krok = 0; gra = true;
     if (!timer) timer = setInterval(planuj, 25);
   }
-  function wylacz() { gra = false; if (timer) { clearInterval(timer); timer = null; } if (ctx) ctx.suspend(); }
+  function wylacz() { gra = false; if (timer) { clearInterval(timer); timer = null; } if (ctx) ctx.suspend(); if (audio) audio.pause(); }
 
   // ---------------------------------------------------------------- odbiornik
   document.addEventListener("DOMContentLoaded", function () {
@@ -136,7 +174,9 @@
     var play = el("button", "radio-b", "▶"); play.type = "button";
     var dalej = el("button", "radio-b", "⏭"); dalej.type = "button"; dalej.setAttribute("aria-label", T("Następna stacja"));
     var vol = el("input", "radio-v"); vol.type = "range"; vol.min = 0; vol.max = 100; vol.value = u.glosnosc == null ? 50 : u.glosnosc; vol.setAttribute("aria-label", T("Głośność"));
-    box.appendChild(ikona); box.appendChild(nazwa); box.appendChild(play); box.appendChild(dalej); box.appendChild(vol);
+    var lic = el("a", "radio-l"); lic.target = "_blank"; lic.rel = "noopener license"; lic.hidden = true;
+    glosNagran = vol.value / 100 * 0.8;
+    box.appendChild(ikona); box.appendChild(nazwa); box.appendChild(lic); box.appendChild(play); box.appendChild(dalej); box.appendChild(vol);
     document.body.appendChild(box); document.body.classList.add("ma-radio");
     function opis() {
       var n = zaliczone(), S = STACJE[stacja];
@@ -144,21 +184,38 @@
         box.classList.add("zamk"); play.disabled = dalej.disabled = vol.disabled = true;
         nazwa.textContent = T("RADIO · zalicz {0} quizy ({1}/{0})", [PROG, Math.min(n, PROG)]);
         play.setAttribute("aria-label", T("Radio zablokowane: zalicz {0} quizy dzielnic", [PROG]));
+        lic.hidden = true;
         return;
       }
       box.classList.remove("zamk"); play.disabled = dalej.disabled = vol.disabled = false;
-      nazwa.textContent = S.nazwa + " · " + S.opis;
+      var utw = S.styl === "nagrania" && audio && audio.src ? biezacy() : null;
+      nazwa.textContent = "";
+      if (utw) {
+        // atrybucja przy odtwarzaniu: tytuł z linkiem do źródła, autor, licencja z linkiem do jej tekstu
+        nazwa.appendChild(document.createTextNode(S.nazwa + " · "));
+        var a = el("a", null, "„" + utw.tytul + "” — " + utw.autor); a.href = utw.zrodlo_url; a.target = "_blank"; a.rel = "noopener";
+        nazwa.appendChild(a);
+        nazwa.title = "„" + utw.tytul + "” — " + utw.autor + ", " + utw.licencja;
+        lic.textContent = utw.licencja; lic.href = utw.licencja_url; lic.hidden = false;
+      } else {
+        nazwa.textContent = S.nazwa + " · " + T(S.opis); nazwa.removeAttribute("title"); lic.hidden = true;
+      }
       play.textContent = gra ? "⏸" : "▶";
       play.setAttribute("aria-label", gra ? T("Wyłącz radio") : T("Włącz radio: {0}", [S.nazwa]));
       box.classList.toggle("gra", gra);
     }
-    play.addEventListener("click", function () { if (gra) wylacz(); else wlacz(); master.gain.value = vol.value / 100 * 0.8; opis(); });
+    poZmianie = opis;
+    play.addEventListener("click", function () { if (gra) wylacz(); else wlacz(); if (master) master.gain.value = vol.value / 100 * 0.8; opis(); });
     dalej.addEventListener("click", function () {
       stacja = (stacja + 1) % STACJE.length; u.stacja = stacja; pisz(u);
       if (gra) { wlacz(); }
       opis();
     });
-    vol.addEventListener("input", function () { u.glosnosc = +vol.value; pisz(u); if (master) master.gain.value = vol.value / 100 * 0.8; });
+    vol.addEventListener("input", function () {
+      u.glosnosc = +vol.value; pisz(u); glosNagran = vol.value / 100 * 0.8;
+      if (master) master.gain.value = glosNagran;
+      if (audio) audio.volume = glosNagran;
+    });
     document.addEventListener("neo:postep", opis);
     opis();
   });
