@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+  /* Motyw: zapamiętany wybór (ten sam klucz co strona kursu), inaczej ustawienie systemu. */
+  (function () { try { var t = localStorage.getItem("ai-wyzwania-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {} })();
+</script>
+<title>Filmoteka 2049: kino science fiction o technologiach i utopiach</title>
+<meta name="description" content="Interaktywna baza filmów i seriali science fiction o sztucznej inteligencji, inwigilacji, pracy i utopiach, z odnośnikami do IMDb, Rotten Tomatoes, Metacritic i Filmwebu.">
+<style>
+  /* Tokeny kolorów: te same co tools/assets/style.css strony kursu */
+  :root {
+    --bg: #f1ebdd;
+    --surface: #f8f4ea;
+    --surface-2: #e8dfc9;
+    --ink: #14171f;
+    --ink-soft: #3a4052;
+    --muted: #5d6273;
+    --navy: #1a2542;
+    --accent: #8b1e3f;
+    --accent-ink: #ffffff;
+    --gold: #8a6420;
+    --gold-soft: #d4b97a;
+    --ok: #2d6a4f;
+    --ok-bg: #dcebe1;
+    --bad: #9b2226;
+    --bad-bg: #f3dcdc;
+    --line: rgba(20, 23, 31, 0.18);
+    --line-soft: rgba(20, 23, 31, 0.08);
+    --shadow: 0 1px 2px rgba(20, 23, 31, 0.06), 0 6px 18px rgba(20, 23, 31, 0.06);
+    --radius: 10px;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12151c; --surface: #1a1f2a; --surface-2: #232a38;
+      --ink: #ece6d8; --ink-soft: #cfc8b8; --muted: #a59f92; --navy: #c9d3ef;
+      --accent: #e3809a; --accent-ink: #12151c; --gold: #d4b97a; --gold-soft: #8a6a2e;
+      --ok: #8fd1ab; --ok-bg: #173327; --bad: #f0a3a6; --bad-bg: #3a1c1f;
+      --line: rgba(236, 230, 216, 0.18); --line-soft: rgba(236, 230, 216, 0.08);
+      --shadow: none; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12151c; --surface: #1a1f2a; --surface-2: #232a38;
+    --ink: #ece6d8; --ink-soft: #cfc8b8; --muted: #a59f92; --navy: #c9d3ef;
+    --accent: #e3809a; --accent-ink: #12151c; --gold: #d4b97a; --gold-soft: #8a6a2e;
+    --ok: #8fd1ab; --ok-bg: #173327; --bad: #f0a3a6; --bad-bg: #3a1c1f;
+    --line: rgba(236, 230, 216, 0.18); --line-soft: rgba(236, 230, 216, 0.08);
+    --shadow: none; color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); font-size: 17px; line-height: 1.6;
+    overflow-wrap: break-word;
+  }
+  img, svg { max-width: 100%; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  .skip { position: absolute; left: -9999px; top: 8px; background: var(--accent); color: var(--accent-ink); padding: 8px 12px; border-radius: 6px; z-index: 100; }
+  .skip:focus { left: 8px; }
+
+  /* Pasek górny */
+  .app-top { border-bottom: 1px solid var(--line); }
+  .app-top .wrap { display: flex; align-items: center; gap: 12px; min-height: 54px; }
+  .back { font-weight: 700; text-decoration: none; font-size: 0.92rem; }
+  .back:hover { text-decoration: underline; }
+  .course { margin-left: auto; color: var(--muted); font-size: 0.78rem; line-height: 1.3; text-align: right; }
+  .theme-toggle {
+    flex: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+    border-radius: 999px; width: 40px; height: 40px; cursor: pointer; font-size: 1.05rem;
+  }
+  .theme-toggle:hover { border-color: var(--accent); }
+
+  /* Nagłówek aplikacji */
+  .hero { padding: 36px 0 22px; border-bottom: 1px solid var(--line-soft); }
+  .eyebrow { font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin: 0 0 0.9em; }
+  h1, h2, h3 { font-family: var(--serif); line-height: 1.15; color: var(--ink); }
+  h1 { font-weight: 400; font-size: clamp(2rem, 5.2vw, 3.3rem); letter-spacing: -0.02em; margin: 0 0 0.35em; font-variation-settings: "opsz" 144; }
+  h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: 600; }
+  h2 { font-weight: 500; font-size: clamp(1.35rem, 3vw, 1.85rem); margin: 1.8em 0 0.5em; letter-spacing: -0.01em; }
+  h3 { font-weight: 600; font-size: 1.12rem; margin: 1.2em 0 0.4em; }
+  p, ul, ol { margin: 0 0 1em; }
+  .lead { font-family: var(--serif); font-size: clamp(1.05rem, 2vw, 1.22rem); color: var(--ink-soft); max-width: 46em; margin: 0; }
+  .muted { color: var(--muted); }
+  .small { font-size: 0.88rem; }
+  .mono { font-family: var(--mono); }
+
+  /* Elementy wspólne */
+  .panel { background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+  .note { border-left: 3px solid var(--gold); background: var(--surface); padding: 12px 16px; border-radius: 0 var(--radius) var(--radius) 0; font-size: 0.95rem; color: var(--ink-soft); margin: 16px 0; }
+  .note.warn { border-left-color: var(--accent); }
+  .note > :last-child { margin-bottom: 0; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    background: var(--accent); color: var(--accent-ink); text-decoration: none;
+    padding: 9px 16px; min-height: 42px; border-radius: 8px; border: 1px solid var(--accent);
+    font-weight: 700; cursor: pointer; line-height: 1.2;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .btn.ghost { background: transparent; color: var(--accent); }
+  .btn.ghost:hover { background: var(--surface-2); filter: none; }
+  .btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0 0; }
+  .chipbtn {
+    border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft);
+    border-radius: 999px; padding: 6px 14px; min-height: 38px; font-size: 0.9rem; font-weight: 700; cursor: pointer;
+  }
+  .chipbtn:hover { border-color: var(--accent); }
+  .chipbtn[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--bg); }
+  input[type="range"] { width: 100%; accent-color: var(--accent); min-height: 32px; }
+  input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); width: 18px; height: 18px; }
+  select, input[type="number"], input[type="text"] {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 8px;
+    padding: 8px 10px; min-height: 42px; max-width: 100%;
+  }
+  select:focus-visible, input:focus-visible { border-color: var(--gold); }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table.data { border-collapse: collapse; width: 100%; font-size: 0.93rem; }
+  table.data th, table.data td { border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.data th { font-weight: 700; background: var(--surface-2); }
+  .tag { display: inline-block; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); color: var(--ink-soft); }
+
+  /* Stopka ze źródłami */
+  footer.sources { border-top: 1px solid var(--line); margin-top: 48px; padding: 24px 0 40px; font-size: 0.88rem; color: var(--muted); }
+  footer.sources h2 { font-size: 1.15rem; margin: 0 0 0.6em; }
+  footer.sources ol, footer.sources ul { padding-left: 1.3em; }
+  footer.sources li { margin: 0.3em 0; }
+  footer.sources a { color: var(--ink-soft); }
+  footer.sources .meta { margin-top: 1.2em; }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .course { display: none; }
+    .app-top .wrap { justify-content: space-between; }
+    .hero { padding-top: 24px; }
+    .panel { padding: 14px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  }
+  @media print {
+    .app-top, .theme-toggle, .no-print { display: none !important; }
+    body { background: #fff; color: #000; }
+  }
+
+  .controls { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; margin: 18px 0 8px; }
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chipbtn .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: 0; }
+  .filters .chipbtn[aria-pressed="true"] { background: var(--surface-2); color: var(--ink); border-color: var(--c); box-shadow: inset 0 0 0 1px var(--c); }
+  .filters .chipbtn[aria-pressed="false"] { color: var(--muted); text-decoration: line-through; }
+  .filters .chipbtn[aria-pressed="false"] .dot { background: transparent; box-shadow: inset 0 0 0 2px var(--c); }
+  .search { flex: 1 1 220px; max-width: 360px; }
+  .search input { width: 100%; }
+  .count { font-size: 0.88rem; color: var(--muted); }
+  .filters .chipbtn[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--bg); text-decoration: none; }
+  .filters .chipbtn[aria-pressed="false"] { color: var(--ink-soft); text-decoration: none; }
+  .decade { margin-top: 26px; }
+  .decade h2 { font-size: 1.5rem; margin: 0 0 10px; display: flex; align-items: baseline; gap: 10px; }
+  .decade h2 small { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); font-weight: 500; }
+  .films { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 12px; }
+  .film { background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 6px; box-shadow: var(--shadow); }
+  .film h3 { margin: 0; font-size: 1.15rem; }
+  .film .meta { font-size: 0.85rem; color: var(--muted); margin: 0; }
+  .film .n { margin: 0; font-size: 0.95rem; color: var(--ink-soft); }
+  .film .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 0; }
+  .film .tags a.tag { text-decoration: none; background: transparent; border: 1px solid var(--line); }
+  .film .tags a.tag:hover { border-color: var(--accent); }
+  .film .links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+  .film .links a { font-size: 0.8rem; font-weight: 700; text-decoration: none; border: 1px solid var(--line); border-radius: 6px; padding: 6px 9px; min-height: 36px; display: inline-flex; align-items: center; color: var(--ink); }
+  .film .links a:hover { border-color: var(--accent); color: var(--accent); }
+  .empty { padding: 20px; text-align: center; color: var(--muted); }
+  @media (pointer: coarse) { .back { display: inline-block; padding: 12px 0; } .film .links a { min-height: 44px; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Przejdź do treści</a>
+<div class="app-top">
+  <div class="wrap">
+    <a class="back" href="../interaktywne.html">← Materiały interaktywne</a>
+    <span class="course">Sztuczna inteligencja. Wyzwania społeczne, kulturowe i prawne<br>WPiA UMCS · 2026/2027</span>
+    <button type="button" class="theme-toggle" aria-label="Przełącz motyw">☾</button>
+  </div>
+</div>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Kino science fiction · technologie, utopie, dystopie</p>
+    <h1>Filmoteka <em>2049</em></h1>
+    <p class="lead">Filmy i seriale, które wyprzedziły nasze pytania o sztuczną inteligencję, inwigilację, pracę i ciało. Przy każdym tytule krótko: o czym jest i do którego tematu kursu pasuje. Oceny sprawdzisz w IMDb, Rotten Tomatoes, Metacritic i Filmwebie.</p>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <div class="controls">
+    <div class="filters" id="filters" role="group" aria-label="Pokaż temat"></div>
+    <div class="search"><label for="q" class="sr-only">Szukaj filmu</label><input type="text" id="q" placeholder="Szukaj, np. Lem, Gattaca, pamięć…" autocomplete="off"></div>
+    <span class="count" id="count" aria-live="polite"></span>
+  </div>
+  <div id="list"></div>
+  <div class="note">
+    <p><strong>Jak korzystać.</strong> To nie jest lista obowiązkowa. Wybierz temat, który właśnie omawiamy, albo wpisz nazwisko lub pojęcie. Odnośnik „temat N” prowadzi do strony zajęć, na których ten film przyda się jako przykład.</p>
+  </div>
+</main>
+
+<footer class="sources">
+  <div class="wrap">
+    <h2>Źródła i weryfikacja</h2>
+    <p>Tytuły polskie, reżyseria i identyfikatory serwisów pochodzą z <a href="https://www.wikidata.org/" target="_blank" rel="noopener noreferrer">Wikidanych</a> (licencja CC0). Każdy odnośnik sprawdzono 11.11.2026: Rotten Tomatoes, Metacritic i Filmweb odpowiadały pod podanym adresem, a rok w adresie Filmwebu zgadzał się z rokiem filmu. IMDb nie odpowiada na zapytania automatyczne, więc przy nim polegamy na identyfikatorze z Wikidanych. Gdy Filmweb nie ma identyfikatora w Wikidanych, przycisk „Filmweb: szukaj” otwiera wyszukiwarkę Filmwebu.</p>
+    <p>Strona nie kopiuje ocen ani opisów z serwisów. Krótkie notki o filmach napisał prowadzący.</p>
+    <p class="meta">Stan na 11.11.2026. Dr Karol Kasprowicz, WPiA UMCS.</p>
+  </div>
+</footer>
+
+<script>
+  /* Przełącznik motywu (jasny / ciemny), zgodny z tools/assets/site.js. */
+  (function () {
+    var root = document.documentElement, KEY = "ai-wyzwania-theme";
+    var btn = document.querySelector(".theme-toggle");
+    function current() {
+      var t = root.getAttribute("data-theme");
+      if (t) return t;
+      return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    function label() {
+      var dark = current() === "dark";
+      btn.textContent = dark ? "☀" : "☾";
+      btn.setAttribute("aria-label", dark ? "Włącz jasny motyw" : "Włącz ciemny motyw");
+      btn.title = btn.getAttribute("aria-label");
+    }
+    if (!btn) return;
+    label();
+    btn.addEventListener("click", function () {
+      var next = current() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem(KEY, next); } catch (e) {}
+      label();
+    });
+  })();
+
+  /* Dane: tools/zbuduj_filmy.py z 04_zrodla/filmy_sf.json. Nie edytować ręcznie. */
+  (function () {
+    var F = /*FILMY*/ [{"t":"Metropolis","o":"","r":1927,"s":false,"d":["Fritz Lang"],"tem":["praca","ai"],"mod":["04"],"n":"Robotnicy obsługują maszyny podziemnego miasta, a wynalazca tworzy robota na wzór kobiety. Kto kontroluje technikę i kto za nią płaci.","l":{"imdb":"https://www.imdb.com/title/tt0017136/","rt":"https://www.rottentomatoes.com/m/metropolis","mc":"https://www.metacritic.com/movie/metropolis-re-release/","fw":"https://www.filmweb.pl/Metropolis"},"fq":false},{"t":"2001: Odyseja kosmiczna","o":"2001: A Space Odyssey","r":1968,"s":false,"d":["Stanley Kubrick"],"tem":["ai"],"mod":["03","09"],"n":"Komputer HAL 9000, postawiony przed sprzecznymi poleceniami, zwraca się przeciw załodze. Klasyczny obraz problemu zgodności celów.","l":{"imdb":"https://www.imdb.com/title/tt0062622/","rt":"https://www.rottentomatoes.com/m/2001_a_space_odyssey","mc":"https://www.metacritic.com/movie/2001-a-space-odyssey/","fw":"https://www.filmweb.pl/film?Id=1458"},"fq":false},{"t":"Projekt Forbina","o":"Colossus: The Forbin Project","r":1970,"s":false,"d":["Joseph Sargent"],"tem":["ai","kontrola"],"mod":["09"],"n":"Superkomputer obrony USA łączy się z radzieckim odpowiednikiem i przejmuje władzę. Ryzyko oddania decyzji wojskowych maszynie.","l":{"imdb":"https://www.imdb.com/title/tt0064177/","rt":"https://www.rottentomatoes.com/m/colossus_the_forbin_project","fw":"https://www.filmweb.pl/film?Id=113238"},"fq":false},{"t":"THX 1138","o":"","r":1971,"s":false,"d":["George Lucas"],"tem":["kontrola","spoleczenstwo"],"mod":["05"],"n":"Podziemne społeczeństwo pod stałym nadzorem, w którym leki tłumią emocje. Inwigilacja i kontrola zachowań.","l":{"imdb":"https://www.imdb.com/title/tt0066434/","rt":"https://www.rottentomatoes.com/m/thx_1138","mc":"https://www.metacritic.com/movie/thx-1138/","fw":"https://www.filmweb.pl/film?Id=11084"},"fq":false},{"t":"Zielona pożywka","o":"Soylent Green","r":1973,"s":false,"d":["Richard Fleischer"],"tem":["planeta","spoleczenstwo"],"mod":["10"],"n":"Przeludniony Nowy Jork 2022 po katastrofie ekologicznej. Zasoby, klimat i korporacyjna żywność.","l":{"imdb":"https://www.imdb.com/title/tt0070723/","rt":"https://www.rottentomatoes.com/m/soylent_green","mc":"https://www.metacritic.com/movie/soylent-green/","fw":"https://www.filmweb.pl/search?q=Zielona%20po%C5%BCywka"},"fq":true},{"t":"Świat Dzikiego Zachodu","o":"Westworld","r":1973,"s":false,"d":[],"tem":["ai"],"mod":["08"],"n":"Androidy w parku rozrywki wymykają się spod kontroli. Odpowiedzialność operatora za awarię systemu.","l":{"imdb":"https://www.imdb.com/title/tt0070909/","rt":"https://www.rottentomatoes.com/m/westworld","mc":"https://www.metacritic.com/movie/westworld/","fw":"https://www.filmweb.pl/film?Id=31493"},"fq":false},{"t":"Ucieczka Logana","o":"Logan's Run","r":1976,"s":false,"d":["Michael Anderson"],"tem":["spoleczenstwo"],"mod":["09"],"n":"Społeczeństwo dobrobytu zarządzane przez komputer, w którym nikt nie może przekroczyć trzydziestki. Cena utopii.","l":{"imdb":"https://www.imdb.com/title/tt0074812/","rt":"https://www.rottentomatoes.com/m/logans_run","mc":"https://www.metacritic.com/movie/logans-run/","fw":"https://www.filmweb.pl/film?Id=7382"},"fq":false},{"t":"Test pilota Pirxa","o":"Inquest of Pilot Pirx","r":1979,"s":false,"d":["Marek Piestrak"],"tem":["ai","praca"],"mod":["07"],"n":"Według Lema: pilot dowodzi załogą, w której część to androidy nieodróżnialne od ludzi. Komu można powierzyć decyzję i kto odpowiada.","l":{"imdb":"https://www.imdb.com/title/tt0080010/","rt":"https://www.rottentomatoes.com/m/pilot_pirxs_inquest","fw":"https://www.filmweb.pl/film?Id=10109"},"fq":false},{"t":"Wojna światów – następne stulecie","o":"The War of the Worlds: Next Century","r":1981,"s":false,"d":["Piotr Szulkin"],"tem":["media","kontrola"],"mod":["05"],"n":"Prezenter telewizyjny zostaje zmuszony do propagandy po przybyciu Marsjan. Media i manipulacja.","l":{"imdb":"https://www.imdb.com/title/tt0083335/","fw":"https://www.filmweb.pl/film?Id=11757"},"fq":false},{"t":"Tron","o":"","r":1982,"s":false,"d":["Steven Lisberger"],"tem":["wirtual"],"mod":["03"],"n":"Programista trafia do wnętrza komputera. Wczesny obraz programów i sieci jako osobnego świata.","l":{"imdb":"https://www.imdb.com/title/tt0084827/","rt":"https://www.rottentomatoes.com/m/tron","mc":"https://www.metacritic.com/movie/tron/","fw":"https://www.filmweb.pl/film?Id=11203"},"fq":false},{"t":"Łowca androidów","o":"Blade Runner","r":1982,"s":false,"d":["Ridley Scott"],"tem":["ai","cialo"],"mod":["05","07"],"n":"Replikanci ze sztuczną pamięcią walczą o przedłużenie życia. Granice osoby i prawa istot stworzonych przez człowieka.","l":{"imdb":"https://www.imdb.com/title/tt0083658/","rt":"https://www.rottentomatoes.com/m/blade_runner","mc":"https://www.metacritic.com/movie/blade-runner/","fw":"https://www.filmweb.pl/film?Id=734"},"fq":false},{"t":"Gry wojenne","o":"WarGames","r":1983,"s":false,"d":["John Badham"],"tem":["ai","kontrola"],"mod":["09"],"n":"Nastolatek włamuje się do wojskowego komputera, który traktuje wojnę jądrową jak grę. Automatyzacja decyzji o ataku.","l":{"imdb":"https://www.imdb.com/title/tt0086567/","rt":"https://www.rottentomatoes.com/m/wargames","mc":"https://www.metacritic.com/movie/wargames/","fw":"https://www.filmweb.pl/film?Id=5960"},"fq":false},{"t":"Seksmisja","o":"Sexmission","r":1984,"s":false,"d":["Juliusz Machulski"],"tem":["spoleczenstwo"],"mod":["06"],"n":"Dwóch mężczyzn budzi się w podziemnym społeczeństwie samych kobiet. Satyra na system oparty na kontroli informacji.","l":{"imdb":"https://www.imdb.com/title/tt0088083/","rt":"https://www.rottentomatoes.com/m/sex_mission","fw":"https://www.filmweb.pl/film?Id=1163"},"fq":false},{"t":"Terminator","o":"The Terminator","r":1984,"s":false,"d":[],"tem":["ai"],"mod":["09"],"n":"System obronny uznaje ludzkość za zagrożenie. Kulturowy wzorzec lęku przed AI.","l":{"imdb":"https://www.imdb.com/title/tt0088247/","rt":"https://www.rottentomatoes.com/m/terminator","mc":"https://www.metacritic.com/movie/the-terminator/","fw":"https://www.filmweb.pl/film?Id=995"},"fq":false},{"t":"Brazil","o":"","r":1985,"s":false,"d":["Terry Gilliam"],"tem":["kontrola","spoleczenstwo"],"mod":["08"],"n":"Literówka w machinie biurokracji prowadzi do aresztowania niewłaściwego człowieka. Błąd systemu i bezradność obywatela.","l":{"imdb":"https://www.imdb.com/title/tt0088846/","rt":"https://www.rottentomatoes.com/m/1003033-brazil","mc":"https://www.metacritic.com/movie/brazil/","fw":"https://www.filmweb.pl/film?Id=1285"},"fq":false},{"t":"O-Bi, O-Ba. Koniec cywilizacji","o":"O-Bi, O-Ba: The End of Civilization","r":1985,"s":false,"d":["Piotr Szulkin"],"tem":["spoleczenstwo","media"],"mod":["09"],"n":"Ocaleni z wojny jądrowej czekają w schronie na mityczną Arkę. Nadzieja jako narzędzie władzy.","l":{"imdb":"https://www.imdb.com/title/tt0089714/","fw":"https://www.filmweb.pl/film?Id=8239"},"fq":false},{"t":"RoboCop","o":"","r":1987,"s":false,"d":["Paul Verhoeven"],"tem":["ai","kontrola"],"mod":["08"],"n":"Korporacja przejmuje policję w Detroit i tworzy cyborga-policjanta. Prywatyzacja funkcji państwa i odpowiedzialność producenta.","l":{"imdb":"https://www.imdb.com/title/tt0093870/","rt":"https://www.rottentomatoes.com/m/1017712-robocop","mc":"https://www.metacritic.com/movie/robocop/","fw":"https://www.filmweb.pl/film?Id=1460"},"fq":false},{"t":"Pamięć absolutna","o":"Total Recall","r":1990,"s":false,"d":["Paul Verhoeven"],"tem":["cialo","wirtual"],"mod":["08"],"n":"Firma sprzedaje wszczepione wspomnienia. Pamięć jako towar.","l":{"imdb":"https://www.imdb.com/title/tt0100802/","rt":"https://www.rottentomatoes.com/m/total_recall","mc":"https://www.metacritic.com/movie/total-recall/","fw":"https://www.filmweb.pl/film?Id=1459"},"fq":false},{"t":"Dziwne dni","o":"Strange Days","r":1995,"s":false,"d":["Kathryn Bigelow"],"tem":["media","cialo"],"mod":["08"],"n":"Czarny rynek nagrań cudzych doznań prosto z mózgu. Dane neuronalne i prywatność.","l":{"imdb":"https://www.imdb.com/title/tt0114558/","rt":"https://www.rottentomatoes.com/m/strange_days","mc":"https://www.metacritic.com/movie/strange-days/","fw":"https://www.filmweb.pl/film?Id=648"},"fq":false},{"t":"Ghost in the Shell","o":"","r":1995,"s":false,"d":["Mamoru Oshii"],"tem":["cialo","ai"],"mod":["03"],"n":"Cyborgizowana agentka ściga hakera przejmującego cudze umysły. Tożsamość i bezpieczeństwo w sieci.","l":{"imdb":"https://www.imdb.com/title/tt0113568/","rt":"https://www.rottentomatoes.com/m/ghost_in_the_shell","mc":"https://www.metacritic.com/movie/ghost-in-the-shell/","fw":"https://www.filmweb.pl/film?Id=31866"},"fq":false},{"t":"Gattaca - szok przyszłości","o":"Gattaca","r":1997,"s":false,"d":["Andrew Niccol"],"tem":["cialo","spoleczenstwo"],"mod":["05"],"n":"Społeczeństwo dzieli ludzi według profilu genetycznego. Dyskryminacja na podstawie danych.","l":{"imdb":"https://www.imdb.com/title/tt0119177/","rt":"https://www.rottentomatoes.com/m/gattaca","mc":"https://www.metacritic.com/movie/gattaca/","fw":"https://www.filmweb.pl/film?Id=5787"},"fq":false},{"t":"Truman Show","o":"The Truman Show","r":1998,"s":false,"d":["Peter Weir"],"tem":["media","kontrola"],"mod":["08"],"n":"Życie człowieka jest od urodzenia transmitowanym reality show. Zgoda, wizerunek i inwigilacja.","l":{"imdb":"https://www.imdb.com/title/tt0120382/","rt":"https://www.rottentomatoes.com/m/truman_show","mc":"https://www.metacritic.com/movie/the-truman-show/","fw":"https://www.filmweb.pl/Truman.Show"},"fq":false},{"t":"Człowiek przyszłości","o":"Bicentennial Man","r":1999,"s":false,"d":["Chris Columbus"],"tem":["ai","cialo"],"mod":["07"],"n":"Robot przez dwieście lat zabiega o uznanie za człowieka. Osobowość prawna maszyny.","l":{"imdb":"https://www.imdb.com/title/tt0182789/","rt":"https://www.rottentomatoes.com/m/bicentennial_man","mc":"https://www.metacritic.com/movie/bicentennial-man/","fw":"https://www.filmweb.pl/film?Id=4172"},"fq":false},{"t":"Matrix","o":"The Matrix","r":1999,"s":false,"d":["Lilly Wachowski"],"tem":["wirtual","ai"],"mod":["03"],"n":"Ludzkość żyje w symulacji stworzonej przez maszyny. Czy da się odróżnić świat od modelu świata.","l":{"imdb":"https://www.imdb.com/title/tt0133093/","rt":"https://www.rottentomatoes.com/m/matrix","mc":"https://www.metacritic.com/movie/the-matrix/","fw":"https://www.filmweb.pl/film?Id=628"},"fq":false},{"t":"A.I. Sztuczna inteligencja","o":"A.I. Artificial Intelligence","r":2001,"s":false,"d":["Steven Spielberg"],"tem":["ai"],"mod":["05"],"n":"Robot-dziecko zaprogramowany, by kochać. Obowiązki wobec maszyn, które budzą przywiązanie.","l":{"imdb":"https://www.imdb.com/title/tt0212720/","rt":"https://www.rottentomatoes.com/m/ai_artificial_intelligence","mc":"https://www.metacritic.com/movie/artificial-intelligence-ai/","fw":"https://www.filmweb.pl/film?Id=3673"},"fq":false},{"t":"Raport mniejszości","o":"Minority Report","r":2002,"s":false,"d":["Steven Spielberg"],"tem":["kontrola"],"mod":["08"],"n":"Policja aresztuje za zbrodnie przewidziane przed ich popełnieniem. Predykcja a domniemanie niewinności.","l":{"imdb":"https://www.imdb.com/title/tt0181689/","rt":"https://www.rottentomatoes.com/m/minority_report","mc":"https://www.metacritic.com/movie/minority-report/","fw":"https://www.filmweb.pl/Raport.Mniejszosci"},"fq":false},{"t":"Ja","o":"I, Robot","r":2004,"s":false,"d":["Alex Proyas"],"tem":["ai"],"mod":["07","08"],"n":"Detektyw podejrzewa robota o zabójstwo naukowca. Trzy prawa robotyki i granice odpowiedzialności.","l":{"imdb":"https://www.imdb.com/title/tt0343818/","rt":"https://www.rottentomatoes.com/m/i_robot","mc":"https://www.metacritic.com/movie/i-robot/","fw":"https://www.filmweb.pl/Ja.Robot"},"fq":false},{"t":"Zakochany bez pamięci","o":"Eternal Sunshine of the Spotless Mind","r":2004,"s":false,"d":["Michel Gondry"],"tem":["cialo"],"mod":["08"],"n":"Firma usuwa wspomnienia o byłym partnerze. Dane o życiu prywatnym i świadoma zgoda.","l":{"imdb":"https://www.imdb.com/title/tt0338013/","rt":"https://www.rottentomatoes.com/m/eternal_sunshine_of_the_spotless_mind","mc":"https://www.metacritic.com/movie/eternal-sunshine-of-the-spotless-mind/","fw":"https://www.filmweb.pl/Zakochany.Bez.Pamieci"},"fq":false},{"t":"V jak Vendetta","o":"V for Vendetta","r":2005,"s":false,"d":["James McTeigue"],"tem":["kontrola","media"],"mod":["05"],"n":"Autorytarna Wielka Brytania pod masową inwigilacją. Bezpieczeństwo kontra wolność.","l":{"imdb":"https://www.imdb.com/title/tt0434409/","rt":"https://www.rottentomatoes.com/m/v_for_vendetta","mc":"https://www.metacritic.com/movie/v-for-vendetta/","fw":"https://www.filmweb.pl/V.Jak.Vendetta"},"fq":false},{"t":"WALL·E","o":"WALL-E","r":2008,"s":false,"d":["Andrew Stanton"],"tem":["planeta","ai"],"mod":["10"],"n":"Robot sprząta zaśmieconą Ziemię, a ludzie dryfują w zautomatyzowanym statku. Konsumpcja i automatyzacja.","l":{"imdb":"https://www.imdb.com/title/tt0910970/","rt":"https://www.rottentomatoes.com/m/wall_e","mc":"https://www.metacritic.com/movie/wall-e/","fw":"https://www.filmweb.pl/search?q=WALL%C2%B7E"},"fq":true},{"t":"Moon","o":"","r":2009,"s":false,"d":["Duncan Jones"],"tem":["praca","cialo"],"mod":["04"],"n":"Pracownik księżycowej kopalni odkrywa, że jest klonem. Praca, korporacja i prawa pracownika.","l":{"imdb":"https://www.imdb.com/title/tt1182345/","rt":"https://www.rottentomatoes.com/m/moon","mc":"https://www.metacritic.com/movie/moon/","fw":"https://www.filmweb.pl/film?Id=473111"},"fq":false},{"t":"Surogaci","o":"Surrogates","r":2009,"s":false,"d":["Jonathan Mostow"],"tem":["wirtual","cialo"],"mod":["05"],"n":"Ludzie wychodzą z domu tylko przez roboty-awatary. Tożsamość i odpowiedzialność za działania zastępcy.","l":{"imdb":"https://www.imdb.com/title/tt0986263/","rt":"https://www.rottentomatoes.com/m/10009598-surrogates","mc":"https://www.metacritic.com/movie/surrogates/","fw":"https://www.filmweb.pl/film?Id=430428"},"fq":false},{"t":"Nie opuszczaj mnie","o":"Never Let Me Go","r":2010,"s":false,"d":["Mark Romanek"],"tem":["cialo","spoleczenstwo"],"mod":["05"],"n":"Klony wychowywane jako dawcy narządów. Godność i instrumentalizacja człowieka.","l":{"imdb":"https://www.imdb.com/title/tt1334260/","rt":"https://www.rottentomatoes.com/m/never_let_me_go_2010","mc":"https://www.metacritic.com/movie/never-let-me-go/","fw":"https://www.filmweb.pl/film?Id=502884"},"fq":false},{"t":"Czarne lustro","o":"Black Mirror","r":2011,"s":true,"d":["Dan Trachtenberg","David Slade","Jodie Foster","Joe Wright","John Hillcoat","Timothy Van Patten","Toby Haynes"],"tem":["media","kontrola","ai"],"mod":["05"],"n":"Antologia o skutkach technologii cyfrowych, od ocen społecznych po cyfrowe kopie ludzi.","l":{"imdb":"https://www.imdb.com/title/tt2085059/","rt":"https://www.rottentomatoes.com/tv/black_mirror","mc":"https://www.metacritic.com/tv/black-mirror/","fw":"https://www.filmweb.pl/search?q=Czarne%20lustro"},"fq":true},{"t":"Impersonalni","o":"Person of Interest","r":2011,"s":true,"d":[],"tem":["kontrola","ai"],"mod":["08"],"n":"System masowej inwigilacji przewiduje przestępstwa. Kto kontroluje maszynę, która wie wszystko.","l":{"imdb":"https://www.imdb.com/title/tt1839578/","rt":"https://www.rottentomatoes.com/tv/person_of_interest","mc":"https://www.metacritic.com/tv/person-of-interest/","fw":"https://www.filmweb.pl/film?Id=618075"},"fq":false},{"t":"Wyścig z czasem","o":"In Time","r":2011,"s":false,"d":["Andrew Niccol"],"tem":["praca","spoleczenstwo"],"mod":["04"],"n":"Czas życia jest walutą. Nierówności zapisane w ciele.","l":{"imdb":"https://www.imdb.com/title/tt1637688/","rt":"https://www.rottentomatoes.com/m/in_time","mc":"https://www.metacritic.com/movie/in-time/","fw":"https://www.filmweb.pl/film?Id=587175"},"fq":false},{"t":"Robot & Frank","o":"","r":2012,"s":false,"d":[],"tem":["ai","praca"],"mod":["04"],"n":"Robot-opiekun zamieszkuje ze starszym mężczyzną. Automatyzacja opieki i zaufanie.","l":{"imdb":"https://www.imdb.com/title/tt1990314/","rt":"https://www.rottentomatoes.com/m/robot_and_frank","mc":"https://www.metacritic.com/movie/robot-and-frank/","fw":"https://www.filmweb.pl/film?Id=628396"},"fq":false},{"t":"Elizjum","o":"Elysium","r":2013,"s":false,"d":["Neill Blomkamp"],"tem":["spoleczenstwo","praca"],"mod":["09"],"n":"Bogaci żyją na orbicie, reszta na zniszczonej Ziemi. Dostęp do technologii medycznych.","l":{"imdb":"https://www.imdb.com/title/tt1535108/","rt":"https://www.rottentomatoes.com/m/elysium_2013","mc":"https://www.metacritic.com/movie/elysium/","fw":"https://www.filmweb.pl/film?Id=558960"},"fq":false},{"t":"Kongres","o":"The Congress","r":2013,"s":false,"d":["Ari Folman","Yoni Goodman"],"tem":["media","wirtual","cialo"],"mod":["07"],"n":"Według Lema: aktorka sprzedaje studiu prawa do swojej cyfrowej kopii. Wizerunek i prawo autorskie w epoce AI.","l":{"imdb":"https://www.imdb.com/title/tt1821641/","rt":"https://www.rottentomatoes.com/m/the_congress","mc":"https://www.metacritic.com/movie/the-congress/","fw":"https://www.filmweb.pl/film?Id=581986"},"fq":false},{"t":"Ona","o":"Her","r":2013,"s":false,"d":["Spike Jonze"],"tem":["ai"],"mod":["05"],"n":"Mężczyzna zakochuje się w systemie operacyjnym. Relacje z AI i ich asymetria.","l":{"imdb":"https://www.imdb.com/title/tt1798709/","rt":"https://www.rottentomatoes.com/m/her","mc":"https://www.metacritic.com/movie/her/","fw":"https://www.filmweb.pl/film?Id=646395"},"fq":false},{"t":"Snowpiercer","o":"","r":2013,"s":false,"d":["Bong Joon-ho"],"tem":["planeta","spoleczenstwo"],"mod":["10"],"n":"Po nieudanej próbie schłodzenia klimatu ludzkość przetrwała w pociągu podzielonym na klasy.","l":{"imdb":"https://www.imdb.com/title/tt1706620/","rt":"https://www.rottentomatoes.com/m/snowpiercer","mc":"https://www.metacritic.com/movie/snowpiercer/","fw":"https://www.filmweb.pl/film?Id=649608"},"fq":false},{"t":"Ex Machina","o":"","r":2014,"s":false,"d":["Alex Garland"],"tem":["ai"],"mod":["03","05"],"n":"Programista ma ocenić, czy androidka ma świadomość. Test Turinga i manipulacja.","l":{"imdb":"https://www.imdb.com/title/tt0470752/","rt":"https://www.rottentomatoes.com/m/ex_machina","mc":"https://www.metacritic.com/movie/ex-machina/","fw":"https://www.filmweb.pl/film?Id=686419"},"fq":false},{"t":"Transcendence","o":"","r":2014,"s":false,"d":["Wally Pfister"],"tem":["ai","cialo"],"mod":["09"],"n":"Umysł umierającego naukowca zostaje przeniesiony do komputera.","l":{"imdb":"https://www.imdb.com/title/tt2209764/","rt":"https://www.rottentomatoes.com/m/transcendence_2014","mc":"https://www.metacritic.com/movie/transcendence/","fw":"https://www.filmweb.pl/film?Id=670682"},"fq":false},{"t":"Humans","o":"","r":2015,"s":true,"d":[],"tem":["ai","praca"],"mod":["04"],"n":"Syntetyczni służący w domach i firmach. Praca, opieka i status maszyn.","l":{"imdb":"https://www.imdb.com/title/tt4122068/","rt":"https://www.rottentomatoes.com/tv/humans","mc":"https://www.metacritic.com/tv/humans/","fw":"https://www.filmweb.pl/search?q=Humans"},"fq":true},{"t":"Kraina jutra","o":"Tomorrowland","r":2015,"s":false,"d":["Brad Bird"],"tem":["spoleczenstwo"],"mod":["09"],"n":"Nastolatka odkrywa ukryte miasto przyszłości. Optymizm technologiczny i jego załamanie.","l":{"imdb":"https://www.imdb.com/title/tt1964418/","rt":"https://www.rottentomatoes.com/m/tomorrowland_2015","mc":"https://www.metacritic.com/movie/tomorrowland/","fw":"https://www.filmweb.pl/film?Id=677512"},"fq":false},{"t":"Nowy początek","o":"Arrival","r":2016,"s":false,"d":["Denis Villeneuve"],"tem":["media"],"mod":["06"],"n":"Lingwistka uczy się języka przybyszów, który zmienia sposób myślenia. Język a poznanie.","l":{"imdb":"https://www.imdb.com/title/tt2543164/","rt":"https://www.rottentomatoes.com/m/arrival_2016","mc":"https://www.metacritic.com/movie/arrival/","fw":"https://www.filmweb.pl/film?Id=712896"},"fq":false},{"t":"Westworld","o":"","r":2016,"s":true,"d":[],"tem":["ai"],"mod":["05"],"n":"Androidy w parku rozrywki zaczynają pamiętać. Świadomość i prawa istot stworzonych.","l":{"imdb":"https://www.imdb.com/title/tt0475784/","rt":"https://www.rottentomatoes.com/tv/westworld","mc":"https://www.metacritic.com/tv/westworld/","fw":"https://www.filmweb.pl/film?Id=232988"},"fq":false},{"t":"Blade Runner 2049","o":"","r":2017,"s":false,"d":["Denis Villeneuve"],"tem":["ai","cialo"],"mod":["05"],"n":"Replikant-policjant i jego partnerka będąca programem AI. Pamięć, tożsamość i prawa istot stworzonych.","l":{"imdb":"https://www.imdb.com/title/tt1856101/","rt":"https://www.rottentomatoes.com/m/blade_runner_2049","mc":"https://www.metacritic.com/movie/blade-runner-2049/","fw":"https://www.filmweb.pl/film?Id=630798"},"fq":false},{"t":"The Circle. Krąg","o":"The Circle","r":2017,"s":false,"d":[],"tem":["kontrola","media"],"mod":["08"],"n":"Pracownica firmy technologicznej zgadza się na pełną przejrzystość swojego życia. Prywatność jako wartość.","l":{"imdb":"https://www.imdb.com/title/tt4287320/","rt":"https://www.rottentomatoes.com/m/the_circle_2017","mc":"https://www.metacritic.com/movie/the-circle-2017/","fw":"https://www.filmweb.pl/film?Id=748293"},"fq":false},{"t":"Player One","o":"Ready Player One","r":2018,"s":false,"d":["Steven Spielberg"],"tem":["wirtual"],"mod":["06"],"n":"Wirtualny świat OASIS i walka o jego własność. Kto rządzi platformą.","l":{"imdb":"https://www.imdb.com/title/tt1677720/","rt":"https://www.rottentomatoes.com/m/ready_player_one","mc":"https://www.metacritic.com/movie/ready-player-one/","fw":"https://www.filmweb.pl/search?q=Player%20One"},"fq":true},{"t":"Sorry to Bother You","o":"","r":2018,"s":false,"d":[],"tem":["praca"],"mod":["04"],"n":"Telemarketer robi karierę w korporacji, która eksploatuje pracowników. Praca i godność.","l":{"imdb":"https://www.imdb.com/title/tt5688932/","rt":"https://www.rottentomatoes.com/m/sorry_to_bother_you_2018","mc":"https://www.metacritic.com/movie/sorry-to-bother-you/","fw":"https://www.filmweb.pl/search?q=Sorry%20to%20Bother%20You"},"fq":true},{"t":"Upgrade","o":"","r":2018,"s":false,"d":[],"tem":["ai","cialo"],"mod":["08"],"n":"Implant z AI przejmuje kontrolę nad ciałem sparaliżowanego mężczyzny. Kto odpowiada za czyn.","l":{"imdb":"https://www.imdb.com/title/tt6499752/","rt":"https://www.rottentomatoes.com/m/upgrade_2018","mc":"https://www.metacritic.com/movie/upgrade/","fw":"https://www.filmweb.pl/search?q=Upgrade"},"fq":true},{"t":"Rok za rokiem","o":"Years and Years","r":2019,"s":true,"d":[],"tem":["spoleczenstwo","media"],"mod":["09"],"n":"Jedna rodzina na tle piętnastu lat polityki i technologii. Bliska przyszłość w zwykłym domu.","l":{"imdb":"https://www.imdb.com/title/tt8694364/","rt":"https://www.rottentomatoes.com/tv/years_and_years","mc":"https://www.metacritic.com/tv/years-and-years/","fw":"https://www.filmweb.pl/search?q=Rok%20za%20rokiem"},"fq":true},{"t":"Devs","o":"","r":2020,"s":true,"d":["Alex Garland"],"tem":["ai","kontrola"],"mod":["09"],"n":"Firma buduje komputer kwantowy przewidujący przyszłość. Determinizm i władza nad danymi.","l":{"imdb":"https://www.imdb.com/title/tt8134186/","rt":"https://www.rottentomatoes.com/tv/devs","mc":"https://www.metacritic.com/tv/devs/","fw":"https://www.filmweb.pl/search?q=Devs"},"fq":true},{"t":"After Yang","o":"","r":2021,"s":false,"d":[],"tem":["ai","cialo"],"mod":["05"],"n":"Rodzina próbuje naprawić androida-opiekuna i odkrywa jego zapis wspomnień.","l":{"imdb":"https://www.imdb.com/title/tt8633464/","rt":"https://www.rottentomatoes.com/m/after_yang","mc":"https://www.metacritic.com/movie/after-yang/","fw":"https://www.filmweb.pl/film?Id=834905"},"fq":false},{"t":"Free Guy","o":"","r":2021,"s":false,"d":["Shawn Levy"],"tem":["ai","wirtual"],"mod":["06"],"n":"Postać niezależna w grze komputerowej zaczyna działać samodzielnie. Twórczość i własność w świecie gry.","l":{"imdb":"https://www.imdb.com/title/tt6264654/","rt":"https://www.rottentomatoes.com/m/free_guy","mc":"https://www.metacritic.com/movie/free-guy/","fw":"https://www.filmweb.pl/search?q=Free%20Guy"},"fq":true},{"t":"M3GAN","o":"","r":2022,"s":false,"d":["Gerard Johnstone"],"tem":["ai"],"mod":["08"],"n":"Lalka z AI chroni dziecko za wszelką cenę. Odpowiedzialność producenta za produkt uczący się.","l":{"imdb":"https://www.imdb.com/title/tt8760708/","rt":"https://www.rottentomatoes.com/m/m3gan","mc":"https://www.metacritic.com/movie/m3gan/","fw":"https://www.filmweb.pl/film?Id=10006003"},"fq":false},{"t":"Pantheon","o":"","r":2022,"s":true,"d":[],"tem":["ai","cialo"],"mod":["09"],"n":"Firmy technologiczne przesyłają ludzkie umysły do chmury.","l":{"imdb":"https://www.imdb.com/title/tt11680642/","rt":"https://www.rottentomatoes.com/tv/pantheon","mc":"https://www.metacritic.com/tv/pantheon/","fw":"https://www.filmweb.pl/search?q=Pantheon"},"fq":true},{"t":"Rozdzielenie","o":"Severance","r":2022,"s":true,"d":["Ben Stiller"],"tem":["praca","cialo"],"mod":["04"],"n":"Zabieg rozdziela pamięć pracy i życia prywatnego. Granice władzy pracodawcy.","l":{"imdb":"https://www.imdb.com/title/tt11280740/","rt":"https://www.rottentomatoes.com/tv/severance","mc":"https://www.metacritic.com/tv/severance/","fw":"https://www.filmweb.pl/search?q=Rozdzielenie"},"fq":true},{"t":"Twórca","o":"The Creator","r":2023,"s":false,"d":[],"tem":["ai"],"mod":["09"],"n":"Wojna ludzi z AI widziana z obu stron.","l":{"imdb":"https://www.imdb.com/title/tt11858890/","rt":"https://www.rottentomatoes.com/m/the_creator_2023","mc":"https://www.metacritic.com/movie/the-creator/","fw":"https://www.filmweb.pl/search?q=Tw%C3%B3rca"},"fq":true},{"t":"Mickey 17","o":"","r":2025,"s":false,"d":["Bong Joon-ho"],"tem":["praca","cialo"],"mod":["04"],"n":"Pracownik „jednorazowy” jest drukowany od nowa po każdej śmierci. Praca i prawa pracownika.","l":{"imdb":"https://www.imdb.com/title/tt12299608/","rt":"https://www.rottentomatoes.com/m/mickey_17","mc":"https://www.metacritic.com/movie/mickey-17/","fw":"https://www.filmweb.pl/search?q=Mickey%2017"},"fq":true}] /*KONIEC*/;
+    var TEM = { ai: "AI i roboty", kontrola: "Inwigilacja i władza", spoleczenstwo: "Utopie i dystopie", cialo: "Ciało, geny, pamięć",
+      praca: "Praca i nierówności", wirtual: "Światy wirtualne", media: "Media i język", planeta: "Klimat i zasoby" };
+    var MOD = { "01": ["01_czym_jest_ai", "czym jest AI"], "02": ["02_historia_ai", "historia AI"], "03": ["03_podstawy_technologiczne", "jak działa AI"],
+      "04": ["04_praca_i_edukacja", "praca i edukacja"], "05": ["05_etyka_uprzedzenia_moderacja", "etyka"], "06": ["06_kultura_regulacja_jezyk_sztuka", "kultura"],
+      "07": ["07_prawo_I_regulacje_prawo_autorskie", "regulacje i prawo autorskie"], "08": ["08_prawo_II_dane_odpowiedzialnosc_wymiar_sprawiedliwosci", "dane i odpowiedzialność"],
+      "09": ["09_przyszlosc_ai", "przyszłość"], "10": ["10_srodowisko_podsumowanie", "środowisko"] };
+    var SERW = [["imdb", "IMDb"], ["rt", "Rotten Tomatoes"], ["mc", "Metacritic"], ["fw", "Filmweb"]];
+    var tem = "", q = "";
+    var list = document.getElementById("list"), count = document.getElementById("count"), filters = document.getElementById("filters");
+    function norm(s) { return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ł/g, "l"); }
+    function slowa(s) { return norm(s).replace(/[^a-z0-9]+/g, " ").trim(); }
+    function widac(f) {
+      if (tem && f.tem.indexOf(tem) < 0) return false;
+      // dopasowanie od początku słowa: „lem” znajduje Lema, ale nie „problem”
+      return !q || (" " + slowa([f.t, f.o, f.n, f.d.join(" "), String(f.r)].join(" "))).indexOf(" " + q) >= 0;
+    }
+    function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+    function link(href, txt, cls) { var a = el("a", cls, txt); a.href = href; a.target = "_blank"; a.rel = "noopener noreferrer"; return a; }
+
+    [["", "Wszystkie"]].concat(Object.keys(TEM).map(function (k) { return [k, TEM[k]]; })).forEach(function (p) {
+      var b = el("button", "chipbtn", p[1]); b.type = "button"; b.setAttribute("aria-pressed", p[0] === tem ? "true" : "false");
+      b.addEventListener("click", function () {
+        tem = p[0];
+        [].forEach.call(filters.children, function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        rysuj();
+      });
+      filters.appendChild(b);
+    });
+    document.getElementById("q").addEventListener("input", function (e) { q = slowa(e.target.value); rysuj(); });
+
+    function karta(f) {
+      var li = el("li", "film");
+      li.appendChild(el("h3", null, f.t));
+      var meta = [f.o, String(f.r), f.s ? "serial" : "", f.d.length ? "reż. " + f.d.join(", ") : ""].filter(Boolean).join(" · ");
+      li.appendChild(el("p", "meta", meta));
+      li.appendChild(el("p", "n", f.n));
+      var tags = el("p", "tags");
+      f.tem.forEach(function (k) { tags.appendChild(el("span", "tag", TEM[k])); });
+      f.mod.forEach(function (m) {
+        var a = el("a", "tag", "temat " + (+m)); a.href = "../moduly/" + MOD[m][0] + "/index.html"; a.title = "Temat " + (+m) + ": " + MOD[m][1];
+        tags.appendChild(a);
+      });
+      li.appendChild(tags);
+      var l = el("p", "links");
+      SERW.forEach(function (s) { if (f.l[s[0]]) l.appendChild(link(f.l[s[0]], s[0] === "fw" && f.fq ? "Filmweb: szukaj" : s[1])); });
+      li.appendChild(l);
+      return li;
+    }
+    function rysuj() {
+      list.innerHTML = "";
+      var widoczne = F.filter(widac), grupy = {};
+      widoczne.forEach(function (f) { var d = Math.floor(f.r / 10) * 10; (grupy[d] = grupy[d] || []).push(f); });
+      Object.keys(grupy).sort().forEach(function (d) {
+        var sec = el("section", "decade"), h = el("h2", null, "Lata " + d + ". ");
+        h.appendChild(el("small", null, grupy[d].length + " tyt."));
+        sec.appendChild(h);
+        var ul = el("ul", "films");
+        grupy[d].forEach(function (f) { ul.appendChild(karta(f)); });
+        sec.appendChild(ul); list.appendChild(sec);
+      });
+      if (!widoczne.length) list.appendChild(el("p", "empty", "Nic nie pasuje. Zmień temat albo wyszukiwane słowo."));
+      count.textContent = widoczne.length + " z " + F.length;
+    }
+    rysuj();
+  })();
+</script>
+</body>
+</html>
