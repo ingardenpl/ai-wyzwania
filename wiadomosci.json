@@ -1,6 +1,76 @@
 {
- "aktualizacja": "2026-11-11T10:13Z",
+ "aktualizacja": "2026-11-12T08:08Z",
  "wpisy": [
+  {
+   "t": "Fewer hours and higher wages – or more burnout and surveillance: employers told to prepare for AI",
+   "u": "https://www.theguardian.com/technology/2026/nov/12/fewer-hours-and-higher-wages-or-more-burnout-and-surveillance-employers-told-to-prepare-for-ai",
+   "z": "The Guardian",
+   "d": "2026-11-12",
+   "j": "en"
+  },
+  {
+   "t": "A covariance-aware variational generative model preserving gene correlation structure in single-cell transcriptomic data",
+   "u": "https://www.nature.com/articles/s42003-026-11268-8",
+   "z": "Nature",
+   "d": "2026-11-12",
+   "j": "en"
+  },
+  {
+   "t": "United won’t let your AI agent book your flight",
+   "u": "https://www.theverge.com/ai-artificial-intelligence/1031623/united-unauthorized-ai-agents",
+   "z": "The Verge",
+   "d": "2026-11-11",
+   "j": "en"
+  },
+  {
+   "t": "Komputery stacjonarne wracają do łask – urządzenia Mini PC rewolucjonizują rynek lokalnej AI",
+   "u": "https://www.computerworld.pl/article/100054779/komputery-stacjonarne-wracaja-do-lask-urzadzenia-mini-pc-rewolucjonizuja-rynek-lokalnej-ai.html",
+   "z": "Computerworld",
+   "d": "2026-11-11",
+   "j": "pl"
+  },
+  {
+   "t": "Taiwan’s chipmaking giant TSMC to invest $1B in Anthropic, OpenAI",
+   "u": "https://arstechnica.com/ai/2026/11/taiwans-chipmaking-giant-tsmc-to-invest-1b-in-anthropic-openai/",
+   "z": "Ars Technica",
+   "d": "2026-11-11",
+   "j": "en"
+  },
+  {
+   "t": "Big Walk used AI to fix a bug. Now the indie gaming world is having a reckoning.",
+   "u": "https://arstechnica.com/gaming/2026/11/big-walk-used-ai-to-fix-a-bug-now-the-indie-gaming-world-is-having-a-reckoning/",
+   "z": "Ars Technica",
+   "d": "2026-11-11",
+   "j": "en"
+  },
+  {
+   "t": "Google’s Tabletop AI experiment lets you build custom collaboration apps",
+   "u": "https://www.theverge.com/tech/1031526/google-tabletop-ai-experiment-waitlist-availability",
+   "z": "The Verge",
+   "d": "2026-11-11",
+   "j": "en"
+  },
+  {
+   "t": "Google DeepMind just mathematically verified key parts of Signal",
+   "u": "https://arstechnica.com/ai/2026/11/signals-encryption-just-passed-an-ai-powered-mathematical-checkup/",
+   "z": "Ars Technica",
+   "d": "2026-11-11",
+   "j": "en"
+  },
+  {
+   "t": "Adobe’s AI experiments let you walk around in photos and interview your characters",
+   "u": "https://www.theverge.com/tech/1031505/adobe-max-2026-sneaks-experiments-ai",
+   "z": "The Verge",
+   "d": "2026-11-11",
+   "j": "en"
+  },
+  {
+   "t": "AI datacentres plan on-site power stations on huge scale despite climate risks, research reveals",
+   "u": "https://www.theguardian.com/world/2026/nov/11/ai-datacentres-on-site-gas-fired-power-stations",
+   "z": "The Guardian",
+   "d": "2026-11-11",
+   "j": "en"
+  },
   {
    "t": "AI has made it ‘close to impossible’ to assess university coursework, regulator says",
    "u": "https://www.theguardian.com/education/2026/nov/11/ai-close-to-impossible-assess-university-coursework-regulator",
@@ -16,6 +86,20 @@
    "j": "en"
   },
   {
+   "t": "Give biologists the space to be curious, not just better tools",
+   "u": "https://www.nature.com/articles/d41586-026-03669-w",
+   "z": "Nature",
+   "d": "2026-11-11",
+   "j": "en"
+  },
+  {
+   "t": "Anthropic bought a one-person, AI-powered biotech: is this drug discovery’s future?",
+   "u": "https://www.nature.com/articles/d41586-026-03640-9",
+   "z": "Nature",
+   "d": "2026-11-11",
+   "j": "en"
+  },
+  {
    "t": "Ring cameras go mobile as Amazon debuts AI-powered security drone and robot",
    "u": "https://arstechnica.com/ai/2026/11/ring-cameras-go-mobile-as-amazon-debuts-ai-powered-security-drone-and-robot/",
    "z": "Ars Technica",
@@ -23,50 +107,15 @@
    "j": "en"
   },
   {
-   "t": "Albanese’s love affair with music is on the rocks over AI. Can he write a different tune? | Peter Lewis",
-   "u": "https://www.theguardian.com/commentisfree/2026/nov/11/albaneses-love-affair-with-music-is-on-the-rocks-over-ai-can-he-write-a-different-tune",
-   "z": "The Guardian",
-   "d": "2026-11-10",
-   "j": "en"
-  },
-  {
-   "t": "What happens to mathematics when AI becomes an oracle?",
-   "u": "https://arstechnica.com/science/2026/11/what-happens-to-mathematics-when-ai-becames-an-oracle/",
-   "z": "Ars Technica",
+   "t": "The AI Safety Debate Has Lost the Plot. We Asked 10 Experts What the Real Nightmares Are",
+   "u": "https://ainowinstitute.org/news/the-ai-safety-debate-has-lost-the-plot-we-asked-10-experts-what-the-real-nightmares-are",
+   "z": "AI Now Institute",
    "d": "2026-11-10",
    "j": "en"
   },
   {
    "t": "The US is winning the AI race. Jensen Huang could have blown it",
    "u": "https://www.theverge.com/ai-artificial-intelligence/1031063/jensen-huang-ai-race-us-china-spy",
-   "z": "The Verge",
-   "d": "2026-11-10",
-   "j": "en"
-  },
-  {
-   "t": "The indie game community is in disarray over AI and Big Walk",
-   "u": "https://www.theverge.com/games/1030994/big-walk-independent-games-festival-igf-ai",
-   "z": "The Verge",
-   "d": "2026-11-10",
-   "j": "en"
-  },
-  {
-   "t": "ChatGPT is getting verified AI ‘Business Agents’",
-   "u": "https://www.theverge.com/ai-artificial-intelligence/1030552/openai-chatgpt-business-agents-hub",
-   "z": "The Verge",
-   "d": "2026-11-10",
-   "j": "en"
-  },
-  {
-   "t": "Anthropic targets valuation of up to $1.4tn in stock market flotation",
-   "u": "https://www.theguardian.com/technology/2026/nov/10/anthropic-valuation-stock-market-flotation-ipo-wall-street-ai",
-   "z": "The Guardian",
-   "d": "2026-11-10",
-   "j": "en"
-  },
-  {
-   "t": "Anthropic has its own AI-powered office suite now",
-   "u": "https://www.theverge.com/ai-artificial-intelligence/1030709/anthropic-has-its-own-ai-powered-office-suite-now",
    "z": "The Verge",
    "d": "2026-11-10",
    "j": "en"
@@ -79,13 +128,6 @@
    "j": "pl"
   },
   {
-   "t": "DeepMind reveals Gemini Robotics 2.5 and open safety benchmark \"ASIMOV-jailbreak\"",
-   "u": "https://arstechnica.com/google/2026/11/deepmind-reveals-gemini-robotics-2-5-and-open-safety-benchmark-asimov-jailbreak/",
-   "z": "Ars Technica",
-   "d": "2026-11-10",
-   "j": "en"
-  },
-  {
    "t": "Google rozwija układy dla agentów AI. Nowe TPU stawiają na poufność i duży kontekst",
    "u": "https://www.computerworld.pl/article/100054749/google-rozwija-uklady-dla-agentow-ai-nowe-tpu-stawiaja-na-poufnosc-i-duzy-kontekst.html",
    "z": "Computerworld",
@@ -93,22 +135,8 @@
    "j": "pl"
   },
   {
-   "t": "Ukraine’s fiber-optic drones get squeezed by AI data center demand",
-   "u": "https://arstechnica.com/gadgets/2026/11/ukraines-fiber-optic-drones-get-squeezed-by-ai-data-center-demand/",
-   "z": "Ars Technica",
-   "d": "2026-11-10",
-   "j": "en"
-  },
-  {
    "t": "OpenShift 5: agenci AI w konsoli administratora i pięcioletni cykl życia",
    "u": "https://www.computerworld.pl/article/100054694/openshift-5-agenci-ai-w-konsoli-administratora-i-piecioletni-cykl-zycia.html",
-   "z": "Computerworld",
-   "d": "2026-11-10",
-   "j": "pl"
-  },
-  {
-   "t": "Nadchodzi koniec darmowego Galaxy AI – Samsung komercjalizuje usługi sztucznej inteligencji na smartfonach",
-   "u": "https://www.computerworld.pl/article/100054664/nadchodzi-koniec-darmowego-galaxy-ai-samsung-komercjalizuje-uslugi-sztucznej-inteligencji-na-smartfonach.html",
    "z": "Computerworld",
    "d": "2026-11-10",
    "j": "pl"
@@ -163,27 +191,6 @@
    "j": "en"
   },
   {
-   "t": "Deep learning-based gait analysis predicts multisystem health phenotypes",
-   "u": "https://www.nature.com/articles/s41591-026-04725-8",
-   "z": "Nature",
-   "d": "2026-11-09",
-   "j": "en"
-  },
-  {
-   "t": "AI has transformed maths — this is how we got here",
-   "u": "https://www.nature.com/articles/d41586-026-03627-6",
-   "z": "Nature",
-   "d": "2026-11-09",
-   "j": "en"
-  },
-  {
-   "t": "Deciphering the gene-centric spatial dynamics across tissue and time with GeneSPOT",
-   "u": "https://www.nature.com/articles/s41592-026-03308-2",
-   "z": "Nature",
-   "d": "2026-11-09",
-   "j": "en"
-  },
-  {
    "t": "2026 election breakdown: Americans vote down data centers, AI and oligarchy",
    "u": "https://ainowinstitute.org/news/2026-election-breakdown-americans-vote-down-data-centers-ai-and-oligarchy",
    "z": "AI Now Institute",
@@ -200,13 +207,6 @@
   {
    "t": "OpenAI is already trying to shape the 2028 election",
    "u": "https://ainowinstitute.org/news/openai-is-already-trying-to-shape-the-2028-election",
-   "z": "AI Now Institute",
-   "d": "2026-11-04",
-   "j": "en"
-  },
-  {
-   "t": "Coming Soon: Guest Report on AI Corporate Structure and Mission Accountability",
-   "u": "https://ainowinstitute.org/news/coming-soon-guest-report-on-ai-corporate-structure-and-mission-accountability",
    "z": "AI Now Institute",
    "d": "2026-11-04",
    "j": "en"
